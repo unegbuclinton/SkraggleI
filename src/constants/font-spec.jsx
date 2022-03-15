@@ -3,7 +3,8 @@ export const FONTSIZES = {
   small: '1.4rem',
   base: '1.6rem',
   lg: '1.8rem',
-  xlarge: '2rem'
+  xlarge: '2rem',
+  'logo-large': '3.383rem',
 };
 
 export const FONTWEIGHTS = {
