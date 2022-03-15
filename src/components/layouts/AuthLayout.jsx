@@ -22,6 +22,7 @@ const AuthWrapper = styled.div`
   padding: 9.415rem 0 4.6rem;
   display: flex;
   flex-direction: column;
+  row-gap: 11.734rem;
   align-items: center;
   background-image: url(${backgroundLeft}), url(${backgroundRight});
   background-position: bottom left, bottom right;
