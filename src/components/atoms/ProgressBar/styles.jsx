@@ -15,7 +15,7 @@ margin: 10rem;
 `;
 
 export const Container = styled.div`
-& h2 {
+ .text {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: ${FONTWEIGHTS.bold};
@@ -26,46 +26,45 @@ export const Container = styled.div`
     color: ${COLORS.deepPurple};
  }
 
- & div {
+ .label {
      display: flex;
      justify-content: space-between;
+     padding-top: 1rem;
 
-     & div {
+     .container {
          display:flex;
          gap: 0.7rem;
-         padding-top: 1rem;
-
-         & .amount {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: ${FONTWEIGHTS.bold};
-            font-size: ${FONTSIZES.small};
-            line-height: 1.6rem;
-            letter-spacing: 0.02em;
-            
-            color: ${COLORS.pink};
-         }
-
-         & .raised__target{
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: ${FONTWEIGHTS.normal};
-            font-size: ${FONTSIZES.small};
-            line-height: 1.6rem;
-            letter-spacing: 0.02em;
-            color: ${COLORS.grey};
-         }
-
-         & .percent{
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: ${FONTWEIGHTS.normal};
-            font-size: ${FONTSIZES.small};
-            line-height: 1.6rem;
-            letter-spacing: 0.02em;
-            color: ${COLORS.deepPurple};
-         }
      }
+
+     .amount {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: ${FONTWEIGHTS.bold};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      letter-spacing: 0.02em;
+      color: ${COLORS.pink};
+   }
+
+    .raised__target{
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: ${FONTWEIGHTS.normal};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      letter-spacing: 0.02em;
+      color: ${COLORS.grey};
+   }
+
+    .percent{
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: ${FONTWEIGHTS.normal};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      letter-spacing: 0.02em;
+      color: ${COLORS.deepPurple};
+   }
  }
 
 `

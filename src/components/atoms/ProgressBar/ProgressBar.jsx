@@ -6,12 +6,12 @@ const ProgressBar = ({ className, ...rest }) => {
   return (
     <ProgressBarWrapper className={className}>
     <Container>
-    <h2>Yearly Goal</h2>  
+    <h2 className='text'>Yearly Goal</h2>  
     <ProgressBarOuter className={className} {...rest}>
       <Percentage className={className} {...rest}/>
     </ProgressBarOuter>
-    <div>
-      <div>
+    <div  className='label'>
+      <div className='container'>
        <span className='amount'>$19540.23</span>
       <span className='raised__target'>raised</span>
       <span className='percent'>(12%)</span></div>
