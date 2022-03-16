@@ -22,7 +22,7 @@ function App() {
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
-        {/* <Route path="*" element={<div>Not Found</div>} /> */}
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </Router>
   );
