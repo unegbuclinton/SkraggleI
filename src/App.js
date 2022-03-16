@@ -1,4 +1,4 @@
-import ProgressBar from "components/atoms/ProgressBar/ProgressBar";
+
 
 
 function App() {
