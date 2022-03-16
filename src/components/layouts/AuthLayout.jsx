@@ -1,4 +1,5 @@
 import LogoComponent from 'components/molecules/LogoComponent';
+
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import backgroundLeft from 'icons/svgs/auth-background-left.svg';
@@ -10,14 +11,16 @@ const AuthLayout = ({ children }) => {
   return (
     <AuthWrapper>
       <LogoComponent />
-      <ContentWrapper>{children}</ContentWrapper>
+      <ContentWrapper>{children}
+      </ContentWrapper>
+      
     </AuthWrapper>
   );
 };
 
 const AuthWrapper = styled.div`
   background-color: ${COLORS.torquoise};
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 9.415rem 0 4.6rem;
   display: flex;
@@ -49,7 +52,6 @@ const AuthWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   background-color: ${COLORS.white};
-  padding: 3.439rem 4.5rem 4rem;
 `;
 
 export default AuthLayout;
