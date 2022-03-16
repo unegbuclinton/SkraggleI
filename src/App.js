@@ -11,7 +11,7 @@ function App() {
       <Input /> */}
 
       <AuthLayout>
-    
+   
       </AuthLayout>
     </div>
   );
