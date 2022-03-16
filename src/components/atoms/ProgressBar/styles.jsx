@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
 
 export const ProgressBarWrapper = styled.div `
@@ -17,13 +18,12 @@ export const Container = styled.div`
 & h2 {
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: ${FONTWEIGHTS.bold};
+    font-size: ${FONTSIZES.base};
     line-height: 1.9rem;
     margin-bottom: 0.8rem;
     letter-spacing: 0.02em;
     color: ${COLORS.deepPurple};
-    text-align:left;
  }
 
  & div {
@@ -38,9 +38,9 @@ export const Container = styled.div`
          & .amount {
             font-family: 'Roboto';
             font-style: normal;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 16px;
+            font-weight: ${FONTWEIGHTS.bold};
+            font-size: ${FONTSIZES.small};
+            line-height: 1.6rem;
             letter-spacing: 0.02em;
             
             color: ${COLORS.pink};
@@ -49,9 +49,9 @@ export const Container = styled.div`
          & .raised__target{
             font-family: 'Roboto';
             font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
+            font-weight: ${FONTWEIGHTS.normal};
+            font-size: ${FONTSIZES.small};
+            line-height: 1.6rem;
             letter-spacing: 0.02em;
             color: ${COLORS.grey};
          }
@@ -59,9 +59,9 @@ export const Container = styled.div`
          & .percent{
             font-family: 'Roboto';
             font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
+            font-weight: ${FONTWEIGHTS.normal};
+            font-size: ${FONTSIZES.small};
+            line-height: 1.6rem;
             letter-spacing: 0.02em;
             color: ${COLORS.deepPurple};
          }
