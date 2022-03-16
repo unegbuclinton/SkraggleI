@@ -1,5 +1,5 @@
 import Card from 'components/atoms/Card/Card';
-import LogoComponent from 'components/molecules/LogoComponent/LogoComponent';
+import LogoComponent from 'components/molecules/LogoComponent';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import backgroundLeft from 'icons/svgs/auth-background-left.svg';
