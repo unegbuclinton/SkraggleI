@@ -10,9 +10,7 @@ export const InputField = styled.input`
     border-radius: 5px;
     background-color: ${COLORS.offWhite};
     padding : 20px;
-    margin-bottom: 16px;
-
-    
+    margin-bottom: 16px;    
 `;
 
 export const InputFieldIcon = styled.span`
@@ -20,11 +18,10 @@ export const InputFieldIcon = styled.span`
   position: absolute;
   top: 20px;
   right: 20px;
-
+  cursor: pointer;
 `
 export const Container = styled.div`
 position:relative;
-width : 37.52rem;  
-
+width : 37.52rem; 
 `
 

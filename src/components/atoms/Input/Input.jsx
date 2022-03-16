@@ -9,22 +9,16 @@ const Input = ({ type, placeholder }) => {
 
   const [click, setClick] = useState(false)
 
-  const Show = () => {
-    setClick(!click)
-  }
+
   return (
 
     <Container>
-
       <InputField type={click ? type === 'text' : 'password'} placeholder={placeholder} />
+      {type === 'password' && <InputFieldIcon onClick={() => { setClick(!click) }}>
+        {click ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
+      </InputFieldIcon>}
 
-      {type === 'password' && <InputFieldIcon onClick={Show}>
-
-        {click ? <DPIconSkraggleEyeOpen  /> : <DPIconSkraggleEyeClose/>}
-
-      </InputFieldIcon>
-
-      }    </Container>
+    </Container>
   )
 }
 

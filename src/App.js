@@ -6,8 +6,8 @@ import AuthLayout from 'components/layouts/AuthLayout';
 function App() {
   return (
     <div className="App">
-      {/* <Button>Manage Widgets</Button>
-      <Input type='password' /> */}
+      <Button>Manage Widgets</Button>
+      <Input type='text' />
       <Radio type='checkbox' label='Checkbox' />
       <AuthLayout />
     </div>
