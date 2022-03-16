@@ -1,6 +1,16 @@
-// import { DPIconDashboard } from 'icons/index';
-
-import { DPIconCampaign, DPIconContacts, DPIconDashboard, DPIconDonations, DPIconElements, DPIconEvents, DPIconForms, DPIconLandingPage, DPIconMailBlast, DPIconMailBlasts, DPIconP2P, DPIconReports } from "icons";
+import {
+  DPIconCampaign,
+  DPIconContacts,
+  DPIconDashboard,
+  DPIconDonations,
+  DPIconElements,
+  DPIconEvents,
+  DPIconForms,
+  DPIconLandingPage,
+  DPIconMailBlasts,
+  DPIconP2P,
+  DPIconReports,
+} from 'icons';
 
 export const SidebarContent = [
   {

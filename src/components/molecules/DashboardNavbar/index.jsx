@@ -12,13 +12,13 @@ const DashboardHeader = () => {
             Contact Us
           </Link>
           <Link className="header__links" to="/contacts">
-            Support{' '}
+            Support
           </Link>
         </HeaderLinks>
 
         <div className="user-info">
-          <p  className="user-info__project-name">BigGorilla Sandbol</p>
-          <p  className="user-info__user-name">Mohammad Adaam</p>
+          <p className="user-info__project-name">BigGorilla Sandbol</p>
+          <p className="user-info__user-name">Mohammad Adaam</p>
         </div>
       </HeaderRightContent>
     </Header>
