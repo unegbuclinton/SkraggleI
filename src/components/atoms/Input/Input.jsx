@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { InputField, InputFieldIcon, Container } from './styles'
+import { DPIconSkraggleEyeOpen } from 'icons'
+import { DPIconSkraggleEyeClose } from 'icons'
 
-const Input = () => {
+
+
+const Input = ({ type, placeholder }) => {
+
+  const [click, setClick] = useState(false)
+
+  const Show = () => {
+    setClick(!click)
+  }
   return (
-      <div>
-          
-    </div>
+
+    <Container>
+
+      <InputField type={click ? type === 'text' : 'password'} placeholder={placeholder} />
+
+      {type === 'password' && <InputFieldIcon onClick={Show}>
+
+        {click ? <DPIconSkraggleEyeOpen  /> : <DPIconSkraggleEyeClose/>}
+
+      </InputFieldIcon>
+
+      }    </Container>
   )
 }
 
 export default Input
+
+
+
