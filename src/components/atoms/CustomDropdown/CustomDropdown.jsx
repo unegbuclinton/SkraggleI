@@ -1,26 +1,7 @@
 import { React, useState } from "react";
 import { DropdownWrapper } from "./styles";
 
-const CustomDropdown = ({props, ...rest }) => {
-  const data = [
-    {
-      id: "1",
-      name: "Filters",
-    },
-    {
-      id: "2",
-      name: "Two",
-    },
-    {
-      id: "3",
-      name: "Three",
-    },
-    {
-      id: "4",
-      name: "Four",
-    },
-  ];
-
+const CustomDropdown = ({ data }) => {
   const [selectedData, updateSelectedData] = useState("");
   function handleChange(event) {
     updateSelectedData(event.target.value);
@@ -34,9 +15,7 @@ const CustomDropdown = ({props, ...rest }) => {
 
   return (
     <div>
-      <DropdownWrapper onChange={handleChange}>
-        {options}
-      </DropdownWrapper>
+      <DropdownWrapper onChange={handleChange}>{options}</DropdownWrapper>
     </div>
   );
 };
