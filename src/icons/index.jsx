@@ -13,4 +13,5 @@ export { ReactComponent as DPIconMailBlasts } from "icons/svgs/mailIcon.svg";
 export { ReactComponent as DPIconP2P } from "icons/svgs/P2PIcon.svg";
 export { ReactComponent as DPIconReports } from "icons/svgs/reportIcon.svg";
 export { ReactComponent as DPIconSkraggleLogoLight } from "icons/svgs/skraggle-logo-light.svg";
+export { ReactComponent as DPIconEmail } from "icons/svgs/email.svg";
 export { ReactComponent as DPIconSkraggleLogo } from "icons/svgs/skraggle-logo.svg";
