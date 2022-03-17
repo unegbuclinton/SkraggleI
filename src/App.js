@@ -1,5 +1,6 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
+import SendVerification from 'components/molecules/sendVerification/SendVerification';
+
 import {
   BrowserRouter as Router,
   Navigate,
@@ -20,7 +21,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ResendVerification/>} />
+        <Route path="/" element={<SendVerification />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
