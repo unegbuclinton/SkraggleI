@@ -1,47 +1,31 @@
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
-
-
-import Button from 'components/atoms/Button/Button';
-// import Input from 'components/atoms/Input/Input';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import DashboardLayout from 'components/layouts/DashboardLayout';
 import Nav from 'components/molecules/CampaignDetails/Nav/Nav';
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from 'react-router-dom';
 
 function App() {
+  let isAuthenticated = true;
+
+  const PrivateWrapper = ({ isAuthenticated }) => {
+    return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+  };
+
   return (
-    <div className="App">
-      <Router>
-        
-      <Button>Hello</Button>
-      <CustomDropdown/>
-      <Nav/>
+    <Router>
       <Routes>
-      <Route
-        path="/"
-        />
-        <Route
-        path="/overview"
-        />
-        <Route
-        path="/form"
-        />
-        <Route
-        path="/p2p"
-        />
-        <Route
-        path="/elements"
-        />
-        <Route
-        path="/events"
-        />
-        <Route
-        path="/landing-page"
-        />
-          
+        <Route path="/" element={<Nav />} />
+        <Route path="/contacts" element={<DashboardLayout />} />
+        <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
+          <Route path="/dashboard" element={<DashboardLayout />} />
+        </Route>
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
-      </Router>
-      
-    </div>
-    
+    </Router>
   );
 }
 
