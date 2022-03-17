@@ -1,12 +1,10 @@
-import Card from "components/atoms/Card/Card";
-import LogoComponent from "components/molecules/LogoComponent";
-
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import backgroundLeft from "icons/svgs/auth-background-left.svg";
-import backgroundRight from "icons/svgs/auth-background-right.svg";
-import React from "react";
-import styled from "styled-components";
+import Card from 'components/atoms/Card/Card';
+import LogoComponent from 'components/molecules/LogoComponent';
+import { COLORS } from 'constants/colors';
+import backgroundLeft from 'icons/svgs/auth-background-left.svg';
+import backgroundRight from 'icons/svgs/auth-background-right.svg';
+import React from 'react';
+import styled from 'styled-components';
 
 const AuthLayout = ({ children }) => {
   return (
@@ -29,26 +27,6 @@ const AuthWrapper = styled.div`
   background-image: url(${backgroundLeft}), url(${backgroundRight});
   background-position: bottom left, bottom right;
   background-repeat: no-repeat;
-
-  .logo-wrapper {
-    display: flex;
-    gap: 1.582rem;
-    font-weight: ${FONTWEIGHTS.bold};
-
-    &__header {
-      color: ${COLORS.deepPurple};
-      font-size: ${FONTSIZES["logo-large"]};
-      line-height: 4rem;
-    }
-
-    &__text {
-      color: ${COLORS.pink};
-      font-size: ${FONTSIZES.small};
-      margin-top: -0.5rem;
-    }
-  }
 `;
-
-const ContentWrapper = styled.div``;
 
 export default AuthLayout;
