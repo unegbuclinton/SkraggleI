@@ -1,5 +1,4 @@
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import Nav from 'components/molecules/CampaignDetails/Nav/Nav';
+import DashboardLayout from "components/layouts/DashboardLayout";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -18,7 +17,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Nav />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
