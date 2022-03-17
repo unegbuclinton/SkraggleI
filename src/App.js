@@ -1,4 +1,8 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import Registration from 'components/molecules/Registration/Registration'
+import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
+
+
 import {
   BrowserRouter as Router,
   Navigate,
@@ -17,6 +21,8 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/signup" element={<Registration />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/" element={<DashboardLayout />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>

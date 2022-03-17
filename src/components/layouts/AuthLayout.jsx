@@ -1,11 +1,11 @@
-import Card from 'components/atoms/Card/Card';
-import LogoComponent from 'components/molecules/LogoComponent';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import backgroundLeft from 'icons/svgs/auth-background-left.svg';
-import backgroundRight from 'icons/svgs/auth-background-right.svg';
-import React from 'react';
-import styled from 'styled-components';
+import Card from "components/atoms/Card/Card";
+import LogoComponent from "components/molecules/LogoComponent";
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import backgroundLeft from "icons/svgs/auth-background-left.svg";
+import backgroundRight from "icons/svgs/auth-background-right.svg";
+import React from "react";
+import styled from "styled-components";
 
 const AuthLayout = ({ children }) => {
   return (
@@ -18,7 +18,7 @@ const AuthLayout = ({ children }) => {
 
 const AuthWrapper = styled.div`
   background-color: ${COLORS.torquoise};
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 9.415rem 0 4.6rem;
   display: flex;
@@ -36,7 +36,7 @@ const AuthWrapper = styled.div`
 
     &__header {
       color: ${COLORS.deepPurple};
-      font-size: ${FONTSIZES['logo-large']};
+      font-size: ${FONTSIZES["logo-large"]};
       line-height: 4rem;
     }
 
