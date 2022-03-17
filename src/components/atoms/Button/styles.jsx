@@ -1,6 +1,6 @@
-import { COLORS } from 'constants/colors';
-import { FONTWEIGHTS } from 'constants/font-spec';
-import styled, { css } from 'styled-components';
+import { COLORS } from "constants/colors";
+import { FONTWEIGHTS, FONTSIZES } from "constants/font-spec";
+import styled, { css } from "styled-components";
 
 export const ButtonWrapper = styled.button`
   outline: none;
@@ -9,8 +9,8 @@ export const ButtonWrapper = styled.button`
   color: ${COLORS.white};
   font-weight: ${FONTWEIGHTS.bold};
   width: 100%;
-  padding: ${({ large }) => (large ? '1.6rem 0' : '1.1rem 0')};
-  border-radius: ${({ pill }) => (pill ? '4rem' : '')};
+  padding: ${({ large }) => (large ? "1.6rem 0" : "1.1rem 0")};
+  border-radius: ${({ pill }) => (pill ? "4rem" : "")};
 
   ${({ pill }) =>
     pill &&
@@ -25,5 +25,16 @@ export const ButtonWrapper = styled.button`
       padding: 1.1rem 2.7rem;
       border-radius: 3.6304px;
       width: 12.4rem;
+    `};
+
+  ${({ auth }) =>
+    auth &&
+    css`
+      border-radius: 0.5rem;
+      height: 6.4rem;
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      color: ${COLORS.white};
+      margin-bottom: 5.6rem;
     `};
 `;
