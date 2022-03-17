@@ -8,7 +8,7 @@ export const ButtonWrapper = styled.button`
   background-color: ${COLORS.pink};
   color: ${COLORS.white};
   font-weight: ${FONTWEIGHTS.bold};
-  width: 100%;
+  width: 14.4rem;
   padding: ${({ large }) => (large ? '1.6rem 0' : '1.1rem 0')};
   border-radius: ${({ pill }) => (pill ? '4rem' : '')};
 
