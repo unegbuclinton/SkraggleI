@@ -1,11 +1,11 @@
-import DashboardLayout from "components/layouts/DashboardLayout";
+import DashboardLayout from 'components/layouts/DashboardLayout';
 import {
   BrowserRouter as Router,
   Navigate,
   Outlet,
   Route,
   Routes,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 function App() {
   let isAuthenticated = true;
@@ -17,6 +17,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<DashboardLayout />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
