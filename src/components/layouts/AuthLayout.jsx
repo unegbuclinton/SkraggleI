@@ -1,19 +1,18 @@
-import LogoComponent from 'components/molecules/LogoComponent';
+import Card from "components/atoms/Card/Card";
+import LogoComponent from "components/molecules/LogoComponent";
 
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import backgroundLeft from 'icons/svgs/auth-background-left.svg';
-import backgroundRight from 'icons/svgs/auth-background-right.svg';
-import React from 'react';
-import styled from 'styled-components';
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import backgroundLeft from "icons/svgs/auth-background-left.svg";
+import backgroundRight from "icons/svgs/auth-background-right.svg";
+import React from "react";
+import styled from "styled-components";
 
 const AuthLayout = ({ children }) => {
   return (
     <AuthWrapper>
       <LogoComponent />
-      <ContentWrapper>{children}
-      </ContentWrapper>
-      
+      <Card>{children}</Card>
     </AuthWrapper>
   );
 };
@@ -38,7 +37,7 @@ const AuthWrapper = styled.div`
 
     &__header {
       color: ${COLORS.deepPurple};
-      font-size: ${FONTSIZES['logo-large']};
+      font-size: ${FONTSIZES["logo-large"]};
       line-height: 4rem;
     }
 
@@ -50,8 +49,6 @@ const AuthWrapper = styled.div`
   }
 `;
 
-const ContentWrapper = styled.div`
-  background-color: ${COLORS.white};
-`;
+const ContentWrapper = styled.div``;
 
 export default AuthLayout;

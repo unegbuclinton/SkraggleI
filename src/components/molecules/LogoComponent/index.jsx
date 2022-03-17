@@ -22,6 +22,7 @@ const LogoWrapper = styled.div`
   display: flex;
   gap: 1.582rem;
   font-weight: ${FONTWEIGHTS.bold};
+  
 
   .logo {
     &__header {
