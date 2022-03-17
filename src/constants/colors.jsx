@@ -4,6 +4,7 @@ export const COLORS = {
   deepPurple: '#1E003E',
   pink: '#FF576B',
   torquoise: '#E6EFF1',
+  offWhite: '#EFEFEF',
   'porcelain-white': '#E2E6FF',
   'bg-light-blue': '#EEF3FF',
   'header-grey': '#1F2847',
