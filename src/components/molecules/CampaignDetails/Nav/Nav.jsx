@@ -1,6 +1,6 @@
 import React from "react";
-import { NavWrapper } from "./styles";
-import { NavLink } from "react-router-dom";
+import { Navlinks, NavWrapper } from "./styles";
+
 
 const Nav = ({ children, className, activeClassName, ...rest }) => {
   const links = [
@@ -42,20 +42,19 @@ const Nav = ({ children, className, activeClassName, ...rest }) => {
   ];
   
   return (
-    <div>
-      <NavWrapper>
+    <NavWrapper>
         {links.map(({ path, label, exact }) => (  
-            <NavLink
+            <Navlinks
             key={label} 
             to={path}
             exact={exact}
             activeClassName="active"
             >
               {label}
-            </NavLink>
+            </Navlinks>
         ))}
-      </NavWrapper>
-    </div>
+      
+    </NavWrapper>
 
   );
 };
