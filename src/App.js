@@ -1,5 +1,6 @@
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import SendVerification from 'components/molecules/sendVerification/SendVerification';
+
 
 import {
   BrowserRouter as Router,
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SendVerification />} />
+        <Route path="/" element={<ProgressBar />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
