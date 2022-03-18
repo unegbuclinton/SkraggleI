@@ -37,4 +37,17 @@ export const ButtonWrapper = styled.button`
       color: ${COLORS.white};
       margin-bottom: 5.6rem;
     `};
+
+  ${({ recoverylink }) =>
+    recoverylink &&
+    css`
+      border-radius: 0.5rem;
+      height: 6.4rem;
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.bold};
+      line-height: 1.6rem;
+      color: ${COLORS.white};
+      margin-top: 1.6rem;
+      margin-bottom: 8rem;
+    `};
 `;

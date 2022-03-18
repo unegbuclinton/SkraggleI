@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import LogIn from "components/molecules/LogIn/LogIn";
+import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
 
 function App() {
   let isAuthenticated = true;
@@ -28,6 +29,7 @@ function App() {
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Routes>
     </Router>
   );
