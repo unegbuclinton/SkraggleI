@@ -3,11 +3,9 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const LoginWrapper = styled.div``;
 
 export const FormWrapper = styled.form`
   margin-top: 11.734rem;
-
   .login-card {
     padding-left: 4.5rem;
     padding-right: 4.5rem;
@@ -38,10 +36,18 @@ export const FormWrapper = styled.form`
 `;
 
 export const LoginLink = styled(Link)`
-  font-weight: ${FONTWEIGHTS.medium};
-  font-size: ${FONTSIZES.small};
-  line-height: 1.6rem;
-  text-decoration: none;
+  &.link {
+    &__forgotpassword {
+      font-weight: ${FONTWEIGHTS.medium};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      text-decoration: none;
+      display: flex;
+      justify-content: right;
+      margin-top: 0.8rem;
+      margin-bottom: 5.6rem;
+      color: #ff576b;
+    }
 
   &.forgot-password {
     display: flex;
@@ -54,4 +60,12 @@ export const LoginLink = styled(Link)`
   &.signup {
     color: #1e003e;
   }
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-top: -0.5rem;
 `;
