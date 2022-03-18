@@ -1,5 +1,5 @@
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import SendVerification from 'components/molecules/sendVerification/SendVerification';
+import DashboardLayout from "components/layouts/DashboardLayout";
+import SendVerification from "components/molecules/sendVerification/SendVerification";
 
 import {
   BrowserRouter as Router,
@@ -7,11 +7,9 @@ import {
   Outlet,
   Route,
   Routes,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import LogIn from 'components/molecules/LogIn/LogIn';
-import ForgotPassword from 'components/molecules/ForgotPassword/ForgotPassword';
-
+import LogIn from "components/molecules/LogIn/LogIn";
 
 function App() {
   let isAuthenticated = true;
@@ -29,10 +27,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
-        <Route path="/login" element={<LogIn/>} />
-        <Route path="/forgot-password" element={<ForgotPassword/>} />
-
-
+        <Route path="/login" element={<LogIn />} />
       </Routes>
     </Router>
   );

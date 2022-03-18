@@ -1,6 +1,6 @@
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const LoginWrapper = styled.div`
@@ -24,28 +24,30 @@ export const LoginWrapper = styled.div`
     line-height: 1.6rem;
     color: ${COLORS["gray-500"]};
     display: flex;
-    justify-content: center;  
+    justify-content: center;
+    margin-bottom: 4rem;
   }
 `;
 
-export const ForgotPasswordLink = styled(Link)`
-  text-decoration: none;
-  display: flex;
-  justify-content: right;
-  margin-top: 0.8rem;
-  margin-bottom: 5.6rem;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: right;
-  color: #ff576b;
+export const FormWrapper = styled.form``;
+
+export const LoginLink = styled(Link)`
+  &.link {
+    &__forgotpassword {
+      font-weight: ${FONTWEIGHTS.medium};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6REM;
+      text-decoration: none;
+      display: flex;
+      justify-content: right;
+      margin-top: 0.8rem;
+      margin-bottom: 5.6rem;
+      color: #ff576b;
+    }
+
+    &__signup {
+      color: #1e003e;
+    }
+  }
 `;
 
-export const SignupLink = styled(Link)`
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: right;
-  color: #1E003E;
-`;

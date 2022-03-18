@@ -3,25 +3,25 @@ import React from "react";
 import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
-import { LoginWrapper, ForgotPasswordLink, SignupLink } from "./styles";
+import { LoginWrapper, FormWrapper, LoginLink } from "./styles";
 
 const LogIn = () => {
   return (
     <AuthLayout>
       <LoginWrapper>
-        <form>
+        <FormWrapper>
           <h1 className="login-heading">Log In</h1>
           <Input type="text" placeholder="Email"></Input>
           <Input type="password" placeholder="Password"></Input>
-          <ForgotPasswordLink to={"/forgot-password"}>
+          <LoginLink className="link__forgotpassword" to={"/forgot-password"}>
             Forgot Password?
-          </ForgotPasswordLink>
+          </LoginLink>
           <Button auth>LOG IN</Button>
           <label>
             Don’t have any account?
-            <SignupLink to="/sign-up"> Sign Up</SignupLink>
+            <LoginLink className="link__signup" to="/sign-up"> Sign Up</LoginLink>
           </label>
-        </form>
+        </FormWrapper>
       </LoginWrapper>
     </AuthLayout>
   );
