@@ -13,7 +13,6 @@ export const SignupWrapper = styled.div`
     font-size: ${FONTSIZES.xlarge};
     font-weight: ${FONTWEIGHTS.bold};
   }
-
   .reg__btn {
     margin-top: 3.3rem;
   }
@@ -45,14 +44,17 @@ export const SignupWrapper = styled.div`
   }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
 
-export const CatchError =styled.p`
+.signup-card{
+    margin-top:6.134rem;
+  }
+`;
 
-color: red;
-margin-bottom:1rem;
-font-size:${FONTSIZES.small};
-font-weight: ${FONTWEIGHTS.medium};
-margin-top:-.5rem;
-
-`
+export const CatchError = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-top: -0.5rem;
+`;

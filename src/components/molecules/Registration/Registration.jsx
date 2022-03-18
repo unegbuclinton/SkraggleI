@@ -6,7 +6,7 @@ import Button from "components/atoms/Button/Button";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { Schema } from "../../../Validation/Schema";
-
+import Card from "components/atoms/Card/Card";
 
 function Registration() {
   const formik = useFormik({
@@ -26,8 +26,9 @@ function Registration() {
   return (
     <AuthLayout>
       <SignupWrapper>
-          <p className="signup-header"> Sign up</p>
-          <Form onSubmit={formik.handleSubmit}>
+        <p className="signup-header"> Sign up</p>
+        <Form onSubmit={formik.handleSubmit}>
+          <Card className='signup-card'>
             <Input
               type="text"
               id="firstName"
@@ -93,27 +94,28 @@ function Registration() {
                 Sign up
               </Button>
             </div>
-          </Form>
-          <div className="promp-text">
-            <p> Have any account? </p>
-            <span>
-              <Link className="promp-text__path" to="/login">
-                {" "}
-                Log In
-              </Link>
-            </span>
-          </div>
-          <div className="agreement-container">
-            By signing up, I accept the Skraggle
-            <Link className="agreement-container__terms" to="/">
-              Terms of Service
-            </Link>{" "}
-            and the
-            <Link className="agreement-container__terms" to="/">
+          </Card>
+        </Form>
+        <div className="promp-text">
+          <p> Have any account? </p>
+          <span>
+            <Link className="promp-text__path" to="/login">
               {" "}
-              Privacy Policy.
+              Log In
             </Link>
-          </div>
+          </span>
+        </div>
+        <div className="agreement-container">
+          By signing up, I accept the Skraggle
+          <Link className="agreement-container__terms" to="/">
+            Terms of Service
+          </Link>{" "}
+          and the
+          <Link className="agreement-container__terms" to="/">
+            {" "}
+            Privacy Policy.
+          </Link>
+        </div>
       </SignupWrapper>
     </AuthLayout>
   );
