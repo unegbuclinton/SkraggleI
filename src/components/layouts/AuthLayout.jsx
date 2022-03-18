@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 const AuthLayout = ({ children }) => {
   return (
-  <AuthWrapper>
+    <AuthWrapper>
       <LogoComponent />
       {children}
     </AuthWrapper>
