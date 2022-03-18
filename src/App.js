@@ -1,4 +1,6 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import SendVerification from 'components/molecules/sendVerification/SendVerification';
+
 import {
   BrowserRouter as Router,
   Navigate,
@@ -10,6 +12,7 @@ import {
 import LogIn from 'components/molecules/LogIn/LogIn';
 import ForgotPassword from 'components/molecules/ForgotPassword/ForgotPassword';
 
+
 function App() {
   let isAuthenticated = true;
 
@@ -20,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DashboardLayout />} />
+        <Route path="/" element={<SendVerification />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
