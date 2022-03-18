@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const ResetWrapper = styled.div`
   width: 100%;
-  padding: 25px 45px 40px 45px;mvFbwq-EN5UFhMpWoDGq
+  padding: 25px 45px 40px 45px;
   .reset-header {
     text-align: center;
     margin-bottom: 3.861rem;
@@ -25,3 +25,11 @@ export const ResetWrapper = styled.div`
 `;
 
 export const Form = styled.form``;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-top: -0.5rem;
+`;

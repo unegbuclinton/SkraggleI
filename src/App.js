@@ -21,8 +21,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/signup" element={<Registration />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/sign-up" element={<Registration />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<DashboardLayout />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>

@@ -46,3 +46,13 @@ export const SignupWrapper = styled.div`
 `;
 
 export const Form = styled.form``;
+
+export const CatchError =styled.p`
+
+color: red;
+margin-bottom:1rem;
+font-size:${FONTSIZES.small};
+font-weight: ${FONTWEIGHTS.medium};
+margin-top:-.5rem;
+
+`

@@ -23,7 +23,6 @@ const AuthWrapper = styled.div`
   padding: 9.415rem 0 4.6rem;
   display: flex;
   flex-direction: column;
-  row-gap: 11.734rem;
   align-items: center;
   background-image: url(${backgroundLeft}), url(${backgroundRight});
   background-position: bottom left, bottom right;
@@ -33,7 +32,7 @@ const AuthWrapper = styled.div`
     display: flex;
     gap: 1.582rem;
     font-weight: ${FONTWEIGHTS.bold};
-
+    row-gap: 11.734rem;
     &__header {
       color: ${COLORS.deepPurple};
       font-size: ${FONTSIZES["logo-large"]};
