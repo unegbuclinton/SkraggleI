@@ -50,7 +50,7 @@ const LogIn = () => {
           {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.password}</ErrorMsg>
           ) : null}
-          <LoginLink className="forgot-password" to={"/forgot-password"}>
+          <LoginLink className="forgot-password" to={"/forgotpassword"}>
             Forgot Password?
           </LoginLink>
           <Button auth>LOG IN</Button>

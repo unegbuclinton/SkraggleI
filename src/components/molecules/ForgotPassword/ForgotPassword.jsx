@@ -11,6 +11,9 @@ import { FormWrapper, ReturnLoginLink, ErrorMessage } from "./styles";
 
 const ForgotPassword = () => {
   const formik = useFormik({
+    initialValues: {
+      password: "",
+    },
     validationSchema: forgotPasswordSchema,
 
     onSubmit: (values) => {
@@ -32,7 +35,7 @@ const ForgotPassword = () => {
             name="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
+            value={formik.values.password}
           />
           {formik.touched.email && formik.errors.email ? (
             <ErrorMessage>{formik.errors.email}</ErrorMessage>
