@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-export const ResetWrapper = styled.div`
+export const Form = styled.form`
   width: 100%;
-  padding: 25px 45px 40px 45px;
+
+  .reset-card {
+    padding: 25px 45px 40px 45px;
+  }
   .reset-header {
     text-align: center;
     margin-bottom: 3.861rem;
@@ -23,8 +26,6 @@ export const ResetWrapper = styled.div`
     margin-top: 1.6rem;
   }
 `;
-
-export const Form = styled.form``;
 
 export const ErrorMsg = styled.p`
   color: red;

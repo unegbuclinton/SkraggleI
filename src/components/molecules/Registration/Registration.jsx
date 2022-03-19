@@ -1,11 +1,11 @@
 import React from "react";
-import { Form, SignupWrapper, CatchError } from "./styles";
+import { Form, CatchError } from "./styles";
 import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { Schema } from "../../../Validation/Schema";
+import { registartionSchema } from "Validation/Schema";
 import Card from "components/atoms/Card/Card";
 
 function Registration() {
@@ -17,7 +17,7 @@ function Registration() {
       password: "",
       confirmPassword: "",
     },
-    validationSchema: Schema,
+    validationSchema: registartionSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -25,77 +25,75 @@ function Registration() {
 
   return (
     <AuthLayout>
-      <SignupWrapper>
-        <p className="signup-header"> Sign up</p>
-        <Form onSubmit={formik.handleSubmit}>
-          <Card className='signup-card'>
-            <Input
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="First Name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.firstName}
-            />
-            {formik.touched.firstName && formik.errors.firstName ? (
-              <CatchError>{formik.errors.firstName}</CatchError>
-            ) : null}
-            <Input
-              type="text"
-              id="lastName"
-              name="lastName"
-              placeholder="Last Name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.valuelastName}
-            />
-            {formik.touched.lastName && formik.errors.lastName ? (
-              <CatchError>{formik.errors.lastName}</CatchError>
-            ) : null}
-            <Input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <CatchError>{formik.errors.email}</CatchError>
-            ) : null}
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <CatchError>{formik.errors.password}</CatchError>
-            ) : null}
-            <Input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Repeat Password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.confirmPassword}
-            />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              <CatchError>{formik.errors.confirmPassword}</CatchError>
-            ) : null}
-            <div className="reg__btn">
-              <Button auth type="submit">
-                Sign up
-              </Button>
-            </div>
-          </Card>
-        </Form>
+      <Form onSubmit={formik.handleSubmit}>
+        <Card className="signup-card">
+          <p className="signup-header"> Sign up</p>
+          <Input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <CatchError>{formik.errors.firstName}</CatchError>
+          ) : null}
+          <Input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.valuelastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <CatchError>{formik.errors.lastName}</CatchError>
+          ) : null}
+          <Input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <CatchError>{formik.errors.email}</CatchError>
+          ) : null}
+          <Input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <CatchError>{formik.errors.password}</CatchError>
+          ) : null}
+          <Input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Repeat Password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.confirmPassword}
+          />
+          {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+            <CatchError>{formik.errors.confirmPassword}</CatchError>
+          ) : null}
+          <div className="reg__btn">
+            <Button auth type="submit">
+              Sign up
+            </Button>
+          </div>
+        </Card>
         <div className="promp-text">
           <p> Have any account? </p>
           <span>
@@ -116,7 +114,7 @@ function Registration() {
             Privacy Policy.
           </Link>
         </div>
-      </SignupWrapper>
+      </Form>
     </AuthLayout>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import AuthLayout from "components/layouts/AuthLayout";
 import Input from "components/atoms/Input/Input";
-import { Form, ResetWrapper, ErrorMsg } from "./styles";
+import { Form, ErrorMsg } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { useFormik } from "formik";
 import { resetSchema } from "Validation/Schema";
+import Card from "components/atoms/Card/Card";
 
 function ResetPassword() {
   const formik = useFormik({
@@ -19,10 +20,10 @@ function ResetPassword() {
   });
   return (
     <AuthLayout>
-      <ResetWrapper>
-        <p className="reset-header"> Set up your Skraggle account </p>
-        <div className="description">We will send a recovery link to</div>
-        <Form onSubmit={formik.handleSubmit}>
+      <Form onSubmit={formik.handleSubmit}>
+        <Card className="reset-card">
+          <p className="reset-header"> Set up your Skraggle account </p>
+          <div className="description">We will send a recovery link to</div>
           <Input
             change
             type="text"
@@ -53,8 +54,8 @@ function ResetPassword() {
               Log in
             </Button>
           </div>
-        </Form>
-      </ResetWrapper>
+        </Card>
+      </Form>
     </AuthLayout>
   );
 }

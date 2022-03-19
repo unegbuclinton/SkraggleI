@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-export const SignupWrapper = styled.div`
+export const Form = styled.form`
   width: 100%;
   padding: 25px 45px 40px 45px;
 
@@ -13,6 +13,10 @@ export const SignupWrapper = styled.div`
     font-size: ${FONTSIZES.xlarge};
     font-weight: ${FONTWEIGHTS.bold};
   }
+  .signup-card{
+    
+  }
+
   .reg__btn {
     margin-top: 3.3rem;
   }
@@ -30,7 +34,6 @@ export const SignupWrapper = styled.div`
       color: ${COLORS.deepPurple};
     }
   }
-
   .agreement-container {
     width: 34.2rem;
     font-size: ${FONTSIZES.lg};
@@ -41,13 +44,6 @@ export const SignupWrapper = styled.div`
       text-decoration: none;
       color: #3759a9;
     }
-  }
-`;
-
-export const Form = styled.form`
-
-.signup-card{
-    margin-top:6.134rem;
   }
 `;
 
