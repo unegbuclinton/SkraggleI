@@ -18,4 +18,6 @@ export const COLORS = {
   'grey-500': '#2E2E2E',
   'blue-200': '#0F699B',
   'fog-grey': '#ECECEC',
+  'disabled-grey': '#9A9A9A',
+  'date-highlight-bg': '#F3F3FA'
 };
