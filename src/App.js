@@ -1,3 +1,4 @@
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import Table from 'components/layouts/Table';
 import Contacts from 'components/molecules/Contacts/Contacts';
@@ -30,7 +31,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/contacts" element={<SearchBar />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
