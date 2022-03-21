@@ -32,7 +32,7 @@ export const FormWrapper = styled.form`
       color: ${COLORS.deepPurple};
     }
 
-    .recovery__button{
+    .recovery-button{
       border-radius: 0.5rem;
       height: 6.4rem;
       font-size: ${FONTSIZES.small};
