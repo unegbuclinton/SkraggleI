@@ -6,6 +6,7 @@ export const SidebarContainer = styled.div`
   background-color: ${COLORS.deepPurple};
   color: ${COLORS.white};
   height: 100%;
+  overflow-y: auto;
   width: 25.6rem;
   padding-top: 3.528rem;
 
