@@ -35,7 +35,7 @@ const LogIn = () => {
             onBlur={formik.handleBlur}
             value={formik.values.password}
           />
-          {formik.touched.password && formik.errors.password ? (
+          {formik.touched.email && formik.errors.email ? (
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
           <Input
@@ -53,7 +53,7 @@ const LogIn = () => {
           <LoginLink className="link__forgotpassword" to={"/forgot-password"}>
             Forgot Password?
           </LoginLink>
-          <Button auth>LOG IN</Button>
+          <Button className="login-button">LOG IN</Button>
           <label>
             Don’t have any account?
             <LoginLink className="link__signup" to="/sign-up">

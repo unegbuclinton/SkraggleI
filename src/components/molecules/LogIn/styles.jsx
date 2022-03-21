@@ -3,7 +3,6 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 export const FormWrapper = styled.form`
   margin-top: 11.734rem;
   .login-card {
@@ -32,6 +31,15 @@ export const FormWrapper = styled.form`
     display: flex;
     justify-content: center;
     margin-bottom: 4rem;
+  }
+
+  .login-button {
+    border-radius: 0.5rem;
+    height: 6.4rem;
+    font-size: ${FONTSIZES.small};
+    line-height: 1.6rem;
+    color: ${COLORS.white};
+    margin-bottom: 5.6rem;
   }
 `;
 
