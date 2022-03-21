@@ -93,27 +93,28 @@ function Registration() {
               Sign up
             </Button>
           </div>
-        </Card>
-        <div className="promp-text">
-          <p> Have any account? </p>
-          <span>
-            <Link className="promp-text__path" to="/login">
+
+          <div className="promp-text">
+            <p> Have any account? </p>
+            <span>
+              <Link className="promp-text__path" to="/login">
+                {" "}
+                Log In
+              </Link>
+            </span>
+          </div>
+          <div className="agreement-container">
+            By signing up, I accept the Skraggle
+            <Link className="agreement-container__terms" to="/">
+              Terms of Service
+            </Link>{" "}
+            and the
+            <Link className="agreement-container__terms" to="/">
               {" "}
-              Log In
+              Privacy Policy.
             </Link>
-          </span>
-        </div>
-        <div className="agreement-container">
-          By signing up, I accept the Skraggle
-          <Link className="agreement-container__terms" to="/">
-            Terms of Service
-          </Link>{" "}
-          and the
-          <Link className="agreement-container__terms" to="/">
-            {" "}
-            Privacy Policy.
-          </Link>
-        </div>
+          </div>
+        </Card>
       </Form>
     </AuthLayout>
   );

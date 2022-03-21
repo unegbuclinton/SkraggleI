@@ -3,10 +3,9 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const Form = styled.form`
-  width: 100%;
-
+  padding-top: 6.134rem;
   .reset-card {
-    padding: 25px 45px 40px 45px;
+    padding: 2.4rem 4.5rem 4rem 4.5rem;
   }
   .reset-header {
     text-align: center;

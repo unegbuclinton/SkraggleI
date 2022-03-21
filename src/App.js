@@ -4,6 +4,7 @@ import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
 
 
 import Table from 'components/layouts/Table';
+import DateRange from 'components/molecules/DateRange';
 import {
   BrowserRouter as Router,
   Navigate,
@@ -30,7 +31,8 @@ function App() {
           path="/"
           element={
             <div style={{ width: '100%', height: '100vh', padding: '5rem' }}>
-              <Table data={data} columns={columns} isSelectable />
+              {/* <Table data={data} columns={columns} isSelectable /> */}
+              <DateRange />
             </div>
           }
         />
