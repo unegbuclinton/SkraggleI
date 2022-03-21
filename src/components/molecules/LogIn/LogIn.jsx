@@ -25,7 +25,7 @@ const LogIn = () => {
     <AuthLayout>
       <FormWrapper onSubmit={formik.handleSubmit}>
         <Card className="login-card">
-          <h1 className="login-heading">Log In</h1>
+          <h1 className="login-card__heading">Log In</h1>
           <Input
             type="text"
             placeholder="Email"
@@ -54,13 +54,14 @@ const LogIn = () => {
             Forgot Password?
           </LoginLink>
           <Button className="login-button">LOG IN</Button>
-          <label>
-            Don’t have any account?
+          <p className="login-card__signup-link">
+            <span>
+            Don’t have any account?</span>
             <LoginLink className="signup" to="/sign-up">
               {" "}
               Sign Up
             </LoginLink>
-          </label>
+          </p>
         </Card>
       </FormWrapper>
     </AuthLayout>
