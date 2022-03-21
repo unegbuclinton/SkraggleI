@@ -1,28 +1,49 @@
 import LogIn from 'components/molecules/LogIn/LogIn';
+import Registration from 'components/molecules/Registration/Registration';
+import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
+import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
+import SendVerification from 'components/molecules/sendVerification/SendVerification';
+import Sidebar from 'components/molecules/Sidebar';
+import Dashboard from './Dashboard';
 
 const routePaths = [
   {
-    auth: [
+    path: '/login',
+    element: <LogIn />,
+  },
+  {
+    path: '/signup',
+    element: <Registration />,
+  },
+  {
+    path: '/reset-password',
+    element: <ResetPassword />,
+  },
+  {
+    path: '/resend-verification',
+    element: <ResendVerification />,
+  },
+  {
+    path: '/send-verification',
+    element: <SendVerification />,
+  },
+  {
+    path: 'dashboard/*',
+    element: <Dashboard />,
+    children: [
       {
-        path: '/login',
-        component: LogIn,
+        path: 'smart-widget',
+        element: <Sidebar />,
       },
       {
-        path: '/register',
-        component: ,
+        path: 'contact-widget',
+        element: <SendVerification />,
+      },
+      {
+        path: 'fundraising-widget',
+        element: <SendVerification />,
       },
     ],
-    dashboard: [{}],
-    contacts: [{}],
-    donations: [{}],
-    campaign: [{}],
-    forms: [{}],
-    p2p: [{}],
-    events: [{}],
-    landingPage: [{}],
-    elements: [{}],
-    mailBlast: [{}],
-    reports: [{}],
   },
 ];
 

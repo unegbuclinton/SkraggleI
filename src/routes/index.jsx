@@ -1,10 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Outlet,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { Navigate, Outlet, useRoutes } from 'react-router-dom';
+import routePaths from './routePaths';
 
 const Routing = () => {
   let isAuthenticated = true;
@@ -12,28 +7,9 @@ const Routing = () => {
     return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
 
+  let element = useRoutes(routePaths);
 
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div style={{}}>
-              {/* <Table data={data} columns={columns} isSelectable /> */}
-              <LogIn />
-            </div>
-          }
-        />
-        <Route path="/contacts" element={<DashboardLayout />} />
-        <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
-          <Route path="/dashboard" element={<DashboardLayout />} />
-        </Route>
-        <Route path="*" element={<div>Not Found</div>} />
-        <Route path="/login" element={<LogIn />} />
-      </Routes>
-    </Router>
-  );
+  return element;
 };
 
 export default Routing;
