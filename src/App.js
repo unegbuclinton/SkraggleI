@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
+import Campaign from 'components/molecules/CampaignDetails/CampaignMain/Campaign';
 import { columns, data } from 'utilities/tableTestData';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="*" element={<div>Not Found</div>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/campaign" element={<Campaign />} />
       </Routes>
     </Router>
   );
