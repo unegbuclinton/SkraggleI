@@ -23,8 +23,8 @@ const LogIn = () => {
   });
   return (
     <AuthLayout>
-        <FormWrapper onSubmit={formik.handleSubmit}>
-          <Card className="login-card">
+      <FormWrapper onSubmit={formik.handleSubmit}>
+        <Card className="login-card">
           <h1 className="login-heading">Log In</h1>
           <Input
             type="text"
@@ -50,19 +50,19 @@ const LogIn = () => {
           {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.password}</ErrorMsg>
           ) : null}
-          <LoginLink className="link__forgotpassword" to={"/forgot-password"}>
+          <LoginLink className="forgot-password" to={"/forgotpassword"}>
             Forgot Password?
           </LoginLink>
           <Button className="login-button">LOG IN</Button>
           <label>
             Don’t have any account?
-            <LoginLink className="link__signup" to="/sign-up">
+            <LoginLink className="signup" to="/sign-up">
               {" "}
               Sign Up
             </LoginLink>
           </label>
-          </Card> 
-        </FormWrapper>
+        </Card>
+      </FormWrapper>
     </AuthLayout>
   );
 };
