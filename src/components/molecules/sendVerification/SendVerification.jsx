@@ -1,7 +1,7 @@
-import React from "react";
-import { VerificationWrapper } from "./styles";
-import { DPIconEmail } from "icons";
-import AuthLayout from "components/layouts/AuthLayout";
+import AuthLayout from 'components/layouts/AuthLayout';
+import { DPIconEmail } from 'icons';
+import React from 'react';
+import { VerificationWrapper } from './styles';
 
 function SendVerification() {
   return (

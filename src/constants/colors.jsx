@@ -5,6 +5,7 @@ export const COLORS = {
   pink: "#FF576B",
   torquoise: "#E6EFF1",
   offWhite: "#EFEFEF",
+  "moore-grey": "#9a9aa9",
   "porcelain-white": "#E2E6FF",
   "bg-light-blue": "#EEF3FF",
   "header-grey": "#1F2847",
@@ -15,7 +16,10 @@ export const COLORS = {
   "garage-mix-grey": "#E9ECEF",
   "snooze-grey": "rgba(19, 41, 61, 0.6)",
   grey: "#9A9AA9",
+  "shim-black": "rgba(0, 0, 0, 0.79)",
   "grey-500": "#2E2E2E",
   "blue-200": "#0F699B",
   "fog-grey": "#ECECEC",
+  "disabled-grey": "#9A9A9A",
+  "date-highlight-bg": "#F3F3FA",
 };

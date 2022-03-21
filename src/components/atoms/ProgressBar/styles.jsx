@@ -9,7 +9,6 @@ export const ProgressBarWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
   .progressbar {
     &__heading {
       font-style: normal;
@@ -20,7 +19,6 @@ export const ProgressBarWrapper = styled.div`
       letter-spacing: 0.02em;
       color: ${COLORS.deepPurple};
     }
-
     &__label-wrapper {
       display: flex;
       justify-content: space-between;
