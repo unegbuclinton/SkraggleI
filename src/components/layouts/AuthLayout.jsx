@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import LogoComponent from "components/molecules/LogoComponent";
-import { COLORS } from "constants/colors";
-import backgroundLeft from "icons/svgs/auth-background-left.svg";
-import backgroundRight from "icons/svgs/auth-background-right.svg";
-import React from "react";
-import styled from "styled-components";
-=======
 import LogoComponent from 'components/molecules/LogoComponent';
 import { COLORS } from 'constants/colors';
 import backgroundLeft from 'icons/svgs/auth-background-left.svg';
 import backgroundRight from 'icons/svgs/auth-background-right.svg';
 import React from 'react';
 import styled from 'styled-components';
->>>>>>> 28b4c5edcd686217c9596ad515e6c8393450377d
 
 const AuthLayout = ({ children }) => {
   return (
