@@ -31,6 +31,17 @@ export const FormWrapper = styled.form`
       font-size: ${FONTSIZES.small};
       color: ${COLORS.deepPurple};
     }
+
+    .recovery__button{
+      border-radius: 0.5rem;
+      height: 6.4rem;
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.bold};
+      line-height: 1.6rem;
+      color: ${COLORS.white};
+      margin-top: 1.6rem;
+      margin-bottom: 8rem;
+    }
   }
 `;
 

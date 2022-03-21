@@ -40,7 +40,7 @@ const ForgotPassword = () => {
           {formik.touched.email && formik.errors.email ? (
             <ErrorMessage>{formik.errors.email}</ErrorMessage>
           ) : null}
-          <Button recoverylink>Send Recovery Link</Button>
+          <Button className="recovery__button">Send Recovery Link</Button>
           <ReturnLoginLink to="/login">Return to login</ReturnLoginLink>
         </Card>
       </FormWrapper>
