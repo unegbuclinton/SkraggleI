@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const FormWrapper = styled.form`
-  padding-top: 11.734rem;
+  margin-top: 11.734rem;
   .login-card {
     padding-left: 4.5rem;
     padding-right: 4.5rem;
