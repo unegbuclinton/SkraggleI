@@ -17,6 +17,9 @@ export const COLORS = {
   'snooze-grey': 'rgba(19, 41, 61, 0.6)',
   'fog-grey': '#ECECEC',
   'blue-black': '#1E003E',
-  "grey-500": "#2E2E2E",
   "blue-200": "#0F699B",
+  'shim-black': 'rgba(0, 0, 0, 0.79)',
+  'grey-500': '#2E2E2E',
+  'disabled-grey': '#9A9A9A',
+  'date-highlight-bg': '#F3F3FA'
 };

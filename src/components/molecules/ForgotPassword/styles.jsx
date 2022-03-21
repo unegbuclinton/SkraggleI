@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const FormWrapper = styled.form`
-  margin-top: 6.134rem;
+  padding-top: 6.134rem;
 
   .forgot-password {
     padding-left: 4.5rem;
