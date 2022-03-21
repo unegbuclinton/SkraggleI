@@ -16,4 +16,6 @@ export { ReactComponent as DPIconP2P } from 'icons/svgs/P2PIcon.svg';
 export { ReactComponent as DPIconReports } from 'icons/svgs/reportIcon.svg';
 export { ReactComponent as DPIconSkraggleLogoLight } from 'icons/svgs/skraggle-logo-light.svg';
 export { ReactComponent as DPIconSkraggleLogo } from 'icons/svgs/skraggle-logo.svg';
+export { ReactComponent as DPIconMembership } from 'icons/svgs/membership.svg';
+export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
 

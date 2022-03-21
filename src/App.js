@@ -13,6 +13,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { columns, data } from 'utilities/tableTestData';
+import Dashboard from 'components/molecules/Dashboard-components/Dashboard';
 
 function App() {
   let isAuthenticated = true;
@@ -41,6 +42,9 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
+
+
+        <Route path="/dashboard-components" element={<Dashboard />} />
       </Routes>
     </Router>
   );

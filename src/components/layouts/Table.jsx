@@ -10,12 +10,12 @@ const Table = ({ data, columns, handleRowSelect, isLoading }) => {
 
   return (
     <TableWrapper>
-      <DataTable
+      {/* <DataTable
         columns={TableColumns}
         data={TableData}
         // selectableRows={!handleRowSelect}
         onSelectedRowsChange={handleRowSelect}
-      />
+      /> */}
     </TableWrapper>
   );
 };

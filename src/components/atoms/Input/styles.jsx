@@ -11,14 +11,12 @@ export const InputField = styled.input`
   padding: 20px;
   margin-bottom: 16px;
 
-  ${({ change }) =>
-    change &&
-    css`
-      background-color: ${COLORS.torquoise};
-      ::placeholder {
-        opacity: 0.5;
-      }
-    `};
+  &[type="email"]:disabled {
+    background-color: ${COLORS.torquoise};
+   ::placeholder{
+     opacity: .6;
+   }
+  }
 `;
 
 export const InputFieldIcon = styled.span`
