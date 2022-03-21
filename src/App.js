@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
-import Campaign from 'components/molecules/CampaignDetails/CampaignMain/Campaign';
+import Campaign from 'components/molecules/CampaignMain/Campaign';
 import { columns, data } from 'utilities/tableTestData';
 
 function App() {

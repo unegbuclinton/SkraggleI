@@ -1,26 +1,26 @@
 import React from "react";
 
 import DashboardLayout from "components/layouts/DashboardLayout";
-import Nav from "../Nav/Nav";
+import Nav from "../CampaignDetails/Nav/Nav";
 
 
 const Campaign = () => {
   const links = [
     {
-      path: "/overview",
-      label: "Overview",
+      path: "/campaign",
+      label: "Campaigns",
       exact: "true",
     },
     {
-      path: "/form",
-      label: "Form",
+      path: "/archive",
+      label: "Archive",
       exact: "true",
     }
   ];
   
   return (
     <DashboardLayout>
-        <Nav links={links}></Nav>
+        <Nav links={links} ></Nav>
     </DashboardLayout>
 
   );

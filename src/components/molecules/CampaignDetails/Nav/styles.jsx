@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { NavLink } from "react-router-dom";
@@ -6,11 +6,9 @@ import { NavLink } from "react-router-dom";
 export const NavWrapper = styled.div`
   display: flex;
   height: 8rem;
+  background-color: ${COLORS.white};
   border: 1px solid #e2e6ff;
   box-sizing: border-box;
-  width: 115.2rem;
-  margin-top: 1.6rem;
-  margin-left: 1.6rem;
 `;
 
 export const Navlinks = styled(NavLink)`
