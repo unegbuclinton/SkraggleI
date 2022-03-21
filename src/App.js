@@ -8,7 +8,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-
 import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
 import { columns, data } from 'utilities/tableTestData';

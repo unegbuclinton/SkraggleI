@@ -30,6 +30,15 @@ export const FormWrapper = styled.form`
     display: flex;
     justify-content: center;
   }
+
+  .login-button {
+    border-radius: 0.5rem;
+    height: 6.4rem;
+    font-size: ${FONTSIZES.small};
+    line-height: 1.6rem;
+    color: ${COLORS.white};
+    margin-bottom: 5.6rem;
+  }
 `;
 
 export const LoginLink = styled(Link)`
