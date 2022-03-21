@@ -1,5 +1,6 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import Table from 'components/layouts/Table';
+import Contacts from 'components/molecules/Contacts/Contacts';
 import DateRange from 'components/molecules/DateRange';
 import {
   BrowserRouter as Router,
@@ -29,7 +30,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/contacts" element={<DashboardLayout />} />
+        <Route path="/contacts" element={<Contacts />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
