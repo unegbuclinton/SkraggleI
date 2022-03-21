@@ -3,5 +3,4 @@ import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
   background-color: ${COLORS.white};
-  padding: 2rem;
 `;
