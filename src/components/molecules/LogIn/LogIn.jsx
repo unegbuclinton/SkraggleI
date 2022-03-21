@@ -55,8 +55,8 @@ const LogIn = () => {
           </LoginLink>
           <Button className="login-button">LOG IN</Button>
           <p className="login-card__signup-link">
-            <span>Don’t have any account?</span>
-            {" "}
+            <span>
+            Don’t have any account?</span>
             <LoginLink className="signup" to="/sign-up">
               {" "}
               Sign Up

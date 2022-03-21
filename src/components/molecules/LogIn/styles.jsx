@@ -18,12 +18,12 @@ export const FormWrapper = styled.form`
       font-size: ${FONTSIZES.xlarge};
       line-height: 2.3rem;
       color: ${COLORS["blue-black"]};
+      padding-top: 3.44rem;
       padding-bottom: 3.86rem;
     }
 
     &__signup-link {
       display: flex;
-      align-items: center;
       gap: 0.8rem;
       font-weight: ${FONTWEIGHTS.medium};
       font-size: ${FONTSIZES.small};
@@ -31,6 +31,7 @@ export const FormWrapper = styled.form`
       color: ${COLORS["gray-500"]};
       display: flex;
       justify-content: center;
+      margin-bottom: 4rem;
     }
   }
 
