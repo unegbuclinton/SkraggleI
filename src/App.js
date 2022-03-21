@@ -1,5 +1,6 @@
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import DummyProgress from 'components/molecules/ProgressBarDummy/DummyProgress';
 
 
 import {
@@ -22,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProgressBar />} />
+        <Route path="/" element={<DummyProgress />} />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />

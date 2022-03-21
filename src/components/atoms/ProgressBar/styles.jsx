@@ -67,12 +67,11 @@ export const ProgressBarOuter = styled.div`
   height: 2rem;
   width: 40.8rem;
   background: ${COLORS["garage-mix-grey"]};
-
   border-radius: 2rem;
 `;
 
 export const Percentage = styled.div`
-  width: 20.4rem;
+  width: ${({ percentage }) => percentage}%;
   height: 2rem;
   background: ${COLORS.pink};
   border-radius: 2rem;
