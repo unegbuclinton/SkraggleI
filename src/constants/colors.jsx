@@ -13,6 +13,7 @@ export const COLORS = {
   'grey-300': '#5E5E5E',
   'grey-400': '#585858',
   'gray-500': '#9A9AA9',
+  'gray-1':'#333333',
   'garage-mix-grey': '#E9ECEF',
   'snooze-grey': 'rgba(19, 41, 61, 0.6)',
   'fog-grey': '#ECECEC',
@@ -20,5 +21,6 @@ export const COLORS = {
   "blue-200": "#0F699B",
   'shim-black': 'rgba(0, 0, 0, 0.79)',
   'disabled-grey': '#9A9A9A',
-  'date-highlight-bg': '#F3F3FA'
+  'date-highlight-bg': '#F3F3FA',
+  'black-shade':'#2E2E2E'
 };

@@ -1,5 +1,4 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import Table from 'components/layouts/Table';
 import DateRange from 'components/molecules/DateRange';
 import {
   BrowserRouter as Router,
@@ -11,7 +10,6 @@ import {
 import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
 import Campaign from 'components/molecules/CampaignMain/Campaign';
-import { columns, data } from 'utilities/tableTestData';
 
 function App() {
   let isAuthenticated = true;
