@@ -28,7 +28,7 @@ export const ThankyouCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom:2.9rem;
+ 
 
   .card-text {
     width: 60.2rem;

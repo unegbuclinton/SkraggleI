@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { COLORS } from "constants/colors";
 
 export const InputField = styled.input`
@@ -8,15 +8,16 @@ export const InputField = styled.input`
   height: 6.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
+  color: ${COLORS["grey-400"]};
   padding: 20px;
   margin-bottom: 16px;
 
-  &[type="text"]:disabled {
-    background-color: ${COLORS.torquoise};
-   ::placeholder{
-     opacity: .6;
-   }
-  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${COLORS.torquoise};
+      color: ${COLORS["disabled-grey"]};
+    `};
 `;
 
 export const InputFieldIcon = styled.span`

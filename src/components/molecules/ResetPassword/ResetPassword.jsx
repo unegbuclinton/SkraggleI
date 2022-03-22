@@ -57,7 +57,7 @@ function ResetPassword() {
           </div>
         </Card>
       </Form>
-    </AuthLayout>
+    </AuthLayout> 
   );
 }
 

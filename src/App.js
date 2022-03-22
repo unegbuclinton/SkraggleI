@@ -1,3 +1,4 @@
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import Registration from 'components/molecules/Registration/Registration'
 import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'

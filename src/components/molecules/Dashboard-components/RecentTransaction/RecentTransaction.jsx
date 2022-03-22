@@ -43,7 +43,7 @@ function RecentTransaction() {
       type: "Gift",
     },
     {
-      id: 1,
+      id: 2,
       contact: "Mohammed Adam",
       amount: "$500.00",
       date: "24th Aug",

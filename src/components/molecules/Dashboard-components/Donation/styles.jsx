@@ -24,6 +24,7 @@ export const DonationWrapper = styled.div`
   .donation-progress {
     border-top: 1px solid ${COLORS.torquoise};
     margin: 0 5.6rem 0 4rem;
+    padding-top: 4.1rem;
   }
 `;
 
