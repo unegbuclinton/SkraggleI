@@ -1,21 +1,29 @@
-import React from 'react';
-import { Percentage, ProgressBarOuter, ProgressBarWrapper } from './styles';
-const ProgressBar = ({ className, currentValue, target, ...rest }) => {
-  const percentage = (currentValue / target) * 100;
+import React from "react";
+import { ProgressBarWrapper, ProgressBarOuter, Percentage } from "./styles";
+
+const ProgressBar = ({
+  className,
+  value,
+  target,
+  heading,
+  raisedLabel,
+  targetLabel,
+}) => {
+  const percentage = (value / target) * 100;
   return (
     <ProgressBarWrapper className={className}>
       <div className="progressbar">
-        <h2 className="progressbar__heading">Yearly Goal</h2>
+        {heading && <h2 className="progressbar__heading">{heading}</h2>}
         <ProgressBarOuter>
           <Percentage percentage={percentage} />
         </ProgressBarOuter>
         <div className="progressbar__label-wrapper">
           <div className="progressbar__label-wrapper--label">
             <span className="progressbar__label-wrapper--label--amount">
-              ${currentValue}
+              ${value.toLocaleString()}
             </span>
             <span className="progressbar__label-wrapper--label--text">
-              raised
+              {raisedLabel}
             </span>
             <span className="progressbar__label-wrapper--label--percent">
               ({Math.round(percentage)}%)
@@ -23,10 +31,10 @@ const ProgressBar = ({ className, currentValue, target, ...rest }) => {
           </div>
           <div className="progressbar__label-wrapper--label">
             <span className="progressbar__label-wrapper--label--text">
-              Target
+              {targetLabel}
             </span>
             <span className="progressbar__label-wrapper--label--amount">
-              ${target}
+              ${target.toLocaleString()}
             </span>
           </div>
         </div>
@@ -34,6 +42,5 @@ const ProgressBar = ({ className, currentValue, target, ...rest }) => {
     </ProgressBarWrapper>
   );
 };
-
 
 export default ProgressBar;

@@ -1920,7 +1920,11 @@
 
 "@types/lodash@^4.14.175":
   version "4.14.180"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.180.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.180.tgz#4ab7c9ddfc92ec4a887886483bc14c79fb380670"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-XOKXa1KIxtNXgASAnwj7cnttJxS4fksBRywK/9LzRV5YxrF80BXZIGeQSuoESQ/VkUj30Ae0+YcuHc15wJCB2g==
 
 "@types/mime@^1":
@@ -3575,7 +3579,11 @@ deep-is@^0.1.3, deep-is@~0.1.3:
 
 deepmerge@^2.1.1:
   version "2.2.1"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/deepmerge/-/deepmerge-2.2.1.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
 
 deepmerge@^4.2.2:
@@ -4486,7 +4494,11 @@ form-data@^3.0.0:
 
 formik@^2.2.9:
   version "2.2.9"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/formik/-/formik-2.2.9.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/formik/-/formik-2.2.9.tgz#8594ba9c5e2e5cf1f42c5704128e119fc46232d0"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-LQLcISMmf1r5at4/gyJigGn0gOwFbeEAlji+N9InZF6LIMXnFNkO42sCI8Jt84YZggpD4cPWObAZaxpEFtSzNA==
   dependencies:
     deepmerge "^2.1.1"
@@ -6002,7 +6014,11 @@ locate-path@^6.0.0:
 
 lodash-es@^4.17.21:
   version "4.17.21"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.debounce@^4.0.8:
@@ -6237,7 +6253,11 @@ multicast-dns@^6.0.1:
 
 nanoclone@^0.2.1:
   version "0.2.1"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/nanoclone/-/nanoclone-0.2.1.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
 nanoid@^3.3.1:
@@ -7269,7 +7289,11 @@ prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
 
 property-expr@^2.0.4:
   version "2.0.5"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/property-expr/-/property-expr-2.0.5.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.5.tgz#278bdb15308ae16af3e3b9640024524f4dc02cb4"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
 
 proxy-addr@~2.0.7:
@@ -7404,7 +7428,11 @@ react-error-overlay@^6.0.10:
 
 react-fast-compare@^2.0.1:
   version "2.0.4"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
 react-is@^16.13.1, react-is@^16.7.0:
@@ -8511,7 +8539,11 @@ toidentifier@1.0.1:
 
 toposort@^2.0.2:
   version "2.0.2"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/toposort/-/toposort-2.0.2.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
 tough-cookie@^4.0.0:
@@ -9245,7 +9277,11 @@ yocto-queue@^0.1.0:
 
 yup@^0.32.11:
   version "0.32.11"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/yup/-/yup-0.32.11.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.11.tgz#d67fb83eefa4698607982e63f7ca4c5ed3cf18c5"
+>>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   integrity sha512-Z2Fe1bn+eLstG8DRR6FTavGD+MeAwyfmouhHsIUgaADz8jvFKbO/fXc2trJKZg+5EBjh4gGm3iU/t3onKlXHIg==
   dependencies:
     "@babel/runtime" "^7.15.4"

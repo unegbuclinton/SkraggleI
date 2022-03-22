@@ -1,16 +1,16 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { DateRangePicker } from 'materialui-daterange-picker';
-import React from 'react';
-import styled from 'styled-components';
-import ranges from './ranges';
-import './styles';
+import { COLORS } from "constants/colors";
+import { FONTSIZES } from "constants/font-spec";
+import { DateRangePicker } from "materialui-daterange-picker";
+import React from "react";
+import styled from "styled-components";
+import ranges from "./ranges";
+import "./styles";
 
 const DateRange = () => {
   const [open, setOpen] = React.useState(true);
   const [dateRange, setDateRange] = React.useState({});
 
-  console.log('dateRange', dateRange);
+  console.log("dateRange", dateRange);
 
   const toggle = () => setOpen(!open);
   return (
@@ -47,7 +47,7 @@ const DateRangeWrapper = styled.div`
     row-gap: 1.073rem;
   }
   .materialui-daterange-picker-MuiButtonBase-root-198 {
-    color: ${COLORS['header-grey']};
+    color: ${COLORS["header-grey"]};
   }
   .materialui-daterange-picker-MuiGrid-container-36 {
     width: fit-content;
@@ -59,10 +59,10 @@ const DateRangeWrapper = styled.div`
     margin: 0 auto;
   }
 
-  .materialui-daterange-picker-MuiSelect-select-202.materialui-daterange-picker-MuiSelect-select-202{
+  .materialui-daterange-picker-MuiSelect-select-202.materialui-daterange-picker-MuiSelect-select-202 {
     padding-right: 0.5rem;
   }
-    .materialui-daterange-picker-MuiInput-underline-217:before {
+  .materialui-daterange-picker-MuiInput-underline-217:before {
     border: none;
   }
   .materialui-daterange-picker-MuiSelect-icon-207 {
@@ -78,7 +78,7 @@ const DateRangeWrapper = styled.div`
     font-size: ${FONTSIZES.xsmall};
   }
   .materialui-daterange-picker-MuiTypography-colorTextSecondary-164 {
-    color: ${COLORS['disabled-grey']};
+    color: ${COLORS["disabled-grey"]};
   }
 
   .materialui-daterange-picker-makeStyles-outlined-253 {
@@ -89,7 +89,7 @@ const DateRangeWrapper = styled.div`
     border-radius: 0;
   }
   .materialui-daterange-picker-makeStyles-highlighted-255 {
-    background-color: ${COLORS['date-highlight-bg']};
+    background-color: ${COLORS["date-highlight-bg"]};
   }
   .materialui-daterange-picker-makeStyles-filled-254 {
     background-color: ${COLORS.pink};
@@ -106,12 +106,12 @@ const DateRangeWrapper = styled.div`
   }
 
   .materialui-daterange-picker-MuiIconButton-root-189.materialui-daterange-picker-MuiIconButton-disabled-195 {
-    color: ${COLORS['disabled-grey']};
+    color: ${COLORS["disabled-grey"]};
     font-size: ${FONTSIZES.xsmall};
     color: red;
   }
   .materialui-daterange-picker-MuiTypography-caption-141 {
-    color: ${COLORS['header-grey']};
+    color: ${COLORS["header-grey"]};
   }
 
   .materialui-daterange-picker-makeStyles-divider-6 {
