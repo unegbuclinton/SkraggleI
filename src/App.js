@@ -1,12 +1,20 @@
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import Registration from 'components/molecules/Registration/Registration'
+import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+
+import data from 'utilities/filterData.json'
+
+import Table from 'components/layouts/Table';
+import DateRange from 'components/molecules/DateRange';
 import {
   BrowserRouter as Router,
   Navigate,
   Outlet,
   Route,
   Routes,
-} from 'react-router-dom';
+} from "react-router-dom";
 
 function App() {
   let isAuthenticated = true;
@@ -14,16 +22,30 @@ function App() {
   const PrivateWrapper = ({ isAuthenticated }) => {
     return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
-
+ 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<CustomDropdown />} />
+        <Route path="/sign-up" element={<Registration />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/" element={<DashboardLayout />} />
+        <Route
+          path="/"
+          element={
+            <div style={{ width: '100%', height: '100vh', padding: '5rem' }}>
+              {/* <Table data={data} columns={columns} isSelectable /> */}
+              <DateRange />
+            </div>
+          }
+        />
         <Route path="/contacts" element={<DashboardLayout />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
+        <Route path="/drop" element={<CustomDropdown data={data}/>} />
+
+
       </Routes>
     </Router>
   );

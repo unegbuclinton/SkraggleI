@@ -1,12 +1,7 @@
 import { React } from "react";
-import { DropdownWrapper } from "./styles";
+import { DropdownSelect, DropdownWrapper } from "./styles";
 
-const CustomDropdown = ({ data, handleChange }) => {
-    // const [selectedData, updateSelectedData] = useState("");
-    // function handleChange(event) {
-    //   updateSelectedData(event.target.value);
-    // }
-
+const CustomDropdown = ({ data }) => {
   let options = data.map((data) => (
     <option key={data.id} value={data.id}>
       {data.name}
@@ -14,9 +9,9 @@ const CustomDropdown = ({ data, handleChange }) => {
   ));
 
   return (
-    
-      <DropdownWrapper onChange={handleChange}>{options}</DropdownWrapper>
-    
+    <DropdownWrapper>
+      <DropdownSelect>{options}</DropdownSelect>
+    </DropdownWrapper>
   );
 };
 
