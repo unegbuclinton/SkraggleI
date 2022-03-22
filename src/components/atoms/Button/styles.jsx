@@ -26,10 +26,6 @@ export const ButtonWrapper = styled.button`
       border-radius: 3.6304px;
       width: 12.4rem;
     `};
-<<<<<<< HEAD
-
-=======
->>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
   ${({ auth }) =>
     auth &&
     css`
@@ -38,12 +34,5 @@ export const ButtonWrapper = styled.button`
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
       color: ${COLORS.white};
-<<<<<<< HEAD
-      margin-bottom: 5.6rem;
     `};
-
-  
-=======
-    `};
->>>>>>> dd1a134a40798b39d700ad05ff3ce48d91b2399b
 `;

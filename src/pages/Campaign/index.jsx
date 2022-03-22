@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import DashboardLayout from "components/layouts/DashboardLayout";
 import { TabLinksWrapper, CampaignBody } from "./styles";
-import CampaignTable from "./Tables/CampaignTable";
-import ArchiveTable from "./Tables/ArchiveTable";
+import ArchiveTable from "components/molecules/Campaign/Tables/ArchiveTable";
+import CampaignTable from "components/molecules/Campaign/Tables/CampaignTable";
 
 const Campaign = () => {
   const links = [

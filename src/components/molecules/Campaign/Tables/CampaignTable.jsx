@@ -4,6 +4,7 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
+import Modal from "components/layouts/Modal";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
@@ -15,13 +16,13 @@ const CampaignTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box/>, 
-      width: "50px",
+      cell: () => <Box />,
+      width: "5rem",
     },
     {
       name: "CREATED",
       selector: (row) => row.created,
-      width: "200px",
+      width: "20rem",
     },
 
     {
@@ -49,8 +50,8 @@ const CampaignTable = () => {
       style: {
         backgroundColor: "#E6EFF1",
         marginBottom: "16px",
-        padding: "20px 0px 20px 15px",
-        fontSize: "12px",
+        padding: "2rem 0rem 2rem 1.5rem",
+        fontSize: "1.2rem",
         color: "#5E5E5E",
       },
     },
@@ -63,6 +64,8 @@ const CampaignTable = () => {
     goals: d.goals,
     status: d.status,
   }));
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   return (
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -73,15 +76,18 @@ const CampaignTable = () => {
         <div className="table-header__right">
           <CustomDropdown className="dropdown-filter" data={datas} />
           <SearchBar className="search-icon" />
-          <Button className="campaign-button">
-            <span>
-              <DPPlusIcon className="plus-icon" />
-            </span>{" "}
+          <Button className="campaign-button" onClick={()=> setModalIsOpen(true)} >
+            <DPPlusIcon className="plus-icon" />
             New Campaign
           </Button>
+          <Modal isShown={modalIsOpen}
+          >
+
+          </Modal>
+
         </div>
       </TableHeaderWrapper>
-      <Table columns={columns} data={data}/>
+      <Table columns={columns} data={data} />
     </TableWrapper>
   );
 };

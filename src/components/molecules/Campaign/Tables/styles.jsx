@@ -50,6 +50,10 @@ export const TableHeaderWrapper = styled.div`
       }
 
       .campaign-button {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
         width: 14.4rem;
         height: 4.8rem;
         margin-left: 1.6rem;
