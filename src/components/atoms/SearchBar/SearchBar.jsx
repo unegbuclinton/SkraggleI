@@ -46,8 +46,8 @@ function SearchBar() {
         />
 
         <IconWrapper type="submit" barOpened={barOpened}>
-          <div className="icon-container">
-            <DPIconSearch />
+          <div>
+            <DPIconSearch className="search-icon" />
           </div>
         </IconWrapper>
       </Form>

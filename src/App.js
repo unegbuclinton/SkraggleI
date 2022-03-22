@@ -3,6 +3,7 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import Table from 'components/layouts/Table';
 import Contacts from 'components/molecules/Contacts/Contacts';
 import DateRange from 'components/molecules/DateRange';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import {
   BrowserRouter as Router,
   Navigate,
@@ -31,7 +32,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/contacts" element={<SearchBar />} />
+        <Route path="/contacts" element={<TableHeader />} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
