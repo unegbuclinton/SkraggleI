@@ -3,17 +3,17 @@ import { InputField, InputFieldIcon, Container } from "./styles";
 import { DPIconSkraggleEyeOpen } from "icons";
 import { DPIconSkraggleEyeClose } from "icons";
 
-const Input = ({ type, placeholder, disabled, onChange, name, id,onBlur }) => {
+const Input = ({ type, placeholder, disabled, onChange, name, id, onBlur }) => {
   const [click, setClick] = useState(false);
   const Show = () => setClick((prev) => !prev);
 
   return (
     <Container>
       <InputField
+        disabled={disabled}
         name={name}
         id={id}
-        disabled={disabled}
-        type={!click ? {type} === "text" : "password"}
+        type={!click ? { type } === "text" : "password"}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}

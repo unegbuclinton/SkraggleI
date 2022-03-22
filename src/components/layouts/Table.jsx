@@ -1,6 +1,6 @@
 import { COLORS } from 'constants/colors';
 import React from 'react';
-// import DataTable from 'react-data-table-component';
+import DataTable from 'react-data-table-component';
 import styled from 'styled-components';
 
 const Table = ({ data, columns, handleRowSelect, isLoading }) => {
@@ -10,12 +10,12 @@ const Table = ({ data, columns, handleRowSelect, isLoading }) => {
 
   return (
     <TableWrapper>
-      {/* <DataTable
+      <DataTable
         columns={TableColumns}
         data={TableData}
         // selectableRows={!handleRowSelect}
         onSelectedRowsChange={handleRowSelect}
-      /> */}
+      />
     </TableWrapper>
   );
 };

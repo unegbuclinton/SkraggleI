@@ -7,7 +7,9 @@ export const ThankYouWrapper = styled.div`
   background-color: ${COLORS.white};
   margin-bottom: 1.6rem;
   .thankyou-text {
-    font-size: 1.8rem;
+    font-size: ${FONTSIZES.lg};
+    font-weight: ${FONTWEIGHTS.medium};
+    color: ${COLORS["header-grey"]};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
@@ -26,6 +28,7 @@ export const ThankyouCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom:2.9rem;
 
   .card-text {
     width: 60.2rem;

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { COLORS } from "constants/colors";
 
 export const InputField = styled.input`
@@ -11,7 +11,7 @@ export const InputField = styled.input`
   padding: 20px;
   margin-bottom: 16px;
 
-  &[type="email"]:disabled {
+  &[type="text"]:disabled {
     background-color: ${COLORS.torquoise};
    ::placeholder{
      opacity: .6;

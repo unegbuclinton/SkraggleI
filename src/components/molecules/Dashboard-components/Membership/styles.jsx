@@ -9,7 +9,9 @@ export const MembershipWrapper = styled.div`
   margin-bottom: 1.6rem;
 
   .membership-text {
-    font-size: 1.8rem;
+    font-size: ${FONTSIZES.lg};
+    font-weight: ${FONTWEIGHTS.medium};
+    color: ${COLORS["header-grey"]};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
@@ -19,7 +21,7 @@ export const MembershipBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 39.9rem;
   margin: 0rem 3.1rem 0rem 3.9rem;
   border-top: 1px solid ${COLORS.torquoise};
 

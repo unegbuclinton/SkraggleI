@@ -1,26 +1,23 @@
 import React from "react";
 import { DPIconThankYou } from "icons";
 import Button from "components/atoms/Button/Button";
-import {
-  PotentialBody,
-  PotentialCard,
-  PotentialWrapper,
-} from "./styles";
+import { PotentialBody, PotentialCard, PotentialWrapper } from "./styles";
 
 function PotentialDonor() {
   return (
     <PotentialWrapper>
-      <p className="thankyou-text">Thank You</p>
+      <p className="thankyou-text">October's Potential Donors</p>
 
       <PotentialBody>
         <PotentialCard>
           <div className="card-left">
             <DPIconThankYou />
             <div className="card-text">
-              <p className="card-text__one">Contacts Who Donated this year</p>
+              <p className="card-text__one">LYBUNTs $500+</p>
               <p className="card-text__two">
-                Donors (2021) are contacts who have made a monetary contribution
-                to your organization, at least one, in 2021.
+                This list shows you contacts who contributed more than $500 in
+                total donations to your organization last year but are yet to
+                contribute this year.
               </p>
             </div>
           </div>
@@ -35,10 +32,11 @@ function PotentialDonor() {
           <div className="card-left">
             <DPIconThankYou />
             <div className="card-text">
-              <p className="card-text__one">Contacts Who Donated this year</p>
+              <p className="card-text__one">LYBUNTs $50-$500</p>
               <p className="card-text__two">
-                Donors (2021) are contacts who have made a monetary contribution
-                to your organization, at least one, in 2021.
+                This list shows you contacts who contributed between $50 and
+                $500 in total donations to your organization last year but are
+                yet to contribute this year
               </p>
             </div>
           </div>
