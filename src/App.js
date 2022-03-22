@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
-import Campaign from 'components/molecules/CampaignMain/Campaign';
+import Campaign from 'components/molecules/Campaign/Campaign';
 
 function App() {
   let isAuthenticated = true;
