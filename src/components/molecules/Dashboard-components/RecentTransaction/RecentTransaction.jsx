@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
-import { FONTSIZES,FONTWEIGHTS } from "constants/font-spec";
-
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import Card from "components/atoms/Card/Card";
 
 function RecentTransaction() {
   const columns = [
@@ -53,10 +53,12 @@ function RecentTransaction() {
 
   return (
     <RecentWrapper>
-      <p className="recent-header__text">Recent Transactions</p>
-      <div className="table-container">
-        <Table data={data} columns={columns} />
-      </div>
+      <Card>
+        <p className="recent-header__text">Recent Transactions</p>
+        <div className="table-container">
+          <Table data={data} columns={columns} />
+        </div>
+      </Card>
     </RecentWrapper>
   );
 }
@@ -65,7 +67,6 @@ export default RecentTransaction;
 
 const RecentWrapper = styled.div`
   margin-bottom: 1.6rem;
-  background-color: ${COLORS.white};
 
   .recent-header__text {
     font-size: ${FONTSIZES.lg};

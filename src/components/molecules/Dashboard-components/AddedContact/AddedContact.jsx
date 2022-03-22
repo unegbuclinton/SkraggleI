@@ -4,6 +4,7 @@ import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { DPIconMessage } from "icons";
+import Card from "components/atoms/Card/Card";
 
 function AddedContact() {
   const columns = [
@@ -84,10 +85,12 @@ function AddedContact() {
 
   return (
     <AddedContactWrapper>
-      <p className="added-contact__text">Recently Added Contacts</p>
-      <div className="table-container">
-        <Table columns={columns} data={data}/>
-      </div>
+      <Card>
+        <p className="added-contact__text">Recently Added Contacts</p>
+        <div className="table-container">
+          <Table columns={columns} data={data} />
+        </div>
+      </Card>
     </AddedContactWrapper>
   );
 }
@@ -96,7 +99,6 @@ export default AddedContact;
 
 const AddedContactWrapper = styled.div`
   margin-bottom: 1.6rem;
-  background-color: ${COLORS.white};
 
   .added-contact__text {
     font-size: ${FONTSIZES.lg};

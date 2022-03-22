@@ -4,7 +4,6 @@ import { FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const ThankYouWrapper = styled.div`
-  background-color: ${COLORS.white};
   margin-bottom: 1.6rem;
   .thankyou-text {
     font-size: ${FONTSIZES.lg};
@@ -28,7 +27,6 @@ export const ThankyouCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
 
   .card-text {
     width: 60.2rem;
@@ -51,16 +49,16 @@ export const ThankyouCard = styled.div`
     font-size: ${FONTSIZES.xsmall};
   }
 
-  .card-left{
-      display:flex;
-      justify-content:center;
-      gap:3.2rem;
-      align-items: center;
+  .card-left {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+    align-items: center;
   }
-  .card-right{
-      display:flex;
-      justify-content:center;
-      gap:11rem;
-      align-items: center;
+  .card-right {
+    display: flex;
+    justify-content: center;
+    gap: 11rem;
+    align-items: center;
   }
 `;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import Card from "components/atoms/Card/Card";
 
 function UpcomingContact() {
   const columns = [
@@ -65,10 +66,12 @@ function UpcomingContact() {
   ];
   return (
     <UpcomingWrapper>
-      <p className="upcoming-header__text">Upcoming Contact To-Do's</p>
-      <div className="table-container">
-        <Table columns={columns} data={data} />
-      </div>
+      <Card>
+        <p className="upcoming-header__text">Upcoming Contact To-Do's</p>
+        <div className="table-container">
+          <Table columns={columns} data={data} />
+        </div>
+      </Card>
     </UpcomingWrapper>
   );
 }
@@ -77,7 +80,6 @@ export default UpcomingContact;
 
 const UpcomingWrapper = styled.div`
   margin-bottom: 1.6rem;
-  background-color: ${COLORS.white};
 
   .upcoming-header__text {
     font-size: ${FONTSIZES.lg};

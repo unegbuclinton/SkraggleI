@@ -5,7 +5,6 @@ import { FONTWEIGHTS } from "constants/font-spec";
 
 export const MembershipWrapper = styled.div`
   height: 46.7rem;
-  background-color: ${COLORS.white};
   margin-bottom: 1.6rem;
 
   .membership-text {

@@ -4,7 +4,6 @@ import { FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const PotentialWrapper = styled.div`
-  background-color: ${COLORS.white};
   margin-bottom: 1.6rem;
   .thankyou-text {
     font-size: ${FONTSIZES.lg};
@@ -28,7 +27,7 @@ export const PotentialCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom:2.9rem;
+  padding-bottom: 2.9rem;
 
   .card-text {
     width: 60.2rem;
@@ -51,16 +50,16 @@ export const PotentialCard = styled.div`
     font-size: ${FONTSIZES.xsmall};
   }
 
-  .card-left{
-      display:flex;
-      justify-content:center;
-      gap:3.2rem;
-      align-items: center;
+  .card-left {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+    align-items: center;
   }
-  .card-right{
-      display:flex;
-      justify-content:center;
-      gap:11rem;
-      align-items: center;
+  .card-right {
+    display: flex;
+    justify-content: center;
+    gap: 11rem;
+    align-items: center;
   }
 `;

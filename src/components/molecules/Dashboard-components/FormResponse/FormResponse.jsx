@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import Card from "components/atoms/Card/Card";
 
 function FormResponse() {
   const columns = [
@@ -50,10 +51,12 @@ function FormResponse() {
 
   return (
     <FormResponsewrapper>
-      <p className="form-response__text">Recent Form Responses</p>
-      <div className="table-container">
-        <Table columns={columns} data={data} />
-      </div>
+      <Card>
+        <p className="form-response__text">Recent Form Responses</p>
+        <div className="table-container">
+          <Table columns={columns} data={data} />
+        </div>
+      </Card>
     </FormResponsewrapper>
   );
 }
@@ -62,7 +65,6 @@ export default FormResponse;
 
 const FormResponsewrapper = styled.div`
   margin-bottom: 1.6rem;
-  background-color: ${COLORS.white};
 
   .form-response__text {
     font-size: ${FONTSIZES.lg};

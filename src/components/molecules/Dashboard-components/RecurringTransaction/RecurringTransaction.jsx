@@ -4,6 +4,7 @@ import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { DPIconMessage } from "icons";
+import Card from "components/atoms/Card/Card";
 
 function RecurringTransaction() {
   const columns = [
@@ -24,7 +25,6 @@ function RecurringTransaction() {
     {
       name: "NEXT PAYMENT",
       selector: (row) => row.nextPayment,
-     
     },
     {
       name: "ACTION",
@@ -66,10 +66,14 @@ function RecurringTransaction() {
   ];
   return (
     <RecurringWrapper>
-      <p className="recurring-header__text">Upcoming Recurring Transactions</p>
-      <div className="table-container">
-        <Table columns={columns} data={data}/>
-      </div>
+      <Card>
+        <p className="recurring-header__text">
+          Upcoming Recurring Transactions
+        </p>
+        <div className="table-container">
+          <Table columns={columns} data={data} />
+        </div>
+      </Card>
     </RecurringWrapper>
   );
 }
@@ -78,7 +82,6 @@ export default RecurringTransaction;
 
 const RecurringWrapper = styled.div`
   margin-bottom: 5.1rem;
-  background-color: ${COLORS.white};
 
   .recurring-header__text {
     font-size: ${FONTSIZES.lg};

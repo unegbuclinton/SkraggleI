@@ -3,9 +3,10 @@ import { COLORS } from "constants/colors";
 import { FONTWEIGHTS } from "constants/font-spec";
 
 export const GeneralWrapper = styled.div`
-  height: 26.1rem;
-  background-color: ${COLORS.white};
-  margin-bottom: 1.6rem;
+  .general-card {
+    padding-bottom: 7.527rem;
+    margin-bottom: 1.6rem;
+  }
 `;
 
 export const GeneralHeader = styled.div`
@@ -50,8 +51,8 @@ export const GeneralBody = styled.div`
       margin: 0;
       padding-top: 2.146rem;
       font-weight: ${FONTWEIGHTS.normal};
-      color:#13293D;
-      opacity: .6;
+      color: #13293d;
+      opacity: 0.6;
     }
   }
 `;

@@ -1,12 +1,12 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { SidebarContent } from 'utilities/SidebarContent';
-import LogoComponent from '../LogoComponent';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { SidebarContent } from "utilities/SidebarContent";
+import LogoComponent from "../LogoComponent";
 import {
   SidebarContainer,
   SidebarLinksWrapper,
   SideNavLinkText,
-} from './styles';
+} from "./styles";
 
 const Sidebar = () => {
   console.log(SidebarContent);
@@ -23,9 +23,8 @@ const Sidebar = () => {
               key={Math.random()}
               to={route}
               className={({ isActive }) =>
-                'nav-link' + (isActive ? ' nav-link--selected' : '')
+                "nav-link" + (isActive ? " nav-link--selected" : "")
               }
-              exact
             >
               <span>{icon}</span> <SideNavLinkText>{text}</SideNavLinkText>
             </NavLink>
