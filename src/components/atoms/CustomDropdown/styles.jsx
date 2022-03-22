@@ -8,9 +8,6 @@ export const DropdownWrapper = styled.select`
   height: 4.8rem;
   border: 1px solid #e2e6ff;
   box-sizing: border-box;
-  margin-top: 1.6rem;
-  margin-left: 1.6rem;
-  padding: ${({large}) => large ? '1.6rem 0' : '1.1rem 1.6rem'};
   color: ${COLORS["grey-400"]};
   font-style: normal;
   font-weight: ${FONTWEIGHTS.normal};
