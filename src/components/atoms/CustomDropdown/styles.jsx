@@ -8,7 +8,6 @@ export const DropdownWrapper = styled.div`
   width: 14.4rem;
   height: 4.8rem;
   border: 1px solid #e2e6ff;
-
 `;
 
 export const DropdownSelect = styled.select`
@@ -21,7 +20,7 @@ export const DropdownSelect = styled.select`
   border-radius: 0px;
   box-shadow: none;
 
-  option{
+  option {
     border: 2px solid red !important;
   }
 `;
