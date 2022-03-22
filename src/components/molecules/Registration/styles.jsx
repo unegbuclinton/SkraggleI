@@ -3,10 +3,9 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const Form = styled.form`
-padding-top:6.134rem;
+  padding-top: 6.134rem;
   .signup-card {
     padding: 2.4rem 4.5rem 4rem 4.5rem;
-
   }
   .signup-header {
     text-align: center;
