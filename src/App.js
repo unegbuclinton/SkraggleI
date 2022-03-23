@@ -25,7 +25,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/sign-up" element={<Registration />} />
-        <Route path="/drop" element={<CustomDropdown data={data} />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<DashboardLayout />} />
         <Route
