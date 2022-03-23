@@ -1,4 +1,8 @@
+import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import Registration from 'components/molecules/Registration/Registration'
+import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
+
 import Table from 'components/layouts/Table';
 import DateRange from 'components/molecules/DateRange';
 import {
@@ -18,10 +22,13 @@ function App() {
   const PrivateWrapper = ({ isAuthenticated }) => {
     return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
-
+ 
   return (
     <Router>
       <Routes>
+        <Route path="/sign-up" element={<Registration />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/" element={<DashboardLayout />} />
         <Route
           path="/"
           element={

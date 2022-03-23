@@ -20,5 +20,5 @@ export const COLORS = {
   "blue-200": "#0F699B",
   'shim-black': 'rgba(0, 0, 0, 0.79)',
   'disabled-grey': '#9A9A9A',
-  'date-highlight-bg': '#F3F3FA'
+  'date-highlight-bg': '#F3F3FA',
 };

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { COLORS } from "constants/colors";
 
 export const InputField = styled.input`
@@ -11,6 +11,14 @@ export const InputField = styled.input`
   padding: 20px;
   margin-bottom: 16px;
 
+  ${({ change }) =>
+    change &&
+    css`
+      background-color: ${COLORS.torquoise};
+      ::placeholder {
+        opacity: 0.5;
+      }
+    `};
 `;
 
 export const InputFieldIcon = styled.span`

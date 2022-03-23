@@ -20,7 +20,7 @@ const Input = ({ type, placeholder, change, onChange, name, id,onBlur }) => {
       />
       {type === "password" && (
         <InputFieldIcon onClick={Show}>
-          {click ? <DPIconSkraggleEyeClose /> : <DPIconSkraggleEyeOpen />}
+          {click ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
         </InputFieldIcon>
       )}
     </Container>
