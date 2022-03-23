@@ -11,8 +11,7 @@ export const TableWrapper = styled.div`
     padding: 0;
     width: 9.173rem;
     height: 3rem;
-    background-color: #7dc237;
-    opacity: 0.2;
+    background-color: rgba(125, 194, 55, 0.2);
     border-radius: 40px;
     color: #00913a;
     text-align: center;
@@ -66,11 +65,12 @@ export const TableHeaderWrapper = styled.div`
   }
 `;
 
-export const Box = styled.div`
+export const Box = styled.input`
   width: 1.5rem;
   height: 1.5rem;
-  background-color: ${COLORS.torquoise};
+  /* background-color: ${COLORS.torquoise}; */
 `;
+
 
 export const ArchiveWrapper = styled.div`
   display: flex;

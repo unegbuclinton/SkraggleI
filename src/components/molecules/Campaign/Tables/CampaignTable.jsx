@@ -16,7 +16,7 @@ const CampaignTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box />,
+      cell: () =><Box type="checkbox"></Box>,
       width: "5rem",
     },
     {
@@ -40,22 +40,6 @@ const CampaignTable = () => {
     },
   ];
 
-  const customStyles = {
-    rows: {
-      style: {
-        border: "0.852273px solid #E2E6FF",
-      },
-    },
-    headCells: {
-      style: {
-        backgroundColor: "#E6EFF1",
-        marginBottom: "16px",
-        padding: "2rem 0rem 2rem 1.5rem",
-        fontSize: "1.2rem",
-        color: "#5E5E5E",
-      },
-    },
-  };
 
   const data = TableContacts.map((d, index) => ({
     key: index,
@@ -80,7 +64,9 @@ const CampaignTable = () => {
             <DPPlusIcon className="plus-icon" />
             New Campaign
           </Button>
-          <Modal isShown={modalIsOpen}
+          <Modal 
+          isShown={modalIsOpen}
+          showClose
           >
 
           </Modal>
