@@ -10,7 +10,7 @@ const CustomDropdown = ({ data }) => {
 
   return (
     <DropdownWrapper>
-      <DropdownSelect>{options}</DropdownSelect>
+    <DropdownSelect className="select">{options}</DropdownSelect>
     </DropdownWrapper>
   );
 };

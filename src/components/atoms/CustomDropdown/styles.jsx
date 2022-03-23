@@ -11,10 +11,11 @@ export const DropdownWrapper = styled.div`
 `;
 
 export const DropdownSelect = styled.select`
-  /* -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; */
-  width: 13rem;
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  /* appearance: none; */
+  width: 100%;
+  padding-right: 20px;
   border: none;
   outline: none;
   color: ${COLORS["grey-400"]};
@@ -23,8 +24,9 @@ export const DropdownSelect = styled.select`
   border-radius: 0px;
   box-shadow: none;
 
-  &::after {
+  .select::after {
     width: 14rem;
     background-color: red;
+    padding-right: 10px;
   }
 `;
