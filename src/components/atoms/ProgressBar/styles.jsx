@@ -4,7 +4,6 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const ProgressBarWrapper = styled.div`
   margin: 10rem;
-  width: 57rem;
   display: flex;
   justify-content: center;
   flex-direction: column;

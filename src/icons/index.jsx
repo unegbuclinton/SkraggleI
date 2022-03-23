@@ -16,4 +16,11 @@ export { ReactComponent as DPIconP2P } from 'icons/svgs/P2PIcon.svg';
 export { ReactComponent as DPIconReports } from 'icons/svgs/reportIcon.svg';
 export { ReactComponent as DPIconSkraggleLogoLight } from 'icons/svgs/skraggle-logo-light.svg';
 export { ReactComponent as DPIconSkraggleLogo } from 'icons/svgs/skraggle-logo.svg';
+export { ReactComponent as DPIconMembership } from 'icons/svgs/membership.svg';
+export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
+export { ReactComponent as DPIconMessage } from 'icons/svgs/message.svg';
+export { ReactComponent as DPIconRangeIcon } from 'icons/svgs/rangeIcon.svg';
+export { ReactComponent as DPIconDateArrow } from 'icons/svgs/dateArrow.svg';
+
+
 
