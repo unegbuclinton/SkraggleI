@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import LogIn from "components/molecules/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword";
+import Campaign from "pages/Campaign";
 import { columns, data } from 'utilities/tableTestData';
 import Dashboard from 'pages/Dashboard-components/Dashboard';
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="*" element={<div>Not Found</div>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/campaign" element={<Campaign />} />
         <Route path="/dashboard-components" element={<Dashboard />} />
       </Routes>
     </Router>
