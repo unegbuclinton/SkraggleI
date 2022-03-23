@@ -5,7 +5,7 @@ import { DPIconSkraggleEyeClose } from "icons";
 
 const Input = ({ type, placeholder, disabled, onChange, name, id, onBlur }) => {
   const [show, setShow] = useState(false);
-  const toogleShowPassword = () => setShow((prev) => !prev);
+  const toggleShowPassword = () => setShow((prev) => !prev);
 
   return (
     <Container>
@@ -19,7 +19,7 @@ const Input = ({ type, placeholder, disabled, onChange, name, id, onBlur }) => {
         onBlur={onBlur}
       />
       {type === "password" && (
-        <InputFieldIcon onClick={toogleShowPassword}>
+        <InputFieldIcon onClick={toggleShowPassword}>
           {show ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
         </InputFieldIcon>
       )}
