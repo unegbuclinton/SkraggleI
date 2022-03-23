@@ -1,14 +1,7 @@
-import {
-  Navigate,
-  Outlet
-} from "react-router-dom";
-import Routing from "routes";
+import Routing from 'routes';
 
 function App() {
-
-  return (
-    <Routing />
-  );
+  return <Routing />;
 }
 
 export default App;
