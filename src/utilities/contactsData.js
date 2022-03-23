@@ -1,4 +1,3 @@
-import Button from "components/atoms/Button/Button";
 import CheckBox from "components/atoms/CheckBox/CheckBox";
 import TableBtn from "components/atoms/TableButton/TableBtn";
 
@@ -15,25 +14,24 @@ export const contactsColumns = [
     {
       name: 'FULL NAME',
       selector: (row) => row.fullName,
-      width: '20.8rem',
+      width: '16.8rem',
     },
     {
       name: 'PRIMARY EMAIL',
       selector: (row) => row.primaryEmail,
-      width: '30rem',
+      width: '30.8rem',
     },
     {
       name: 'PRIMARY PHONE',
       selector: (row) => row.primaryPhone,
-      width: '40rem',
       
+      Width: '27.173rem',
     },
     {
       name: 'TAGS',
       cell: () => (
        <TableBtn />
       ),
-     width: '20.8rem',
     },
 
 
@@ -47,9 +45,50 @@ export const contactsColumns = [
      
     },
     {
-        fullName: 'TMohammed Adam',
+        fullName: 'Mohammed Adam',
         primaryEmail: 'mohamed@biggorillaapps.com',
         primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
     },
     {
         fullName: 'Mohammed Adam',
@@ -86,5 +125,286 @@ export const contactsColumns = [
         primaryEmail: 'mohamed@biggorillaapps.com',
         primaryPhone: 2563256325,
     },
-    
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+      fullName: 'Troy Barnes Sr.',
+      primaryEmail: 'troybarnesthrowsfootballs@gmail.com',
+      primaryPhone: 2563256325,
+     
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
+    {
+        fullName: 'Mohammed Adam',
+        primaryEmail: 'mohamed@biggorillaapps.com',
+        primaryPhone: 2563256325,
+    },
   ];

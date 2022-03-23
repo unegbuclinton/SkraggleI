@@ -16,4 +16,5 @@ export const DropdownWrapper = styled.select`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   line-height: 16px;
+  background-color: ${COLORS.white};
 `;

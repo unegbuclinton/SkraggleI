@@ -22,4 +22,6 @@ export const COLORS = {
   "tabel-btn-grey": "#9A9AA9",
   "date-highlight-bg": "#F3F3FA",
   "bg-grey-btn": "rgba(154, 154, 169, 0.2)",
+  "pagination-bg": "rgba(6, 22, 36, 0.1)",
+  "text-pagination": "#061624",
 };

@@ -1,9 +1,6 @@
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import Table from 'components/layouts/Table';
-import Contacts from 'components/molecules/Contacts/Contacts';
 import DateRange from 'components/molecules/DateRange';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import Index from 'pages/ContactsPage/Index'
 import {
   BrowserRouter as Router,
   Navigate,
@@ -32,7 +29,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/contacts" element={<TableHeader />} />
+        <Route path="/contacts" element={<Index/>} />
         <Route element={<PrivateWrapper isAuthenticated={isAuthenticated} />}>
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>

@@ -18,3 +18,5 @@ export { ReactComponent as DPIconSkraggleLogoLight } from "icons/svgs/skraggle-l
 export { ReactComponent as DPIconSkraggleLogo } from "icons/svgs/skraggle-logo.svg";
 export { ReactComponent as DPIconSearch } from "icons/svgs/search.svg";
 export { ReactComponent as DPIconAdd } from "icons/svgs/add.svg";
+export { ReactComponent as DPIconsArrowLeft } from "icons/svgs/arrow-left.svg";
+export { ReactComponent as DPIconsArrowRight } from "icons/svgs/arrow-right.svg";
