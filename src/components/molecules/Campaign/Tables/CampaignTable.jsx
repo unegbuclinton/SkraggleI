@@ -10,7 +10,7 @@ import { DPPlusIcon } from "icons";
 import datas from "utilities/filterData";
 import TableContacts from "utilities/TableContacts.json";
 
-import { TableWrapper, TableHeaderWrapper, Box, TableButton } from "./styles";
+import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
 
 const CampaignTable = () => {
   const columns = [
