@@ -12,7 +12,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import LogIn from "components/molecules/LogIn/LogIn";
+import LogIn from "components/molecules/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import { columns, data } from 'utilities/tableTestData';
 
@@ -45,6 +45,7 @@ function App() {
         <Route path="*" element={<div>Not Found</div>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+
       </Routes>
     </Router>
   );
