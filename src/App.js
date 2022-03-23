@@ -13,7 +13,7 @@ import {
   Routes,
 } from "react-router-dom";
 import LogIn from "components/molecules/LogIn";
-
+import Dashboard from 'pages/Dashboard-components/Dashboard';
 
 function App() {
   let isAuthenticated = true;
@@ -43,7 +43,7 @@ function App() {
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
         <Route path="/login" element={<LogIn />} />
-
+        <Route path="/dashboard-components" element={<Dashboard />} />
       </Routes>
     </Router>
   );

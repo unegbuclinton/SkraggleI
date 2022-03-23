@@ -25,14 +25,15 @@ function ResetPassword() {
           <p className="reset-header"> Set up your Skraggle account </p>
           <div className="description">We will send a recovery link to</div>
           <Input
-            change
             type="text"
+            disabled
             placeholder="john@example.com"
             id="email"
             name="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
+            
           />
           {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
@@ -56,7 +57,7 @@ function ResetPassword() {
           </div>
         </Card>
       </Form>
-    </AuthLayout>
+    </AuthLayout> 
   );
 }
 

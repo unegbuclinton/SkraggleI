@@ -6,19 +6,13 @@ import styled from "styled-components";
 import ranges from "./ranges";
 import "./styles";
 
-const DateRange = () => {
-  const [open, setOpen] = React.useState(true);
-  const [dateRange, setDateRange] = React.useState({});
-
-  console.log("dateRange", dateRange);
-
-  const toggle = () => setOpen(!open);
+const DateRange = ({ onChangeRange, className, open, toggle }) => {
   return (
-    <DateRangeWrapper>
+    <DateRangeWrapper className={className}>
       <DateRangePicker
         open={open}
         toggle={toggle}
-        onChange={(range) => setDateRange(range)}
+        onChange={onChangeRange}
         definedRanges={ranges}
       />
     </DateRangeWrapper>
@@ -73,6 +67,7 @@ const DateRangeWrapper = styled.div`
   }
   .materialui-daterange-picker-MuiTypography-body2-139 {
     font-size: ${FONTSIZES.xsmall};
+    white-space: nowrap;
   }
   .materialui-daterange-picker-MuiTypography-caption-141 {
     font-size: ${FONTSIZES.xsmall};

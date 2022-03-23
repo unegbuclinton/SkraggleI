@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const registartionSchema = Yup.object({
+export const registrationSchema = Yup.object({
   firstName: Yup.string()
     .max(15, "Must be 15 characters or less")
     .required("Required"),
