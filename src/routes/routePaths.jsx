@@ -1,10 +1,8 @@
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import LogIn from 'components/molecules/LogIn/LogIn';
+import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import Sidebar from 'components/molecules/Sidebar';
 import TestComponent from 'components/organisms/TestComponent';
 import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
