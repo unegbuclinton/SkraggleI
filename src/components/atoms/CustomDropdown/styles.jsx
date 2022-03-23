@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { FONTSIZES } from "constants/font-spec";
 
 export const DropdownWrapper = styled.div`
   display: flex;
@@ -11,7 +11,10 @@ export const DropdownWrapper = styled.div`
 `;
 
 export const DropdownSelect = styled.select`
-  width: 12rem;
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+  width: 13rem;
   border: none;
   outline: none;
   color: ${COLORS["grey-400"]};
@@ -20,7 +23,8 @@ export const DropdownSelect = styled.select`
   border-radius: 0px;
   box-shadow: none;
 
-  option {
-    border: 2px solid red !important;
+  &::after {
+    width: 14rem;
+    background-color: red;
   }
 `;
