@@ -16,6 +16,7 @@ import LogIn from "components/molecules/LogIn/LogIn";
 import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
 import Campaign from "pages/Campaign";
 import { columns, data } from 'utilities/tableTestData';
+import Dashboard from 'pages/Dashboard-components/Dashboard';
 
 function App() {
   let isAuthenticated = true;
@@ -47,6 +48,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/campaign" element={<Campaign />} />
+        <Route path="/dashboard-components" element={<Dashboard />} />
       </Routes>
     </Router>
   );

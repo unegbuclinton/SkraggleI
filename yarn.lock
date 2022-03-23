@@ -3519,10 +3519,33 @@ date-fns@^1.30.1:
   resolved "https://registry.npmjs.org/date-fns/-/date-fns-1.30.1.tgz"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
+<<<<<<< HEAD
 dayjs@^1.11.0:
   version "1.11.0"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.0.tgz"
   integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
+=======
+<<<<<<< HEAD
+"dayjs@^1.11.0":
+  "integrity" "sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.11.0.tgz"
+  "version" "1.11.0"
+=======
+datejs@^1.0.0-rc3:
+  version "1.0.0-rc3"
+  resolved "https://registry.yarnpkg.com/datejs/-/datejs-1.0.0-rc3.tgz#bffa1efedefeb41fdd8a242af55afa01fb58de57"
+  integrity sha1-v/oe/t7+tB/diiQq9Vr6AftY3lc=
+
+dayjs@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
+  integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
+<<<<<<< HEAD
+>>>>>>> bf24911d1742fc23fd2ef2b470fba90d3da9d854
+=======
+>>>>>>> 177fe702b4bba48ddcdd3f28b9f09b42f38845d6
+>>>>>>> 53ff6911c691a48aa5b274f527337a5a152f0ca0
+>>>>>>> 20d9afe01d9a1c57e17e63e357d1a5b78938e8f6
 
 debug@2.6.9, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
