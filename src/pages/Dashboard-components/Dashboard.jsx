@@ -9,7 +9,7 @@ import Overview from "./Overview";
 import PotentialDonor from "./Potential";
 import RecentTransaction from "./RecentTransaction";
 import RecurringTransaction from "./RecurringTransaction";
-import ThankYou from "./Thankyou/ThankYou";
+import ThankYou from "./Thankyou";
 import UpcomingContact from "./UpcomingContact";
 
 function Dashboard() {

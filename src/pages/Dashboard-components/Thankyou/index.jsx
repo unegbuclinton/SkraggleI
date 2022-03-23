@@ -1,64 +1,55 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Button from "components/atoms/Button/Button";
+import Card from "components/atoms/Card/Card";
+import { DPIconThankYou } from "icons";
+import React from "react";
+import { ThankYouBody, ThankyouCard, ThankYouWrapper } from "./styles";
 
-export const ThankYouWrapper = styled.div`
-  margin-bottom: 1.6rem;
-  .thankyou-text {
-    font-size: ${FONTSIZES.lg};
-    font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
-    margin: 0;
-    padding: 2.4rem 0rem 1.7rem 4rem;
-  }
-`;
+function ThankYou() {
+  return (
+    <ThankYouWrapper>
+      <Card  className='thankyou-card'>
+        <p className="thankyou-text">Thank You</p>
+        <ThankYouBody>
+          <ThankyouCard>
+            <div className="card-left">
+              <DPIconThankYou />
+              <div className="card-text">
+                <p className="card-text__one">Contacts Who Donated this year</p>
+                <p className="card-text__two">
+                  Donors (2021) are contacts who have made a monetary
+                  contribution to your organization, at least one, in 2021.
+                </p>
+              </div>
+            </div>
+            <div className="card-right">
+              <p className="contact">11 Contacts</p>
+              <Button action className="thank__btn">
+                Take Action
+              </Button>
+            </div>
+          </ThankyouCard>
+          <ThankyouCard>
+            <div className="card-left">
+              <DPIconThankYou />
+              <div className="card-text">
+                <p className="card-text__one">Contacts Who Donated this year</p>
+                <p className="card-text__two">
+                  Donors (2021) are contacts who have made a monetary
+                  contribution to your organization, at least one, in 2021.
+                </p>
+              </div>
+            </div>
+            <div className="card-right">
+              <p className="contact">11 Contacts</p>
+              <Button action className="thank__btn">
+                Take Action
+              </Button>
+            </div>
+          </ThankyouCard>
+        </ThankYouBody>
+      </Card>
+    </ThankYouWrapper>
+  );
+}
 
-export const ThankYouBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.738rem;
-  margin: 0rem 3.1rem 0rem 3.9rem;
-  padding-top: 2.4rem;
-  border-top: 1px solid ${COLORS.torquoise};
-`;
-
-export const ThankyouCard = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .card-text {
-    width: 60.2rem;
-    &__one {
-      font-size: 1.4rem;
-      margin-bottom: 0.584rem;
-    }
-    &__two {
-      font-size: 1.2rem;
-      color: ${COLORS["grey-200"]};
-    }
-  }
-  .contact {
-    color: ${COLORS.pink};
-    font-weight: ${FONTWEIGHTS.bold};
-    font-size: ${FONTSIZES.small};
-  }
-  .thank__btn {
-    width: 12.4rem;
-    font-size: ${FONTSIZES.xsmall};
-  }
-
-  .card-left {
-    display: flex;
-    justify-content: center;
-    gap: 3.2rem;
-    align-items: center;
-  }
-  .card-right {
-    display: flex;
-    justify-content: center;
-    gap: 11rem;
-    align-items: center;
-  }
-`;
+export default ThankYou;

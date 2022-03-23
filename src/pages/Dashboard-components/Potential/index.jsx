@@ -9,7 +9,7 @@ import { CardRight } from "./styles";
 function PotentialDonor() {
   return (
     <PotentialWrapper>
-      <Card>
+      <Card className='potential-card'>
         <p className="thankyou-text">October's Potential Donors</p>
         
         <PotentialBody>

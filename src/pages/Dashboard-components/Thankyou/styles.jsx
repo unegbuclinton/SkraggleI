@@ -3,7 +3,7 @@ import { FONTSIZES } from "constants/font-spec";
 import { FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
-export const PotentialWrapper = styled.div`
+export const ThankYouWrapper = styled.div`
   margin-bottom: 1.6rem;
   .thankyou-text {
     font-size: ${FONTSIZES.lg};
@@ -12,12 +12,13 @@ export const PotentialWrapper = styled.div`
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
-  .potential-card{
+
+  .thankyou-card{
     padding-bottom: 2.9em;
   }
 `;
 
-export const PotentialBody = styled.div`
+export const ThankYouBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.738rem;
@@ -26,17 +27,11 @@ export const PotentialBody = styled.div`
   border-top: 1px solid ${COLORS.torquoise};
 `;
 
-export const PotentialCard = styled.div`
+export const ThankyouCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
 
-export const CardLeft = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 3.2rem;
-  align-items: center;
   .card-text {
     width: 60.2rem;
     &__one {
@@ -48,14 +43,6 @@ export const CardLeft = styled.div`
       color: ${COLORS["grey-200"]};
     }
   }
-`;
-
-export const CardRight = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 11rem;
-  align-items: center;
-
   .contact {
     color: ${COLORS.pink};
     font-weight: ${FONTWEIGHTS.bold};
@@ -64,5 +51,18 @@ export const CardRight = styled.div`
   .thank__btn {
     width: 12.4rem;
     font-size: ${FONTSIZES.xsmall};
+  }
+
+  .card-left {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+    align-items: center;
+  }
+  .card-right {
+    display: flex;
+    justify-content: center;
+    gap: 11rem;
+    align-items: center;
   }
 `;
