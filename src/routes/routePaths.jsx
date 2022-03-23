@@ -1,15 +1,22 @@
+import DashboardLayout from 'components/layouts/DashboardLayout';
 import LogIn from 'components/molecules/LogIn/LogIn';
 import Registration from 'components/molecules/Registration/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
 import Sidebar from 'components/molecules/Sidebar';
+import TestComponent from 'components/organisms/TestComponent';
+import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 
 const routePaths = [
   {
+    path: '/',
+    element: <Link to="/"></Link>,
+  },
+  {
     path: '/login',
-    element: <LogIn />,
+    element: <TestComponent />,
   },
   {
     path: '/signup',
@@ -28,12 +35,12 @@ const routePaths = [
     element: <SendVerification />,
   },
   {
-    path: 'dashboard/*',
+    path: 'dashboard',
     element: <Dashboard />,
     children: [
       {
         path: 'smart-widget',
-        element: <Sidebar />,
+        element: <LogIn />,
       },
       {
         path: 'contact-widget',
