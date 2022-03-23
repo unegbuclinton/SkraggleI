@@ -5,7 +5,7 @@ import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { registartionSchema } from "Validation/Schema";
+import { registrationSchema } from "Validation/Schema";
 import Card from "components/atoms/Card/Card";
 
 function Registration() {
@@ -17,7 +17,7 @@ function Registration() {
       password: "",
       confirmPassword: "",
     },
-    validationSchema: registartionSchema,
+    validationSchema: registrationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },

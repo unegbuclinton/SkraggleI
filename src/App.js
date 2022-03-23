@@ -12,9 +12,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-
-import data from "utilities/filterData.json"
+import Dashboard from 'pages/Dashboard-components/Dashboard';
 
 function App() {
   let isAuthenticated = true;
@@ -44,6 +42,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
+        <Route path="/dashboard-components" element={<Dashboard />} />
       </Routes>
     </Router>
   );

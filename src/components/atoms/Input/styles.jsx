@@ -8,16 +8,15 @@ export const InputField = styled.input`
   height: 6.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
+  color: ${COLORS["grey-400"]};
   padding: 20px;
   margin-bottom: 16px;
 
-  ${({ change }) =>
-    change &&
+  ${({ disabled }) =>
+    disabled &&
     css`
       background-color: ${COLORS.torquoise};
-      ::placeholder {
-        opacity: 0.5;
-      }
+      color: ${COLORS["disabled-grey"]};
     `};
 `;
 
