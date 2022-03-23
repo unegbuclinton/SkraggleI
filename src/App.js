@@ -12,7 +12,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import LogIn from "components/molecules/LogIn/LogIn";
+import LogIn from "components/molecules/LogIn";
 
 
 function App() {
