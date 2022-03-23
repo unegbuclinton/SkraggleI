@@ -1,5 +1,5 @@
-import React from 'react';
-import { ButtonWrapper } from './styles';
+import React from "react";
+import { ButtonWrapper } from "./styles";
 
 const Button = ({ children, className, pill, large, ...rest }) => {
   return (
@@ -10,5 +10,3 @@ const Button = ({ children, className, pill, large, ...rest }) => {
 };
 
 export default Button;
-
-

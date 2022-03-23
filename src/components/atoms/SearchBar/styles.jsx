@@ -9,6 +9,7 @@ export const Form = styled.form`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: ${COLORS.white};
   border: 0.1rem solid ${COLORS["grey-400"]};
+
   /* Change width of the form depending if the bar is opened or not */
   width: ${(props) => (props.barOpened ? "30rem" : "2rem")};
   /* If bar opened, normal cursor on the whole form. If closed, show pointer on the whole form so user knows he can click to open it */
@@ -48,5 +49,9 @@ export const IconWrapper = styled.button`
   color: white;
   .search-icon {
     width: 2.01rem;
+    .icon-container {
+      width: 2.01rem;
+      height: 2rem;
+    }
   }
 `;
