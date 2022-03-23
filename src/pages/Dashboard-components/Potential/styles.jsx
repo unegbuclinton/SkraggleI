@@ -27,8 +27,13 @@ export const PotentialCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 2.9rem;
+`;
 
+export const CardLeft = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
+  align-items: center;
   .card-text {
     width: 60.2rem;
     &__one {
@@ -40,6 +45,14 @@ export const PotentialCard = styled.div`
       color: ${COLORS["grey-200"]};
     }
   }
+`;
+
+export const CardRight = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 11rem;
+  align-items: center;
+
   .contact {
     color: ${COLORS.pink};
     font-weight: ${FONTWEIGHTS.bold};
@@ -48,18 +61,5 @@ export const PotentialCard = styled.div`
   .thank__btn {
     width: 12.4rem;
     font-size: ${FONTSIZES.xsmall};
-  }
-
-  .card-left {
-    display: flex;
-    justify-content: center;
-    gap: 3.2rem;
-    align-items: center;
-  }
-  .card-right {
-    display: flex;
-    justify-content: center;
-    gap: 11rem;
-    align-items: center;
   }
 `;

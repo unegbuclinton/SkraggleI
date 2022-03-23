@@ -20,7 +20,7 @@ function FormResponse() {
     {
       name: "FORM",
       selector: (row) => row.form,
-      width: "20.33rem",
+      width: "30.33rem",
     },
     {
       name: "SUBMITTED",

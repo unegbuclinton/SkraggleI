@@ -14,7 +14,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { columns, data } from 'utilities/tableTestData';
-import Dashboard from 'components/molecules/Dashboard-components/Dashboard';
+import Dashboard from 'pages/Dashboard-components/Dashboard';
 
 function App() {
   let isAuthenticated = true;

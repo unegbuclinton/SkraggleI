@@ -3,16 +3,18 @@ import { DPIconThankYou } from "icons";
 import Button from "components/atoms/Button/Button";
 import { PotentialBody, PotentialCard, PotentialWrapper } from "./styles";
 import Card from "components/atoms/Card/Card";
+import { CardLeft } from "./styles";
+import { CardRight } from "./styles";
 
 function PotentialDonor() {
   return (
     <PotentialWrapper>
       <Card>
         <p className="thankyou-text">October's Potential Donors</p>
-
+        
         <PotentialBody>
           <PotentialCard>
-            <div className="card-left">
+            <CardLeft>
               <DPIconThankYou />
               <div className="card-text">
                 <p className="card-text__one">LYBUNTs $500+</p>
@@ -22,16 +24,16 @@ function PotentialDonor() {
                   contribute this year.
                 </p>
               </div>
-            </div>
-            <div className="card-right">
+            </CardLeft>
+            <CardRight>
               <p className="contact">11 Contacts</p>
               <Button action className="thank__btn">
                 Take Action
               </Button>
-            </div>
+            </CardRight>
           </PotentialCard>
           <PotentialCard>
-            <div className="card-left">
+            <CardLeft>
               <DPIconThankYou />
               <div className="card-text">
                 <p className="card-text__one">LYBUNTs $50-$500</p>
@@ -41,13 +43,13 @@ function PotentialDonor() {
                   yet to contribute this year
                 </p>
               </div>
-            </div>
-            <div className="card-right">
+            </CardLeft>
+            <CardRight>
               <p className="contact">11 Contacts</p>
               <Button action className="thank__btn">
                 Take Action
               </Button>
-            </div>
+            </CardRight>
           </PotentialCard>
         </PotentialBody>
       </Card>

@@ -2,7 +2,7 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import React, { useState } from "react";
 import { OverviewLeft } from "./styles";
 import { OverviewWrapper } from "./styles";
-import data from "utilities/filterData.json";
+import { datas1} from "utilities/overviewData";
 import { OverviewRight } from "./styles";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card/Card";
@@ -10,6 +10,7 @@ import { DatePicker } from "./styles";
 import DateRange from "components/molecules/DateRange";
 import { DPIconRangeIcon } from "icons";
 import { DPIconDateArrow } from "icons";
+import dayjs from "dayjs";
 
 function Overview() {
   const [filterRange, setFilterRange] = useState({
@@ -18,6 +19,8 @@ function Overview() {
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
+  const toogleoffDateRange= ()=> setDatePick (false)
+
 
   return (
     <OverviewWrapper>
@@ -30,18 +33,20 @@ function Overview() {
                 {" "}
                 <DPIconRangeIcon />
               </DatePicker>
-              <DatePicker> {filterRange.startDate.toLocaleString()}</DatePicker>
+              <DatePicker> {dayjs(filterRange.startDate).format('MMM DD YYYY')}</DatePicker>
               <DatePicker>
                 {" "}
                 <DPIconDateArrow />
               </DatePicker>
-              <DatePicker> {filterRange.endDate.toLocaleString()}</DatePicker>
+              <DatePicker> {dayjs(filterRange.startDate).format('MMM DD YYYY')}</DatePicker>
             </div>
-            <CustomDropdown data={data} />
-            <CustomDropdown data={data} />
+            <CustomDropdown data={datas1} />
+            <CustomDropdown data={datas1} />
           </div>
           {datePick && (
             <DateRange
+            onClick ={toogleoffDateRange}
+              className="date-range-picker"
               onChangeRange={(ranges) => {
                 setFilterRange(ranges);
               }}

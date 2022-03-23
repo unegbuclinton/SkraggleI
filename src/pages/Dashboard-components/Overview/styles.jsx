@@ -18,6 +18,7 @@ export const OverviewWrapper = styled.div`
 `;
 
 export const OverviewLeft = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 5.5rem;
@@ -33,13 +34,15 @@ export const OverviewLeft = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     padding: 1.4rem 2.1rem 1.4rem 1.8rem;
     gap: 1rem;
     border: 1px solid ${COLORS["porcelain-white"]};
   }
 
-  .date-range__picker {
+  .date-range-picker {
     position: absolute;
+    top: 5rem;
     left: 0;
   }
 `;
@@ -51,8 +54,6 @@ export const OverviewRight = styled.div`
 `;
 
 export const DatePicker = styled.span`
-font-size: ${FONTSIZES.xsmall}
-
-
-
+  font-size: ${FONTSIZES.xsmall};
+  color: ${COLORS["grey-100"]};
 `;
