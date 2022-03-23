@@ -1,10 +1,10 @@
-import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import Registration from 'components/molecules/Registration/Registration'
-import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
+import ProgressBar from "components/atoms/ProgressBar/ProgressBar";
+import DashboardLayout from "components/layouts/DashboardLayout";
+import Registration from "components/molecules/Registration/Registration";
+import ResetPassword from "components/molecules/ResetPassword/ResetPassword";
 
-import Table from 'components/layouts/Table';
-import DateRange from 'components/molecules/DateRange';
+import Table from "components/layouts/Table";
+import DateRange from "components/molecules/DateRange";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -12,9 +12,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import LogIn from "components/molecules/LogIn/LogIn";
-import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
-import Campaign from 'pages/Campaign';
 
 function App() {
   let isAuthenticated = true;
@@ -22,7 +19,7 @@ function App() {
   const PrivateWrapper = ({ isAuthenticated }) => {
     return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
- 
+
   return (
     <Router>
       <Routes>
@@ -32,7 +29,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div style={{ width: '100%', height: '100vh', padding: '5rem' }}>
+            <div style={{ width: "100%", height: "100vh", padding: "5rem" }}>
               {/* <Table data={data} columns={columns} isSelectable /> */}
               <DateRange />
             </div>
