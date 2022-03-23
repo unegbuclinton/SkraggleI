@@ -12,6 +12,10 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import LogIn from "components/molecules/LogIn/LogIn";
+import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
+import Campaign from "pages/Campaign";
+import { columns, data } from 'utilities/tableTestData';
 
 function App() {
   let isAuthenticated = true;

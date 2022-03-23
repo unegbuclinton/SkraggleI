@@ -34,5 +34,7 @@ export const ButtonWrapper = styled.button`
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
       color: ${COLORS.white};
-    `};
+
+      margin-bottom: 5.6rem;
+    `};  
 `;
