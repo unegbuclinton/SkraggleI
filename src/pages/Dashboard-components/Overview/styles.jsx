@@ -43,7 +43,7 @@ export const OverviewLeft = styled.div`
   .date-range-picker {
     position: absolute;
     top: 5rem;
-    left: 0;
+    left: 13rem;
   }
 `;
 export const OverviewRight = styled.div`

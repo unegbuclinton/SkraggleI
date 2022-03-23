@@ -2,7 +2,7 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import React, { useState } from "react";
 import { OverviewLeft } from "./styles";
 import { OverviewWrapper } from "./styles";
-import { datas1} from "utilities/overviewData";
+import { datas1 } from "utilities/overviewData";
 import { OverviewRight } from "./styles";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card/Card";
@@ -12,15 +12,13 @@ import { DPIconRangeIcon } from "icons";
 import { DPIconDateArrow } from "icons";
 import dayjs from "dayjs";
 
-function Overview() {
+function Overview() { 
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
-  const toogleoffDateRange= ()=> setDatePick (false)
-
 
   return (
     <OverviewWrapper>
@@ -33,19 +31,26 @@ function Overview() {
                 {" "}
                 <DPIconRangeIcon />
               </DatePicker>
-              <DatePicker> {dayjs(filterRange.startDate).format('MMM DD YYYY')}</DatePicker>
+              <DatePicker>
+                {" "}
+                {dayjs(filterRange.startDate).format("MMM DD YYYY")}
+              </DatePicker>
               <DatePicker>
                 {" "}
                 <DPIconDateArrow />
               </DatePicker>
-              <DatePicker> {dayjs(filterRange.startDate).format('MMM DD YYYY')}</DatePicker>
+              <DatePicker>
+                {" "}
+                {dayjs(filterRange.endDate).format("MMM DD YYYY")}
+              </DatePicker>
             </div>
             <CustomDropdown data={datas1} />
             <CustomDropdown data={datas1} />
           </div>
           {datePick && (
             <DateRange
-            onClick ={toogleoffDateRange}
+              open={datePick}
+              toggle={toogleDateRange}
               className="date-range-picker"
               onChangeRange={(ranges) => {
                 setFilterRange(ranges);
