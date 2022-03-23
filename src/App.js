@@ -1,13 +1,10 @@
-import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import Registration from 'components/molecules/Registration/Registration'
-import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import ProgressBar from "components/atoms/ProgressBar/ProgressBar";
+import DashboardLayout from "components/layouts/DashboardLayout";
+import Registration from "components/molecules/Registration/Registration";
+import ResetPassword from "components/molecules/ResetPassword/ResetPassword";
 
-import data from 'utilities/filterData.json'
-
-import Table from 'components/layouts/Table';
-import DateRange from 'components/molecules/DateRange';
+import Table from "components/layouts/Table";
+import DateRange from "components/molecules/DateRange";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -15,6 +12,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import LogIn from "components/molecules/LogIn";
 import Dashboard from 'pages/Dashboard-components/Dashboard';
 
 function App() {
@@ -23,7 +21,7 @@ function App() {
   const PrivateWrapper = ({ isAuthenticated }) => {
     return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   };
- 
+
   return (
     <Router>
       <Routes>
@@ -33,7 +31,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div style={{ width: '100%', height: '100vh', padding: '5rem' }}>
+            <div style={{ width: "100%", height: "100vh", padding: "5rem" }}>
               {/* <Table data={data} columns={columns} isSelectable /> */}
               <DateRange />
             </div>
@@ -44,12 +42,8 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />} />
         </Route>
         <Route path="*" element={<div>Not Found</div>} />
-
-
+        <Route path="/login" element={<LogIn />} />
         <Route path="/dashboard-components" element={<Dashboard />} />
-        <Route path="/drop" element={<CustomDropdown data={data}/>} />
-
-
       </Routes>
     </Router>
   );

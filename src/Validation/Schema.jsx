@@ -17,3 +17,12 @@ export const resetSchema =Yup.object({
   email: Yup.string().email("invalid Mail").required("Email is Required"),
   password: Yup.string().required('Password is required').matches(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,'Password is not strong')
 })
+
+export const loginSchema =Yup.object({
+  email: Yup.string().email("Invalid Email").required("Email is Required"),
+  password: Yup.string().required('Password is Required')
+})
+
+export const forgotPasswordSchema =Yup.object({
+  email: Yup.string().email("Invalid Email").required("Email is Required"),
+})
