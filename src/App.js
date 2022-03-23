@@ -12,8 +12,8 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import LogIn from "components/molecules/LogIn/LogIn";
-import ForgotPassword from "components/molecules/ForgotPassword/ForgotPassword";
+import LogIn from "components/molecules/LogIn";
+import ForgotPassword from "components/molecules/ForgotPassword";
 import Campaign from "pages/Campaign";
 import { columns, data } from 'utilities/tableTestData';
 import Dashboard from 'pages/Dashboard-components/Dashboard';
