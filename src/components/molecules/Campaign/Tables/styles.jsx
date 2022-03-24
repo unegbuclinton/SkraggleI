@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
+import Card from "components/atoms/Card/Card";
+
+export const ContainerBody = styled(Card)`
+  margin-top: 1.6rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  padding-bottom: 9rem;
+`
+
 export const TableWrapper = styled.div`
   .campaign-table {
     margin-top: 1.6rem;
@@ -123,7 +132,6 @@ export const TableHeaderWrapper = styled.div`
 export const Box = styled.input`
   width: 1.5rem;
   height: 1.5rem;
-  /* background-color: ${COLORS.torquoise}; */
 `;
 
 export const ArchiveWrapper = styled.div`

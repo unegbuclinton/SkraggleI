@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { CampaignForm } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { ContainerBody, TableWrapper, TableHeaderWrapper, Box } from "./styles";
 
 const FormsTable = () => {
   const columns = [
@@ -62,6 +62,7 @@ const FormsTable = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+    <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -87,6 +88,7 @@ const FormsTable = () => {
         onRowClicked={onRowClicked}
       />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

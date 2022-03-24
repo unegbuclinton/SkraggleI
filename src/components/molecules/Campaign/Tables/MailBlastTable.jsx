@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { mailBlastData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
 
 const MailBlastTable = () => {
   const columns = [
@@ -60,6 +60,7 @@ const MailBlastTable = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+    <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -81,6 +82,7 @@ const MailBlastTable = () => {
       </TableHeaderWrapper>
       <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { P2PForm } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
 
 const P2PTable = () => {
   const columns = [
@@ -62,6 +62,7 @@ const P2PTable = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+    <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -87,6 +88,7 @@ const P2PTable = () => {
         onRowClicked={onRowClicked}
       />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

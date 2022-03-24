@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { EventsData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
 
 const EventsTable = () => {
   const columns = [
@@ -23,7 +23,7 @@ const EventsTable = () => {
     },
     {
       name: "ID",
-      selector: (row) => row.id,
+      selector: (row) => row.uid,
       width: "20rem",
     },
 
@@ -46,7 +46,7 @@ const EventsTable = () => {
 
   const data = EventsData.map((d, index) => ({
     key: index,
-    id: d.id,
+    uid: d.uid,
     name: d.name,
     campaign: d.campaign,
     status: d.status,
@@ -58,6 +58,7 @@ const EventsTable = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+    <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -79,6 +80,7 @@ const EventsTable = () => {
       </TableHeaderWrapper>
       <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

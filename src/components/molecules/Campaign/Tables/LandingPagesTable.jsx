@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { landingPagesData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
 
 const LandingPagesTable = () => {
   const columns = [
@@ -23,7 +23,7 @@ const LandingPagesTable = () => {
     },
     {
       name: "ID",
-      selector: (row) => row.id,
+      selector: (row) => row.uid,
       width: "20rem",
     },
 
@@ -68,7 +68,7 @@ const LandingPagesTable = () => {
 
   const data = landingPagesData.map((d, index) => ({
     key: index,
-    id: d.id,
+    uid: d.uid,
     name: d.name,
     campaign: d.campaign,
     type: d.type,
@@ -82,6 +82,7 @@ const LandingPagesTable = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+  <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -103,6 +104,7 @@ const LandingPagesTable = () => {
       </TableHeaderWrapper>
       <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

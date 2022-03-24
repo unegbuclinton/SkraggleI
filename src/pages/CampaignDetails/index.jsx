@@ -11,6 +11,7 @@ import LandingPagesTable from "components/molecules/Campaign/Tables/LandingPages
 import MailBlastTable from "components/molecules/Campaign/Tables/MailBlastTable";
 
 import Tabs from "components/atoms/Tabs";
+import CampaignOverview from "components/molecules/Campaign/OverviewComponent";
 
 const CampaignDetails = () => {
   const links = [
@@ -65,14 +66,15 @@ const CampaignDetails = () => {
         itemActive="link__item__active"
         normalLink="each__link"
       />
-      <CampaignBody>
-        {active === 2 &&  <FormsTable/>}
-        {active === 3 &&  <P2PTable/>}
-        {active === 4 &&  <ElementsTable/>}
-        {active === 5 &&  <EventsTable/>}
-        {active === 6 &&  <LandingPagesTable/>}
-        {active === 7 &&  <MailBlastTable/>}
-      </CampaignBody>
+
+      {active === 1 && <CampaignOverview />}
+      {active === 2 && <FormsTable />}
+      {active === 3 && <P2PTable />}
+      {active === 4 && <ElementsTable />}
+      {active === 5 && <EventsTable />}
+      {active === 6 && <LandingPagesTable />}
+      {active === 7 && <MailBlastTable />}
+      
     </DashboardLayout>
   );
 };
