@@ -1,12 +1,10 @@
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import Registration from 'components/molecules/Registration/Registration'
-import ResetPassword from 'components/molecules/ResetPassword/ResetPassword'
+import Registration from 'components/molecules/Registration'
+import ResetPassword from 'components/molecules/ResetPassword'
 import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 
-import data from 'utilities/filterData.json'
 
-import Table from 'components/layouts/Table';
 import DateRange from 'components/molecules/DateRange';
 import {
   BrowserRouter as Router,
@@ -16,6 +14,8 @@ import {
   Routes,
 } from "react-router-dom";
 import Dashboard from 'pages/Dashboard-components/Dashboard';
+import SetRevenueModal from 'pages/modals/SetRevenueModal';
+import WidgetModal from 'pages/modals/WidgetModal';
 
 function App() {
   let isAuthenticated = true;
@@ -47,8 +47,9 @@ function App() {
 
 
         <Route path="/dashboard-components" element={<Dashboard />} />
-        <Route path="/drop" element={<CustomDropdown data={data}/>} />
-
+        <Route path="/set-revenue" element={<SetRevenueModal/>} />
+        <Route path="/widgets" element={<WidgetModal/>} />
+     
 
       </Routes>
     </Router>

@@ -14,7 +14,7 @@ export const NavWrapper = styled.div`
 `;
 
 export const Navlinks = styled(NavLink)`
-  text-decoration: none;
+  /* text-decoration: none;
   height: 3.2rem;
   margin-left: 9.5rem;
   margin-top: 3.2rem;
@@ -27,5 +27,5 @@ export const Navlinks = styled(NavLink)`
 
   &.active {
     border-bottom: 2px solid red;
-  }
+  } */
 `;
