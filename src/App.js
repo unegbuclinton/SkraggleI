@@ -18,12 +18,6 @@ import SetRevenueModal from 'pages/modals/SetRevenueModal';
 import WidgetModal from 'pages/modals/WidgetModal';
 
 function App() {
-  let isAuthenticated = true;
-
-  const PrivateWrapper = ({ isAuthenticated }) => {
-    return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
-  };
- 
   return (
     <Router>
       <Routes>
@@ -52,6 +46,7 @@ function App() {
      
 
       </Routes>
+      <Routing />
     </Router>
   );
 }
