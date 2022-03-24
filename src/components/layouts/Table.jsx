@@ -26,11 +26,11 @@ const TableWrapper = styled.div`
   .rdt_ {
     &TableRow {
       height: 6.2rem;
-      border: 0.0852273px solid ${COLORS["porcelain-white"]};
+      border: 0.0852273px solid ${COLORS['porcelain-white']};
       border-top: 0;
 
       :first-of-type {
-        border-top: 0.0852273px solid ${COLORS["porcelain-white"]};
+        border-top: 0.0852273px solid ${COLORS['porcelain-white']};
       }
     }
     &TableHeadRow {

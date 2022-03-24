@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { TabLinksWrapper } from "./styles";
-import DashboardLayout from "components/layouts/DashboardLayout";
 import ContactsTable from "components/molecules/Contacts/ContactsTable";
 import { Link } from "react-router-dom";
 import CompaniesTable from "components/molecules/Contacts/CompaniesTable";
 
+import DashboardLayout from "components/layouts/DashboardLayout";
+
 const Contacts = () => {
   const links = [
     {
-      path: "/contacts",
+      path: "contacts",
       label: "Contacts",
       exact: "true",
     },
     {
-      path: "/contact",
+      path: "contact",
       label: "companies",
       exact: "true",
     },
@@ -42,7 +43,7 @@ const Contacts = () => {
         ))}
       </TabLinksWrapper>
       <ContactsTable />
-      {active === 0 && <CompaniesTable />}
+      {/* {active === 0 && <CompaniesTable />} */}
     </DashboardLayout>
   );
 };
