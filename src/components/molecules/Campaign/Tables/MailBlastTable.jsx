@@ -46,12 +46,12 @@ const MailBlastTable = () => {
     },
   ];
 
-  const data = mailBlastData.map((d, index) => ({
+  const data = mailBlastData.map((data, index) => ({
     key: index,
-    name: d.name,
-    assignee: d.assignee,
-    type: d.type,
-    status: d.status,
+    name: data.name,
+    assignee: data.assignee,
+    type: data.type,
+    status: data.status,
   }));
 
   const onRowClicked = (row, event) => {

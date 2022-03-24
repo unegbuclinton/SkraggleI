@@ -66,14 +66,14 @@ const LandingPagesTable = () => {
     },
   ];
 
-  const data = landingPagesData.map((d, index) => ({
+  const data = landingPagesData.map((data, index) => ({
     key: index,
-    uid: d.uid,
-    name: d.name,
-    campaign: d.campaign,
-    type: d.type,
-    action: d.action,
-    advance: d.advance,
+    uid: data.uid,
+    name: data.name,
+    campaign: data.campaign,
+    type: data.type,
+    action: data.action,
+    advance: data.advance,
   }));
 
   const onRowClicked = (row, event) => {

@@ -5,21 +5,25 @@ import Card from "components/atoms/Card/Card";
 
 export const MainWrapper =styled.div`
 display: flex;
-flex-direction: row;
 margin-top: 1.6rem;
 `
 
 export const LeftSection = styled(Card)`
 display: flex;
-height: 400px;
+flex-direction: row;
+justify-content: right;
 flex-grow: 3;
-background-color: red;
 margin-right: 1.6rem;
+
+.action-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color: red;
+}
 `
 
 export const RightSection = styled(Card)`
 display: flex;
 flex-grow: 8;
-height: 400px;
-background-color: green;
 `
