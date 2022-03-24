@@ -53,14 +53,14 @@ const ElementsTable = () => {
     },
   ];
 
-  const data = ElementsData.map((data, index) => ({
+  const data = ElementsData.map((elementsData, index) => ({
     key: index,
-    uid: data.uid,
-    name: data.name,
-    type: data.type,
-    campaign: data.campaign,
-    statistics:data.statistics,
-    lastseen:data.lastseen,
+    uid: elementsData.uid,
+    name: elementsData.name,
+    type: elementsData.type,
+    campaign: elementsData.campaign,
+    statistics:elementsData.statistics,
+    lastseen:elementsData.lastseen,
   }));
 
   const onRowClicked = (row, event) => { console.log(row,event) };

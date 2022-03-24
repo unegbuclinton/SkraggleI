@@ -43,12 +43,12 @@ const CampaignTable = () => {
     },
   ];
 
-  const data = TableContacts.map((data, index) => ({
+  const data = TableContacts.map((Campaigndata, index) => ({
     key: index,
-    created: data.created,
-    campaign: data.campaign,
-    goals: data.goals,
-    status: data.status,
+    created: Campaigndata.created,
+    campaign: Campaigndata.campaign,
+    goals: Campaigndata.goals,
+    status: Campaigndata.status,
   }));
 
   

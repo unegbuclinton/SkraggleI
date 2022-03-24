@@ -49,13 +49,13 @@ const FormsTable = () => {
     },  
   ];
 
-  const data = CampaignForm.map((data, index) => ({
+  const data = CampaignForm.map((campaignData, index) => ({
     key: index,
-    name: data.name,
-    type: data.type,
-    raised: data.raised,
-    donations: data.donations,
-    status:data.status
+    name: campaignData.name,
+    type: campaignData.type,
+    raised: campaignData.raised,
+    donations: campaignData.donations,
+    status:campaignData.status
   }));
 
   const onRowClicked = (row, event) => { console.log(row,event) };

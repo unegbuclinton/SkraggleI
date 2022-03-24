@@ -44,12 +44,12 @@ const EventsTable = () => {
     },
   ];
 
-  const data = EventsData.map((data, index) => ({
+  const data = EventsData.map((eventsData, index) => ({
     key: index,
-    uid: data.uid,
-    name: data.name,
-    campaign: data.campaign,
-    status: data.status,
+    uid: eventsData.uid,
+    name: eventsData.name,
+    campaign: eventsData.campaign,
+    status: eventsData.status,
   }));
 
   const onRowClicked = (row, event) => {

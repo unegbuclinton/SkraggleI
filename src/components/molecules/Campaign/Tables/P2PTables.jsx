@@ -49,13 +49,13 @@ const P2PTable = () => {
     },  
   ];
 
-  const data = P2PForm.map((data, index) => ({
+  const data = P2PForm.map((p2pData, index) => ({
     key: index,
-    name: data.name,
-    type: data.type,
-    raised: data.raised,
-    donations: data.donations,
-    status:data.status
+    name: p2pData.name,
+    type: p2pData.type,
+    raised: p2pData.raised,
+    donations: p2pData.donations,
+    status:p2pData.status
   }));
 
   const onRowClicked = (row, event) => { console.log(row,event) };
