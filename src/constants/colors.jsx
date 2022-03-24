@@ -1,5 +1,6 @@
 export const COLORS = {
   white: '#FFFFFF',
+  daisy: '#F2F2F2',
   black: '#000000',
   deepPurple: '#1E003E',
   pink: '#FF576B',
@@ -20,7 +21,9 @@ export const COLORS = {
   'blue-black': '#1E003E',
   "blue-200": "#0F699B",
   'shim-black': 'rgba(0, 0, 0, 0.79)',
+  'moore-grey': '#9A9AA9',
   'disabled-grey': '#9A9A9A',
+  'graph-label-grey': '#BBBBBB',
   'date-highlight-bg': '#F3F3FA',
   'black-shade':'#2E2E2E'
 };
