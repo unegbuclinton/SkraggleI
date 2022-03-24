@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
 
 import DashboardLayout from "components/layouts/DashboardLayout";
 import { CampaignBody } from "./styles";
@@ -21,7 +20,7 @@ const Campaign = () => {
     },
   ];
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(1);
 
   const handleActive = (e) => {
     setActive(Number(e.target.id));
@@ -29,15 +28,13 @@ const Campaign = () => {
 
   return (
     <DashboardLayout>
-        <Tabs
-          data={links}
-          active={active}
-          onClick={handleActive}
-          itemActive="link__item__active"
-          normalLink="each__link"
-        >
-        </Tabs>
-
+      <Tabs
+        data={links}
+        active={active}
+        onClick={handleActive}
+        itemActive="link__item__active"
+        normalLink="each__link"
+      />
       <CampaignBody>
         {active === 1 && <CampaignTable />}
         {active === 2 && <ArchiveTable />}

@@ -1,7 +1,5 @@
 import { React, useState } from "react";
 
-import { useNavigate, useHistory, useParams, generatePath } from "react-router-dom";
-
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
@@ -10,66 +8,62 @@ import Modal from "components/layouts/Modal";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
-import { TableContacts } from "utilities/campaigndata";
+
+import { mailBlastData } from "utilities/campaigndata";
 
 import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
 
-const CampaignTable = () => {
+const MailBlastTable = () => {
   const columns = [
     {
       name: " ",
       cell: () => <Box type="checkbox"></Box>,
-      ignoreRowClick:false,
+      ignoreRowClick: false,
       width: "5rem",
     },
     {
-      name: "CREATED",
-      selector: (row) => row.created,
+      name: "NAME",
+      selector: (row) => row.name,
       width: "20rem",
     },
 
     {
-      name: "CAMPAIGN",
-      selector: (row) => row.campaign,
+      name: "ASSIGNEE",
+      selector: (row) => row.assignee,
+      cell: (col) => 
+      <span>Tillie Mendoza</span>,
+      width: "45rem",
+    },
+    {
+      name: "TYPE",
+      selector: (row) => row.type,
+      width: "30rem",
     },
     {
       name: "STATUS",
       selector: (row) => row.status,
       cell: (col) => <Button className="table-button">Active</Button>,
     },
-    {
-      name: "FUNDRAISING GOALS",
-      selector: (row) => row.goals,
-    },
   ];
 
-  const data = TableContacts.map((d, index) => ({
+  const data = mailBlastData.map((d, index) => ({
     key: index,
-    created: d.created,
-    campaign: d.campaign,
-    goals: d.goals,
+    name: d.name,
+    assignee: d.assignee,
+    type: d.type,
     status: d.status,
   }));
 
-  
-  const [id, setId] = useState();
-  let navigate = useNavigate();
-
-
   const onRowClicked = (row, event) => {
-    setId(row.key);
-    id && navigate(generatePath("/campaign/:id", {id}))
-    console.log(row.key)
-   };
+    console.log(row, event);
+  };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-
   return (
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
-          <h1>15 Campaigns</h1>
+          <h1>34 Events</h1>
         </div>
 
         <div className="table-header__right">
@@ -80,18 +74,14 @@ const CampaignTable = () => {
             onClick={() => setModalIsOpen(true)}
           >
             <DPPlusIcon className="plus-icon" />
-            New Campaign
+            Create New
           </Button>
           <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
-      <Table
-        columns={columns}
-        data={data}
-        onRowClicked={onRowClicked}
-      />
+      <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
   );
 };
 
-export default CampaignTable;
+export default MailBlastTable;

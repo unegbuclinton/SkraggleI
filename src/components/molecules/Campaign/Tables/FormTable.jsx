@@ -1,7 +1,5 @@
 import { React, useState } from "react";
 
-import { useNavigate, useHistory, useParams, generatePath } from "react-router-dom";
-
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
@@ -10,11 +8,12 @@ import Modal from "components/layouts/Modal";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
-import { TableContacts } from "utilities/campaigndata";
+
+import { CampaignForm } from "utilities/campaigndata";
 
 import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
 
-const CampaignTable = () => {
+const FormsTable = () => {
   const columns = [
     {
       name: " ",
@@ -23,53 +22,50 @@ const CampaignTable = () => {
       width: "5rem",
     },
     {
-      name: "CREATED",
-      selector: (row) => row.created,
-      width: "20rem",
+      name: "FORM NAME",
+      selector: (row) => row.name,
+      width: "35rem",
     },
 
     {
-      name: "CAMPAIGN",
-      selector: (row) => row.campaign,
+      name: "FORM TYPE",
+      selector: (row) => row.type,
+      width: "20rem",
+    },
+    {
+        name: "RAISED",
+        selector: (row) => row.raised,
+      width: "20rem",
+    },
+    {
+        name: "DONATIONS",
+        selector: (row) => row.donations,
+      width: "35rem",
     },
     {
       name: "STATUS",
       selector: (row) => row.status,
       cell: (col) => <Button className="table-button">Active</Button>,
-    },
-    {
-      name: "FUNDRAISING GOALS",
-      selector: (row) => row.goals,
-    },
+    },  
   ];
 
-  const data = TableContacts.map((d, index) => ({
+  const data = CampaignForm.map((d, index) => ({
     key: index,
-    created: d.created,
-    campaign: d.campaign,
-    goals: d.goals,
-    status: d.status,
+    name: d.name,
+    type: d.type,
+    raised: d.raised,
+    donations: d.donations,
+    status:d.status
   }));
 
-  
-  const [id, setId] = useState();
-  let navigate = useNavigate();
-
-
-  const onRowClicked = (row, event) => {
-    setId(row.key);
-    id && navigate(generatePath("/campaign/:id", {id}))
-    console.log(row.key)
-   };
+  const onRowClicked = (row, event) => { console.log(row,event) };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-
   return (
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
-          <h1>15 Campaigns</h1>
+          <h1>88 Forms</h1>
         </div>
 
         <div className="table-header__right">
@@ -80,7 +76,7 @@ const CampaignTable = () => {
             onClick={() => setModalIsOpen(true)}
           >
             <DPPlusIcon className="plus-icon" />
-            New Campaign
+            Create New
           </Button>
           <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
@@ -94,4 +90,4 @@ const CampaignTable = () => {
   );
 };
 
-export default CampaignTable;
+export default FormsTable;

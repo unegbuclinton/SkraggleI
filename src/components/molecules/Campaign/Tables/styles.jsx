@@ -16,6 +16,61 @@ export const TableWrapper = styled.div`
     color: #00913a;
     text-align: center;
     line-height: 140%;
+
+    &__clone {
+      font-size: ${FONTSIZES.xsmall};
+      line-height: 1.4rem;
+      width: 4rem;
+      height: 3rem;
+      margin-right: 4.6rem;
+      background-color: ${COLORS.white};
+      color: ${COLORS.black};
+      border: none;
+      text-align: center;
+    }
+    &__edit {
+      font-size: ${FONTSIZES.xsmall};
+      line-height: 1.4rem;
+      width: 4rem;
+      height: 3rem;
+      margin-right: 4.6rem;
+      background-color: ${COLORS.white};
+      color: ${COLORS.black};
+      border: none;
+      text-align: center;
+    }
+    &__remove {
+      font-size: ${FONTSIZES.xsmall};
+      line-height: 1.4rem;
+      width: 4rem;
+      height: 3rem;
+      background-color: ${COLORS.white};
+      color: ${COLORS.pink};
+      border: none;
+      text-align: center;
+    }
+    &__view {
+      font-size: ${FONTSIZES.xsmall};
+      line-height: 1.4rem;
+      margin-right: 4.5rem;
+      width: 4rem;
+      height: 3rem;
+      color: rgba(0,0,0,1);
+      background-color: ${COLORS.white};
+      border: none;
+      text-align: center;
+    }
+    &__testing {
+      font-size: ${FONTSIZES.xsmall};
+      line-height: 1.4rem;
+      margin-right: 4.5rem;
+      width: 7rem;
+      height: 3rem;
+      color: rgba(0,0,0,1);
+      background-color: ${COLORS.white};
+      border: none;
+      text-align: center;
+    }
   }
 `;
 
@@ -70,7 +125,6 @@ export const Box = styled.input`
   height: 1.5rem;
   /* background-color: ${COLORS.torquoise}; */
 `;
-
 
 export const ArchiveWrapper = styled.div`
   display: flex;
