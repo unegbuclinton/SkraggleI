@@ -46,7 +46,7 @@ const routePaths = [
     element: <Outlet />,
     children: [
       {
-        path: 'Dashboard',
+        path: '/',
         element: <Dashboard />,
       },
       {
