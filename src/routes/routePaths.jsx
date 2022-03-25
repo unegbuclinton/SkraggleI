@@ -3,7 +3,7 @@ import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import Tab from 'components/molecules/Tab';
+import Tab from 'components/molecules/Tabs';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import Donations from 'pages/Donations';
@@ -87,10 +87,6 @@ const routePaths = [
     path: '/test',
     element: <Tab tabs={tabs} />,
   },
-  // {
-  //   path: '/*',
-  //   element: <CampaignDetails />,
-  // },
 ];
 
 export default routePaths;
