@@ -1,3 +1,4 @@
+import Tab from 'components/atoms/Tab';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
@@ -6,11 +7,15 @@ import SendVerification from 'components/molecules/sendVerification/SendVerifica
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import { Link, Outlet } from 'react-router-dom';
-
+const data = [
+  { title: 'Campaigns', component: <h2>Content One renders here!</h2> },
+  { title: 'Archive', component: <h2>Content Two renders here!</h2> },
+  { title: 'Forms', component: <h2>Content Three renders here!</h2> },
+];
 const routePaths = [
   {
     path: '/',
-    element: <Link to="/"></Link>,
+    element: <Link to="/login">Go to Login</Link>,
   },
   {
     path: '/login',
@@ -56,13 +61,17 @@ const routePaths = [
     ],
   },
   {
-    path:'/campaign',
-    element: <Campaign/>
+    path: '/campaign',
+    element: <Campaign />,
+  },
+  {
+    path: '/test',
+    element: <Tab tabs={data} />,
   },
   {
     path: '/*',
-    element: <CampaignDetails/>
-  }
+    element: <CampaignDetails />,
+  },
 ];
 
 export default routePaths;

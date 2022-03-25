@@ -2,7 +2,7 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import React from "react";
 import { GeneralBody, GeneralHeader, GeneralWrapper } from "./styles";
 import data from "utilities/filterData.json";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 function GeneralUpdate() {
   return (

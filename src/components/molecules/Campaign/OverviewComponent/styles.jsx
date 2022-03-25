@@ -1,4 +1,4 @@
-import Card from 'components/atoms/Card/Card';
+import Card from 'components/atoms/Card';
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
