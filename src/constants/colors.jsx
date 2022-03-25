@@ -13,6 +13,7 @@ export const COLORS = {
   'grey-200': '#626262',
   'grey-300': '#5E5E5E',
   'grey-400': '#585858',
+  'grey-cancel': '#F0F0F0',
   'gray-500': '#9A9AA9',
   'gray-1':'#333333',
   'garage-mix-grey': '#E9ECEF',

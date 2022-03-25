@@ -2,6 +2,11 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES } from "constants/font-spec";
 import styled from "styled-components";
 
+
+export const RevenueForm=styled.form`
+
+`
+
 export const SetRevenueWrapper = styled.div`
   width: 65rem;
   .revenue-card {
