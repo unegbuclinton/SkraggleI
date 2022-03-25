@@ -8,7 +8,10 @@ import { React, useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
-import { Box, TableHeaderWrapper, TableWrapper } from './styles';
+import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+import NewCampaignModal from '../NewCampaignModal';
+
+
 
 const CampaignTable = () => {
   const columns = [
@@ -59,6 +62,7 @@ const CampaignTable = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
+    <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
         <div className="table-header__left">
@@ -75,11 +79,12 @@ const CampaignTable = () => {
             <DPPlusIcon className="plus-icon" />
             New Campaign
           </Button>
-          <Modal isShown={modalIsOpen} showClose></Modal>
+          { modalIsOpen && <NewCampaignModal onClose={()=>{setModalIsOpen(false)}}/>}
         </div>
       </TableHeaderWrapper>
       <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
+    </ContainerBody>
   );
 };
 

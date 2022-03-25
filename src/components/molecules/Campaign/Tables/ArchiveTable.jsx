@@ -1,9 +1,10 @@
 import { React } from "react";
 
-import { ArchiveWrapper } from "./styles";
+import { ArchiveWrapper, ContainerBody } from "./styles";
 
 const ArchiveTable = () => {
   return (
+    <ContainerBody>
     <ArchiveWrapper className="archive-wrapper">
       <div className="archive-wrapper__box">
         <h1 className="archive-wrapper__heading">
@@ -11,6 +12,7 @@ const ArchiveTable = () => {
         </h1>
       </div>
     </ArchiveWrapper>
+    </ContainerBody>
   );
 };
 

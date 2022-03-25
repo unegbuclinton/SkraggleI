@@ -70,17 +70,27 @@ const routePaths = [
     element: <Donations />,
   },
   {
-    path: '/campaign',
-    element: <Campaign />,
+    path: 'campaign/*',
+    element: <Outlet />,
+    children:[
+      {
+        path:'/',
+        element:<Campaign/>
+      },
+      {
+        path:':id',
+        element:<CampaignDetails/>,
+      }
+    ]
   },
   {
     path: '/test',
     element: <Tab tabs={tabs} />,
   },
-  {
-    path: '/*',
-    element: <CampaignDetails />,
-  },
+  // {
+  //   path: '/*',
+  //   element: <CampaignDetails />,
+  // },
 ];
 
 export default routePaths;
