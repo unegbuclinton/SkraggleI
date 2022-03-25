@@ -1,21 +1,18 @@
 import React from "react";
-
-import { useFormik } from "formik";
-import { loginSchema } from "Validation/Schema";
-
-import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
+import Input from "components/atoms/Input/Input";
+import { Form, ErrorMsg } from "./styles";
 import Button from "components/atoms/Button/Button";
+import { useFormik } from "formik";
+import { resetSchema } from "Validation/Schema";
 import Card from "components/atoms/Card";
 
-import { FormWrapper, LoginLink, ErrorMsg } from "./styles";
-
-const LogIn = () => {
+function ResetPassword() {
   const formik = useFormik({
     initialValues: {
       password: "",
     },
-    validationSchema: loginSchema,
+    validationSchema: resetSchema,
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -23,26 +20,28 @@ const LogIn = () => {
   });
   return (
     <AuthLayout>
-      <FormWrapper onSubmit={formik.handleSubmit}>
-        <Card className="login-card">
-          <h1 className="login-card__heading">Log In</h1>
+      <Form onSubmit={formik.handleSubmit}>
+        <Card className="reset-card">
+          <p className="reset-header"> Set up your Skraggle account </p>
+          <div className="description">We will send a recovery link to</div>
           <Input
             type="text"
-            placeholder="Email"
+            disabled
+            placeholder="john@example.com"
             id="email"
             name="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
           />
-          {formik.touched.email && formik.errors.email ? (
+          {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
           <Input
-            type="password"
+            type="text"
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder="Create new password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
@@ -50,21 +49,15 @@ const LogIn = () => {
           {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.password}</ErrorMsg>
           ) : null}
-          <LoginLink className="forgot-password" to={"/forgotpassword"}>
-            Forgot Password?
-          </LoginLink>
-          <Button className="login-button">LOG IN</Button>
-          <p className="login-card__signup-link">
-            <span>Don’t have any account?</span>
-            <LoginLink className="signup" to="/sign-up">
-              {" "}
-              Sign Up
-            </LoginLink>
-          </p>
+          <div className="regpassword__btn">
+            <Button auth type="submit">
+              Log in
+            </Button>
+          </div>
         </Card>
-      </FormWrapper>
+      </Form>
     </AuthLayout>
   );
-};
+}
 
-export default LogIn;
+export default ResetPassword;
