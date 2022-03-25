@@ -1,7 +1,7 @@
-import Card from 'components/atoms/Card';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import styled from 'styled-components';
+import Card from "components/atoms/Card";
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from "styled-components";
 
 export const VerificationWrapper = styled(Card)`
   margin-top: 6.134rem;
@@ -28,7 +28,7 @@ export const VerificationWrapper = styled(Card)`
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
-      color: ${COLORS['grey-500']};
+      color: ${COLORS["grey-500"]};
       padding-top: 5.6rem;
       width: 35rem;
     }
@@ -47,7 +47,7 @@ export const VerificationWrapper = styled(Card)`
       font-weight: ${FONTWEIGHTS.bold};
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
-      color: ${COLORS['blue-200']};
+      color: ${COLORS["blue-200"]};
       padding-top: 5.6rem;
       text-align: center;
     }

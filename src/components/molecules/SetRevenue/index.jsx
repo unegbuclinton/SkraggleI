@@ -1,5 +1,5 @@
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import Switch from "components/atoms/Switch/Switch";
 import React from "react";
 import { RevenueForm } from "./styles";

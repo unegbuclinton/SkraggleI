@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
+import Card from "components/atoms/Card"
 
 function FormResponse() {
   const columns = [

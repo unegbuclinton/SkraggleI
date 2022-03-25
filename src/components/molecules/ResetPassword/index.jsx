@@ -33,7 +33,6 @@ function ResetPassword() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
-            
           />
           {formik.touched.password && formik.errors.password ? (
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
@@ -57,7 +56,7 @@ function ResetPassword() {
           </div>
         </Card>
       </Form>
-    </AuthLayout> 
+    </AuthLayout>
   );
 }
 

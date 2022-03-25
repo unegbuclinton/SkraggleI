@@ -2,7 +2,7 @@ import React from "react";
 import { MembershipBody, MembershipWrapper } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { DPIconMembership } from "icons";
-import Card from "components/atoms/Card";
+import Card from "components/atoms/Card"
 
 function Membership() {
   return (
