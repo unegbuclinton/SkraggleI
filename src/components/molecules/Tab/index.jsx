@@ -2,7 +2,7 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Card from '../Card';
+import Card from '../../atoms/Card';
 const Tab = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
