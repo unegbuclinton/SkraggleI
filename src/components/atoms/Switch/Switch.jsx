@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { SwitchInput, Label, Switched } from "./styles";
 
-function Switch({}) {
+function Switch() {
   const [toggle, setToogle] = useState(false);
   const toggleSwitch = () => {
     setToogle((prev) => !prev);
