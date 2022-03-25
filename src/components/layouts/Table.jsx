@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
-  console.log(!handleRowSelect);
 
   return (
     <TableWrapper>
