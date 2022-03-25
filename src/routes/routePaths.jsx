@@ -5,7 +5,9 @@ import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
 import TestComponent from 'components/organisms/TestComponent';
 import { Link } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import DashboardLayout from 'components/layouts/DashboardLayout';
+import Campaign from 'pages/Campaign';
+import CampaignDetails from 'pages/CampaignDetails';
 
 const routePaths = [
   {
@@ -33,8 +35,8 @@ const routePaths = [
     element: <SendVerification />,
   },
   {
-    path: 'dashboard',
-    element: <Dashboard />,
+    path: '/dashboard',
+    element: <DashboardLayout />,
     children: [
       {
         path: 'smart-widget',
@@ -50,6 +52,14 @@ const routePaths = [
       },
     ],
   },
+  {
+    path:'/campaign',
+    element: <Campaign/>
+  },
+  {
+    path: '/*',
+    element: <CampaignDetails/>
+  }
 ];
 
 export default routePaths;
