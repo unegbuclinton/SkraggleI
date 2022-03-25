@@ -10,6 +10,7 @@ import CompanyModal from "./Modals/CompanyModal/MainModal";
 function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
+
   const itemsPerPage = 5;
 
   const indexLasttList = currentPage * itemsPerPage;

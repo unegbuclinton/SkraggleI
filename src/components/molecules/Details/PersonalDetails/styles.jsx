@@ -1,4 +1,4 @@
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import { COLORS } from "constants/colors";
 import { FONTSIZES } from "constants/font-spec";
 import { FONTWEIGHTS } from "constants/font-spec";

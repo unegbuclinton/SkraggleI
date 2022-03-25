@@ -1,10 +1,10 @@
-import Card from 'components/atoms/Card/Card';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconClose } from 'icons';
-import React from 'react';
-import { createPortal } from 'react-dom';
-import styled, { css } from 'styled-components';
+import Card from "components/atoms/Card";
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { DPIconClose } from "icons";
+import React from "react";
+import { createPortal } from "react-dom";
+import styled, { css } from "styled-components";
 
 const Modal = ({
   isShown,
@@ -18,7 +18,7 @@ const Modal = ({
   ...rest
 }) => {
   const modal = (
-    <>
+    <div>
       <Backdrop onClick={hide} />
       <Wrapper rounded {...rest}>
         <Header rounded>
@@ -29,7 +29,7 @@ const Modal = ({
           {modalContent ?? children}
         </Content>
       </Wrapper>
-    </>
+    </div>
   );
 
   return isShown ? createPortal(modal, document.body) : null;
@@ -57,14 +57,14 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: ${COLORS['shim-black']};
+  background: ${COLORS["shim-black"]};
   z-index: 500;
   cursor: pointer;
 `;
 
 export const Header = styled.div`
   background-color: ${COLORS.deepPurple};
-  height: 7.2rem;
+  min-height: 7.2rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -88,7 +88,7 @@ export const Header = styled.div`
 
 export const Content = styled(Card)`
   overflow-y: auto;
-  flex: 1;
+  max-height: max-content;
   ${({ rounded }) =>
     rounded &&
     css`

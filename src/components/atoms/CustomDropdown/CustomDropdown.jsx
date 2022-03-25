@@ -1,16 +1,16 @@
-import { React } from "react";
-import { DropdownSelect, DropdownWrapper } from "./styles";
+import { React } from 'react';
+import { DropdownSelect, DropdownWrapper } from './styles';
 
 const CustomDropdown = ({ data, className, ...rest }) => {
-  let options = data.map((data) => (
-    <option key={data.id} value={data.id}>
+  let options = data.map((data, index) => (
+    <option key={data.id} value={data[index]}>
       {data.name}
     </option>
   ));
 
   return (
     <DropdownWrapper className={className} {...rest}>
-    <DropdownSelect className="select">{options}</DropdownSelect>
+      <DropdownSelect className="select">{options}</DropdownSelect>
     </DropdownWrapper>
   );
 };

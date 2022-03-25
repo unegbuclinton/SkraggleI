@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 export const ResendLinkWrapper = styled(Card)`
   margin-top: 6.134rem;

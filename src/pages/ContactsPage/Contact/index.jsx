@@ -7,63 +7,37 @@ import DashboardLayout from "components/layouts/DashboardLayout";
 import HouseHoldsTable from "components/molecules/Contacts/HouseHoldsTable";
 import TagsTable from "components/molecules/Contacts/TagsTable";
 import SegmentsTable from "components/molecules/Contacts/SegmentsTable";
+import Tab from "components/molecules/Tab";
 
 const Contacts = () => {
   const links = [
     {
-      path: "/contacts",
-      label: "Contact",
-      exact: "true",
+      title: "Contact",
+      component: <ContactsTable />,
     },
     {
-      path: "/contacts",
-      label: "companies",
-      exact: "true",
+      title: "companies",
+      component: <CompaniesTable />,
     },
     {
-      path: "/contacts",
-      label: "household",
-      exact: "true",
+      title: "household",
+      component: <HouseHoldsTable />,
     },
     {
-      path: "/contacts",
-      label: "tags",
-      exact: "true",
+      title: "tags",
+      component: <TagsTable />,
     },
     {
-      path: "/contacts",
-      label: "segment",
-      exact: "true",
+      title: "segment",
+      component: <SegmentsTable />,
     },
   ];
-
-  const [active, setActive] = useState(0);
-
-  const fireActive = (index) => {
-    setActive(index);
-    console.log(index);
-  };
 
   return (
     <DashboardLayout>
       <TabLinksWrapper>
-        {links.map((link, index) => (
-          <Link
-            onClick={() => {
-              fireActive(index);
-            }}
-            className={index === active ? "link__item__active" : "each__link"}
-            to={link.path}
-          >
-            {link.label}
-          </Link>
-        ))}
+        <Tab tabs={links} />
       </TabLinksWrapper>
-      {active === 0 && <ContactsTable />}
-      {active === 1 && <CompaniesTable />}
-      {active === 2 && <HouseHoldsTable />}
-      {active === 3 && <TagsTable />}
-      {active === 4 && <SegmentsTable />}
     </DashboardLayout>
   );
 };

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import Card from "components/atoms/Card";
 
 export const TabLinksWrapper = styled.div`
-  background-color: ${COLORS.white};
+  margin-bottom: 1.6rem;
+  /* background-color: ${COLORS.white};
   height: 8rem;
   display: flex;
   padding-left: 2.5rem;
@@ -34,5 +36,5 @@ export const TabLinksWrapper = styled.div`
     line-height: 1.7rem;
     text-align: center;
     padding-top: 1.6rem;
-  }
+  } */
 `;

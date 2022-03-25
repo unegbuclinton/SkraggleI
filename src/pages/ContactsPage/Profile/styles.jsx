@@ -10,9 +10,6 @@ export const TabLinksWrapper = styled.div`
   padding-bottom: 1.6rem;
   padding-top: 1.6rem;
   margin-bottom: 2.4rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
 
   .link__item__active {
     width: 14.4rem;

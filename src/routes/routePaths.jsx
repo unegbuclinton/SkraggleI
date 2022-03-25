@@ -1,23 +1,28 @@
 import LogIn from "components/molecules/LogIn";
-import Registration from "components/molecules/Registration/Registration";
+import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
-import ResetPassword from "components/molecules/ResetPassword/ResetPassword";
+import ResetPassword from "components/molecules/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
-import TestComponent from "components/organisms/TestComponent";
-import Contacts from "pages/ContactsPage/Contact/index";
-import { Link } from "react-router-dom";
-import Dashboard from "components/layouts/DashboardLayout";
-
+import Tab from "components/molecules/Tab";
+import Campaign from "pages/Campaign";
+import CampaignDetails from "pages/CampaignDetails";
+import Contacts from "pages/ContactsPage/Contact";
 import Profile from "pages/ContactsPage/Profile";
-
+import Donations from "pages/Donations";
+import { Link, Outlet } from "react-router-dom";
+const tabs = [
+  { title: "Campaigns", component: <h2>Content One renders here!</h2> },
+  { title: "Archive", component: <h2>Content Two renders here!</h2> },
+  { title: "Forms", component: <h2>Content Three renders here!</h2> },
+];
 const routePaths = [
   {
     path: "/",
-    element: <Link to="/"></Link>,
+    element: <Link to="/login">Go to Login</Link>,
   },
   {
     path: "/login",
-    element: <TestComponent />,
+    element: <LogIn />,
   },
   {
     path: "/signup",
@@ -36,31 +41,58 @@ const routePaths = [
     element: <SendVerification />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "dashboard/*",
+    // isPrivate: true,
+    element: <Outlet />,
     children: [
       {
-        path: "smart-widget",
+        path: "/",
+        element: <div>Dashboard</div>,
+      },
+      {
+        path: "smart",
         element: <LogIn />,
       },
       {
-        path: "contact-widget",
+        path: "contact",
         element: <SendVerification />,
       },
       {
-        path: "fundraising-widget",
+        path: "fundraising",
         element: <SendVerification />,
       },
     ],
   },
   {
-    path: "/contacts",
-    element: <Contacts />,
+    path: "contacts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Contacts />,
+      },
+    ],
   },
 
   {
     path: "/contact-profile",
     element: <Profile />,
+  },
+  {
+    path: "/donations",
+    element: <Donations />,
+  },
+  {
+    path: "/campaign",
+    element: <Campaign />,
+  },
+  {
+    path: "/test",
+    element: <Tab tabs={tabs} />,
+  },
+  {
+    // path: "/*",
+    // element: <CampaignDetails />,
   },
 ];
 
