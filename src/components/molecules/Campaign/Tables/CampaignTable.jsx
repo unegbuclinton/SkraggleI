@@ -1,55 +1,63 @@
-import { React, useState } from "react";
-
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
-import { DPPlusIcon } from "icons";
-
-import datas from "utilities/filterData";
-import TableContacts from "utilities/TableContacts.json";
-
-import { TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Modal from 'components/layouts/Modal';
+import Table from 'components/layouts/Table';
+import { DPPlusIcon } from 'icons';
+import { React, useState } from 'react';
+import { generatePath, useNavigate } from 'react-router-dom';
+import { TableContacts } from 'utilities/campaigndata';
+import datas from 'utilities/filterData';
+import { Box, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const columns = [
     {
-      name: " ",
-      cell: () =><Box type="checkbox"></Box>,
-      width: "5rem",
+      name: ' ',
+      cell: () => <Box type="checkbox"></Box>,
+      ignoreRowClick: false,
+      width: '5rem',
     },
     {
-      name: "CREATED",
+      name: 'CREATED',
       selector: (row) => row.created,
-      width: "20rem",
+      width: '20rem',
     },
 
     {
-      name: "CAMPAIGN",
+      name: 'CAMPAIGN',
       selector: (row) => row.campaign,
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
       cell: (col) => <Button className="table-button">Active</Button>,
     },
     {
-      name: "FUNDRAISING GOALS",
+      name: 'FUNDRAISING GOALS',
       selector: (row) => row.goals,
     },
   ];
 
-
-  const data = TableContacts.map((d, index) => ({
+  const data = TableContacts.map((Campaigndata, index) => ({
     key: index,
-    created: d.created,
-    campaign: d.campaign,
-    goals: d.goals,
-    status: d.status,
+    created: Campaigndata.created,
+    campaign: Campaigndata.campaign,
+    goals: Campaigndata.goals,
+    status: Campaigndata.status,
   }));
 
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [id, setId] = useState();
+  let navigate = useNavigate();
+
+  const onRowClicked = (row, event) => {
+    setId(row.key);
+    id && navigate(generatePath('/campaign/:id', { id }));
+    console.log(row.key);
+  };
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -60,20 +68,17 @@ const CampaignTable = () => {
         <div className="table-header__right">
           <CustomDropdown className="dropdown-filter" data={datas} />
           <SearchBar className="search-icon" />
-          <Button className="campaign-button" onClick={()=> setModalIsOpen(true)} >
+          <Button
+            className="campaign-button"
+            onClick={() => setModalIsOpen(true)}
+          >
             <DPPlusIcon className="plus-icon" />
             New Campaign
           </Button>
-          <Modal 
-          isShown={modalIsOpen}
-          showClose
-          >
-
-          </Modal>
-
+          <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data} onRowClicked={onRowClicked} />
     </TableWrapper>
   );
 };
