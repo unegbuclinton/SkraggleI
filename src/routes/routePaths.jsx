@@ -3,11 +3,9 @@ import Registration from 'components/molecules/Registration/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import TestComponent from 'components/organisms/TestComponent';
-import { Link } from 'react-router-dom';
-import DashboardLayout from 'components/layouts/DashboardLayout';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
+import { Link, Outlet } from 'react-router-dom';
 
 const routePaths = [
   {
@@ -16,7 +14,7 @@ const routePaths = [
   },
   {
     path: '/login',
-    element: <TestComponent />,
+    element: <LogIn />,
   },
   {
     path: '/signup',
@@ -35,19 +33,24 @@ const routePaths = [
     element: <SendVerification />,
   },
   {
-    path: '/dashboard',
-    element: <DashboardLayout />,
+    path: 'dashboard/*',
+    // isPrivate: true,
+    element: <Outlet />,
     children: [
       {
-        path: 'smart-widget',
+        path: '/',
+        element: <div>Dashboard</div>,
+      },
+      {
+        path: 'smart',
         element: <LogIn />,
       },
       {
-        path: 'contact-widget',
+        path: 'contact',
         element: <SendVerification />,
       },
       {
-        path: 'fundraising-widget',
+        path: 'fundraising',
         element: <SendVerification />,
       },
     ],

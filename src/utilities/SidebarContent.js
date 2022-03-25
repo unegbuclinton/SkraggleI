@@ -14,57 +14,57 @@ import {
 
 export const SidebarContent = [
   {
-    route: '/dashboard',
+    route: 'dashboard',
     icon: <DPIconDashboard />,
     text: 'Dashboard',
   },
   {
-    route: '/contacts',
+    route: 'contacts',
     icon: <DPIconContacts />,
     text: 'Contacts',
   },
   {
-    route: '/campaign',
+    route: 'campaign',
     icon: <DPIconCampaign />,
     text: 'Campaign',
   },
   {
-    route: '/donations',
+    route: 'donations',
     icon: <DPIconDonations />,
     text: 'Donations',
   },
   {
-    route: '/forms',
+    route: 'forms',
     icon: <DPIconForms />,
     text: 'Forms',
   },
   {
-    route: '/peer-to-peer',
+    route: 'peer-to-peer',
     icon: <DPIconP2P />,
     text: 'P2P',
   },
   {
-    route: '/events',
+    route: 'events',
     icon: <DPIconEvents />,
     text: 'Events',
   },
   {
-    route: '/landing-page',
+    route: 'landing-page',
     icon: <DPIconLandingPage />,
     text: 'Landing Page',
   },
   {
-    route: '/elements',
+    route: 'elements',
     icon: <DPIconElements />,
     text: 'Elements',
   },
   {
-    route: '/mail-blast',
+    route: 'mail-blast',
     icon: <DPIconMailBlasts />,
     text: 'Mail Blasts',
   },
   {
-    route: '/reports',
+    route: 'reports',
     icon: <DPIconReports />,
     text: 'Reports',
   },
