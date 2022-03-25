@@ -1,21 +1,5 @@
-import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import Registration from 'components/molecules/Registration'
-import ResetPassword from 'components/molecules/ResetPassword'
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-
-
-import DateRange from 'components/molecules/DateRange';
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Outlet,
-  Route,
-  Routes,
-} from "react-router-dom";
-import Dashboard from 'pages/Dashboard-components/Dashboard';
-import SetRevenueModal from 'pages/modals/SetRevenueModal';
-import WidgetModal from 'pages/modals/WidgetModal';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routing from 'routes/index';
 
 function App() {
   return (

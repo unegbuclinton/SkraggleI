@@ -1,10 +1,10 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
 
 import DashboardLayout from "components/layouts/DashboardLayout";
-import { TabLinksWrapper, CampaignBody } from "./styles";
+import { CampaignBody } from "./styles";
 import ArchiveTable from "components/molecules/Campaign/Tables/ArchiveTable";
 import CampaignTable from "components/molecules/Campaign/Tables/CampaignTable";
+import Tabs from "components/atoms/Tabs";
 
 const Campaign = () => {
   const links = [
@@ -20,34 +20,25 @@ const Campaign = () => {
     },
   ];
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(1);
 
-  const fireActive = (index) => {
-    setActive(index);
-    console.log(index);
+  const handleActive = (e) => {
+    setActive(Number(e.target.id));
   };
+
   return (
     <DashboardLayout>
-      <TabLinksWrapper>
-      {links.map((link, index) => (
-        <Link
-          onClick={() => {
-            fireActive(index);
-          }}
-          className={index === active ? "link__item__active" : "each__link"}
-          to={link.path}
-        >
-          {link.label}
-          
-        </Link>
-      ))}
-    </TabLinksWrapper>
-      
+      <Tabs
+        data={links}
+        active={active}
+        onClick={handleActive}
+        itemActive="link__item__active"
+        normalLink="each__link"
+      />
       <CampaignBody>
-        {active === 0 && <CampaignTable/>}
-        {active === 1 && <ArchiveTable/>}
+        {active === 1 && <CampaignTable />}
+        {active === 2 && <ArchiveTable />}
       </CampaignBody>
-
     </DashboardLayout>
   );
 };
