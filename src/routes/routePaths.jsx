@@ -1,3 +1,4 @@
+import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
@@ -21,6 +22,10 @@ const routePaths = [
   {
     path: '/login',
     element: <LogIn />,
+  },
+  {
+    path: '/forgotpassword',
+    element: <ForgotPassword />,
   },
   {
     path: '/signup',
