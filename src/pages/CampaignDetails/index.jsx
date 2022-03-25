@@ -1,40 +1,50 @@
-import { React, useState } from "react";
-
-import DashboardLayout from "components/layouts/DashboardLayout";
-import { CampaignBody } from "./styles";
-
-import FormsTable from "components/molecules/Campaign/Tables/FormTable";
-import P2PTable from "components/molecules/Campaign/Tables/P2PTables";
-import ElementsTable from "components/molecules/Campaign/Tables/ElementsTable";
-import EventsTable from "components/molecules/Campaign/Tables/EventsTable";
-import LandingPagesTable from "components/molecules/Campaign/Tables/LandingPagesTable";
-import MailBlastTable from "components/molecules/Campaign/Tables/MailBlastTable";
-
-import Tabs from "components/atoms/Tabs";
-import CampaignOverview from "components/molecules/Campaign/OverviewComponent";
+import Tabs from 'components/atoms/Tabs';
+import DashboardLayout from 'components/layouts/DashboardLayout';
+import CampaignOverview from 'components/molecules/Campaign/OverviewComponent';
+import ElementsTable from 'components/molecules/Campaign/Tables/ElementsTable';
+import EventsTable from 'components/molecules/Campaign/Tables/EventsTable';
+import FormsTable from 'components/molecules/Campaign/Tables/FormTable';
+import LandingPagesTable from 'components/molecules/Campaign/Tables/LandingPagesTable';
+import MailBlastTable from 'components/molecules/Campaign/Tables/MailBlastTable';
+import P2PTable from 'components/molecules/Campaign/Tables/P2PTables';
+import { React, useState } from 'react';
 
 const CampaignDetails = () => {
   const links = [
     {
-      label: "Overview",
+      path: '/campaign/*',
+      label: 'Overview',
+      // exact: 'true',
     },
     {
-      label: "Form",
+      path: '/campaign/*',
+      label: 'Form',
+      // exact: 'true',
     },
     {
-      label: "P2P",
+      path: '/campaign/*',
+      label: 'P2P',
+      // exact: 'true',
     },
     {
-      label: "Elements",
+      path: '/campaign/*',
+      label: 'Elements',
+      // exact: 'true',
     },
     {
-      label: "Events",
+      path: '/campaign/*',
+      label: 'Events',
+      // exact: 'true',
     },
     {
-      label: "Landing Page",
+      path: '/campaign/*',
+      label: 'Landing Page',
+      // exact: 'true',
     },
     {
-      label: "Mail Blasts",
+      path: '/campaign/*',
+      label: 'Mail Blasts',
+      // exact: 'true',
     },
   ];
 
@@ -60,7 +70,6 @@ const CampaignDetails = () => {
       {active === 5 && <EventsTable />}
       {active === 6 && <LandingPagesTable />}
       {active === 7 && <MailBlastTable />}
-      
     </DashboardLayout>
   );
 };

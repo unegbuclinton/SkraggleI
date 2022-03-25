@@ -7,7 +7,7 @@ export const SidebarContainer = styled.div`
   color: ${COLORS.white};
   height: 100%;
   overflow-y: auto;
-  width: 25.6rem;
+  min-width: 25.6rem;
   padding-top: 3.528rem;
 
   .sidebar__logo {
@@ -32,6 +32,7 @@ export const SidebarLinksWrapper = styled.div`
 
   .nav-link {
     color: ${COLORS.white};
+    white-space: nowrap;
     text-decoration: none;
     display: flex;
     align-items: center;

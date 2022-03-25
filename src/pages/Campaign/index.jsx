@@ -11,12 +11,12 @@ const Campaign = () => {
     {
       path: "/campaign",
       label: "Campaigns",
-      exact: "true",
+      // exact: "true",
     },
     {
       path: "/campaign",
       label: "Archive",
-      exact: "true",
+      // exact: "true",
     },
   ];
 

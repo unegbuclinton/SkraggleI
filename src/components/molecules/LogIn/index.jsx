@@ -6,7 +6,7 @@ import { loginSchema } from "Validation/Schema";
 import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 import { FormWrapper, LoginLink, ErrorMsg } from "./styles";
 
@@ -55,8 +55,7 @@ const LogIn = () => {
           </LoginLink>
           <Button className="login-button">LOG IN</Button>
           <p className="login-card__signup-link">
-            <span>
-            Don’t have any account?</span>
+            <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/sign-up">
               {" "}
               Sign Up
