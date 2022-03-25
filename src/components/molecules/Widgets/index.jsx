@@ -1,38 +1,46 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card/Card";
-import HeaderModal from "components/atoms/HeaderModal/HeaderModal";
-import Switch from "components/atoms/Switch/Switch";
 import React from "react";
-import { WidgetBtn } from "./styles";
-import { WidgetLink } from "./styles";
-import { WidgetWrapper } from "./styles";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Contacts from "../WidgetComponents/Contacts";
+import Forms from "../WidgetComponents/Forms";
+import FundRaise from "../WidgetComponents/Fundraise";
+import Projects from "../WidgetComponents/Projects";
+import SmartWidget from "../WidgetComponents/SmartWidget";
+import { WidgetBtn,WidgetWrapper } from "./styles";
 
-function Widget() {
+function Widget({onCloseWidget}) {
+  const [showWidget, setShowWidget] = useState(false);
+
+  const ChangeShowWiget = (id) => {
+    setShowWidget(id);
+  };
   const widgets = [
     {
       id: 1,
       name: "Smart Widgets",
-      path: "/widgets",
+      path: "/dashboard-components",
     },
     {
       id: 2,
       name: "Contacts",
-      path: "/widgets",
+      path: "/dashboard-components",
     },
     {
       id: 3,
       name: "Fundraising",
-      path: "/widgets",
+      path: "/dashboard-components",
     },
     {
       id: 4,
       name: "Projects",
-      path: "/project",
+      path: "/dashboard-components",
     },
     {
       id: 5,
       name: "Forms",
-      path: "/form",
+      path: "/dashboard-components"
     },
   ];
   return (
@@ -41,21 +49,31 @@ function Widget() {
         <div className="widget-container">
           <div className="widget-links">
             {widgets.map(({ name, path, id }) => (
-              <WidgetLink to={path} key={id} activeClassName="active">
+              <Link
+                onClick={() => {
+                  ChangeShowWiget(id);
+                }}
+                to={path}
+                className={id === showWidget ? "active-widget" : "non-active-widget"}
+              >
                 {name}
-              </WidgetLink>
+              </Link>
             ))}
           </div>
 
           <div className="widget-content">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio
-            accusantium aut non nostrum deserunt fugiat sapiente cumque
-            voluptatum saepe at.
+            {showWidget === 1 && <SmartWidget />}
+            {showWidget === 2 && <Contacts />}
+            {showWidget === 3 && <FundRaise />}
+            {showWidget === 4 && <Projects />}
+            {showWidget === 5 && <Forms />}
           </div>
         </div>
         <WidgetBtn>
           <div className="btn-wrapper">
-            <Button auth invert>Close</Button>
+            <Button className='widget-btn' onClick={onCloseWidget} auth invert>
+              Close
+            </Button>
           </div>
         </WidgetBtn>
       </Card>
