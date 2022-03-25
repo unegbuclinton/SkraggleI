@@ -6,8 +6,9 @@ import ResetPassword from 'components/molecules/ResetPassword/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
+import Donations from 'pages/Donations';
 import { Link, Outlet } from 'react-router-dom';
-const data = [
+const tabs = [
   { title: 'Campaigns', component: <h2>Content One renders here!</h2> },
   { title: 'Archive', component: <h2>Content Two renders here!</h2> },
   { title: 'Forms', component: <h2>Content Three renders here!</h2> },
@@ -61,12 +62,20 @@ const routePaths = [
     ],
   },
   {
+    path: '/contact',
+    element: <div>Contacts</div>,
+  },
+  {
+    path: '/donations',
+    element: <Donations />,
+  },
+  {
     path: '/campaign',
     element: <Campaign />,
   },
   {
     path: '/test',
-    element: <Tab tabs={data} />,
+    element: <Tab tabs={tabs} />,
   },
   {
     path: '/*',
