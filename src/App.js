@@ -5,7 +5,6 @@ import {
 import Routing from './routes'
 function App() {
   return (
-
     <Router>
       <Routing />
     </Router>
