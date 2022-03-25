@@ -2,7 +2,7 @@ import React from "react";
 import { DPIconThankYou } from "icons";
 import Button from "components/atoms/Button/Button";
 import { PotentialBody, PotentialCard, PotentialWrapper } from "./styles";
-import Card from "components/atoms/Card";
+import Card from "components/atoms/Card"
 import { CardLeft } from "./styles";
 import { CardRight } from "./styles";
 

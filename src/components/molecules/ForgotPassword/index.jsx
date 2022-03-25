@@ -6,7 +6,7 @@ import { forgotPasswordSchema } from "Validation/Schema";
 import AuthLayout from "components/layouts/AuthLayout";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
+import Card from "components/atoms/Card
 import { FormWrapper, ReturnLoginLink, ErrorMessage } from "./styles";
 
 const ForgotPassword = () => {

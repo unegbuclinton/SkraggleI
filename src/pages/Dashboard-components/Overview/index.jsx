@@ -5,13 +5,14 @@ import { OverviewWrapper } from "./styles";
 import { datas1 } from "utilities/overviewData";
 import { OverviewRight } from "./styles";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
+
 import { DatePicker } from "./styles";
 import DateRange from "components/molecules/DateRange";
 import { DPIconRangeIcon } from "icons";
 import { DPIconDateArrow } from "icons";
 import dayjs from "dayjs";
 import WidgetModal from "pages/modals/WidgetModal";
+import Card from "components/atoms/Card";
 
 function Overview() { 
   const [openWidget, setOpenWidget]= useState(false)

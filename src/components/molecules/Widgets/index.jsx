@@ -1,5 +1,5 @@
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
