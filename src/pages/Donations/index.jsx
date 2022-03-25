@@ -1,6 +1,7 @@
 import Tab from 'components/atoms/Tab';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import React from 'react';
+import FundraisingActivity from './Summary/FundraisingActivity';
 
 const Donations = () => {
   const tabs = [
@@ -15,6 +16,7 @@ const Donations = () => {
   return (
     <DashboardLayout>
       <Tab tabs={tabs} />
+      <FundraisingActivity />
     </DashboardLayout>
   );
 };
