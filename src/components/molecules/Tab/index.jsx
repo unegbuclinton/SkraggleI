@@ -18,7 +18,7 @@ const Tab = ({ tabs }) => {
           </TabButton>
         ))}
       </TabContainer>
-      {/* {tabs && tabs[activeTab]?.component} */}
+      {tabs && tabs[activeTab]?.component}
     </>
   );
 };
