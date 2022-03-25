@@ -1,5 +1,5 @@
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import { DPIconThankYou } from "icons";
 import React from "react";
 import { ThankYouBody, ThankyouCard, ThankYouWrapper } from "./styles";

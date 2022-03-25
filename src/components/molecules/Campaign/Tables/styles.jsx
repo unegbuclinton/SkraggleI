@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;

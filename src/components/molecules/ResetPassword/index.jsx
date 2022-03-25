@@ -5,7 +5,7 @@ import { Form, ErrorMsg } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { useFormik } from "formik";
 import { resetSchema } from "Validation/Schema";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 function ResetPassword() {
   const formik = useFormik({

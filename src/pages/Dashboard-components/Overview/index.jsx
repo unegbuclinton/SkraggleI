@@ -5,7 +5,7 @@ import { OverviewWrapper } from "./styles";
 import { datas1 } from "utilities/overviewData";
 import { OverviewRight } from "./styles";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import { DatePicker } from "./styles";
 import DateRange from "components/molecules/DateRange";
 import { DPIconRangeIcon } from "icons";

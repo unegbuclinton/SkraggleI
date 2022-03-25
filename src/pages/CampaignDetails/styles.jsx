@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 
 export const CampaignBody = styled(Card)`
   margin-top: 1.6rem;

@@ -1,5 +1,5 @@
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card/Card";
+import Card from "components/atoms/Card";
 import ProgressBar from "components/atoms/ProgressBar/ProgressBar";
 import SetRevenueModal from "pages/modals/SetRevenueModal";
 import React from "react";

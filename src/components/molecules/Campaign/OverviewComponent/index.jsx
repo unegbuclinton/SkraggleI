@@ -10,7 +10,7 @@ const CampaignOverview = () => {
     },
     {
       id: '2',
-      name: 'Add',
+    name: 'Add',
     },
     {
       id: '3',
