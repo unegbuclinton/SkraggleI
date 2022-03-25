@@ -5,9 +5,11 @@ import Pagination from "components/molecules/Pagination";
 import { TableWrapper } from "./styles";
 import TableHeader from "../TableHeader/TableHeader";
 import { useNavigate } from "react-router-dom";
+import TagsModal from "./Modals/TagsModal/mainmodal";
 
 function TagsTable() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
 
   const indexLasttList = currentPage * itemsPerPage;
@@ -25,14 +27,14 @@ function TagsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader title="Create Tag" header="64 Tags" />
+        <TableHeader title="Create Tag" header="64 Tags" setOpen={setOpen} />
         <Table
           columns={columns}
           data={currentList}
           onRowClicked={onRowClicked}
         />
       </TableWrapper>
-
+      <TagsModal isShown={open} onClose={() => setOpen(false)} />
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}

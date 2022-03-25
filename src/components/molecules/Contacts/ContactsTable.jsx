@@ -5,9 +5,11 @@ import { TableWrapper } from "./styles";
 import TableHeader from "../TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination/index";
 import { useNavigate } from "react-router-dom";
+import ContactsModal from "./Modals/ContactsModal";
 
 function ContactsTable() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
 
   const indexLasttList = currentPage * itemsPerPage;
@@ -18,7 +20,7 @@ function ContactsTable() {
 
   const navigate = useNavigate();
 
-  const onRowClicked = (row, e) => {
+  const onRowClicked = () => {
     let path = "/contact-profile";
     navigate(path);
   };
@@ -26,7 +28,12 @@ function ContactsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader title="Add Contacts" header="88 Contacts" />
+        <TableHeader
+          title="Add Contacts"
+          header="88 Contacts"
+          setOpen={setOpen}
+        />
+        <ContactsModal isShown={open} onClose={() => setOpen(false)} />
         <Table
           columns={columns}
           data={currentList}

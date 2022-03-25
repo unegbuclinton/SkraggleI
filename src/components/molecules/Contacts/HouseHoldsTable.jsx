@@ -5,9 +5,11 @@ import Pagination from "components/molecules/Pagination";
 import { useNavigate } from "react-router-dom";
 import { TableWrapper } from "./styles";
 import TableHeader from "../TableHeader/TableHeader";
+import HouseHoldModal from "./Modals/houseHoldModal/mainModal";
 
 function HouseHoldsTable() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
 
   const indexLasttList = currentPage * itemsPerPage;
@@ -25,13 +27,19 @@ function HouseHoldsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader title="Add Household" header="15 Household" />
+        <TableHeader
+          title="Add Household"
+          header="15 Household"
+          setOpen={setOpen}
+        />
         <Table
           columns={columns}
           data={currentList}
           onRowClicked={onRowClicked}
         />
       </TableWrapper>
+
+      <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
 
       <Pagination
         currentPage={currentPage}

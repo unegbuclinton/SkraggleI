@@ -6,14 +6,14 @@ import { DPIconAdd } from "icons";
 import filterData from "utilities/filterData.json";
 import { HeaderWrapper } from "./styles";
 
-function TableHeader({ title, header }) {
+function TableHeader({ title, header, setOpen }) {
   return (
     <HeaderWrapper>
       <h2>{header}</h2>
       <div className="header">
         <CustomDropdown data={filterData} />
         <SearchBar />
-        <Button className="header__header-btn">
+        <Button className="header__header-btn" onClick={() => setOpen(true)}>
           <DPIconAdd className="header__header-btn--icon" />
           {title}
         </Button>
