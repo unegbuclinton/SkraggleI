@@ -23,6 +23,4 @@ export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
 export { ReactComponent as DPIconMessage } from 'icons/svgs/message.svg';
 export { ReactComponent as DPIconRangeIcon } from 'icons/svgs/rangeIcon.svg';
 export { ReactComponent as DPIconDateArrow } from 'icons/svgs/dateArrow.svg';
-
-
-
+export { ReactComponent as DPIconTransaction } from 'icons/svgs/transaction-icon.svg';

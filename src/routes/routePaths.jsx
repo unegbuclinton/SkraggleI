@@ -57,9 +57,10 @@ const routePaths = [
     element: <Campaign/>
   },
   {
-    path: '/*',
+    path: '/campaign/*',
     element: <CampaignDetails/>
   }
+  
 ];
 
 export default routePaths;

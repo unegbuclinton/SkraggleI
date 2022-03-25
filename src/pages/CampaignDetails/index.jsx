@@ -16,39 +16,25 @@ import CampaignOverview from "components/molecules/Campaign/OverviewComponent";
 const CampaignDetails = () => {
   const links = [
     {
-      path: "/campaign/*",
       label: "Overview",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "Form",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "P2P",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "Elements",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "Events",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "Landing Page",
-      exact: "true",
     },
     {
-      path: "/campaign/*",
       label: "Mail Blasts",
-      exact: "true",
     },
   ];
 

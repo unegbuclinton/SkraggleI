@@ -57,13 +57,12 @@ const CampaignTable = () => {
 
 
   const onRowClicked = (row, event) => {
-    setId(row.key);
+    setId(row.key+1);
     id && navigate(generatePath("/campaign/:id", {id}))
     console.log(row.key)
    };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
 
   return (
     <TableWrapper>
