@@ -3,7 +3,7 @@ import TableBtn from "components/atoms/TableButton/TableBtn";
 
 
 
-export const contactsColumns = [
+export const columns = [
     {
       name: '',
       cell: () => (
@@ -37,7 +37,7 @@ export const contactsColumns = [
 
   ];
 
-  export const contactsData = [
+  export const data = [
     {
       fullName: 'Troy Barnes Sr.',
       primaryEmail: 'troybarnesthrowsfootballs@gmail.com',

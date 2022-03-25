@@ -3,24 +3,41 @@ import { TabLinksWrapper } from "./styles";
 import ContactsTable from "components/molecules/Contacts/ContactsTable";
 import { Link } from "react-router-dom";
 import CompaniesTable from "components/molecules/Contacts/CompaniesTable";
-
 import DashboardLayout from "components/layouts/DashboardLayout";
+import HouseHoldsTable from "components/molecules/Contacts/HouseHoldsTable";
+import TagsTable from "components/molecules/Contacts/TagsTable";
+import SegmentsTable from "components/molecules/Contacts/SegmentsTable";
 
 const Contacts = () => {
   const links = [
     {
-      path: "contacts",
-      label: "Contacts",
+      path: "/contacts",
+      label: "Contact",
       exact: "true",
     },
     {
-      path: "contact",
+      path: "/contacts",
       label: "companies",
+      exact: "true",
+    },
+    {
+      path: "/contacts",
+      label: "household",
+      exact: "true",
+    },
+    {
+      path: "/contacts",
+      label: "tags",
+      exact: "true",
+    },
+    {
+      path: "/contacts",
+      label: "segment",
       exact: "true",
     },
   ];
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(0);
 
   const fireActive = (index) => {
     setActive(index);
@@ -42,8 +59,11 @@ const Contacts = () => {
           </Link>
         ))}
       </TabLinksWrapper>
-      <ContactsTable />
-      {/* {active === 0 && <CompaniesTable />} */}
+      {active === 0 && <ContactsTable />}
+      {active === 1 && <CompaniesTable />}
+      {active === 2 && <HouseHoldsTable />}
+      {active === 3 && <TagsTable />}
+      {active === 4 && <SegmentsTable />}
     </DashboardLayout>
   );
 };

@@ -20,10 +20,11 @@ export { ReactComponent as DPIconSearch } from "icons/svgs/search.svg";
 export { ReactComponent as DPIconAdd } from "icons/svgs/add.svg";
 export { ReactComponent as DPIconsArrowLeft } from "icons/svgs/arrow-left.svg";
 export { ReactComponent as DPIconsArrowRight } from "icons/svgs/arrow-right.svg";
-
+export { ReactComponent as DPIconsPen } from "icons/svgs/pen.svg";
 export { ReactComponent as DPPlusIcon } from "icons/svgs/plus.svg";
 export { ReactComponent as DPIconMembership } from "icons/svgs/membership.svg";
 export { ReactComponent as DPIconThankYou } from "icons/svgs/thankyouIcon.svg";
 export { ReactComponent as DPIconMessage } from "icons/svgs/message.svg";
 export { ReactComponent as DPIconRangeIcon } from "icons/svgs/rangeIcon.svg";
 export { ReactComponent as DPIconDateArrow } from "icons/svgs/dateArrow.svg";
+export { ReactComponent as DPIconDonor } from "icons/svgs/donor.svg";

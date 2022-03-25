@@ -4,9 +4,11 @@ import ResendVerification from "components/molecules/resendVerification/ResendVe
 import ResetPassword from "components/molecules/ResetPassword/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
 import TestComponent from "components/organisms/TestComponent";
-import Contacts from "pages/ContactsPage/Index";
+import Contacts from "pages/ContactsPage/Contact/index";
 import { Link } from "react-router-dom";
 import Dashboard from "components/layouts/DashboardLayout";
+
+import Profile from "pages/ContactsPage/Profile";
 
 const routePaths = [
   {
@@ -49,15 +51,16 @@ const routePaths = [
         path: "fundraising-widget",
         element: <SendVerification />,
       },
-      {
-        path: "contacts",
-        element: <Contacts />,
-      },
     ],
   },
   {
     path: "/contacts",
     element: <Contacts />,
+  },
+
+  {
+    path: "/contact-profile",
+    element: <Profile />,
   },
 ];
 

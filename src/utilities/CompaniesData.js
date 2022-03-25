@@ -1,4 +1,3 @@
-import Button from "components/atoms/Button/Button";
 import CheckBox from "components/atoms/CheckBox/CheckBox";
 import TableBtn from "components/atoms/TableButton/TableBtn";
 
@@ -13,13 +12,13 @@ export const columns = [
     {
       name: 'COMPANY NAME',
       selector: (row) => row.companyName,
-      width: '40.2rem',
+      width: '23.769rem',
     },
 
     {
       name: 'PRIMARY PHONE',
       selector: (row) => row.primaryPhone,
-      width: '40.2rem',
+      width: '30.027rem',
     },
     {
       name: 'TAGS',

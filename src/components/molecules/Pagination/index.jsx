@@ -3,12 +3,7 @@ import { COLORS } from "constants/colors";
 import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-const Pagination = ({
-  currentPage,
-  contactsData,
-  itemsPerPage,
-  setCurrentPage,
-}) => {
+const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
@@ -16,7 +11,7 @@ const Pagination = ({
 
   const pages = [];
 
-  for (let i = 1; i <= Math.ceil(contactsData.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
     pages.push(i);
   }
 

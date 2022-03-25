@@ -75,4 +75,5 @@ export const COLORS = {
   "graph-label-grey": "#BBBBBB",
   "date-highlight-bg": "#F3F3FA",
   "black-shade": "#2E2E2E",
+  "light-pink": "#FFE9EB",
 };
