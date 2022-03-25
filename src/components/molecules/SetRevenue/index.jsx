@@ -12,7 +12,6 @@ import {
 import { useFormik } from "formik";
 
 function SetRevenueModalContent({ onClose, setValue }) {
-  console.log(typeof setValue)
   const formik = useFormik({
     initialValues: {
       monthly: "",
@@ -21,7 +20,6 @@ function SetRevenueModalContent({ onClose, setValue }) {
     },
     onSubmit: (values) => {
       setValue(values)
-
     },
   });
 

@@ -1,4 +1,4 @@
-import Tab from 'components/atoms/Tab';
+import Tab from 'components/molecules/Tab';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import React from 'react';
 import FundraisingActivity from './Summary/FundraisingActivity';

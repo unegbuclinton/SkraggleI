@@ -1,6 +1,5 @@
-import React from "react";
-import { useState } from "react";
-import { SwitchInput, Label, Switched } from "./styles";
+import React, { useState } from 'react';
+import { Label, Switched, SwitchInput } from './styles';
 
 function Switch() {
   const [toggle, setToogle] = useState(false);

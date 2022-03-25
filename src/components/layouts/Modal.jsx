@@ -64,7 +64,7 @@ export const Backdrop = styled.div`
 
 export const Header = styled.div`
   background-color: ${COLORS.deepPurple};
-  height: 7.2rem;
+  min-height: 7.2rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -88,7 +88,7 @@ export const Header = styled.div`
 
 export const Content = styled(Card)`
   overflow-y: auto;
-  flex: 1;
+  max-height: max-content;
   ${({ rounded }) =>
     rounded &&
     css`

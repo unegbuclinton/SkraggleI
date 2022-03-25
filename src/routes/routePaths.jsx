@@ -1,13 +1,12 @@
-import Tab from 'components/atoms/Tab';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
-
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
-
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
+import Tab from 'components/molecules/Tab';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
+import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
 import { Link, Outlet } from 'react-router-dom';
 const tabs = [
@@ -50,8 +49,8 @@ const routePaths = [
         element: <div>Dashboard</div>,
       },
       {
-        path: 'smart',
-        element: <LogIn />,
+        path: 'dashboard',
+        element: <Dashboard />,
       },
       {
         path: 'contact',

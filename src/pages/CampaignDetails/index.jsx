@@ -14,37 +14,37 @@ const CampaignDetails = () => {
     {
       path: '/campaign/*',
       label: 'Overview',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'Form',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'P2P',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'Elements',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'Events',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'Landing Page',
-      exact: 'true',
+      // exact: 'true',
     },
     {
       path: '/campaign/*',
       label: 'Mail Blasts',
-      exact: 'true',
+      // exact: 'true',
     },
   ];
 
