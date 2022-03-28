@@ -11,11 +11,11 @@ import DateRange from "components/molecules/DateRange";
 import { DPIconRangeIcon } from "icons";
 import { DPIconDateArrow } from "icons";
 import dayjs from "dayjs";
-import WidgetModal from "pages/modals/WidgetModal";
+import WidgetModal from "pages/Dashboard/modals/WidgetModal";
 import Card from "components/atoms/Card";
 
-function Overview() { 
-  const [openWidget, setOpenWidget]= useState(false)
+function Overview() {
+  const [openWidget, setOpenWidget] = useState(false);
 
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
@@ -32,19 +32,15 @@ function Overview() {
           <div className="overview-action__buttons">
             <div className="range-picker" onClick={toogleDateRange}>
               <DatePicker>
-                {" "}
                 <DPIconRangeIcon />
               </DatePicker>
               <DatePicker>
-                {" "}
                 {dayjs(filterRange.startDate).format("MMM DD YYYY")}
               </DatePicker>
               <DatePicker>
-                {" "}
                 <DPIconDateArrow />
               </DatePicker>
               <DatePicker>
-                {" "}
                 {dayjs(filterRange.endDate).format("MMM DD YYYY")}
               </DatePicker>
             </div>
@@ -63,8 +59,22 @@ function Overview() {
           )}
         </OverviewLeft>
         <OverviewRight>
-          <Button onClick={()=>{setOpenWidget(true)}} className="overview-btn">Manage Widgets</Button>
-          {openWidget && <WidgetModal isShown={openWidget} onCloseWidget={()=>{setOpenWidget(false)}}/>}
+          <Button
+            onClick={() => {
+              setOpenWidget(true);
+            }}
+            className="overview-btn"
+          >
+            Manage Widgets
+          </Button>
+          {openWidget && (
+            <WidgetModal
+              isShown={openWidget}
+              onCloseWidget={() => {
+                setOpenWidget(false);
+              }}
+            />
+          )}
         </OverviewRight>
       </Card>
     </OverviewWrapper>

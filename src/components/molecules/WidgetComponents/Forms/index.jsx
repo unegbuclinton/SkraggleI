@@ -40,11 +40,12 @@ function Forms() {
 export default Forms;
 
 const WidgetCard = styled.div`
+  width: 39.5rem;
+  margin: 2.4rem 0 0.8rem 0;
   display: flex;
   justify-content: space-between;
   border: 1px solid ${COLORS["porcelain-white"]};
   padding: 1.6rem 1rem 2.2rem 1.6rem;
-  margin-bottom: 0.8rem;
 
   .btn-card {
     width: 7.2rem;
@@ -56,11 +57,10 @@ const WidgetCard = styled.div`
     flex-direction: column;
     align-items: flex-start;
 
-
     &__header {
       font-size: 1.4rem;
       margin-bottom: 0.6rem;
-      font-weight: ${FONTWEIGHTS.normal}
+      font-weight: ${FONTWEIGHTS.normal};
     }
     &__description {
       font-size: 1.2rem;

@@ -1,7 +1,7 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import ProgressBar from "components/atoms/ProgressBar/ProgressBar";
-import SetRevenueModal from "pages/modals/SetRevenueModal";
+import SetRevenueModal from "pages/Dashboard/modals/SetRevenueModal";
 import React from "react";
 import { useState } from "react";
 import { RevenueWrapper, DonationContainer, DonationWrapper } from "./styles";

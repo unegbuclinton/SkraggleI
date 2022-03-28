@@ -1,15 +1,16 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Card from '../../atoms/Card';
-const Tab = ({ tabs }) => {
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import Card from "../../atoms/Card";
+const Tab = ({ tabs, className, vertical, buttonclass,contentWrapper }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <>
-      <TabContainer>
+    <TabContentWrapper className={contentWrapper} vertical={vertical}>
+      <TabContainer className={className}>
         {tabs?.map((tab, index) => (
           <TabButton
+            className={buttonclass}
             key={index}
             active={activeTab === index}
             onClick={() => setActiveTab(index)}
@@ -18,15 +19,25 @@ const Tab = ({ tabs }) => {
           </TabButton>
         ))}
       </TabContainer>
-      {tabs && tabs[activeTab]?.component}
-    </>
+      <div> {tabs && tabs[activeTab]?.component}</div>
+    </TabContentWrapper>
   );
-}; 
+};
 
+const TabContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${({ vertical }) =>
+    vertical &&
+    css`
+      display: flex;
+      flex-direction: row;
+    `};
+`;
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
-  width: 100%;
   padding: 3.204rem 2.5rem 1.6rem;
 `;
 const TabButton = styled.button`
@@ -38,13 +49,13 @@ const TabButton = styled.button`
   cursor: pointer;
   background: transparent;
   padding-bottom: 1.296rem;
-  color: ${COLORS['grey-400']};
+  color: ${COLORS["grey-400"]};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 0;
     height: 2px;
     background: ${COLORS.pink};
