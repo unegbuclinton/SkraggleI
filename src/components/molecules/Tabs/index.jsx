@@ -6,7 +6,7 @@ import Card from '../../atoms/Card';
 const Tabs = ({ tabs, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <>
+    <TabWrapper>
       <TabContainer {...rest}>
         {tabs?.map((tab, index) => (
           <TabButton
@@ -19,9 +19,14 @@ const Tabs = ({ tabs, ...rest }) => {
         ))}
       </TabContainer>
       {tabs && tabs[activeTab]?.component}
-    </>
+    </TabWrapper>
   );
 };
+
+const TabWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
+`;
 
 const TabContainer = styled(Card)`
   display: flex;
