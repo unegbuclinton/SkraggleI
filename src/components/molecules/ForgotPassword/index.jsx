@@ -7,7 +7,7 @@ import ErrorMessage from "components/atoms/ErrorMessage";
 import AuthLayout from "components/layouts/AuthLayout";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card"
+import Card from "components/atoms/Card";
 import { FormWrapper, ReturnLoginLink } from "./styles";
 
 const ForgotPassword = () => {

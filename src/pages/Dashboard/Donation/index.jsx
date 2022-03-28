@@ -10,7 +10,6 @@ function Donation() {
   const [donations, setDonations] = useState([]);
   const [open, setOpen] = useState(false);
 
-
   return (
     <DonationContainer>
       <DonationWrapper>
@@ -58,7 +57,9 @@ function Donation() {
             {open && (
               <SetRevenueModal
                 isShown={open}
-                setValue={(values)=>{setDonations(values)}}
+                setValue={(values) => {
+                  setDonations(values);
+                }}
                 onClose={() => {
                   setOpen(false);
                 }}

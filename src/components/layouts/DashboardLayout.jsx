@@ -1,8 +1,8 @@
-import DashboardHeader from 'components/molecules/DashboardNavbar';
-import Sidebar from 'components/molecules/Sidebar';
-import { COLORS } from 'constants/colors';
-import React from 'react';
-import styled from 'styled-components';
+import DashboardHeader from "components/molecules/DashboardNavbar";
+import Sidebar from "components/molecules/Sidebar";
+import { COLORS } from "constants/colors";
+import React from "react";
+import styled from "styled-components";
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -22,7 +22,7 @@ const DashboardContainer = styled.div`
   height: 100vh;
   width: 100%;
   display: flex;
-  background-color: ${COLORS['bg-light-blue']};
+  background-color: ${COLORS["bg-light-blue"]};
 `;
 
 const DashboardContentWrapper = styled.aside`
@@ -30,6 +30,7 @@ const DashboardContentWrapper = styled.aside`
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 
 const DashboardContent = styled.div`

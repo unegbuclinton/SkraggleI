@@ -9,19 +9,17 @@ const Campaign = () => {
   const tabs = [
     {
       title: "Campaigns",
-      component: <CampaignTable/>
+      component: <CampaignTable />,
     },
     {
       title: "Archive",
-      component: <ArchiveTable/>
+      component: <ArchiveTable />,
     },
   ];
 
   return (
     <DashboardLayout>
-      <Tabs
-      tabs={tabs}
-      />
+      <Tabs tabs={tabs} />
     </DashboardLayout>
   );
 };

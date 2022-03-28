@@ -19,13 +19,17 @@ function SetRevenueModalContent({ onClose, setValue }) {
       yearly: "",
     },
     onSubmit: (values) => {
-      setValue(values)
+      setValue(values);
     },
   });
 
   return (
     <Card className="revenue-card">
-      <RevenueForm onSubmit={()=>{setValue(formik.values)}}>
+      <RevenueForm
+        onSubmit={() => {
+          setValue(formik.values);
+        }}
+      >
         <CardItems>
           <div className="revenue-card__left">
             <RevenueLabel>Monthly Goals</RevenueLabel>

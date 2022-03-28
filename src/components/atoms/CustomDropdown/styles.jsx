@@ -23,7 +23,7 @@ export const DropdownSelect = styled.select`
   line-height: 1.6rem;
   border-radius: 0px;
   box-shadow: none;
-
+  background-color: ${COLORS.white};
   .select::after {
     width: 14rem;
     background-color: red;

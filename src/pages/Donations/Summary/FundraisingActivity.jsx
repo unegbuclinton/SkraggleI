@@ -1,34 +1,34 @@
-import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import { COLORS } from 'constants/colors';
-import React from 'react';
-import styled from 'styled-components';
+import Card from "components/atoms/Card";
+import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import { COLORS } from "constants/colors";
+import React from "react";
+import styled from "styled-components";
 
 const FundraisingActivity = () => {
   const data = [
     {
-      name: 'Today',
+      name: "Today",
     },
     {
-      name: 'Yesterday',
+      name: "Yesterday",
     },
     {
-      name: 'Last 7 Days',
+      name: "Last 7 Days",
     },
     {
-      name: 'Last 14 Days',
+      name: "Last 14 Days",
     },
     {
-      name: 'Last 30 Days',
+      name: "Last 30 Days",
     },
     {
-      name: 'This Week',
+      name: "This Week",
     },
     {
-      name: 'This Month',
+      name: "This Month",
     },
     {
-      name: 'This Year',
+      name: "This Year",
     },
   ];
   return (
@@ -57,7 +57,7 @@ const FRAHeaderWrapper = styled(Card)`
   position: relative;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
