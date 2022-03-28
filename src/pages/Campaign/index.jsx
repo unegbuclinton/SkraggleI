@@ -3,7 +3,7 @@ import { React } from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import ArchiveTable from "components/molecules/Campaign/Tables/ArchiveTable";
 import CampaignTable from "components/molecules/Campaign/Tables/CampaignTable";
-import Tab from "components/molecules/Tabs";
+import Tabs from "components/molecules/Tabs";
 
 const Campaign = () => {
   const tabs = [
@@ -19,7 +19,7 @@ const Campaign = () => {
 
   return (
     <DashboardLayout>
-      <Tab
+      <Tabs
       tabs={tabs}
       />
     </DashboardLayout>
