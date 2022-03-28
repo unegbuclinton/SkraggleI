@@ -58,6 +58,7 @@ export const WidgetBtn = styled.div`
 
   .btn-wrapper {
     width: 14rem;
+    margin-bottom: 2.4rem;
   }
   .widget-btn {
     height: 4.8rem;
