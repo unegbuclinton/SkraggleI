@@ -1,11 +1,11 @@
 import React from "react";
 import Modal from "components/layouts/Modal";
-import CreateContactStepOne from "../CreateContact/CreateContactStepOne";
+import MultiStepForm from "../CreateContactStep";
 
 function ContactsModal({ onClose, isShown }) {
   return (
     <Modal header="Create New Contact" isShown={isShown}>
-      <CreateContactStepOne onClose={onClose} />
+      <MultiStepForm onClose={onClose} />
     </Modal>
   );
 }

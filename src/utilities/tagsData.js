@@ -11,12 +11,12 @@ export const columns = [
     {
       name: 'NAME',
       selector: (row) => row.familyName,
-      width: '34.5769rem',
+      width: '33.5769rem',
     },
     {
       name: 'CREATED',
       selector: (row) => row.created,
-      width: '58.9rem',
+      width: '54.9rem',
     },
 
   ];

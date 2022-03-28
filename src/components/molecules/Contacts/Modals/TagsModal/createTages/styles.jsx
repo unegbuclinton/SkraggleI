@@ -13,7 +13,7 @@ export const ModalContainer = styled.div`
   align-items: center;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
 `;

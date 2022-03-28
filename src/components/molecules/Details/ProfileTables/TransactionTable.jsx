@@ -3,6 +3,7 @@ import Pagination from "components/molecules/Pagination";
 import { columns, data } from "utilities/transactionData";
 import Table from "components/layouts/Table";
 import { TableHeading, TableWrapper } from "./styles";
+import ProfileLayOut from "..";
 
 function TransactionTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +15,7 @@ function TransactionTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
   return (
-    <div>
+    <ProfileLayOut heading="Transactions">
       <TableWrapper>
         <TableHeading>
           <h2 className="heading">7 Transactions</h2>
@@ -27,7 +28,7 @@ function TransactionTable() {
         data={data}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </ProfileLayOut>
   );
 }
 

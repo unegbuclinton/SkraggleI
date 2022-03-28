@@ -3,7 +3,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const TabLinksWrapper = styled.div`
-  background-color: ${COLORS.white};
+  /* background-color: ${COLORS.white};
   height: 8rem;
   display: flex;
   padding-left: 2.5rem;
@@ -31,11 +31,12 @@ export const TabLinksWrapper = styled.div`
     line-height: 1.7rem;
     text-align: center;
     padding-top: 1.6rem;
-  }
+  } */
 `;
 export const ProfileWrapper = styled.div`
   display: flex;
   gap: 1.572rem;
+
   .header {
     color: ${COLORS["tabel-btn-grey"]};
     font-weight: ${FONTWEIGHTS.normal};

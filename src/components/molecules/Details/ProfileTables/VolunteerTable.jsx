@@ -3,6 +3,7 @@ import Pagination from "components/molecules/Pagination";
 import { columns, data } from "utilities/volunteerData";
 import { TableHeading, TableWrapper } from "./styles";
 import Table from "components/layouts/Table";
+import ProfileLayOut from "..";
 
 function VolunteerTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +15,7 @@ function VolunteerTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
   return (
-    <div>
+    <ProfileLayOut heading="Volunteering">
       <TableWrapper>
         <TableHeading>
           <h2 className="heading">7 Activity</h2>
@@ -27,7 +28,7 @@ function VolunteerTable() {
         data={data}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </ProfileLayOut>
   );
 }
 

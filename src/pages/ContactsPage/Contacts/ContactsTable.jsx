@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Table from "components/layouts/Table";
-import { columns, data } from "utilities/segmentsData";
-import Pagination from "components/molecules/Pagination";
+import { columns, data } from "utilities/contactsData";
 import { TableWrapper } from "./styles";
-import TableHeader from "../TableHeader/TableHeader";
+import TableHeader from "components/molecules/TableHeader/TableHeader";
+import Pagination from "components/molecules/Pagination/index";
 import { useNavigate } from "react-router-dom";
-import SegmentsModal from "./Modals/SegmentsModal/mainModal";
+import ContactsModal from "components/molecules/Contacts/Modals/CreateContact/ContactsModal/index";
 
-function SegmentsTable() {
+function ContactsTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
@@ -21,23 +21,24 @@ function SegmentsTable() {
   const navigate = useNavigate();
 
   const onRowClicked = () => {
-    let path = "/contact-profile";
+    let path = "contact-profile";
     navigate(path);
   };
+
   return (
     <div>
       <TableWrapper>
         <TableHeader
-          title="Create Segments"
-          header="14 Segments"
+          title="Add Contacts"
+          header="88 Contacts"
           setOpen={setOpen}
         />
+        <ContactsModal isShown={open} onClose={() => setOpen(false)} />
         <Table
           columns={columns}
           data={currentList}
           onRowClicked={onRowClicked}
         />
-        <SegmentsModal isShown={open} onClose={() => setOpen(false)} />
       </TableWrapper>
 
       <Pagination
@@ -50,4 +51,4 @@ function SegmentsTable() {
   );
 }
 
-export default SegmentsTable;
+export default ContactsTable;

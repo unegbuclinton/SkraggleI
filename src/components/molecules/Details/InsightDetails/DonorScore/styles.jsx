@@ -22,7 +22,7 @@ export const DonorContainer = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 8.106rem;
-  gap: 5.731rem;
+  gap: 3rem;
   .donor-info {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.xsmall};
@@ -49,7 +49,7 @@ export const Diamond = styled.div`
   -ms-transform-origin: 0 100%;
   -o-transform-origin: 0 100%;
   transform-origin: 0 100%;
-  /* margin: 60px 0 10px 310px; */
+  margin-left: 4rem;
 
   display: flex;
   justify-content: center;

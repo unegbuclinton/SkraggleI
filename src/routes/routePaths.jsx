@@ -6,7 +6,7 @@ import SendVerification from "components/molecules/sendVerification/SendVerifica
 import Tab from "components/molecules/Tab";
 import Campaign from "pages/Campaign";
 import CampaignDetails from "pages/CampaignDetails";
-import Contacts from "pages/ContactsPage/Contact";
+import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Donations from "pages/Donations";
 import { Link, Outlet } from "react-router-dom";
@@ -71,13 +71,13 @@ const routePaths = [
         path: "/",
         element: <Contacts />,
       },
+      {
+        path: "contact-profile",
+        element: <Profile />,
+      },
     ],
   },
 
-  {
-    path: "/contact-profile",
-    element: <Profile />,
-  },
   {
     path: "/donations",
     element: <Donations />,

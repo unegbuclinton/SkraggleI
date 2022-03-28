@@ -139,7 +139,8 @@ const TrackerBtn = styled(Button)`
   height: 4.5rem;
   width: 5rem;
   list-style: none;
-  background-color: ${COLORS["pagination-bg"]};
+  border: 0.1rem solid ${COLORS["pagination-bg"]};
+  background-color: transparent;
   color: ${COLORS["text-pagination"]};
   font-size: large;
 `;
@@ -157,7 +158,7 @@ const PageTracker = styled.div`
     .pagenumber {
       height: 4.5rem;
       width: 4.5rem;
-      background-color: ${COLORS["pagination-bg"]};
+      border: 0.1rem solid ${COLORS["pagination-bg"]};
       color: ${COLORS["text-pagination"]};
       display: flex;
       justify-content: center;

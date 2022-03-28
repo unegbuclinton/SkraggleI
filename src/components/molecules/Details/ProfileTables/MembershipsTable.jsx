@@ -3,6 +3,7 @@ import Pagination from "components/molecules/Pagination";
 import { columns, data } from "utilities/membership";
 import { TableHeading, TableWrapper } from "./styles";
 import Table from "components/layouts/Table";
+import ProfileLayOut from "..";
 
 function MembershipsTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +15,7 @@ function MembershipsTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
   return (
-    <div>
+    <ProfileLayOut heading="Membership">
       <TableWrapper>
         <TableHeading>
           <h2 className="heading">8 Membership Subscription</h2>
@@ -27,7 +28,7 @@ function MembershipsTable() {
         data={data}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </ProfileLayOut>
   );
 }
 

@@ -1,5 +1,5 @@
+import React, { useContext } from "react";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import React from "react";
 import {
   ButtonContainer,
   DateContainer,
@@ -11,8 +11,18 @@ import {
 } from "./styles";
 import { subcription } from "utilities/modalData";
 import Button from "components/atoms/Button/Button";
+import MultiFormContext from "../ContactFormContext/MultiFormContext";
 
 function CreateContactStepOne({ onClose }) {
+  const { stepOne, setStepOne, next } = useContext(MultiFormContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStepOne({ stepOne });
+    next();
+    console.log("continue modal");
+  };
+  console.log(stepOne);
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -37,7 +47,9 @@ function CreateContactStepOne({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Continue</Button>
+            <Button className="continue" onClick={handleSubmit}>
+              Continue
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>
