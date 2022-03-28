@@ -1,10 +1,14 @@
+import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
-import Tab from "components/molecules/Tab";
+import Tabs from "components/molecules/Tabs";
 import Campaign from "pages/Campaign";
+import CampaignDetails from "pages/CampaignDetails";
+import Contacts from "pages/ContactsPage";
+import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import MailBlast from "pages/MailBlast";
@@ -23,6 +27,10 @@ const routePaths = [
   {
     path: "/login",
     element: <LogIn />,
+  },
+  {
+    path: "/forgotpassword",
+    element: <ForgotPassword />,
   },
   {
     path: "/signup",
@@ -49,6 +57,33 @@ const routePaths = [
         path: "/",
         element: <Dashboard />,
       },
+      {
+        path: "smart",
+        element: <Campaign />,
+      },
+      {
+        path: "contact",
+        element: <SendVerification />,
+      },
+      {
+        path: "fundraising",
+        element: <SendVerification />,
+      },
+    ],
+  },
+
+  {
+    path: "contacts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Contacts />,
+      },
+      {
+        path: "contact-profile",
+        element: <Profile />,
+      },
     ],
   },
 
@@ -57,20 +92,26 @@ const routePaths = [
     element: <Donations />,
   },
   {
-    path: "/campaign",
-    element: <Campaign />,
-  },
-  {
     path: "/mail-blasts",
     element: <MailBlast />,
   },
   {
-    path: "/test",
-    element: <Tab tabs={tabs} />,
+    path: "campaign/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Campaign />,
+      },
+      {
+        path: ":id",
+        element: <CampaignDetails />,
+      },
+    ],
   },
   {
-    path: "*",
-    element: <h1>404 Not Found</h1>,
+    path: "/test",
+    element: <Tabs tabs={tabs} />,
   },
 ];
 

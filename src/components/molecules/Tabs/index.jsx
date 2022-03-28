@@ -3,7 +3,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tab = ({ tabs, className, vertical, buttonclass,contentWrapper }) => {
+const Tabs = ({ tabs, className, vertical, buttonclass,contentWrapper }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabContentWrapper className={contentWrapper} vertical={vertical}>
@@ -39,6 +39,7 @@ const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
   padding: 3.204rem 2.5rem 1.6rem;
+  margin-bottom: 1.6rem;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
@@ -73,10 +74,6 @@ const TabButton = styled.button`
         transition: 0.3s;
       }
     `};
-
-  /* &:focus {
-    outline: none;
-  } */
 `;
 
-export default Tab;
+export default Tabs;

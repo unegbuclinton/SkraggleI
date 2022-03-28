@@ -2,12 +2,12 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import React from "react";
 import { GeneralBody, GeneralHeader, GeneralWrapper } from "./styles";
 import data from "utilities/filterData.json";
-import Card from "components/atoms/Card"
+import Card from "components/atoms/Card";
 
 function GeneralUpdate() {
   return (
     <GeneralWrapper>
-      <Card className='general-card'>
+      <Card className="general-card">
         <GeneralHeader>
           <p className="body-text">General Update</p>
           <CustomDropdown data={data} />

@@ -1,5 +1,5 @@
 import DashboardLayout from "components/layouts/DashboardLayout";
-import Tab from "components/molecules/Tab";
+import Tabs from "components/molecules/Tabs";
 import React from "react";
 import Mail from "./Mailblast";
 import SavedTemplate from "./SavedTemplate";
@@ -30,7 +30,7 @@ function MailBlast() {
   ];
   return (
     <DashboardLayout>
-      <Tab tabs={mail} />
+      <Tabs tabs={mail} />
     </DashboardLayout>
   );
 }

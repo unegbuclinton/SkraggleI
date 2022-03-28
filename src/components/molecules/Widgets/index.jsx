@@ -1,13 +1,13 @@
 import React from "react";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
-import Tab from "../Tab";
 import Contacts from "../WidgetComponents/Contacts";
 import Forms from "../WidgetComponents/Forms";
 import FundRaise from "../WidgetComponents/Fundraise";
 import Projects from "../WidgetComponents/Projects";
 import SmartWidget from "../WidgetComponents/SmartWidget";
 import { WidgetBtn, WidgetWrapper } from "./styles";
+import Tabs from "../Tabs";
 
 function Widget({ onCloseWidget }) {
   const widget = [
@@ -21,7 +21,7 @@ function Widget({ onCloseWidget }) {
   return (
     <WidgetWrapper>
       <Card>
-        <Tab
+        <Tabs
           vertical
           className="widget-tab-container"
           buttonclass="component-card"
