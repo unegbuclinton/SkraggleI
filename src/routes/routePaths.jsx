@@ -7,8 +7,10 @@ import SendVerification from 'components/molecules/sendVerification/SendVerifica
 import Tab from 'components/molecules/Tabs';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
+import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
 import { Link, Outlet } from 'react-router-dom';
+
 const tabs = [
   { title: 'Campaigns', component: <h2>Content One renders here!</h2> },
   { title: 'Archive', component: <h2>Content Two renders here!</h2> },
@@ -50,11 +52,11 @@ const routePaths = [
     children: [
       {
         path: '/',
-        element: <div>Dashboard</div>,
+        element: <Dashboard />,
       },
       {
         path: 'smart',
-        element: <LogIn />,
+        element: <Campaign />,
       },
       {
         path: 'contact',

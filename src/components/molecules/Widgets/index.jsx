@@ -8,10 +8,10 @@ import Forms from "../WidgetComponents/Forms";
 import FundRaise from "../WidgetComponents/Fundraise";
 import Projects from "../WidgetComponents/Projects";
 import SmartWidget from "../WidgetComponents/SmartWidget";
-import { WidgetBtn,WidgetWrapper } from "./styles";
+import { WidgetBtn, WidgetWrapper } from "./styles";
 
-function Widget({onCloseWidget}) {
-  const [showWidget, setShowWidget] = useState(false);
+function Widget({ onCloseWidget }) {
+  const [showWidget, setShowWidget] = useState(1);
 
   const ChangeShowWiget = (id) => {
     setShowWidget(id);
@@ -20,29 +20,30 @@ function Widget({onCloseWidget}) {
     {
       id: 1,
       name: "Smart Widgets",
-      path: "/dashboard-components",
+      path: "/dashboard",
     },
     {
       id: 2,
       name: "Contacts",
-      path: "/dashboard-components",
+      path: "/dashboard",
     },
     {
       id: 3,
       name: "Fundraising",
-      path: "/dashboard-components",
+      path: "/dashboard",
     },
     {
       id: 4,
       name: "Projects",
-      path: "/dashboard-components",
+      path: "/dashboard",
     },
     {
       id: 5,
       name: "Forms",
-      path: "/dashboard-components"
+      path: "/dashboard",
     },
   ];
+
   return (
     <WidgetWrapper>
       <Card>
@@ -54,7 +55,9 @@ function Widget({onCloseWidget}) {
                   ChangeShowWiget(id);
                 }}
                 to={path}
-                className={id === showWidget ? "active-widget" : "non-active-widget"}
+                className={
+                  id === showWidget ? "active-widget" : "non-active-widget"
+                }
               >
                 {name}
               </Link>
@@ -69,9 +72,10 @@ function Widget({onCloseWidget}) {
             {showWidget === 5 && <Forms />}
           </div>
         </div>
+
         <WidgetBtn>
           <div className="btn-wrapper">
-            <Button className='widget-btn' onClick={onCloseWidget} auth invert>
+            <Button className="widget-btn" onClick={onCloseWidget} auth invert>
               Close
             </Button>
           </div>

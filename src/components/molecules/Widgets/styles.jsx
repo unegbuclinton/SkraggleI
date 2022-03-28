@@ -1,8 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS } from "constants/font-spec";
-import { FONTSIZES } from "constants/font-spec";
-import styled from "styled-components";
-
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const WidgetWrapper = styled.div`
   width: 65rem;
@@ -11,13 +9,13 @@ export const WidgetWrapper = styled.div`
     text-decoration: none;
     position: relative;
     margin: 0 0 4.7rem 5.4rem;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     font-size: ${FONTSIZES.normal};
     font-weight: ${FONTWEIGHTS.bold};
 
     &::before {
-      content: "";
-      position:absolute;
+      content: '';
+      position: absolute;
       top: 0;
       left: -1.9rem;
       width: 1.1rem;
@@ -32,14 +30,14 @@ export const WidgetWrapper = styled.div`
     text-decoration: none;
     font-size: ${FONTSIZES.normal};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["moore-grey"]};
+    color: ${COLORS['moore-grey']};
     margin: 0 0 4.7rem 5.4rem;
   }
 
   .widget-container {
     display: flex;
     gap: 9rem;
-    border-bottom: 1px solid ${COLORS["porcelain-white"]};
+    border-bottom: 1px solid ${COLORS['porcelain-white']};
 
     .widget-links {
       display: flex;
@@ -60,8 +58,9 @@ export const WidgetBtn = styled.div`
 
   .btn-wrapper {
     width: 14rem;
+    margin-bottom: 2.4rem;
   }
-  .widget-btn{
+  .widget-btn {
     height: 4.8rem;
   }
 `;
