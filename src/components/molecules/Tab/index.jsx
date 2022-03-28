@@ -21,7 +21,7 @@ const Tab = ({ tabs }) => {
       {tabs && tabs[activeTab]?.component}
     </>
   );
-};
+}; 
 
 const TabContainer = styled(Card)`
   display: flex;

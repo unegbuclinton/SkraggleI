@@ -1,10 +1,10 @@
-import Card from 'components/atoms/Card';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconClose } from 'icons';
-import React from 'react';
-import { createPortal } from 'react-dom';
-import styled, { css } from 'styled-components';
+import Card from "components/atoms/Card";
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { DPIconClose } from "icons";
+import React from "react";
+import { createPortal } from "react-dom";
+import styled, { css } from "styled-components";
 
 const Modal = ({
   isShown,
@@ -57,7 +57,7 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: ${COLORS['shim-black']};
+  background: ${COLORS["shim-black"]};
   z-index: 500;
   cursor: pointer;
 `;
