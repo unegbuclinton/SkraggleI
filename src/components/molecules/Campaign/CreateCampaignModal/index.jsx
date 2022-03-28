@@ -2,7 +2,7 @@ import Modal from 'components/layouts/Modal';
 import React from 'react';
 import CampaignModalComponent from '../CampaignModalComponent';
 
-function NewCampaignModal({ onClose}) {
+function CreateCampaignModal({ onClose}) {
   return (
     <Modal header="Create a Campaign" onClose={onClose} isShown={true}>
         <CampaignModalComponent />
@@ -10,4 +10,4 @@ function NewCampaignModal({ onClose}) {
   );
 }
 
-export default NewCampaignModal;
+export default CreateCampaignModal;

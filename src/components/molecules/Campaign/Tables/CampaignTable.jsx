@@ -9,7 +9,7 @@ import { generatePath, useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
-import NewCampaignModal from '../NewCampaignModal';
+import NewCampaignModal from '../CreateCampaignModal';
 
 
 
@@ -55,7 +55,7 @@ const CampaignTable = () => {
 
   const onRowClicked = (row, event) => {
     setId(row.key+1);
-    id && navigate(generatePath("/campaign/:id", {id}))
+    navigate(`/campaign/${row.key+1}`)
     console.log(row.key)
    };
 
