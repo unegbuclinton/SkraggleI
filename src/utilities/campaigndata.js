@@ -1,4 +1,4 @@
-export const TableContacts =
+export const data =
 [
     {
         "created": "Oct 10, 2021",

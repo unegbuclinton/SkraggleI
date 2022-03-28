@@ -24,18 +24,18 @@ const ElementsTable = () => {
     {
       name: "ID",
       selector: (row) => row.uid,
-      width: "20rem",
+      width: "15rem",
     },
 
     {
       name: "NAME",
       selector: (row) => row.name,
-      width: "35rem",
+      width: "30rem",
     },
     {
         name: "TYPE",
         selector: (row) => row.type,
-      width: "20rem",
+      width: "15rem",
     },
     {
         name: "CAMPAIGN",
@@ -45,7 +45,7 @@ const ElementsTable = () => {
     {
         name: "STATISTICS",
         selector: (row) => row.statistics,
-      width: "35rem",
+      width: "30rem",
     },
     {
         name: "LAST SEEN",

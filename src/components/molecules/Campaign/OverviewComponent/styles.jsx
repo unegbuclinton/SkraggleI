@@ -48,6 +48,7 @@ export const CampaignNameWrapper = styled.div`
 
     &__description {
       font-size: 14px;
+      font-weight: 400;
       line-height: 152.69%;
       color: #1e003e;
     }
@@ -88,13 +89,13 @@ export const RightSection = styled(Card)`
       flex-direction: column;
       flex-grow: 4;
       align-items: center;
-      &__title {
+      .card__title {
         font-weight: ${FONTWEIGHTS.bold};
         font-size: 1.06445rem;
         line-height: 1.2rem;
         color: rgba(19, 41, 61, 0.6);
       }
-      &__description {
+      .card__description {
         font-weight: ${FONTWEIGHTS.bold};
         font-size: ${FONTSIZES.xlarge};
         line-height: 2.3rem;
@@ -114,7 +115,7 @@ export const RightSection = styled(Card)`
       margin-bottom: 1.3rem;
     }
     &__bottom-paragraph {
-      text-align: end;
+      text-align: center;
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
       color: ${COLORS["gray-500"]};
