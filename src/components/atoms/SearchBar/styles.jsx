@@ -1,14 +1,14 @@
 import { COLORS } from "constants/colors";
 import styled from "styled-components";
 
-export const Form = styled.form`
+export const SearchbarWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
   background-color: ${COLORS.white};
-  border: 0.1rem solid ${COLORS["grey-400"]};
+  border: 0.1rem solid ${COLORS["porcelain-white"]};
 
   /* Change width of the form depending if the bar is opened or not */
   width: ${(props) => (props.barOpened ? "30rem" : "2rem")};
@@ -47,8 +47,11 @@ export const IconWrapper = styled.button`
   border: none;
   outline: none;
   color: white;
-  .icon-container {
+  .search-icon {
     width: 2.01rem;
-    height: 2rem;
+    .icon-container {
+      width: 2.01rem;
+      height: 2rem;
+    }
   }
 `;

@@ -14,8 +14,8 @@ import dayjs from "dayjs";
 import WidgetModal from "pages/modals/WidgetModal";
 import Card from "components/atoms/Card";
 
-function Overview() { 
-  const [openWidget, setOpenWidget]= useState(false)
+function Overview() {
+  const [openWidget, setOpenWidget] = useState(false);
 
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
@@ -63,8 +63,22 @@ function Overview() {
           )}
         </OverviewLeft>
         <OverviewRight>
-          <Button onClick={()=>{setOpenWidget(true)}} className="overview-btn">Manage Widgets</Button>
-          {openWidget && <WidgetModal isShown={openWidget} onCloseWidget={()=>{setOpenWidget(false)}}/>}
+          <Button
+            onClick={() => {
+              setOpenWidget(true);
+            }}
+            className="overview-btn"
+          >
+            Manage Widgets
+          </Button>
+          {openWidget && (
+            <WidgetModal
+              isShown={openWidget}
+              onCloseWidget={() => {
+                setOpenWidget(false);
+              }}
+            />
+          )}
         </OverviewRight>
       </Card>
     </OverviewWrapper>

@@ -1,5 +1,5 @@
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card"
+import Card from "components/atoms/Card";
 import { DPIconThankYou } from "icons";
 import React from "react";
 import { ThankYouBody, ThankyouCard, ThankYouWrapper } from "./styles";
@@ -7,7 +7,7 @@ import { ThankYouBody, ThankyouCard, ThankYouWrapper } from "./styles";
 function ThankYou() {
   return (
     <ThankYouWrapper>
-      <Card  className='thankyou-card'>
+      <Card className="thankyou-card">
         <p className="thankyou-text">Thank You</p>
         <ThankYouBody>
           <ThankyouCard>

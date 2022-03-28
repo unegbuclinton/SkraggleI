@@ -1,98 +1,111 @@
-import ForgotPassword from 'components/molecules/ForgotPassword';
-import LogIn from 'components/molecules/LogIn';
-import Registration from 'components/molecules/Registration';
-import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
-import ResetPassword from 'components/molecules/ResetPassword';
-import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import Tab from 'components/molecules/Tabs';
-import Campaign from 'pages/Campaign';
-import CampaignDetails from 'pages/CampaignDetails';
-import Dashboard from 'pages/Dashboard';
-import Donations from 'pages/Donations';
-import { Link, Outlet } from 'react-router-dom';
+import ForgotPassword from "components/molecules/ForgotPassword";
+import LogIn from "components/molecules/LogIn";
+import Registration from "components/molecules/Registration";
+import ResendVerification from "components/molecules/resendVerification/ResendVerification";
+import ResetPassword from "components/molecules/ResetPassword";
+import SendVerification from "components/molecules/sendVerification/SendVerification";
+import Tabs from "components/molecules/Tabs";
+import Campaign from "pages/Campaign";
+import CampaignDetails from "pages/CampaignDetails";
+import Contacts from "pages/ContactsPage";
+import Profile from "pages/ContactsPage/Profile";
+import Dashboard from "pages/Dashboard";
+import Donations from "pages/Donations";
+import { Link, Outlet } from "react-router-dom";
 
 const tabs = [
-  { title: 'Campaigns', component: <h2>Content One renders here!</h2> },
-  { title: 'Archive', component: <h2>Content Two renders here!</h2> },
-  { title: 'Forms', component: <h2>Content Three renders here!</h2> },
+  { title: "Campaigns", component: <h2>Content One renders here!</h2> },
+  { title: "Archive", component: <h2>Content Two renders here!</h2> },
+  { title: "Forms", component: <h2>Content Three renders here!</h2> },
 ];
 const routePaths = [
   {
-    path: '/',
+    path: "/",
     element: <Link to="/login">Go to Login</Link>,
   },
   {
-    path: '/login',
+    path: "/login",
     element: <LogIn />,
   },
   {
-    path: '/forgotpassword',
+    path: "/forgotpassword",
     element: <ForgotPassword />,
   },
   {
-    path: '/signup',
+    path: "/signup",
     element: <Registration />,
   },
   {
-    path: '/reset-password',
+    path: "/reset-password",
     element: <ResetPassword />,
   },
   {
-    path: '/resend-verification',
+    path: "/resend-verification",
     element: <ResendVerification />,
   },
   {
-    path: '/send-verification',
+    path: "/send-verification",
     element: <SendVerification />,
   },
   {
-    path: 'dashboard/*',
+    path: "dashboard/*",
     // isPrivate: true,
     element: <Outlet />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Dashboard />,
       },
       {
-        path: 'smart',
+        path: "smart",
         element: <Campaign />,
       },
       {
-        path: 'contact',
+        path: "contact",
         element: <SendVerification />,
       },
       {
-        path: 'fundraising',
+        path: "fundraising",
         element: <SendVerification />,
       },
     ],
   },
   {
-    path: '/contact',
-    element: <div>Contacts</div>,
+    path: "contacts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Contacts />,
+      },
+      {
+        path: "contact-profile",
+        element: <Profile />,
+      },
+    ],
   },
+
   {
-    path: '/donations',
+    path: "/donations",
     element: <Donations />,
   },
   {
-    path: 'campaign/*',
+    path: "campaign/*",
     element: <Outlet />,
-    children:[
+    children: [
       {
-        path:'/',
-        element:<Campaign/>
+        path: "/",
+        element: <Campaign />,
       },
       {
-        path:':id',
-        element:<CampaignDetails/>,
-      }
-    ]
+        path: ":id",
+        element: <CampaignDetails />,
+      },
+    ],
   },
   {
-    path: '/test',
-    element: <Tab tabs={tabs} />,
+    path: "/test",
+    element: <Tabs tabs={tabs} />,
   },
 ];
 

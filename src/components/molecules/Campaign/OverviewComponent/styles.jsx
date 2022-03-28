@@ -137,4 +137,3 @@ export const RightSection = styled(Card)`
     }
   }
 `;
-
