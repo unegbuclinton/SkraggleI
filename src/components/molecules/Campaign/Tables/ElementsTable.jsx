@@ -5,6 +5,7 @@ import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
 import Modal from "components/layouts/Modal";
+import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
@@ -53,7 +54,15 @@ const ElementsTable = () => {
     },
   ];
 
-  const data = ElementsData.map((elementsData, index) => ({
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const indexLasttList = currentPage * itemsPerPage;
+
+  const indexFirstList = indexLasttList - itemsPerPage;
+
+
+  const tableData = ElementsData.map((elementsData, index) => ({
     key: index,
     uid: elementsData.uid,
     name: elementsData.name,
@@ -63,10 +72,14 @@ const ElementsTable = () => {
     lastseen:elementsData.lastseen,
   }));
 
+  const currentList = tableData.slice(indexFirstList, indexLasttList);
+
+
   const onRowClicked = (row, event) => { console.log(row,event) };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+    <div>
     <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -89,11 +102,17 @@ const ElementsTable = () => {
       </TableHeaderWrapper>
       <Table
         columns={columns}
-        data={data}
+        data={currentList}
         onRowClicked={onRowClicked}
       />
     </TableWrapper>
     </ContainerBody>
+    <Pagination
+    currentPage={currentPage}
+    itemsPerPage={itemsPerPage}
+    data={ElementsData}
+    setCurrentPage={setCurrentPage}/>
+    </div>
   );
 };
 

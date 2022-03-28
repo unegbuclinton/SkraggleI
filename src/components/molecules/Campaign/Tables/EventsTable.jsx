@@ -5,6 +5,8 @@ import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
 import Modal from "components/layouts/Modal";
+import Pagination from "components/molecules/Pagination";
+
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
@@ -44,7 +46,14 @@ const EventsTable = () => {
     },
   ];
 
-  const data = EventsData.map((eventsData, index) => ({
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const indexLasttList = currentPage * itemsPerPage;
+
+  const indexFirstList = indexLasttList - itemsPerPage;
+
+  const tableData = EventsData.map((eventsData, index) => ({
     key: index,
     uid: eventsData.uid,
     name: eventsData.name,
@@ -52,12 +61,15 @@ const EventsTable = () => {
     status: eventsData.status,
   }));
 
+  const currentList = tableData.slice(indexFirstList, indexLasttList);
+
   const onRowClicked = (row, event) => {
     console.log(row, event);
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
+  <div>
     <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -78,9 +90,15 @@ const EventsTable = () => {
           <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
-      <Table columns={columns} data={data} onRowClicked={onRowClicked} />
+      <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
     </TableWrapper>
     </ContainerBody>
+    <Pagination
+    currentPage={currentPage}
+    itemsPerPage={itemsPerPage}
+    data={EventsData}
+    setCurrentPage={setCurrentPage}/>
+    </div>
   );
 };
 
