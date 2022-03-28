@@ -1,9 +1,10 @@
+import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import Tab from 'components/molecules/Tab';
+import Tab from 'components/molecules/Tabs';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import Dashboard from 'pages/Dashboard';
@@ -23,6 +24,10 @@ const routePaths = [
   {
     path: '/login',
     element: <LogIn />,
+  },
+  {
+    path: '/forgotpassword',
+    element: <ForgotPassword />,
   },
   {
     path: '/signup',
@@ -72,16 +77,22 @@ const routePaths = [
     element: <Donations />,
   },
   {
-    path: '/campaign',
-    element: <Campaign />,
+    path: 'campaign/*',
+    element: <Outlet />,
+    children:[
+      {
+        path:'/',
+        element:<Campaign/>
+      },
+      {
+        path:':id',
+        element:<CampaignDetails/>,
+      }
+    ]
   },
   {
     path: '/test',
     element: <Tab tabs={tabs} />,
-  },
-  {
-    path: '/*',
-    element: <CampaignDetails />,
   },
 ];
 

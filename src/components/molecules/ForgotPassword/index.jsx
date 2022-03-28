@@ -3,11 +3,12 @@ import React from "react";
 import { useFormik } from "formik";
 import { forgotPasswordSchema } from "Validation/Schema";
 
+import ErrorMessage from "components/atoms/ErrorMessage";
 import AuthLayout from "components/layouts/AuthLayout";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card
-import { FormWrapper, ReturnLoginLink, ErrorMessage } from "./styles";
+import Card from "components/atoms/Card"
+import { FormWrapper, ReturnLoginLink } from "./styles";
 
 const ForgotPassword = () => {
   const formik = useFormik({
