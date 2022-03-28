@@ -69,6 +69,9 @@ export const TableWrapper = styled.div`
       border: none;
       text-align: center;
     }
+    &__span{
+      white-space: nowrap;
+    }
     &__testing {
       font-size: ${FONTSIZES.xsmall};
       line-height: 1.4rem;
@@ -79,6 +82,7 @@ export const TableWrapper = styled.div`
       background-color: ${COLORS.white};
       border: none;
       text-align: center;
+      white-space: nowrap;
     }
   }
 `;

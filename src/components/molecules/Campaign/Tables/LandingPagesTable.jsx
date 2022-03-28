@@ -58,7 +58,7 @@ const LandingPagesTable = () => {
       name: "ADVANCE",
       selector: (row) => row.advance,
       cell: (col) => (
-        <span>
+        <span className="table-button__span">
           <Button className="table-button__view">View</Button>
           <Button className="table-button__testing">A/B Testing</Button>
         </span>

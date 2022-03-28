@@ -12,7 +12,7 @@ export const MainWrapper = styled.div`
 export const LeftSection = styled(Card)`
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
+  width: 34.6rem;
   margin-right: 1.6rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
@@ -68,7 +68,7 @@ export const CampaignNameWrapper = styled.div`
 export const RightSection = styled(Card)`
   display: flex;
   flex-direction: column;
-  flex-grow: 8;
+  flex: 1;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 
