@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { TabLinksWrapper } from "./styles";
 import ContactsTable from "pages/ContactsPage/Contacts/ContactsTable";
-import { Link } from "react-router-dom";
+
 import CompaniesTable from "pages/ContactsPage/Companies/CompaniesTable";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import HouseHoldsTable from "pages/ContactsPage/HouseHold/HouseHoldsTable";
 import TagsTable from "pages/ContactsPage/Tags/TagsTable";
 import SegmentsTable from "pages/ContactsPage/Segments/SegmentsTable";
-import Tab from "components/molecules/Tab";
+
+import Tabs from "components/molecules/Tabs";
 
 const Contacts = () => {
   const links = [
@@ -36,7 +37,7 @@ const Contacts = () => {
   return (
     <DashboardLayout>
       <TabLinksWrapper>
-        <Tab tabs={links} />
+        <Tabs tabs={links} />
       </TabLinksWrapper>
     </DashboardLayout>
   );

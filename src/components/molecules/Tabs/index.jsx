@@ -3,7 +3,8 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tab = ({ tabs }) => {
+
+const Tabs = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <>
@@ -63,10 +64,6 @@ const TabButton = styled.button`
         transition: 0.3s;
       }
     `};
-
-  /* &:focus {
-    outline: none;
-  } */
 `;
 
-export default Tab;
+export default Tabs;

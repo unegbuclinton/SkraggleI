@@ -7,6 +7,7 @@ import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import ErrorMessage from "components/atoms/ErrorMessage";
 
 import { FormWrapper, LoginLink, ErrorMsg } from "./styles";
 
@@ -36,7 +37,7 @@ const LogIn = () => {
             value={formik.values.password}
           />
           {formik.touched.email && formik.errors.email ? (
-            <ErrorMsg>{formik.errors.email}</ErrorMsg>
+            <ErrorMessage>{formik.errors.email}</ErrorMessage>
           ) : null}
           <Input
             type="password"
@@ -48,7 +49,7 @@ const LogIn = () => {
             value={formik.values.password}
           />
           {formik.touched.password && formik.errors.password ? (
-            <ErrorMsg>{formik.errors.password}</ErrorMsg>
+            <ErrorMessage>{formik.errors.password}</ErrorMessage>
           ) : null}
           <LoginLink className="forgot-password" to={"/forgotpassword"}>
             Forgot Password?
@@ -56,7 +57,7 @@ const LogIn = () => {
           <Button className="login-button">LOG IN</Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
-            <LoginLink className="signup" to="/sign-up">
+            <LoginLink className="signup" to="/signup">
               {" "}
               Sign Up
             </LoginLink>
