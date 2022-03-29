@@ -9,6 +9,7 @@ export const WidgetWrapper = styled.div`
 export const WidgetContentWrapper = styled.div`
   display: flex;
   gap: 7.4rem;
+  border-bottom: 1px solid ${COLORS.torquoise};
   .btn-wrapper {
     display: flex;
     flex-direction: column;
