@@ -59,7 +59,13 @@ function ContactStepTwo({ onClose }) {
           <FormLabel>TAGS</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
           <ButtonContainer>
-            <Button className="cancel" onClick={onClose} auth invert>
+            <Button
+              className="cancel"
+              type="button"proute
+              onClick={onClose}
+              auth
+              invert
+            >
               Cancel
             </Button>
             <Button className="continue" onClick={handleSubmit}>
