@@ -3,14 +3,13 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tabs = ({ tabs, className, vertical, buttonclass,contentWrapper }) => {
+const Tabs = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <TabContentWrapper className={contentWrapper} vertical={vertical}>
-      <TabContainer className={className}>
+    <TabContentWrapper >
+      <TabContainer >
         {tabs?.map((tab, index) => (
           <TabButton
-            className={buttonclass}
             key={index}
             active={activeTab === index}
             onClick={() => setActiveTab(index)}

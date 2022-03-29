@@ -3,6 +3,7 @@ import { COLORS } from "constants/colors";
 import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+
 const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
@@ -31,6 +32,8 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
           {number}
         </li>
       );
+    } else {
+      return null;
     }
   });
 

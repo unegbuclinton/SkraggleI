@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import Contacts from "../WidgetComponents/Contacts";
@@ -6,10 +6,16 @@ import Forms from "../WidgetComponents/Forms";
 import FundRaise from "../WidgetComponents/Fundraise";
 import Projects from "../WidgetComponents/Projects";
 import SmartWidget from "../WidgetComponents/SmartWidget";
-import { WidgetBtn, WidgetWrapper } from "./styles";
-import Tabs from "../Tabs";
+import {
+  WidgetBtn,
+  WidgetWrapper,
+  WidgetContentWrapper,
+  WidgetButton,
+} from "./styles";
 
 function Widget({ onCloseWidget }) {
+  const [activeWidget, setActiveWidget] = useState(0);
+
   const widget = [
     { title: "Smart Widget", component: <SmartWidget /> },
     { title: "Contacts", component: <Contacts /> },
@@ -21,13 +27,21 @@ function Widget({ onCloseWidget }) {
   return (
     <WidgetWrapper>
       <Card>
-        <Tabs
-          vertical
-          className="widget-tab-container"
-          buttonclass="component-card"
-          contentWrapper="widget-content-wrapper"
-          tabs={widget}
-        />
+        <WidgetContentWrapper>
+          <div className="btn-wrapper">
+            {widget.map(({ title }, index) => (
+              <WidgetButton
+                key={index}
+                active={activeWidget === index}
+                onClick={() => setActiveWidget(index)}
+              >
+                {title}
+              </WidgetButton>
+            ))}
+          </div>
+
+          <div> {widget && widget[activeWidget]?.component}</div>
+        </WidgetContentWrapper>
 
         <WidgetBtn>
           <div className="btn-wrapper">

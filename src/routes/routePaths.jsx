@@ -1,3 +1,4 @@
+import React from "react";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
@@ -19,6 +20,7 @@ const tabs = [
   { title: "Archive", component: <h2>Content Two renders here!</h2> },
   { title: "Forms", component: <h2>Content Three renders here!</h2> },
 ];
+
 const routePaths = [
   {
     path: "/",

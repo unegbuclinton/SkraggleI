@@ -1,9 +1,11 @@
 import DashboardLayout from "components/layouts/DashboardLayout";
 import Tabs from "components/molecules/Tabs";
 import React from "react";
+import Archive from "./Archive";
 import Mail from "./Mailblast";
 import SavedTemplate from "./SavedTemplate";
 import Setting from "./Settings";
+import Subscription from "./Subscription";
 
 function MailBlast() {
   const mail = [
@@ -21,11 +23,11 @@ function MailBlast() {
     },
     {
       title: "Subscription Status",
-      component: " Contacts",
+      component: <Subscription />,
     },
     {
       title: "Archive",
-      component: "No Archive",
+      component: <Archive />,
     },
   ];
   return (

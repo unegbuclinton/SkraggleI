@@ -33,6 +33,23 @@ export const SettingWrapper = styled.div`
     height: 4.8rem;
     color: ${COLORS.white};
   }
+
+  .feedback{
+    display: flex;
+    align-items: center;
+    margin-left: 8.2rem;
+    color: ${COLORS['grey-400']};
+    font-size: ${FONTSIZES.lg};
+    font-weight: ${FONTWEIGHTS.nornal};
+    padding-bottom: 29.2rem;
+
+    &-header{
+      margin-right: 4rem;
+    }
+    &-text{
+      margin-right: 6.4rem;
+    }
+  }
 `;
 
 export const SettingBody = styled.div`
@@ -46,6 +63,7 @@ export const SettingBody = styled.div`
   }
   #text {
     border: none;
+    outline: none;
     background-color: ${COLORS.torquoise};
     width: 100%;
     height: 26.8rem;
