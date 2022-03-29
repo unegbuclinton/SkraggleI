@@ -41,6 +41,6 @@ export const ButtonWrapper = styled.button`
     css`
       background-color: ${COLORS.white};
       border: 1px solid ${COLORS["moore-grey"]};
-      color: ${COLORS['moore-grey']};
+      color: ${COLORS["moore-grey"]};
     `};
 `;

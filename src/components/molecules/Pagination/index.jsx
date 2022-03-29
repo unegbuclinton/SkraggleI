@@ -31,6 +31,8 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
           {number}
         </li>
       );
+    } else {
+      return null;
     }
   });
 
@@ -55,14 +57,18 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   let pageIncrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
     pageIncrementBtn = (
-      <TrackerBtn onClick={handlePageIncrement}>&hellip;</TrackerBtn>
+      <TrackerBtn pill onClick={handlePageIncrement}>
+        &hellip;
+      </TrackerBtn>
     );
   }
 
   let pageDecrementBtn = null;
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = (
-      <TrackerBtn onClick={handlePageDecrement}>&hellip;</TrackerBtn>
+      <TrackerBtn pill onClick={handlePageDecrement}>
+        &hellip;
+      </TrackerBtn>
     );
   }
 
@@ -71,6 +77,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   return (
     <PaginationWrapper renderPageNumbers={renderPageNumbers}>
       <PaginationButtons
+        pill
         disabled={currentPage === 1}
         onClick={handlePageDecrement}
       >
@@ -83,6 +90,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
       {pageIncrementBtn}
 
       <PaginationButtons
+        pill
         disabled={currentPage === renderPageNumbers.length}
         onClick={handlePageIncrement}
       >
@@ -106,15 +114,16 @@ const PaginationButtons = styled(Button)`
   ${({ disabled }) =>
     disabled &&
     css`
-      cursor: not-allowed;
+      cursor: not-allowed !important;
     `}
   justify-content: center;
   align-items: center;
-  background-color: ${COLORS.white};
-  width: 7.1rem;
-  height: 4.5rem;
-  color: ${COLORS.black};
+  background-color: ${COLORS.white} !important;
+  width: 7.1rem !important;
+  height: 4.5rem !important;
+  color: ${COLORS.black} !important;
   list-style: none;
+  border-radius: 0 !important;
   .arrow {
     width: 2.727rem;
   }
@@ -136,13 +145,14 @@ const PaginationButtons = styled(Button)`
 `;
 
 const TrackerBtn = styled(Button)`
-  height: 4.5rem;
-  width: 5rem;
+  height: 4.5rem !important;
+  width: 5rem !important;
   list-style: none;
-  border: 0.1rem solid ${COLORS["pagination-bg"]};
-  background-color: transparent;
-  color: ${COLORS["text-pagination"]};
+  border: 0.1rem solid ${COLORS["pagination-bg"]} !important;
+  background-color: transparent !important;
+  color: ${COLORS["text-pagination"]} !important;
   font-size: large;
+  border-radius: 0 !important;
 `;
 
 const PageTracker = styled.div`
