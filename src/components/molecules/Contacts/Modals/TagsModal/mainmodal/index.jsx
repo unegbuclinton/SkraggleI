@@ -4,7 +4,7 @@ import Modal from "components/layouts/Modal";
 
 function TagsModal({ isShown, onClose }) {
   return (
-    <Modal header="Create New Tags" isShown={isShown}>
+    <Modal header="Create New Tags" isShown={isShown} hide={onClose}>
       <CreateTags onClose={onClose} />
     </Modal>
   );

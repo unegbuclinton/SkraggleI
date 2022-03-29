@@ -22,7 +22,7 @@ const renderStep = (step) => {
   }
 };
 
-const MultiStepForm = () => {
+const MultiStepForm = ({ onClose }) => {
   const [stepOne, setStepOne] = useState(stepOneInitialState);
   const [stepTwo, setStepTwo] = useState(stepTwoInitialState);
   const [currentStep, setCurrentStep] = useState(0);
@@ -38,8 +38,10 @@ const MultiStepForm = () => {
   };
 
   return (
-    <Provider value={{ stepOne, setStepOne, next, stepTwo, setStepTwo }}>
-      <main>{renderStep(currentStep)}</main>
+    <Provider
+      value={{ stepOne, setStepOne, next, stepTwo, setStepTwo, onClose }}
+    >
+      {renderStep(currentStep)}
     </Provider>
   );
 };

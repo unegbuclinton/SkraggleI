@@ -15,7 +15,10 @@ const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
         // selectableRows={!handleRowSelect}
         onRowClicked={onRowClicked}
         onSelectedRowsChange={handleRowSelect}
+<<<<<<< HEAD
    
+=======
+>>>>>>> e738325fd7cd8cd1bb50b3fe13d6293779a0a0fd
       />
     </TableWrapper>
   );
@@ -29,6 +32,7 @@ const TableWrapper = styled.div`
       height: 6.2rem;
       border: 0.0852273px solid ${COLORS["porcelain-white"]};
       border-top: 0;
+      cursor: pointer;
 
       :first-of-type {
         border-top: 0.0852273px solid ${COLORS["porcelain-white"]};

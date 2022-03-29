@@ -33,6 +33,7 @@ const ProfileContainer = styled.div`
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["gray-500"]};
     padding-bottom: 1.6rem;
+    margin-top: 2.4rem;
   }
 `;
 

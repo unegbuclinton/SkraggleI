@@ -3,11 +3,11 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tabs = ({ tabs }) => {
+const Tabs = ({ tabs, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <TabContentWrapper >
-      <TabContainer >
+    <TabWrapper>
+      <TabContainer {...rest}>
         {tabs?.map((tab, index) => (
           <TabButton
             key={index}
@@ -18,27 +18,20 @@ const Tabs = ({ tabs }) => {
           </TabButton>
         ))}
       </TabContainer>
-      <div> {tabs && tabs[activeTab]?.component}</div>
-    </TabContentWrapper>
+      {tabs && tabs[activeTab]?.component}
+    </TabWrapper>
   );
 };
 
-const TabContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  ${({ vertical }) =>
-    vertical &&
-    css`
-      display: flex;
-      flex-direction: row;
-    `};
+const TabWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
 `;
+
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
   padding: 3.204rem 2.5rem 1.6rem;
-  margin-bottom: 1.6rem;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
@@ -52,6 +45,7 @@ const TabButton = styled.button`
   color: ${COLORS["grey-400"]};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
+  text-transform: capitalize;
 
   &::after {
     position: absolute;

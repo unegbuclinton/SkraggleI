@@ -1,6 +1,6 @@
-import Button from "components/atoms/Button/Button";
+import React, { useContext } from "react";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import React from "react";
+import Button from "components/atoms/Button/Button";
 import {
   ButtonContainer,
   AddressContainer,
@@ -12,10 +12,13 @@ import {
   ModalWrapper,
 } from "./styles";
 import { subcription } from "utilities/modalData";
+import MultiFormContext from "../ContactFormContext/MultiFormContext";
 
-function ContactStepTwo({ onClose }) {
+function ContactStepTwo() {
+  const { stepTwo, setStepTwo, onClose } = useContext(MultiFormContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    setStepTwo({ stepTwo });
   };
 
   return (
@@ -59,7 +62,14 @@ function ContactStepTwo({ onClose }) {
           <FormLabel>TAGS</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
           <ButtonContainer>
-            <Button className="cancel" onClick={onClose} auth invert>
+            <Button
+              className="cancel"
+              type="button"
+              proute
+              onClick={onClose}
+              auth
+              invert
+            >
               Cancel
             </Button>
             <Button className="continue" onClick={handleSubmit}>
