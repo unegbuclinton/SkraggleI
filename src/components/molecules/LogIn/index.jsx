@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useFormik } from "formik";
-import { loginSchema } from "Validation/Schema";
+import { loginSchema } from "validation/Schema";
 
 import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";
@@ -9,7 +9,7 @@ import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import ErrorMessage from "components/atoms/ErrorMessage";
 
-import { FormWrapper, LoginLink, ErrorMsg } from "./styles";
+import { FormWrapper, LoginLink } from "./styles";
 
 const LogIn = () => {
   const formik = useFormik({
