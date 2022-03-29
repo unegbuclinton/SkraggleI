@@ -51,7 +51,6 @@ const CampaignTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row, event) => {
-    setId(row.key + 1);
     navigate(`/campaign/${row.key + 1}`);
     console.log(row.key);
   };

@@ -1,0 +1,30 @@
+[
+    {
+      "path": "/",
+      "element": "Link"
+    },
+    {
+      "path": "/login",
+      "element": "LogIn"
+    },
+    {
+      "path": "/forgotpassword",
+      "element": "ForgotPassword"
+    },
+    {
+      "path": "/signup",
+      "element": "Registration"
+    },
+    {
+      "path": "/reset-password",
+      "element": "ResetPassword"
+    },
+    {
+      "path": "/resend-verification",
+      "element": "ResendVerification"
+    },
+    {
+      "path": "/send-verification",
+      "element": "SendVerification"
+    }
+  ]

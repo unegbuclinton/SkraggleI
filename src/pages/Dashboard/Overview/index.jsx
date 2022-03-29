@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import React, { useState } from "react";
 import { OverviewLeft } from "./styles";
@@ -14,23 +13,6 @@ import { DPIconDateArrow } from "icons";
 import dayjs from "dayjs";
 import WidgetModal from "pages/Dashboard/modals/WidgetModal";
 import Card from "components/atoms/Card";
-=======
-import Button from 'components/atoms/Button/Button';
-import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import DateRange from 'components/molecules/DateRange';
-import dayjs from 'dayjs';
-import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
-import WidgetModal from 'pages/modals/WidgetModal';
-import React, { useState } from 'react';
-import { datas1 } from 'utilities/overviewData';
-import {
-  DatePicker,
-  OverviewLeft,
-  OverviewRight,
-  OverviewWrapper,
-} from './styles';
->>>>>>> e738325fd7cd8cd1bb50b3fe13d6293779a0a0fd
 
 function Overview() {
   const [openWidget, setOpenWidget] = useState(false);
@@ -53,21 +35,13 @@ function Overview() {
                 <DPIconRangeIcon />
               </DatePicker>
               <DatePicker>
-<<<<<<< HEAD
-                {dayjs(filterRange.startDate).format("MMM DD YYYY")}
-=======
                 {dayjs(filterRange.startDate).format('MMM DD YYYY')}
->>>>>>> e738325fd7cd8cd1bb50b3fe13d6293779a0a0fd
               </DatePicker>
               <DatePicker>
                 <DPIconDateArrow />
               </DatePicker>
               <DatePicker>
-<<<<<<< HEAD
-                {dayjs(filterRange.endDate).format("MMM DD YYYY")}
-=======
                 {dayjs(filterRange.endDate).format('MMM DD YYYY')}
->>>>>>> e738325fd7cd8cd1bb50b3fe13d6293779a0a0fd
               </DatePicker>
             </div>
             <CustomDropdown data={datas1} />
