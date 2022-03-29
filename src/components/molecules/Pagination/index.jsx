@@ -1,5 +1,6 @@
 import Button from "components/atoms/Button/Button";
 import { COLORS } from "constants/colors";
+import { FONTSIZES } from "constants/font-spec";
 import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
@@ -153,6 +154,7 @@ const TrackerBtn = styled(Button)`
   color: ${COLORS["text-pagination"]} !important;
   font-size: large;
   border-radius: 0 !important;
+  font-size: ${FONTSIZES.xxlarge} !important;
 `;
 
 const PageTracker = styled.div`

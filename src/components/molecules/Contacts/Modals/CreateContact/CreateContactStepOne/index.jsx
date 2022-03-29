@@ -13,14 +13,13 @@ import { subcription } from "utilities/modalData";
 import Button from "components/atoms/Button/Button";
 import MultiFormContext from "../ContactFormContext/MultiFormContext";
 
-function CreateContactStepOne({ onClose }) {
-  const { stepOne, setStepOne, next } = useContext(MultiFormContext);
+function CreateContactStepOne() {
+  const { stepOne, setStepOne, next, onClose } = useContext(MultiFormContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStepOne({ stepOne });
     next();
-    console.log("continue modal");
   };
   console.log(stepOne);
   return (
@@ -44,7 +43,13 @@ function CreateContactStepOne({ onClose }) {
           <FormLabel>COMPANY</FormLabel>
           <FormInput type="text" placeholder="Company" />
           <ButtonContainer>
-            <Button className="cancel" onClick={onClose} auth invert>
+            <Button
+              className="cancel"
+              type="button"
+              onClick={onClose}
+              auth
+              invert
+            >
               Cancel
             </Button>
             <Button className="continue" onClick={handleSubmit}>
