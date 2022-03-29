@@ -1,5 +1,5 @@
 import { COLORS } from "constants/colors";
-import { FONTWEIGHTS, FONTSIZES } from "constants/font-spec";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled, { css } from "styled-components";
 
 export const ButtonWrapper = styled.button`
