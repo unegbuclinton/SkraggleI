@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useFormik } from "formik";
-import { forgotPasswordSchema } from "Validation/Schema";
+import { forgotPasswordSchema } from "validation/Schema";
 
 import ErrorMessage from "components/atoms/ErrorMessage";
 import AuthLayout from "components/layouts/AuthLayout";

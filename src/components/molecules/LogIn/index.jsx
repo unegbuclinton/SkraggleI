@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useFormik } from "formik";
-import { loginSchema } from "Validation/Schema";
+import { loginSchema } from "validation/Schema";
 
 import Input from "components/atoms/Input/Input";
 import AuthLayout from "components/layouts/AuthLayout";

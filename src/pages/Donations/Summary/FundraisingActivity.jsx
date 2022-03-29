@@ -1,5 +1,5 @@
 import Card from 'components/atoms/Card';
-import DashboardContentCard from 'components/molecules/DashboardContentCard';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
@@ -8,76 +8,73 @@ import styled from 'styled-components';
 const FundraisingActivity = () => {
   const data = [
     {
-      name: "Today",
+      name: 'Today',
     },
     {
-      name: "Yesterday",
+      name: 'Yesterday',
     },
     {
-      name: "Last 7 Days",
+      name: 'Last 7 Days',
     },
     {
-      name: "Last 14 Days",
+      name: 'Last 14 Days',
     },
     {
-      name: "Last 30 Days",
+      name: 'Last 30 Days',
     },
     {
-      name: "This Week",
+      name: 'This Week',
     },
     {
-      name: "This Month",
+      name: 'This Month',
     },
     {
-      name: "This Year",
+      name: 'This Year',
     },
   ];
   return (
-    <DashboardContentCard
-      headerText="Fundraising Activity"
-      dropdownData={data}
-    ></DashboardContentCard>
-    // <FRAContainer>
-    //   <FRAHeaderWrapper>
-    //     <h2>Fundraising Activity</h2>
-    //     <CustomDropdown data={data} />
-    //   </FRAHeaderWrapper>
-    //   <FRAContentWrapper>
-    //     <div className="data-wrapper">
-    //       <h3>$25,000</h3>
-    //       <p>NEW DONATIONS</p>
-    //     </div>
-    //     <div className="data-wrapper">
-    //       <h3>$477</h3>
-    //       <p>NEW DONATIONS</p>
-    //     </div>
-    //     <div className="data-wrapper">
-    //       <h3>14</h3>
-    //       <p>NEW DONATIONS</p>
-    //     </div>
-    //   </FRAContentWrapper>
-    // </FRAContainer>
+    <FRAContainer>
+      <FRAHeaderWrapper>
+        <span>Fundraising Activity</span>
+        <CustomDropdown data={data} />
+      </FRAHeaderWrapper>
+      <FRAContentWrapper>
+        <div className="data-wrapper">
+          <h3>$25,000</h3>
+          <p>NEW DONATIONS</p>
+        </div>
+        <div className="data-wrapper">
+          <h3>$477</h3>
+          <p>NEW DONATIONS</p>
+        </div>
+        <div className="data-wrapper">
+          <h3>14</h3>
+          <p>NEW DONATIONS</p>
+        </div>
+      </FRAContentWrapper>
+    </FRAContainer>
   );
 };
 
 export default FundraisingActivity;
 
 const FRAContainer = styled(Card)`
-  padding: 0 1.6rem;
-  margin-top: 1.6rem;
+  padding: 0.8rem 1.6rem 0 3.9rem;
 `;
 
 const FRAHeaderWrapper = styled.div`
-  padding: 0.8rem 1.6rem 1.2rem 0;
-  margin-left: 2.4rem;
+  padding-bottom: 1.2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  font-size: ${FONTSIZES.lg};
+  font-weight: ${FONTWEIGHTS.medium};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
