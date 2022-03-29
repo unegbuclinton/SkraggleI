@@ -9,7 +9,7 @@ import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import ErrorMessage from "components/atoms/ErrorMessage";
 
-import { FormWrapper, LoginLink, ErrorMsg } from "./styles";
+import { FormWrapper, LoginLink } from "./styles";
 
 const LogIn = () => {
   const formik = useFormik({
