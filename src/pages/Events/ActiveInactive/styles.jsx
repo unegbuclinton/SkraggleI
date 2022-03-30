@@ -78,11 +78,13 @@ export const ActionWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
     color: ${COLORS["grey-500"]};
+    cursor: pointer;
   }
 
   .delete {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
     color: ${COLORS.pink};
+    cursor: pointer;
   }
 `;

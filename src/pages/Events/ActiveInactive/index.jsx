@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Switch from "components/atoms/Switch/Switch";
 import {
   ActionWrapper,
@@ -11,11 +11,26 @@ import {
   Container,
 } from "./styles";
 import { DPIconEventActive } from "icons";
+import CloneEventModal from "components/molecules/EventsModals/CloneModal/Modal";
+import DeleteEventModal from "components/molecules/EventsModals/DeleteModal/Modal";
+import ArchiveModal from "components/molecules/EventsModals/ArchiveModal/Modal";
 
 function ActiveInactive() {
+  const [openCloneEvent, setCloneEventOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openArchiveModal, setOpenArchiveModal] = useState(false);
   return (
     <ActiveInactiveWrapper>
       <Container>
+        <CloneEventModal
+          isShown={openCloneEvent}
+          onClose={() => setCloneEventOpen(false)}
+        />
+        <DeleteEventModal isShown={open} onClose={() => setOpen(false)} />
+        <ArchiveModal
+          isShown={openArchiveModal}
+          onClose={() => setOpenArchiveModal(false)}
+        />
         <ContentContainer>
           <ContentsWrapper>
             <h2 className="heading">A day with orphans</h2>
@@ -34,9 +49,15 @@ function ActiveInactive() {
           </ViewWrapper>
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="action">Clone</p>
-            <p className="action">Archive</p>
-            <p className="delete">Delete</p>
+            <p className="action" onClick={() => setCloneEventOpen(true)}>
+              Clone
+            </p>
+            <p className="action" onClick={() => setOpenArchiveModal(true)}>
+              Archive
+            </p>
+            <p className="delete" onClick={() => setOpen(true)}>
+              Delete
+            </p>
           </ActionWrapper>
         </ContentContainer>
         <ContentContainer>
@@ -57,9 +78,15 @@ function ActiveInactive() {
           </ViewWrapper>
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="action">Clone</p>
-            <p className="action">Archive</p>
-            <p className="delete">Delete</p>
+            <p className="action" onClick={() => setCloneEventOpen(true)}>
+              Clone
+            </p>
+            <p className="action" onClick={() => setOpenArchiveModal(true)}>
+              Archive
+            </p>
+            <p className="delete" onClick={() => setOpen(true)}>
+              Delete
+            </p>
           </ActionWrapper>
         </ContentContainer>
         <ContentContainer>
@@ -80,9 +107,15 @@ function ActiveInactive() {
           </ViewWrapper>
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="action">Clone</p>
-            <p className="action">Archive</p>
-            <p className="delete">Delete</p>
+            <p className="action" onClick={() => setCloneEventOpen(true)}>
+              Clone
+            </p>
+            <p className="action" onClick={() => setOpenArchiveModal(true)}>
+              Archive
+            </p>
+            <p className="delete" onClick={() => setOpen(true)}>
+              Delete
+            </p>
           </ActionWrapper>
         </ContentContainer>
       </Container>
