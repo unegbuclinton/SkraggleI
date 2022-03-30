@@ -1,42 +1,30 @@
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const FundraisingActivity = () => {
-  const data = [
-    {
-      name: 'Today',
-    },
-    {
-      name: 'Yesterday',
-    },
-    {
-      name: 'Last 7 Days',
-    },
-    {
-      name: 'Last 14 Days',
-    },
-    {
-      name: 'Last 30 Days',
-    },
-    {
-      name: 'This Week',
-    },
-    {
-      name: 'This Month',
-    },
-    {
-      name: 'This Year',
-    },
-  ];
+  const [openRange, setOpenRange] = useState(false);
+  const toggleRange = () => setOpenRange((prev) => !prev);
+  const [filterRange, setFilterRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    label: 'Today',
+  });
+  const handleSetRange = (range) => setFilterRange(range);
+
   return (
     <FRAContainer>
       <FRAHeaderWrapper>
         <span>Fundraising Activity</span>
-        <CustomDropdown data={data} />
+        <CalendarDropdown
+          label={filterRange?.label}
+          toggleRange={toggleRange}
+          setRange={handleSetRange}
+          open={openRange}
+        />
       </FRAHeaderWrapper>
       <FRAContentWrapper>
         <div className="data-wrapper">
@@ -81,6 +69,14 @@ const FRAHeaderWrapper = styled.div`
     width: calc(100% - 3.1rem);
     bottom: 0;
     left: 0;
+  }
+
+  .date-wrapper {
+    position: relative;
+
+    &__range-picker {
+      position: absolute;
+    }
   }
 `;
 

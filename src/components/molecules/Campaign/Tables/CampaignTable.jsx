@@ -1,17 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Modal from 'components/layouts/Modal';
 import Table from 'components/layouts/Table';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 import NewCampaignModal from '../CreateCampaignModal';
-
-
+import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const columns = [
@@ -54,36 +51,42 @@ const CampaignTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row, event) => {
-    setId(row.key+1);
-    navigate(`/campaign/${row.key+1}`)
-    console.log(row.key)
-   };
+    setId(row.key + 1);
+    navigate(`/campaign/${row.key + 1}`);
+    console.log(row.key);
+  };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <ContainerBody>
-    <TableWrapper>
-      <TableHeaderWrapper className="table-header">
-        <div className="table-header__left">
-          <h1>15 Campaigns</h1>
-        </div>
+      <TableWrapper>
+        <TableHeaderWrapper className="table-header">
+          <div className="table-header__left">
+            <h1>15 Campaigns</h1>
+          </div>
 
-        <div className="table-header__right">
-          <CustomDropdown className="dropdown-filter" data={datas} />
-          <SearchBar className="search-icon" />
-          <Button
-            className="campaign-button"
-            onClick={() => setModalIsOpen(true)}
-          >
-            <DPPlusIcon className="plus-icon" />
-            New Campaign
-          </Button>
-          { modalIsOpen && <NewCampaignModal onClose={()=>{setModalIsOpen(false)}}/>}
-        </div>
-      </TableHeaderWrapper>
-      <Table columns={columns} data={data} onRowClicked={onRowClicked} />
-    </TableWrapper>
+          <div className="table-header__right">
+            <CustomDropdown className="dropdown-filter" data={datas} />
+            <SearchBar className="search-icon" />
+            <Button
+              className="campaign-button"
+              onClick={() => setModalIsOpen(true)}
+            >
+              <DPPlusIcon className="plus-icon" />
+              New Campaign
+            </Button>
+            {modalIsOpen && (
+              <NewCampaignModal
+                onClose={() => {
+                  setModalIsOpen(false);
+                }}
+              />
+            )}
+          </div>
+        </TableHeaderWrapper>
+        <Table columns={columns} data={data} onRowClicked={onRowClicked} />
+      </TableWrapper>
     </ContainerBody>
   );
 };
