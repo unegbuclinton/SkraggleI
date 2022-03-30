@@ -11,7 +11,7 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
-import Settings from "pages/Events/Settings";
+import Events from "pages/Events";
 import { Link, Outlet } from "react-router-dom";
 
 const tabs = [
@@ -106,7 +106,7 @@ const routePaths = [
   },
   {
     path: "/events",
-    element: <Settings />,
+    element: <Events />,
   },
   {
     path: "/test",

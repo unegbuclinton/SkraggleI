@@ -70,4 +70,9 @@ const TabButton = styled.button`
     `};
 `;
 
+const TabContent = styled.div`
+height: 100%;
+height: 100%;
+`
+
 export default Tabs;

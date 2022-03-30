@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 export const SettingsWrapper = styled(Card)`
   padding: 3.2rem 3.2rem 3.2rem 2.4rem;
+  margin-top: 1.6rem;
 `;
 
 export const SettingsHeader = styled.div`
@@ -52,6 +53,7 @@ export const SettingsContainer = styled.form`
   .input-container {
     display: flex;
     gap: 9.5rem;
+    /* justify-content: space-between; */
   }
 `;
 

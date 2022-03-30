@@ -8,14 +8,14 @@ import {
   ContentsWrapper,
   DateWrapper,
   ViewWrapper,
+  Container,
 } from "./styles";
 import { DPIconEventActive } from "icons";
-import DashboardLayout from "components/layouts/DashboardLayout";
 
 function ActiveInactive() {
   return (
-    <DashboardLayout>
-      <ActiveInactiveWrapper>
+    <ActiveInactiveWrapper>
+      <Container>
         <ContentContainer>
           <ContentsWrapper>
             <h2 className="heading">A day with orphans</h2>
@@ -85,8 +85,8 @@ function ActiveInactive() {
             <p className="delete">Delete</p>
           </ActionWrapper>
         </ContentContainer>
-      </ActiveInactiveWrapper>
-    </DashboardLayout>
+      </Container>
+    </ActiveInactiveWrapper>
   );
 }
 

@@ -13,7 +13,6 @@ const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
         columns={TableColumns}
         data={TableData}
         // selectableRows={!handleRowSelect}
-        onRowClicked={onRowClicked}
         onSelectedRowsChange={handleRowSelect}
       />
     </TableWrapper>
