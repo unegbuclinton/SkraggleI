@@ -8,22 +8,22 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-const DonationMetrics = () => {
+const RevenueMetrics = () => {
   return (
-    <DonationMetricsContainer>
-      <DonationGoalsWrapper>
-        <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
-        <DonationGoalsContentWrapper>
+    <RevenueMetricsContainer>
+      <RevenueGoalsWrapper>
+        <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
+        <RevenueGoalsContentWrapper>
           <GoalProgressTracker
             value={19540.23}
             target={93825}
             heading="Yearly Goal"
           />
-        </DonationGoalsContentWrapper>
-      </DonationGoalsWrapper>
+        </RevenueGoalsContentWrapper>
+      </RevenueGoalsWrapper>
 
-      <DonationTrackerWrapper>
-        <DonationTrackerHeaderWrapper>
+      <RevenueTrackerWrapper>
+        <RevenueTrackerHeaderWrapper>
           <span>Fundraising Activity</span>
           <CustomDropdown
             data={[
@@ -35,7 +35,7 @@ const DonationMetrics = () => {
               },
             ]}
           />
-        </DonationTrackerHeaderWrapper>
+        </RevenueTrackerHeaderWrapper>
         <AreaChart
           data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
           categories={[
@@ -53,23 +53,23 @@ const DonationMetrics = () => {
             'Dec',
           ]}
         />
-      </DonationTrackerWrapper>
-    </DonationMetricsContainer>
+      </RevenueTrackerWrapper>
+    </RevenueMetricsContainer>
   );
 };
 
-export default DonationMetrics;
+export default RevenueMetrics;
 
-const DonationMetricsContainer = styled.div`
+const RevenueMetricsContainer = styled.div`
   display: flex;
   gap: 1.2rem;
 `;
 
-const DonationGoalsWrapper = styled(Card)`
+const RevenueGoalsWrapper = styled(Card)`
   padding: 0 4.7rem 0 4.1rem;
   flex: 1;
 `;
-const DonationGoalsHeader = styled.div`
+const RevenueGoalsHeader = styled.div`
   padding: 2.4rem 0 1.7rem;
   display: flex;
   justify-content: space-between;
@@ -90,18 +90,18 @@ const DonationGoalsHeader = styled.div`
   }
 `;
 
-const DonationGoalsContentWrapper = styled.div`
+const RevenueGoalsContentWrapper = styled.div`
   padding: 8.7rem 0 15.5rem;
 `;
 
-const DonationTrackerWrapper = styled(Card)`
+const RevenueTrackerWrapper = styled(Card)`
   padding: 0.8rem 1.6rem 0 3.3rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 `;
 
-const DonationTrackerHeaderWrapper = styled.div`
+const RevenueTrackerHeaderWrapper = styled.div`
   padding-bottom: 1.2rem;
   margin-left: 0.8rem;
 
