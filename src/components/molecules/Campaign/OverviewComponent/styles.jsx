@@ -21,6 +21,7 @@ export const LeftSection = styled(Card)`
   .action-dropdown__container {
     border-radius: 0.5rem;
     border: 1px solid #1e003e;
+    font-size: ${FONTSIZES.xsmall};
   }
 `;
 

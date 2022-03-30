@@ -6,6 +6,7 @@ const Routing = () => {
   // const PrivateWrapper = ({ isAuthenticated }) => {
   //   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
   // };
+  
   return (
     <Routes>
       {routePaths.map((route) => {

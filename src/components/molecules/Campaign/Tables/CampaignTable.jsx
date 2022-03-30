@@ -59,10 +59,12 @@ const CampaignTable = () => {
 
   let navigate = useNavigate();
 
-  const onRowClicked = (row, event) => {
-    navigate(`/campaign/${row.key + 1}`);
-    console.log(row.key);
+  const onRowClicked = (row, event, state) => {
+    // console.log(row.campaign.toLowerCase().replace(/ /g, "-"));
+    navigate(`/campaign/${row.key + 1}`,{state: row});
+    console.log(row);
   };
+
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 

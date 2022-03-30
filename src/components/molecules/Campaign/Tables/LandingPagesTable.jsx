@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
@@ -88,7 +89,11 @@ const LandingPagesTable = () => {
     console.log(row, event);
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  let navigate = useNavigate();
+  const HandleButtonClick = () => {
+    navigate("/landing-page");
+  };
+
   return (
     <div>
   <ContainerBody>
@@ -103,12 +108,11 @@ const LandingPagesTable = () => {
           <SearchBar className="search-icon" />
           <Button
             className="campaign-button"
-            onClick={() => setModalIsOpen(true)}
+            onClick={() => HandleButtonClick()}
           >
             <DPPlusIcon className="plus-icon" />
             Create New
           </Button>
-          <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
       <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />

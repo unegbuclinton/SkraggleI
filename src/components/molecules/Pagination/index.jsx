@@ -32,6 +32,10 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
         </li>
       );
     }
+    else{
+      return null;
+    }
+    
   });
 
   const handlePageIncrement = () => {

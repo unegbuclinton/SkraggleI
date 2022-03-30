@@ -8,19 +8,19 @@ export const TableContacts =
     },
     {
         "created": "Oct 10, 2021",
-        "campaign": "Orphan House",
+        "campaign": "African Orphan Kids",
         "status": " ",
         "goals": "$350,000"
     },
     {
         "created": "Oct 10, 2021",
-        "campaign": "Orphan House",
+        "campaign": "Fateh",
         "status": " ",
         "goals": "$350,000"
     },
     {
         "created": "Oct 10, 2021",
-        "campaign": "Orphan House",
+        "campaign": "Agboola",
         "status": " ",
         "goals": "$350,000"
     },

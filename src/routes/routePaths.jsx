@@ -12,12 +12,15 @@ import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import { Link, Outlet } from "react-router-dom";
+import { React, createElement } from "react";
+import DashboardLayout from "components/layouts/DashboardLayout";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
   { title: "Archive", component: <h2>Content Two renders here!</h2> },
   { title: "Forms", component: <h2>Content Three renders here!</h2> },
 ];
+
 const routePaths = [
   {
     path: "/",
@@ -103,6 +106,31 @@ const routePaths = [
       },
     ],
   },
+  {
+    path:"/forms",
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
+  },
+  {
+    path:"/peer-to-peer",
+    element: <DashboardLayout>P2P yet to be added</DashboardLayout>
+  },
+  {
+    path:"/elements",
+    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
+  },
+  {
+    path:"/events",
+    element: <DashboardLayout>Events yet to be added</DashboardLayout>
+  },
+  {
+    path:"/landing-page",
+    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>
+  },
+  {
+    path:"/mail-blast",
+    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>
+  },
+
   {
     path: "/test",
     element: <Tabs tabs={tabs} />,

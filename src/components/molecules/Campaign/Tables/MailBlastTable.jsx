@@ -1,10 +1,9 @@
 import { React, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
 import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
 
@@ -66,7 +65,11 @@ const MailBlastTable = () => {
     console.log(row, event);
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  let navigate = useNavigate();
+  const HandleButtonClick = () => {
+    navigate("/mail-blast");
+  };
+
   return (
     <div>
     <ContainerBody>
@@ -81,12 +84,11 @@ const MailBlastTable = () => {
           <SearchBar className="search-icon" />
           <Button
             className="campaign-button"
-            onClick={() => setModalIsOpen(true)}
+            onClick={() => HandleButtonClick()}
           >
             <DPPlusIcon className="plus-icon" />
             Create New
           </Button>
-          <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
       <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
