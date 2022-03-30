@@ -18,14 +18,14 @@ const Tabs = ({ tabs, ...rest }) => {
           </TabButton>
         ))}
       </TabContainer>
-      {tabs && tabs[activeTab]?.component}
+      <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
   );
 };
 
 const TabWrapper = styled.div`
   width: 100%;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 `;
 
 const TabContainer = styled(Card)`
@@ -44,14 +44,14 @@ const TabButton = styled.button`
   cursor: pointer;
   background: transparent;
   padding-bottom: 1.296rem;
-  color: ${COLORS["grey-400"]};
+  color: ${COLORS['grey-400']};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     background: ${COLORS.pink};
@@ -72,8 +72,8 @@ const TabButton = styled.button`
 `;
 
 const TabContent = styled.div`
-height: 100%;
-height: 100%;
-`
+  height: 100%;
+  height: 100%;
+`;
 
 export default Tabs;
