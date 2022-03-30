@@ -2,7 +2,9 @@ import DashboardLayout from "components/layouts/DashboardLayout";
 import Tabs from "components/molecules/Tabs";
 import React from "react";
 import Archive from "./Archive";
+import MailContent from "./Content";
 import Mail from "./Mailblast";
+import MonthlyNewsteller from "./MonthlyNewsletter";
 import SavedTemplate from "./SavedTemplate";
 import Setting from "./Settings";
 import Subscription from "./Subscription";
@@ -25,9 +27,18 @@ function MailBlast() {
       title: "Subscription Status",
       component: <Subscription />,
     },
+
     {
       title: "Archive",
       component: <Archive />,
+    },
+    {
+      title: "Overview",
+      component: <MonthlyNewsteller />,
+    },
+    {
+      title: "Content",
+      component: <MailContent />,
     },
   ];
   return (

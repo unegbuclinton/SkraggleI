@@ -5,7 +5,6 @@ import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
-import Tabs from "components/molecules/Tabs";
 import Campaign from "pages/Campaign";
 import CampaignDetails from "pages/CampaignDetails";
 import Contacts from "pages/ContactsPage";
@@ -14,6 +13,7 @@ import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
+import UnsubscribeModal from "pages/MailBlast/MailblasModals/Unsubscribe";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -113,7 +113,7 @@ const routePaths = [
   },
   {
     path: "/test",
-    element: <Tabs tabs={tabs} />,
+    element: <UnsubscribeModal />,
   },
 ];
 
