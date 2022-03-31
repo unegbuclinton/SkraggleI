@@ -20,10 +20,6 @@ export const ButtonWrapper = styled.button`
       padding: 0.65rem 0;
       width: 9.173rem;
       font-weight: ${FONTWEIGHTS.normal};
-<<<<<<< HEAD
-=======
-      font-size: ${FONTSIZES.xsmall};
->>>>>>> e738325fd7cd8cd1bb50b3fe13d6293779a0a0fd
     `};
   ${({ action }) =>
     action &&
