@@ -5,7 +5,7 @@ import React from "react";
 
 import { MailFromWrapper, MailFromLabel } from "./styles";
 
-function MailFrom() {
+function MailFrom({onClose}) {
   return (
     <MailFromWrapper>
       <Card className="mailfrom-card">
@@ -23,7 +23,7 @@ function MailFrom() {
         </div>
 
         <div className="mailfrom-footer">
-          <Button invert auth className="mail-cancel-btn">
+          <Button invert auth className="mail-cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button auth className="mail-save-btn">

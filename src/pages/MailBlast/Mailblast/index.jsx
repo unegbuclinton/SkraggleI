@@ -8,8 +8,18 @@ import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import { datas1 } from "utilities/overviewData";
+import { useNavigate } from "react-router-dom";
 
 function Mail() {
+  let navigate = useNavigate();
+
+  const handleRowClicked = (row) => {
+    navigate(`/mail-blasts/${row.key + 1}`);
+
+
+    console.log(row)
+  };
+
   const columns = [
     {
       name: "",
@@ -83,7 +93,7 @@ function Mail() {
           </div>
         </div>
         <div className="table-container">
-          <Table columns={columns} data={data} />
+          <Table columns={columns} data={data} onRowClicked={handleRowClicked} />
         </div>
       </Card>
     </MailWrapper>

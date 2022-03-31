@@ -6,7 +6,7 @@ import React from "react";
 import { MailToLabel } from "./styles";
 import { MailToWrapper } from "./styles";
 
-function MailTo() {
+function MailTo({onClose}) {
   return (
     <MailToWrapper>
       <Card className="mailto-card">
@@ -35,7 +35,7 @@ function MailTo() {
         </div>
 
         <div className="mailto-footer">
-          <Button invert auth className="mail-cancel-btn">
+          <Button invert auth className="mail-cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button auth className="mail-save-btn">

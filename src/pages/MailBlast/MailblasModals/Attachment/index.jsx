@@ -2,10 +2,12 @@ import Modal from "components/layouts/Modal";
 import Attachment from "components/molecules/MailblastModalComponents/Attachment";
 import React from "react";
 
-function AttachmentModal() {
-  return <Modal header='Attachments' isShown>
-      <Attachment />
-  </Modal>;
+function AttachmentModal({ onClose, isShown }) {
+  return (
+    <Modal header="Attachments" isShown={isShown} hide={onClose}>
+      <Attachment onClose={onClose} />
+    </Modal>
+  );
 }
 
 export default AttachmentModal;

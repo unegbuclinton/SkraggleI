@@ -4,7 +4,6 @@ import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
-import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import { datas1 } from "utilities/overviewData";

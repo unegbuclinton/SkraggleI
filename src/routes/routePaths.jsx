@@ -13,7 +13,8 @@ import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
-import UnsubscribeModal from "pages/MailBlast/MailblasModals/Unsubscribe";
+import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
+import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -94,8 +95,18 @@ const routePaths = [
     element: <Donations />,
   },
   {
-    path: "/mail-blasts",
-    element: <MailBlast />,
+    path: "mail-blasts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <MailBlast />
+      },
+      {
+        path: ':id',
+        element: <MonthlyNewsteller />,
+      }
+    ]
   },
   {
     path: "campaign/*",
@@ -113,7 +124,7 @@ const routePaths = [
   },
   {
     path: "/test",
-    element: <UnsubscribeModal />,
+    element: <UnsubscribeWarning />,
   },
 ];
 

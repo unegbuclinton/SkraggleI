@@ -14,6 +14,7 @@ const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
         data={TableData}
         // selectableRows={!handleRowSelect}
         onSelectedRowsChange={handleRowSelect}
+        onRowClicked={onRowClicked}
       />
     </TableWrapper>
   );

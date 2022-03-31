@@ -3,18 +3,18 @@ import Card from "components/atoms/Card";
 import React from "react";
 import { Attachwrapper } from "./styles";
 
-function Attachment() {
+function Attachment({onClose}) {
   return (
     <Attachwrapper>
       <Card className="attach-card">
-        <p className="attatch-text">Attachments</p>
+        <p className="attatch-text">Attachments </p>
 
         <Button className="attach-btn" auth>
           Upload files
         </Button>
 
         <div className="attach-footer">
-          <Button invert auth className="attach-cancel-btn">
+          <Button invert auth className="attach-cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button auth className="attach-save-btn">

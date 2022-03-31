@@ -3,7 +3,7 @@ import Card from "components/atoms/Card";
 import React from "react";
 import { DefaultWrapper, DefaultHeader, TemplateItems } from "./styles";
 
-function DefaultTemplate() {
+function DefaultTemplate({onClose}) {
   return (
     <DefaultWrapper>
       <Card className = 'default-card'>
@@ -47,7 +47,7 @@ function DefaultTemplate() {
         </div>
 
         <div className="default-footer">
-          <Button invert auth className="default-cancel-btn">
+          <Button invert auth className="default-cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button auth className="default-save-btn">

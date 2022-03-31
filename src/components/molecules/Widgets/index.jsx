@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import Contacts from "../WidgetComponents/Contacts";
@@ -9,13 +9,10 @@ import SmartWidget from "../WidgetComponents/SmartWidget";
 import {
   WidgetBtn,
   WidgetWrapper,
-  WidgetContentWrapper,
-  WidgetButton,
 } from "./styles";
+import VerticalTab from "../VerticalTabs";
 
 function Widget({ onCloseWidget }) {
-  const [activeWidget, setActiveWidget] = useState(0);
-
   const widget = [
     { title: "Smart Widget", component: <SmartWidget /> },
     { title: "Contacts", component: <Contacts /> },
@@ -27,21 +24,7 @@ function Widget({ onCloseWidget }) {
   return (
     <WidgetWrapper>
       <Card>
-        <WidgetContentWrapper>
-          <div className="btn-wrapper">
-            {widget.map(({ title }, index) => (
-              <WidgetButton
-                key={index}
-                active={activeWidget === index}
-                onClick={() => setActiveWidget(index)}
-              >
-                {title}
-              </WidgetButton>
-            ))}
-          </div>
-
-          <div> {widget && widget[activeWidget]?.component}</div>
-        </WidgetContentWrapper>
+        <VerticalTab tabs={widget} />
 
         <WidgetBtn>
           <div className="btn-wrapper">

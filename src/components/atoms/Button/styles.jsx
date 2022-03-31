@@ -20,6 +20,7 @@ export const ButtonWrapper = styled.button`
       padding: 0.65rem 0;
       width: 9.173rem;
       font-weight: ${FONTWEIGHTS.normal};
+      font-size: ${FONTSIZES.xsmall};
     `};
   ${({ action }) =>
     action &&

@@ -4,10 +4,10 @@ import { ArchiveWrapper, ArchiveComment } from "./styles";
 
 function Archive() {
   const [archive, setArchive] = useState([]);
-
+  console.log(setArchive);
   return (
     <ArchiveWrapper>
-      <Card className='archive-card'>
+      <Card className="archive-card">
         {archive.length === 0 ? (
           <ArchiveComment> There are no archived elements.</ArchiveComment>
         ) : (

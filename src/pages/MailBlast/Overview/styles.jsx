@@ -10,12 +10,13 @@ export const NewstellerTop = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 2.4rem 2.4rem 2.4rem;
+  gap: 3.2rem;
 
   .newsteller-left {
+    flex: 1;
     .top {
       display: flex;
       justify-content: space-between;
-      gap: 51.4rem;
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.bold};
       color: ${COLORS["gray-500"]};
@@ -26,7 +27,6 @@ export const NewstellerTop = styled.div`
       justify-content: space-between;
       font-size: ${FONTSIZES.xlarge};
       font-weight: ${FONTWEIGHTS.bold};
-      gap: 51rem;
 
       .left {
         color: ${COLORS["grey-500"]};

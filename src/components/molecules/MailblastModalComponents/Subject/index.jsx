@@ -4,7 +4,7 @@ import Input from "components/atoms/Input/Input";
 import React from "react";
 import { SubjectWrapper, SubjectLabel } from "./styles";
 
-function Subject() {
+function Subject({onClose}) {
   return (
     <SubjectWrapper>
       <Card className="subject-card">
@@ -18,7 +18,7 @@ function Subject() {
         </div>
 
         <div className="subject-footer">
-          <Button invert auth className="subject-cancel-btn">
+          <Button invert auth className="subject-cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button auth className="subject-save-btn">

@@ -4,8 +4,9 @@ import { NewstellerWrapper } from "./styles";
 import { NewstellerTop } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { NewstellerBody } from "./styles";
+import ProgressBar from "components/atoms/ProgressBar";
 
-function MonthlyNewsteller() {
+function Overview() {
   return (
     <NewstellerWrapper>
       <Card>
@@ -31,10 +32,13 @@ function MonthlyNewsteller() {
           <p className="body-header">
             Statistics <span className="added-text">(12 Recipients)</span>
           </p>
+          <div className="newsteller-metric">
+            <ProgressBar circular value={19504} target={500000}/>
+          </div>
         </NewstellerBody>
       </Card>
     </NewstellerWrapper>
   );
 }
 
-export default MonthlyNewsteller;
+export default Overview;
