@@ -2,7 +2,7 @@ import { COLORS } from 'constants/colors';
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const AreaChart = ({ data, categories }) => {
+const AreaChart = ({ data, categories, ...rest }) => {
   const dataProps = {
     options: {
       chart: {
@@ -55,6 +55,7 @@ const AreaChart = ({ data, categories }) => {
       series={dataProps.series}
       type="area"
       height={350}
+      {...rest}
     />
   );
 };

@@ -53,6 +53,7 @@ function Overview() {
               toggle={toogleDateRange}
               className="date-range-picker"
               onChangeRange={(ranges) => {
+                console.log(ranges);
                 setFilterRange(ranges);
               }}
             />
