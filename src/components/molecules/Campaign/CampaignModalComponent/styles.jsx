@@ -26,7 +26,7 @@ export const ModalWrapper = styled.form`
     border: 1px solid #9a9aa9;
     background-color: ${COLORS.white};
     border-radius: 0.5rem;
-    color: #9A9AA9;
+    color: #9a9aa9;
     margin-right: 1.6rem;
   }
   .save-btn {
@@ -35,15 +35,18 @@ export const ModalWrapper = styled.form`
     border: 1px solid #9a9aa9;
     border-radius: 0.5rem;
   }
+
+  .campaign-modal {
+    background-color: ${COLORS.white};
+    padding-left: 2.083rem;
+    height: 6.4rem;
+    width: 100%;
+    border: 1px solid ${COLORS["gray-500"]};
+    border-radius: 0.5rem;
+  }
 `;
 
-export const ModalInput = styled.input`
-  padding-left: 2.083rem;
-  height: 6.4rem;
-  width: 100%;
-  border: 1px solid ${COLORS["gray-500"]};
-  border-radius: 0.5rem;
-`;
+export const ModalInput = styled.input``;
 
 export const ModalInputDescription = styled.input`
   padding-left: 2.083rem;
@@ -54,7 +57,7 @@ export const ModalInputDescription = styled.input`
   border-radius: 0.5rem;
 `;
 
-export const ButtonsContainer =  styled.div`
-display: flex;
-justify-content: right;
-`
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: right;
+`;

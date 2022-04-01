@@ -31,5 +31,4 @@ export { ReactComponent as DPIconDateArrow } from "icons/svgs/dateArrow.svg";
 export { ReactComponent as DPIconTransaction } from "icons/svgs/transaction-icon.svg";
 export { ReactComponent as DPIconPageNavigation } from "icons/svgs/pageNavigation.svg";
 export { ReactComponent as DPIconUploadFile } from "icons/svgs/UploadIcon.svg";
-
-
+export { ReactComponent as DPIconChevronDown } from 'icons/svgs/chevronDown.svg';

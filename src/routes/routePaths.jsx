@@ -11,7 +11,6 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
-import P2P from "pages/P2P";
 import { Link, Outlet } from "react-router-dom";
 import { React } from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
@@ -106,20 +105,6 @@ const routePaths = [
         element: <CampaignDetails />,
       },
     ],
-  },
-  {
-    path:"peer-to-peer/*",
-    element: <Outlet/>,
-    children:[
-      {
-        path: "/",
-        element:<P2P/>
-      },
-      {
-        path:":id",
-        element: <div>Hello</div>
-      }
-    ] 
   },
   {
     path:"/forms",
