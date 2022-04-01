@@ -1,7 +1,7 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
-import ProgressBar from "components/atoms/ProgressBar";
-import SetRevenueModal from "pages/modals/SetRevenueModal";
+import GoalProgressTracker from "components/molecules/GoalProgressTracker";
+import SetRevenueModal from "pages/Dashboard/modals/SetRevenueModal";
 import React from "react";
 import { useState } from "react";
 import { RevenueWrapper, DonationContainer, DonationWrapper } from "./styles";
@@ -15,14 +15,13 @@ function Donation() {
       <DonationWrapper>
         <Card className="progress-card">
           <p className="donation-text">Donation Goals</p>
-          <ProgressBar
-            className="donation-progress"
-            value={19540}
-            target={500000}
-            heading="Yearly Goal"
-            raisedLabel="raised"
-            targetLabel="Target"
-          />
+          <div className="progress-tracker">
+            <GoalProgressTracker
+              heading="Yearly Goal"
+              value={195400}
+              target={500000}
+            />
+          </div>
         </Card>
       </DonationWrapper>
       <RevenueWrapper>
@@ -35,14 +34,7 @@ function Donation() {
               </p>
             ) : (
               donations.map((value, target, duration) => (
-                <ProgressBar
-                  value={value}
-                  target={target}
-                  heading={duration}
-                  raisedLabel="raised"
-                  targetLabel="Target"
-                  className="donation-progress"
-                />
+                <GoalProgressTracker value={value} target={target} />
               ))
             )}
 

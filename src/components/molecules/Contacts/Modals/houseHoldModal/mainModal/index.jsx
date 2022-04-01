@@ -4,7 +4,7 @@ import CraeteNewHouseHold from "../createNewHouseHold";
 
 function HouseHoldModal({ onClose, isShown }) {
   return (
-    <Modal header="Create New HouseHold" isShown={isShown}>
+    <Modal header="Create New HouseHold" isShown={isShown} hide={onClose}>
       <CraeteNewHouseHold onClose={onClose} />
     </Modal>
   );
