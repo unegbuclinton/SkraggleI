@@ -1,4 +1,3 @@
-export { ReactComponent as DPIconCampaign } from "icons/svgs/campaignIcon.svg";
 export { ReactComponent as DPIconSkraggleCheck } from "icons/svgs/check.svg";
 export { ReactComponent as DPIconClose } from "icons/svgs/closeIcon.svg";
 export { ReactComponent as DPIconContacts } from "icons/svgs/contactsIcon.svg";
@@ -19,7 +18,6 @@ export { ReactComponent as DPIconSkraggleLogo } from "icons/svgs/skraggle-logo.s
 export { ReactComponent as DPIconSearch } from "icons/svgs/search.svg";
 export { ReactComponent as DPIconAdd } from "icons/svgs/add.svg";
 export { ReactComponent as DPIconsArrowLeft } from "icons/svgs/arrow-left.svg";
-export { ReactComponent as DPIconsArrowRight } from "icons/svgs/arrow-right.svg";
 export { ReactComponent as DPIconsPen } from "icons/svgs/pen.svg";
 export { ReactComponent as DPIconDonor } from "icons/svgs/donor.svg";
 export { ReactComponent as DPPlusIcon } from "icons/svgs/plus.svg";
@@ -32,3 +30,6 @@ export { ReactComponent as DPIconTransaction } from "icons/svgs/transaction-icon
 export { ReactComponent as DPIconEventActive } from "icons/svgs/active.svg";
 export { ReactComponent as DPIconCaretDown } from "icons/svgs/caretdown.svg";
 export { ReactComponent as DPIconMark } from "icons/svgs/mark.svg";
+export { ReactComponent as DPIconsArrowRight } from "icons/svgs/arrow-right.svg";
+export { ReactComponent as DPIconCampaign } from "icons/svgs/campaignIcon.svg";
+export { ReactComponent as DPIconChevronDown } from "icons/svgs/chevronDown.svg";

@@ -1,14 +1,23 @@
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
 import AreaChart from 'components/organisms/AreaChart';
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const RevenueMetrics = () => {
+  const [openRange, setOpenRange] = useState(false);
+  const toggleRange = () => setOpenRange((prev) => !prev);
+  const [filterRange, setFilterRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    label: 'Today',
+  });
+  const handleSetRange = (range) => setFilterRange(range);
+
   return (
     <RevenueMetricsContainer>
       <RevenueGoalsWrapper>
@@ -17,6 +26,16 @@ const RevenueMetrics = () => {
           <GoalProgressTracker
             value={19540.23}
             target={93825}
+            heading="Monthly Goal"
+          />
+          <GoalProgressTracker
+            value={38540.23}
+            target={93825}
+            heading="Quarterly Goal"
+          />
+          <GoalProgressTracker
+            value={29540.23}
+            target={93825}
             heading="Yearly Goal"
           />
         </RevenueGoalsContentWrapper>
@@ -24,20 +43,16 @@ const RevenueMetrics = () => {
 
       <RevenueTrackerWrapper>
         <RevenueTrackerHeaderWrapper>
-          <span>Fundraising Activity</span>
-          <CustomDropdown
-            data={[
-              {
-                name: 'Today',
-              },
-              {
-                name: 'Yesterday',
-              },
-            ]}
+          <span>Revenue Tracker</span>
+          <CalendarDropdown
+            label={filterRange?.label}
+            toggleRange={toggleRange}
+            setRange={handleSetRange}
+            open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
         <AreaChart
-          data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
+          data={[300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179]}
           categories={[
             'Jan',
             'Feb',
@@ -91,7 +106,10 @@ const RevenueGoalsHeader = styled.div`
 `;
 
 const RevenueGoalsContentWrapper = styled.div`
-  padding: 8.7rem 0 15.5rem;
+  padding: 2.4rem 0 5.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.9rem;
 `;
 
 const RevenueTrackerWrapper = styled(Card)`
