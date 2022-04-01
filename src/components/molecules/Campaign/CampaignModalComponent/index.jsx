@@ -27,8 +27,7 @@ const CampaignModalComponent = () => {
                 placeholder="Lorem Ipsum"/>
                 <h1>FOLLOWERS</h1>
                 <CustomDropdown data={data} className="dropdown-followers"></CustomDropdown>
-                <ButtonsContainer><Button className="cancel-btn">Cancel</Button><Button className="save-btn">Save</Button></ButtonsContainer>
-                
+                <ButtonsContainer><Button className="cancel-btn">Cancel</Button><Button className="save-btn">Save</Button></ButtonsContainer>    
             </Card>
         </ModalWrapper>
     )

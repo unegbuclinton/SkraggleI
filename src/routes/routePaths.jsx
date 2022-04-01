@@ -11,8 +11,9 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
+import P2P from "pages/P2P";
 import { Link, Outlet } from "react-router-dom";
-import { React, createElement } from "react";
+import { React } from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
 
 const tabs = [
@@ -107,13 +108,24 @@ const routePaths = [
     ],
   },
   {
+    path:"peer-to-peer/*",
+    element: <Outlet/>,
+    children:[
+      {
+        path: "/",
+        element:<P2P/>
+      },
+      {
+        path:":id",
+        element: <div>Hello</div>
+      }
+    ] 
+  },
+  {
     path:"/forms",
     element: <DashboardLayout>Forms yet to be added</DashboardLayout>
   },
-  {
-    path:"/peer-to-peer",
-    element: <DashboardLayout>P2P yet to be added</DashboardLayout>
-  },
+  
   {
     path:"/elements",
     element: <DashboardLayout>Elements yet to be added</DashboardLayout>

@@ -28,5 +28,4 @@ export const InputFieldIcon = styled.span`
 `;
 export const Container = styled.div`
   position: relative;
-  width: 37.52rem;
 `;

@@ -1,8 +1,8 @@
-import Button from "components/atoms/Button/Button";
-import { COLORS } from "constants/colors";
-import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import { COLORS } from 'constants/colors';
+import { DPIconsArrowLeft, DPIconsArrowRight } from 'icons';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
@@ -20,22 +20,18 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   };
 
   const renderPageNumbers = pages.map((number, index) => {
-    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-      return (
-        <li
-          key={index}
-          id={number}
-          onClick={handleClick}
-          className={currentPage === number ? "active" : "pagenumber"}
-        >
-          {number}
-        </li>
-      );
-    }
-    else{
-      return null;
-    }
-    
+    return number < maxPageNumberLimit + 1 && number > minPageNumberLimit ? (
+      <li
+        key={index}
+        id={number}
+        onClick={handleClick}
+        className={currentPage === number ? 'active' : 'pagenumber'}
+      >
+        {number}
+      </li>
+    ) : (
+      <></>
+    );
   });
 
   const handlePageIncrement = () => {
@@ -101,7 +97,7 @@ export default Pagination;
 const PaginationWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  display: ${({ renderPageNumbers }) => !renderPageNumbers && "none"};
+  display: ${({ renderPageNumbers }) => !renderPageNumbers && 'none'};
   padding-top: 1.6rem;
   justify-content: flex-end;
 `;
@@ -143,9 +139,9 @@ const TrackerBtn = styled(Button)`
   height: 4.5rem;
   width: 5rem;
   list-style: none;
-  border: 0.1rem solid ${COLORS["pagination-bg"]};
+  border: 0.1rem solid ${COLORS['pagination-bg']};
   background-color: transparent;
-  color: ${COLORS["text-pagination"]};
+  color: ${COLORS['text-pagination']};
   font-size: large;
 `;
 
@@ -162,8 +158,8 @@ const PageTracker = styled.div`
     .pagenumber {
       height: 4.5rem;
       width: 4.5rem;
-      border: 0.1rem solid ${COLORS["pagination-bg"]};
-      color: ${COLORS["text-pagination"]};
+      border: 0.1rem solid ${COLORS['pagination-bg']};
+      color: ${COLORS['text-pagination']};
       display: flex;
       justify-content: center;
       align-items: center;

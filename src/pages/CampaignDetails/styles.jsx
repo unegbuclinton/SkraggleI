@@ -7,5 +7,3 @@ export const CampaignBody = styled(Card)`
   padding-right: 2.4rem;
   padding-bottom: 9rem;
 `;
-
-
