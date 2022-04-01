@@ -31,3 +31,4 @@ export { ReactComponent as DPIconDateArrow } from "icons/svgs/dateArrow.svg";
 export { ReactComponent as DPIconTransaction } from "icons/svgs/transaction-icon.svg";
 export { ReactComponent as DPIconEventActive } from "icons/svgs/active.svg";
 export { ReactComponent as DPIconCaretDown } from "icons/svgs/caretdown.svg";
+export { ReactComponent as DPIconMark } from "icons/svgs/mark.svg";

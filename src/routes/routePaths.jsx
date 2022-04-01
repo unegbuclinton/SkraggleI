@@ -1,3 +1,4 @@
+import Details from "components/molecules/EventsDetails/Details";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
@@ -106,7 +107,7 @@ const routePaths = [
   },
   {
     path: "/events",
-    element: <Events />,
+    element: <Details />,
   },
   {
     path: "/test",

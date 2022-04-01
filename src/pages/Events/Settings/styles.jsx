@@ -52,8 +52,8 @@ export const SettingsContainer = styled.form`
   margin-left: 3.1rem;
   .input-container {
     display: flex;
-    gap: 9.5rem;
-    /* justify-content: space-between; */
+    /* gap: 9.5rem; */
+    justify-content: space-between;
   }
 `;
 
