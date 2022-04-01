@@ -15,6 +15,7 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import DashboardLayout from "components/layouts/DashboardLayout";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },

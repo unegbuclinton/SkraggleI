@@ -48,10 +48,13 @@ export const ModalWrapper = styled.form`
 
 export const ModalInput = styled.input``;
 
-export const ModalInputDescription = styled.input`
+
+export const ModalInputDescription = styled.textarea`
   padding-left: 2.083rem;
-  padding-top: 0;
+  padding-top: 2.3rem;
   height: 17.3rem;
+  resize: none;
+  outline: none;
   width: 100%;
   border: 1px solid ${COLORS["gray-500"]};
   border-radius: 0.5rem;
