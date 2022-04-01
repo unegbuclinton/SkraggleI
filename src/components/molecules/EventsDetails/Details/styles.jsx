@@ -48,7 +48,7 @@ export const EventWrapper = styled.div`
   border-bottom: ${COLORS.torquoise} 0.1rem solid;
   width: 100%;
   padding-left: 2.5rem;
-  overflow-x: auto;
+
   .text-editor {
     width: 614px;
     height: 306px;
