@@ -5,7 +5,7 @@ import AuthLayout from "components/layouts/AuthLayout";
 import Button from "components/atoms/Button/Button";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { registrationSchema } from "validation/Schema";
+import { registrationSchema } from "Validation/Schema";
 import Card from "components/atoms/Card";
 
 function Registration() {

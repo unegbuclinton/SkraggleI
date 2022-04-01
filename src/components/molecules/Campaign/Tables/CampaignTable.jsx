@@ -1,40 +1,41 @@
-import Button from 'components/atoms/Button/Button';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Table from 'components/layouts/Table';
-import { DPPlusIcon } from 'icons';
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TableContacts } from 'utilities/campaigndata';
-import datas from 'utilities/filterData';
-import NewCampaignModal from '../CreateCampaignModal';
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+import Button from "components/atoms/Button/Button";
+import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import SearchBar from "components/atoms/SearchBar/SearchBar";
+import Modal from "components/layouts/Modal";
+import Table from "components/layouts/Table";
+import { DPPlusIcon } from "icons";
+import { React, useState } from "react";
+import { generatePath, useNavigate } from "react-router-dom";
+import { TableContacts } from "utilities/campaigndata";
+import datas from "utilities/filterData";
+import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import NewCampaignModal from "../CreateCampaignModal";
 
 const CampaignTable = () => {
   const columns = [
     {
-      name: ' ',
+      name: " ",
       cell: () => <Box type="checkbox"></Box>,
       ignoreRowClick: false,
-      width: '5rem',
+      width: "5rem",
     },
     {
-      name: 'CREATED',
+      name: "CREATED",
       selector: (row) => row.created,
-      width: '20rem',
+      width: "20rem",
     },
 
     {
-      name: 'CAMPAIGN',
+      name: "CAMPAIGN",
       selector: (row) => row.campaign,
     },
     {
-      name: 'STATUS',
+      name: "STATUS",
       selector: (row) => row.status,
       cell: (col) => <Button className="table-button">Active</Button>,
     },
     {
-      name: 'FUNDRAISING GOALS',
+      name: "FUNDRAISING GOALS",
       selector: (row) => row.goals,
     },
   ];
@@ -47,11 +48,9 @@ const CampaignTable = () => {
     status: Campaigndata.status,
   }));
 
-  const [id, setId] = useState();
   let navigate = useNavigate();
 
   const onRowClicked = (row, event) => {
-    setId(row.key + 1);
     navigate(`/campaign/${row.key + 1}`);
     console.log(row.key);
   };

@@ -1,23 +1,27 @@
+import React from "react";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
-import Tabs from "components/molecules/Tabs";
 import Campaign from "pages/Campaign";
 import CampaignDetails from "pages/CampaignDetails";
 import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
+import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
+import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
+import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
   { title: "Archive", component: <h2>Content Two renders here!</h2> },
   { title: "Forms", component: <h2>Content Three renders here!</h2> },
 ];
+
 const routePaths = [
   {
     path: "/",
@@ -70,6 +74,7 @@ const routePaths = [
       },
     ],
   },
+
   {
     path: "contacts/*",
     element: <Outlet />,
@@ -90,6 +95,20 @@ const routePaths = [
     element: <Donations />,
   },
   {
+    path: "mail-blasts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <MailBlast />
+      },
+      {
+        path: ':id',
+        element: <MonthlyNewsteller />,
+      }
+    ]
+  },
+  {
     path: "campaign/*",
     element: <Outlet />,
     children: [
@@ -105,7 +124,7 @@ const routePaths = [
   },
   {
     path: "/test",
-    element: <Tabs tabs={tabs} />,
+    element: <UnsubscribeWarning />,
   },
 ];
 
