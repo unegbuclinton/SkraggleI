@@ -1,14 +1,23 @@
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
 import AreaChart from 'components/organisms/AreaChart';
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const DonationMetrics = () => {
+  const [openRange, setOpenRange] = useState(false);
+  const toggleRange = () => setOpenRange((prev) => !prev);
+  const [filterRange, setFilterRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    label: 'Today',
+  });
+  const handleSetRange = (range) => setFilterRange(range);
+
   return (
     <DonationMetricsContainer>
       <DonationGoalsWrapper>
@@ -24,16 +33,12 @@ const DonationMetrics = () => {
 
       <DonationTrackerWrapper>
         <DonationTrackerHeaderWrapper>
-          <span>Fundraising Activity</span>
-          <CustomDropdown
-            data={[
-              {
-                name: 'Today',
-              },
-              {
-                name: 'Yesterday',
-              },
-            ]}
+          <span>Donation Tracker</span>
+          <CalendarDropdown
+            label={filterRange?.label}
+            toggleRange={toggleRange}
+            setRange={handleSetRange}
+            open={openRange}
           />
         </DonationTrackerHeaderWrapper>
         <AreaChart
