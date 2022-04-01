@@ -89,6 +89,7 @@ const CampaignTable = () => {
               </Button>
               {modalIsOpen && (
                 <CreateCampaignModal
+                isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
                   }}
