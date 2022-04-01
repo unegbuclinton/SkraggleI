@@ -77,38 +77,15 @@ export const ModalWrapper = styled.form`
     border-radius: 0.5rem;
     margin-top: 4rem;
   }
-`;
 
-export const ModalInput = styled.input`
-  padding-left: 2.083rem;
-  height: 6.4rem;
-  width: 100%;
-  border: 1px solid ${COLORS["gray-500"]};
-  border-radius: 0.5rem;
-`;
-
-export const ModalInputDescription = styled.input`
-  padding-left: 2.083rem;
-  padding-top: 0;
-  height: 17.3rem;
-  width: 100%;
-  border: 1px solid ${COLORS["gray-500"]};
-  border-radius: 0.5rem;
-`;
-
-export const ModalInputGoals = styled.input`
-  padding-left: 2.083rem;
-  padding-top: 0;
-  margin-right: 2.4rem;
-  width: 50%;
-  height: 6.4rem;
-  border: 1px solid ${COLORS["gray-500"]};
-  border-radius: 0.5rem;
-`;
-
-export const UploadFile = styled.input`
-  width: 12.6rem;
-  height: 8rem;
+  .display-photos{
+    display: flex;
+    &__button{
+      width: 8.1rem;
+      height: 8.1rem;
+      margin-right: 1.6rem;
+    }
+  }
 `;
 
 export const ButtonsContainer = styled.div`

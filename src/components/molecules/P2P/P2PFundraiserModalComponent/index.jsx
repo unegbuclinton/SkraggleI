@@ -7,6 +7,8 @@ import data from "utilities/filterData";
 import Input from "components/atoms/Input/Input";
 import TextArea from "components/atoms/TextArea";
 import FileUploadButton from "components/atoms/FileUploadButton";
+import { DPIconUploadFile } from "icons";
+
 
 import {
   ModalWrapper,
@@ -43,7 +45,19 @@ const P2PModalComponent = ({onClose}) => {
         <h1>Personal Message</h1>
         <TextArea maxLength={120}/>
         <h1>Profile Photo</h1>
-        <FileUploadButton></FileUploadButton>
+        <FileUploadButton><DPIconUploadFile/></FileUploadButton> 
+        <h1>Display Photos</h1>
+        <div className="display-photos">
+        <FileUploadButton className="display-photos__button">
+        <DPIconUploadFile/>
+        </FileUploadButton>
+        <FileUploadButton className="display-photos__button">
+        <DPIconUploadFile/>
+        </FileUploadButton>
+        <FileUploadButton className="display-photos__button">
+        <DPIconUploadFile/>
+        </FileUploadButton>
+        </div>
         <ButtonsContainer>
           <Button onClick={onClose} className="save-btn" auth>Create P2P Fundraiser</Button>
           <Button onClick={onClose} className="cancel-btn" auth invert>Cancel</Button>

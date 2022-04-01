@@ -1,6 +1,6 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
-import ProgressBar from "components/atoms/ProgressBar";
+import ProgressBar from "components/atoms/ProgressBarNew";
 import SetRevenueModal from "pages/modals/SetRevenueModal";
 import React from "react";
 import { useState } from "react";

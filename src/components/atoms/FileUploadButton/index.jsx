@@ -1,43 +1,64 @@
-import { React } from "react";
-
-import { DPIconUploadFile } from "icons";
+import React from "react";
 
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
 
-const FileUploadButton = (props) => {
-  //     const hiddenFileInput = React.useState(null);
+const FileUploadButton = ({ className, children }) => {
+  const hiddenFileInput = React.useState(null);
 
-  //   const handleClick = event => {
-  //     hiddenFileInput.current.click();
-  //   };
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+    console.log(event);
+  };
 
-  //   const handleChange = event => {
-  //     const fileUploaded = event.target.files[0];
-  //     props.handleFile(fileUploaded);
-  //   };
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    console.log("file uploaded", fileUploaded);
+  };
 
-//   const [selectedFile, setSelectedFile] = useState();
-//   const [isFilePicked, setIsFilePicked] = useState(false);
+  // const [selectedFile, setSelectedFile] = useState()
+  //   const [preview, setPreview] = useState()
 
-//   const changeHandler = (event) => {
-//     setSelectedFile(event.target.files[0]);
-//     // setIsFilePicked(true);
-//   };
-//   const handleSubmission = () => {};
-let inputRef;
+  //   // create a preview as a side effect, whenever selected file is changed
+  //   useEffect(() => {
+  //       if (!selectedFile) {
+  //           setPreview(undefined)
+  //           return
+  //       }
+
+  //       const objectUrl = URL.createObjectURL(selectedFile)
+  //       setPreview(objectUrl)
+
+  //       // free memory when ever this component is unmounted
+  //       return () => URL.revokeObjectURL(objectUrl)
+  //   }, [selectedFile])
+
+  //   const onSelectFile = e => {
+  //       if (!e.target.files || e.target.files.length === 0) {
+  //           setSelectedFile(undefined)
+  //           return
+  //       }
+
+  //       // I've kept this example simple by using the first image instead of multiple
+  //       setSelectedFile(e.target.files[0])
+  //   }
+  
+
+
   return (
     <>
-      <UploadButtonWrapper onClick={() => inputRef.click()}>
-        <DPIconUploadFile />
+      <UploadButtonWrapper
+        type="button"
+        className={className}
+        onClick={handleClick}
+      >
+        {children}
       </UploadButtonWrapper>
       <FileUploadInput
         type="file"
-        // ref={hiddenFileInput}
-        // onChange={handleChange}
-        ref={refParam => inputRef = refParam}
-        // onChange={changeHandler}
+        accept="image/png"
+        ref={hiddenFileInput}
+        onChange={handleChange}
       />
     </>
   );
