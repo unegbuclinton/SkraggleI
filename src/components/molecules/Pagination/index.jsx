@@ -4,6 +4,7 @@ import { FONTSIZES } from "constants/font-spec";
 import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+
 const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);

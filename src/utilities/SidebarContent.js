@@ -59,7 +59,7 @@ export const SidebarContent = [
     text: 'Elements',
   },
   {
-    route: '/mail-blast',
+    route: '/mail-blasts',
     icon: <DPIconMailBlasts />,
     text: 'Mail Blasts',
   },

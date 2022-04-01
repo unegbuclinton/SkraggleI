@@ -1,4 +1,4 @@
-import ProgressBar from 'components/atoms/ProgressBarNew';
+import ProgressBar from 'components/atoms/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';

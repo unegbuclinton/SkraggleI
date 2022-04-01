@@ -1,77 +1,30 @@
+import React from "react";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Contacts from "../WidgetComponents/Contacts";
 import Forms from "../WidgetComponents/Forms";
 import FundRaise from "../WidgetComponents/Fundraise";
 import Projects from "../WidgetComponents/Projects";
 import SmartWidget from "../WidgetComponents/SmartWidget";
-import { WidgetBtn, WidgetWrapper } from "./styles";
+import {
+  WidgetBtn,
+  WidgetWrapper,
+} from "./styles";
+import VerticalTab from "../VerticalTabs";
 
 function Widget({ onCloseWidget }) {
-  const [showWidget, setShowWidget] = useState(1);
-
-  const ChangeShowWiget = (id) => {
-    setShowWidget(id);
-  };
-  const widgets = [
-    {
-      id: 1,
-      name: "Smart Widgets",
-      path: "/dashboard",
-    },
-    {
-      id: 2,
-      name: "Contacts",
-      path: "/dashboard",
-    },
-    {
-      id: 3,
-      name: "Fundraising",
-      path: "/dashboard",
-    },
-    {
-      id: 4,
-      name: "Projects",
-      path: "/dashboard",
-    },
-    {
-      id: 5,
-      name: "Forms",
-      path: "/dashboard",
-    },
+  const widget = [
+    { title: "Smart Widget", component: <SmartWidget /> },
+    { title: "Contacts", component: <Contacts /> },
+    { title: "Fundraising", component: <FundRaise /> },
+    { title: "Projects", component: <Projects /> },
+    { title: "Form", component: <Forms /> },
   ];
 
   return (
     <WidgetWrapper>
       <Card>
-        <div className="widget-container">
-          <div className="widget-links">
-            {widgets.map(({ name, path, id }) => (
-              <Link
-                onClick={() => {
-                  ChangeShowWiget(id);
-                }}
-                to={path}
-                className={
-                  id === showWidget ? "active-widget" : "non-active-widget"
-                }
-              >
-                {name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="widget-content">
-            {showWidget === 1 && <SmartWidget />}
-            {showWidget === 2 && <Contacts />}
-            {showWidget === 3 && <FundRaise />}
-            {showWidget === 4 && <Projects />}
-            {showWidget === 5 && <Forms />}
-          </div>
-        </div>
+        <VerticalTab tabs={widget} />
 
         <WidgetBtn>
           <div className="btn-wrapper">

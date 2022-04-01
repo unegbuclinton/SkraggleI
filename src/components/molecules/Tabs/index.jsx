@@ -31,7 +31,6 @@ const TabWrapper = styled.div`
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
-  width: 100%;
   padding: 3.204rem 2.5rem 1.6rem;
 `;
 const TabButton = styled.button`

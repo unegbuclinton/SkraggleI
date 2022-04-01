@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 const ProgressBar = ({ value, target, circular, ...rest }) => {
   const range = (value / target) * 100;
   return circular ? (
-    <div>Circular</div>
+    <ProgressBarWrapper range={range} {...rest}></ProgressBarWrapper>
   ) : (
     <ProgressBarWrapper range={range} {...rest}></ProgressBarWrapper>
   );
@@ -22,8 +22,20 @@ const ProgressBarWrapper = styled.div`
   ${({ circular }) =>
     circular &&
     css`
-      //TODO FOR BROTHER CLINTON
-      //Put your circular progress bar styling here
+      width: 17.4rem;
+      height: 17.4rem;
+      border-radius: 50%;
+
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: ${({ range }) => range}%;
+        height: 100%;
+        background-color: ${COLORS.pink};
+        border-radius: 50%;
+      }
     `}
 
   &::before {
