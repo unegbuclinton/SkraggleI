@@ -43,9 +43,9 @@ const CampaignTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const indexLasttList = currentPage * itemsPerPage;
+  const indexLastList = currentPage * itemsPerPage;
 
-  const indexFirstList = indexLasttList - itemsPerPage;
+  const indexFirstList = indexLastList - itemsPerPage;
 
   const tableData = TableContacts.map((Campaigndata, index) => ({
     key: index,
@@ -55,14 +55,12 @@ const CampaignTable = () => {
     status: Campaigndata.status,
   }));
 
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
 
-  const onRowClicked = (row, event, state) => {
-    // console.log(row.campaign.toLowerCase().replace(/ /g, "-"));
+  const onRowClicked = (row) => {
     navigate(`/campaign/${row.key + 1}`,{state: row});
-    console.log(row);
   };
 
 

@@ -4,7 +4,6 @@ import { DPIconPageNavigation } from "icons";
 import styled from "styled-components";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
@@ -15,7 +14,6 @@ const PageLinks = ({
 }) => {
   const location = useLocation();
   const name = location.state.campaign;
-  console.log(name);
 
   return (
     <PageLinksWrapper>

@@ -52,8 +52,8 @@ const P2PTable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-  const indexLasttList = currentPage * itemsPerPage;
-  const indexFirstList = indexLasttList - itemsPerPage;
+  const indexLastList = currentPage * itemsPerPage;
+  const indexFirstList = indexLastList - itemsPerPage;
 
   const tableData = P2PForm.map((p2pData, index) => ({
     key: index,
@@ -64,12 +64,12 @@ const P2PTable = () => {
     status:p2pData.status
   }));
 
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   const onRowClicked = (row, event) => { console.log(row,event) };
   
   let navigate = useNavigate();
-  const HandleButtonClick = () => {
+  const handleButtonClick = () => {
     navigate("/peer-to-peer");
   };
 
@@ -87,7 +87,7 @@ const P2PTable = () => {
           <SearchBar className="search-icon" />
           <Button
             className="campaign-button"
-            onClick={() => HandleButtonClick()}
+            onClick={() => handleButtonClick()}
           >
             <DPPlusIcon className="plus-icon" />
             Create New

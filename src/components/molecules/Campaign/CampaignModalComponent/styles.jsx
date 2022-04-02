@@ -13,7 +13,7 @@ export const ModalWrapper = styled.form`
     margin-bottom: 0.5rem;
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: #626262;
+    color: ${COLORS["grey-200"]};
   }
 
   .dropdown-followers {
@@ -23,16 +23,16 @@ export const ModalWrapper = styled.form`
   .cancel-btn {
     width: 14rem;
     height: 4.8rem;
-    border: 1px solid #9a9aa9;
+    border: 1px solid ${COLORS["moore-grey"]};
     background-color: ${COLORS.white};
     border-radius: 0.5rem;
-    color: #9a9aa9;
+    color: ${COLORS["moore-grey"]};
     margin-right: 1.6rem;
   }
   .save-btn {
     width: 14rem;
     height: 4.8rem;
-    border: 1px solid #9a9aa9;
+    border: 1px solid ${COLORS["moore-grey"]};
     border-radius: 0.5rem;
   }
 
