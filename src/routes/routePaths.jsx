@@ -17,6 +17,12 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import Packages from "components/molecules/EventsDetails/Packages";
+import { Field } from "formik";
+import Fields from "components/molecules/EventsDetails/Fields";
+import PromoCodes from "components/molecules/EventsDetails/Promocodes";
+import Attendees from "components/molecules/EventsDetails/Attendees";
+import PackageDropdown from "components/molecules/EventsDetails/DropdownComponents/PackagesDropdown";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -126,7 +132,7 @@ const routePaths = [
   },
   {
     path: "/events",
-    element: <Details />,
+    element: <Packages />,
   },
   {
     path: "/test",
