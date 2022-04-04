@@ -92,8 +92,6 @@ const Root = styled.div`
   cursor: pointer;
   width: ${(props) => (props.size ? props.size : 20)}px;
   height: ${(props) => (props.size ? props.size : 20)}px;
-  /* display: flex;
-  align-items: center; */
   position: relative;
   label {
     margin-left: 25px;
