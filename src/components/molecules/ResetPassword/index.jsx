@@ -4,7 +4,7 @@ import Input from "components/atoms/Input/Input";
 import { Form, ErrorMsg } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { useFormik } from "formik";
-import { resetSchema } from "Validation/Schema";
+import { resetSchema } from "validation/Schema";
 import Card from "components/atoms/Card";
 
 function ResetPassword() {

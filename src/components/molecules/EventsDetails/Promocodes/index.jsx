@@ -1,6 +1,7 @@
 import Switch from "components/atoms/Switch/Switch";
-import DashboardLayout from "components/layouts/DashboardLayout";
-import React from "react";
+import DeletePromoCodeModal from "components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal";
+import React, { useState } from "react";
+import PromoCodeDropdown from "../DropdownComponents/PromoCodeDropdown";
 import {
   ActionWrapper,
   Container,
@@ -13,51 +14,44 @@ import {
 } from "./styles";
 
 function PromoCodes() {
+  const [dropdown, setDropdown] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <DashboardLayout>
-      <PromoCodeWrapper>
-        <Container>
-          {/* <CloneEventModal
-          isShown={openCloneEvent}
-          onClose={() => setCloneEventOpen(false)}
-        />
-        <DeleteEventModal isShown={open} onClose={() => setOpen(false)} />
-        <ArchiveModal
-          isShown={openArchiveModal}
-          onClose={() => setOpenArchiveModal(false)}
-        /> */}
-          <ContentContainer>
-            <ContentsWrapper>
-              <h2 className="heading">Save15</h2>
-              <p className="heading-text">test</p>
-            </ContentsWrapper>
-            <SwitchIconWrapper>
-              <Switch />
-            </SwitchIconWrapper>
-            <RequiredWrapper>
-              <p className="title">Discount</p>
-              <h2 className="discount">15%</h2>
-            </RequiredWrapper>
-            <ViewWrapper>
-              <p className="title">Maximum uses</p>
-              <h2 className="view">1</h2>
-            </ViewWrapper>
-            <ViewWrapper>
-              <p className="title">times used</p>
-              <h2 className="view">0</h2>
-            </ViewWrapper>
+    <PromoCodeWrapper>
+      <Container>
+        <DeletePromoCodeModal isShown={open} onClose={() => setOpen(false)} />
 
-            <ActionWrapper>
-              <p className="action">Edit</p>
-              <p className="delete">
-                {/* onClick={() => setOpen(true)} */}
-                Delete
-              </p>
-            </ActionWrapper>
-          </ContentContainer>
-        </Container>
-      </PromoCodeWrapper>
-    </DashboardLayout>
+        <ContentContainer>
+          <ContentsWrapper onClick={() => setDropdown(true)}>
+            <h2 className="heading">Save15</h2>
+            <p className="heading-text">test</p>
+          </ContentsWrapper>
+          <SwitchIconWrapper>
+            <Switch />
+          </SwitchIconWrapper>
+          <RequiredWrapper>
+            <p className="title">Discount</p>
+            <h2 className="discount">15%</h2>
+          </RequiredWrapper>
+          <ViewWrapper>
+            <p className="title">Maximum uses</p>
+            <h2 className="view">1</h2>
+          </ViewWrapper>
+          <ViewWrapper>
+            <p className="title">times used</p>
+            <h2 className="view">0</h2>
+          </ViewWrapper>
+
+          <ActionWrapper>
+            <p className="action">Edit</p>
+            <p className="delete" onClick={() => setOpen(true)}>
+              Delete
+            </p>
+          </ActionWrapper>
+        </ContentContainer>
+        {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />}
+      </Container>
+    </PromoCodeWrapper>
   );
 }
 

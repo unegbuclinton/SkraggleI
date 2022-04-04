@@ -1,16 +1,20 @@
-import React from "react";
-import DashboardLayout from "components/layouts/DashboardLayout";
+import React, { useState } from "react";
 import Table from "components/layouts/Table";
 import { data, columns } from "utilities/AttendeeData";
 import { AttendeeWrapper } from "./styles";
+import RegistrationPackage from "../RegistrationPackage";
 
 function Attendees() {
+  const [click, setClick] = useState(false);
+
   return (
-    <DashboardLayout>
-      <AttendeeWrapper>
-        <Table data={data} columns={columns} />
-      </AttendeeWrapper>
-    </DashboardLayout>
+    <AttendeeWrapper>
+      {click ? (
+        <RegistrationPackage />
+      ) : (
+        <Table data={data} setClick={setClick} columns={columns} />
+      )}
+    </AttendeeWrapper>
   );
 }
 

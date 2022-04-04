@@ -3,7 +3,14 @@ import React from "react";
 import DataTable from "react-data-table-component";
 import styled from "styled-components";
 
-const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
+const Table = ({
+  data,
+  columns,
+  handleRowSelect,
+  isLoading,
+  onRowClicked,
+  setClick,
+}) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
 
@@ -15,6 +22,7 @@ const Table = ({ data, columns, handleRowSelect, isLoading, onRowClicked }) => {
         // selectableRows={!handleRowSelect}
         onSelectedRowsChange={handleRowSelect}
         onRowClicked={onRowClicked}
+        // onRowClicked={() => setClick(true)}
       />
     </TableWrapper>
   );

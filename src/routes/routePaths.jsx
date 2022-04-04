@@ -1,4 +1,3 @@
-import Details from "components/molecules/EventsDetails/Details";
 import React from "react";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
@@ -17,12 +16,8 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
-import Packages from "components/molecules/EventsDetails/Packages";
-import { Field } from "formik";
-import Fields from "components/molecules/EventsDetails/Fields";
-import PromoCodes from "components/molecules/EventsDetails/Promocodes";
-import Attendees from "components/molecules/EventsDetails/Attendees";
-import PackageDropdown from "components/molecules/EventsDetails/DropdownComponents/PackagesDropdown";
+import EventsDetails from "components/molecules/EventsDetails";
+import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -131,9 +126,24 @@ const routePaths = [
     ],
   },
   {
-    path: "/events",
-    element: <Packages />,
+    path: "events/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Events />,
+      },
+      {
+        path: "events-details",
+        element: <EventsDetails />,
+      },
+      {
+        path: "registration-package",
+        element: <RegistrationPackage />,
+      },
+    ],
   },
+
   {
     path: "/test",
     element: <UnsubscribeWarning />,

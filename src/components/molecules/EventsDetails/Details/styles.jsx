@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 export const DetailsWrapper = styled(Card)`
   padding: 2.2rem 1.3rem 0 1.3rem;
+  margin-top: 1.6rem;
 `;
 
 export const DetailsHeading = styled.h1`

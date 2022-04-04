@@ -30,6 +30,11 @@ export const EventWrapper = styled.div`
     background-color: ${COLORS.white};
     margin: 0.8rem 0 2.4rem 0;
     width: 99.1rem;
+    height: 6.4rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .email-text {
@@ -44,6 +49,14 @@ export const EventWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.xbold};
     font-size: ${FONTSIZES.base};
   }
+  .set-email-input {
+    width: 39.3rem;
+    height: 6.4rem;
+    border: 0.1rem solid ${COLORS["gray-500"]};
+    border-radius: 0.5rem;
+    background-color: ${COLORS.white};
+    margin: 1.6rem 0 0 0;
+  }
 `;
 
 export const DetailsText = styled.p`
@@ -52,15 +65,33 @@ export const DetailsText = styled.p`
   color: ${COLORS.black};
 `;
 
-// export const SwitchWrapper = styled.div`
-//   display: flex;
-//   gap: 3.2rem;
-// `;
+export const InputWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
+  margin-left: 1rem;
+`;
 
-// export const SwitchLabel = styled.div`
-//   width: 27.1rem;
-//   height: 2.1rem;
-//   font-weight: ${FONTWEIGHTS.normal};
-//   font-size: ${FONTSIZES.lg};
-//   color: ${COLORS.black};
-// `;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 1.5rem;
+  .cancel-btn {
+    width: 10.7rem;
+    height: 5.1rem;
+    border: 0.1rem ${COLORS["gray-500"]} solid;
+    border-radius: 0.34rem;
+    background-color: ${COLORS.white};
+    color: ${COLORS["gray-500"]};
+    font-weight: ${FONTWEIGHTS.xbold};
+    font-size: ${FONTSIZES.small};
+  }
+
+  .save-btn {
+    width: 10.7rem;
+    height: 5.1rem;
+    border-radius: 0.34rem;
+    font-weight: ${FONTWEIGHTS.xbold};
+    font-size: ${FONTSIZES.small};
+  }
+`;

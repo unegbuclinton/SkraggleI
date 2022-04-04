@@ -19,6 +19,7 @@ export const ContentContainer = styled.div`
   border: 0.08rem solid ${COLORS["porcelain-white"]};
   justify-content: space-between;
   min-width: 110.4rem;
+  cursor: pointer;
 `;
 
 export const ContentsWrapper = styled.div`

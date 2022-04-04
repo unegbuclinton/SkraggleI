@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const FieldWrapper = styled(Card)`
-  padding: 3.1rem 2.4rem 63rem 2.4rem;
+  padding: 3.1rem 2.4rem 6.8rem 2.4rem;
   margin-top: 1.6rem;
 `;
 
@@ -18,7 +18,8 @@ export const ContentContainer = styled.div`
   padding: 1.2rem 2rem 1.2rem 3.1rem;
   border: 0.08rem solid ${COLORS["porcelain-white"]};
   justify-content: space-between;
-  min-width: 110.4rem !important;
+  /* min-width: 110.4rem !important; */
+  cursor: pointer;
 `;
 
 export const ContentsWrapper = styled.div`

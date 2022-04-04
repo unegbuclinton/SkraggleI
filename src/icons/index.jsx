@@ -33,3 +33,4 @@ export { ReactComponent as DPIconMark } from "icons/svgs/mark.svg";
 export { ReactComponent as DPIconsArrowRight } from "icons/svgs/arrow-right.svg";
 export { ReactComponent as DPIconCampaign } from "icons/svgs/campaignIcon.svg";
 export { ReactComponent as DPIconChevronDown } from "icons/svgs/chevronDown.svg";
+export { ReactComponent as DPIconCancel } from "icons/svgs/cancel.svg";

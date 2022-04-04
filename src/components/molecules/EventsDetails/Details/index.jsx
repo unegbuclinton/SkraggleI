@@ -1,5 +1,4 @@
 import React from "react";
-import DashboardLayout from "components/layouts/DashboardLayout";
 import {
   Container,
   DetailsHeading,
@@ -18,25 +17,23 @@ import RecipientBody from "./RecipientBody";
 
 function Details() {
   return (
-    <DashboardLayout>
-      <DetailsWrapper>
-        <DetailsHeading>A day with orphans</DetailsHeading>
-        <Container>
-          <EventInformation />
-          <EventLocation />
-          <DisplayOptions />
-          <DisplaySettings />
-          <CutOffDate />
-          <AdminNotification />
-          <RegistrationReceipt />
-        </Container>
-        <RecipientBody />
-        <ButtonWrapper>
-          <Button className="cancel-btn">Cancel</Button>
-          <Button className="save-btn">Save</Button>
-        </ButtonWrapper>
-      </DetailsWrapper>
-    </DashboardLayout>
+    <DetailsWrapper>
+      <DetailsHeading>A day with orphans</DetailsHeading>
+      <Container>
+        <EventInformation />
+        <EventLocation />
+        <DisplayOptions />
+        <DisplaySettings />
+        <CutOffDate />
+        <AdminNotification />
+        <RegistrationReceipt />
+      </Container>
+      <RecipientBody />
+      <ButtonWrapper>
+        <Button className="cancel-btn">Cancel</Button>
+        <Button className="save-btn">Save</Button>
+      </ButtonWrapper>
+    </DetailsWrapper>
   );
 }
 
