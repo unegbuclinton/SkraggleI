@@ -17,11 +17,13 @@ function Setting() {
         </div>
         <SettingBody>
           <h1 className="setting-body-text">Description</h1>
-          <textarea name="text" id="text">
+          <textarea name="text" id="text" placeholder="text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod
             tempore inventore harum rem sapiente est maiores optio aperiam
             asperiores ullam?
           </textarea>
+
+        
         </SettingBody>
         <div className="feedback">
           <p className="feedback-header"> Feedback Box</p>

@@ -65,4 +65,29 @@ export const NewstellerBody = styled.div`
       color: ${COLORS["navy-blue"]};
     }
   }
+
+  .newsteller-metric {
+    display: flex;
+    gap: 10.1rem;
+    justify-content: center;
+    align-items: center;
+
+    .sumed-value {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 6.2rem;
+
+      &__num{
+        font-size: 3rem;
+        color: ${COLORS.pink};
+        font-weight: ${FONTWEIGHTS.bold};
+      }
+
+      &__text{
+        font-size: ${FONTSIZES.xlarge};
+        font-weight: ${FONTWEIGHTS.bold};
+      }
+    }
+  }
 `;

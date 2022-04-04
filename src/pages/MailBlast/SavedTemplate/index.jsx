@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Card from "components/atoms/Card";
-import Button from "components/atoms/Button/Button";
-import { datas1 } from "utilities/overviewData";
+import TableHeader from "components/molecules/TableHeader/TableHeader";
+import Pagination from "components/molecules/Pagination";
+
 
 function SavedTemplate() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   const columns = [
     {
       name: "",
@@ -36,21 +38,38 @@ function SavedTemplate() {
     },
   ];
 
+  const indexLasttList = currentPage * itemsPerPage;
+
+  const indexFirstList = indexLasttList - itemsPerPage;
+
+  const currentList = data.slice(indexFirstList, indexLasttList);
+
   return (
     <TemplateWrapper>
-       <Card>
+      <Card className="template-card">
         <div className="template-header">
-          <p className="template__text">1 Custom Template</p>
-          <div className="template-header__right">
-            <CustomDropdown data={datas1} />
-            <SearchBar />
-            <Button className="template-btn">Create Template</Button>
-          </div>
+          <TableHeader
+            className="table-header"
+            header="1 Custom Template"
+            title="Create Template"
+          />
         </div>
         <div className="table-container">
-          <Table columns={columns} data={data} />
+          <Table
+            columns={columns}
+            currentList={currentList}
+            data={data}
+            itemsPerPage={itemsPerPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </Card>
+      <Pagination
+        currentList={currentList}
+        data={data}
+        itemsPerPage={itemsPerPage}
+        setCurrentPage={setCurrentPage}
+      />
     </TemplateWrapper>
   );
 }
@@ -60,12 +79,13 @@ export default SavedTemplate;
 const TemplateWrapper = styled.div`
   margin-bottom: 1.6rem;
 
+  .template-card {
+    padding-top: 1.6rem;
+    margin-top: 1.6rem;
+  }
+
   .template-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin: 1.6rem 2.4rem 0 3.6rem;
-    padding-top: 1.6;
 
     .template-btn {
       width: 18.3rem;
@@ -77,13 +97,12 @@ const TemplateWrapper = styled.div`
       display: flex;
       gap: 1.6rem;
     }
-  }
-  .template__text {
-    font-size: ${FONTSIZES.lg};
-    font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
 
-    padding: 2.4rem 0rem 1.7rem 0rem;
+    .table-header {
+      font-size: ${FONTSIZES.lg};
+      font-weight: ${FONTWEIGHTS.medium};
+      color: ${COLORS["header-grey"]};
+    }
   }
 
   .template-btn {
