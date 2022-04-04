@@ -12,7 +12,7 @@ export const MainWrapper = styled.div`
 export const LeftSection = styled(Card)`
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
+  width: 34.6rem;
   margin-right: 1.6rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
@@ -21,6 +21,7 @@ export const LeftSection = styled(Card)`
   .action-dropdown__container {
     border-radius: 0.5rem;
     border: 1px solid #1e003e;
+    font-size: ${FONTSIZES.xsmall};
   }
 `;
 
@@ -48,6 +49,7 @@ export const CampaignNameWrapper = styled.div`
 
     &__description {
       font-size: 14px;
+      font-weight: 400;
       line-height: 152.69%;
       color: #1e003e;
     }
@@ -68,7 +70,7 @@ export const CampaignNameWrapper = styled.div`
 export const RightSection = styled(Card)`
   display: flex;
   flex-direction: column;
-  flex-grow: 8;
+  flex: 1;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 
@@ -88,13 +90,13 @@ export const RightSection = styled(Card)`
       flex-direction: column;
       flex-grow: 4;
       align-items: center;
-      &__title {
+      .card__title {
         font-weight: ${FONTWEIGHTS.bold};
         font-size: 1.06445rem;
         line-height: 1.2rem;
         color: rgba(19, 41, 61, 0.6);
       }
-      &__description {
+      .card__description {
         font-weight: ${FONTWEIGHTS.bold};
         font-size: ${FONTSIZES.xlarge};
         line-height: 2.3rem;
@@ -114,7 +116,7 @@ export const RightSection = styled(Card)`
       margin-bottom: 1.3rem;
     }
     &__bottom-paragraph {
-      text-align: end;
+      text-align: center;
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
       color: ${COLORS["gray-500"]};

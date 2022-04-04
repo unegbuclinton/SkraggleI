@@ -38,7 +38,9 @@ function UnsubscribeWarning() {
         </UnsubscribeOption>
 
         <UnsubscribeField>
-          
+          <label className="feedback-text"> Additional FeedBack</label>
+
+          <textarea name="" id="" cols="30" rows="10"></textarea>
         </UnsubscribeField>
       </Card>
     </WarningWrapper>

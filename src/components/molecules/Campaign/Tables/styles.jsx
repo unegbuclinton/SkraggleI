@@ -8,8 +8,8 @@ export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
-  padding-bottom: 9rem;
-`
+  padding-bottom: 2.4rem;
+`;
 
 export const TableWrapper = styled.div`
   .campaign-table {
@@ -64,10 +64,13 @@ export const TableWrapper = styled.div`
       margin-right: 4.5rem;
       width: 4rem;
       height: 3rem;
-      color: rgba(0,0,0,1);
+      color: rgba(0, 0, 0, 1);
       background-color: ${COLORS.white};
       border: none;
       text-align: center;
+    }
+    &__span {
+      white-space: nowrap;
     }
     &__testing {
       font-size: ${FONTSIZES.xsmall};
@@ -75,10 +78,11 @@ export const TableWrapper = styled.div`
       margin-right: 4.5rem;
       width: 7rem;
       height: 3rem;
-      color: rgba(0,0,0,1);
+      color: rgba(0, 0, 0, 1);
       background-color: ${COLORS.white};
       border: none;
       text-align: center;
+      white-space: nowrap;
     }
   }
 `;
@@ -124,6 +128,25 @@ export const TableHeaderWrapper = styled.div`
 
       .plus-icon {
         margin-right: 0.6rem;
+      }
+    }
+
+    .form {
+      border: 1px solid $border-color;
+      padding: 40px;
+
+      &__group {
+        margin-bottom: 20px;
+
+        &:focus {
+          outline: 0;
+        }
+
+        label {
+          display: block;
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
       }
     }
   }

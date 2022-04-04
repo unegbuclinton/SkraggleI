@@ -1,10 +1,11 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
+import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
@@ -24,18 +25,18 @@ const ElementsTable = () => {
     {
       name: "ID",
       selector: (row) => row.uid,
-      width: "20rem",
+      width: "15rem",
     },
 
     {
       name: "NAME",
       selector: (row) => row.name,
-      width: "35rem",
+      width: "30rem",
     },
     {
         name: "TYPE",
         selector: (row) => row.type,
-      width: "20rem",
+      width: "15rem",
     },
     {
         name: "CAMPAIGN",
@@ -45,7 +46,7 @@ const ElementsTable = () => {
     {
         name: "STATISTICS",
         selector: (row) => row.statistics,
-      width: "35rem",
+      width: "30rem",
     },
     {
         name: "LAST SEEN",
@@ -53,7 +54,15 @@ const ElementsTable = () => {
     },
   ];
 
-  const data = ElementsData.map((elementsData, index) => ({
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const indexLastList = currentPage * itemsPerPage;
+
+  const indexFirstList = indexLastList - itemsPerPage;
+
+
+  const tableData = ElementsData.map((elementsData, index) => ({
     key: index,
     uid: elementsData.uid,
     name: elementsData.name,
@@ -63,10 +72,17 @@ const ElementsTable = () => {
     lastseen:elementsData.lastseen,
   }));
 
-  const onRowClicked = (row, event) => { console.log(row,event) };
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const onRowClicked = (row, event) => { console.log(row,event) };
+  
+  let navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/elements");
+  };
+
   return (
+    <div>
     <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -79,21 +95,26 @@ const ElementsTable = () => {
           <SearchBar className="search-icon" />
           <Button
             className="campaign-button"
-            onClick={() => setModalIsOpen(true)}
+            onClick={() => handleButtonClick()}
           >
             <DPPlusIcon className="plus-icon" />
             Create New
           </Button>
-          <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
       <Table
         columns={columns}
-        data={data}
+        data={currentList}
         onRowClicked={onRowClicked}
       />
     </TableWrapper>
     </ContainerBody>
+    <Pagination
+    currentPage={currentPage}
+    itemsPerPage={itemsPerPage}
+    data={ElementsData}
+    setCurrentPage={setCurrentPage}/>
+    </div>
   );
 };
 

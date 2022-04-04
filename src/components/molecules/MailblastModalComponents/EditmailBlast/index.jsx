@@ -1,10 +1,11 @@
+import React from 'react'
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Input from "components/atoms/Input/Input";
-import React from "react";
 import { Category, Campaign, Assignee } from "utilities/maildatas";
 import { EditMailWrapper, EditLabel } from "./styles";
+
 
 function EditMailBlast() {
   return (
@@ -38,7 +39,7 @@ function EditMailBlast() {
         </div>
       </Card>
     </EditMailWrapper>
-  );
+  )
 }
 
-export default EditMailBlast;
+export default EditMailBlast

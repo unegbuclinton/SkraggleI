@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import { datas1 } from "utilities/overviewData";
 import { useNavigate } from "react-router-dom";
+import NameLogo from "components/molecules/NameLogo";
+import TableHeader from "components/molecules/TableHeader/TableHeader";
+import Pagination from "components/molecules/Pagination";
 
 function Mail() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   let navigate = useNavigate();
 
   const handleRowClicked = (row) => {
     navigate(`/mail-blasts/${row.key + 1}`);
 
-
-    console.log(row)
+    console.log(row);
   };
 
   const columns = [
@@ -54,48 +56,64 @@ function Mail() {
     {
       action: "",
       name: "Monthly newsletter",
-      assignee: "Partho Datta",
+      assignee: <NameLogo text="Partho Datta" />,
       scheduled: "",
       status: "",
     },
     {
       action: "",
       name: "Monthly newsletter",
-      assignee: "Partho Datta",
+      assignee: <NameLogo text="Partho Datta" />,
       scheduled: "",
       status: "",
     },
     {
       action: "",
       name: "Monthly newsletter",
-      assignee: "John Doe",
+      assignee: <NameLogo text="John Doe" />,
       scheduled: "",
       status: "",
     },
     {
       action: "",
       name: "Monthly newsletter",
-      assignee: "Hannah Dandanell",
+      assignee: <NameLogo text="Hannah Dandanell" />,
       scheduled: "",
       status: "",
     },
   ];
+  
+  const indexLasttList = currentPage * itemsPerPage;
+
+  const indexFirstList = indexLasttList - itemsPerPage;
+
+  const currentList = data.slice(indexFirstList, indexLasttList);
 
   return (
     <MailWrapper>
-      <Card>
+      <Card className="mail-card">
         <div className="mail-header">
-          <p className="mail__text">4 Mail Blasts</p>
-          <div className="mail-header__right">
-            <CustomDropdown data={datas1} />
-            <SearchBar />
-            <Button className="mail-btn">New Mail Blasts</Button>
-          </div>
+          <TableHeader
+            className="table-header"
+            header="4 Mail Blasts"
+            title="New Mail Blasts"
+          />
         </div>
+
         <div className="table-container">
-          <Table columns={columns} data={data} onRowClicked={handleRowClicked} />
+          <Table
+            columns={columns}
+            data={currentList}
+            onRowClicked={handleRowClicked}
+          />
         </div>
       </Card>
+      <Pagination
+        currentList={currentList}
+        data={data}
+        itemsPerPage={itemsPerPage}
+        setCurrentPage={setCurrentPage}
+      />
     </MailWrapper>
   );
 }
@@ -105,12 +123,12 @@ export default Mail;
 const MailWrapper = styled.div`
   margin-bottom: 1.6rem;
 
+  .mail-card {
+    padding-top: 1.6rem;
+    margin-top: 1.6rem;
+  }
   .mail-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin: 1.6rem 2.4rem 0 3.6rem;
-    padding-top: 1.6;
 
     .mail-btn {
       width: 18.3rem;
@@ -122,15 +140,13 @@ const MailWrapper = styled.div`
       display: flex;
       gap: 1.6rem;
     }
-  }
-  .mail__text {
-    font-size: ${FONTSIZES.lg};
-    font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
 
-    padding: 2.4rem 0rem 1.7rem 0rem;
+    .table-header {
+      font-size: ${FONTSIZES.lg};
+      font-weight: ${FONTWEIGHTS.medium};
+      color: ${COLORS["header-grey"]};
+    }
   }
-
   .mail-btn {
     width: 9.173rem;
     height: 3rem;

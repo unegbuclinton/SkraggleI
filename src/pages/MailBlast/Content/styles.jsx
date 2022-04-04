@@ -18,7 +18,10 @@ export const ContentWrapper = styled.div`
     }
   }
   .reciepient {
-    margin-left: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-left: 4.4rem;
 
     .reciepient-detail {
       font-size: ${FONTSIZES.xsmall};
@@ -102,8 +105,7 @@ export const ContentBody = styled.div`
       align-items: center;
       gap: 3.4rem;
 
-      .added-text{
-        
+      .added-text {
       }
     }
 

@@ -7,6 +7,7 @@ import LandingPagesTable from 'components/molecules/Campaign/Tables/LandingPages
 import MailBlastTable from 'components/molecules/Campaign/Tables/MailBlastTable';
 import P2PTable from 'components/molecules/Campaign/Tables/P2PTables';
 import Tabs from 'components/molecules/Tabs';
+import PageLinks from 'components/atoms/PageLinks';
 
 import { React } from 'react';
 
@@ -42,7 +43,7 @@ const CampaignDetails = () => {
     },
   ];
   return (
-    <DashboardLayout>
+    <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Campaign"/>} >
       <Tabs
       tabs={links}
       />

@@ -1,5 +1,5 @@
 import Modal from 'components/layouts/Modal'
-import EditMailBlast from 'components/molecules/MailblastModalComponents/EditmailBlast'
+import EditMailBlast from 'components/molecules/MailblastModalComponents/CreateMailBlast'
 import React from 'react'
 
 function EditMailModal() {

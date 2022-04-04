@@ -12,6 +12,9 @@ import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import Events from "pages/Events";
+import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
+import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
@@ -142,6 +145,41 @@ const routePaths = [
         element: <RegistrationPackage />,
       },
     ],
+  },
+  {
+    path: "peer-to-peer/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <P2P />,
+      },
+      {
+        path: ":id",
+        element: <P2PDetails />,
+      },
+    ],
+  },
+  {
+    path: "/forms",
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>,
+  },
+
+  {
+    path: "/elements",
+    element: <DashboardLayout>Elements yet to be added</DashboardLayout>,
+  },
+  {
+    path: "/events",
+    element: <DashboardLayout>Events yet to be added</DashboardLayout>,
+  },
+  {
+    path: "/landing-page",
+    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
+  },
+  {
+    path: "/mail-blast",
+    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>,
   },
 
   {

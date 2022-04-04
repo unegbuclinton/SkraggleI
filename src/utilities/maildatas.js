@@ -54,3 +54,41 @@ export const Campaign = [
         "name": "Four"
     }
 ]
+
+export const Partho  = [
+    {
+        "id": "1",
+        "name": "Partho Prothim"
+    },
+    {
+        "id": "2",
+        "name": "Two"
+    },
+    {
+        "id": "3",
+        "name": "Three"
+    },
+    {
+        "id": "4",
+        "name": "Four"
+    }
+]
+
+export const Search = [
+    {
+        "id": "1",
+        "name": "Start typing to search.."
+    },
+    {
+        "id": "2",
+        "name": "Two"
+    },
+    {
+        "id": "3",
+        "name": "Three"
+    },
+    {
+        "id": "4",
+        "name": "Four"
+    }
+]
