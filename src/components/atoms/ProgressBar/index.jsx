@@ -1,10 +1,10 @@
 import { COLORS } from "constants/colors";
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const ProgressBar = ({ value, target, circular, ...rest }) => {
+const ProgressBar = ({ value, target, ...rest }) => {
   const range = (value / target) * 100;
-  return <ProgressBarWrapper range={range} {...rest}></ProgressBarWrapper>
+  return <ProgressBarWrapper range={range} {...rest}></ProgressBarWrapper>;
 };
 
 export default ProgressBar;
