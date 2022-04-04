@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
 
 export const TabLinksWrapper = styled.div`
   margin-bottom: 1.6rem;

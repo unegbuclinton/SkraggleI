@@ -28,6 +28,7 @@ const TableWrapper = styled.div`
       height: 6.2rem;
       border: 0.0852273px solid ${COLORS["porcelain-white"]};
       border-top: 0;
+      cursor: pointer;
 
       :first-of-type {
         border-top: 0.0852273px solid ${COLORS["porcelain-white"]};

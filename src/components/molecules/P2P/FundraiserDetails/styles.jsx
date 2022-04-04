@@ -5,6 +5,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const MainWrapper = styled.div`
   display: flex;
+  margin-top: 2.4rem;
 `;
 
 export const LeftSidebar = styled(Card)`

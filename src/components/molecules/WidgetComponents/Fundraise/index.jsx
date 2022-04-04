@@ -71,31 +71,30 @@ export default FundRaise;
 
 const WidgetCard = styled.div`
   display: flex;
+  width: 39.5rem;
+  margin: 2.4rem 0 0.8rem 0;
   justify-content: space-between;
   border: 1px solid ${COLORS["porcelain-white"]};
   padding: 1.6rem 1rem 2.2rem 1.6rem;
-  margin-bottom: 0.8rem;
 
   .btn-card {
     width: 7.2rem;
     height: 3.6rem;
   }
 
-  .card-detail{
+  .card-detail {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: flex-start;
-  
 
-    &__header{
+    &__header {
       font-size: 1.4rem;
-      margin-bottom: .6rem;
-      font-weight: ${FONTWEIGHTS.normal}
+      margin-bottom: 0.6rem;
+      font-weight: ${FONTWEIGHTS.normal};
     }
-    &__description{
+    &__description {
       font-size: 1.2rem;
-      color: ${COLORS['grey-200']};
-
+      color: ${COLORS["grey-200"]};
     }
   }
 `;

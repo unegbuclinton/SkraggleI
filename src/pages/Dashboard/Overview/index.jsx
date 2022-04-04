@@ -1,18 +1,18 @@
-import Button from 'components/atoms/Button/Button';
-import Card from 'components/atoms/Card';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import DateRange from 'components/molecules/DateRange';
-import dayjs from 'dayjs';
-import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
-import WidgetModal from 'pages/modals/WidgetModal';
-import React, { useState } from 'react';
-import { datas1 } from 'utilities/overviewData';
-import {
-  DatePicker,
-  OverviewLeft,
-  OverviewRight,
-  OverviewWrapper,
-} from './styles';
+import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import React, { useState } from "react";
+import { OverviewLeft } from "./styles";
+import { OverviewWrapper } from "./styles";
+import { datas1 } from "utilities/overviewData";
+import { OverviewRight } from "./styles";
+import Button from "components/atoms/Button/Button";
+
+import { DatePicker } from "./styles";
+import DateRange from "components/molecules/DateRange";
+import { DPIconRangeIcon } from "icons";
+import { DPIconDateArrow } from "icons";
+import dayjs from "dayjs";
+import WidgetModal from "pages/Dashboard/modals/WidgetModal";
+import Card from "components/atoms/Card";
 
 function Overview() {
   const [openWidget, setOpenWidget] = useState(false);

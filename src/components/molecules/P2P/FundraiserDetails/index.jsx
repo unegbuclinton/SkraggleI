@@ -118,13 +118,14 @@ const FundraiserDetails = () => {
           </div>
           <div className="fundraiser__down">
             <div className="fundraiser__col1">
-                <h1 className="fundraiser__titles">Display name</h1>
-                <h1 className="fundraiser__titles">Designation</h1>
-                <h1 className="fundraiser__titles">Goal</h1>
-                <h1 className="fundraiser__titles">Offline amount</h1>
+              <h1 className="fundraiser__titles">Display name</h1>
+              <h1 className="fundraiser__titles">Designation</h1>
+              <h1 className="fundraiser__titles">Goal</h1>
+              <h1 className="fundraiser__titles">Offline amount</h1>
               <h1 className="fundraiser__titles">Offline donations</h1>
               <h1 className="fundraiser__titles">Goal date</h1>
               <h1 className="fundraiser__titles">Personal message</h1>
+              <h1 className="fundraiser__titles">Supporter Name</h1>
             </div>
             <div className="fundraiser__col2">
               <p className="fundraiser__p2">Leaf Inc</p>
@@ -138,6 +139,7 @@ const FundraiserDetails = () => {
                 dignissim enim erat lacus sagittis metus. Habitant adipiscing
                 aliquam.
               </p>
+              <p className="fundraiser__p2">Dec 1, 2021</p>
             </div>
           </div>
         </SettingsWrapper>

@@ -1,10 +1,10 @@
+import React from "react";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
 import SendVerification from "components/molecules/sendVerification/SendVerification";
-import Tabs from "components/molecules/Tabs";
 import Campaign from "pages/Campaign";
 import CampaignDetails from "pages/CampaignDetails";
 import Contacts from "pages/ContactsPage";
@@ -13,9 +13,11 @@ import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import P2P from "pages/P2P";
 import P2PDetails from "pages/P2PDetails";
-import { Link, Outlet } from "react-router-dom";
-import { React } from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
+import MailBlast from "pages/MailBlast";
+import { Link, Outlet } from "react-router-dom";
+import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
+import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -75,6 +77,7 @@ const routePaths = [
       },
     ],
   },
+
   {
     path: "contacts/*",
     element: <Outlet />,
@@ -93,6 +96,20 @@ const routePaths = [
   {
     path: "/donations",
     element: <Donations />,
+  },
+  {
+    path: "mail-blasts/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <MailBlast />
+      },
+      {
+        path: ':id',
+        element: <MonthlyNewsteller />,
+      }
+    ]
   },
   {
     path: "campaign/*",
@@ -146,7 +163,7 @@ const routePaths = [
 
   {
     path: "/test",
-    element: <Tabs tabs={tabs} />,
+    element: <UnsubscribeWarning />,
   },
 ];
 

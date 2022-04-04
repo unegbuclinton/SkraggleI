@@ -15,16 +15,13 @@ export const DonationWrapper = styled.div`
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS["header-grey"]};
-    padding: 2.4rem 0rem 1.7rem 4.1rem;
-    margin: 0;
+    padding: 2.4rem 0rem 1.7rem 0rem;
+    margin: 0 4.7rem 0 4rem;
+    border-bottom: 1px solid ${COLORS.torquoise};
   }
- 
-  .donation-progress {
-    width: fit-content;
-    border-top: 1px solid ${COLORS.torquoise};
-    margin: 0 5.6rem 0 4rem;
-    padding-top: 4.1rem;
-    padding-bottom: 6.3rem;
+
+  .progress-tracker {
+    padding: 4.1rem 4.7rem 6rem 4.1rem;
   }
 `;
 

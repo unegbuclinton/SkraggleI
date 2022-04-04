@@ -4,7 +4,7 @@ import MultiStepForm from "../CreateContactStep";
 
 function ContactsModal({ onClose, isShown }) {
   return (
-    <Modal header="Create New Contact" isShown={isShown}>
+    <Modal header="Create New Contact" isShown={isShown} hide={onClose}>
       <MultiStepForm onClose={onClose} />
     </Modal>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { FONTSIZES } from "constants/font-spec";
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;

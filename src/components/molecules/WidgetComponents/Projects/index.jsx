@@ -79,11 +79,12 @@ function Projects() {
 export default Projects;
 
 const WidgetCard = styled.div`
+  width: 39.5rem;
+  margin: 2.4rem 0 0.8rem 0;
   display: flex;
   justify-content: space-between;
   border: 1px solid ${COLORS["porcelain-white"]};
   padding: 1.6rem 1rem 2.2rem 1.6rem;
-  margin-bottom: 0.8rem;
 
   .btn-card {
     width: 7.2rem;
