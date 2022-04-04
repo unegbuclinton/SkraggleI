@@ -1,10 +1,11 @@
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
+import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
 
 import datas from "utilities/filterData";
@@ -49,7 +50,12 @@ const P2PTable = () => {
     },  
   ];
 
-  const data = P2PForm.map((p2pData, index) => ({
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const indexLastList = currentPage * itemsPerPage;
+  const indexFirstList = indexLastList - itemsPerPage;
+
+  const tableData = P2PForm.map((p2pData, index) => ({
     key: index,
     name: p2pData.name,
     type: p2pData.type,
@@ -58,10 +64,17 @@ const P2PTable = () => {
     status:p2pData.status
   }));
 
-  const onRowClicked = (row, event) => { console.log(row,event) };
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const onRowClicked = (row, event) => { console.log(row,event) };
+  
+  let navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/peer-to-peer");
+  };
+
   return (
+    <div>
     <ContainerBody>
     <TableWrapper>
       <TableHeaderWrapper className="table-header">
@@ -74,21 +87,26 @@ const P2PTable = () => {
           <SearchBar className="search-icon" />
           <Button
             className="campaign-button"
-            onClick={() => setModalIsOpen(true)}
+            onClick={() => handleButtonClick()}
           >
             <DPPlusIcon className="plus-icon" />
             Create New
           </Button>
-          <Modal isShown={modalIsOpen} showClose></Modal>
         </div>
       </TableHeaderWrapper>
       <Table
         columns={columns}
-        data={data}
+        data={currentList}
         onRowClicked={onRowClicked}
       />
     </TableWrapper>
     </ContainerBody>
+    <Pagination
+    currentPage={currentPage}
+    itemsPerPage={itemsPerPage}
+    data={P2PForm}
+    setCurrentPage={setCurrentPage}/>
+    </div>
   );
 };
 

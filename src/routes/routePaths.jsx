@@ -15,6 +15,7 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import DashboardLayout from "components/layouts/DashboardLayout";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -122,6 +123,28 @@ const routePaths = [
       },
     ],
   },
+  {
+    path:"/forms",
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
+  },
+  
+  {
+    path:"/elements",
+    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
+  },
+  {
+    path:"/events",
+    element: <DashboardLayout>Events yet to be added</DashboardLayout>
+  },
+  {
+    path:"/landing-page",
+    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>
+  },
+  {
+    path:"/mail-blast",
+    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>
+  },
+
   {
     path: "/test",
     element: <UnsubscribeWarning />,

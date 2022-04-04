@@ -4,11 +4,11 @@ import CreateContactStepOne from "../CreateContactStepOne";
 import ContactStepTwo from "../CreateContactStepTwo";
 
 const stepOneInitialState = {
-  // for form Validation
+  // for form validation
 };
 
 const stepTwoInitialState = {
-  // for form Validation
+  // for form validation
 };
 
 const renderStep = (step) => {

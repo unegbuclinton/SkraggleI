@@ -8,7 +8,7 @@ export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
-  padding-bottom: 9rem;
+  padding-bottom: 2.4rem;
 `
 
 export const TableWrapper = styled.div`
@@ -69,6 +69,9 @@ export const TableWrapper = styled.div`
       border: none;
       text-align: center;
     }
+    &__span{
+      white-space: nowrap;
+    }
     &__testing {
       font-size: ${FONTSIZES.xsmall};
       line-height: 1.4rem;
@@ -79,6 +82,7 @@ export const TableWrapper = styled.div`
       background-color: ${COLORS.white};
       border: none;
       text-align: center;
+      white-space: nowrap;
     }
   }
 `;
