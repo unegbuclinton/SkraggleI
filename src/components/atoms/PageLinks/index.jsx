@@ -23,9 +23,9 @@ const PageLinks = ({
       <span className="page-links__navigation-icon">
         <DPIconPageNavigation />
       </span>
-      <Link className="page-links__after" to="">
+      <div className="page-links__after" >
         {name}
-      </Link>
+      </div>
     </PageLinksWrapper>
   );
 };
