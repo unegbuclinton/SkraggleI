@@ -11,11 +11,13 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
+import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
+import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
-import DashboardLayout from "components/layouts/DashboardLayout";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -122,6 +124,20 @@ const routePaths = [
         element: <CampaignDetails />,
       },
     ],
+  },
+  {
+    path:"peer-to-peer/*",
+    element: <Outlet/>,
+    children:[
+      {
+        path: "/",
+        element:<P2P/>
+      },
+      {
+        path:":id",
+        element: <P2PDetails/>
+      }
+    ] 
   },
   {
     path:"/forms",

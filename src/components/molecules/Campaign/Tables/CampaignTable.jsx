@@ -1,5 +1,4 @@
 import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Pagination from "components/molecules/Pagination";
@@ -10,8 +9,11 @@ import { TableContacts } from "utilities/campaigndata";
 import datas from "utilities/filterData";
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import CreateCampaignModal from "../CreateCampaignModal";
+import DropdownComponent from "components/atoms/Dropdown";
 
 const CampaignTable = () => {
+  const [selected, setSelected] = useState("Filters");
+
   const columns = [
     {
       name: " ",
@@ -60,9 +62,8 @@ const CampaignTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    navigate(`/campaign/${row.key + 1}`,{state: row});
+    navigate(`/campaign/${row.key + 1}`, { state: row });
   };
-
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -76,7 +77,7 @@ const CampaignTable = () => {
             </div>
 
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas}/>
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -87,7 +88,7 @@ const CampaignTable = () => {
               </Button>
               {modalIsOpen && (
                 <CreateCampaignModal
-                isShown={modalIsOpen}
+                  isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
                   }}

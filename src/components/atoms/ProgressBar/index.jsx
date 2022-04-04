@@ -11,13 +11,13 @@ export default ProgressBar;
 
 const ProgressBarWrapper = styled.div`
   position: relative;
-  background-color: ${COLORS['garage-mix-grey']};
+  background-color: ${COLORS["garage-mix-grey"]};
   border-radius: 2rem;
   height: 2rem;
 
   &::before {
     position: absolute;
-    content: '';
+    content: "";
     left: 0;
     top: 0;
     width: ${({ range }) => range}%;
