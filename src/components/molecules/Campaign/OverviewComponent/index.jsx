@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 
@@ -32,6 +32,11 @@ const CampaignOverview = () => {
       name: "Modify",
     },
   ];
+
+  let navigate = useNavigate();
+  const HandleButtonClick = () => {
+    navigate("/donations");
+  };
   return (
     <MainWrapper>
       <LeftSection>
@@ -87,13 +92,16 @@ const CampaignOverview = () => {
             and manage other sources of revenue.
           </p>
           <div className="campaign-name__transaction-icon">
-          <DPIconTransaction />
-        </div>
-        <div className="campaign-name__button-container">
-          <Button className="campaign-name__transaction-button">
-            Go to Transaction
-          </Button>
-        </div>
+            <DPIconTransaction />
+          </div>
+          <div className="campaign-name__button-container">
+            <Button
+              className="campaign-name__transaction-button"
+              onClick={() => HandleButtonClick()}
+            >
+              Go to Transaction
+            </Button>
+          </div>
         </div>
       </RightSection>
     </MainWrapper>

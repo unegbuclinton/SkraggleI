@@ -1,17 +1,12 @@
-import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TableContacts } from "utilities/campaigndata";
-import datas from "utilities/filterData";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
-import CreateCampaignModal from "../CreateCampaignModal";
 
-const CampaignTable = () => {
+import { DPPlusIcon } from "icons";
+
+import Table from "components/layouts/Table";
+import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+
+const P2PTable = () => {
   const columns = [
     {
       name: " ",
@@ -20,49 +15,69 @@ const CampaignTable = () => {
       width: "5rem",
     },
     {
-      name: "CREATED",
-      selector: (row) => row.created,
+      name: "CAMPAIGN",
+      selector: (row) => row.campaign,
       width: "20rem",
     },
 
     {
-      name: "CAMPAIGN",
-      selector: (row) => row.campaign,
+      name: "FUNDRAISER",
+      selector: (row) => row.fundraiser,
+      width: "20rem",
     },
     {
-      name: "STATUS",
-      selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-    },
-    {
-      name: "FUNDRAISING GOALS",
+      name: "GOAL",
       selector: (row) => row.goals,
+      width: "20rem",
+    },
+    {
+      name: "RAISED",
+      selector: (row) => row.raised,
+      width: "20rem",
+    },
+    {
+      name: "CREATED",
+      selector: (row) => row.created,
+      width: "20rem",
+    },
+    {
+      name: "GOAL DATE",
+      selector: (row) => row.goaldate,
+      width: "20rem",
+    },
+    {
+      name: "1M STATISTICS -_-_",
+      selector: (row) => row.statistics,
+      width: "15rem",
     },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
 
-  const indexLastList = currentPage * itemsPerPage;
+  const indexLasttList = currentPage * itemsPerPage;
 
-  const indexFirstList = indexLastList - itemsPerPage;
+  const indexFirstList = indexLasttList - itemsPerPage;
 
-  const tableData = TableContacts.map((Campaigndata, index) => ({
+  const tableData = P2PTableData.map((P2PData, index) => ({
     key: index,
-    created: Campaigndata.created,
-    campaign: Campaigndata.campaign,
-    goals: Campaigndata.goals,
-    status: Campaigndata.status,
+    campaign: P2PData.campaign,
+    fundraiser: P2PData.fundraiser,
+    goals: P2PData.goals,
+    raised: P2PData.raised,
+    created: P2PData.created,
+    goaldate: P2PData.goaldate,
+    statistics: P2PData.statistics,
   }));
 
-  const currentList = tableData.slice(indexFirstList, indexLastList);
+  const currentList = tableData.slice(indexFirstList, indexLasttList);
 
   let navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    navigate(`/campaign/${row.key + 1}`,{state: row});
+    const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
+    navigate(`/peer-to-peer/${row.key+1}`, { state: row });
   };
-
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -79,14 +94,14 @@ const CampaignTable = () => {
               <CustomDropdown className="dropdown-filter" data={datas} />
               <SearchBar className="search-icon" />
               <Button
-                className="campaign-button"
+                className="p2p-button"
                 onClick={() => setModalIsOpen(true)}
               >
                 <DPPlusIcon className="plus-icon" />
-                New Campaign
+                New P2P Fundraiser
               </Button>
               {modalIsOpen && (
-                <CreateCampaignModal
+                <CreateP2PModal
                 isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
@@ -105,11 +120,11 @@ const CampaignTable = () => {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={TableContacts}
+        data={P2PTableData}
         setCurrentPage={setCurrentPage}
       />
     </div>
   );
 };
 
-export default CampaignTable;
+export default P2PTable;

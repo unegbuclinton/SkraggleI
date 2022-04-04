@@ -19,6 +19,7 @@ const Input = ({
   return (
     <Container>
       <InputField
+        className={className}
         disabled={disabled}
         name={name}
         id={id}
@@ -26,7 +27,6 @@ const Input = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
-        className={className}
       />
       {type === "password" && (
         <InputFieldIcon onClick={toggleShowPassword}>
