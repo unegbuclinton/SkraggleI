@@ -15,8 +15,6 @@ const ProgressBarWrapper = styled.div`
   border-radius: 2rem;
   height: 2rem;
 
-  
-
   &::before {
     position: absolute;
     content: "";

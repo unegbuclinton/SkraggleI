@@ -153,3 +153,54 @@ export const P2PTableData = [
         "statistics":"0 -> 0"
     },
 ]
+
+export const donationData = [
+    {
+        "rank":"1",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    },
+    {
+        "rank":"2",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    },
+    {
+        "rank":"1",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    },
+    {
+        "rank":"1",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    },
+    {
+        "rank":"1",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    },
+    {
+        "rank":"1",
+        "participants":"John Doe",
+        "name":"BGA awesome campaign demo #1",
+        "amount":"$5000.00",
+        "date":"Oct 10, 2021",
+        "location":"NY"
+    }
+]

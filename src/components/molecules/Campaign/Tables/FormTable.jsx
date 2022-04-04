@@ -52,8 +52,8 @@ const FormsTable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-  const indexLasttList = currentPage * itemsPerPage;
-  const indexFirstList = indexLasttList - itemsPerPage;
+  const indexLastList = currentPage * itemsPerPage;
+  const indexFirstList = indexLastList - itemsPerPage;
 
   const tableData = CampaignForm.map((campaignData, index) => ({
     key: index,
@@ -64,7 +64,7 @@ const FormsTable = () => {
     status: campaignData.status,
   }));
 
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   const onRowClicked = (row, event) => {
     console.log(row, event);
@@ -73,7 +73,7 @@ const FormsTable = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   let navigate = useNavigate();
-  const HandleButtonClick = () => {
+  const handleButtonClick = () => {
     navigate("/forms");
   };
 
@@ -91,7 +91,7 @@ const FormsTable = () => {
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
-                onClick={() => HandleButtonClick()}
+                onClick={() => handleButtonClick()}
               >
                 <DPPlusIcon className="plus-icon" />
                 Create New

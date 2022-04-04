@@ -4,7 +4,6 @@ import { DPIconPageNavigation } from "icons";
 import styled from "styled-components";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
@@ -26,9 +25,9 @@ const PageLinks = ({
       <span className="page-links__navigation-icon">
         <DPIconPageNavigation />
       </span>
-      <Link className="page-links__after" to="">
+      <div className="page-links__after" >
         {name}
-      </Link>
+      </div>
     </PageLinksWrapper>
   );
 };

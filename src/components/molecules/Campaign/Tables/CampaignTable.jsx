@@ -45,9 +45,9 @@ const CampaignTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const indexLasttList = currentPage * itemsPerPage;
+  const indexLastList = currentPage * itemsPerPage;
 
-  const indexFirstList = indexLasttList - itemsPerPage;
+  const indexFirstList = indexLastList - itemsPerPage;
 
   const tableData = TableContacts.map((Campaigndata, index) => ({
     key: index,
@@ -57,7 +57,7 @@ const CampaignTable = () => {
     status: Campaigndata.status,
   }));
 
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
+  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
 
