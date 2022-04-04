@@ -33,6 +33,7 @@ export const COLORS = {
   'moore-grey': '#9A9AA9',
   'graph-label-grey': '#BBBBBB',
   'light-pink': '#FFE9EB',
+  'orange-100': '#FF8C4B',
   'navy-blue' : '#477BE0',
   'primary-blue' : '#1A95B0',
 };

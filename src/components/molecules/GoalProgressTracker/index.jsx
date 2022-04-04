@@ -27,7 +27,7 @@ const GoalProgressTracker = ({ heading, value, target }) => {
         </div>
       </GPTMetricsWrapper>
     </GPTWrapper>
-  );
+  ); 
 };
 
 export default GoalProgressTracker;

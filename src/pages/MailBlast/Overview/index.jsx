@@ -4,7 +4,7 @@ import { NewstellerWrapper } from "./styles";
 import { NewstellerTop } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { NewstellerBody } from "./styles";
-import ProgressBar from "components/atoms/ProgressBar";
+import StatisticsTracker from "components/molecules/StatisticsTracker";
 
 function Overview() {
   return (
@@ -33,7 +33,33 @@ function Overview() {
             Statistics <span className="added-text">(12 Recipients)</span>
           </p>
           <div className="newsteller-metric">
-            <ProgressBar circular value={19504} target={500000}/>
+            <StatisticsTracker
+              percentage={80}
+              colour="#FF576B"
+              num="(32)"
+              value="20"
+              header='Delivered'
+              text="Unopened"
+            />
+            <StatisticsTracker
+              percentage={25}
+              colour="#FF576B"
+              num="(12)"
+              value="2"
+              text="Unsubscribed"
+            />
+            <StatisticsTracker
+              percentage={5}
+              colour="#FF576B"
+              num="(2)"
+              value="5"
+              text="Rejected"
+            />
+
+            <div className="sumed-value">
+              <p className="sumed-value__num">$123</p>
+              <p className="sumed-value__text">Raised</p>
+            </div>
           </div>
         </NewstellerBody>
       </Card>

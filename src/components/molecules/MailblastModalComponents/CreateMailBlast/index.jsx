@@ -1,32 +1,31 @@
-import React from 'react'
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Input from "components/atoms/Input/Input";
-import { Category, Campaign, Assignee } from "utilities/maildatas";
-import { EditMailWrapper, EditLabel } from "./styles";
+import React from "react";
+import { Category, Partho, Search } from "utilities/maildatas";
+import { CreateMailWrapper, CreateLabel } from "./styles";
 
-
-function EditMailBlast() {
+function CreateMailBlast() {
   return (
-    <EditMailWrapper>
+    <CreateMailWrapper>
       <Card className="edit-card">
         <div className="edit-mail-body">
           <div className="field-container">
-            <EditLabel>Mail Blasts Name</EditLabel>
+            <CreateLabel>Mail Blasts Name</CreateLabel>
             <Input className="edit-input" />
           </div>
           <div className="field-container">
-            <EditLabel>Category</EditLabel>
+            <CreateLabel>Category</CreateLabel>
             <CustomDropdown className="edit-dropdown" data={Category} />
           </div>
           <div className="field-container">
-            <EditLabel>Assignee</EditLabel>
-            <CustomDropdown className="edit-dropdown" data={Assignee} />
+            <CreateLabel>Assignee</CreateLabel>
+            <CustomDropdown className="edit-dropdown" data={Partho} />
           </div>
           <div className="field-container">
-            <EditLabel>Campaign</EditLabel>
-            <CustomDropdown className="edit-dropdown" data={Campaign} />
+            <CreateLabel>Campaign</CreateLabel>
+            <CustomDropdown className="edit-dropdown" data={Search} />
           </div>
         </div>
         <div className="edit-mail-footer">
@@ -38,8 +37,8 @@ function EditMailBlast() {
           </Button>
         </div>
       </Card>
-    </EditMailWrapper>
-  )
+    </CreateMailWrapper>
+  );
 }
 
-export default EditMailBlast
+export default CreateMailBlast;

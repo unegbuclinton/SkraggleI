@@ -1,5 +1,6 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import NameLogo from "components/molecules/NameLogo";
 import React from "react";
 import { useState } from "react";
 import AttachmentModal from "../MailblasModals/Attachment";
@@ -12,6 +13,11 @@ import { ContentWrapper, ContentTop } from "./styles";
 
 function MailContent() {
   const [open, setOpen] = useState(false);
+  const [reciept, setReciept] = useState(false);
+  const [openSender, setOpenSender] = useState(false);
+  const [openSubject, setOpenSubject] = useState(false);
+  const [openAttach, setOpenAttach] = useState(false);
+
 
   return (
     <ContentWrapper>
@@ -46,16 +52,16 @@ function MailContent() {
                 className="content-btn"
                 invert
                 onClick={() => {
-                  setOpen(true);
+                  setReciept(true);
                 }}
               >
                 Add Receipients
               </Button>
-              {open && (
+              {reciept && (
                 <MailToModal
-                  isShown={open}
+                  isShown={reciept}
                   onClose={() => {
-                    setOpen(false);
+                    setReciept(false);
                   }}
                 />
               )}
@@ -71,16 +77,16 @@ function MailContent() {
                 className="content-btn"
                 invert
                 onClick={() => {
-                  setOpen(true);
+                  setOpenSender(true);
                 }}
               >
                 Add Sender
               </Button>
-              {open && (
+              {openSender && (
                 <MailFromModal
-                  isShown={open}
+                  isShown={openSender}
                   onClose={() => {
-                    setOpen(false);
+                    setOpenSender(false);
                   }}
                 />
               )}
@@ -93,8 +99,8 @@ function MailContent() {
                 <p>Reply To</p>
               </div>
               <div className="reciepient">
-                <p className="reciepient-detail">Partho Datta</p>
-                <p className="reciepient-detail">Partho Datta</p>
+                <NameLogo text="Partho Datta" />
+                <NameLogo text="Partho Datta" />
               </div>
             </div>
             <div className="reply-item__right">
@@ -113,16 +119,16 @@ function MailContent() {
                 className="content-btn"
                 invert
                 onClick={() => {
-                  setOpen(true);
+                  setOpenSubject(true);
                 }}
               >
                 Add Subject
               </Button>
-              {open && (
+              {openSubject && (
                 <SubjectModal
-                  isShown={open}
+                  isShown={setOpenSubject}
                   onClose={() => {
-                    setOpen(false);
+                    setOpenSubject(false);
                   }}
                 />
               )}
@@ -140,16 +146,16 @@ function MailContent() {
                 className="content-btn"
                 invert
                 onClick={() => {
-                  setOpen(true);
+                  setOpenAttach(true);
                 }}
               >
                 Add Attachments
               </Button>
-              {open && (
+              {openAttach && (
                 <AttachmentModal
-                  isShown={open}
+                  isShown={openAttach}
                   onClose={() => {
-                    setOpen(false);
+                    setOpenAttach(false);
                   }}
                 />
               )}

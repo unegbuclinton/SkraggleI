@@ -15,6 +15,10 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import NameLogo from "components/molecules/NameLogo";
+import SendMail from "components/molecules/MailblastModalComponents/SendMail";
+import CreateMailBlast from "components/molecules/MailblastModalComponents/CreateMailBlast";
+import CreateMailModal from "pages/MailBlast/MailblasModals/CreateMail";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -124,7 +128,7 @@ const routePaths = [
   },
   {
     path: "/test",
-    element: <UnsubscribeWarning />,
+    element: <CreateMailModal />,
   },
 ];
 
