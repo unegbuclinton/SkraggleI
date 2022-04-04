@@ -4,7 +4,6 @@ import Card from "components/atoms/Card";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Button from "components/atoms/Button/Button";
 import Input from "components/atoms/Input/Input";
-import TextArea from "components/atoms/TextArea";
 import data from "utilities/filterData";
 
 import {

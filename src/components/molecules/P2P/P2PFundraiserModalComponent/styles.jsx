@@ -27,13 +27,13 @@ export const ModalWrapper = styled.form`
   }
 
   .modal-inputs__goals {
-      background-color: white;
-      padding-left: 2.083rem;
-      width: 30.1rem;
-      height: 6.4rem;
-      border: 1px solid ${COLORS["gray-500"]};
-      border-radius: 0.5rem;
-    }
+    background-color: white;
+    padding-left: 2.083rem;
+    width: 30.1rem;
+    height: 6.4rem;
+    border: 1px solid ${COLORS["gray-500"]};
+    border-radius: 0.5rem;
+  }
 
   .select-goals {
     display: flex;
@@ -78,9 +78,22 @@ export const ModalWrapper = styled.form`
     margin-top: 4rem;
   }
 
-  .display-photos{
+  .display-photos {
     display: flex;
-    &__button{
+    &__button {
+      width: 8.1rem;
+      height: 8.1rem;
+      margin-right: 1.6rem;
+    }
+  }
+
+  .img-preview {
+    &__profile {
+      width: 12.6rem;
+      height: 8.1rem;
+      border-radius: 0.5rem;
+    }
+    &__display {
       width: 8.1rem;
       height: 8.1rem;
       margin-right: 1.6rem;
@@ -95,4 +108,3 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
-

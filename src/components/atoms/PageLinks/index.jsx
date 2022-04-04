@@ -11,11 +11,12 @@ const PageLinks = ({
   path,
   navigationIcon,
   pageLinks,
+  locate,
+  names,
   ...rest
 }) => {
   const location = useLocation();
   const name = location.state.campaign;
-  console.log(name);
 
   return (
     <PageLinksWrapper>

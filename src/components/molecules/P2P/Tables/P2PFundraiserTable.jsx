@@ -83,8 +83,7 @@ const P2PTable = () => {
 
   const onRowClicked = (row) => {
     const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
-    navigate(`/peer-to-peer/${pathName}`, { state: row });
-    console.log(row);
+    navigate(`/peer-to-peer/${row.key+1}`, { state: row });
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);

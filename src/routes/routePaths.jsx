@@ -12,6 +12,7 @@ import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
 import { Link, Outlet } from "react-router-dom";
 import { React } from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
@@ -117,7 +118,7 @@ const routePaths = [
       },
       {
         path:":id",
-        element: <div>Hello</div>
+        element: <P2PDetails/>
       }
     ] 
   },
