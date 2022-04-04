@@ -128,7 +128,7 @@ const routePaths = [
   },
   {
     path: "/test",
-    element: <CreateMailModal />,
+    element: <UnsubscribeWarning />,
   },
 ];
 
