@@ -1,4 +1,4 @@
-import CheckBox from "components/atoms/CheckBox/CheckBox";
+import CheckBox from "components/atoms/CheckBox";
 import TableBtn from "components/atoms/TableButton/TableBtn";
 
 export const columns = [

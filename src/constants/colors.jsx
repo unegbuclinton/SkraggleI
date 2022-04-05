@@ -20,7 +20,7 @@ export const COLORS = {
   'grey-500': '#2E2E2E',
   'grey-cancel': '#F0F0F0',
   'gray-500': '#9A9AA9',
-  'grey-box' : '#C4C4C4',
+  'grey-box': '#C4C4C4',
   'gray-1': '#333333',
   'fog-grey': '#ECECEC',
   'blue-black': '#1E003E',
@@ -36,4 +36,5 @@ export const COLORS = {
   'orange-100': '#FF8C4B',
   'navy-blue' : '#477BE0',
   'primary-blue' : '#1A95B0',
+  'check-green': '#00903A',
 };

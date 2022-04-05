@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { Provider } from "./MultiStepContext";
-import P2PModalComponent from "../P2PFundraiserModalComponent";
-import FundraiserLiveComponent from "../FundraiserLiveModalComponent";
-import FundraiserLive from "../FundraiserLiveModal";
-
+import React, { useState } from 'react';
+import FundraiserLiveComponent from '../FundraiserLiveModalComponent';
+import P2PModalComponent from '../P2PFundraiserModalComponent';
+import { Provider } from './MultiStepContext';
 
 const stepOneInitialState = {
   // for form Validation
@@ -24,7 +22,7 @@ const renderStep = (step) => {
   }
 };
 
-const MultiStepForm = ({onClose}) => {
+const MultiStepForm = ({ onClose }) => {
   const [stepOne, setStepOne] = useState(stepOneInitialState);
   const [stepTwo, setStepTwo] = useState(stepTwoInitialState);
   const [currentStep, setCurrentStep] = useState(0);

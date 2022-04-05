@@ -2,6 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import routePaths from './routePaths';
 
 const Routing = () => {
+  // let isAuthenticated = true;
+  // const PrivateWrapper = ({ isAuthenticated, ...props }) => {
+  //   return isAuthenticated ? <Route {...props} /> : <Navigate to="/" />;
+  // };
   return (
     <Routes>
       {routePaths.map((route) => {

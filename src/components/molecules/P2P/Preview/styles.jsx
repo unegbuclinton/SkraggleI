@@ -1,7 +1,6 @@
-import styled, { css } from "styled-components";
-import { COLORS } from "constants/colors";
-import Card from "components/atoms/Card";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const PreviewWrapper = styled.div`
   display: flex;
@@ -28,7 +27,7 @@ export const PreviewWrapper = styled.div`
     &__profile {
       font-size: ${FONTSIZES.xsmall};
       font-weight: ${FONTWEIGHTS.normal};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       margin-bottom: 0.8rem;
     }
     &__profile-name {
@@ -38,7 +37,7 @@ export const PreviewWrapper = styled.div`
     }
     &__heading {
       margin-top: 3.2rem;
-      font-size: ${FONTSIZES["logo-large"]};
+      font-size: ${FONTSIZES['logo-large']};
       font-weight: ${FONTWEIGHTS.bold};
       color: #1e003e;
       margin-bottom: 6.88rem;
