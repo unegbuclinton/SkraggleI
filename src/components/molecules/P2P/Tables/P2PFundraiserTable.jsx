@@ -82,7 +82,7 @@ const P2PTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
+    // const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
     navigate(`/peer-to-peer/${row.key+1}`, { state: row });
   };
 

@@ -1,7 +1,6 @@
-import { RadioTest } from 'components/atoms/RadioGroup';
-import DashboardLayout from 'components/layouts/DashboardLayout';
 import Checkbox from 'components/atoms/CheckBox';
 import RadioGroup from 'components/atoms/RadioGroup';
+import DashboardLayout from 'components/layouts/DashboardLayout';
 import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
@@ -16,7 +15,6 @@ import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
-import UnsubscribeWarning from 'pages/MailBlast/Unsubscribe';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
 import React from 'react';
@@ -128,39 +126,39 @@ const routePaths = [
     ],
   },
   {
-    path:"peer-to-peer/*",
-    element: <Outlet/>,
-    children:[
+    path: 'peer-to-peer/*',
+    element: <Outlet />,
+    children: [
       {
-        path: "/",
-        element:<P2P/>
+        path: '/',
+        element: <P2P />,
       },
       {
-        path:":id",
-        element: <P2PDetails/>
-      }
-    ] 
+        path: ':id',
+        element: <P2PDetails />,
+      },
+    ],
   },
   {
-    path:"/forms",
-    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
+    path: '/forms',
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>,
   },
-  
+
   {
-    path:"/elements",
-    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
-  },
-  {
-    path:"/events",
-    element: <DashboardLayout>Events yet to be added</DashboardLayout>
+    path: '/elements',
+    element: <DashboardLayout>Elements yet to be added</DashboardLayout>,
   },
   {
-    path:"/landing-page",
-    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>
+    path: '/events',
+    element: <DashboardLayout>Events yet to be added</DashboardLayout>,
   },
   {
-    path:"/mail-blast",
-    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>
+    path: '/landing-page',
+    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
+  },
+  {
+    path: '/mail-blast',
+    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>,
   },
 
   {

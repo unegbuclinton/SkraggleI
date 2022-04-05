@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { CopyText, ModalWrapper } from './styles';
 
 const FundraiserLiveComponent = ({ onClose, isShown }) => {
-  const [copySuccess, setCopySuccess] = useState('');
+  const [, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {

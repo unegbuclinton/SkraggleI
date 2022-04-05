@@ -7,7 +7,7 @@ import {
 } from "./styles";
 
 const FundraiserDetails = () => {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {
