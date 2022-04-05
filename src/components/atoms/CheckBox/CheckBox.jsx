@@ -1,12 +1,28 @@
-import React from "react";
-import { CheckBoxWrapper } from "./styles";
+import React, { useState } from 'react';
+import {
+  CheckboxContainer,
+  CheckIcon,
+  HiddenCheckbox,
+  StyledCheckbox,
+} from './styles';
 
-function CheckBox() {
+const Checkbox = ({ className, ...props }) => {
+  const [state, setState] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setState(event?.target?.checked);
+  };
   return (
-    <CheckBoxWrapper>
-      <input type="checkbox" />
-    </CheckBoxWrapper>
+    <CheckboxContainer className={className} checked={state}>
+      <HiddenCheckbox
+        checked={state}
+        onChange={handleCheckboxChange}
+        {...props}
+      />
+      <StyledCheckbox checked={state}>
+        <CheckIcon />
+      </StyledCheckbox>
+    </CheckboxContainer>
   );
-}
-
-export default CheckBox;
+};
+export default Checkbox;

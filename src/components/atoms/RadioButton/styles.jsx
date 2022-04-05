@@ -1,14 +1,18 @@
+import { COLORS } from 'constants/colors';
 import { DPIconSkraggleCheck } from 'icons';
 import styled from 'styled-components';
 
-export const CheckboxContainer = styled.label`
-  display: inline-block;
+export const RadioContainer = styled.label`
+  display: inline;
   vertical-align: middle;
+  width: fit-content;
+  /* border-radius: 50%; */
+  /* border: 1px solid ${COLORS.torquoise}; */
 `;
 
-export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+export const HiddenRadio = styled.input.attrs({ type: 'radio' })`
   border: 0;
-  clip: rect(0 0 0 0);
+  clip: circle(0, 0, 0, 0);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;
@@ -21,14 +25,15 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 export const CheckIcon = styled(DPIconSkraggleCheck)``;
 
-export const StyledCheckbox = styled.div`
+export const StyledRadio = styled.div`
   display: inline-flex;
+  width: fit-content;
   justify-content: center;
   align-items: center;
   width: 18px;
   height: 18px;
-  border: 2px solid ${({ checked }) => (checked ? '#00913A' : '#E6EFF1')};
-  border-radius: 5px;
+  border: 1px solid ${({ checked }) => (checked ? '#00913A' : '#E6EFF1')};
+  border-radius: 50%;
   transition: all 150ms;
 
   ${CheckIcon} {
