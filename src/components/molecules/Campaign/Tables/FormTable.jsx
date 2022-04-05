@@ -13,6 +13,7 @@ import datas from "utilities/filterData";
 import { CampaignForm } from "utilities/campaigndata";
 
 import { ContainerBody, TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import DropdownComponent from "components/atoms/Dropdown";
 
 const FormsTable = () => {
   const columns = [
@@ -87,7 +88,7 @@ const FormsTable = () => {
             </div>
 
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"

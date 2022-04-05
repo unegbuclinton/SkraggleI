@@ -14,6 +14,7 @@ import datas from "utilities/filterData";
 import { landingPagesData } from "utilities/campaigndata";
 
 import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import DropdownComponent from "components/atoms/Dropdown";
 
 const LandingPagesTable = () => {
   const columns = [
@@ -96,33 +97,38 @@ const LandingPagesTable = () => {
 
   return (
     <div>
-  <ContainerBody>
-    <TableWrapper>
-      <TableHeaderWrapper className="table-header">
-        <div className="table-header__left">
-          <h1>88 Landing Pages</h1>
-        </div>
+      <ContainerBody>
+        <TableWrapper>
+          <TableHeaderWrapper className="table-header">
+            <div className="table-header__left">
+              <h1>88 Landing Pages</h1>
+            </div>
 
-        <div className="table-header__right">
-          <CustomDropdown className="dropdown-filter" data={datas} />
-          <SearchBar className="search-icon" />
-          <Button
-            className="campaign-button"
-            onClick={() => handleButtonClick()}
-          >
-            <DPPlusIcon className="plus-icon" />
-            Create New
-          </Button>
-        </div>
-      </TableHeaderWrapper>
-      <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
-    </TableWrapper>
-    </ContainerBody>
-    <Pagination
-    currentPage={currentPage}
-    itemsPerPage={itemsPerPage}
-    data={landingPagesData}
-    setCurrentPage={setCurrentPage}/>
+            <div className="table-header__right">
+              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <SearchBar className="search-icon" />
+              <Button
+                className="campaign-button"
+                onClick={() => handleButtonClick()}
+              >
+                <DPPlusIcon className="plus-icon" />
+                Create New
+              </Button>
+            </div>
+          </TableHeaderWrapper>
+          <Table
+            columns={columns}
+            data={currentList}
+            onRowClicked={onRowClicked}
+          />
+        </TableWrapper>
+      </ContainerBody>
+      <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        data={landingPagesData}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

@@ -63,6 +63,12 @@ const FundraiserDetails = () => {
     },
   ];
 
+  function toggleActiveStyle(index){
+    // if(){
+
+    // }
+  }
+
   return (
     <MainWrapper>
       <LeftSidebar>
@@ -81,7 +87,7 @@ const FundraiserDetails = () => {
         </VerticalTabWrapper>
       </LeftSidebar>
       <RightSection>
-        <P2PFundraiserWrapper id={0}>
+        <P2PFundraiserWrapper id="0">
           <div className="fundraiser__top">
             <div className="fundraiser__title">
               <p className="fundraiser__paragraph">P2P fundraiser</p>

@@ -13,7 +13,7 @@ import MultiStepContext from "../MultiStepModal/MultiStepContext"
 
 import { ModalWrapper, ButtonsContainer } from "./styles";
 
-const P2PModalComponent = ({ onClose }) => {
+const P2PModalComponent = ({ onClose, header={header} }) => {
   const { stepOne, setStepOne, next } = useContext(MultiStepContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const P2PModalComponent = ({ onClose }) => {
   };
 
   return (
-    <ModalWrapper>
+    <ModalWrapper header="P2P">
       <Card>
         <h1>CAMPAIGN</h1>
         <CustomDropdown data={data} className="dropdown__select-campaign" />

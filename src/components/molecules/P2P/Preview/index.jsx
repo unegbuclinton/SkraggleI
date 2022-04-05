@@ -12,7 +12,7 @@ const Preview = () => {
     //   component: </>,
     },
     {
-      title: "Top Particcipants",
+      title: "Top Participants",
     //   component: <ArchiveTable />,
     },
   ];

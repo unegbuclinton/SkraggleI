@@ -10,6 +10,7 @@ import Tabs from 'components/molecules/Tabs';
 import PageLinks from 'components/atoms/PageLinks';
 
 import { React } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CampaignDetails = () => {
   const links = [
@@ -42,8 +43,11 @@ const CampaignDetails = () => {
       component: <MailBlastTable/>
     },
   ];
+
+  const name = useLocation().state.campaign;
+
   return (
-    <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Campaign"/>} >
+    <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Campaign" to="/campaign" names={name}/>} >
       <Tabs
       tabs={links}
       />

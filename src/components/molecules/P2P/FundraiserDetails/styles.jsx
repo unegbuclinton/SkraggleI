@@ -10,7 +10,7 @@ export const MainWrapper = styled.div`
 
 export const LeftSidebar = styled(Card)`
   width: 20.9rem;
-  height: 42.7rem;
+  height: fit-content;
   margin-right: 1.6rem;
 `;
 

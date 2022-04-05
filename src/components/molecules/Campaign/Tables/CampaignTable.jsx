@@ -12,8 +12,6 @@ import CreateCampaignModal from "../CreateCampaignModal";
 import DropdownComponent from "components/atoms/Dropdown";
 
 const CampaignTable = () => {
-  const [selected, setSelected] = useState("Filters");
-
   const columns = [
     {
       name: " ",
@@ -77,7 +75,7 @@ const CampaignTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas}/>
+              <DropdownComponent data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"

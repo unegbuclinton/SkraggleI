@@ -16,9 +16,9 @@ const stepTwoInitialState = {
 const renderStep = (step) => {
   switch (step) {
     case 0:
-      return <P2PModalComponent />;
+      return <P2PModalComponent/>;
     case 1:
-      return <FundraiserLiveComponent />;
+      return <FundraiserLiveComponent/>;
     default:
       return null;
   }

@@ -7,27 +7,22 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
-  path,
   navigationIcon,
-  pageLinks,
-  locate,
   names,
+  to,
   ...rest
 }) => {
-  const location = useLocation();
-  const name = location.state.campaign;
+  const name = names;
 
   return (
     <PageLinksWrapper>
-      <Link className="page-links__before" to="/campaign">
+      <Link className="page-links__before" to={to}>
         {pageLinkBefore}
       </Link>
       <span className="page-links__navigation-icon">
         <DPIconPageNavigation />
       </span>
-      <div className="page-links__after" >
-        {name}
-      </div>
+      <div className="page-links__after">{name}</div>
     </PageLinksWrapper>
   );
 };

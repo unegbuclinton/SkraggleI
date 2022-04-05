@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import DropdownComponent from "components/atoms/Dropdown";
 
 import { DPIconTransaction } from "icons/index";
 
@@ -41,10 +42,10 @@ const CampaignOverview = () => {
     <MainWrapper>
       <LeftSection>
         <ContainerDropdwon>
-          <CustomDropdown
+          <DropdownComponent
             data={data}
             className="action-dropdown__container"
-          ></CustomDropdown>
+          />
         </ContainerDropdwon>
 
         <CampaignNameWrapper className="campaign-name">

@@ -112,7 +112,7 @@ export const TableHeaderWrapper = styled.div`
       flex-direction: row;
       justify-content: right;
 
-      .dropdown-filter {
+      .dropdown-campaign {
         margin-right: 1.6rem;
       }
 
