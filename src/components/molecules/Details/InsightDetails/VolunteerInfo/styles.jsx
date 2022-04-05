@@ -8,7 +8,7 @@ export const VolunteerWrapper = styled(Card)`
 `;
 
 export const VolunteerHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;

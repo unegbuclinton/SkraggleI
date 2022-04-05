@@ -9,7 +9,7 @@ export const DonorWrapper = styled(Card)`
 `;
 
 export const DonorHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   .heading {
     color: ${COLORS.deepPurple};

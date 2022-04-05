@@ -16,6 +16,15 @@ export const ModalContainer = styled.div`
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  .input-field {
+    width: 60.2rem;
+    height: 6.4rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
+    padding-left: 2rem;
+    background-color: ${COLORS.white};
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -25,13 +34,12 @@ export const FormLabel = styled.label`
   color: ${COLORS["grey-200"]};
 `;
 
-export const FormInput = styled.input`
-  width: 60.2rem;
-  height: 6.4rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
-  padding-left: 2rem;
+export const ErrorMsg = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-top: -0.5rem;
 `;
 
 export const ButtonContainer = styled.div`

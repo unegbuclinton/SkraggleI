@@ -16,6 +16,15 @@ export const ModalContainer = styled.div`
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  .input-field {
+    width: 60.2rem;
+    height: 6.4rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
+    padding-left: 2rem;
+    background-color: ${COLORS.white};
+  }
   .email-dropdown {
     width: 60.2rem;
     height: 6.4rem;
@@ -26,20 +35,19 @@ export const FormContainer = styled.form`
   }
 `;
 
+export const ErrorMsg = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-top: -0.5rem;
+`;
+
 export const FormLabel = styled.label`
   padding: 2.4rem 0 0.5rem 0;
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS["grey-200"]};
-`;
-
-export const FormInput = styled.input`
-  width: 60.2rem;
-  height: 6.4rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
-  padding-left: 2rem;
 `;
 
 export const DateContainer = styled.div`
@@ -51,7 +59,7 @@ export const DateContainer = styled.div`
     height: 6.4rem;
     border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
     border-radius: 0.5rem;
-    /* padding: 0 2rem 0 2rem; */
+    margin-bottom: 1rem;
   }
 `;
 

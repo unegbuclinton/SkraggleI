@@ -9,7 +9,7 @@ export const AdminWrapper = styled(Card)`
 `;
 
 export const AdminHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
@@ -76,7 +76,7 @@ export const AdminContainer = styled.div`
   .volunteer {
     margin-left: 19.3rem;
     background-color: ${COLORS["bg-grey-btn"]};
-    color: ${COLORS["tabel-btn-grey"]};
+    color: ${COLORS["gray-500"]};
   }
 
   .note {
