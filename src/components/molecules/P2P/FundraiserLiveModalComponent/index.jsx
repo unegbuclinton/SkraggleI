@@ -1,22 +1,18 @@
-import React, { useRef, useState } from "react";
-import Modal from "components/layouts/Modal";
-import Card from "components/atoms/Card";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import CopyButton from "components/atoms/CopyButton";
-
-import { ModalWrapper, CopyText } from "./styles";
+import Card from 'components/atoms/Card';
+import CopyButton from 'components/atoms/CopyButton';
+import React, { useRef, useState } from 'react';
+import { CopyText, ModalWrapper } from './styles';
 
 const FundraiserLiveComponent = ({ onClose, isShown }) => {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [copySuccess, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {
     textAreaRef.current.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     e.target.focus();
-    setCopySuccess("Copied!");
-    alert("Text Copied");
+    setCopySuccess('Copied!');
+    alert('Text Copied');
   }
 
   return (
@@ -28,10 +24,7 @@ const FundraiserLiveComponent = ({ onClose, isShown }) => {
             ref={textAreaRef}
             value="Lorem ipsum dolor sit amet, consectetur adipisci..."
           />
-          <CopyButton
-            className="copy__button"
-            onClick={copyToClipboard}
-          >
+          <CopyButton className="copy__button" onClick={copyToClipboard}>
             Copy
           </CopyButton>
         </div>

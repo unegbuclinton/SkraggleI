@@ -1,10 +1,6 @@
-import { React, useState, useEffect, useRef } from "react";
-
-import { DPIconUploadFile } from "icons";
-
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { React, useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
@@ -42,7 +38,7 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
         <ImagePreview
           className={imgPreview}
           src={preview}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: 'cover' }}
           onClick={() => {
             setImage(null);
           }}
@@ -73,7 +69,7 @@ export const UploadButtonWrapper = styled.button`
   width: 12.6rem;
   height: 8.1rem;
   background-color: ${COLORS.white};
-  border: 1px solid ${COLORS["gray-500"]};
+  border: 1px solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
 `;
 
