@@ -6,7 +6,7 @@ import {
   StyledCheckbox,
 } from './styles';
 
-const Checkbox = ({ className, ...props }) => {
+const Checkbox = ({ className,label, ...props }) => {
   const [state, setState] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -22,6 +22,9 @@ const Checkbox = ({ className, ...props }) => {
       <StyledCheckbox checked={state}>
         <CheckIcon />
       </StyledCheckbox>
+      <p className="label-text">
+        {label}
+      </p>
     </CheckboxContainer>
   );
 };

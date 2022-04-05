@@ -1,9 +1,15 @@
+import { FONTSIZES } from 'constants/font-spec';
 import { DPIconSkraggleCheck } from 'icons';
 import styled from 'styled-components';
 
 export const CheckboxContainer = styled.label`
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+
+  .label-text {
+    font-size: ${FONTSIZES.small};
+    margin-left: 0.778rem;
+  }
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -25,12 +31,12 @@ export const StyledCheckbox = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 18px;
-  height: 18px;
+  width: 1.5rem;
+  height: 1.5rem;
   border: 2px solid ${({ checked }) => (checked ? '#00913A' : '#E6EFF1')};
   border-radius: 5px;
   transition: all 150ms;
-
+  
   ${CheckIcon} {
     visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
   }
