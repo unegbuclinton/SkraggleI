@@ -4,16 +4,23 @@ import { COLORS } from "constants/colors";
 import styled from "styled-components";
 import { FONTSIZES } from "constants/font-spec";
 import { FONTWEIGHTS } from "constants/font-spec";
+import { useNavigate } from "react-router-dom";
 
-function Unsubscribe() {
+function Unsubscribe({ onCloseModal }) {
+
+  let navigate = useNavigate();
+
+  const Switch = () => {
+    navigate('SubscriptionUpdated/')
+  };
   return (
     <UnsubscribeWrapper>
       <p> We are sad to see you go :(</p>
       <div className="btn-wrapper">
-        <Button invert auth className="send-cancel-btn">
+        <Button invert auth className="send-cancel-btn" onClick={onCloseModal}>
           Nevermind
         </Button>
-        <Button auth className="send-save-btn">
+        <Button auth className="send-save-btn" onClick={Switch}>
           Confirm
         </Button>
       </div>

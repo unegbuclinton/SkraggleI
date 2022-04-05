@@ -3,6 +3,7 @@ import Tabs from "components/molecules/Tabs";
 import React from "react";
 import MailContent from "../Content";
 import Overview from "../Overview";
+import PageLinks from "components/atoms/PageLinks";
 
 function MonthlyNewsteller() {
   const mail = [

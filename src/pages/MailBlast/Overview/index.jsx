@@ -12,7 +12,7 @@ function Overview() {
       <Card>
         <NewstellerTop>
           <div className="newsteller-left">
-            <div className="top">
+            <div className="top"> 
               <p>Mail Blasts Overview</p>
               <p>Associated Campaign</p>
             </div>

@@ -13,11 +13,11 @@ const PageLinks = ({
   ...rest
 }) => {
   const location = useLocation();
-  const name = location.state.campaign;
+  const name = location.state.id;
 
   return (
     <PageLinksWrapper>
-      <Link className="page-links__before" to="/campaign">
+      <Link className="page-links__before" to={"/mail-blasts"}>
         {pageLinkBefore}
       </Link>
       <span className="page-links__navigation-icon">

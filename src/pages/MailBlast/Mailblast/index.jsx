@@ -17,9 +17,9 @@ function Mail() {
   let navigate = useNavigate();
 
   const handleRowClicked = (row) => {
-    navigate(`/mail-blasts/${row.key + 1}`);
+    navigate(`/mail-blasts/${row.id }`, { state: row });
 
-    console.log(row);
+    console.log(row.name);
   };
 
   const columns = [
@@ -54,6 +54,7 @@ function Mail() {
 
   const data = [
     {
+      id: 1,
       action: "",
       name: "Monthly newsletter",
       assignee: <NameLogo text="Partho Datta" />,
@@ -61,6 +62,7 @@ function Mail() {
       status: "",
     },
     {
+      id: 2,
       action: "",
       name: "Monthly newsletter",
       assignee: <NameLogo text="Partho Datta" />,
@@ -68,6 +70,7 @@ function Mail() {
       status: "",
     },
     {
+      id: 3,
       action: "",
       name: "Monthly newsletter",
       assignee: <NameLogo text="John Doe" />,
@@ -75,6 +78,7 @@ function Mail() {
       status: "",
     },
     {
+      id: 4,
       action: "",
       name: "Monthly newsletter",
       assignee: <NameLogo text="Hannah Dandanell" />,
@@ -82,7 +86,7 @@ function Mail() {
       status: "",
     },
   ];
-  
+
   const indexLasttList = currentPage * itemsPerPage;
 
   const indexFirstList = indexLasttList - itemsPerPage;
