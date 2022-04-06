@@ -1,26 +1,32 @@
+import Table from "components/layouts/Table";
 import React from "react";
-import {
-  ContentHeading,
-  WordingContainer,
-  WordingHeader,
-  WordingWrapper,
-} from "./styles";
+import { WordingHeader, WordingWrapper } from "./styles";
 
 function Description() {
+  const columns = [
+    {
+      name: "ORIGINAL",
+      selector: (row) => row.original,
+      width: "51.6rem",
+    },
+
+    {
+      name: "CUSTOM",
+      selector: (row) => row.custom,
+    },
+  ];
+  const data = [
+    {
+      original: "Required",
+      custom: "Click to set custom text",
+    },
+  ];
   return (
     <WordingWrapper>
       <WordingHeader>
         <h1 className="heading">Description</h1>
       </WordingHeader>
-      <ContentHeading>
-        <h2 className="content">ORIGINAL</h2>
-        <h2 className="content">CUSTOM</h2>
-      </ContentHeading>
-
-      <WordingContainer>
-        <p className="left-word">Required</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
+      <Table className="description-table" columns={columns} data={data} />
     </WordingWrapper>
   );
 }

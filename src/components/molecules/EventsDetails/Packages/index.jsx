@@ -18,6 +18,17 @@ function Packages() {
   const [dropdown, setDropdown] = useState(false);
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
+
+  const onpenDelete = (e) => {
+    e.stopPropagation();
+    setOpen(true);
+  };
+
+  const openClone = (e) => {
+    e.stopPropagation();
+    setOpenCloneModal(true);
+  };
+
   return (
     <PackageWrapper>
       <Container>
@@ -27,8 +38,8 @@ function Packages() {
         />
         <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
 
-        <ContentContainer>
-          <ContentsWrapper onClick={() => setDropdown(true)}>
+        <ContentContainer onClick={() => setDropdown(true)}>
+          <ContentsWrapper>
             <h2 className="heading">Gift pack</h2>
             <p className="heading-text">5 participants per package</p>
           </ContentsWrapper>
@@ -53,11 +64,11 @@ function Packages() {
           </ViewWrapper>
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="action" onClick={() => setOpenCloneModal(true)}>
+            <p className="action" onClick={onpenDelete}>
               Clone
             </p>
 
-            <p className="delete" onClick={() => setOpen(true)}>
+            <p className="delete" onClick={openClone}>
               Delete
             </p>
           </ActionWrapper>
@@ -89,11 +100,11 @@ function Packages() {
           </ViewWrapper>
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="action" onClick={() => setOpenCloneModal(true)}>
+            <p className="action" onClick={onpenDelete}>
               Clone
             </p>
 
-            <p className="delete" onClick={() => setOpen(true)}>
+            <p className="delete" onClick={openClone}>
               Delete
             </p>
           </ActionWrapper>

@@ -15,14 +15,22 @@ import {
 
 function PromoCodes() {
   const [dropdown, setDropdown] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
+
+  const OpenDeleteModal = (e) => {
+    e.stopPropagation();
+    setOpenDelete(true);
+  };
   return (
     <PromoCodeWrapper>
       <Container>
-        <DeletePromoCodeModal isShown={open} onClose={() => setOpen(false)} />
+        <DeletePromoCodeModal
+          isShown={openDelete}
+          onClose={() => setOpenDelete(false)}
+        />
 
-        <ContentContainer>
-          <ContentsWrapper onClick={() => setDropdown(true)}>
+        <ContentContainer onClick={() => setDropdown(true)}>
+          <ContentsWrapper>
             <h2 className="heading">Save15</h2>
             <p className="heading-text">test</p>
           </ContentsWrapper>
@@ -44,7 +52,7 @@ function PromoCodes() {
 
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="delete" onClick={() => setOpen(true)}>
+            <p className="delete" onClick={OpenDeleteModal}>
               Delete
             </p>
           </ActionWrapper>

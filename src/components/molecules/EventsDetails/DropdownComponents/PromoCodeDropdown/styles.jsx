@@ -13,7 +13,7 @@ export const Label = styled.label`
 `;
 
 export const RadioWrapper = styled.div`
-  margin: 3.3rem 0 3.378rem 0;
+  margin: 3.3rem 0 1.556rem 0;
   .radio-container {
     display: flex;
     gap: 1.2rem;
@@ -21,6 +21,7 @@ export const RadioWrapper = styled.div`
       width: 1.5rem;
       height: 1.5rem;
       color: ${COLORS.pink};
+      margin-bottom: 1.822rem;
     }
 
     p {

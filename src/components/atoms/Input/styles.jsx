@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { COLORS } from "constants/colors";
+import { COLORS } from 'constants/colors';
+import styled, { css } from 'styled-components';
 
 export const InputField = styled.input`
   outline: none;
@@ -8,15 +8,29 @@ export const InputField = styled.input`
   height: 6.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
-  color: ${COLORS["grey-400"]};
+  color: ${COLORS['grey-400']};
   padding: 20px;
   margin-bottom: 16px;
+
+  ${({ type }) => {
+    console.log(type);
+    return (
+      type !== 'text' &&
+      css`
+        width: inherit;
+        height: inherit;
+        margin-bottom: 0;
+      `
+    );
+  }};
+
+
 
   ${({ disabled }) =>
     disabled &&
     css`
       background-color: ${COLORS.torquoise};
-      color: ${COLORS["disabled-grey"]};
+      color: ${COLORS['disabled-grey']};
     `};
 `;
 

@@ -2,11 +2,13 @@ import React from "react";
 import { DPIconCancel } from "icons";
 import { MailWrapper } from "./styles";
 
-function MailContainer({ mail, Delete }) {
+function MailContainer({ mail, Delete, id }) {
   return (
-    <MailWrapper mail={mail}>
+    <MailWrapper id={id} mail={mail}>
       <p>{mail}</p>
-      <DPIconCancel onClick={Delete} />
+      <span id={id} onClick={Delete}>
+        <DPIconCancel />
+      </span>
     </MailWrapper>
   );
 }

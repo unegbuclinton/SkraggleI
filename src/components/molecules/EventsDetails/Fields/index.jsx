@@ -16,13 +16,19 @@ import DeleteFieldModal from "components/molecules/EventsModals/FieldsModal/Dele
 function Fields() {
   const [dropdown, setDropdown] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const openDelete = (e) => {
+    e.stopPropagation();
+    setOpen(true);
+  };
+
   return (
     <FieldWrapper>
       <Container>
         <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
 
-        <ContentContainer>
-          <ContentsWrapper onClick={() => setDropdown(true)}>
+        <ContentContainer onClick={() => setDropdown(true)}>
+          <ContentsWrapper>
             <h2 className="heading">Trial label</h2>
             <p className="heading-text">DisplayLabel</p>
           </ContentsWrapper>
@@ -44,7 +50,7 @@ function Fields() {
 
           <ActionWrapper>
             <p className="action">Edit</p>
-            <p className="delete" onClick={() => setOpen(true)}>
+            <p className="delete" onClick={openDelete}>
               Delete
             </p>
           </ActionWrapper>

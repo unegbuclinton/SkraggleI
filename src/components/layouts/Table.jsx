@@ -10,12 +10,13 @@ const Table = ({
   isLoading,
   onRowClicked,
   setClick,
+  className,
 }) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
 
   return (
-    <TableWrapper>
+    <TableWrapper className={className}>
       <DataTable
         columns={TableColumns}
         data={TableData}

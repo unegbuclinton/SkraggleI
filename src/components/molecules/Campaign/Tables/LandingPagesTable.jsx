@@ -1,19 +1,14 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
 import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
-
-import datas from "utilities/filterData";
-
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { landingPagesData } from "utilities/campaigndata";
-
-import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import datas from "utilities/filterData";
+import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 
 const LandingPagesTable = () => {
   const columns = [
@@ -96,33 +91,38 @@ const LandingPagesTable = () => {
 
   return (
     <div>
-  <ContainerBody>
-    <TableWrapper>
-      <TableHeaderWrapper className="table-header">
-        <div className="table-header__left">
-          <h1>88 Landing Pages</h1>
-        </div>
+      <ContainerBody>
+        <TableWrapper>
+          <TableHeaderWrapper className="table-header">
+            <div className="table-header__left">
+              <h1>88 Landing Pages</h1>
+            </div>
 
-        <div className="table-header__right">
-          <CustomDropdown className="dropdown-filter" data={datas} />
-          <SearchBar className="search-icon" />
-          <Button
-            className="campaign-button"
-            onClick={() => handleButtonClick()}
-          >
-            <DPPlusIcon className="plus-icon" />
-            Create New
-          </Button>
-        </div>
-      </TableHeaderWrapper>
-      <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
-    </TableWrapper>
-    </ContainerBody>
-    <Pagination
-    currentPage={currentPage}
-    itemsPerPage={itemsPerPage}
-    data={landingPagesData}
-    setCurrentPage={setCurrentPage}/>
+            <div className="table-header__right">
+              <CustomDropdown className="dropdown-filter" data={datas} />
+              <SearchBar className="search-icon" />
+              <Button
+                className="campaign-button"
+                onClick={() => handleButtonClick()}
+              >
+                <DPPlusIcon className="plus-icon" />
+                Create New
+              </Button>
+            </div>
+          </TableHeaderWrapper>
+          <Table
+            columns={columns}
+            data={currentList}
+            onRowClicked={onRowClicked}
+          />
+        </TableWrapper>
+      </ContainerBody>
+      <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        data={landingPagesData}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

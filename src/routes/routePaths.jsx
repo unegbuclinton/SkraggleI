@@ -17,16 +17,16 @@ import P2PDetails from "pages/P2PDetails";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
-import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 import EventsDetails from "components/molecules/EventsDetails";
 import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
+import Checkbox from "components/atoms/CheckBox";
+import RadioGroup from "components/atoms/RadioGroup";
 
-const tabs = [
-  { title: "Campaigns", component: <h2>Content One renders here!</h2> },
-  { title: "Archive", component: <h2>Content Two renders here!</h2> },
-  { title: "Forms", component: <h2>Content Three renders here!</h2> },
-];
+// let isAuthenticated = true;
+// const PrivateWrapper = ({ isAuthenticated }) => {
+//   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+// };
 
 const routePaths = [
   {
@@ -169,10 +169,7 @@ const routePaths = [
     path: "/elements",
     element: <DashboardLayout>Elements yet to be added</DashboardLayout>,
   },
-  {
-    path: "/events",
-    element: <DashboardLayout>Events yet to be added</DashboardLayout>,
-  },
+
   {
     path: "/landing-page",
     element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
@@ -184,7 +181,24 @@ const routePaths = [
 
   {
     path: "/test",
-    element: <UnsubscribeWarning />,
+    element: (
+      <>
+        {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Radio value="any" name="radio-test" labelText="Hellp" />
+          <Radio value="all" name="radio-test" />
+          <Radio value="which" name="radio-test" />
+          <Radio value="where" name="radio-test" />
+        </div> */}
+        <RadioGroup
+          groupName="Set Axis"
+          radioData={[
+            { value: "autoscale", labelText: "Autoscale" },
+            { value: "manual", labelText: "Manual" },
+          ]}
+        />
+        <Checkbox label="Clinton" />
+      </>
+    ),
   },
 ];
 

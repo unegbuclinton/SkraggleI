@@ -1,10 +1,6 @@
-import { React, useState, useEffect, useRef } from "react";
-
-import { DPIconUploadFile } from "icons";
-
-import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import { React, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();

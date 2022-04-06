@@ -1,13 +1,16 @@
-import React, { useState } from "react";
-
-import { DPIconDropDown } from "icons";
-
-import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { FONTSIZES } from "constants/font-spec";
+import { DPIconDropDown } from "icons";
+import React, { useState } from "react";
+import styled from "styled-components";
 
-
-const DropdownComponent = ({ selected, setSelected, data, className, ...rest }) => {
+const DropdownComponent = ({
+  selected,
+  setSelected,
+  data,
+  className,
+  ...rest
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   let options = data.map((option) => (
@@ -20,19 +23,17 @@ const DropdownComponent = ({ selected, setSelected, data, className, ...rest }) 
     >
       {option.name}
     </div>
-  ))
+  ));
 
   return (
     <DropdownWrapper className="dropdown">
       <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
         {selected}
-        <span><DPIconDropDown/></span>
+        <span>
+          <DPIconDropDown />
+        </span>
       </div>
-      {isActive && (
-        <div className="dropdown__content">
-          {options}
-        </div>
-      )}
+      {isActive && <div className="dropdown__content">{options}</div>}
     </DropdownWrapper>
   );
 };

@@ -12,7 +12,11 @@ function Attendees() {
       {click ? (
         <RegistrationPackage />
       ) : (
-        <Table data={data} setClick={setClick} columns={columns} />
+        <Table
+          data={data}
+          onRowClicked={() => setClick((prev) => !prev)}
+          columns={columns}
+        />
       )}
     </AttendeeWrapper>
   );

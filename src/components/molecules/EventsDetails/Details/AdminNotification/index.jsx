@@ -28,9 +28,9 @@ function AdminNotification() {
   }
 
   function Delete(e) {
-    const id = e.target.id;
+    const id = e.currentTarget;
+    console.log(id);
     const data = mails.filter((mail) => {
-      console.log(mail);
       return mail.id !== Number(id);
     });
     setMails(data);

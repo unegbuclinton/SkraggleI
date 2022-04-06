@@ -1,11 +1,7 @@
-import React from "react";
-
-import Button from "../Button/Button";
 import { DPIconCopy } from "icons";
-
+import React from "react";
 import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import Button from "../Button/Button";
 
 const CopyButton = ({ children, onClick, className }) => {
   return (
