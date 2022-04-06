@@ -1,18 +1,17 @@
-import React from "react";
-import { useFormik } from "formik";
-import { loginSchema } from "validation/Schema";
-import Input from "components/atoms/Input/Input";
-import AuthLayout from "components/layouts/AuthLayout";
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import ErrorMessage from "components/atoms/ErrorMessage";
-
-import { FormWrapper, LoginLink } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import ErrorMessage from 'components/atoms/ErrorMessage';
+import Input from 'components/atoms/Input/Input';
+import AuthLayout from 'components/layouts/AuthLayout';
+import { useFormik } from 'formik';
+import React from 'react';
+import { loginSchema } from 'validation/Schema';
+import { FormWrapper, LoginLink } from './styles';
 
 const LogIn = () => {
   const formik = useFormik({
     initialValues: {
-      password: "",
+      password: '',
     },
     validationSchema: loginSchema,
 
@@ -49,14 +48,14 @@ const LogIn = () => {
           {formik.touched.password && formik.errors.password ? (
             <ErrorMessage>{formik.errors.password}</ErrorMessage>
           ) : null}
-          <LoginLink className="forgot-password" to={"/forgotpassword"}>
+          <LoginLink className="forgot-password" to={'/forgotpassword'}>
             Forgot Password?
           </LoginLink>
           <Button className="login-button">LOG IN</Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {" "}
+              {' '}
               Sign Up
             </LoginLink>
           </p>

@@ -1,22 +1,13 @@
+import Button from "components/atoms/Button/Button";
+import { DPIconCopy } from "icons";
 import { React, useRef, useState } from "react";
 import {
-  MainWrapper,
-  LeftSidebar,
-  P2PFundraiserWrapper,
-  RightSection,
-  P2PFundraiser,
-  SettingsWrapper,
-  DashboardWrapper,
-  VerticalTabWrapper,
-  TabButton,
+  DashboardWrapper, LeftSidebar, MainWrapper, P2PFundraiser, P2PFundraiserWrapper,
+  RightSection, SettingsWrapper, TabButton, VerticalTabWrapper
 } from "./styles";
-import VerticalTab from "components/molecules/VerticalTabs";
-import { DPIconCopy } from "icons";
-import Button from "components/atoms/Button/Button";
-import CampaignDetails from "pages/CampaignDetails";
 
 const FundraiserDetails = () => {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {

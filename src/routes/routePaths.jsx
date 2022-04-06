@@ -1,4 +1,6 @@
-import React from "react";
+import Checkbox from "components/atoms/CheckBox";
+import RadioGroup from "components/atoms/RadioGroup";
+import DashboardLayout from "components/layouts/DashboardLayout";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
@@ -11,21 +13,18 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
-import P2P from "pages/P2P";
-import P2PDetails from "pages/P2PDetails";
-import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
-import { Link, Outlet } from "react-router-dom";
-import UnsubscribeWarning from "components/molecules/MailblastModalComponents/UnsubscribeWarning";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 import SubscriptionUpdate from "pages/MailBlast/SubscriptionUpdate";
-import UnsubscribeWarningModal from "pages/MailBlast/MailblasModals/UnsubscribeWarning";
+import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
-const tabs = [
-  { title: "Campaigns", component: <h2>Content One renders here!</h2> },
-  { title: "Archive", component: <h2>Content Two renders here!</h2> },
-  { title: "Forms", component: <h2>Content Three renders here!</h2> },
-];
+// let isAuthenticated = true;
+// const PrivateWrapper = ({ isAuthenticated }) => {
+//   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+// };
 
 const routePaths = [
   {
@@ -132,22 +131,22 @@ const routePaths = [
     ],
   },
   {
-    path:"peer-to-peer/*",
-    element: <Outlet/>,
-    children:[
+    path: "peer-to-peer/*",
+    element: <Outlet />,
+    children: [
       {
         path: "/",
-        element:<P2P/>
+        element: <P2P />,
       },
       {
-        path:":id",
-        element: <P2PDetails/>
-      }
-    ] 
+        path: ":id",
+        element: <P2PDetails />,
+      },
+    ],
   },
   {
-    path:"/forms",
-    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
+    path: "/forms",
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>,
   },
 
   {
@@ -169,9 +168,25 @@ const routePaths = [
 
   {
     path: "/test",
-    element: <UnsubscribeWarningModal />,
+    element: (
+      <>
+        {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Radio value="any" name="radio-test" labelText="Hellp" />
+          <Radio value="all" name="radio-test" />
+          <Radio value="which" name="radio-test" />
+          <Radio value="where" name="radio-test" />
+        </div> */}
+        <RadioGroup
+          groupName="Set Axis"
+          radioData={[
+            { value: "autoscale", labelText: "Autoscale" },
+            { value: "manual", labelText: "Manual" },
+          ]}
+        />
+        <Checkbox label="Clinton" />
+      </>
+    ),
   },
-  
 ];
 
 export default routePaths;
