@@ -17,7 +17,7 @@ export const AssociationHeading = styled.div`
   align-items: center;
 
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }
