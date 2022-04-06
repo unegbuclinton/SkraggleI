@@ -3,20 +3,23 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
-const Tabs = ({ tabs, ...rest }) => {
+const Tabs = ({ tabs, actionComponent, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
       <TabContainer {...rest}>
-        {tabs?.map((tab, index) => (
-          <TabButton
-            key={index}
-            active={activeTab === index}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab.title}
-          </TabButton>
-        ))}
+        <div>
+          {tabs?.map((tab, index) => (
+            <TabButton
+              key={index}
+              active={activeTab === index}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab.title}
+            </TabButton>
+          ))}
+        </div>
+        <span>{actionComponent}</span>
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
@@ -31,6 +34,7 @@ const TabWrapper = styled.div`
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
 `;
 const TabButton = styled.button`

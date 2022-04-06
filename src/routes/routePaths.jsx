@@ -171,14 +171,14 @@ const routePaths = [
           <Radio value="which" name="radio-test" />
           <Radio value="where" name="radio-test" />
         </div> */}
-        <RadioGroup
+        {/* <RadioGroup
           groupName="Set Axis"
           radioData={[
             { value: 'autoscale', labelText: 'Autoscale' },
             { value: 'manual', labelText: 'Manual' },
           ]}
         />
-        <Checkbox label="Clinton" />
+        <Checkbox label="Clinton" /> */}
       </>
     ),
   },
