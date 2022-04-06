@@ -1,6 +1,5 @@
 import { React } from "react";
 
-import { useLocation } from "react-router-dom";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import ArchiveTable from "components/molecules/Campaign/Tables/ArchiveTable";
 import CampaignTable from "components/molecules/Campaign/Tables/CampaignTable";
@@ -18,9 +17,6 @@ const Campaign = () => {
       component: <ArchiveTable />,
     },
   ];
-
-  const location = useLocation();
-  console.log(location);
 
   return (
     <DashboardLayout>

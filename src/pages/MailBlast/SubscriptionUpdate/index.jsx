@@ -1,17 +1,28 @@
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 function SubscriptionUpdate() {
+  const [showComp, setShowComp] = useState(true);
+
+  useEffect(() => {
+    setInterval(() => {
+      setShowComp(false);
+    }, 2000);
+  },[]);
+
   return (
-    <SubscriptionUpdateWrapper>
-      <div className="status-alert">
-        {" "}
-        <input type="checkbox" /> Subscription Status Updated.
-      </div>
-      <p> Subscription Status Updated.</p>
-    </SubscriptionUpdateWrapper>
+    <>
+      {showComp && (
+        <SubscriptionUpdateWrapper>
+          <div className="status-alert">
+            <input type="checkbox" /> Subscription Status Updated.
+          </div>
+          <p> Subscription Status Updated.</p>
+        </SubscriptionUpdateWrapper>
+      )}
+    </>
   );
 }
 

@@ -11,12 +11,15 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
+import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
+import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
-import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
+import UnsubscribeWarning from "components/molecules/MailblastModalComponents/UnsubscribeWarning";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
-import DashboardLayout from "components/layouts/DashboardLayout";
 import SubscriptionUpdate from "pages/MailBlast/SubscriptionUpdate";
+import UnsubscribeWarningModal from "pages/MailBlast/MailblasModals/UnsubscribeWarning";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -109,7 +112,7 @@ const routePaths = [
         element: <MonthlyNewsteller />,
       },
       {
-        path: ":SubscriptionUpdated",
+        path: "SubscriptionUpdated",
         element: <SubscriptionUpdate />,
       },
     ],
@@ -129,8 +132,22 @@ const routePaths = [
     ],
   },
   {
-    path: "/forms",
-    element: <DashboardLayout>Forms yet to be added</DashboardLayout>,
+    path:"peer-to-peer/*",
+    element: <Outlet/>,
+    children:[
+      {
+        path: "/",
+        element:<P2P/>
+      },
+      {
+        path:":id",
+        element: <P2PDetails/>
+      }
+    ] 
+  },
+  {
+    path:"/forms",
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
   },
 
   {
@@ -152,8 +169,9 @@ const routePaths = [
 
   {
     path: "/test",
-    element: <UnsubscribeWarning />,
+    element: <UnsubscribeWarningModal />,
   },
+  
 ];
 
 export default routePaths;

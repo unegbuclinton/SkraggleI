@@ -29,9 +29,13 @@ export default TextArea;
 
 export const TextContainer = styled.div`
   display: flex;
+  position: relative;
   border: 1px solid ${COLORS["gray-500"]};
   border-radius: 0.5rem;
   .count_number {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     font-size: ${FONTSIZES.small};
     margin-right: 1.6rem;
     margin-bottom: 1.6rem;
@@ -41,9 +45,9 @@ export const TextContainer = styled.div`
 
 export const TextAreaInput = styled.textarea`
   width: 100%;
+  word-break: break-all;
   border: none;
-  padding-top: 2.3rem;
-  padding-left: 2.3rem;
+  padding: 2.3rem 2.3rem 0;
   height: 14.4rem;
   outline: none;
   resize: none;

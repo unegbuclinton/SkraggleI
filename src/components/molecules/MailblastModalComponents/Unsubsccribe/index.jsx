@@ -7,11 +7,10 @@ import { FONTWEIGHTS } from "constants/font-spec";
 import { useNavigate } from "react-router-dom";
 
 function Unsubscribe({ onCloseModal }) {
-
   let navigate = useNavigate();
 
   const Switch = () => {
-    navigate('SubscriptionUpdated/')
+    navigate("SubscriptionUpdated/");
   };
   return (
     <UnsubscribeWrapper>

@@ -1,18 +1,18 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import React, { useState } from "react";
-import UnsubscribeModal from "../MailblasModals/Unsubscribe";
+import UnsubscribeModal from "../../../../pages/MailBlast/MailblasModals/Unsubscribe";
 import { UnsubscribeField } from "./styles";
 import { UnsubscribeOption } from "./styles";
 import { WarningWrapper } from "./styles";
 
 function UnsubscribeWarning({ isShown, onCloseModal }) {
-  const [openModal, settOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <WarningWrapper>
       <Card className="warning-card">
-        <h1 className="warning-header">Confirm Unsubscribe</h1>
+        {/* <h1 className="warning-header">Confirm Unsubscribe</h1> */}
         <p className="warning-text">
           We are sorry to see you go! Could you please let us know what we can
           do better next time?
@@ -55,14 +55,14 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
         </UnsubscribeField>
 
         <div className="unsubscription-footer">
-          <Button className="unsubscription-footer__back" invert>
+          <Button className="unsubscription-footer__back" invert onClick={onCloseModal}>
             Back
           </Button>
           <Button
             className="unsubscription-footer__confirm"
             auth
             onClick={() => {
-              settOpenModal(true);
+              setOpenModal(true);
             }}
           >
             Confirm
@@ -70,7 +70,7 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
           {openModal && (
             <UnsubscribeModal
               isShown={openModal}
-              onCloseModal={()=>{settOpenModal(false)}}
+              onCloseModal={()=>{setOpenModal(false)}}
             />
           )}
         </div>

@@ -10,6 +10,8 @@ const PageLinks = ({
   path,
   navigationIcon,
   pageLinks,
+  locate,
+  names,
   ...rest
 }) => {
   const location = useLocation();
