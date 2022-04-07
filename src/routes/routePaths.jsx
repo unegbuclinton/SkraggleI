@@ -1,5 +1,3 @@
-import Checkbox from 'components/atoms/CheckBox';
-import RadioGroup from 'components/atoms/RadioGroup';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
@@ -17,6 +15,7 @@ import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
+import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -157,29 +156,18 @@ const routePaths = [
     element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
   },
   {
-    path: '/mail-blast',
-    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>,
+    path: '/reports',
+    element: <DashboardLayout>Reports yet to be added</DashboardLayout>,
+  },
+  {
+    path: '*',
+    element: <DashboardLayout><h1>404</h1></DashboardLayout>,
   },
 
   {
     path: '/test',
     element: (
-      <>
-        {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Radio value="any" name="radio-test" labelText="Hellp" />
-          <Radio value="all" name="radio-test" />
-          <Radio value="which" name="radio-test" />
-          <Radio value="where" name="radio-test" />
-        </div> */}
-        <RadioGroup
-          groupName="Set Axis"
-          radioData={[
-            { value: 'autoscale', labelText: 'Autoscale' },
-            { value: 'manual', labelText: 'Manual' },
-          ]}
-        />
-        <Checkbox label="Clinton" />
-      </>
+     <Test />
     ),
   },
 ];
