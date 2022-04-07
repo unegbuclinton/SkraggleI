@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-import Checkbox from "components/atoms/CheckBox";
-import RadioGroup from "components/atoms/RadioGroup";
-import DashboardLayout from "components/layouts/DashboardLayout";
-import ForgotPassword from "components/molecules/ForgotPassword";
-import LogIn from "components/molecules/LogIn";
-import CreateTemplate from "components/molecules/MailblastModalComponents/CreateTemplate";
-import Registration from "components/molecules/Registration";
-import ResendVerification from "components/molecules/resendVerification/ResendVerification";
-import ResetPassword from "components/molecules/ResetPassword";
-import SendVerification from "components/molecules/sendVerification/SendVerification";
-import Campaign from "pages/Campaign";
-import CampaignDetails from "pages/CampaignDetails";
-import Contacts from "pages/ContactsPage";
-import Profile from "pages/ContactsPage/Profile";
-import Dashboard from "pages/Dashboard";
-import Donations from "pages/Donations";
-import MailBlast from "pages/MailBlast";
-import CreateTemplateModal from "pages/MailBlast/MailblasModals/CreateTemplate";
-import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
-import SubscriptionUpdate from "pages/MailBlast/SubscriptionUpdate";
-import P2P from "pages/P2P";
-import P2PDetails from "pages/P2PDetails";
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
-=======
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
@@ -44,7 +18,6 @@ import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
->>>>>>> a0b77675381cbd7dd3bf6fb29ec1ab3f27af0fa6
 
 // let isAuthenticated = true;
 // const PrivateWrapper = ({ isAuthenticated }) => {
