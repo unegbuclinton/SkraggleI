@@ -2,15 +2,18 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 function SubscriptionUpdate() {
   const [showComp, setShowComp] = useState(true);
-
+  const navigate = useNavigate()
   useEffect(() => {
     setInterval(() => {
       setShowComp(false);
+      navigate('')
+
     }, 2000);
-  },[]);
+    
+  }, []);
 
   return (
     <>

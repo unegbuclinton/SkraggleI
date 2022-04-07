@@ -9,15 +9,17 @@ import { useNavigate } from "react-router-dom";
 import NameLogo from "components/molecules/NameLogo";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
+import CreateMailModal from "../MailblasModals/CreateMail";
 
 function Mail() {
+  const [mailModal, setMailModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
   let navigate = useNavigate();
 
   const handleRowClicked = (row) => {
-    navigate(`/mail-blasts/${row.id }`, { state: row });
+    navigate(`/mail-blasts/${row.id}`, { state: row });
 
     console.log(row.name);
   };
@@ -98,10 +100,17 @@ function Mail() {
       <Card className="mail-card">
         <div className="mail-header">
           <TableHeader
+            setOpen={setMailModal}
             className="table-header"
             header="4 Mail Blasts"
             title="New Mail Blasts"
           />
+          {mailModal && (
+            <CreateMailModal
+              isShown={mailModal}
+              onCloseModal={() => setMailModal(false)}
+            />
+          )}
         </div>
 
         <div className="table-container">

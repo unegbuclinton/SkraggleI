@@ -55,6 +55,10 @@ export const UnsubscribeOption = styled.div`
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
   }
+
+  .radio-class{
+    width : 30rem;
+  }
 `;
 
 export const UnsubscribeField = styled.div`

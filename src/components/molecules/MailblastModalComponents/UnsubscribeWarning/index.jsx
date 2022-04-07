@@ -1,5 +1,7 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import Radio from "components/atoms/Radio";
+import RadioGroup from "components/atoms/RadioGroup";
 import React, { useState } from "react";
 import UnsubscribeModal from "../../../../pages/MailBlast/MailblasModals/Unsubscribe";
 import { UnsubscribeField } from "./styles";
@@ -55,7 +57,11 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
         </UnsubscribeField>
 
         <div className="unsubscription-footer">
-          <Button className="unsubscription-footer__back" invert onClick={onCloseModal}>
+          <Button
+            className="unsubscription-footer__back"
+            invert
+            onClick={onCloseModal}
+          >
             Back
           </Button>
           <Button
@@ -63,6 +69,7 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
             auth
             onClick={() => {
               setOpenModal(true);
+              onCloseModal()
             }}
           >
             Confirm
@@ -70,7 +77,9 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
           {openModal && (
             <UnsubscribeModal
               isShown={openModal}
-              onCloseModal={()=>{setOpenModal(false)}}
+              onCloseModal={() => {
+                setOpenModal(false);
+              }}
             />
           )}
         </div>

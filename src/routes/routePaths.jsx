@@ -3,6 +3,7 @@ import RadioGroup from "components/atoms/RadioGroup";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
+import CreateTemplate from "components/molecules/MailblastModalComponents/CreateTemplate";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
@@ -14,6 +15,7 @@ import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
 import MailBlast from "pages/MailBlast";
+import CreateTemplateModal from "pages/MailBlast/MailblasModals/CreateTemplate";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 import SubscriptionUpdate from "pages/MailBlast/SubscriptionUpdate";
 import P2P from "pages/P2P";
@@ -168,24 +170,7 @@ const routePaths = [
 
   {
     path: "/test",
-    element: (
-      <>
-        {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Radio value="any" name="radio-test" labelText="Hellp" />
-          <Radio value="all" name="radio-test" />
-          <Radio value="which" name="radio-test" />
-          <Radio value="where" name="radio-test" />
-        </div> */}
-        <RadioGroup
-          groupName="Set Axis"
-          radioData={[
-            { value: "autoscale", labelText: "Autoscale" },
-            { value: "manual", labelText: "Manual" },
-          ]}
-        />
-        <Checkbox label="Clinton" />
-      </>
-    ),
+    element: <CreateTemplateModal />,
   },
 ];
 
