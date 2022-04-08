@@ -60,7 +60,7 @@ export const Backdrop = styled.div`
   top: 0;
   left: 0;
   background: ${COLORS["shim-black"]};
-  z-index: 500;
+  z-index: 30;
   cursor: pointer;
 
   ${({ plain }) =>

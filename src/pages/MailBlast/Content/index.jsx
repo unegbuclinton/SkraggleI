@@ -1,5 +1,6 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import Checkbox from "components/atoms/CheckBox";
 import NameLogo from "components/molecules/NameLogo";
 import React from "react";
 import { useState } from "react";
@@ -8,8 +9,7 @@ import MailFromModal from "../MailblasModals/MailFrom";
 import MailToModal from "../MailblasModals/Mailto";
 import SubjectModal from "../MailblasModals/Subject";
 import TemplateModal from "../MailblasModals/Template";
-import { ContentBody } from "./styles";
-import { ContentWrapper, ContentTop } from "./styles";
+import { ContentWrapper, ContentTop, ContentBody } from "./styles";
 
 function MailContent() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,6 @@ function MailContent() {
   const [openSender, setOpenSender] = useState(false);
   const [openSubject, setOpenSubject] = useState(false);
   const [openAttach, setOpenAttach] = useState(false);
-
 
   return (
     <ContentWrapper>
@@ -44,7 +43,7 @@ function MailContent() {
         <ContentBody>
           <div className="content-item">
             <div className="content-item__left">
-              <input type="checkbox" />
+              <Checkbox radial styledClass="content-checkbox" />
               <p>To</p>
             </div>
             <div className="content-item__right">
@@ -69,7 +68,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <input type="checkbox" />
+              <Checkbox radial styledClass="content-checkbox" />
               <p>From</p>
             </div>
             <div className="content-item__right">
@@ -95,7 +94,7 @@ function MailContent() {
           <div className="content-item">
             <div className="reply-item__left">
               <div className="input-check">
-                <input type="checkbox" />
+                <Checkbox radial styledClass="content-item__checkbox" />
                 <p>Reply To</p>
               </div>
               <div className="reciepient">
@@ -111,7 +110,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <input type="checkbox" />
+              <Checkbox radial styledClass="content-checkbox" />
               <p>Subject</p>
             </div>
             <div className="content-item__right">
@@ -136,7 +135,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <input type="checkbox" />
+              <Checkbox radial styledClass="content-checkbox" />
               <p>
                 Attachments <span className="added-text">(Optional)</span>
               </p>
@@ -163,7 +162,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <input type="checkbox" />
+              <Checkbox radial styledClass="content-checkbox" />
               <p>Content</p>
             </div>
             <div className="content-item__right">

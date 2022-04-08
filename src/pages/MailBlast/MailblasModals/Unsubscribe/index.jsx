@@ -9,7 +9,7 @@ function UnsubscribeModal({ isShown, onCloseModal }) {
       isShown={isShown}
       hide={onCloseModal}
     >
-      <Unsubscribe onCloseModal={onCloseModal} />
+      <Unsubscribe onCloseModal={onCloseModal} /> 
     </Modal>
   );
 }

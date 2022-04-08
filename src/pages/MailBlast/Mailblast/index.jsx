@@ -10,6 +10,7 @@ import NameLogo from "components/molecules/NameLogo";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
 import CreateMailModal from "../MailblasModals/CreateMail";
+import Checkbox from "components/atoms/CheckBox";
 
 function Mail() {
   const [mailModal, setMailModal] = useState(false);
@@ -20,15 +21,13 @@ function Mail() {
 
   const handleRowClicked = (row) => {
     navigate(`/mail-blasts/${row.id}`, { state: row });
-
-    console.log(row.name);
   };
 
   const columns = [
     {
       name: "",
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
@@ -45,12 +44,12 @@ function Mail() {
     },
     {
       name: "STATUS",
-      selector: (row) => row.created,
-      cell: (ow) => (
-        <Button pill error className="mail-btn">
-          Sent
-        </Button>
-      ),
+      selector: (row) => row.status,
+      // cell: (ow) => (
+      //   <Button pill success className="mail-btn">
+      //     Sent
+      //   </Button>
+      // ),
     },
   ];
 
@@ -61,7 +60,11 @@ function Mail() {
       name: "Monthly newsletter",
       assignee: <NameLogo text="Partho Datta" />,
       scheduled: "",
-      status: "",
+      status: (
+        <Button pill error>
+          Sent
+        </Button>
+      ),
     },
     {
       id: 2,
@@ -69,7 +72,11 @@ function Mail() {
       name: "Monthly newsletter",
       assignee: <NameLogo text="Partho Datta" />,
       scheduled: "",
-      status: "",
+      status: (
+        <Button pill success className="mail-btn">
+          Draft
+        </Button>
+      ),
     },
     {
       id: 3,
@@ -77,7 +84,11 @@ function Mail() {
       name: "Monthly newsletter",
       assignee: <NameLogo text="John Doe" />,
       scheduled: "",
-      status: "",
+      status: (
+        <Button pill success className="mail-btn">
+          Draft
+        </Button>
+      ),
     },
     {
       id: 4,
@@ -85,7 +96,11 @@ function Mail() {
       name: "Monthly newsletter",
       assignee: <NameLogo text="Hannah Dandanell" />,
       scheduled: "",
-      status: "",
+      status: (
+        <Button pill success className="mail-btn">
+          Draft
+        </Button>
+      ),
     },
   ];
 

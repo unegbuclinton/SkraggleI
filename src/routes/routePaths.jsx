@@ -18,6 +18,7 @@ import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 
 // let isAuthenticated = true;
 // const PrivateWrapper = ({ isAuthenticated }) => {
@@ -109,8 +110,8 @@ const routePaths = [
         element: <MonthlyNewsteller />,
       },
       {
-        path: "SubscriptionUpdated",
-        element: <SubscriptionUpdate />,
+        path: "subscription-update",
+        element: <UnsubscribeWarning />,
       },
     ],
   },

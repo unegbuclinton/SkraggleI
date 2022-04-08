@@ -1,20 +1,20 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
-import Radio from "components/atoms/Radio";
-import RadioGroup from "components/atoms/RadioGroup";
 import React, { useState } from "react";
-import UnsubscribeModal from "../../../../pages/MailBlast/MailblasModals/Unsubscribe";
+import { useNavigate } from "react-router-dom";
+import UnsubscribeModal from "../MailblasModals/Unsubscribe";
 import { UnsubscribeField } from "./styles";
 import { UnsubscribeOption } from "./styles";
 import { WarningWrapper } from "./styles";
 
-function UnsubscribeWarning({ isShown, onCloseModal }) {
+function UnsubscribeWarning() {
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <WarningWrapper>
       <Card className="warning-card">
-        {/* <h1 className="warning-header">Confirm Unsubscribe</h1> */}
+        <h1 className="warning-header">Confirm Unsubscribe</h1>
         <p className="warning-text">
           We are sorry to see you go! Could you please let us know what we can
           do better next time?
@@ -60,7 +60,7 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
           <Button
             className="unsubscription-footer__back"
             invert
-            onClick={onCloseModal}
+            onClick={() => navigate("/mail-blasts")}
           >
             Back
           </Button>
@@ -69,7 +69,6 @@ function UnsubscribeWarning({ isShown, onCloseModal }) {
             auth
             onClick={() => {
               setOpenModal(true);
-              onCloseModal()
             }}
           >
             Confirm

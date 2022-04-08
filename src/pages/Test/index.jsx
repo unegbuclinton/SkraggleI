@@ -1,28 +1,19 @@
-import RadioGroup from 'components/atoms/RadioGroup';
-import React from 'react';
-
+import React from "react";
+import styled from "styled-components";
+import MailContent from "pages/MailBlast/Content";
 const Test = () => {
   return (
-    <div>
-      {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Radio value="any" name="radio-test" labelText="Hellp" />
-          <Radio value="all" name="radio-test" />
-          <Radio value="which" name="radio-test" />
-          <Radio value="where" name="radio-test" />
-        </div> */}
-      <RadioGroup
-        groupName="Set Axis"
-        radioData={[
-          {
-            value: 'autoscale',
-            labelText: 'I receive emails more ofter than I expected',
-          },
-          { value: 'manual', labelText: 'Manual' },
-        ]}
-      />
-      {/* <Checkbox label="Clinton" /> */}
-    </div>
+    <Wrapper>
+      <MailContent />
+    </Wrapper>
   );
 };
 
 export default Test;
+
+const Wrapper = styled.div`
+  .checkbox {
+    width: 2rem;
+    height: 2rem;
+  }
+`;

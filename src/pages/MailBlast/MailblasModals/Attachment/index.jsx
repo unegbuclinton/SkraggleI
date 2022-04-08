@@ -4,7 +4,7 @@ import React from "react";
 
 function AttachmentModal({ onClose, isShown }) {
   return (
-    <Modal header="Attachments" isShown={isShown} hide={onClose} plain>
+    <Modal header="Attachments" isShown={isShown} hide={onClose} >
       <Attachment onClose={onClose} />
     </Modal>
   );

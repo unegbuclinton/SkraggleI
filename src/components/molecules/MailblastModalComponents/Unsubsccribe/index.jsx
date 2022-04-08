@@ -1,29 +1,42 @@
 import Button from "components/atoms/Button/Button";
-import React from "react";
+import React, { useState } from "react";
 import { COLORS } from "constants/colors";
 import styled from "styled-components";
 import { FONTSIZES } from "constants/font-spec";
 import { FONTWEIGHTS } from "constants/font-spec";
+import SubscriptionUpdate from "pages/MailBlast/MailblasModals/SubscriptionUpdate";
 import { useNavigate } from "react-router-dom";
 
 function Unsubscribe({ onCloseModal }) {
-  let navigate = useNavigate();
+  const [alert, setAlert] = useState(false);
+  const navigate = useNavigate();
 
   const Switch = () => {
-    navigate("SubscriptionUpdated/");
+    setAlert(true);
+    setTimeout(() => setAlert(false), 2000);
+    setTimeout(() => navigate("/mail-blasts"), 2000);
   };
   return (
-    <UnsubscribeWrapper>
-      <p> We are sad to see you go :(</p>
-      <div className="btn-wrapper">
-        <Button invert auth className="send-cancel-btn" onClick={onCloseModal}>
-          Nevermind
-        </Button>
-        <Button auth className="send-save-btn" onClick={Switch}>
-          Confirm
-        </Button>
-      </div>
-    </UnsubscribeWrapper>
+    <>
+      <UnsubscribeWrapper>
+        <p> We are sad to see you go :(</p>
+        <div className="btn-wrapper">
+          <Button
+            invert
+            auth
+            className="send-cancel-btn"
+            onClick={() => navigate("/mail-blasts")}
+          >
+            Nevermind
+          </Button>
+          <Button auth className="send-save-btn" onClick={Switch}>
+            Confirm
+          </Button>
+        </div>
+      </UnsubscribeWrapper>
+
+      {alert && <SubscriptionUpdate />}
+    </>
   );
 }
 

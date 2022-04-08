@@ -87,13 +87,19 @@ export const ContentTop = styled.div`
 `;
 
 export const ContentBody = styled.div`
+  border: 1px solid ${COLORS["porcelain-white"]};
+  margin: 0 2.3rem 0 2.5rem;
   .content-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid ${COLORS["porcelain-white"]};
-    margin: 0 2.3rem 0 2.5rem;
+    border-bottom: 1px solid ${COLORS["porcelain-white"]};
     padding: 0.7rem 1.5rem 0.7rem 2.3rem;
+
+    &__checkbox {
+      width: 2rem;
+      height: 2rem;
+    }
 
     p {
       font-size: ${FONTSIZES.lg};
@@ -105,7 +111,12 @@ export const ContentBody = styled.div`
       align-items: center;
       gap: 3.4rem;
 
+      .content-checkbox {
+        width: 2rem;
+        height: 2rem;
+      }
       .added-text {
+        color: ${COLORS.torquoise};
       }
     }
 
