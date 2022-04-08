@@ -75,7 +75,7 @@ function AdminNotification({ formik, ErrorMsg }) {
               name="email"
               onChange={emailHandleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.email}
+              value={email}
             />
             <ButtonWrapper>
               <Button type="button" onClick={handleAdd} className="save-btn">
