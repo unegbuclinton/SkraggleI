@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const DropdownWrapper = styled.div`
   .dropdown {

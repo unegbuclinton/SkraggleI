@@ -10,7 +10,7 @@ function Attendees() {
   return (
     <AttendeeWrapper>
       {click ? (
-        <RegistrationPackage />
+        <RegistrationPackage setClick={setClick} />
       ) : (
         <Table
           data={data}

@@ -146,16 +146,9 @@ export const InputWrapper = styled.div`
 
 export const RadioWrapper = styled.div`
   margin: 3.3rem 0 3.378rem 7.8rem;
-  .radio-container {
-    display: flex;
-    gap: 1.2rem;
-
-    p {
-      font-weight: ${FONTWEIGHTS.normal};
-      font-size: ${FONTSIZES.small};
-      color: ${COLORS.black};
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.822rem;
 `;
 
 export const GenericText = styled.p`

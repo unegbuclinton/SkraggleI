@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Input, IconWrapper, SearchbarWrapper } from "./styles";
 import { DPIconSearch } from "icons";
 
-function SearchBar() {
+function SearchBar({ setClick, click }) {
   const [input, setInput] = useState("");
   const [barOpened, setBarOpened] = useState(false);
 
@@ -16,6 +16,7 @@ function SearchBar() {
           // When form clicked, set state of baropened to true and focus the input
           setBarOpened(true);
           inputFocus.current.focus();
+          setClick(false);
         }}
         // on focus open search bar
         onFocus={() => {
@@ -25,6 +26,9 @@ function SearchBar() {
         // on blur close search bar
         onBlur={() => {
           setBarOpened(false);
+          setTimeout(() => {
+            setClick(true);
+          }, 200);
         }}
         // On submit, call the onFormSubmit function
       >

@@ -1,4 +1,5 @@
 import Button from "components/atoms/Button/Button";
+import Checkbox from "components/atoms/CheckBox";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
@@ -84,8 +85,7 @@ function FieldDropdown({ setDropdown }) {
           ) : null}
         </div>
         <div className="checkbox-container">
-          <Input className="checkbox" type="checkbox" />
-          <p className="checkbox-label">Required</p>
+          <Checkbox className="checkbox" label="Required" />
         </div>
       </FieldTypeWrapper>
       <Label>Maximum Characters</Label>

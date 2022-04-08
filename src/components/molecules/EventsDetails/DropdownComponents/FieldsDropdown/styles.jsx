@@ -63,18 +63,14 @@ export const FieldTypeWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 1.1rem;
-  }
-
-  .checkbox {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  .checkbox-label {
-    font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.small};
-    color: ${COLORS.black};
-    padding-bottom: 0.2rem;
+    .checkbox {
+      height: 1.8rem;
+      width: 1.8rem;
+      font-weight: ${FONTWEIGHTS.normal};
+      font-size: ${FONTSIZES.small};
+      color: ${COLORS.black};
+      padding-bottom: 0.2rem;
+    }
   }
 `;
 

@@ -1,8 +1,8 @@
 import React from "react";
 import Table from "components/layouts/Table";
 import { WordingHeader, WordingWrapper } from "./styles";
-import TableRowRight from "../tableRow/TableRowRight";
 import TableRowLeft from "../tableRow/TableRowLeft";
+import RightRowData from "../tableRow/RightRowData";
 
 function ReceiptInformation() {
   const columns = [
@@ -16,7 +16,7 @@ function ReceiptInformation() {
     {
       name: "CUSTOM",
       selector: (row) => row.custom,
-      cell: () => <TableRowRight rightText="Click to set custom text" />,
+      cell: () => <RightRowData />,
     },
   ];
   const data = [

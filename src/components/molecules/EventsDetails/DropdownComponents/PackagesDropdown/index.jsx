@@ -15,6 +15,7 @@ import Switch from "components/atoms/Switch/Switch";
 import Button from "components/atoms/Button/Button";
 import { useFormik } from "formik";
 import { packageValidatioSchema } from "validation/Schema";
+import Radio from "components/atoms/Radio";
 
 function PackageDropdown({ setDropdown }) {
   const formik = useFormik({
@@ -99,14 +100,8 @@ function PackageDropdown({ setDropdown }) {
         <Switch />
       </SwitchWrapper>
       <RadioWrapper>
-        <div className="radio-container">
-          <Input type="radio" className="radio" />
-          <p>Amount</p>
-        </div>
-        <div className="radio-container">
-          <Input type="radio" className="radio" />
-          <p>Percentage</p>
-        </div>
+        <Radio value="any" name="radio-test" labelText="Amount" />
+        <Radio value="all" name="radio-test" labelText="Percentage" />
       </RadioWrapper>
       <InputWrapper>
         <div>

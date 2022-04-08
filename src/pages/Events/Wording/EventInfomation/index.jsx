@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Table from "components/layouts/Table";
-import EventsForm from "components/molecules/EventsWordingForm";
+
 import { WordingHeader, WordingWrapper } from "./styles";
 import TableRowLeft from "../tableRow/TableRowLeft";
-import TableRowRight from "../tableRow/TableRowRight";
-function EventInformation() {
-  const [click, setClick] = useState(false);
 
+import RightRowData from "../tableRow/RightRowData";
+function EventInformation() {
   const columns = [
     {
       name: "ORIGINAL",
@@ -18,18 +17,7 @@ function EventInformation() {
     {
       name: "CUSTOM",
       selector: (row) => row.custom,
-      cell: () => (
-        <div>
-          {click ? (
-            <EventsForm />
-          ) : (
-            <TableRowRight
-              setClick={setClick}
-              rightText="Click to set custom text"
-            />
-          )}
-        </div>
-      ),
+      cell: () => <RightRowData />,
     },
   ];
   const data = [

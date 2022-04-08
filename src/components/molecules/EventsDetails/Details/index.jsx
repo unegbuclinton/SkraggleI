@@ -17,6 +17,7 @@ import RegistrationReceipt from "./RegistrationReceipt";
 import RecipientBody from "./RecipientBody";
 import { useFormik } from "formik";
 import { detailsValidationSchema } from "validation/Schema";
+import { useNavigate } from "react-router-dom";
 
 function Details() {
   const formik = useFormik({
@@ -47,6 +48,14 @@ function Details() {
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  const navigate = useNavigate();
+
+  const cancel = () => {
+    let path = "/events";
+    navigate(path);
+  };
+
   return (
     <DetailsWrapper>
       <DetailsHeading>A day with orphans</DetailsHeading>
@@ -60,7 +69,9 @@ function Details() {
         <RegistrationReceipt formik={formik} ErrorMsg={ErrorMsg} />
         <RecipientBody />
         <ButtonWrapper>
-          <Button className="cancel-btn">Cancel</Button>
+          <Button type="button" onClick={cancel} className="cancel-btn">
+            Cancel
+          </Button>
           <Button className="save-btn">Save</Button>
         </ButtonWrapper>
       </Container>

@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const ContainerWrapper = styled(Card)`
-  padding: 5.3rem 8.2rem 5.6rem 4.7rem;
+  padding: 5.3rem 8.2rem 0 4.7rem;
 `;
 
 export const SwitchWrapper = styled.div`

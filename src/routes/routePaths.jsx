@@ -20,8 +20,8 @@ import { Link, Outlet } from "react-router-dom";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 import EventsDetails from "components/molecules/EventsDetails";
 import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
-import Checkbox from "components/atoms/CheckBox";
-import RadioGroup from "components/atoms/RadioGroup";
+
+import Test from "pages/Test";
 
 // let isAuthenticated = true;
 // const PrivateWrapper = ({ isAuthenticated }) => {
@@ -175,30 +175,21 @@ const routePaths = [
     element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
   },
   {
-    path: "/mail-blast",
-    element: <DashboardLayout>Mail Blast yet to be added</DashboardLayout>,
+    path: "/reports",
+    element: <DashboardLayout>Reports yet to be added</DashboardLayout>,
+  },
+  {
+    path: "*",
+    element: (
+      <DashboardLayout>
+        <h1>404</h1>
+      </DashboardLayout>
+    ),
   },
 
   {
     path: "/test",
-    element: (
-      <>
-        {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Radio value="any" name="radio-test" labelText="Hellp" />
-          <Radio value="all" name="radio-test" />
-          <Radio value="which" name="radio-test" />
-          <Radio value="where" name="radio-test" />
-        </div> */}
-        <RadioGroup
-          groupName="Set Axis"
-          radioData={[
-            { value: "autoscale", labelText: "Autoscale" },
-            { value: "manual", labelText: "Manual" },
-          ]}
-        />
-        <Checkbox label="Clinton" />
-      </>
-    ),
+    element: <Test />,
   },
 ];
 

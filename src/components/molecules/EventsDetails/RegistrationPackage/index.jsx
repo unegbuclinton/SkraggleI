@@ -10,7 +10,7 @@ import {
   SwitchWrapper,
 } from "./styles";
 
-function RegistrationPackage() {
+function RegistrationPackage({ setClick }) {
   return (
     <ContainerWrapper>
       <HeaderWrapper>
@@ -28,7 +28,7 @@ function RegistrationPackage() {
       <ButtonContainer>
         <Button
           type="button"
-          //   onClick={() => setDropdown(false)}
+          onClick={() => setClick(false)}
           className="cancel-btn"
         >
           Cancel

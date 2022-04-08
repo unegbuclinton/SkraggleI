@@ -2,6 +2,7 @@ import DashboardLayout from "components/layouts/DashboardLayout";
 import React from "react";
 import Tabs from "../Tabs";
 import Attendees from "./Attendees";
+import SearchFilter from "./Attendees/SearchFilter";
 import Details from "./Details";
 import Fields from "./Fields";
 import Packages from "./Packages";
@@ -28,6 +29,7 @@ function EventsDetails() {
     {
       title: "Attendee",
       component: <Attendees />,
+      actionComponent: <SearchFilter />,
     },
   ];
   return (

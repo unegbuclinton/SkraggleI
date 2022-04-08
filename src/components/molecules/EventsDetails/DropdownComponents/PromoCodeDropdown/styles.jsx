@@ -13,23 +13,10 @@ export const Label = styled.label`
 `;
 
 export const RadioWrapper = styled.div`
-  margin: 3.3rem 0 1.556rem 0;
-  .radio-container {
-    display: flex;
-    gap: 1.2rem;
-    .radio {
-      width: 1.5rem;
-      height: 1.5rem;
-      color: ${COLORS.pink};
-      margin-bottom: 1.822rem;
-    }
-
-    p {
-      font-weight: ${FONTWEIGHTS.normal};
-      font-size: ${FONTSIZES.small};
-      color: ${COLORS.black};
-    }
-  }
+  margin: 3.3rem 0 3.678rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.822rem;
 `;
 
 export const InputWrapper = styled.div`
@@ -55,6 +42,17 @@ export const Container = styled.div`
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 1rem 0;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 
   .maxuser-date-input {

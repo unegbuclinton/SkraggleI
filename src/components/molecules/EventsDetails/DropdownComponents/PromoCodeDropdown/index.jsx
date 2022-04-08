@@ -13,6 +13,7 @@ import {
 import Button from "components/atoms/Button/Button";
 import { promoCodeValidationSchema } from "validation/Schema";
 import { useFormik } from "formik";
+import Radio from "components/atoms/Radio";
 
 function PromoCodeDropdown({ setDropdown }) {
   const formik = useFormik({
@@ -53,7 +54,6 @@ function PromoCodeDropdown({ setDropdown }) {
         <div>
           <Label>Description</Label>
           <Input
-            disabled
             className="normal-input"
             id="description"
             name="description"
@@ -69,15 +69,8 @@ function PromoCodeDropdown({ setDropdown }) {
         </div>
       </InputWrapper>
       <RadioWrapper>
-        <div className="radio-container">
-          <Input type="radio" className="radio" />
-          <p>Amount</p>
-        </div>
-
-        <div className="radio-container">
-          <Input type="radio" className="radio" />
-          <p>Percentage</p>
-        </div>
+        <Radio value="any" name="radio-test" labelText="Amount" />
+        <Radio value="all" name="radio-test" labelText="Percentage" />
       </RadioWrapper>
       <Container className="container">
         <div>
@@ -104,7 +97,6 @@ function PromoCodeDropdown({ setDropdown }) {
             id="maxUsers"
             name="maxUsers"
             placeholder="1"
-            disabled
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.maxUsers}

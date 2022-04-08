@@ -1,7 +1,7 @@
 import Table from "components/layouts/Table";
 import React from "react";
+import RightRowData from "../tableRow/RightRowData";
 import TableRowLeft from "../tableRow/TableRowLeft";
-import TableRowRight from "../tableRow/TableRowRight";
 import { WordingHeader, WordingWrapper } from "./styles";
 
 function Description() {
@@ -16,7 +16,7 @@ function Description() {
     {
       name: "CUSTOM",
       selector: (row) => row.custom,
-      cell: () => <TableRowRight rightText="Click to set custom text" />,
+      cell: () => <RightRowData />,
     },
   ];
   const data = [
