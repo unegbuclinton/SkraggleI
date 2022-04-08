@@ -4,6 +4,7 @@ import {
   DetailsHeading,
   DetailsWrapper,
   ButtonWrapper,
+  ErrorMsg,
 } from "./styles";
 import Button from "components/atoms/Button/Button";
 import EventInformation from "./Information";
@@ -14,25 +15,55 @@ import CutOffDate from "./CutOffDate";
 import AdminNotification from "./AdminNotification";
 import RegistrationReceipt from "./RegistrationReceipt";
 import RecipientBody from "./RecipientBody";
+import { useFormik } from "formik";
+import { detailsValidationSchema } from "validation/Schema";
 
 function Details() {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      message: "",
+      venue: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      settings: "",
+      eventStartDate: "",
+      startTime: "",
+      endTime: "",
+      registrationDate: "",
+      receipt: "",
+      receiptTitle: "",
+      email: "",
+      category: "",
+      receiptDescription: "",
+      formName: "",
+      emailReply: "",
+      subject: "",
+    },
+    validationSchema: detailsValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
   return (
     <DetailsWrapper>
       <DetailsHeading>A day with orphans</DetailsHeading>
-      <Container>
-        <EventInformation />
-        <EventLocation />
+      <Container onSubmit={formik.handleSubmit}>
+        <EventInformation formik={formik} ErrorMsg={ErrorMsg} />
+        <EventLocation formik={formik} ErrorMsg={ErrorMsg} />
         <DisplayOptions />
-        <DisplaySettings />
-        <CutOffDate />
-        <AdminNotification />
-        <RegistrationReceipt />
+        <DisplaySettings formik={formik} ErrorMsg={ErrorMsg} />
+        <CutOffDate formik={formik} ErrorMsg={ErrorMsg} />
+        <AdminNotification formik={formik} ErrorMsg={ErrorMsg} />
+        <RegistrationReceipt formik={formik} ErrorMsg={ErrorMsg} />
+        <RecipientBody />
+        <ButtonWrapper>
+          <Button className="cancel-btn">Cancel</Button>
+          <Button className="save-btn">Save</Button>
+        </ButtonWrapper>
       </Container>
-      <RecipientBody />
-      <ButtonWrapper>
-        <Button className="cancel-btn">Cancel</Button>
-        <Button className="save-btn">Save</Button>
-      </ButtonWrapper>
     </DetailsWrapper>
   );
 }

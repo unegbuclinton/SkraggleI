@@ -54,7 +54,7 @@ export const AddressWrapper = styled.div`
     border: 0.1rem solid ${COLORS["gray-500"]};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 2rem 0;
   }
 
   .state {
@@ -63,7 +63,7 @@ export const AddressWrapper = styled.div`
     border: 0.1rem solid ${COLORS["gray-500"]};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 2rem 0;
   }
 
   .zip {
@@ -72,6 +72,6 @@ export const AddressWrapper = styled.div`
     border: 0.1rem solid ${COLORS["gray-500"]};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 2rem 0;
   }
 `;

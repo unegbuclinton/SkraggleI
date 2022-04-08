@@ -2,11 +2,14 @@ import Button from "components/atoms/Button/Button";
 import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
+import { useFormik } from "formik";
 import React from "react";
+import { fieldValidationSchema } from "validation/Schema";
 import {
   ButtonContainer,
   Container,
   DropdownWrapper,
+  ErrorMsg,
   FieldTypeWrapper,
   Label,
   SwitchWrapper,
@@ -19,30 +22,70 @@ function FieldDropdown({ setDropdown }) {
       name: "Displayedlabel",
     },
   ];
+
+  const formik = useFormik({
+    initialValues: {
+      fieldLabel: "",
+      reportLabel: "",
+      fieldType: "",
+    },
+    validationSchema: fieldValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
   return (
-    <DropdownWrapper>
+    <DropdownWrapper onSubmit={formik.handleSubmit}>
       <Label>Field Label</Label>
       <Input
         className="normal-input"
         type="text"
+        id="fieldLabel"
+        name="fieldLabel"
         placeholder="Trial label"
         disabled
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.fieldLabel}
       />
+      {formik.touched.fieldLabel && formik.errors.fieldLabel ? (
+        <ErrorMsg>{formik.errors.fieldLabel}</ErrorMsg>
+      ) : null}
+
       <Label>Reporting Label</Label>
       <Input
         className="normal-input"
         type="text"
+        id="reportLabel"
+        name="reportLabel"
         placeholder="Displaylabel"
-        disabled
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.reportLabel}
       />
+      {formik.touched.reportLabel && formik.errors.reportLabel ? (
+        <ErrorMsg>{formik.errors.reportLabel}</ErrorMsg>
+      ) : null}
+
       <FieldTypeWrapper>
         <div>
           <Label>Field Type</Label>
-          <CustomDropdown className="field-type-dropdown" data={data} />
+          <CustomDropdown
+            className="field-type-dropdown"
+            id="fieldType"
+            name="fieldType"
+            data={data}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.fieldType}
+          />
+          {formik.touched.fieldType && formik.errors.fieldType ? (
+            <ErrorMsg>{formik.errors.fieldType}</ErrorMsg>
+          ) : null}
         </div>
         <div className="checkbox-container">
           <Input className="checkbox" type="checkbox" />
-          <p>Required</p>
+          <p className="checkbox-label">Required</p>
         </div>
       </FieldTypeWrapper>
       <Label>Maximum Characters</Label>

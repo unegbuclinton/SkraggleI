@@ -1,56 +1,69 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
-import {
-  Container,
-  ContentHeading,
-  EventFormContainer,
-  InputField,
-  WordingContainer,
-  WordingHeader,
-  WordingWrapper,
-} from "./styles";
+import React, { useState } from "react";
+import Table from "components/layouts/Table";
+import EventsForm from "components/molecules/EventsWordingForm";
+import { WordingHeader, WordingWrapper } from "./styles";
+import TableRowLeft from "../tableRow/TableRowLeft";
+import TableRowRight from "../tableRow/TableRowRight";
 function EventInformation() {
+  const [click, setClick] = useState(false);
+
+  const columns = [
+    {
+      name: "ORIGINAL",
+      selector: (row) => row.original,
+      cell: () => <TableRowLeft leftText="Lorem Ipsam" />,
+      width: "57rem",
+    },
+
+    {
+      name: "CUSTOM",
+      selector: (row) => row.custom,
+      cell: () => (
+        <div>
+          {click ? (
+            <EventsForm />
+          ) : (
+            <TableRowRight
+              setClick={setClick}
+              rightText="Click to set custom text"
+            />
+          )}
+        </div>
+      ),
+    },
+  ];
+  const data = [
+    {
+      original: "",
+      custom: "",
+    },
+    {
+      original: "",
+      action: "",
+    },
+    {
+      original: "",
+      custom: "",
+    },
+    {
+      original: "",
+      custom: "",
+    },
+    {
+      original: "",
+      custom: "",
+    },
+    {
+      original: "",
+      custom: "",
+    },
+  ];
   return (
     <WordingWrapper>
       <WordingHeader>
         <h1 className="heading">Event information</h1>
       </WordingHeader>
-      <ContentHeading>
-        <h2 className="content">ORIGINAL</h2>
-        <h2 className="content">CUSTOM</h2>
-      </ContentHeading>
-
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
-
-      <EventFormContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <Container>
-          <InputField />
-          <div className="button-container">
-            <Button className="btn-save">Save</Button>
-            <Button className="btn-cancel">Cancel</Button>
-          </div>
-        </Container>
-      </EventFormContainer>
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
+      <Table className="wording-table" columns={columns} data={data} />
     </WordingWrapper>
   );
 }

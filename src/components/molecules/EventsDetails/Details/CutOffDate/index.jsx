@@ -9,7 +9,7 @@ import {
   SwitchWrapper,
 } from "./styles";
 
-function CutOffDate() {
+function CutOffDate({ formik, ErrorMsg }) {
   return (
     <div>
       <EventWrapper>
@@ -21,12 +21,35 @@ function CutOffDate() {
         <InputWrapper>
           <div className="input-container">
             <DetailLabel>Event registration cutoff date</DetailLabel>
-            <Input className="date-time-input end-date" type="date" />
+            <Input
+              className="date-time-input end-date"
+              id="registrationDate"
+              name="registrationDate"
+              type="date"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.registrationDate}
+            />
+            {formik.touched.registrationDate &&
+            formik.errors.registrationDate ? (
+              <ErrorMsg>{formik.errors.registrationDate}</ErrorMsg>
+            ) : null}
           </div>
 
           <div className="input-container">
             <DetailLabel>End time</DetailLabel>
-            <Input className="date-time-input end-date" type="time" />
+            <Input
+              className="date-time-input end-date"
+              id="endTime"
+              name="endTime"
+              type="time"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.endTime}
+            />
+            {formik.touched.endTime && formik.errors.endTime ? (
+              <ErrorMsg>{formik.errors.endTime}</ErrorMsg>
+            ) : null}
           </div>
         </InputWrapper>
       </EventWrapper>

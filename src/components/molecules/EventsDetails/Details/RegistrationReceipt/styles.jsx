@@ -56,6 +56,9 @@ export const InputWrapper = styled.div`
   .address-input {
     margin-bottom: 3rem;
   }
+  .error-container {
+    padding-top: 1rem;
+  }
 `;
 
 export const SectionWrapper = styled.div`

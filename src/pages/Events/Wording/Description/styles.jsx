@@ -1,12 +1,11 @@
-import Card from "components/atoms/Card";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
-export const WordingWrapper = styled(Card)`
-  padding: 3.2rem 2.4rem 0 2.4rem;
+export const WordingWrapper = styled.div`
   margin-top: 1.6rem;
-  .description-table {
+  .wording-table {
+    margin-top: 2.4rem;
     .rdt_ {
       &TableRow {
         padding-left: 5rem;

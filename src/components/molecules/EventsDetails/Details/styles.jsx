@@ -50,3 +50,11 @@ export const ButtonWrapper = styled.div`
     font-size: ${FONTSIZES.small};
   }
 `;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  position: relative;
+  bottom: 1.5rem;
+`;

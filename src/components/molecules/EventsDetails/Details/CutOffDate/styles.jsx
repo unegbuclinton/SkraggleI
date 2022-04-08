@@ -45,10 +45,6 @@ export const InputWrapper = styled.div`
   }
 
   .end-date {
-    margin-bottom: 0;
-  }
-
-  .input-container {
     margin-bottom: 2rem;
   }
 `;

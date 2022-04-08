@@ -1,39 +1,36 @@
+import Table from "components/layouts/Table";
 import React from "react";
-import {
-  ContentHeading,
-  WordingContainer,
-  WordingHeader,
-  WordingWrapper,
-} from "./styles";
+import TableRowLeft from "../tableRow/TableRowLeft";
+import TableRowRight from "../tableRow/TableRowRight";
+import { WordingHeader, WordingWrapper } from "./styles";
 
 function BillinInfomation() {
+  const columns = [
+    {
+      name: "ORIGINAL",
+      selector: (row) => row.original,
+      cell: () => <TableRowLeft leftText="Company Donation" />,
+      width: "57rem",
+    },
+
+    {
+      name: "CUSTOM",
+      selector: (row) => row.custom,
+      cell: () => <TableRowRight rightText="Click to set custom text" />,
+    },
+  ];
+  const data = [
+    {
+      original: "",
+      custom: "",
+    },
+  ];
   return (
     <WordingWrapper>
       <WordingHeader>
         <h1 className="heading">Personal and billing information</h1>
       </WordingHeader>
-      <ContentHeading>
-        <h2 className="content">ORIGINAL</h2>
-        <h2 className="content">CUSTOM</h2>
-      </ContentHeading>
-
-      <WordingContainer>
-        <p className="left-word">Company Donation</p>
-        <p className="right-word">Click to set custom text</p>
-      </WordingContainer>
-
-      <WordingHeader>
-        <h1 className="billing-heading">Personal and billing information</h1>
-      </WordingHeader>
-      <ContentHeading>
-        <h2 className="content">ORIGINAL</h2>
-        <h2 className="content">CUSTOM</h2>
-      </ContentHeading>
-
-      <WordingContainer>
-        <p className="left-word">Lorem Ipsam</p>
-        <p className="right-word text">Click to set custom text</p>
-      </WordingContainer>
+      <Table className="wording-table" columns={columns} data={data} />
     </WordingWrapper>
   );
 }

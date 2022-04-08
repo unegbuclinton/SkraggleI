@@ -70,11 +70,11 @@ export const FieldTypeWrapper = styled.div`
     width: 1.5rem;
   }
 
-  p {
+  .checkbox-label {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
     color: ${COLORS.black};
-    padding-bottom: 1.5rem;
+    padding-bottom: 0.2rem;
   }
 `;
 
@@ -116,4 +116,12 @@ export const ButtonContainer = styled.div`
     color: ${COLORS.white};
     border-radius: 0.3rem;
   }
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  position: relative;
+  bottom: 1.5rem;
 `;

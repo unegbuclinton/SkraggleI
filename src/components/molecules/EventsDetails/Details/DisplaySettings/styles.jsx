@@ -66,10 +66,10 @@ export const InputWrapper = styled.div`
   }
 
   .end-date {
-    margin-bottom: 0;
+    margin-bottom: 2;
   }
 
-  .input-container {
+  /* .input-container {
     margin-bottom: 2rem;
-  }
+  } */
 `;

@@ -64,21 +64,18 @@ export const Label = styled.label`
   padding-bottom: 0.8rem;
 `;
 
-export const FormInput = styled.input`
-  width: 52.5rem;
-  height: 6.4rem;
-  padding: 0 2.083rem 0 2.083rem;
-  color: ${COLORS["grey-400"]};
-  border-radius: 0.5rem;
-  border: 0.1rem solid ${COLORS["gray-500"]};
-  margin-bottom: 2.4rem;
-`;
-
 export const LeftInputs = styled.div`
   display: flex;
   flex-direction: column;
   .left-input {
-    margin-bottom: 0;
+    width: 52.5rem;
+    height: 6.4rem;
+    padding: 0 2.083rem 0 2.083rem;
+    color: ${COLORS["grey-400"]};
+    border-radius: 0.5rem;
+    border: 0.1rem solid ${COLORS["gray-500"]};
+    margin-bottom: 2.4rem;
+    background-color: ${COLORS.white};
   }
 
   .info {
@@ -86,6 +83,8 @@ export const LeftInputs = styled.div`
     font-size: ${FONTSIZES.small};
     color: ${COLORS["gray-500"]};
     margin-top: 1.6rem;
+    position: relative;
+    bottom: 3rem;
   }
 `;
 
@@ -93,6 +92,13 @@ export const RightInputs = styled.div`
   display: flex;
   flex-direction: column;
   .right-input {
+    height: 6.4rem;
+    padding: 0 2.083rem 0 2.083rem;
+    color: ${COLORS["grey-400"]};
+    border-radius: 0.5rem;
+    border: 0.1rem solid ${COLORS["gray-500"]};
+    margin-bottom: 2.4rem;
+    background-color: ${COLORS.white};
     width: 36.4rem;
   }
 `;
@@ -117,4 +123,12 @@ export const ButtonContainer = styled.div`
     color: ${COLORS.white};
     border-radius: 0.3rem;
   }
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  position: relative;
+  bottom: 1.6rem;
 `;

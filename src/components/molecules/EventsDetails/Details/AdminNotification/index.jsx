@@ -1,7 +1,7 @@
+import React, { useState } from "react";
 import Button from "components/atoms/Button/Button";
 import Input from "components/atoms/Input/Input";
 import MailContainer from "components/molecules/mailContainer";
-import React, { useState } from "react";
 
 import {
   DetailLabel,
@@ -12,19 +12,20 @@ import {
   InputWrapper,
 } from "./styles";
 
-function AdminNotification() {
+function AdminNotification({ formik, ErrorMsg }) {
   const [showInput, setShowInput] = useState(false);
   const [email, setEmail] = useState("");
   const [mails, setMails] = useState([]);
 
-  function handleChange(e) {
+  function emailHandleChange(e) {
+    formik.handleChange(e);
     setEmail(e.target.value);
   }
 
   function handleAdd() {
     const newMails = mails.concat({ email });
-    setEmail("");
     setMails(newMails);
+    setEmail("");
   }
 
   function Delete(e) {
@@ -56,6 +57,9 @@ function AdminNotification() {
             />
           ))}
         </div>
+        {formik.touched.email && formik.errors.email ? (
+          <ErrorMsg>{formik.errors.email}</ErrorMsg>
+        ) : null}
         <DetailsText className="email-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           accumsan, massa ac adipiscing enim bibendum interdum dictum nunc. Sit
@@ -67,8 +71,11 @@ function AdminNotification() {
               className="set-email-input"
               type="email"
               placeholder="Enter Email"
-              value={email}
-              onChange={handleChange}
+              id="email"
+              name="email"
+              onChange={emailHandleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
             />
             <ButtonWrapper>
               <Button type="button" onClick={handleAdd} className="save-btn">

@@ -72,7 +72,7 @@ export const DropDownWrapper = styled.form`
     margin: 0.8rem 0 0 0;
   }
 
-  .unlimited-btn {
+  .unlimited-container {
     width: 24.3rem;
     height: 6.4rem;
     background-color: ${COLORS.torquoise};
@@ -82,6 +82,11 @@ export const DropDownWrapper = styled.form`
     justify-content: center;
     align-items: center;
     margin-top: 0.8rem;
+    p {
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.normal};
+      color: ${COLORS["gray-500"]};
+    }
   }
 `;
 
@@ -111,6 +116,14 @@ export const InputWrapper = styled.div`
   }
   .qty-container {
     margin-top: 6.9rem;
+  }
+
+  .error-container {
+    margin-top: 2.4rem;
+  }
+
+  .price-error {
+    margin-top: 1rem;
   }
 
   .custom-container {
@@ -175,4 +188,12 @@ export const ButtonContainer = styled.div`
     color: ${COLORS.white};
     border-radius: 0.3rem;
   }
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  position: relative;
+  bottom: 1.5rem;
 `;

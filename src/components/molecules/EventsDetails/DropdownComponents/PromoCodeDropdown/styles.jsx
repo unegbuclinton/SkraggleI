@@ -118,3 +118,10 @@ export const ButtonContainer = styled.div`
     border-radius: 0.3rem;
   }
 `;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  margin-bottom: 0.8rem;
+`;
