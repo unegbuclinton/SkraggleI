@@ -4,7 +4,6 @@ import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
-import Modal from "components/layouts/Modal";
 import Pagination from "components/molecules/Pagination";
 import { DPPlusIcon } from "icons";
 
@@ -70,7 +69,6 @@ const FormsTable = () => {
     console.log(row, event);
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   let navigate = useNavigate();
   const handleButtonClick = () => {

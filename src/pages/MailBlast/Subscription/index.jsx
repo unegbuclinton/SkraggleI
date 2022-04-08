@@ -4,7 +4,6 @@ import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import { datas1 } from "utilities/overviewData";
 import MailButton from "../MailButtons";
@@ -14,7 +13,6 @@ import Checkbox from "components/atoms/CheckBox";
 
 function Subscription() {
   const [selected, setSelected] = useState("Filters");
-  const email = [{ title: "UnKnown" }];
   const subscription = [{ title: "Anual Gala" }, { title: "Volunteer" }];
   const columns = [
     {

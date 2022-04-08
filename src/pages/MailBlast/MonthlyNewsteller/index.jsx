@@ -3,7 +3,6 @@ import Tabs from "components/molecules/Tabs";
 import React, { useState } from "react";
 import MailContent from "../Content";
 import Overview from "../Overview";
-import PageLinks from "components/atoms/PageLinks";
 import NewsTellerAction from "components/molecules/ActionComponents";
 import ActionDropDown from "components/molecules/ActionDropDown";
 import SendMailBlastModal from "../MailblasModals/SendMailBlast";

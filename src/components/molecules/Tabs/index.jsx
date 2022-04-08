@@ -1,4 +1,3 @@
-import { tab } from "@testing-library/user-event/dist/tab";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
