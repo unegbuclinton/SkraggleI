@@ -1,10 +1,7 @@
 import { React, useState, useEffect, useRef } from "react";
 
-import { DPIconUploadFile } from "icons";
-
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
@@ -43,9 +40,7 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
           className={imgPreview}
           src={preview}
           style={{ objectFit: "cover" }}
-          onClick={() => {
-            setImage(null);
-          }}
+          onClick={handleClick}
         />
       ) : (
         <UploadButtonWrapper

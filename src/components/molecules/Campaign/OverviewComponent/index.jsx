@@ -45,6 +45,8 @@ const CampaignOverview = () => {
           <DropdownComponent
             data={data}
             className="action-dropdown__container"
+            content
+            iconDropdown="dropdown-icon"
           />
         </ContainerDropdwon>
 

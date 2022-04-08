@@ -3,23 +3,26 @@ import styled,{css} from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-function VerticalTab({ tabs }) {
+function VerticalTab({ tabs, setActiveState, className, verticalWrapper }) {
   const [activeWidget, setActiveWidget] = useState(0);
   return (
-    <VerticalTabWrapper>
-      <div className="vertical-tab-wrapper">
+    <VerticalTabWrapper className={className}>
+      <div className={verticalWrapper}>
         {tabs.map(({ title }, index) => (
           <TabButton
             key={index}
             active={activeWidget === index}
-            onClick={() => setActiveWidget(index)}
+            onClick={() => {
+              setActiveWidget(index)
+              setActiveState(index)
+            }}
           >
             {title}
           </TabButton>
         ))}
       </div>
 
-      <div> {tabs && tabs[activeWidget]?.component}</div>
+      <div className="content-wrapper" activeWidget={activeWidget}> {tabs && tabs[activeWidget]?.component}</div>
     </VerticalTabWrapper>
   );
 }
@@ -36,6 +39,7 @@ const VerticalTabWrapper = styled.div`
     margin: 4.004rem 0 0 5.4rem;
   }
 `;
+
 const TabButton = styled.button`
   position: relative;
   width: 10.3rem;

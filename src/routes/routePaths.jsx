@@ -18,6 +18,7 @@ import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import UnsubscribeWarning from "pages/MailBlast/Unsubscribe";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import Carousel from "components/atoms/Carousel";
 
 const tabs = [
   { title: "Campaigns", component: <h2>Content One renders here!</h2> },
@@ -163,7 +164,7 @@ const routePaths = [
 
   {
     path: "/test",
-    element: <UnsubscribeWarning />,
+    element: <Carousel />,
   },
 ];
 

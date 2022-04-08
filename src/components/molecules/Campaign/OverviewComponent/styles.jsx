@@ -39,6 +39,10 @@ export const ContainerDropdwon = styled.div`
   padding-right: 0.8rem;
   padding-top: 1.6rem;
   margin-bottom: 1.1rem;
+  .dropdown-icon{
+    width: 0.8rem;
+    height: 1.4rem;
+  }
 `;
 export const CampaignNameWrapper = styled.div`
   border-bottom: 1px solid #e6eff1;

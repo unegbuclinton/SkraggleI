@@ -6,12 +6,12 @@ import { P2PTableData } from "utilities/p2pData";
 import datas from "utilities/filterData";
 
 import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Pagination from "components/molecules/Pagination";
-import CreateP2PModal from "../CreateP2PFundraiserModal";
+import DropdownComponent from "components/atoms/Dropdown";
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import P2PModalComponent from "../P2PFundraiserModalComponent";
 
 const P2PTable = () => {
   const columns = [
@@ -98,7 +98,7 @@ const P2PTable = () => {
             </div>
 
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent className="dropdown-filter" data={datas} />
               <SearchBar className="search-icon" />
               <Button
                 className="p2p-button"
@@ -108,7 +108,7 @@ const P2PTable = () => {
                 New P2P Fundraiser
               </Button>
               {modalIsOpen && (
-                <CreateP2PModal
+                <P2PModalComponent
                 isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);

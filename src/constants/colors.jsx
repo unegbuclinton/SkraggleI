@@ -36,4 +36,6 @@ export const COLORS = {
   'orange-100': '#FF8C4B',
   'navy-blue' : '#477BE0',
   'primary-blue' : '#1A95B0',
+  'purple-solid':'#8358fe',
+  'black-300':'#3c3c3c',
 };

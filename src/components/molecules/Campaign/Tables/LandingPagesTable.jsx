@@ -103,7 +103,6 @@ const LandingPagesTable = () => {
             <div className="table-header__left">
               <h1>88 Landing Pages</h1>
             </div>
-
             <div className="table-header__right">
               <DropdownComponent data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />

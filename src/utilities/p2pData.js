@@ -172,7 +172,7 @@ export const donationData = [
         "location":"NY"
     },
     {
-        "rank":"1",
+        "rank":"3",
         "participants":"John Doe",
         "name":"BGA awesome campaign demo #1",
         "amount":"$5000.00",
@@ -180,7 +180,7 @@ export const donationData = [
         "location":"NY"
     },
     {
-        "rank":"1",
+        "rank":"4",
         "participants":"John Doe",
         "name":"BGA awesome campaign demo #1",
         "amount":"$5000.00",
@@ -188,7 +188,7 @@ export const donationData = [
         "location":"NY"
     },
     {
-        "rank":"1",
+        "rank":"5",
         "participants":"John Doe",
         "name":"BGA awesome campaign demo #1",
         "amount":"$5000.00",
@@ -196,7 +196,7 @@ export const donationData = [
         "location":"NY"
     },
     {
-        "rank":"1",
+        "rank":"6",
         "participants":"John Doe",
         "name":"BGA awesome campaign demo #1",
         "amount":"$5000.00",

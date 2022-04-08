@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const DropdownComponent = ({ data, className, ...rest }) => {
+const DropdownComponent = ({ data, className, content, iconDropdown, onChange, ...rest }) => {
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState("Filters");
 
@@ -23,14 +23,14 @@ const DropdownComponent = ({ data, className, ...rest }) => {
   ));
 
   return (
-    <DropdownWrapper className={className}>
+    <DropdownWrapper className={className} onChange={onChange}>
       <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
         {selected}
         <span>
-          <DPIconDropDown />
+          <DPIconDropDown className={iconDropdown}/>
         </span>
       </div>
-      {isActive && <div className="dropdown__content">{options}</div>}
+      {isActive && <div className={`dropdown__content ${content ? "dropdown__content-large" : ""}`}>{options}</div>}
     </DropdownWrapper>
   );
 };
@@ -67,11 +67,20 @@ export const DropdownWrapper = styled.div`
       color: ${COLORS["grey-400"]};
       width: 100%;
     }
+    &__content-large{
+      top: 110%;
+      background: ${COLORS.white};
+      box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+      font-size: ${FONTSIZES.small};
+      line-height: 16px;
+      color: ${COLORS["grey-400"]};
+      width: 140%;
+    }
     &__item {
       padding: 10px;
       cursor: pointer;
       &:hover {
-        background-color: ${COLORS["gray-500"]};
+        background-color: ${COLORS.torquoise};
       }
     }
   }
