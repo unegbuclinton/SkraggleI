@@ -4,12 +4,6 @@ import { DPIconDropDown } from 'icons';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { DPIconDropDown } from "icons";
-
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-
 const DropdownComponent = ({ data, className, content, iconDropdown, onChange, ...rest }) => {
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState("Filters");

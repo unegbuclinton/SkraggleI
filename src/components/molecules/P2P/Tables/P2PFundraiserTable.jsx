@@ -3,6 +3,11 @@ import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Pagination from "components/molecules/Pagination";
 import DropdownComponent from "components/atoms/Dropdown";
+import { DPPlusIcon } from "icons";
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import datas from "utilities/filterData";
+import { P2PTableData } from "utilities/p2pData";
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import P2PModalComponent from "../P2PFundraiserModalComponent";
 
