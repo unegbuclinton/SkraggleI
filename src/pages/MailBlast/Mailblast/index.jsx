@@ -45,7 +45,7 @@ function Mail() {
       name: "STATUS",
       selector: (row) => row.created,
       cell: (ow) => (
-        <Button pill className="mail-btn">
+        <Button pill error className="mail-btn">
           Sent
         </Button>
       ),

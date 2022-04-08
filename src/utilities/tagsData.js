@@ -1,4 +1,4 @@
-import CheckBox from "components/atoms/CheckBox/CheckBox";
+import CheckBox from "components/atoms/CheckBox";
 
 export const columns = [
   {

@@ -1,10 +1,3 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { DPPlusIcon } from "icons";
-import { P2PTableData } from "utilities/p2pData";
-import datas from "utilities/filterData";
-
 import Button from "components/atoms/Button/Button";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
@@ -12,6 +5,8 @@ import Pagination from "components/molecules/Pagination";
 import DropdownComponent from "components/atoms/Dropdown";
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import P2PModalComponent from "../P2PFundraiserModalComponent";
+
+
 
 const P2PTable = () => {
   const columns = [
@@ -82,7 +77,7 @@ const P2PTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
+    // const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
     navigate(`/peer-to-peer/${row.key+1}`, { state: row });
   };
 

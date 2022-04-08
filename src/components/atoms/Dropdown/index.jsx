@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { DPIconDropDown } from 'icons';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import { DPIconDropDown } from "icons";
 
@@ -64,7 +68,7 @@ export const DropdownWrapper = styled.div`
       box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
       font-size: ${FONTSIZES.small};
       line-height: 16px;
-      color: ${COLORS["grey-400"]};
+      color: ${COLORS['grey-400']};
       width: 100%;
     }
     &__content-large{

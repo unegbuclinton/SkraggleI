@@ -30,7 +30,7 @@ export const PreviewWrapper = styled.div`
     &__profile {
       font-size: ${FONTSIZES.xsmall};
       font-weight: ${FONTWEIGHTS.normal};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       margin-bottom: 0.8rem;
     }
     &__profile-name {
@@ -40,7 +40,7 @@ export const PreviewWrapper = styled.div`
     }
     &__heading {
       margin-top: 3.2rem;
-      font-size: ${FONTSIZES["logo-large"]};
+      font-size: ${FONTSIZES['logo-large']};
       font-weight: ${FONTWEIGHTS.bold};
       color: ${COLORS["blue-black"]};
       margin-bottom: 6rem;

@@ -1,8 +1,8 @@
-import { React, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { DPIconPageNavigation } from "icons";
-import styled from "styled-components";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconPageNavigation } from 'icons';
+import { React } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 const PageLinks = ({
   pageLinkBefore,
