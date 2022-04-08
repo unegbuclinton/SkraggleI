@@ -22,6 +22,7 @@ const Dropdown = ({
       itemsEl.current.scrollTop =
         itemsEl.current.querySelector(`.item-${selectedIndex}`).offsetTop - 42;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

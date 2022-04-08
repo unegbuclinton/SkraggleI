@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Input, IconWrapper, SearchbarWrapper } from "./styles";
 import { DPIconSearch } from "icons";
 
-function SearchBar({ setClick, click }) {
+function SearchBar({ setClick, className }) {
   const [input, setInput] = useState("");
   const [barOpened, setBarOpened] = useState(false);
 
@@ -37,7 +37,8 @@ function SearchBar({ setClick, click }) {
           ref={inputFocus}
           value={input}
           barOpened={barOpened}
-          placeholder="Search for a movie..."
+          placeholder="Search..."
+          className={className}
         />
 
         <IconWrapper type="submit" barOpened={barOpened}>
