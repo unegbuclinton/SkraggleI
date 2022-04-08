@@ -1,7 +1,7 @@
 import Modal from "components/layouts/Modal";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 function SubscriptionUpdate() {
@@ -29,7 +29,7 @@ const SubscriptionUpdateWrapper = styled.div`
   .status-alert {
     position: absolute;
     top: -5.5rem;
-    right: -5rem;
+    right: -20rem;
     width: 28.6rem;
     height: 6.4rem;
     display: flex;
@@ -46,6 +46,5 @@ const SubscriptionUpdateWrapper = styled.div`
     color: ${COLORS.deepPurple};
     font-weight: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.xxlarge};
-    padding-top: 19.4rem;
   }
 `;
