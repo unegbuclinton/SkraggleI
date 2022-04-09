@@ -5,7 +5,6 @@ import VerticalTab from "components/molecules/VerticalTabs";
 
 const FundraiserDetails = () => {
   const [activeState, setActiveState] = useState(0);
-  console.log(activeState);
 
   const tabs = [
     {

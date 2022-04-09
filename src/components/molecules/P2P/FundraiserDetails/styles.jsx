@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const MainWrapper = styled.div`
   display: flex;

@@ -1,10 +1,10 @@
 import { React, useRef, useState } from "react";
-import { DPIconCarouselImage, DPIconProfileImage } from "icons";
+import { DPIconProfileImage } from "icons";
 import ProgressBar from "components/atoms/ProgressBar";
-import DonationProgressBar from "../DonationProgressBar";
 import Button from "components/atoms/Button/Button";
 import Tabs from "components/molecules/Tabs";
 import RecentDonation from "../Tables/RecentDonation";
+import Slideshow from "components/molecules/SlideShow";
 import {
   DPIconCopyWhite,
   DPIconFacebook,
@@ -74,9 +74,7 @@ const Preview = () => {
   return (
     <div>
       <PreviewWrapper>
-        <div className="preview__left">
-          <DPIconCarouselImage />
-        </div>
+        <Slideshow />
         <div className="preview__right">
           <div className="preview__profile">
             <DPIconProfileImage />
@@ -88,7 +86,7 @@ const Preview = () => {
           <div className="preview__heading">BGA awesome campaign demo #1</div>
 
           <ProgressBar value={195400} target={500000} />
-          <div className="preview__bar-values"> 
+          <div className="preview__bar-values">
             <div className="preview__bar-values__initial">$100</div>
             <div className="preview__bar-values__mid">$500</div>
             <div className="preview__bar-values__mid">$1000</div>
