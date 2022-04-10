@@ -1,7 +1,7 @@
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconPageNavigation } from 'icons';
 import { React } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const PageLinks = ({

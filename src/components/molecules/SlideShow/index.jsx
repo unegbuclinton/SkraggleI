@@ -2,10 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { images } from "utilities/imageData";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 const Slideshow = () => {
-  // const colors = ["#0088FE", "#00C49F", "#FFBB28"];
   const delay = 2500;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);

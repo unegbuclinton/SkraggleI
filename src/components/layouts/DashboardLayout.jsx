@@ -33,9 +33,9 @@ const DashboardContentWrapper = styled.aside`
   overflow: auto;
 `;
 
-const Tabs = styled.div`
-  margin-bottom: 20px;
-`;
+// const Tabs = styled.div`
+//   margin-bottom: 20px;
+// `;
 
 const DashboardContent = styled.div`
   flex: 1;

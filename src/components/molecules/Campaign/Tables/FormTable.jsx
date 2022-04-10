@@ -69,8 +69,6 @@ const FormsTable = () => {
     console.log(row, event);
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/forms");

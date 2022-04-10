@@ -60,14 +60,12 @@ const Preview = () => {
     setActive(event.target.id);
   };
 
-  const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {
     textAreaRef.current.select();
     document.execCommand("copy");
     e.target.focus();
-    setCopySuccess("Copied!");
     alert("Text Copied");
   }
 
