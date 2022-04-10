@@ -10,7 +10,7 @@ import datas from "utilities/filterData";
 
 import { CampaignForm } from "utilities/campaigndata";
 
-import { ContainerBody, TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { ContainerBody, TableWrapper, TableHeaderWrapper} from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 import Checkbox from "components/atoms/CheckBox";
 

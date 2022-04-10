@@ -11,7 +11,7 @@ import datas from "utilities/filterData";
 
 import { landingPagesData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 import Checkbox from "components/atoms/CheckBox";
 
