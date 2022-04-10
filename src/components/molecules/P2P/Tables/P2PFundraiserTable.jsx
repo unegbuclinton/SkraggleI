@@ -10,6 +10,7 @@ import datas from "utilities/filterData";
 import { P2PTableData } from "utilities/p2pData";
 import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import P2PModalComponent from "../P2PFundraiserModalComponent";
+import Checkbox from "components/atoms/CheckBox";
 
 
 
@@ -17,7 +18,7 @@ const P2PTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: "5rem",
     },

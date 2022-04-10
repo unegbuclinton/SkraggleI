@@ -5,20 +5,21 @@ import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
 import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import Checkbox from "components/atoms/CheckBox";
 
+import { DPPlusIcon } from "icons";
 import datas from "utilities/filterData";
 
 import { ElementsData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 
 const ElementsTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: "5rem",
     },

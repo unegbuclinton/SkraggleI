@@ -13,12 +13,13 @@ import { landingPagesData } from "utilities/campaigndata";
 
 import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 const LandingPagesTable = () => {
   const columns = [
     {
       name: ' ',
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: '5rem',
     },

@@ -152,11 +152,6 @@ export const TableHeaderWrapper = styled.div`
   }
 `;
 
-export const Box = styled.input`
-  width: 1.5rem;
-  height: 1.5rem;
-`;
-
 export const ArchiveWrapper = styled.div`
   display: flex;
 

@@ -1,13 +1,16 @@
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { TableContacts } from "utilities/campaigndata";
+
 import Button from "components/atoms/Button/Button";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Pagination from "components/molecules/Pagination";
+import Checkbox from "components/atoms/CheckBox";
 import { DPPlusIcon } from "icons";
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { TableContacts } from "utilities/campaigndata";
+
 import datas from "utilities/filterData";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import CreateCampaignModal from "../CreateCampaignModal";
 import DropdownComponent from "components/atoms/Dropdown";
 
@@ -15,7 +18,7 @@ const CampaignTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: "5rem",
     },

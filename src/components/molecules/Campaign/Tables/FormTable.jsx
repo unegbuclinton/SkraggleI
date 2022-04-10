@@ -12,12 +12,13 @@ import { CampaignForm } from "utilities/campaigndata";
 
 import { ContainerBody, TableWrapper, TableHeaderWrapper, Box } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 const FormsTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: "5rem",
     },
