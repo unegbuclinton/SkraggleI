@@ -8,7 +8,7 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import datas from "utilities/filterData";
 import { P2PTableData } from "utilities/p2pData";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
 import P2PModalComponent from "../P2PFundraiserModalComponent";
 import Checkbox from "components/atoms/CheckBox";
 
