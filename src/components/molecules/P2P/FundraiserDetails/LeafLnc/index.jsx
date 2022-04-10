@@ -9,14 +9,12 @@ import Card from "components/atoms/Card";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 const LeafLnc = ({className}) => {
-  const [copySuccess, setCopySuccess] = useState("");
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {
     textAreaRef.current.select();
     document.execCommand("copy");
     e.target.focus();
-    setCopySuccess("Copied!");
     alert("Text Copied");
   }
   return (

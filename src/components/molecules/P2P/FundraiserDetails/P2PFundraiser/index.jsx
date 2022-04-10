@@ -8,7 +8,6 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 const P2PFundraise = ({className}) => {
-  const [copySuccess, setCopySuccess] = useState("");
 
   const textAreaRef1 = useRef(null);
 
@@ -16,7 +15,6 @@ const P2PFundraise = ({className}) => {
     textAreaRef1.current.select();
     document.execCommand("copy");
     e.target.focus();
-    setCopySuccess("Copied!");
     alert("Text Copied");
   }
   return (
