@@ -20,7 +20,6 @@ function Mail() {
 
   const onRowClicked = (row) => {
     navigate(`/mail-blasts/${row?.id}`, { state: row });
-    console.log(row);
   };
 
   const columns = [

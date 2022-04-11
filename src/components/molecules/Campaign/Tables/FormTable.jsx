@@ -67,7 +67,7 @@ const FormsTable = () => {
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
   const onRowClicked = (row, event) => {
-    console.log(row, event);
+    
   };
 
   let navigate = useNavigate();

@@ -3,7 +3,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tabs = ({ tabs, actionComponent, index, ...rest }) => {
+const Tabs = ({ tabs, actionComponent, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
@@ -28,7 +28,7 @@ const Tabs = ({ tabs, actionComponent, index, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
-  /* overflow-x: auto; */
+ 
 `;
 
 const TabContainer = styled(Card)`
