@@ -1,6 +1,8 @@
 import React from "react";
 import Input from "components/atoms/Input/Input";
 import { DetailLabel, DetailsSubHeading, EventWrapper } from "./styles";
+import FileUploadButton from "components/atoms/FileUploadButton";
+import { DPIconUploadFile } from "icons";
 
 function EventInformation({ formik, ErrorMsg }) {
   return (
@@ -21,8 +23,17 @@ function EventInformation({ formik, ErrorMsg }) {
         {formik.touched.name && formik.errors.name ? (
           <ErrorMsg>{formik.errors.name}</ErrorMsg>
         ) : null}
-        <div>
+        <div className="editor-container">
           <div className="text-editor">Text Editor</div>
+          <div className="editor-container__upload">
+            <DetailLabel>Event image</DetailLabel>
+            <FileUploadButton
+              imgPreview="upload-button"
+              className="image-upload"
+            >
+              <DPIconUploadFile />
+            </FileUploadButton>
+          </div>
         </div>
         <DetailLabel>Event sold out message</DetailLabel>
         <Input
