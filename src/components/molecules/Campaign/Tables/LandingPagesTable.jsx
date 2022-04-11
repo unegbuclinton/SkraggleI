@@ -1,20 +1,25 @@
-import Button from 'components/atoms/Button/Button';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Table from 'components/layouts/Table';
-import Pagination from 'components/molecules/Pagination';
-import { DPPlusIcon } from 'icons';
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { landingPagesData } from 'utilities/campaigndata';
-import datas from 'utilities/filterData';
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import SearchBar from "components/atoms/SearchBar/SearchBar";
+import Table from "components/layouts/Table";
+import Button from "components/atoms/Button/Button";
+import Pagination from "components/molecules/Pagination";
+import { DPPlusIcon } from "icons";
+
+import datas from "utilities/filterData";
+
+import { landingPagesData } from "utilities/campaigndata";
+
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
+import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 const LandingPagesTable = () => {
   const columns = [
     {
       name: ' ',
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: '5rem',
     },
@@ -97,9 +102,8 @@ const LandingPagesTable = () => {
             <div className="table-header__left">
               <h1>88 Landing Pages</h1>
             </div>
-
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"

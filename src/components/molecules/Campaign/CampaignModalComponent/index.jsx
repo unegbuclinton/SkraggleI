@@ -1,7 +1,7 @@
 import React from "react";
 
 import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import DropdownComponent from "components/atoms/Dropdown";
 import Button from "components/atoms/Button/Button";
 import Input from "components/atoms/Input/Input";
 import data from "utilities/filterData";
@@ -31,10 +31,10 @@ const CampaignModalComponent = ({ onClose }) => {
           placeholder="Lorem Ipsum"
         />
         <h1>FOLLOWERS</h1>
-        <CustomDropdown
+        <DropdownComponent
           data={data}
           className="dropdown-followers"
-        ></CustomDropdown>
+        />
         <ButtonsContainer>
           <Button onClick={onClose} className="cancel-btn" auth invert>Cancel</Button>
           <Button type="submit" className="save-btn" auth>Save</Button>
