@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
+import NameLogo from "components/molecules/NameLogo";
+import Checkbox from "components/atoms/CheckBox";
 
 function Mail() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,29 +23,10 @@ function Mail() {
     console.log(row);
   };
 
-  // const assignee = [
-  //   {
-  //     name: "Partho Datta",
-  //   },
-  //   {
-  //     name: "Partho Datta",
-  //   },
-  //   {
-  //     name: "John Doe",
-  //   },
-  //   {
-  //     name: "Partho Datta",
-  //   },
-  //   {
-  //     name: "Hannah Dandanell",
-  //   },
-  // ];
-
   const columns = [
     {
       name: "",
-      selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
@@ -52,11 +35,10 @@ function Mail() {
     },
     {
       name: "ASSIGNEE",
-      selector: (row) => row.assignee,
+      cell: (ow) => <NameLogo text="John Doe" />,
     },
     {
       name: "SCHEDULED",
-      selector: (row) => row.scheduled,
     },
     {
       name: "STATUS",
@@ -73,35 +55,29 @@ function Mail() {
       id: 1,
       action: "",
       name: "Monthly newsletter",
-      // assignee: <NameLogo text="Partho Datta" />,
-      assignee: "hELLO",
+      assignee: "Partho Datta",
       scheduled: "",
       status: "",
     },
     {
       id: 2,
       action: "",
-      name: "Monthly newsletter",
-      // assignee: <NameLogo text="Partho Datta" />,
-      assignee: "hELLO",
+      name: "Yearly newsletter",
+      assignee: "Partho Datta",
       scheduled: "",
       status: "",
     },
     {
       id: 3,
       action: "",
-      name: "Monthly newsletter",
-      // assignee: <NameLogo text="John Doe" />,
-      assignee: "hELLO",
+      name: "Another newsletter",
       scheduled: "",
       status: "",
     },
     {
       id: 4,
       action: "",
-      name: "Monthly newsletter",
-      // assignee: <NameLogo text="Hannah Dandanell" />,
-      assignee: "hELLO",
+      name: "Centuary newsletter",
       scheduled: "",
       status: "",
     },

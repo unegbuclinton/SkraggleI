@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import MailContent from "pages/MailBlast/Content";
+import SubscriptionUpdate from "components/molecules/MailblastModalComponents/SubscriptionUpdate";
 const Test = () => {
   return (
     <Wrapper>
-      <MailContent />
+      <SubscriptionUpdate />
     </Wrapper>
   );
 };

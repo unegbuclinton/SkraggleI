@@ -1,4 +1,4 @@
-import Modal from "components/layouts/Modal";
+import Checkbox from "components/atoms/CheckBox";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React from "react";
@@ -8,7 +8,7 @@ function SubscriptionUpdate() {
   return (
     <SubscriptionUpdateWrapper>
       <div className="status-alert">
-        <input type="checkbox" /> Subscription Status Updated.
+        <Checkbox radial /> Subscription Status Updated.
       </div>
       <p> Subscription Status Updated.</p>
     </SubscriptionUpdateWrapper>
