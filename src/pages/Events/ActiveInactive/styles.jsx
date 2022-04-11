@@ -9,22 +9,20 @@ export const ActiveInactiveWrapper = styled(Card)`
 `;
 
 export const Container = styled.div`
-  overflow-x: auto;
+  /* overflow-x: auto; */
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem 1.2rem 5.8rem;
-  border: 0.08rem solid ${COLORS["porcelain-white"]};
-  justify-content: space-between;
-  min-width: 110.4rem;
   cursor: pointer;
 `;
 
 export const ContentsWrapper = styled.div`
   text-align: center;
   margin-right: 12.1rem;
+  padding-left: 5.8rem;
   .heading {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};

@@ -1,10 +1,10 @@
 import React from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import Tabs from "components/molecules/Tabs";
-import ActiveInactive from "./ActiveInactive";
 import Archived from "./Archived";
 import Settings from "./Settings";
 import Wording from "./Wording";
+import ActiveInactive from "./ActiveInactive";
 
 function Events() {
   const links = [
