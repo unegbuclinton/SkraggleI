@@ -2,7 +2,7 @@ export const columns = [
   {
     name: "ID",
     selector: (row) => row.id,
-    // width: "8rem",
+    width: "10rem",
   },
   {
     name: "DATE",

@@ -9,7 +9,7 @@ function SearchFilter() {
   return (
     <Wrapper>
       {click ? <CustomDropdown data={filterData} /> : ""}
-      <SearchBar setClick={setClick} />
+      <SearchBar className="search" setClick={setClick} />
     </Wrapper>
   );
 }
