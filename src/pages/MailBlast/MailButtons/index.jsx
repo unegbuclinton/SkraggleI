@@ -1,4 +1,5 @@
 import Button from "components/atoms/Button/Button";
+import { COLORS } from "constants/colors";
 import React from "react";
 import styled from "styled-components";
 
@@ -24,5 +25,7 @@ const ButtonWrapper = styled.div`
   .mail-btn {
     width: 10.6rem;
     height: 3rem;
+    background: ${COLORS['grey-400.2']};
+    color: ${COLORS['grey-400']};
   }
 `;

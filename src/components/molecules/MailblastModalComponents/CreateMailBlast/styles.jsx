@@ -1,6 +1,5 @@
 import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
+import { FONTSIZES,FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const CreateMailWrapper = styled.div`
@@ -34,6 +33,7 @@ export const CreateMailWrapper = styled.div`
     padding-left: 1.6rem;
     background-color: transparent;
     border: 1px solid ${COLORS["gray-500"]};
+    margin-bottom: 0.8rem;
   }
   .edit-dropdown {
     width: 60.2rem;

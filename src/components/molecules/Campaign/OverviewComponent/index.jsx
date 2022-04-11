@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "components/atoms/Button/Button";
 import DropdownComponent from "components/atoms/Dropdown";
 
@@ -37,6 +37,8 @@ const CampaignOverview = () => {
   const HandleButtonClick = () => {
     navigate("/donations");
   };
+  const location= useLocation()
+  console.log(location?.state)
   return (
     <MainWrapper>
       <LeftSection>

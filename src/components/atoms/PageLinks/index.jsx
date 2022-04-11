@@ -3,7 +3,6 @@ import { DPIconPageNavigation } from 'icons';
 import { React } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
@@ -13,7 +12,6 @@ const PageLinks = ({
   ...rest
 }) => {
   const name = names;
-
   return (
     <PageLinksWrapper>
       <Link className="page-links__before" to={to}>
@@ -26,9 +24,7 @@ const PageLinks = ({
     </PageLinksWrapper>
   );
 };
-
 export default PageLinks;
-
 const PageLinksWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -58,3 +54,10 @@ const PageLinksWrapper = styled.div`
     }
   }
 `;
+
+
+
+
+
+
+
