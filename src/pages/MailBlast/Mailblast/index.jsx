@@ -6,7 +6,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import Button from "components/atoms/Button/Button";
 import { useNavigate } from "react-router-dom";
-import NameLogo from "components/molecules/NameLogo";
+
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
 
@@ -21,23 +21,23 @@ function Mail() {
     console.log(row);
   };
 
-  const assignee = [
-    {
-      name: "Partho Datta",
-    },
-    {
-      name: "Partho Datta",
-    },
-    {
-      name: "John Doe",
-    },
-    {
-      name: "Partho Datta",
-    },
-    {
-      name: "Hannah Dandanell",
-    },
-  ];
+  // const assignee = [
+  //   {
+  //     name: "Partho Datta",
+  //   },
+  //   {
+  //     name: "Partho Datta",
+  //   },
+  //   {
+  //     name: "John Doe",
+  //   },
+  //   {
+  //     name: "Partho Datta",
+  //   },
+  //   {
+  //     name: "Hannah Dandanell",
+  //   },
+  // ];
 
   const columns = [
     {
@@ -116,7 +116,7 @@ function Mail() {
   }));
   const indexLasttList = currentPage * itemsPerPage;
   const indexFirstList = indexLasttList - itemsPerPage;
-  const currentList = mailData.slice(indexFirstList, indexLasttList);
+  const currentList = mail.slice(indexFirstList, indexLasttList);
 
   return (
     <MailWrapper>
