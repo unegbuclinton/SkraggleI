@@ -18,7 +18,7 @@ const CampaignTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Checkbox/>,
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
       width: "5rem",
     },

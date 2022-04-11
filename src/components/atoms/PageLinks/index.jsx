@@ -1,8 +1,8 @@
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconPageNavigation } from 'icons';
-import { React } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { DPIconPageNavigation } from "icons";
+import { React } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
@@ -54,10 +54,3 @@ const PageLinksWrapper = styled.div`
     }
   }
 `;
-
-
-
-
-
-
-

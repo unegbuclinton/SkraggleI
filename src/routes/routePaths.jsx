@@ -1,3 +1,4 @@
+import React from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
@@ -11,13 +12,15 @@ import Contacts from "pages/ContactsPage";
 import Profile from "pages/ContactsPage/Profile";
 import Dashboard from "pages/Dashboard";
 import Donations from "pages/Donations";
-import MailBlast from "pages/MailBlast";
-import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import Events from "pages/Events";
 import P2P from "pages/P2P";
 import P2PDetails from "pages/P2PDetails";
-import Test from "pages/Test";
-import React from "react";
+import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
+import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import EventsDetails from "components/molecules/EventsDetails";
+import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
+import Test from "pages/Test";
 import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
 
 const routePaths = [
@@ -51,7 +54,6 @@ const routePaths = [
   },
   {
     path: "dashboard/*",
-
     element: <Outlet />,
     children: [
       {
@@ -125,6 +127,24 @@ const routePaths = [
     ],
   },
   {
+    path: "events/*",
+    element: <Outlet />,
+    children: [
+      {
+        path: "/",
+        element: <Events />,
+      },
+      {
+        path: "events-details",
+        element: <EventsDetails />,
+      },
+      {
+        path: "registration-package",
+        element: <RegistrationPackage />,
+      },
+    ],
+  },
+  {
     path: "peer-to-peer/*",
     element: <Outlet />,
     children: [
@@ -147,10 +167,7 @@ const routePaths = [
     path: "/elements",
     element: <DashboardLayout>Elements yet to be added</DashboardLayout>,
   },
-  {
-    path: "/events",
-    element: <DashboardLayout>Events yet to be added</DashboardLayout>,
-  },
+
   {
     path: "/landing-page",
     element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,

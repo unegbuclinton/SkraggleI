@@ -12,6 +12,7 @@ const Input = ({
   id,
   onBlur,
   className,
+  value,
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
@@ -27,6 +28,7 @@ const Input = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        value={value}
       />
       {type === "password" && (
         <InputFieldIcon onClick={toggleShowPassword}>

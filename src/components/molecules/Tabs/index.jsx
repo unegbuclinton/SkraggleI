@@ -3,7 +3,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tabs = ({ tabs, actionComponent, index, ...rest }) => {
+const Tabs = ({ tabs, actionComponent, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
@@ -19,7 +19,9 @@ const Tabs = ({ tabs, actionComponent, index, ...rest }) => {
             </TabButton>
           ))}
         </div>
-        {tabs[activeTab]?.actionComponent && <span>{ tabs[activeTab]?.actionComponent }</span>}
+        {tabs[activeTab]?.actionComponent && (
+          <span>{tabs[activeTab]?.actionComponent}</span>
+        )}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
@@ -28,7 +30,6 @@ const Tabs = ({ tabs, actionComponent, index, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
-  /* overflow-x: auto; */
 `;
 
 const TabContainer = styled(Card)`
@@ -36,6 +37,7 @@ const TabContainer = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  overflow-x: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;

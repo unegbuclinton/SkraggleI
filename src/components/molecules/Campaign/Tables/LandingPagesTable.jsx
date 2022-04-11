@@ -18,34 +18,34 @@ import Checkbox from "components/atoms/CheckBox";
 const LandingPagesTable = () => {
   const columns = [
     {
-      name: ' ',
-      cell: () => <Checkbox/>,
+      name: " ",
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: '5rem',
+      width: "5rem",
     },
     {
-      name: 'ID',
+      name: "ID",
       selector: (row) => row.uid,
-      width: '20rem',
+      width: "20rem",
     },
 
     {
-      name: 'NAME',
+      name: "NAME",
       selector: (row) => row.name,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'CAMPAIGN',
+      name: "CAMPAIGN",
       selector: (row) => row.campaign,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'TYPE',
+      name: "TYPE",
       selector: (row) => row.type,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'ACTION',
+      name: "ACTION",
       selector: (row) => row.action,
       cell: (col) => (
         <span>
@@ -54,10 +54,10 @@ const LandingPagesTable = () => {
           <Button className="table-button__remove">Active</Button>
         </span>
       ),
-      width: '35rem',
+      width: "35rem",
     },
     {
-      name: 'ADVANCE',
+      name: "ADVANCE",
       selector: (row) => row.advance,
       cell: (col) => (
         <span className="table-button__span">
@@ -91,7 +91,7 @@ const LandingPagesTable = () => {
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate('/landing-page');
+    navigate("/landing-page");
   };
 
   return (
