@@ -71,6 +71,7 @@ export const SectionWrapper = styled.div`
     border: 0.1rem solid ${COLORS["gray-500"]};
     border-radius: 0.5rem;
     margin: 0.8rem 0 2.4rem 0;
+    padding-top: 2.2rem;
   }
 
   .receipt-text {

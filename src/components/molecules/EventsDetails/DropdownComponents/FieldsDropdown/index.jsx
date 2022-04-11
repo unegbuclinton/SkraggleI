@@ -1,10 +1,10 @@
+import React, { useState } from "react";
 import Button from "components/atoms/Button/Button";
 import Checkbox from "components/atoms/CheckBox";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import DropdownComponent from "components/atoms/Dropdown";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
 import { useFormik } from "formik";
-import React from "react";
 import { fieldValidationSchema } from "validation/Schema";
 import {
   ButtonContainer,
@@ -17,6 +17,7 @@ import {
 } from "./styles";
 
 function FieldDropdown({ setDropdown }) {
+  const [selected, setSelected] = useState("Displayedlabel");
   const data = [
     {
       id: 1,
@@ -71,10 +72,12 @@ function FieldDropdown({ setDropdown }) {
       <FieldTypeWrapper>
         <div>
           <Label>Field Type</Label>
-          <CustomDropdown
+          <DropdownComponent
             className="field-type-dropdown"
             id="fieldType"
             name="fieldType"
+            selected={selected}
+            setSelected={setSelected}
             data={data}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

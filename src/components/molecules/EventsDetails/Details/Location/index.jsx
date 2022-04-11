@@ -1,5 +1,5 @@
-import React from "react";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import React, { useState } from "react";
+import DropdownComponent from "components/atoms/Dropdown";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
 import { state } from "utilities/modalData";
@@ -13,6 +13,7 @@ import {
 } from "./styles";
 
 function EventLocation({ formik, ErrorMsg }) {
+  const [selected, setSelected] = useState("State");
   return (
     <div>
       <DetailsSubHeading className="event-heading">
@@ -66,10 +67,12 @@ function EventLocation({ formik, ErrorMsg }) {
           </div>
           <div>
             <DetailLabel>State</DetailLabel>
-            <CustomDropdown
+            <DropdownComponent
               className="state"
               id="state"
               name="state"
+              selected={selected}
+              setSelected={setSelected}
               data={state}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}

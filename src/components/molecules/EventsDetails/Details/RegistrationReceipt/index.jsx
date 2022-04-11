@@ -1,8 +1,7 @@
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import React, { useState } from "react";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
-import React from "react";
-import { state } from "utilities/modalData";
+import DropdownComponent from "components/atoms/Dropdown";
 import {
   DetailLabel,
   DetailsSubHeading,
@@ -14,6 +13,13 @@ import {
 } from "./styles";
 
 function RegistrationReceipt({ formik, ErrorMsg }) {
+  const [selected, setSelected] = useState("Event registration");
+  const data = [
+    {
+      id: 1,
+      name: "Event registration",
+    },
+  ];
   return (
     <div>
       <DetailsSubHeading className="notification-heading">
@@ -21,11 +27,13 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
       </DetailsSubHeading>
       <SectionWrapper>
         <DetailLabel>Choose a receipt</DetailLabel>
-        <CustomDropdown
+        <DropdownComponent
           className="event-registration-dropdown"
           id="receipt"
           name="receipt"
-          data={state}
+          data={data}
+          selected={selected}
+          setSelected={setSelected}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.receipt}

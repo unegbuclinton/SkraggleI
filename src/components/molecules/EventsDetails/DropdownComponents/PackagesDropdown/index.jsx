@@ -17,7 +17,12 @@ import { useFormik } from "formik";
 import { packageValidatioSchema } from "validation/Schema";
 import Radio from "components/atoms/Radio";
 
-function PackageDropdown({ setDropdown }) {
+function PackageDropdown({
+  setDropdown,
+  setOpenDropdown,
+  dropdown,
+  openDropdown,
+}) {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -248,13 +253,26 @@ function PackageDropdown({ setDropdown }) {
         </div>
       </InputWrapper>
       <ButtonContainer>
-        <Button
-          type="button"
-          onClick={() => setDropdown(false)}
-          className="cancel-btn"
-        >
-          Cancel
-        </Button>
+        {dropdown === true && (
+          <Button
+            type="button"
+            onClick={() => setDropdown(false)}
+            className="cancel-btn"
+          >
+            Cancel
+          </Button>
+        )}
+
+        {openDropdown && (
+          <Button
+            type="button"
+            onClick={() => setOpenDropdown(false)}
+            className="cancel-btn"
+          >
+            Cancel
+          </Button>
+        )}
+
         <Button className="save-btn">Save</Button>
       </ButtonContainer>
     </DropDownWrapper>

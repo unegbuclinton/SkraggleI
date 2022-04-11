@@ -18,6 +18,7 @@ function Packages() {
   const [dropdown, setDropdown] = useState(false);
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
 
   const onpenDelete = (e) => {
     e.stopPropagation();
@@ -73,8 +74,10 @@ function Packages() {
             </p>
           </ActionWrapper>
         </ContentContainer>
-        {dropdown && <PackageDropdown setDropdown={setDropdown} />}
-        <ContentContainer>
+        {dropdown && (
+          <PackageDropdown dropdown={dropdown} setDropdown={setDropdown} />
+        )}
+        <ContentContainer onClick={() => setOpenDropdown(true)}>
           <ContentsWrapper>
             <h2 className="heading">Gift pack</h2>
             <p className="heading-text">5 participants per package</p>
@@ -109,6 +112,12 @@ function Packages() {
             </p>
           </ActionWrapper>
         </ContentContainer>
+        {openDropdown && (
+          <PackageDropdown
+            openDropdown={openDropdown}
+            setOpenDropdown={setOpenDropdown}
+          />
+        )}
       </Container>
     </PackageWrapper>
   );

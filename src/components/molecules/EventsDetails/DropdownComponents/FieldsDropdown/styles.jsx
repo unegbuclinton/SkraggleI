@@ -57,6 +57,7 @@ export const FieldTypeWrapper = styled.div`
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 3.2rem 0;
+    padding-top: 2.2rem;
   }
 
   .checkbox-container {
