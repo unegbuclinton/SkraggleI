@@ -24,7 +24,7 @@ function Widget({ onCloseWidget }) {
   return (
     <WidgetWrapper>
       <Card>
-        <VerticalTab tabs={widget} />
+        <VerticalTab tabs={widget}  verticalWrapper='vertical-tab-wrapper'/>
 
         <WidgetBtn>
           <div className="btn-wrapper">

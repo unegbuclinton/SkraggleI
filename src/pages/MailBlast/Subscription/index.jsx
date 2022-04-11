@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Table from "components/layouts/Table";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import { datas1 } from "utilities/overviewData";
 import MailButton from "../MailButtons";
+import Button from "components/atoms/Button/Button";
+import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 function Subscription() {
-  const email = [{ title: "UnKnown" }];
+  const [selected, setSelected] = useState("Filters");
   const subscription = [{ title: "Anual Gala" }, { title: "Volunteer" }];
   const columns = [
     {
       name: "",
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
@@ -31,7 +33,7 @@ function Subscription() {
     {
       name: "EMAIL SUBSCRIPTION STATUS",
       selector: (row) => row.emailSubscriptionStatus,
-      cell: (ow) => <MailButton btn={email} />,
+    
     },
     {
       name: "TAG",
@@ -45,56 +47,88 @@ function Subscription() {
       action: "",
       fullName: "Monthly newsletter",
       primaryEmail: "partho.prothim@gmail.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill error>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "My awesome campaign...",
       primaryEmail: "partho.prothim@gmail.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill error>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "BGA demo",
       primaryEmail: "johny@gmail.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill error>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "Newsletter",
       primaryEmail: "hannah@yahoo.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill success>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "Monthly newsletter",
       primaryEmail: "partho.prothim@gmail.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill error>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "My awesome campaign...",
       primaryEmail: "Ppartho.prothim@gmail.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill success>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "BGA demo",
       primaryEmail: "hannah@yahoo.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill success>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
     {
       action: "",
       fullName: "Newsletter",
       primaryEmail: "hannah@yahoo.com",
-      emailSubscriptionStatus: "",
+      emailSubscriptionStatus: (
+        <Button pill success>
+          Unknown
+        </Button>
+      ),
       tag: "",
     },
   ];
@@ -105,7 +139,11 @@ function Subscription() {
         <div className="mail-header">
           <p className="mail__text">55 Contacts</p>
           <div className="mail-header__right">
-            <CustomDropdown data={datas1} />
+            <DropdownComponent
+              selected={selected}
+              setSelected={setSelected}
+              data={datas1}
+            />
             <SearchBar />
           </div>
         </div>

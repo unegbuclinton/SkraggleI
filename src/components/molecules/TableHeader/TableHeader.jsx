@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Button from "components/atoms/Button/Button";
 import { DPIconAdd } from "icons";
-import filterData from "utilities/filterData.json";
+import { datas1 } from "utilities/overviewData";
 import { HeaderWrapper } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 
@@ -15,7 +15,7 @@ function TableHeader({ title, header, setOpen, className }) {
         <DropdownComponent
           selected={selected}
           setSelected={setSelected}
-          data={filterData}
+          data={datas1}
         />
         <SearchBar />
         <Button className="header__header-btn" onClick={() => setOpen(true)}>

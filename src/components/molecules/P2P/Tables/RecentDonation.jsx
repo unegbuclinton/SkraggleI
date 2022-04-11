@@ -1,28 +1,26 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React } from "react";
 
-import { DPPlusIcon } from "icons";
+import { donationData } from "utilities/p2pData";
 
 import Table from "components/layouts/Table";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import { ContainerBody, TableWrapper } from "./styles";
 
-const P2PTable = () => {
+const RecentDonation = () => {
   const columns = [
     {
-      name: " ",
-      cell: () => <Box type="checkbox"></Box>,
-      ignoreRowClick: false,
-      width: "5rem",
+      name: "RANK",
+      selector: (row) => row.rank,
+      width: "10rem",
     },
     {
       name: "CAMPAIGN",
-      selector: (row) => row.campaign,
+      selector: (row) => row.participants,
       width: "20rem",
     },
 
     {
       name: "FUNDRAISER",
-      selector: (row) => row.fundraiser,
+      selector: (row) => row.name,
       width: "20rem",
     },
     {
@@ -32,99 +30,43 @@ const P2PTable = () => {
     },
     {
       name: "RAISED",
-      selector: (row) => row.raised,
+      selector: (row) => row.amount,
       width: "20rem",
     },
     {
       name: "CREATED",
-      selector: (row) => row.created,
+      selector: (row) => row.date,
       width: "20rem",
     },
     {
       name: "GOAL DATE",
-      selector: (row) => row.goaldate,
+      selector: (row) => row.location,
       width: "20rem",
-    },
-    {
-      name: "1M STATISTICS -_-_",
-      selector: (row) => row.statistics,
-      width: "15rem",
     },
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
-
-  const indexLasttList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLasttList - itemsPerPage;
-
-  const tableData = P2PTableData.map((P2PData, index) => ({
+  const tableData = donationData.map((P2PData, index) => ({
     key: index,
-    campaign: P2PData.campaign,
-    fundraiser: P2PData.fundraiser,
-    goals: P2PData.goals,
-    raised: P2PData.raised,
-    created: P2PData.created,
-    goaldate: P2PData.goaldate,
-    statistics: P2PData.statistics,
+    rank: P2PData.rank,
+    participants: P2PData.participants,
+    name: P2PData.name,
+    amount: P2PData.amount,
+    date: P2PData.date,
+    location: P2PData.location,
   }));
-
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
-
-  let navigate = useNavigate();
-
-  const onRowClicked = (row) => {
-    const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
-    navigate(`/peer-to-peer/${row.key+1}`, { state: row });
-  };
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <div>
       <ContainerBody>
-        <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>15 Campaigns</h1>
-            </div>
-
-            <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
-              <SearchBar className="search-icon" />
-              <Button
-                className="p2p-button"
-                onClick={() => setModalIsOpen(true)}
-              >
-                <DPPlusIcon className="plus-icon" />
-                New P2P Fundraiser
-              </Button>
-              {modalIsOpen && (
-                <CreateP2PModal
-                isShown={modalIsOpen}
-                  onClose={() => {
-                    setModalIsOpen(false);
-                  }}
-                />
-              )}
-            </div>
-          </TableHeaderWrapper>
+        <TableWrapper className="donations">
           <Table
             columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
+            data={tableData}
           />
         </TableWrapper>
       </ContainerBody>
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={P2PTableData}
-        setCurrentPage={setCurrentPage}
-      />
     </div>
   );
 };
 
-export default P2PTable;
+export default RecentDonation;

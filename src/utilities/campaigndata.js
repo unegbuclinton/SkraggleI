@@ -26,7 +26,7 @@ export const TableContacts =
     },
     {
         "created": "Oct 10, 2021",
-        "campaign": "Orphan House",
+        "campaign": "Clinnton",
         "status": " ",
         "goals": "$350,000"
     },

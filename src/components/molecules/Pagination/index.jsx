@@ -74,8 +74,6 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
     );
   }
 
-  console.log(renderPageNumbers.length);
-
   return (
     <PaginationWrapper renderPageNumbers={renderPageNumbers}>
       <PaginationButtons

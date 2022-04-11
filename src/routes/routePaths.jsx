@@ -1,4 +1,5 @@
 import React from "react";
+import DashboardLayout from "components/layouts/DashboardLayout";
 import ForgotPassword from "components/molecules/ForgotPassword";
 import LogIn from "components/molecules/LogIn";
 import Registration from "components/molecules/Registration";
@@ -14,19 +15,13 @@ import Donations from "pages/Donations";
 import Events from "pages/Events";
 import P2P from "pages/P2P";
 import P2PDetails from "pages/P2PDetails";
-import DashboardLayout from "components/layouts/DashboardLayout";
 import MailBlast from "pages/MailBlast";
 import { Link, Outlet } from "react-router-dom";
 import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
 import EventsDetails from "components/molecules/EventsDetails";
 import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
-
 import Test from "pages/Test";
-
-// let isAuthenticated = true;
-// const PrivateWrapper = ({ isAuthenticated }) => {
-//   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
-// };
+import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
 
 const routePaths = [
   {
@@ -59,7 +54,6 @@ const routePaths = [
   },
   {
     path: "dashboard/*",
-    // isPrivate: true,
     element: <Outlet />,
     children: [
       {
@@ -111,6 +105,10 @@ const routePaths = [
       {
         path: ":id",
         element: <MonthlyNewsteller />,
+      },
+      {
+        path: "subscription-update",
+        element: <UnsubscribeWarning />,
       },
     ],
   },

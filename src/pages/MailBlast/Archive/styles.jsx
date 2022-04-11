@@ -7,6 +7,7 @@ export const ArchiveWrapper = styled.div`
 
   .archive-card {
     height: 100%;
+    margin-top: 1.6rem;
     padding: 3.2rem 2.4rem 0 2.4rem;
   }
 `;

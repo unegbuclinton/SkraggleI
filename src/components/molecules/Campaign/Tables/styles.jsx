@@ -112,7 +112,7 @@ export const TableHeaderWrapper = styled.div`
       flex-direction: row;
       justify-content: right;
 
-      .dropdown-filter {
+      .dropdown-campaign {
         margin-right: 1.6rem;
       }
 
@@ -150,11 +150,6 @@ export const TableHeaderWrapper = styled.div`
       }
     }
   }
-`;
-
-export const Box = styled.input`
-  width: 1.5rem;
-  height: 1.5rem;
 `;
 
 export const ArchiveWrapper = styled.div`

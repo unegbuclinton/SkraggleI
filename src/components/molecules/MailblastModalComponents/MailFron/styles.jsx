@@ -20,7 +20,7 @@ export const MailFromWrapper = styled.div`
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["grey-400"]};
-    margin-bottom: 43.645rem;
+    margin-bottom: 10.645rem;
   }
 
   .mailfrom-footer {

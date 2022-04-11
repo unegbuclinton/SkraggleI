@@ -10,15 +10,12 @@ import SubjectModal from "../MailblasModals/Subject";
 import TemplateModal from "../MailblasModals/Template";
 import { ContentBody } from "./styles";
 import { ContentWrapper, ContentTop } from "./styles";
-
 function MailContent() {
   const [open, setOpen] = useState(false);
   const [reciept, setReciept] = useState(false);
   const [openSender, setOpenSender] = useState(false);
   const [openSubject, setOpenSubject] = useState(false);
   const [openAttach, setOpenAttach] = useState(false);
-
-
   return (
     <ContentWrapper>
       <Card>
@@ -40,7 +37,6 @@ function MailContent() {
             <p>Send 20, 2020 - 06:20 PM</p>
           </div>
         </ContentTop>
-
         <ContentBody>
           <div className="content-item">
             <div className="content-item__left">
@@ -191,5 +187,4 @@ function MailContent() {
     </ContentWrapper>
   );
 }
-
 export default MailContent;
