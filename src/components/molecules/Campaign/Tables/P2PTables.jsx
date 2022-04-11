@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
@@ -12,14 +11,16 @@ import datas from "utilities/filterData";
 
 import { P2PForm } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
+import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 const P2PTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
-      ignoreRowClick:false,
+      cell: () => <Checkbox/>,
+      ignoreRowClick: false,
       width: "5rem",
     },
     {
@@ -34,20 +35,20 @@ const P2PTable = () => {
       width: "20rem",
     },
     {
-        name: "RAISED",
-        selector: (row) => row.raised,
+      name: "RAISED",
+      selector: (row) => row.raised,
       width: "20rem",
     },
     {
-        name: "DONATIONS",
-        selector: (row) => row.donations,
+      name: "DONATIONS",
+      selector: (row) => row.donations,
       width: "35rem",
     },
     {
       name: "STATUS",
       selector: (row) => row.status,
       cell: (col) => <Button className="table-button">Active</Button>,
-    },  
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,13 +62,15 @@ const P2PTable = () => {
     type: p2pData.type,
     raised: p2pData.raised,
     donations: p2pData.donations,
-    status:p2pData.status
+    status: p2pData.status,
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => { console.log(row,event) };
-  
+  const onRowClicked = (row, event) => {
+    console.log(row, event);
+  };
+
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/peer-to-peer");
@@ -75,37 +78,38 @@ const P2PTable = () => {
 
   return (
     <div>
-    <ContainerBody>
-    <TableWrapper>
-      <TableHeaderWrapper className="table-header">
-        <div className="table-header__left">
-          <h1>88 Forms</h1>
-        </div>
+      <ContainerBody>
+        <TableWrapper>
+          <TableHeaderWrapper className="table-header">
+            <div className="table-header__left">
+              <h1>88 Forms</h1>
+            </div>
 
-        <div className="table-header__right">
-          <CustomDropdown className="dropdown-filter" data={datas} />
-          <SearchBar className="search-icon" />
-          <Button
-            className="campaign-button"
-            onClick={() => handleButtonClick()}
-          >
-            <DPPlusIcon className="plus-icon" />
-            Create New
-          </Button>
-        </div>
-      </TableHeaderWrapper>
-      <Table
-        columns={columns}
-        data={currentList}
-        onRowClicked={onRowClicked}
+            <div className="table-header__right">
+              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <SearchBar className="search-icon" />
+              <Button
+                className="campaign-button"
+                onClick={() => handleButtonClick()}
+              >
+                <DPPlusIcon className="plus-icon" />
+                Create New
+              </Button>
+            </div>
+          </TableHeaderWrapper>
+          <Table
+            columns={columns}
+            data={currentList}
+            onRowClicked={onRowClicked}
+          />
+        </TableWrapper>
+      </ContainerBody>
+      <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        data={P2PForm}
+        setCurrentPage={setCurrentPage}
       />
-    </TableWrapper>
-    </ContainerBody>
-    <Pagination
-    currentPage={currentPage}
-    itemsPerPage={itemsPerPage}
-    data={P2PForm}
-    setCurrentPage={setCurrentPage}/>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
@@ -11,13 +10,15 @@ import datas from "utilities/filterData";
 
 import { CampaignForm } from "utilities/campaigndata";
 
-import { ContainerBody, TableWrapper, TableHeaderWrapper, Box } from "./styles";
+import { ContainerBody, TableWrapper, TableHeaderWrapper} from "./styles";
+import DropdownComponent from "components/atoms/Dropdown";
+import Checkbox from "components/atoms/CheckBox";
 
 const FormsTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox/>,
       ignoreRowClick: false,
       width: "5rem",
     },
@@ -69,7 +70,6 @@ const FormsTable = () => {
     console.log(row, event);
   };
 
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/forms");
@@ -85,7 +85,7 @@ const FormsTable = () => {
             </div>
 
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"

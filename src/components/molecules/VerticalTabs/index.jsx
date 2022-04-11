@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-function VerticalTab({ tabs, className, verticalWrapper }) {
+function VerticalTab({ tabs, setActiveState, className, verticalWrapper }) {
   const [activeWidget, setActiveWidget] = useState(0);
   return (
     <VerticalTabWrapper className={className}>
@@ -12,14 +12,17 @@ function VerticalTab({ tabs, className, verticalWrapper }) {
           <TabButton
             key={index}
             active={activeWidget === index}
-            onClick={() => setActiveWidget(index)}
+            onClick={() => {
+              setActiveWidget(index)
+              setActiveState(index)
+            }}
           >
             {title}
           </TabButton>
         ))}
       </div>
 
-      <div> {tabs && tabs[activeWidget]?.component}</div>
+      <div className="content-wrapper" activeWidget={activeWidget}> {tabs && tabs[activeWidget]?.component}</div>
     </VerticalTabWrapper>
   );
 }
@@ -31,6 +34,7 @@ const VerticalTabWrapper = styled.div`
   gap: 7.4rem;
   border-bottom: 1px solid ${COLORS.torquoise};
 `;
+
 const TabButton = styled.button`
   position: relative;
   width: 10.3rem;

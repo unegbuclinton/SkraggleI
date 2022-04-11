@@ -9,8 +9,8 @@ import P2PTable from "components/molecules/Campaign/Tables/P2PTables";
 import Tabs from "components/molecules/Tabs";
 import PageLinks from "components/atoms/PageLinks";
 
-import { React } from "react";
-import { useLocation } from "react-router-dom";
+import { React } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CampaignDetails = () => {
   const links = [

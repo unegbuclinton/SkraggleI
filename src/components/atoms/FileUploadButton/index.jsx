@@ -1,6 +1,7 @@
-import { COLORS } from 'constants/colors';
-import { React, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { React, useState, useEffect, useRef } from "react";
+
+import styled from "styled-components";
+import { COLORS } from "constants/colors";
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
@@ -38,10 +39,8 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
         <ImagePreview
           className={imgPreview}
           src={preview}
-          style={{ objectFit: 'cover' }}
-          onClick={() => {
-            setImage(null);
-          }}
+          style={{ objectFit: "cover" }}
+          onClick={handleClick}
         />
       ) : (
         <UploadButtonWrapper

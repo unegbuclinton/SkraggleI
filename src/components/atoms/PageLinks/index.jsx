@@ -12,7 +12,6 @@ const PageLinks = ({
   ...rest
 }) => {
   const name = names;
-  
   return (
     <PageLinksWrapper>
       <Link className="page-links__before" to={to}>
