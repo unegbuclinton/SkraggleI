@@ -9,7 +9,7 @@ const DashboardLayout = ({ children, pageLinks }) => {
     <DashboardContainer>
       <Sidebar />
       <DashboardContentWrapper>
-        <DashboardHeader pageLinks={pageLinks} />
+        <DashboardHeader pageLinks={pageLinks}/>
         <DashboardContent>{children}</DashboardContent>
       </DashboardContentWrapper>
     </DashboardContainer>
