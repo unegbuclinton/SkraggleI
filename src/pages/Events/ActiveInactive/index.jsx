@@ -4,7 +4,6 @@ import {
   ActionWrapper,
   ActiveInactiveWrapper,
   SwitchIconWrapper,
-  ContentsWrapper,
   DateWrapper,
   ViewWrapper,
   Container,
@@ -24,8 +23,9 @@ function ActiveInactive() {
   const navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    let path = "events-details";
-    navigate(path, { state: row });
+    // let path = "events-details";
+    navigate("events-details", { state: row });
+    console.log(row);
   };
 
   const openCloneModal = (e) => {
@@ -46,30 +46,22 @@ function ActiveInactive() {
   const columns = [
     {
       name: "",
-
-      cell: () => (
-        <ContentsWrapper>
-          <h2 className="heading"> A day with the orphans</h2>
-        </ContentsWrapper>
-      ),
+      selector: (row) => row.name,
       width: "30rem",
     },
 
     {
       name: "",
-
       cell: () => (
         <SwitchIconWrapper>
           <Switch />
           <DPIconEventActive />
         </SwitchIconWrapper>
       ),
-      // width: "40rem",
     },
 
     {
       name: "",
-
       cell: () => (
         <DateWrapper>
           <p className="title">Beggins</p>
@@ -81,18 +73,15 @@ function ActiveInactive() {
 
     {
       name: "",
-
       cell: () => (
         <ViewWrapper>
           <p className="title">Attendees</p>
           <h2 className="view">1(View all)</h2>
         </ViewWrapper>
       ),
-      //   width: "57rem",
     },
     {
       name: "",
-
       cell: () => (
         <ActionWrapper>
           <p className="action">Edit</p>
@@ -113,21 +102,21 @@ function ActiveInactive() {
 
   const data = [
     {
-      heading: "",
+      name: "A DAY WITH THE ORPHANS",
       switch: "",
       beggin: "",
       attendee: "",
       action: "",
     },
     {
-      heading: "",
+      name: "A DAY WITH THE ELDERLY",
       switch: "",
       beggin: "",
       attendee: "",
       action: "",
     },
     {
-      heading: "",
+      name: "A DAY WITH THE ORPHANS COPY",
       switch: "",
       beggin: "",
       attendee: "",

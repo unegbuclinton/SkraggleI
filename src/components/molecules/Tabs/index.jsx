@@ -30,7 +30,6 @@ const Tabs = ({ tabs, actionComponent, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
-  /* overflow-x: auto; */
 `;
 
 const TabContainer = styled(Card)`
@@ -38,6 +37,7 @@ const TabContainer = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  overflow-y: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;

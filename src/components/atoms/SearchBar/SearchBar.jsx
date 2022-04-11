@@ -16,7 +16,7 @@ function SearchBar({ setClick, className }) {
           // When form clicked, set state of baropened to true and focus the input
           setBarOpened(true);
           inputFocus.current.focus();
-          setClick(false);
+          // setClick(false);
         }}
         // on focus open search bar
         onFocus={() => {
@@ -26,9 +26,9 @@ function SearchBar({ setClick, className }) {
         // on blur close search bar
         onBlur={() => {
           setBarOpened(false);
-          setTimeout(() => {
-            setClick(true);
-          }, 200);
+          // setTimeout(() => {
+          //   setClick(true);
+          // }, 200);
         }}
         // On submit, call the onFormSubmit function
       >
