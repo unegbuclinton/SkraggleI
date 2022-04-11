@@ -37,7 +37,7 @@ const TabContainer = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
-  overflow-y: auto;
+  overflow-x: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
