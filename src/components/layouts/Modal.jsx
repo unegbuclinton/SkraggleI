@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
   position: fixed;
   left: 50%;
   top: 8rem;
-  z-index: 700;
+  z-index: 30;
   width: 65rem;
   outline: 0;
   transform: translateX(-50%);
@@ -60,7 +60,7 @@ export const Backdrop = styled.div`
   top: 0;
   left: 0;
   background: ${COLORS["shim-black"]};
-  z-index: 30;
+  z-index: 20;
   cursor: pointer;
 
   ${({ plain }) =>

@@ -9,7 +9,7 @@ const DashboardLayout = ({ children, pageLinks }) => {
     <DashboardContainer>
       <Sidebar />
       <DashboardContentWrapper>
-        <DashboardHeader pageLinks={pageLinks}/>
+        <DashboardHeader pageLinks={pageLinks} />
         <DashboardContent>{children}</DashboardContent>
       </DashboardContentWrapper>
     </DashboardContainer>
@@ -32,10 +32,6 @@ const DashboardContentWrapper = styled.aside`
   flex-direction: column;
   overflow: auto;
 `;
-
-// const Tabs = styled.div`
-//   margin-bottom: 20px;
-// `;
 
 const DashboardContent = styled.div`
   flex: 1;

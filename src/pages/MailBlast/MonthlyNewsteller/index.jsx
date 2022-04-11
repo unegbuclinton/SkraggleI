@@ -6,6 +6,8 @@ import Overview from "../Overview";
 import NewsTellerAction from "components/molecules/ActionComponents";
 import ActionDropDown from "components/molecules/ActionDropDown";
 import SendMailBlastModal from "../MailblasModals/SendMailBlast";
+import PageLinks from "components/atoms/PageLinks";
+import { useLocation } from "react-router-dom";
 
 function MonthlyNewsteller() {
   const [showModal, setShowModal] = useState(false);
@@ -22,8 +24,12 @@ function MonthlyNewsteller() {
       actionComponent: <NewsTellerAction ShowSendBlast={ShowSendBlast} />,
     },
   ];
+  const name = useLocation()?.state?.name;
+  
   return (
-    <DashboardLayout>
+    <DashboardLayout
+      pageLinks={<PageLinks pageLinkBefore="Mail-Blast" to="/mail-blasts" names={name}/>}
+    >
       <Tabs tabs={mail} />
       {showModal && (
         <SendMailBlastModal

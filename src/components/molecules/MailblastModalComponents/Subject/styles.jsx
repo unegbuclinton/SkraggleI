@@ -20,7 +20,7 @@ export const SubjectWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     gap: 1.6rem;
-    margin-top: 47.9rem;
+    margin-top: 7.9rem;
   }
 
   .subject-cancel-btn {

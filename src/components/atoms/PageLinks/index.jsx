@@ -1,25 +1,21 @@
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconPageNavigation } from 'icons';
 import { React } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 const PageLinks = ({
   pageLinkBefore,
   pageLinkAfter,
-  path,
   navigationIcon,
-  pageLinks,
-  locate,
   names,
+  to,
   ...rest
 }) => {
-  const location = useLocation();
-  const name = location.state.id;
-
+  const name = names;
+  
   return (
     <PageLinksWrapper>
-      <Link className="page-links__before" to={"/mail-blasts"}>
+      <Link className="page-links__before" to={to}>
         {pageLinkBefore}
       </Link>
       <span className="page-links__navigation-icon">
@@ -29,9 +25,7 @@ const PageLinks = ({
     </PageLinksWrapper>
   );
 };
-
 export default PageLinks;
-
 const PageLinksWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -61,3 +55,10 @@ const PageLinksWrapper = styled.div`
     }
   }
 `;
+
+
+
+
+
+
+

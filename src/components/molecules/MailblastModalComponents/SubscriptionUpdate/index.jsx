@@ -6,16 +6,12 @@ import styled from "styled-components";
 
 function SubscriptionUpdate() {
   return (
-    <>
-      <Modal isShown plain contrast>
-        <SubscriptionUpdateWrapper>
-          <div className="status-alert">
-            <input type="checkbox" /> Subscription Status Updated.
-          </div>
-          <p> Subscription Status Updated.</p>
-        </SubscriptionUpdateWrapper>
-      </Modal>
-    </>
+    <SubscriptionUpdateWrapper>
+      <div className="status-alert">
+        <input type="checkbox" /> Subscription Status Updated.
+      </div>
+      <p> Subscription Status Updated.</p>
+    </SubscriptionUpdateWrapper>
   );
 }
 

@@ -5,8 +5,12 @@ import { NewstellerTop } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { NewstellerBody } from "./styles";
 import StatisticsTracker from "components/molecules/StatisticsTracker";
+import { useLocation } from "react-router-dom";
 
-function Overview() {
+function Overview({...props }) {
+  console.log(props)
+  const location= useLocation()
+  console.log(location?.state)
   return (
     <NewstellerWrapper>
       <Card>

@@ -1,29 +1,24 @@
-import DashboardLayout from 'components/layouts/DashboardLayout';
-import ForgotPassword from 'components/molecules/ForgotPassword';
-import LogIn from 'components/molecules/LogIn';
-import Registration from 'components/molecules/Registration';
-import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
-import ResetPassword from 'components/molecules/ResetPassword';
-import SendVerification from 'components/molecules/sendVerification/SendVerification';
-import Campaign from 'pages/Campaign';
-import CampaignDetails from 'pages/CampaignDetails';
-import Contacts from 'pages/ContactsPage';
-import Profile from 'pages/ContactsPage/Profile';
-import Dashboard from 'pages/Dashboard';
-import Donations from 'pages/Donations';
-import MailBlast from 'pages/MailBlast';
-import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
-import P2P from 'pages/P2P';
-import P2PDetails from 'pages/P2PDetails';
-import Test from 'pages/Test';
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
-
-// let isAuthenticated = true;
-// const PrivateWrapper = ({ isAuthenticated }) => {
-//   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
-// };
+import DashboardLayout from "components/layouts/DashboardLayout";
+import ForgotPassword from "components/molecules/ForgotPassword";
+import LogIn from "components/molecules/LogIn";
+import Registration from "components/molecules/Registration";
+import ResendVerification from "components/molecules/resendVerification/ResendVerification";
+import ResetPassword from "components/molecules/ResetPassword";
+import SendVerification from "components/molecules/sendVerification/SendVerification";
+import Campaign from "pages/Campaign";
+import CampaignDetails from "pages/CampaignDetails";
+import Contacts from "pages/ContactsPage";
+import Profile from "pages/ContactsPage/Profile";
+import Dashboard from "pages/Dashboard";
+import Donations from "pages/Donations";
+import MailBlast from "pages/MailBlast";
+import MonthlyNewsteller from "pages/MailBlast/MonthlyNewsteller";
+import P2P from "pages/P2P";
+import P2PDetails from "pages/P2PDetails";
+import Test from "pages/Test";
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
+import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
 
 const routePaths = [
   {
@@ -56,7 +51,7 @@ const routePaths = [
   },
   {
     path: "dashboard/*",
-    // isPrivate: true,
+
     element: <Outlet />,
     children: [
       {
@@ -161,19 +156,21 @@ const routePaths = [
     element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
   },
   {
-    path: '/reports',
+    path: "/reports",
     element: <DashboardLayout>Reports yet to be added</DashboardLayout>,
   },
   {
-    path: '*',
-    element: <DashboardLayout><h1>404</h1></DashboardLayout>,
+    path: "*",
+    element: (
+      <DashboardLayout>
+        <h1>404</h1>
+      </DashboardLayout>
+    ),
   },
 
   {
-    path: '/test',
-    element: (
-     <Test />
-    ),
+    path: "/test",
+    element: <Test />,
   },
 ];
 

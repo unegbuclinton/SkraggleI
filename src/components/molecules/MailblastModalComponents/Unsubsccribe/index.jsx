@@ -1,21 +1,14 @@
 import Button from "components/atoms/Button/Button";
-import React, { useState } from "react";
+import React from "react";
 import { COLORS } from "constants/colors";
 import styled from "styled-components";
 import { FONTSIZES } from "constants/font-spec";
 import { FONTWEIGHTS } from "constants/font-spec";
-import SubscriptionUpdate from "pages/MailBlast/MailblasModals/SubscriptionUpdate";
 import { useNavigate } from "react-router-dom";
 
 function Unsubscribe({ onCloseModal }) {
-  const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
 
-  const Switch = () => {
-    setAlert(true);
-    setTimeout(() => setAlert(false), 2000);
-    setTimeout(() => navigate("/mail-blasts"), 2000);
-  };
   return (
     <>
       <UnsubscribeWrapper>
@@ -29,13 +22,11 @@ function Unsubscribe({ onCloseModal }) {
           >
             Nevermind
           </Button>
-          <Button auth className="send-save-btn" onClick={Switch}>
+          <Button auth className="send-save-btn" onClick={onCloseModal}>
             Confirm
           </Button>
         </div>
       </UnsubscribeWrapper>
-
-      {alert && <SubscriptionUpdate />}
     </>
   );
 }

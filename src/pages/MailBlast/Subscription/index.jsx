@@ -33,7 +33,7 @@ function Subscription() {
     {
       name: "EMAIL SUBSCRIPTION STATUS",
       selector: (row) => row.emailSubscriptionStatus,
-      // cell: (ow) => <MailButton btn={email} />,
+    
     },
     {
       name: "TAG",
