@@ -24,7 +24,6 @@ function ActiveInactive() {
 
   const onRowClicked = (row) => {
     navigate("events-details", { state: row });
-    console.log(row);
   };
 
   const openCloneModal = (e) => {
