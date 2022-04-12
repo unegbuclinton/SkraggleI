@@ -60,7 +60,7 @@ const TabButton = styled.button`
     height: 2px;
     background: ${COLORS.pink};
     bottom: 0px;
-    z-index: 100;
+    /* z-index: 100; */
     left: 0;
   }
   ${({ active }) =>
