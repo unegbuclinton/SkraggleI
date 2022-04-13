@@ -5,10 +5,16 @@ import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { persistedReducer } from 'store';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
 const LogIn = () => {
+  const { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  console.log(auth);
   const formik = useFormik({
     initialValues: {
       password: '',
@@ -16,7 +22,10 @@ const LogIn = () => {
     validationSchema: loginSchema,
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      // dispatch(login({ token: 'fateh' }));
+      persistedReducer.pause()
+        persistedReducer.purge();
     },
   });
   return (
