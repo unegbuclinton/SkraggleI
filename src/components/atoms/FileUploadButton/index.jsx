@@ -39,7 +39,6 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
         <ImagePreview
           className={imgPreview}
           src={preview}
-          style={{ objectFit: "cover" }}
           onClick={handleClick}
         />
       ) : (
@@ -75,6 +74,7 @@ export const UploadButtonWrapper = styled.button`
 export const ImagePreview = styled.img`
   cursor: pointer;
   border-radius: 0.5rem;
+  object-fit: cover;
 `;
 
 export const FileUploadInput = styled.input`

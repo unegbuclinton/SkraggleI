@@ -14,5 +14,4 @@ const ErrorMsg = styled.p`
   margin-bottom: 1rem;
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.medium};
-  margin-top: -0.5rem;
 `;

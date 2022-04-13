@@ -4,9 +4,8 @@ import { DPIconDropDown } from 'icons';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const DropdownComponent = ({ data, className, content, iconDropdown, onChange, ...rest }) => {
+const DropdownComponent = ({ data, className, content, iconDropdown, onChange, selected, setSelected, ...rest }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setSelected] = useState("Filters");
 
   let options = data.map((option) => (
     <div

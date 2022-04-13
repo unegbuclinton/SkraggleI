@@ -23,7 +23,7 @@ export const ModalWrapper = styled.form`
     padding-left: 2.083rem;
     height: 6.4rem;
     width: 100%;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS["moore-grey"]};
     border-radius: 0.5rem;
   }
 
@@ -32,8 +32,12 @@ export const ModalWrapper = styled.form`
     padding-left: 2.083rem;
     width: 30.1rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS["moore-grey"]};
     border-radius: 0.5rem;
+  }
+
+  .modal-inputs__container-input{
+    width: 30.1rem;
   }
 
   .select-goals {
@@ -56,20 +60,23 @@ export const ModalWrapper = styled.form`
       color: ${COLORS["blue-black"]};
     }
     &__select-currency {
+      padding-top: 2.3rem;
+      color: ${COLORS["moore-grey"]};
       width: 11.8rem;
       height: 6.4rem;
       margin-left: 2.4rem;
       border-radius: 0.5rem;
       border: 1px solid ${COLORS["moore-grey"]};
+      align-items: center;
     }
   }
   .cancel-btn {
     width: 30.8rem;
     height: 5.1rem;
-    border: 1px solid #9a9aa9;
+    border: 1px solid ${COLORS["moore-grey"]};
     background-color: ${COLORS.white};
     border-radius: 0.5rem;
-    color: #9a9aa9;
+    color: ${COLORS["moore-grey"]};
     margin-top: 1.6rem;
   }
   .save-btn {
@@ -126,7 +133,7 @@ export const SecondModalWrapper = styled.form`
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: #626262;
+    color: ${COLORS["grey-200"]};
   }
 
   .copy {
@@ -134,7 +141,7 @@ export const SecondModalWrapper = styled.form`
       display: flex;
       position: relative;
       width: 46.6rem;
-      border: 1px solid #ff576b;
+      border: 1px solid ${COLORS.pink};
       border-radius: 0.5rem;
     }
     &__button {
@@ -163,7 +170,7 @@ export const CopyText = styled.textarea`
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
   font-size: 1.47038rem;
-  color: ${COLORS["gray-500"]};
+  color: ${COLORS["moore-grey"]};
 `;
 
 export const SecondButtonsContainer = styled.div`

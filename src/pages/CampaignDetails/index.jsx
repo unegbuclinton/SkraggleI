@@ -44,7 +44,8 @@ const CampaignDetails = () => {
     },
   ];
 
-  const name = useLocation().state.campaign;
+  const location = useLocation();
+  const name = location.state.campaign;
 
   return (
     <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Campaign" to="/campaign" names={name}/>} >

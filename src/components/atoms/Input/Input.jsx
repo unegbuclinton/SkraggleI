@@ -12,12 +12,13 @@ const Input = ({
   id,
   onBlur,
   className,
+  containerClass,
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
 
   return (
-    <Container>
+    <Container className={containerClass}>
       <InputField
         className={className}
         disabled={disabled}

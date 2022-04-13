@@ -19,7 +19,7 @@ const P2PTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Checkbox/>,
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
       width: "5rem",
     },
@@ -67,9 +67,7 @@ const P2PTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState("Filters");
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
@@ -86,7 +84,7 @@ const P2PTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -100,7 +98,6 @@ const P2PTable = () => {
           <Table
             columns={columns}
             data={currentList}
-            onRowClicked={onRowClicked}
           />
         </TableWrapper>
       </ContainerBody>

@@ -1,18 +1,14 @@
  [
     {
       "id": "1",
-      "name": "Filters"
-    },
-    {
-      "id": "2",
       "name": "One"
     },
     {
-      "id": "3",
+      "id": "2",
       "name": "Two"
     },
     {
-      "id": "4",
+      "id": "3",
       "name": "Three"
     }
   ]

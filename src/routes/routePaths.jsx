@@ -105,7 +105,7 @@ const routePaths = [
         element: <MailBlast />,
       },
       {
-        path: ':id',
+        path: ':name',
         element: <MonthlyNewsteller />,
       },
     ],
