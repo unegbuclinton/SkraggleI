@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routePaths";
 
 const Routing = () => {
-  const [isLogged, setIsLogeged] = useState(false);
+  let isLogged = false
 
   function PrivateRoute() {
     return isLogged ? <Outlet /> : <Navigate to="/login" />;
