@@ -21,7 +21,7 @@ export const SearchbarWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1;
   background-color: transparent;
   width: 100%;

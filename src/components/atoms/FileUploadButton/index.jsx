@@ -67,7 +67,7 @@ export const UploadButtonWrapper = styled.button`
   width: 12.6rem;
   height: 8.1rem;
   background-color: ${COLORS.white};
-  border: 1px solid ${COLORS['gray-500']};
+  border: 1px solid ${COLORS["gray-500"]};
   border-radius: 0.5rem;
 `;
 

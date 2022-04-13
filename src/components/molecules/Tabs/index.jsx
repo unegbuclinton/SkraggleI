@@ -1,8 +1,8 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Card from '../../atoms/Card';
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import Card from "../../atoms/Card";
 const Tabs = ({ tabs, actionComponent, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
@@ -19,7 +19,9 @@ const Tabs = ({ tabs, actionComponent, ...rest }) => {
             </TabButton>
           ))}
         </div>
-        <span>{actionComponent}</span>
+        {tabs[activeTab]?.actionComponent && (
+          <span>{tabs[activeTab]?.actionComponent}</span>
+        )}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
@@ -28,7 +30,6 @@ const Tabs = ({ tabs, actionComponent, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
-  /* overflow-x: auto; */
 `;
 
 const TabContainer = styled(Card)`
@@ -36,6 +37,7 @@ const TabContainer = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  overflow-x: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
@@ -46,14 +48,14 @@ const TabButton = styled.button`
   cursor: pointer;
   background: transparent;
   padding-bottom: 1.296rem;
-  color: ${COLORS['grey-400']};
+  color: ${COLORS["grey-400"]};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 0;
     height: 2px;
     background: ${COLORS.pink};

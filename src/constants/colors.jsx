@@ -43,4 +43,5 @@ export const COLORS = {
   'success-background': 'rgba(125, 194, 55, 0.2)',
   'error-background': 'rgba(255, 87, 107, 0.2)',
   'dark-gray':'#7B7B7B',
+  "grey-400.2": "rgba(88, 88, 88, .2)",
 };

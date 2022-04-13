@@ -15,13 +15,15 @@ const Modal = ({
   className,
   rounded,
   showClose,
+  plain,
+  contrast,
   ...rest
 }) => {
   const modal = (
     <div>
-      <Backdrop onClick={hide} />
+      <Backdrop onClick={hide} plain={plain}/>
       <Wrapper rounded {...rest}>
-        <Header rounded>
+        <Header rounded contrast={contrast}>
           {showClose && <DPIconClose className="close-btn" onClick={hide} />}
           {header}
         </Header>
@@ -41,7 +43,7 @@ export const Wrapper = styled.div`
   position: fixed;
   left: 50%;
   top: 8rem;
-  z-index: 700;
+  z-index: 30;
   width: 65rem;
   outline: 0;
   transform: translateX(-50%);
@@ -58,8 +60,14 @@ export const Backdrop = styled.div`
   top: 0;
   left: 0;
   background: ${COLORS["shim-black"]};
-  z-index: 500;
+  z-index: 20;
   cursor: pointer;
+
+  ${({ plain }) =>
+    plain &&
+    css`
+      background: ${COLORS.white};
+    `};
 `;
 
 export const Header = styled.div`
@@ -76,6 +84,13 @@ export const Header = styled.div`
     rounded &&
     css`
       border-radius: 5px 5px 0 0;
+    `};
+  ${({ contrast }) =>
+    contrast &&
+    css`
+      background-color: ${COLORS.white};
+      color: ${COLORS.deepPurple};
+      font-size: ${FONTSIZES.xxlarge};
     `};
   .close-btn {
     position: absolute;

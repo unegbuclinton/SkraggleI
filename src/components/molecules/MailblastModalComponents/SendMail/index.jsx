@@ -3,11 +3,11 @@ import { COLORS } from "constants/colors";
 import styled from "styled-components";
 import Button from "components/atoms/Button/Button";
 
-function SendMail() {
+function SendMail({ onCloseModal }) {
   return (
     <MailWrapper>
       <div className="btn-wrapper">
-        <Button invert auth className="send-cancel-btn">
+        <Button invert auth className="send-cancel-btn" onClick={onCloseModal}>
           Cancel
         </Button>
         <Button auth className="send-save-btn">

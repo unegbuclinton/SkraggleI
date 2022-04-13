@@ -30,13 +30,10 @@ function MailBlast() {
       title: "Archive",
       component: <Archive />,
     },
-   
   ];
   return (
     <DashboardLayout>
-      <Tabs
-        tabs={mail}
-      />
+      <Tabs tabs={mail} />
     </DashboardLayout>
   );
 }

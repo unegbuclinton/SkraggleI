@@ -6,17 +6,19 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
-
+import CreateTemplateModal from "../MailblasModals/CreateTemplate";
+import Checkbox from "components/atoms/CheckBox";
 
 function SavedTemplate() {
+  const [show, setShow] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-
   const columns = [
     {
       name: "",
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
@@ -52,8 +54,11 @@ function SavedTemplate() {
             className="table-header"
             header="1 Custom Template"
             title="Create Template"
+            setOpen={setShow}
           />
+          {show && <CreateTemplateModal isShown={show} onCloseModal ={()=> setShow(false)}/>}  
         </div>
+
         <div className="table-container">
           <Table
             columns={columns}

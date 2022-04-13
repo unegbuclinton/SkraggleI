@@ -28,6 +28,7 @@ const Input = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        value={value}
       />
       {type === "password" && (
         <InputFieldIcon onClick={toggleShowPassword}>
