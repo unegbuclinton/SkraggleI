@@ -36,7 +36,6 @@ export { ReactComponent as DPIconChevronDown } from "icons/svgs/chevronDown.svg"
 export { ReactComponent as DPIconCancel } from "icons/svgs/cancel.svg";
 export { ReactComponent as DPIconPageNavigation } from "icons/svgs/pageNavigation.svg";
 export { ReactComponent as DPIconUploadFile } from "icons/svgs/UploadIcon.svg";
-export { ReactComponent as DPIconChevronDown } from 'icons/svgs/chevronDown.svg';
 export { ReactComponent as DPIconDropDown } from 'icons/svgs/DropdownArrow.svg';
 export { ReactComponent as DPIconCopy } from 'icons/svgs/CopyButton.svg';
 export { ReactComponent as DPIconCarouselImage } from 'icons/svgs/carousel.svg';
