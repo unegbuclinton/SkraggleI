@@ -8,6 +8,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.34.0",
+    "axios": "^0.26.1",
     "datejs": "^1.0.0-rc3",
     "dayjs": "^1.11.0",
     "formik": "^2.2.9",
@@ -20,6 +21,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "redux-persist": "^6.0.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
