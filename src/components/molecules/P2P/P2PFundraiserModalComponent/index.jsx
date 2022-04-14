@@ -1,7 +1,6 @@
 import { React, useRef, useState } from "react";
 import Modal from "components/layouts/Modal";
 import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
 import Button from "components/atoms/Button/Button";
 import data from "utilities/filterData";
 import Input from "components/atoms/Input/Input";
@@ -23,6 +22,10 @@ const P2PModalComponent = ({ onClose, isShown }) => {
     e.preventDefault();
     setShowFirstModal(false);
   };
+
+  const [selectedCampaign, setSelectedCampaign] = useState("Filters");
+  const [selectedDesignation, setSelectedDesignation] = useState("Filters");
+  const [selected, setSelected] = useState("Filters");
 
   const [showFirstModal, setShowFirstModal] = useState(true);
   const textAreaRef = useRef(null);
@@ -47,11 +50,15 @@ const P2PModalComponent = ({ onClose, isShown }) => {
             <Card>
               <h1>CAMPAIGN</h1>
               <DropdownComponent
+                selected={selectedCampaign}
+                setSelected={setSelectedCampaign}
                 data={data}
                 className="dropdown__select-campaign"
               />
               <h1>DESIGNATION</h1>
               <DropdownComponent
+                selected={selectedDesignation}
+                setSelected={setSelectedDesignation}
                 data={data}
                 className="dropdown__select-designation"
               />
@@ -83,10 +90,13 @@ const P2PModalComponent = ({ onClose, isShown }) => {
               <div className="select-goals">
                 <Input
                   className="modal-inputs__goals"
+                  containerClass="modal-inputs__container-input"
                   type="text"
                   placeholder="Enter Amount"
                 />
-                <CustomDropdown
+                <DropdownComponent
+                  selected={selected}
+                  setSelected={setSelected}
                   data={data}
                   className="dropdown__select-currency"
                 />

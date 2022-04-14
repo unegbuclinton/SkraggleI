@@ -85,9 +85,7 @@ const LandingPagesTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState("Filters");
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
@@ -103,7 +101,7 @@ const LandingPagesTable = () => {
               <h1>88 Landing Pages</h1>
             </div>
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -114,11 +112,7 @@ const LandingPagesTable = () => {
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

@@ -177,3 +177,10 @@ export const ArchiveWrapper = styled.div`
     }
   }
 `;
+
+export const Assignee = styled.div`
+display: flex;
+gap: 2.4rem;
+justify-content: center;
+align-items: center;
+`

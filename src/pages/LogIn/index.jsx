@@ -61,14 +61,16 @@ const LogIn = () => {
           {formik.touched.password && formik.errors.password ? (
             <ErrorMessage>{formik.errors.password}</ErrorMessage>
           ) : null}
-          <LoginLink className="forgot-password" to={'/forgotpassword'}>
-            Forgot Password?
-          </LoginLink>
+          <div className="forgot-password__container">
+            <LoginLink className="forgot-password" to={"/forgotpassword"}>
+              Forgot Password?
+            </LoginLink>
+          </div>
           <Button className="login-button">LOG IN</Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {' '}
+              {" "}
               Sign Up
             </LoginLink>
           </p>

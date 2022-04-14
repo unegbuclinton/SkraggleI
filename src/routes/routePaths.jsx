@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
-import ForgotPassword from "components/molecules/ForgotPassword";
-import LogIn from "components/molecules/LogIn";
+import ForgotPassword from "pages/ForgotPassword";
+import LogIn from "pages/LogIn";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
@@ -23,35 +23,7 @@ import RegistrationPackage from "components/molecules/EventsDetails/Registration
 import Test from "pages/Test";
 import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
 
-const routePaths = [
-  {
-    path: "/",
-    element: <Link to="/login">Go to Login</Link>,
-  },
-  {
-    path: "/login",
-    element: <LogIn />,
-  },
-  {
-    path: "/forgotpassword",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "/signup",
-    element: <Registration />,
-  },
-  {
-    path: "/reset-password",
-    element: <ResetPassword />,
-  },
-  {
-    path: "/resend-verification",
-    element: <ResendVerification />,
-  },
-  {
-    path: "/send-verification",
-    element: <SendVerification />,
-  },
+export const privateRoutes = [
   {
     path: "dashboard/*",
     element: <Outlet />,
@@ -191,4 +163,33 @@ const routePaths = [
   },
 ];
 
-export default routePaths;
+export const publicRoutes = [
+  {
+    path: "/",
+    element: <Link to="/login">Go to Login</Link>,
+  },
+  {
+    path: "/login",
+    element: <LogIn />,
+  },
+  {
+    path: "/forgotpassword",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/signup",
+    element: <Registration />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/resend-verification",
+    element: <ResendVerification />,
+  },
+  {
+    path: "/send-verification",
+    element: <SendVerification />,
+  },
+];
