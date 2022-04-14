@@ -3,6 +3,9 @@ import Tabs from 'components/molecules/Tabs';
 import React from 'react';
 import styled from 'styled-components';
 import DonationsSummary from './Summary';
+import Pledge from './Pledges';
+import Admin from './Admin';
+import Receipts from './Receipts';
 
 const Donations = () => {
   const tabs = [
@@ -10,9 +13,9 @@ const Donations = () => {
     { title: 'Forecasting', component: <h2>Content Two renders here!</h2> },
     { title: 'Transaction', component: <h2>Content Three renders here!</h2> },
     { title: 'Recurring', component: <h2>Content Four renders here!</h2> },
-    { title: 'Pledges', component: <h2>Content Five renders here!</h2> },
-    { title: 'Admin', component: <h2>Content Six renders here!</h2> },
-    { title: 'Receipts', component: <h2>Content Seven renders here!</h2> },
+    { title: 'Pledges', component: <Pledge/> },
+    { title: 'Admin', component: <Admin/>},
+    { title: 'Receipts', component: <Receipts/> },
   ];
   return (
     <DashboardLayout>

@@ -47,3 +47,4 @@ export { ReactComponent as DPIconEmailShare } from 'icons/svgs/emailShare.svg';
 export { ReactComponent as DPIconCopyWhite } from 'icons/svgs/copyWhite.svg';
 export { ReactComponent as DPIconLeaderBoard } from 'icons/svgs/leaderboard.svg';
 export { ReactComponent as DPIconAssignee } from 'icons/svgs/assignee.svg';
+export { ReactComponent as DPIconDelete } from 'icons/svgs/delete.svg';

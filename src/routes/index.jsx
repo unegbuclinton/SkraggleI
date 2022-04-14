@@ -2,7 +2,7 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routePaths";
 
 const Routing = () => {
-  let isLogged = false
+  let isLogged = true
 
   function PrivateRoute() {
     return isLogged ? <Outlet /> : <Navigate to="/login" />;
@@ -37,7 +37,7 @@ const Routing = () => {
             />
           );
         }
-
+        
         return (
           <Route
             key={Math.random()}
