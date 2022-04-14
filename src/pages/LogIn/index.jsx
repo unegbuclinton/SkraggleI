@@ -1,22 +1,35 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import ErrorMessage from "components/atoms/ErrorMessage";
-import Input from "components/atoms/Input/Input";
-import AuthLayout from "components/layouts/AuthLayout";
-import { useFormik } from "formik";
-import React from "react";
-import { loginSchema } from "validation/Schema";
-import { FormWrapper, LoginLink } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import ErrorMessage from 'components/atoms/ErrorMessage';
+import Input from 'components/atoms/Input/Input';
+import AuthLayout from 'components/layouts/AuthLayout';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { persistedReducer } from 'store';
+import { loginSchema } from 'validation/Schema';
+import { FormWrapper, LoginLink } from './styles';
 
 const LogIn = () => {
+  const { auth } = useSelector((state) => state);
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  console.log(auth);
   const formik = useFormik({
     initialValues: {
-      password: "",
+      email: '',
+      password: '',
     },
     validationSchema: loginSchema,
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      // dispatch(login({ token: 'fateh' }));
+      navigate('/dashboard');
+      persistedReducer.pause();
+      persistedReducer.purge();
     },
   });
   return (
@@ -31,7 +44,7 @@ const LogIn = () => {
             name="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.password}
+            value={formik.values.email}
           />
           {formik.touched.email && formik.errors.email ? (
             <ErrorMessage>{formik.errors.email}</ErrorMessage>
