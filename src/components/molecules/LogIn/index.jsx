@@ -5,7 +5,7 @@ import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { persistedReducer } from 'store';
 import { loginSchema } from 'validation/Schema';
@@ -27,9 +27,9 @@ const LogIn = () => {
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
       // dispatch(login({ token: 'fateh' }));
-     navigate('/dashboard')
-      persistedReducer.pause()
-        persistedReducer.purge();
+      navigate('/dashboard');
+      persistedReducer.pause();
+      persistedReducer.purge();
     },
   });
   return (
