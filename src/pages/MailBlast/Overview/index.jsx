@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 function Overview({...props }) {
   console.log(props)
   const location= useLocation()
-  console.log(location?.state)
+
   return (
     <NewstellerWrapper>
       <Card>

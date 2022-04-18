@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import SubscriptionUpdate from "components/molecules/MailblastModalComponents/SubscriptionUpdate";
+import CreateTransaction from "components/molecules/DonationModals/CreateTransaction/DonationInfomation";
+import RecurringInformation from "components/molecules/DonationModals/Recurring/RecurringInfomation";
+
 const Test = () => {
   return (
     <Wrapper>
-      <SubscriptionUpdate />
+      <RecurringInformation />
     </Wrapper>
   );
 };

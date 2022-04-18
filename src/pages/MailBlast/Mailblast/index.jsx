@@ -11,8 +11,10 @@ import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Pagination from "components/molecules/Pagination";
 import NameLogo from "components/molecules/NameLogo";
 import Checkbox from "components/atoms/CheckBox";
+import CreateMailModal from "../MailblasModals/CreateMail";
 
 function Mail() {
+  const [show, setShow] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -41,7 +43,7 @@ function Mail() {
     },
     {
       name: "STATUS",
-      selector: (row) => row.created,
+
       cell: (ow) => (
         <Button pill error className="mail-btn">
           Sent
@@ -101,7 +103,14 @@ function Mail() {
             className="table-header"
             header="4 Mail Blasts"
             title="New Mail Blasts"
+            setOpen={setShow}
           />
+          {show && (
+            <CreateMailModal
+              isShown={show}
+              onCloseModal={() => setShow(false)}
+            />
+          )}
         </div>
         <div className="table-container">
           <Table
