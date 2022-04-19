@@ -1,3 +1,5 @@
+
+import { COLORS } from "constants/colors";
 import { FONTSIZES } from "constants/font-spec";
 import { DPIconSkraggleCheck } from "icons";
 import styled, { css } from "styled-components";
@@ -10,6 +12,17 @@ export const CheckboxContainer = styled.label`
     font-size: ${FONTSIZES.small};
     margin-left: 0.778rem;
   }
+
+  ${({ pink }) =>
+    pink &&
+    css`
+      svg {
+        path {
+          fill: ${COLORS.pink};
+        }
+      }
+      border-color: ${COLORS.pink};
+    `};
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
@@ -33,7 +46,7 @@ export const StyledCheckbox = styled.div`
   align-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  border: 2px solid ${({ checked }) => (checked ? "#00913A" : "#E6EFF1")};
+  border: 2px solid ${({ checked,pink }) => (checked && pink ? '#FF576B' : checked ? "#00913A" : "#E6EFF1")};
   border-radius: 5px;
   transition: all 150ms;
 

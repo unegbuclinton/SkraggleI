@@ -7,6 +7,7 @@ import Card from "components/atoms/Card";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Button from "components/atoms/Button/Button";
 import RecurringModal from "../DonationModals/RecurringModal";
+import Checkbox from "components/atoms/CheckBox";
 
 function DonationRecurring() {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,7 @@ function DonationRecurring() {
     {
       name: "",
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
@@ -141,7 +142,13 @@ function DonationRecurring() {
             title="Create New"
             setOpen={setShowModal}
           />
-          {showModal && <RecurringModal onCloseModal={()=>{setShowModal(false)}}/>}
+          {showModal && (
+            <RecurringModal
+              onCloseModal={() => {
+                setShowModal(false);
+              }}
+            />
+          )}
         </div>
         <div className="table-container">
           <Table columns={columns} data={mail} />

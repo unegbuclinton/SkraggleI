@@ -6,6 +6,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import CreateTransactionModal from "../DonationModals/CreateTransactionModal";
+import Checkbox from "components/atoms/CheckBox";
 
 function Transaction() {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +14,7 @@ function Transaction() {
     {
       name: "",
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: (row) => <Checkbox />,
       width: "3.069rem",
     },
     {
