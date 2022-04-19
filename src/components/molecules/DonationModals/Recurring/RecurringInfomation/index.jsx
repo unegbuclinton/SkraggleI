@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
 import Checkbox from "components/atoms/CheckBox";
@@ -10,7 +10,7 @@ import styled from "styled-components";
 import data from "utilities/filterData.json";
 
 function RecurringInformation({onChangeModal,onCloseModal}) {
-  const [selected, setSelected] = useState("Filters");
+ 
   return (
     <InformationWrapper>
       <Card className="donation-card">

@@ -4,12 +4,11 @@ import DropdownComponent from "components/atoms/Dropdown";
 import Input from "components/atoms/Input/Input";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
 function DonationAssociation({ onChangeModal, onRevertModal }) {
-  const [selected, setSelected] = useState("Filters");
   return (
     <AssociationWrapper>
       <Card className="association-card">

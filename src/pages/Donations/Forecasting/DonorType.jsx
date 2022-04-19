@@ -107,4 +107,4 @@ const TypeHeader = styled.div`
   }
 `;
 
-const TransactionChart = styled.div``;
+

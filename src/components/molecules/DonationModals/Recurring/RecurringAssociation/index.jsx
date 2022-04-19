@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DropdownComponent from "components/atoms/Dropdown";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
@@ -9,7 +9,6 @@ import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
 
 function RecurringAssociation({show}) {
-  const [selected, setSelected] = useState("Filters");
   return (
     <AssociationWrapper>
       <Card className="association-card">
