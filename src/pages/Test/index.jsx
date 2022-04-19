@@ -2,6 +2,8 @@ import RadioGroup from 'components/atoms/RadioGroup';
 import SubscriptionUpdate from 'components/molecules/MailblastModalComponents/SubscriptionUpdate';
 import React from 'react';
 import styled from 'styled-components';
+import Checkbox from 'components/atoms/CheckBox';
+
 const Test = () => {
   return (
     <Wrapper>
@@ -15,6 +17,7 @@ const Test = () => {
           },
         ]}
       />
+      <Checkbox  radial inverted checked={true} /> 
     </Wrapper>
   );
 };
