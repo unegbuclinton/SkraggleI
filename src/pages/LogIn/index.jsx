@@ -23,9 +23,7 @@ const LogIn = () => {
       password: '',
     },
     validationSchema: loginSchema,
-
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
       // dispatch(login({ token: 'fateh' }));
       navigate('/dashboard');
       persistedReducer.pause();
