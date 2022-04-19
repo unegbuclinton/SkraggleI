@@ -1,10 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import SubscriptionUpdate from "components/molecules/MailblastModalComponents/SubscriptionUpdate";
+import Checkbox from 'components/atoms/CheckBox';
+import RadioGroup from 'components/atoms/RadioGroup';
+import React from 'react';
+import styled from 'styled-components';
+
 const Test = () => {
   return (
     <Wrapper>
-      <SubscriptionUpdate />
+      <RadioGroup
+        radioData={[
+          { labelText: 'First', value: 1 },
+          {
+            labelText: 'Lorem ipsum, dolor sit amet consectetur',
+            value: 2,
+          },
+        ]}
+      />
+      <Checkbox radial inverted checked={true} />
     </Wrapper>
   );
 };
@@ -12,8 +23,8 @@ const Test = () => {
 export default Test;
 
 const Wrapper = styled.div`
-  .checkbox {
+  /* .checkbox {
     width: 2rem;
     height: 2rem;
-  }
+  } */
 `;
