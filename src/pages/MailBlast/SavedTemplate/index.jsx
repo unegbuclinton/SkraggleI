@@ -56,7 +56,7 @@ function SavedTemplate() {
             title="Create Template"
             setOpen={setShow}
           />
-          {show && <CreateTemplateModal isShown={show} onCloseModal ={()=> setShow(false)}/>}  
+          {show && <CreateTemplateModal isShown={show} onCloseModal ={()=> setShow(false)}/>}   
         </div>
 
         <div className="table-container">

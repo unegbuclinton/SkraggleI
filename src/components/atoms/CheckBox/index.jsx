@@ -21,9 +21,10 @@ const Checkbox = ({ className, styledClass, label, radial, checked, inverted, ..
       />
       <StyledCheckbox checked={checked || state} radial={radial} inverted={inverted} className={styledClass}>
         <CheckIcon />
-      </StyledCheckbox>
+      </StyledCheckbox >
       <p className="label-text">{label}</p>
     </CheckboxContainer>
   );
 };
 export default Checkbox;
+
