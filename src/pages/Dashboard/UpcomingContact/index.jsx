@@ -16,17 +16,17 @@ function UpcomingContact() {
     {
       name: "Contact",
       selector: (row) => row.contact,
-      width: "20.725rem",
+      width: "30.725rem",
     },
     {
       name: "TO-DO",
       selector: (row) => row.toDo,
-      width: "20.766rem",
+      width: "40.766rem",
     },
     {
       name: "Due Date",
       selector: (row) => row.dueDate,
-      width: "25.494rem",
+      width: "35.494rem",
     },
     {
       name: "Status",

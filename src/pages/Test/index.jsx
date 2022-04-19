@@ -1,21 +1,11 @@
-import Checkbox from 'components/atoms/CheckBox';
-import RadioGroup from 'components/atoms/RadioGroup';
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Checkbox from "components/atoms/CheckBox";
 
 const Test = () => {
   return (
     <Wrapper>
-      <RadioGroup
-        radioData={[
-          { labelText: 'First', value: 1 },
-          {
-            labelText: 'Lorem ipsum, dolor sit amet consectetur',
-            value: 2,
-          },
-        ]}
-      />
-      <Checkbox radial inverted checked={true} />
+      <Checkbox />
     </Wrapper>
   );
 };

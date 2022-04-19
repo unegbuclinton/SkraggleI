@@ -52,7 +52,7 @@ const TabButton = styled.button`
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
-
+    
   &::after {
     position: absolute;
     content: "";
@@ -60,7 +60,7 @@ const TabButton = styled.button`
     height: 2px;
     background: ${COLORS.pink};
     bottom: 0px;
-    z-index: 100;
+    z-index: 1;
     left: 0;
   }
   ${({ active }) =>
