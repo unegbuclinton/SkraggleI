@@ -5,8 +5,10 @@ import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
+import CreateTransactionModal from "../DonationModals/CreateTransactionModal";
 
 function Transaction() {
+  const [showModal, setShowModal] = useState(false);
   const columns = [
     {
       name: "",
@@ -124,7 +126,9 @@ function Transaction() {
             className="table-header"
             header="1,014 Transactions"
             title="Create New"
+            setOpen={setShowModal}
           />
+          {showModal && <CreateTransactionModal onCloseModal={()=>{setShowModal(false)}}/>}
         </div>
         <div className="table-container">
           <Table columns={columns} data={mail} />

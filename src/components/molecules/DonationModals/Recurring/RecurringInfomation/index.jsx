@@ -9,10 +9,10 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
-function RecurringInformation() {
+function RecurringInformation({onChangeModal,onCloseModal}) {
   const [selected, setSelected] = useState("Filters");
   return (
-    <DonationWrapper>
+    <InformationWrapper>
       <Card className="donation-card">
         <DonationLabel>
           <p className="donation-label">Contact</p>
@@ -38,26 +38,34 @@ function RecurringInformation() {
         </DonationLabel>
 
         <DonationLabel>
+          <p className="donation-label">Billing Cycle Every</p>
+          <div className="billing">
+            <Input className="billing-input" placeholder="$" />
+            <DropdownComponent className="billing-dropdown" data={data} />
+          </div>
+        </DonationLabel>
+
+        <DonationLabel>
           <p className="donation-label">Recept Setting</p>
           <DropdownComponent className="donation-dropdown" data={data} />
         </DonationLabel>
 
-        <div className="donation-footer">
-          <Button invert auth className="donation-cancel-btn">
+        <div className="donation-footer" >
+          <Button invert auth className="donation-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
-          <Button auth className="donation-save-btn">
+          <Button auth className="donation-save-btn" onClick={onChangeModal}>
             Next
           </Button>
         </div>
       </Card>
-    </DonationWrapper>
+    </InformationWrapper>
   );
 }
 
 export default RecurringInformation;
 
-const DonationWrapper = styled.div`
+const InformationWrapper = styled.div`
   .donation-card {
     padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 
@@ -102,6 +110,27 @@ const DonationLabel = styled.div`
     border: 1px solid ${COLORS["moore-grey"]};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
+  }
+  .billing {
+    max-width: 30.4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+
+    &-input {
+      max-width: 11.9rem;
+      height: 6.4rem;
+      background-color: transparent;
+      border: 1px solid ${COLORS["moore-grey"]};
+    }
+
+    &-dropdown {
+      max-width: 16.9rem;
+      height: 6.4rem;
+      border: 1px solid ${COLORS["moore-grey"]};
+      border-radius: 0.5rem;
+    }
   }
 `;
 

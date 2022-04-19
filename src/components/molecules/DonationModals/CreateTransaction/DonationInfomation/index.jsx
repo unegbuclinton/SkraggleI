@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
-function DonationInformation() {
+function DonationInformation({ onCloseModal, onChangeModal }) {
   const [selected, setSelected] = useState("Filters");
   return (
     <TransactionWrapper>
@@ -47,10 +47,15 @@ function DonationInformation() {
         </TransactionInput>
 
         <div className="transaction-footer">
-          <Button invert auth className="transaction-cancel-btn">
+          <Button
+            invert
+            auth
+            className="transaction-cancel-btn"
+            onClick={onCloseModal}
+          >
             Cancel
           </Button>
-          <Button auth className="transaction-save-btn">
+          <Button auth className="transaction-save-btn" onClick={onChangeModal}>
             Next
           </Button>
         </div>
@@ -63,7 +68,7 @@ export default DonationInformation;
 
 const TransactionWrapper = styled.div`
   .transaction-card {
-    padding: 3.2rem 2.4rem 2.4rem 2.4rem;
+    padding: 3.2rem 1.4rem 2.4rem 2.4rem;
 
     .transaction-footer {
       display: flex;

@@ -4,7 +4,8 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React from "react";
 import styled from "styled-components";
 
-function CompleteTransaction() {
+
+function CompleteTransaction({onCloseModal,onRevertModal}) {
   return (
     <CompleteWrapper>
       <Card className="payment-card">
@@ -19,11 +20,11 @@ function CompleteTransaction() {
         </div>
 
         <div className="payment-footer">
-          <Button invert auth className="payment-cancel-btn">
-            Cancel
+          <Button invert auth className="payment-cancel-btn" onClick={onRevertModal}>
+            Back
           </Button>
           <Button auth className="payment-save-btn">
-            Next
+            Save
           </Button>
         </div>
       </Card>

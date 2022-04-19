@@ -6,8 +6,10 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import Card from "components/atoms/Card";
 import TableHeader from "components/molecules/TableHeader/TableHeader";
 import Button from "components/atoms/Button/Button";
+import RecurringModal from "../DonationModals/RecurringModal";
 
 function DonationRecurring() {
+  const [showModal, setShowModal] = useState(false);
   const columns = [
     {
       name: "",
@@ -49,7 +51,7 @@ function DonationRecurring() {
     {
       id: 1,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       status: "",
       type: "Gift",
@@ -57,64 +59,64 @@ function DonationRecurring() {
     {
       id: 2,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
-      
+
       type: "Gift",
     },
     {
       id: 3,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 4,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 5,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 6,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 7,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 8,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 9,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
     {
       id: 10,
       contact: "Mohammed Adam",
-      amount: '$500.00',
+      amount: "$500.00",
       billingCycle: "Monthly",
       type: "Gift",
     },
@@ -137,7 +139,9 @@ function DonationRecurring() {
             className="table-header"
             header="1,014 recurrings"
             title="Create New"
+            setOpen={setShowModal}
           />
+          {showModal && <RecurringModal onCloseModal={()=>{setShowModal(false)}}/>}
         </div>
         <div className="table-container">
           <Table columns={columns} data={mail} />
