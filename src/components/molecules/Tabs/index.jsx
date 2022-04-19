@@ -50,7 +50,7 @@ const TabButton = styled.button`
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
-
+    
   &::after {
     position: absolute;
     content: "";
