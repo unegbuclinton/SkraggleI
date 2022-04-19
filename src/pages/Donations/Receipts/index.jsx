@@ -2,7 +2,7 @@ import { React, useState } from "react";
 
 import datas from "utilities/filterData";
 import { ReceiptsData } from "utilities/donationData";
-import { DPIconAssignee, DPPlusIcon } from "icons";
+import { DPIconAssignee } from "icons";
 
 import Button from "components/atoms/Button/Button";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
@@ -15,7 +15,6 @@ import Card from "components/atoms/Card";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import CreateCampaignModal from "components/molecules/Campaign/CreateCampaignModal";
 
 const Receipts = () => {
   const columns = [

@@ -15,7 +15,7 @@ import Card from "components/atoms/Card";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import CreateCampaignModal from "components/molecules/Campaign/CreateCampaignModal";
+import NewAdminModal from "components/molecules/DonationModals/NewAdminModal";
 
 const Admin = () => {
   const columns = [
@@ -98,7 +98,7 @@ const Admin = () => {
                 Create New
               </Button>
               {modalIsOpen && (
-                <CreateCampaignModal
+                <NewAdminModal
                   isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
