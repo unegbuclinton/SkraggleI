@@ -12,10 +12,6 @@ import styled from "styled-components";
 import { ReceiptsData } from "utilities/donationData";
 import datas from "utilities/filterData";
 
-
-
-
-
 const Receipts = () => {
   const columns = [
     {
