@@ -8,7 +8,7 @@ function SubscriptionUpdate() {
   return (
     <SubscriptionUpdateWrapper>
       <div className="status-alert">
-        <Checkbox radial /> Subscription Status Updated.
+        <Checkbox checked={true}radial /> Subscription Status Updated.
       </div>
       <p> Subscription Status Updated.</p>
     </SubscriptionUpdateWrapper>
