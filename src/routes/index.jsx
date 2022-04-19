@@ -1,19 +1,58 @@
-import { Route, Routes } from 'react-router-dom';
-import routePaths from './routePaths';
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { privateRoutes, publicRoutes } from "./routePaths";
 
 const Routing = () => {
-  // let isAuthenticated = true;
-  // const PrivateWrapper = ({ isAuthenticated, ...props }) => {
-  //   return isAuthenticated ? <Route {...props} /> : <Navigate to="/" />;
-  // };
+  let isLogged = true
+
+  function PrivateRoute() {
+    return isLogged ? <Outlet /> : <Navigate to="/login" />;
+  }
   return (
     <Routes>
-      {routePaths.map((route) => {
+      {privateRoutes.map((route) => {
         if (route.children) {
           const Children = () => {
             return (
               <Routes>
                 {route?.children?.map((child, index) => {
+                  return (
+                    <Route element={<PrivateRoute />}>
+                      <Route
+                        path={child.path}
+                        key={index}
+                        index={child.index}
+                        element={child.element}
+                      />
+                    </Route>
+                  );
+                })}
+              </Routes>
+            );
+          };
+          return (
+            <Route
+              key={Math.random()}
+              path={route.path}
+              element={<Children />}
+            />
+          );
+        }
+        
+        return (
+          <Route
+            key={Math.random()}
+            path={route.path}
+            element={route.element}
+          />
+        );
+      })}
+
+      {publicRoutes.map((publicRoute) => {
+        if (publicRoute.children) {
+          const Children = () => {
+            return (
+              <Routes>
+                {publicRoute?.children?.map((child, index) => {
                   return (
                     <Route
                       path={child.path}
@@ -29,7 +68,7 @@ const Routing = () => {
           return (
             <Route
               key={Math.random()}
-              path={route.path}
+              path={publicRoute.path}
               element={<Children />}
             />
           );
@@ -38,8 +77,8 @@ const Routing = () => {
         return (
           <Route
             key={Math.random()}
-            path={route.path}
-            element={route.element}
+            path={publicRoute.path}
+            element={publicRoute.element}
           />
         );
       })}
@@ -48,3 +87,4 @@ const Routing = () => {
 };
 
 export default Routing;
+  

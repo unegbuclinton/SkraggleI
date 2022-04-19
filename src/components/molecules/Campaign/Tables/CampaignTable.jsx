@@ -66,6 +66,8 @@ const CampaignTable = () => {
     navigate(`/campaign/${row.key + 1}`, { state: row });
   };
 
+  const [selected, setSelected] = useState("Filters");
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
@@ -78,7 +80,7 @@ const CampaignTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"

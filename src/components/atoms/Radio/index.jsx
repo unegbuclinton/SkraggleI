@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Fill, Input, Label, Root } from './styles';
+import { Fill, Input, Root, Wrapper } from './styles';
 
 const Radio = (props) => {
   const { onChange, value, labelText, checked, name } = props;
 
   return (
-    <Root {...props}>
-      <Label>
-        <span className="label-text">{labelText}</span>
+    <Wrapper>
+      <Root {...props}>
         <span>
           <Input
             type="radio"
@@ -20,8 +19,9 @@ const Radio = (props) => {
           />
           <Fill />
         </span>
-      </Label>
-    </Root>
+      </Root>
+      <span>{labelText}</span>
+    </Wrapper>
   );
 };
 

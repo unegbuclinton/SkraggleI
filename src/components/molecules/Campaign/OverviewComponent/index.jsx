@@ -1,5 +1,5 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "components/atoms/Button/Button";
 import DropdownComponent from "components/atoms/Dropdown";
 
@@ -33,18 +33,20 @@ const CampaignOverview = () => {
     },
   ];
 
+  const [selected, setSelected] = useState("Filters");
+
   let navigate = useNavigate();
   const HandleButtonClick = () => {
     navigate("/donations");
   };
-  const location= useLocation()
-  console.log(location?.state)
   return (
     <MainWrapper>
       <LeftSection>
         <ContainerDropdwon>
           <DropdownComponent
             data={data}
+            selected={selected}
+            setSelected={setSelected}
             className="action-dropdown__container"
             content
             iconDropdown="dropdown-icon"

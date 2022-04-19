@@ -43,6 +43,7 @@ const CampaignDetails = () => {
       component: <MailBlastTable />,
     },
   ];
+
   const location = useLocation();
   const name = location.state.campaign;
 

@@ -5,18 +5,14 @@ import { NewstellerTop } from "./styles";
 import Button from "components/atoms/Button/Button";
 import { NewstellerBody } from "./styles";
 import StatisticsTracker from "components/molecules/StatisticsTracker";
-import { useLocation } from "react-router-dom";
 
-function Overview({...props }) {
-  console.log(props)
-  const location= useLocation()
-  console.log(location?.state)
+function Overview({ ...props }) {
   return (
     <NewstellerWrapper>
       <Card>
         <NewstellerTop>
           <div className="newsteller-left">
-            <div className="top"> 
+            <div className="top">
               <p>Mail Blasts Overview</p>
               <p>Associated Campaign</p>
             </div>
@@ -42,7 +38,7 @@ function Overview({...props }) {
               colour="#FF576B"
               num="(32)"
               value="20"
-              header='Delivered'
+              header="Delivered"
               text="Unopened"
             />
             <StatisticsTracker

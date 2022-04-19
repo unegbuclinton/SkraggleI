@@ -4,13 +4,18 @@ import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
 import Button from "components/atoms/Button/Button";
 import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import { DPPlusIcon, DPIconAssignee } from "icons";
 
 import datas from "utilities/filterData";
 
 import { mailBlastData } from "utilities/campaigndata";
 
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
+import {
+  TableWrapper,
+  TableHeaderWrapper,
+  ContainerBody,
+  Assignee,
+} from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 import Checkbox from "components/atoms/CheckBox";
 
@@ -18,7 +23,7 @@ const MailBlastTable = () => {
   const columns = [
     {
       name: " ",
-      cell: () => <Checkbox/>,
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
       width: "5rem",
     },
@@ -31,7 +36,12 @@ const MailBlastTable = () => {
     {
       name: "ASSIGNEE",
       selector: (row) => row.assignee,
-      cell: (col) => <span>Tillie Mendoza</span>,
+      cell: (col) => (
+        <Assignee>
+          <DPIconAssignee />
+          Tillie Mendoza
+        </Assignee>
+      ),
       width: "45rem",
     },
     {
@@ -61,9 +71,7 @@ const MailBlastTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState("Filters");
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
@@ -76,11 +84,11 @@ const MailBlastTable = () => {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>34 Events</h1>
+              <h1>96 Mails Blasts</h1>
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -91,11 +99,7 @@ const MailBlastTable = () => {
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

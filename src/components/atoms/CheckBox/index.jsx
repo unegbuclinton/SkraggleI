@@ -6,24 +6,25 @@ import {
   StyledCheckbox,
 } from "./styles";
 
-const Checkbox = ({ className, styledClass, label, radial, ...props }) => {
+const Checkbox = ({ className, styledClass, label, radial, checked, inverted, ...props }) => {
   const [state, setState] = useState(false);
 
   const handleCheckboxChange = (event) => {
     setState(event?.target?.checked);
   };
   return (
-    <CheckboxContainer className={className} checked={state}>
+    <CheckboxContainer className={className} checked={checked || state}>
       <HiddenCheckbox
-        checked={state}
+        checked={checked || state}
         onChange={handleCheckboxChange}
         {...props}
       />
-      <StyledCheckbox checked={state} radial={radial} className={styledClass}>
+      <StyledCheckbox checked={checked || state} radial={radial} inverted={inverted} className={styledClass}>
         <CheckIcon />
-      </StyledCheckbox>
+      </StyledCheckbox >
       <p className="label-text">{label}</p>
     </CheckboxContainer>
   );
 };
 export default Checkbox;
+

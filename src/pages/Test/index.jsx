@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import SubscriptionUpdate from "components/molecules/MailblastModalComponents/SubscriptionUpdate";
+import Checkbox from "components/atoms/CheckBox";
+
 const Test = () => {
   return (
     <Wrapper>
-      <SubscriptionUpdate />
+      <Checkbox />
     </Wrapper>
   );
 };
@@ -12,8 +13,8 @@ const Test = () => {
 export default Test;
 
 const Wrapper = styled.div`
-  .checkbox {
+  /* .checkbox {
     width: 2rem;
     height: 2rem;
-  }
+  } */
 `;
