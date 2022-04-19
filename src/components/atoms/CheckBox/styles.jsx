@@ -1,3 +1,4 @@
+import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
 import { DPIconSkraggleCheck } from 'icons';
 import styled, { css } from 'styled-components';
