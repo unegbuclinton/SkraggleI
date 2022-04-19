@@ -46,12 +46,16 @@ export const createContactValidationSchema = Yup.object({
     .max(15, "Must be 15 characters or less")
     .required("Last name is required"),
   email: Yup.string().email("invalid Mail").required("Email is required"),
-  emailSucription: Yup.string().required("Email Subscription is required"),
-  date: Yup.string().required("Date is required"),
-  month: Yup.string().required("Month is required"),
-  year: Yup.string().required("Year is required"),
+  // emailSucription: Yup.string().required("Email Subscription is required"),
+  // date: Yup.string().required("Date is required"),
+  // month: Yup.string().required("Month is required"),
+  // year: Yup.string().required("Year is required"),
   company: Yup.string().required("Company is required"),
 });
+
+// export const createContactStepTwoValidationSchema = Yup.object({
+
+// })
 
 export const createCompanyValidatonSchema = Yup.object({
   companyName: Yup.string().required("Company name is required"),

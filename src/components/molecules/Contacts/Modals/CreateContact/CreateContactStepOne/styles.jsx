@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 
 export const ModalWrapper = styled(Card)`
-  padding-bottom: 2.42rem;
+  padding: 0 0 2.42rem 1.2rem;
 `;
 
 export const ModalContainer = styled.div`
@@ -24,6 +24,7 @@ export const FormContainer = styled.form`
     border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
     padding-left: 2rem;
     background-color: ${COLORS.white};
+    margin-bottom: 0;
   }
   .email-dropdown {
     width: 60.2rem;
@@ -31,16 +32,15 @@ export const FormContainer = styled.form`
     border-radius: 0.5rem;
     outline: none;
     border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
-    /* padding: 0 2rem 0 2rem; */
+    padding-top: 1rem;
   }
 `;
 
 export const ErrorMsg = styled.p`
   color: red;
-  margin-bottom: 1rem;
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.medium};
-  margin-top: -0.5rem;
+  padding-top: 0.5rem;
 `;
 
 export const FormLabel = styled.label`
@@ -53,18 +53,17 @@ export const FormLabel = styled.label`
 export const DateContainer = styled.div`
   display: flex;
   gap: 1.6rem;
-
   .date-dropdown {
     width: 17.842rem;
     height: 6.4rem;
     border: 0.1rem solid ${COLORS["tabel-btn-grey"]};
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    padding-top: 0.8rem;
   }
 `;
 
 export const ButtonContainer = styled.div`
-  margin-top: 5.3rem;
+  margin: 5.3rem 1.5rem 0 0;
   display: flex;
   gap: 1.6rem;
   justify-content: flex-end;

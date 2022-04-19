@@ -1,17 +1,22 @@
-import React from "react";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import React, { useState } from "react";
+import DropdownComponent from "components/atoms/Dropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Button from "components/atoms/Button/Button";
 import { DPIconAdd } from "icons";
-import filterData from "utilities/filterData.json";
+import { datas1 } from "utilities/overviewData";
 import { HeaderWrapper } from "./styles";
 
-function TableHeader({ title, header, setOpen,className}) {
+function TableHeader({ title, header, setOpen, className }) {
+  const [selected, setSelected] = useState("Filters");
   return (
     <HeaderWrapper>
       <h2 className={className}>{header}</h2>
       <div className="header">
-        <CustomDropdown data={filterData} />
+        <DropdownComponent
+          selected={selected}
+          setSelected={setSelected}
+          data={datas1}
+        />
         <SearchBar />
         <Button className="header__header-btn" onClick={() => setOpen(true)}>
           <DPIconAdd className="header__header-btn--icon" />

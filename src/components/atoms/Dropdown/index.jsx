@@ -7,6 +7,12 @@ import styled from "styled-components";
 const DropdownComponent = ({
   selected,
   setSelected,
+  // selectDate,
+  // setSelectDate,
+  // selectMonth,
+  // setSelectMonth,
+  // selectYear,
+  setSelectYear,
   data,
   className,
   ...rest
@@ -26,7 +32,7 @@ const DropdownComponent = ({
   ));
 
   return (
-    <DropdownWrapper className="dropdown">
+    <DropdownWrapper className={className}>
       <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
         {selected}
         <span>
