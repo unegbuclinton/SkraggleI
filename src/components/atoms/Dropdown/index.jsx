@@ -1,12 +1,11 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { DPIconDropDown } from 'icons';
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import { COLORS } from "constants/colors";
+import { FONTSIZES } from "constants/font-spec";
+import { DPIconDropDown } from "icons";
+import React, { useState } from "react";
+import styled from "styled-components";
 
-const DropdownComponent = ({ data, className, content, iconDropdown, onChange, ...rest }) => {
+const DropdownComponent = ({ data, className, content, iconDropdown, onChange, selected, setSelected, ...rest }) => {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setSelected] = useState("Filters");
 
   let options = data.map((option) => (
     <div
@@ -19,22 +18,27 @@ const DropdownComponent = ({ data, className, content, iconDropdown, onChange, .
       {option.name}
     </div>
   ));
-
   return (
     <DropdownWrapper className={className} onChange={onChange}>
       <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
         {selected}
         <span>
-          <DPIconDropDown className={iconDropdown}/>
+          <DPIconDropDown className={iconDropdown} />
         </span>
       </div>
-      {isActive && <div className={`dropdown__content ${content ? "dropdown__content-large" : ""}`}>{options}</div>}
+      {isActive && (
+        <div
+          className={`dropdown__content ${
+            content ? "dropdown__content-large" : ""
+          }`}
+        >
+          {options}
+        </div>
+      )}
     </DropdownWrapper>
   );
 };
-
 export default DropdownComponent;
-
 export const DropdownWrapper = styled.div`
   width: 14.4rem;
   height: 4.8rem;
@@ -62,10 +66,10 @@ export const DropdownWrapper = styled.div`
       box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
       font-size: ${FONTSIZES.small};
       line-height: 16px;
-      color: ${COLORS['grey-400']};
+      color: ${COLORS["grey-400"]};
       width: 100%;
     }
-    &__content-large{
+    &__content-large {
       top: 110%;
       background: ${COLORS.white};
       box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);

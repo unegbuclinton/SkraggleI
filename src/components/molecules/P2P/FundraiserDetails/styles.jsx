@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const MainWrapper = styled.div`
     gap: 1.6rem;
     border-bottom: 1px solid ${COLORS.torquoise};
   }
-  .vertical-tabs{
+  .vertical-tabs {
     width: 20.9rem;
     height: fit-content;
     padding-left: 3.54rem;
@@ -19,9 +20,19 @@ export const MainWrapper = styled.div`
     background-color: ${COLORS.white};
     display: flex;
     flex-direction: column;
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: ${COLORS.white};
+      color: ${COLORS["gray-500"]};
+      height: 6.3rem;
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.medium};
+    }
   }
 
-  .vertical-wrapper{
+  .vertical-wrapper {
     display: flex;
     flex-direction: column;
   }
@@ -37,4 +48,3 @@ export const RightSection = styled.div`
   flex-direction: column;
   width: 100%;
 `;
-

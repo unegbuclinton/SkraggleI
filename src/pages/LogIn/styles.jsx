@@ -43,6 +43,10 @@ export const FormWrapper = styled.form`
     color: ${COLORS.white};
     margin-bottom: 5.6rem;
   }
+  .forgot-password__container{
+    display: flex;
+    justify-content: right;
+  }
 `;
 
 export const LoginLink = styled(Link)`

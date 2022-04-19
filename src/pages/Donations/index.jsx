@@ -6,6 +6,9 @@ import Forcasting from "./Forecasting";
 import DonationRecurring from "./Recurring";
 import DonationsSummary from "./Summary";
 import Transaction from "./Transaction";
+import Pledge from "./Pledges";
+import Admin from "./Admin";
+import Receipts from "./Receipts";
 
 const Donations = () => {
   const tabs = [
@@ -13,9 +16,9 @@ const Donations = () => {
     { title: "Forecasting", component: <Forcasting /> },
     { title: "Transaction", component: <Transaction /> },
     { title: "Recurring", component: <DonationRecurring /> },
-    { title: "Pledges", component: <h2>Content Five renders here!</h2> },
-    { title: "Admin", component: <h2>Content Six renders here!</h2> },
-    { title: "Receipts", component: <h2>Content Seven renders here!</h2> },
+    { title: "Pledges", component: <Pledge /> },
+    { title: "Admin", component: <Admin /> },
+    { title: "Receipts", component: <Receipts /> },
   ];
   return (
     <DashboardLayout>

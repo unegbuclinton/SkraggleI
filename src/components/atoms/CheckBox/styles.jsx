@@ -1,8 +1,6 @@
-
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { DPIconSkraggleCheck } from "icons";
-import styled, { css } from "styled-components";
+import { FONTSIZES } from 'constants/font-spec';
+import { DPIconSkraggleCheck } from 'icons';
+import styled, { css } from 'styled-components';
 
 export const CheckboxContainer = styled.label`
   display: flex;
@@ -25,7 +23,7 @@ export const CheckboxContainer = styled.label`
     `};
 `;
 
-export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
+export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -46,12 +44,24 @@ export const StyledCheckbox = styled.div`
   align-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  border: 2px solid ${({ checked,pink }) => (checked && pink ? '#FF576B' : checked ? "#00913A" : "#E6EFF1")};
+  border: 2px solid ${({ checked }) => (checked ? '#00913A' : '#E6EFF1')};
   border-radius: 5px;
   transition: all 150ms;
 
+  ${({ inverted, checked }) =>
+    inverted &&
+    css`
+      svg {
+        path {
+          fill: white;
+        }
+      }
+
+      background: ${checked && '#00913A'};
+    `};
+
   ${CheckIcon} {
-    visibility: ${({ checked }) => (checked ? "visible" : "hidden")};
+    visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
   }
 
   ${({ radial }) =>

@@ -16,6 +16,8 @@ import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 
 const ElementsTable = () => {
+  const [selected, setSelected] = useState("Filters");
+
   const columns = [
     {
       name: " ",
@@ -74,10 +76,6 @@ const ElementsTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/elements");
@@ -93,7 +91,7 @@ const ElementsTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -107,7 +105,6 @@ const ElementsTable = () => {
           <Table
             columns={columns}
             data={currentList}
-            onRowClicked={onRowClicked}
           />
         </TableWrapper>
       </ContainerBody>

@@ -18,34 +18,34 @@ import Checkbox from "components/atoms/CheckBox";
 const LandingPagesTable = () => {
   const columns = [
     {
-      name: ' ',
-      cell: () => <Checkbox/>,
+      name: " ",
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: '5rem',
+      width: "5rem",
     },
     {
-      name: 'ID',
+      name: "ID",
       selector: (row) => row.uid,
-      width: '20rem',
+      width: "20rem",
     },
 
     {
-      name: 'NAME',
+      name: "NAME",
       selector: (row) => row.name,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'CAMPAIGN',
+      name: "CAMPAIGN",
       selector: (row) => row.campaign,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'TYPE',
+      name: "TYPE",
       selector: (row) => row.type,
-      width: '20rem',
+      width: "20rem",
     },
     {
-      name: 'ACTION',
+      name: "ACTION",
       selector: (row) => row.action,
       cell: (col) => (
         <span>
@@ -54,10 +54,10 @@ const LandingPagesTable = () => {
           <Button className="table-button__remove">Active</Button>
         </span>
       ),
-      width: '35rem',
+      width: "35rem",
     },
     {
-      name: 'ADVANCE',
+      name: "ADVANCE",
       selector: (row) => row.advance,
       cell: (col) => (
         <span className="table-button__span">
@@ -85,13 +85,11 @@ const LandingPagesTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState("Filters");
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate('/landing-page');
+    navigate("/landing-page");
   };
 
   return (
@@ -103,7 +101,7 @@ const LandingPagesTable = () => {
               <h1>88 Landing Pages</h1>
             </div>
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -114,11 +112,7 @@ const LandingPagesTable = () => {
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

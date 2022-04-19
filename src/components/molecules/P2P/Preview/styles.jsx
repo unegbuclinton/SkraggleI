@@ -65,7 +65,7 @@ export const PreviewWrapper = styled.div`
     }
     &__notActive {
       background: transparent;
-      color: #7b7b7b;
+      color: ${COLORS["dark-gray"]};
       width: 7.3rem;
       height: 3.646rem;
       border-radius: 0.5rem;
@@ -76,11 +76,11 @@ export const PreviewWrapper = styled.div`
       height: 3.646rem;
       width: 33.6rem;
       border-radius: 0.5rem;
-      border: 0.920602px solid #e6eff1;
+      border: 0.920602px solid ${COLORS.torquoise};
       margin-top: 1.6rem;
     }
     &__dollar {
-      background: #e6eff1;
+      background: ${COLORS.torquoise};
       width: 4.907rem;
       display: flex;
       align-items: center;
@@ -101,14 +101,14 @@ export const PreviewWrapper = styled.div`
     &__donate-button {
       width: 19.981rem;
       height: 5.105rem;
-      background: #ff576b;
+      background: ${COLORS.pink};
       border-radius: 0.5rem;
       margin-right: 1.038rem;
     }
     &__fundraise-button {
       width: 19.981rem;
       height: 5.105rem;
-      border: 1px solid #ff576b;
+      border: 1px solid ${COLORS.pink};
       border-radius: 0.5rem;
     }
     &__bar-values {
@@ -150,13 +150,13 @@ export const LinksWrapper = styled(Card)`
       font-size: 14px;
       line-height: 152.69%;
       text-align: center;
-      color: #626262;
+      color: ${COLORS["grey-200"]};
     }
     &__textarea {
       display: flex;
       position: relative;
       width: 46.6rem;
-      border: 1px solid #ff576b;
+      border: 1px solid ${COLORS.pink};
       border-radius: 0.5rem;
       margin-top: 2.4rem;
       margin-bottom: 5.2rem;
@@ -183,7 +183,7 @@ export const LinksWrapper = styled(Card)`
       align-items: center;
       width: 22.4rem;
       height: 5.5rem;
-      border: 1px solid #ff576b;
+      border: 1px solid ${COLORS.pink};
       border-radius: 10rem;
       margin-right: 3.8rem;
       font-size: ${FONTSIZES.lg};

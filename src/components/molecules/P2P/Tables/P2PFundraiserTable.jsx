@@ -60,6 +60,8 @@ const P2PTable = () => {
     },
   ];
 
+  const [selected, setSelected] = useState("Filters");
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
 
@@ -83,7 +85,6 @@ const P2PTable = () => {
   let navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    // const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
     navigate(`/peer-to-peer/${row.key+1}`, { state: row });
   };
 
@@ -99,7 +100,7 @@ const P2PTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent className="dropdown-filter" data={datas} />
+              <DropdownComponent selected={selected} setSelected={setSelected} className="dropdown-filter" data={datas} />
               <SearchBar className="search-icon" />
               <Button
                 className="p2p-button"

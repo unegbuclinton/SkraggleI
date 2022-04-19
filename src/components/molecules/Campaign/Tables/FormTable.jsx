@@ -10,15 +10,17 @@ import datas from "utilities/filterData";
 
 import { CampaignForm } from "utilities/campaigndata";
 
-import { ContainerBody, TableWrapper, TableHeaderWrapper} from "./styles";
+import { ContainerBody, TableWrapper, TableHeaderWrapper } from "./styles";
 import DropdownComponent from "components/atoms/Dropdown";
 import Checkbox from "components/atoms/CheckBox";
 
 const FormsTable = () => {
+  const [selected, setSelected] = useState("Filters");
+
   const columns = [
     {
       name: " ",
-      cell: () => <Checkbox/>,
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
       width: "5rem",
     },
@@ -66,10 +68,6 @@ const FormsTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    
-  };
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/forms");
@@ -85,7 +83,12 @@ const FormsTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent data={datas} className="dropdown-campaign" />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
               <Button
                 className="campaign-button"
@@ -99,7 +102,6 @@ const FormsTable = () => {
           <Table
             columns={columns}
             data={currentList}
-            onRowClicked={onRowClicked}
           />
         </TableWrapper>
       </ContainerBody>

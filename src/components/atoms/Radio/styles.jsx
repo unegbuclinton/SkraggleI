@@ -1,15 +1,25 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Label = styled.label`
-  .label-text {
-    display: inline-flex;
-    height: 100%;
-    align-items: center;
-    cursor: pointer;
-    font-size: ${FONTSIZES.small};
-    margin-left: 0.778rem;
+
+
+export const Wrapper = styled.label`
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  font-size: ${FONTSIZES.small};
+  outline: none;
+
+  *:focus {
+    outline: none;
+  }
+
+  input {
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
@@ -19,8 +29,10 @@ export const Root = styled.div`
   width: ${(props) => (props.size ? props.size : 23.22)}px;
   height: ${(props) => (props.size ? props.size : 23.22)}px;
   position: relative;
+  display: inline-block;
   label {
     margin-left: 25px;
+    width: fit-content;
   }
   &::before {
     content: '';
@@ -81,14 +93,28 @@ export const Input = styled.input`
   height: 100%;
   margin: 0;
   cursor: pointer;
+  visibility: hidden;
 
   &:focus {
     outline: none;
   }
 
-  &:checked {
+  ${({ checked }) =>
+    checked &&
+    css`
+      & ~ ${Fill} {
+        width: 15px;
+        height: 15px;
+        transition: width 0.2s ease-out, height 0.2s ease-out;
+
+        &::before {
+          opacity: 1;
+          transition: opacity 1s ease;
+        }
+      }
+    `}/* &:checked {
     & ~ ${Fill} {
-      width: 15px;
+      width: 55px;
       height: 15px;
       transition: width 0.2s ease-out, height 0.2s ease-out;
 
@@ -97,5 +123,5 @@ export const Input = styled.input`
         transition: opacity 1s ease;
       }
     }
-  }
+  } */
 `;

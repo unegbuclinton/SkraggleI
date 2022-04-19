@@ -19,7 +19,9 @@ const Tabs = ({ tabs, actionComponent, ...rest }) => {
             </TabButton>
           ))}
         </div>
-        {tabs[activeTab]?.actionComponent && <span>{ tabs[activeTab]?.actionComponent }</span>}
+        {tabs[activeTab]?.actionComponent && (
+          <span>{tabs[activeTab]?.actionComponent}</span>
+        )}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
@@ -28,7 +30,6 @@ const Tabs = ({ tabs, actionComponent, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
- 
 `;
 
 const TabContainer = styled(Card)`
@@ -36,6 +37,7 @@ const TabContainer = styled(Card)`
   flex-direction: row;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  overflow-x: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
