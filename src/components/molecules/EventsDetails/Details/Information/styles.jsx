@@ -45,4 +45,20 @@ export const EventWrapper = styled.div`
     margin-top: 0.8rem;
     padding: 2.2rem 0 6.6rem 2.083rem;
   }
+
+  .editor-container {
+    display: flex;
+    gap: 4.6rem;
+    &__upload {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      position: relative;
+      bottom: 2rem;
+    }
+    .upload-button {
+      width: 12.6rem;
+      height: 8.1rem;
+    }
+  }
 `;

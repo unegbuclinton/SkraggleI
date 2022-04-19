@@ -23,9 +23,7 @@ function ActiveInactive() {
   const navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    // let path = "events-details";
     navigate("events-details", { state: row });
-    console.log(row);
   };
 
   const openCloneModal = (e) => {
@@ -64,11 +62,11 @@ function ActiveInactive() {
       name: "",
       cell: () => (
         <DateWrapper>
-          <p className="title">Beggins</p>
+          <p className="title">Begins</p>
           <h2 className="date">09/15/2021</h2>
         </DateWrapper>
       ),
-      width: "25rem",
+      width: "23rem",
     },
 
     {
@@ -79,6 +77,7 @@ function ActiveInactive() {
           <h2 className="view">1(View all)</h2>
         </ViewWrapper>
       ),
+      width: "20rem",
     },
     {
       name: "",
@@ -102,21 +101,21 @@ function ActiveInactive() {
 
   const data = [
     {
-      name: "A DAY WITH THE ORPHANS",
+      name: "A day with the orphans",
       switch: "",
       beggin: "",
       attendee: "",
       action: "",
     },
     {
-      name: "A DAY WITH THE ELDERLY",
+      name: "A day with the elderly",
       switch: "",
       beggin: "",
       attendee: "",
       action: "",
     },
     {
-      name: "A DAY WITH THE ORPHANS COPY",
+      name: "A day with the orphans copy",
       switch: "",
       beggin: "",
       attendee: "",
@@ -137,7 +136,12 @@ function ActiveInactive() {
           onClose={() => setOpenArchiveModal(false)}
         />
 
-        <Table columns={columns} onRowClicked={onRowClicked} data={data} />
+        <Table
+          className="events-table"
+          columns={columns}
+          onRowClicked={onRowClicked}
+          data={data}
+        />
       </Container>
     </ActiveInactiveWrapper>
   );
