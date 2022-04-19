@@ -1,35 +1,14 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import styled, { css } from "styled-components";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { COLORS } from "constants/colors";
-import Modal from "components/layouts/Modal";
-import PledgeInfoModalComponent from "../PledgeInfrormationModalComponent";
-import PledgeAssociateModalComponent from "../PledgeAssociationModalComponent";
 
-function PledgeModal({ onCloseModal }) {
+const MultiformTabs = ({tabs}) => {
   const [activeTab, setActiveTab] = useState(0);
-  const tabs = [
-    {
-      name: "PLEDGE INFORMATION",
-      component: (
-        <PledgeInfoModalComponent
-          onChangeModal={() => setActiveTab(1)}
-        />
-      ),
-    },
-    {
-      name: "ASSOCIATIONS ",
-      component: (
-        <PledgeAssociateModalComponent
-          onRevertModal={() => setActiveTab(0)}
-        />
-      ),
-    },
-  ];
-  return (
-    <Modal header="Pledge" isShown hide={onCloseModal}>
-      {/* <MultiformTabs tabs={tabs}/> */}
-      <TabContainer>
+
+    return(
+        <>
+        <TabContainer>
         {tabs.map((tab, index) => (
           <TabButton
             disabled
@@ -44,10 +23,12 @@ function PledgeModal({ onCloseModal }) {
         ))}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
-    </Modal>
-  );
+        </>
+    )
+
 }
-export default PledgeModal;
+
+export default MultiformTabs
 
 const TabContainer = styled.div`
   display: flex;
