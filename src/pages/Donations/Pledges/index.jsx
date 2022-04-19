@@ -15,8 +15,7 @@ import Card from "components/atoms/Card";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import CreateCampaignModal from "components/molecules/Campaign/CreateCampaignModal";
-
+import PledgeModal from "components/molecules/DonationModals/PledgeModal";
 const Pledge = () => {
   const columns = [
     {
@@ -97,7 +96,7 @@ const Pledge = () => {
                 Create New
               </Button>
               {modalIsOpen && (
-                <CreateCampaignModal
+                <PledgeModal
                   isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
