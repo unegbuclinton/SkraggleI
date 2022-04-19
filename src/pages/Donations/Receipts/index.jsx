@@ -1,21 +1,20 @@
-import { React, useState } from "react";
-
-import datas from "utilities/filterData";
-import { ReceiptsData } from "utilities/donationData";
-import { DPIconAssignee, DPPlusIcon } from "icons";
-
 import Button from "components/atoms/Button/Button";
+import Card from "components/atoms/Card";
+import Checkbox from "components/atoms/CheckBox";
+import DropdownComponent from "components/atoms/Dropdown";
 import SearchBar from "components/atoms/SearchBar/SearchBar";
 import Table from "components/layouts/Table";
-import Checkbox from "components/atoms/CheckBox";
-
-import DropdownComponent from "components/atoms/Dropdown";
-import Card from "components/atoms/Card";
-
-import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import CreateCampaignModal from "components/molecules/Campaign/CreateCampaignModal";
+import { DPIconAssignee } from "icons";
+import { React, useState } from "react";
+import styled from "styled-components";
+import { ReceiptsData } from "utilities/donationData";
+import datas from "utilities/filterData";
+
+
+
+
 
 const Receipts = () => {
   const columns = [
