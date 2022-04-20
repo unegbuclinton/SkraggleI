@@ -9,14 +9,14 @@ export const PersonalInfoWrapper = styled(Card)`
 `;
 
 export const PersonalInfoHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }

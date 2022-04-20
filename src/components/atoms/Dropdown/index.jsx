@@ -4,7 +4,16 @@ import { DPIconDropDown } from "icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const DropdownComponent = ({ data, className, content, iconDropdown, onChange, selected, setSelected, ...rest }) => {
+const DropdownComponent = ({
+  data,
+  className,
+  content,
+  iconDropdown,
+  onChange,
+  selected,
+  setSelected,
+  ...rest
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   let options = data.map((option) => (

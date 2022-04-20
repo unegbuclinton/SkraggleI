@@ -9,7 +9,7 @@ export const AssociationWrapper = styled(Card)`
 `;
 
 export const AssociationHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
@@ -17,7 +17,7 @@ export const AssociationHeading = styled.div`
   align-items: center;
 
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }

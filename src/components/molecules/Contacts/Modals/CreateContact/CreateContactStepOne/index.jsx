@@ -1,47 +1,168 @@
-import React, { useContext } from "react";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
+import React, { useState } from "react";
+import DropdownComponent from "components/atoms/Dropdown";
 import {
   ButtonContainer,
   DateContainer,
   FormContainer,
-  FormInput,
   FormLabel,
   ModalContainer,
   ModalWrapper,
+  ErrorMsg,
 } from "./styles";
-import { subcription } from "utilities/modalData";
+import {
+  subcription,
+  dateDate,
+  monthData,
+  yearsData,
+} from "utilities/modalData";
 import Button from "components/atoms/Button/Button";
-import MultiFormContext from "../ContactFormContext/MultiFormContext";
+import Input from "components/atoms/Input/Input";
+import { useFormik } from "formik";
+import { createContactValidationSchema } from "validation/Schema";
 
-function CreateContactStepOne() {
-  const { stepOne, setStepOne, next, onClose } = useContext(MultiFormContext);
+function CreateContactStepOne({ onClose, next, formData }) {
+  const [selected, setSelected] = useState("select");
+  const [selectDate, setSelectDate] = useState("Date");
+  const [selectMonth, setSelectMonth] = useState("Month");
+  const [selectYear, setSelectYear] = useState("Year");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStepOne({ stepOne });
-    next();
-  };
-  console.log(stepOne);
+  const formik = useFormik({
+    initialValues: formData,
+    validationSchema: createContactValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      next(values);
+    },
+  });
+
+  console.log(formik.errors);
+
   return (
     <ModalWrapper>
       <ModalContainer>
-        <FormContainer>
+        <FormContainer onSubmit={formik.handleSubmit}>
           <FormLabel>FIRST NAME</FormLabel>
-          <FormInput type="text" placeholder="First Name" />
+          <Input
+            className="input-field"
+            id="firstName"
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <ErrorMsg>{formik.errors.firstName}</ErrorMsg>
+          ) : null}
           <FormLabel>LAST NAME</FormLabel>
-          <FormInput type="text" placeholder="Last name" />
+          <Input
+            className="input-field"
+            id="lastName"
+            name="lastName"
+            type="text"
+            placeholder="Last name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <ErrorMsg>{formik.errors.lastName}</ErrorMsg>
+          ) : null}
           <FormLabel>EMAIL</FormLabel>
-          <FormInput type="email" placeholder="Email" />
+          <Input
+            className="input-field"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorMsg>{formik.errors.email}</ErrorMsg>
+          ) : null}
           <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
-          <CustomDropdown className="email-dropdown" data={subcription} />
+          <DropdownComponent
+            className="email-dropdown"
+            id="emailSubcription"
+            name="emailSubcription"
+            selected={selected}
+            setSelected={setSelected}
+            data={subcription}
+            // onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // value={formik.values.emailSubcription}
+          />
+          {/* {formik.touched.emailSubcription && formik.errors.emailSubcription ? (
+            <ErrorMsg>{formik.errors.emailSubcription}</ErrorMsg>
+          ) : null} */}
           <FormLabel>BIRTH DATE</FormLabel>
           <DateContainer>
-            <CustomDropdown className="date-dropdown" data={subcription} />
-            <CustomDropdown className="date-dropdown" data={subcription} />
-            <CustomDropdown className="date-dropdown" data={subcription} />
+            <div>
+              <DropdownComponent
+                className="date-dropdown"
+                id="date"
+                name="date"
+                selected={selectDate}
+                setSelected={setSelectDate}
+                data={dateDate}
+                // onChange={(e) => setSelectDate(e.target.value)}
+                // onBlur={formik.handleBlur}
+                // value={formik.values.date}
+              />
+              {/* {formik.touched.date && formik.errors.date ? (
+                <ErrorMsg>{formik.errors.date}</ErrorMsg>
+              ) : null} */}
+            </div>
+            <div>
+              <DropdownComponent
+                className="date-dropdown"
+                id="month"
+                name="month"
+                selected={selectMonth}
+                setSelected={setSelectMonth}
+                data={monthData}
+                // onChange={formik.handleChange}
+                // onBlur={formik.handleBlur}
+                // value={formik.values.month}
+              />
+              {/* {formik.touched.month && formik.errors.month ? (
+                <ErrorMsg>{formik.errors.month}</ErrorMsg>
+              ) : null} */}
+            </div>
+            <div>
+              <DropdownComponent
+                className="date-dropdown"
+                id="year"
+                name="year"
+                selected={selectYear}
+                setSelected={setSelectYear}
+                data={yearsData}
+                // onChange={formik.handleChange}
+                // onBlur={formik.handleBlur}
+                // value={formik.values.year}
+              />
+              {/* {formik.touched.year && formik.errors.year ? (
+                <ErrorMsg>{formik.errors.year}</ErrorMsg>
+              ) : null} */}
+            </div>
           </DateContainer>
           <FormLabel>COMPANY</FormLabel>
-          <FormInput type="text" placeholder="Company" />
+          <Input
+            className="input-field"
+            id="company"
+            name="company"
+            type="text"
+            placeholder="Company"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.company}
+          />
+          {formik.touched.company && formik.errors.company ? (
+            <ErrorMsg>{formik.errors.company}</ErrorMsg>
+          ) : null}
           <ButtonContainer>
             <Button
               className="cancel"
@@ -52,7 +173,7 @@ function CreateContactStepOne() {
             >
               Cancel
             </Button>
-            <Button className="continue" onClick={handleSubmit}>
+            <Button type="submit" className="continue">
               Continue
             </Button>
           </ButtonContainer>
