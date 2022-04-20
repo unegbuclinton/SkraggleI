@@ -1,7 +1,6 @@
 import React from "react";
 import DashboardLayout from "components/layouts/DashboardLayout";
 import ForgotPassword from "pages/ForgotPassword";
-import LogIn from "pages/LogIn";
 import Registration from "components/molecules/Registration";
 import ResendVerification from "components/molecules/resendVerification/ResendVerification";
 import ResetPassword from "components/molecules/ResetPassword";
@@ -22,6 +21,7 @@ import EventsDetails from "components/molecules/EventsDetails";
 import RegistrationPackage from "components/molecules/EventsDetails/RegistrationPackage";
 import Test from "pages/Test";
 import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
+import LogIn from "pages/LogIn";
 
 export const privateRoutes = [
   {
@@ -171,7 +171,7 @@ export const publicRoutes = [
   },
   {
     path: "/login",
-    element: <LogIn/>,
+    element: <LogIn onClick/>,
   },
   {
     path: "/forgotpassword",

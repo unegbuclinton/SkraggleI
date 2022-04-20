@@ -1,11 +1,13 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routePaths";
+import { useSelector } from "react-redux";
 
 const Routing = () => {
-  let isLogged = true
+  // let isLogged = false;
+  const {isAuthenticated} = useSelector((state) => state.auth);
 
   function PrivateRoute() {
-    return isLogged ? <Outlet /> : <Navigate to="/login" />;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
   }
   return (
     <Routes>
@@ -37,7 +39,7 @@ const Routing = () => {
             />
           );
         }
-        
+
         return (
           <Route
             key={Math.random()}
@@ -82,9 +84,11 @@ const Routing = () => {
           />
         );
       })}
+      {/* <Route
+      path="/login"
+      element={<LogIn onClick={()=>{setisLogged(true)}}/>}/> */}
     </Routes>
   );
 };
 
 export default Routing;
-  

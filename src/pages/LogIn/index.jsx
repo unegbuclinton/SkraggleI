@@ -5,18 +5,17 @@ import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { persistedReducer } from 'store';
+// import { persistedReducer } from 'store';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
+import { login } from 'features/auth/authSlice';
 
 const LogIn = ({onClick}) => {
-  const { auth } = useSelector((state) => state);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(auth);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -24,10 +23,10 @@ const LogIn = ({onClick}) => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      // dispatch(login({ token: 'fateh' }));
+      dispatch(login());
       navigate('/dashboard');
-      persistedReducer.pause();
-      persistedReducer.purge();
+      // persistedReducer.pause();
+      // persistedReducer.purge();
     },
   });
   return (

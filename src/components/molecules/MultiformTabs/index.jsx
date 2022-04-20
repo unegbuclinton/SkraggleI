@@ -3,15 +3,26 @@ import styled, { css } from "styled-components";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { COLORS } from "constants/colors";
 
-const MultiformTabs = ({tabs}) => {
+const MultiformTabs = ({ tabs, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
 
-    return(
-        <>
-        <TabContainer>
-        {tabs.map((tab, index) => (
+  function IncrementTab(){
+    setActiveTab(prev => prev+1)
+  }
+
+  function DecrementTab(){
+    setActiveTab(prev => prev-1)
+  }
+
+  function RenderComponent(Components){
+    return <Components IncrementTab={IncrementTab} DecrementTab={DecrementTab}/>
+ }
+
+  return (
+    <>
+      <TabContainer {...rest}>
+        {tabs?.map((tab, index) => (
           <TabButton
-            disabled
             key={index}
             active={activeTab >= index}
             onClick={() => {
@@ -22,13 +33,12 @@ const MultiformTabs = ({tabs}) => {
           </TabButton>
         ))}
       </TabContainer>
-      <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
-        </>
-    )
+      <TabContent>{tabs && RenderComponent(tabs[activeTab]?.component)}</TabContent>
+    </>
+  );
+};
 
-}
-
-export default MultiformTabs
+export default MultiformTabs;
 
 const TabContainer = styled.div`
   display: flex;
@@ -68,4 +78,3 @@ const TabButton = styled.button`
     `};
 `;
 const TabContent = styled.div``;
-
