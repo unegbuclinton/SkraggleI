@@ -38,7 +38,7 @@ function EventsDetails() {
   return (
     <DashboardLayout
       pageLinks={
-        <PageLinks pageLinkBefore="events" to="/events" names={name} />
+        <PageLinks pageLinkBefore="Events" to="/events" names={name} />
       }
     >
       <Tabs tabs={links} />
