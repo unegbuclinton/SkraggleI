@@ -30,6 +30,17 @@ export const EventWrapper = styled.div`
     margin: 0.8rem 0 2.4rem 0;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   .option-switch {
     margin: 1.6rem 0 2.4rem 0;
   }
