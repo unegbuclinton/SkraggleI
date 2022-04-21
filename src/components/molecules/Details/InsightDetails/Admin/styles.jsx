@@ -36,11 +36,12 @@ export const AdminContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 5.3rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 17rem;
   }
 
   .info {
@@ -50,21 +51,14 @@ export const AdminContainer = styled.div`
   }
 
   .id {
-    margin-left: 21.1rem;
     color: ${COLORS.deepPurple};
   }
 
   .priority {
-    margin-left: 17.1rem;
     color: ${COLORS.pink};
   }
 
-  .assign {
-    margin-left: 16.1rem;
-  }
-
   .last-name {
-    margin-left: 15.4rem;
     color: ${COLORS.deepPurple};
   }
 
@@ -74,24 +68,7 @@ export const AdminContainer = styled.div`
   }
 
   .volunteer {
-    margin-left: 19.3rem;
     background-color: ${COLORS["bg-grey-btn"]};
     color: ${COLORS["gray-500"]};
-  }
-
-  .note {
-    margin-left: 18.5rem;
-  }
-
-  .yes {
-    margin-left: 14.5rem;
-  }
-
-  .status {
-    margin-left: 5.3rem;
-  }
-
-  .history {
-    margin-left: 8.5rem;
   }
 `;

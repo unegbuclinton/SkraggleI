@@ -36,38 +36,17 @@ export const WebsiteContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 12.2rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 10.1rem;
   }
 
   .info {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["header-grey"]};
-  }
-
-  .web,
-  .twitter {
-    margin-left: 17.3rem;
-  }
-
-  .facebook {
-    margin-left: 16.3rem;
-  }
-
-  .youtube,
-  .linkdin {
-    margin-left: 17rem;
-  }
-
-  .instagram {
-    margin-left: 15.5rem;
-  }
-
-  .other-web {
-    margin-left: 12.2rem;
   }
 `;

@@ -35,20 +35,17 @@ export const VolunteerContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 15.3rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 7rem;
   }
 
   .info {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["header-grey"]};
-  }
-
-  .size {
-    margin-left: 15.3rem;
   }
 `;

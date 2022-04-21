@@ -35,63 +35,17 @@ export const PersonalInfoContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
+  gap: 11.8rem;
   .info {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 10.5rem;
   }
 
   .title {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["header-grey"]};
-  }
-
-  .mr {
-    margin-left: 19.2rem;
-  }
-
-  .first-name {
-    margin-left: 15.1rem;
-  }
-
-  .middle-name {
-    margin-left: 14rem;
-  }
-
-  .last-name {
-    margin-left: 15.4rem;
-  }
-
-  .suffix {
-    margin-left: 18.3rem;
-  }
-
-  .name {
-    margin-left: 11.8rem;
-  }
-
-  .gender {
-    margin-left: 17.7rem;
-  }
-
-  .date {
-    margin-left: 15.4rem;
-  }
-
-  .email {
-    color: ${COLORS.deepPurple};
-    margin-left: 13.1rem;
-  }
-
-  .phone {
-    margin-left: 12.6rem;
-    color: ${COLORS.deepPurple};
-  }
-
-  .address-container {
-    line-height: 2rem;
-    margin-left: 17rem;
-    width: 17rem;
   }
 `;
