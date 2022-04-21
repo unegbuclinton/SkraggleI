@@ -20,7 +20,7 @@ export const CheckboxContainer = styled.label`
           fill: ${COLORS.pink};
         }
       }
-      border-color: ${COLORS.pink};
+      border: ${COLORS.pink};
     `};
 `;
 

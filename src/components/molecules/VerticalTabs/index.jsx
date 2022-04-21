@@ -47,9 +47,12 @@ const VerticalTabWrapper = styled.div`
   gap: 7.4rem;
   border-bottom: 1px solid ${COLORS.torquoise};
   .left-tabs {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    position: sticky;
+    top: 0;
   }
 `;
 const TabButton = styled.button`

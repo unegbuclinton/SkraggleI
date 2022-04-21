@@ -6,14 +6,14 @@ import {
   StyledCheckbox,
 } from "./styles";
 
-const Checkbox = ({ className, styledClass, label, radial, checked, inverted, ...props }) => {
+const Checkbox = ({ className, styledClass, label, radial, checked, inverted,pink, ...props }) => {
   const [state, setState] = useState(false);
 
   const handleCheckboxChange = (event) => {
     setState(event?.target?.checked);
   };
   return (
-    <CheckboxContainer className={className} checked={checked || state}>
+    <CheckboxContainer className={className} pink={pink} checked={checked || state}>
       <HiddenCheckbox
         checked={checked || state}
         onChange={handleCheckboxChange}

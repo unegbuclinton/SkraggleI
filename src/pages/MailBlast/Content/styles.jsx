@@ -92,8 +92,6 @@ export const ContentBody = styled.div`
       display: flex;
       align-items: center;
       gap: 3.4rem;
-      .added-text {
-      }
     }
     &__right {
       .content-btn {
