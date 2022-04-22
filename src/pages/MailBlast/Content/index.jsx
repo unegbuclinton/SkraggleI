@@ -19,7 +19,7 @@ function MailContent() {
   const [openAttach, setOpenAttach] = useState(false);
   return (
     <ContentWrapper>
-      <Card>
+      <Card className='content-card'>
         <ContentTop>
           <div className="content-left">
             <div className="top">

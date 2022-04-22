@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+
 export const ContentWrapper = styled.div`
+  .content-card {
+    padding-bottom: 10rem;
+  }
   margin-top: 1.6rem;
   .reply-item__left {
     display: flex;
