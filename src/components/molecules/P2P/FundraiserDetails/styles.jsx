@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-
 export const MainWrapper = styled.div`
   display: flex;
   margin-top: 2.4rem;
@@ -20,6 +19,9 @@ export const MainWrapper = styled.div`
     background-color: ${COLORS.white};
     display: flex;
     flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
     &__bottom {
       display: flex;
       align-items: center;
@@ -29,22 +31,26 @@ export const MainWrapper = styled.div`
       height: 6.3rem;
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.medium};
+      position: -webkit-sticky;
+      position: sticky;
+      top: 52rem;
     }
   }
-
   .vertical-wrapper {
     display: flex;
     flex-direction: column;
   }
 `;
-
 export const LeftSidebar = styled(Card)`
   width: 20.9rem;
   margin-right: 1.6rem;
 `;
-
 export const RightSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
+
+
+
+

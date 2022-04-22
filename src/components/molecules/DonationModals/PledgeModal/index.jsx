@@ -15,7 +15,7 @@ function PledgeModal({ onClose}) {
     },
   ];
   return (
-    <Modal header="Pledge" isShown hide={onClose}>
+    <Modal header="Pledge" isShown hide={onClose} showClose={onClose}>
       <MultiformTabs tabs={tabs}/>
     </Modal>
   );

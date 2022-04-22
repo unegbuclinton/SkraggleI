@@ -8,7 +8,7 @@ import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const LeafLnc = ({className}) => {
+const LeafLnc = ({className,leafref}) => {
   const textAreaRef = useRef(null);
 
   function copyToClipboard(e) {
@@ -18,7 +18,7 @@ const LeafLnc = ({className}) => {
     alert("Text Copied");
   }
   return (
-    <P2PFundraiserWrapper className={className}>
+    <P2PFundraiserWrapper className={className} ref={leafref}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <p className="fundraiser__paragraph">P2P fundraiser</p>

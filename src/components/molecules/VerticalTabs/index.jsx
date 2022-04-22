@@ -10,6 +10,7 @@ function VerticalTab({
   children,
   onClick,
   leftBottomClass,
+  setRef
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
   return (
@@ -24,6 +25,7 @@ function VerticalTab({
                 onClick={() => {
                   setActiveWidget(index);
                   setActiveState(index);
+                  setRef={setRef}
                 }}
               >
                 {title}
@@ -50,6 +52,8 @@ const VerticalTabWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    position: sticky;
+    top: 1px;
   }
 `;
 const TabButton = styled.button`

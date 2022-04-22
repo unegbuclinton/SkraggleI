@@ -1,15 +1,14 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import FundraiserMain from "./FundraiserMain";
 import { MainWrapper } from "./styles";
 import VerticalTab from "components/molecules/VerticalTabs";
-
 const FundraiserDetails = () => {
   const [activeState, setActiveState] = useState(0);
-
+  const okref = useRef(null);
   const tabs = [
     {
       title: "P2P Fundrasier",
-      component: <FundraiserMain activeState={activeState} />,
+      component: <FundraiserMain activeState={activeState} okref={okref}/>,
     },
     {
       title: "Setting",
@@ -36,7 +35,9 @@ const FundraiserDetails = () => {
       component: <FundraiserMain activeState={activeState} />,
     },
   ];
-
+  const gotosection = () => {
+    window.scrollTo({ top: okref.current, behaviour: "smooth" });
+  };
   return (
     <MainWrapper>
       <div className="vertical-wrapper">
@@ -45,14 +46,13 @@ const FundraiserDetails = () => {
           setActiveState={setActiveState}
           className="vertical-tab-wrapper"
           verticalWrapper="vertical-tabs"
+          leftBottomClass="vertical-tabs__bottom"
+          setRef={gotosection()}
         >
-          <div className="vertical-tabs__bottom" >
-            Pause P2P Fundraiser
-          </div>
+          Pause P2P Fundraiser
         </VerticalTab>
       </div>
     </MainWrapper>
   );
 };
-
 export default FundraiserDetails;

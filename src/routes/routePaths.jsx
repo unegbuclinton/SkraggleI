@@ -163,7 +163,6 @@ export const privateRoutes = [
   },
 ];
 
-
 export const publicRoutes = [
   {
     path: "/",
@@ -171,7 +170,7 @@ export const publicRoutes = [
   },
   {
     path: "/login",
-    element: <LogIn onClick/>,
+    element: <LogIn onClick />,
   },
   {
     path: "/forgotpassword",

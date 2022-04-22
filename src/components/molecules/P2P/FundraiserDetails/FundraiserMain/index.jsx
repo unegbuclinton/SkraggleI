@@ -11,20 +11,17 @@ import Donations from "../Donations";
 import Plans from "../Reccuring Plans";
 import Emails from "../Emails";
 
-
-const FundraiserMain = (props) => {
+const FundraiserMain = (props,okref) => {
   return (
     <RightSection>
-      <LeafLnc className={props.activeState === 0 ? "active-div" : null} />
+      <LeafLnc className={props.activeState === 0 ? "active-div" : null}/>
       <P2PFundraise className={props.activeState === 0 ? "active-div" : null} />
       <Settings className={props.activeState === 1 ? "active-div" : null} />
-      <Source
-        className={props.activeState === 2 ? "active-div" : null}
-      />
-      <CustomFields className={props.activeState === 3 ? "active-div" : null} />
+      <Source className={props.activeState === 2 ? "active-div" : null} />
+      <CustomFields className={props.activeState === 3 ? "active-div" : null} ref={okref}/>
       <Donations className={props.activeState === 4 ? "active-div" : null} />
       <Plans className={props.activeState === 5 ? "active-div" : null} />
-      <Emails/>
+      <Emails className={props.activeState === 6 ? "active-div" : null}/>
     </RightSection>
   );
 };
