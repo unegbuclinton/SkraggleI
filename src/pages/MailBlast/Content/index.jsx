@@ -41,7 +41,7 @@ function MailContent() {
         <ContentBody>
           <div className="content-item">
             <div className="content-item__left">
-              <Checkbox className='overview-check'/>
+              <Checkbox radial styledClass='content-check'/>
               <p>To</p>
             </div>
             <div className="content-item__right">
@@ -66,7 +66,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <Checkbox />
+              <Checkbox radial styledClass='content-check'/>
               <p>From</p>
             </div>
             <div className="content-item__right">
@@ -92,7 +92,7 @@ function MailContent() {
           <div className="content-item">
             <div className="reply-item__left">
               <div className="input-check">
-                <Checkbox />
+                <Checkbox radial styledClass='content-check'/>
                 <p>Reply To</p>
               </div>
               <div className="reciepient">
@@ -108,7 +108,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <Checkbox />
+              <Checkbox radial styledClass='content-check'/>
               <p>Subject</p>
             </div>
             <div className="content-item__right">
@@ -133,7 +133,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <Checkbox />
+              <Checkbox radial styledClass='content-check'/>
               <p>
                 Attachments <span className="added-text">(Optional)</span>
               </p>
@@ -160,7 +160,7 @@ function MailContent() {
           </div>
           <div className="content-item">
             <div className="content-item__left">
-              <Checkbox />
+              <Checkbox radial styledClass='content-check'/>
               <p>Content</p>
             </div>
             <div className="content-item__right">

@@ -45,9 +45,11 @@ export const SettingWrapper = styled.div`
 
     &-header{
       margin-right: 4rem;
+      font-weight: ${FONTWEIGHTS.medium};
     }
     &-text{
       margin-right: 6.4rem;
+      font-weight: ${FONTWEIGHTS.medium};
     }
   }
 `;
@@ -60,6 +62,7 @@ export const SettingBody = styled.div`
   .setting-body-text{
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.medium};
+      color: ${COLORS['grey-400']};
   }
   #text {
     border: none;

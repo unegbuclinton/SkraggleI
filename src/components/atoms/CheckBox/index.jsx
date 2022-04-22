@@ -19,7 +19,7 @@ const Checkbox = ({ className, styledClass, label, radial, checked, inverted,pin
         onChange={handleCheckboxChange}
         {...props}
       />
-      <StyledCheckbox checked={checked || state} radial={radial} inverted={inverted} className={styledClass}>
+      <StyledCheckbox checked={checked || state} radial={radial} pink={pink} inverted={inverted} className={styledClass}>
         <CheckIcon />
       </StyledCheckbox >
       <p className="label-text">{label}</p>

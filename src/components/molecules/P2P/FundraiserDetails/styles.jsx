@@ -32,6 +32,9 @@ export const MainWrapper = styled.div`
       height: 6.3rem;
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.medium};
+      position: -webkit-sticky;
+      position: sticky;
+      top: 52rem;
     }
   }
 

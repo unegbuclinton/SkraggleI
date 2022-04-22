@@ -11,6 +11,11 @@ export const ContentWrapper = styled.div`
       display: flex;
       align-items: center;
       gap: 3.4rem;
+
+      .content-check {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
   .reciepient {
@@ -92,6 +97,11 @@ export const ContentBody = styled.div`
       display: flex;
       align-items: center;
       gap: 3.4rem;
+
+      .content-check {
+        width: 2rem;
+        height: 2rem;
+      }
     }
     &__right {
       .content-btn {
@@ -99,7 +109,7 @@ export const ContentBody = styled.div`
         height: 4.8rem;
         font-size: ${FONTSIZES.small};
         font-weight: ${FONTWEIGHTS.bold};
-        border: 1px solid ${COLORS.pink};
+        border: 2px solid ${COLORS.pink};
         color: ${COLORS.pink};
         text-align: center;
       }

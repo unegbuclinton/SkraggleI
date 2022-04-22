@@ -45,10 +45,9 @@ const FundraiserDetails = () => {
           setActiveState={setActiveState}
           className="vertical-tab-wrapper"
           verticalWrapper="vertical-tabs"
+          leftBottomClass='vertical-tabs__bottom'
         >
-          <div className="vertical-tabs__bottom" >
-            Pause P2P Fundraiser
-          </div>
+          Pause P2P Fundraiser
         </VerticalTab>
       </div>
     </MainWrapper>
