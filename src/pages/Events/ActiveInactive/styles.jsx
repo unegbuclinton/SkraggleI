@@ -9,7 +9,20 @@ export const ActiveInactiveWrapper = styled(Card)`
 `;
 
 export const Container = styled.div`
-  /* overflow-x: auto; */
+  .events-table {
+    .rdt_ {
+      &TableRow {
+        padding-left: 5.8rem;
+        font-weight: ${FONTWEIGHTS.normal};
+        font-size: ${FONTSIZES.lg};
+        color: ${COLORS["grey-500"]};
+        white-space: nowrap;
+      }
+      &TableHeadRow {
+        display: none;
+      }
+    }
+  }
 `;
 
 export const ContentContainer = styled.div`

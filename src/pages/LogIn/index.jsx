@@ -11,7 +11,7 @@ import { persistedReducer } from 'store';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
-const LogIn = () => {
+const LogIn = ({onClick}) => {
   const { auth } = useSelector((state) => state);
   // const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const LogIn = () => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button className="login-button">LOG IN</Button>
+          <Button className="login-button" onClick={onClick}>LOG IN</Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
