@@ -84,6 +84,23 @@ function CreateContactStepOne({ onClose, next, formData }) {
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
           <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
+          {/* <select
+            name="subcription"
+            id="subcription"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.emailSubcription}
+          >
+            <option value="">select</option>
+            {subcription.map((item, index) => (
+              <option value="" id={index}>
+                {item.name}
+              </option>
+            ))}
+          </select> */}
+          {/* {formik.touched.emailSubcription && formik.errors.emailSubcription ? (
+            <ErrorMsg>{formik.errors.emailSubcription}</ErrorMsg>
+          ) : null} */}
           <DropdownComponent
             className="email-dropdown"
             id="emailSubcription"
