@@ -1,5 +1,5 @@
-import { React } from "react";
-
+import { React, useRef } from "react";
+import { forwardRef } from "react";
 import styled from "styled-components";
 
 import LeafLnc from "../LeafLnc";
@@ -11,20 +11,23 @@ import Donations from "../Donations";
 import Plans from "../Reccuring Plans";
 import Emails from "../Emails";
 
-const FundraiserMain = (props,okref) => {
+const FundraiserMain = forwardRef((props, mainref,customref,settingref) => {
   return (
     <RightSection>
-      <LeafLnc className={props.activeState === 0 ? "active-div" : null}/>
-      <P2PFundraise className={props.activeState === 0 ? "active-div" : null} />
-      <Settings className={props.activeState === 1 ? "active-div" : null} />
+      <LeafLnc className={props.activeState === 0 ? "active-div" : null} />
+      <P2PFundraise
+        className={props.activeState === 0 ? "active-div" : null}
+        ref={mainref}
+      />
+      <Settings className={props.activeState === 1 ? "active-div" : null} ref={settingref}/>
       <Source className={props.activeState === 2 ? "active-div" : null} />
-      <CustomFields className={props.activeState === 3 ? "active-div" : null} ref={okref}/>
+      <CustomFields className={props.activeState === 3 ? "active-div" : null} ref={customref}/>
       <Donations className={props.activeState === 4 ? "active-div" : null} />
       <Plans className={props.activeState === 5 ? "active-div" : null} />
-      <Emails className={props.activeState === 6 ? "active-div" : null}/>
+      <Emails className={props.activeState === 6 ? "active-div" : null} />
     </RightSection>
   );
-};
+});
 
 export default FundraiserMain;
 
