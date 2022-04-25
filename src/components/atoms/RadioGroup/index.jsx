@@ -51,9 +51,7 @@ const RadioGroup = ({ groupName, radioData, size }) => {
       onClickRadioButton={onClickRadioButton}
       selectedValue={state.selectedValue}
     >
-      {/* <Radio value="autoscale" labelText="Autoscale" />
-      <Radio value="manual" labelText="Manual" /> */}
-
+      
       {radioData.map((curr, index) => {
         return (
           <Radio

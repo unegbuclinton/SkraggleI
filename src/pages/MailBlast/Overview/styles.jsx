@@ -4,6 +4,10 @@ import styled from "styled-components";
 
 export const NewstellerWrapper = styled.div`
   margin-top: 1.6rem;
+
+  .overview-card {
+    padding-bottom: 10rem;
+  }
 `;
 
 export const NewstellerTop = styled.div`
@@ -78,13 +82,13 @@ export const NewstellerBody = styled.div`
       justify-content: space-between;
       height: 6.2rem;
 
-      &__num{
+      &__num {
         font-size: 3rem;
         color: ${COLORS.pink};
         font-weight: ${FONTWEIGHTS.bold};
       }
 
-      &__text{
+      &__text {
         font-size: ${FONTSIZES.xlarge};
         font-weight: ${FONTWEIGHTS.bold};
       }

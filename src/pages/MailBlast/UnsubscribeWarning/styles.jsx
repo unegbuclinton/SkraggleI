@@ -7,7 +7,7 @@ export const WarningWrapper = styled.div`
 
   .warning-card {
     width: 60.7rem;
-    margin: auto;
+    margin: 10rem auto;
 
     .warning-header {
       text-align: center;

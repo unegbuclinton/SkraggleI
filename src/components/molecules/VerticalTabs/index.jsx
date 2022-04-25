@@ -50,6 +50,8 @@ const VerticalTabWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    position: sticky;
+    top: 0;
   }
 `;
 const TabButton = styled.button`

@@ -1,26 +1,37 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import RadioGroup from "components/atoms/RadioGroup";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React from "react";
 import styled from "styled-components";
 
-
-function CompleteTransaction({onCloseModal,onRevertModal}) {
+function CompleteTransaction({ onRevertModal }) {
   return (
     <CompleteWrapper>
       <Card className="payment-card">
         <p className="radio-label">Payment Option</p>
         <div className="detail-wrapper">
-          <div className="input-container">
-            <input type="radio" /> Log transaction without paymnt or receipt
-          </div>
-          <div className="input-container">
-            <input type="radio" /> Make an online payment & generate receipt
-          </div>
+          <RadioGroup
+            radioData={[
+              {
+                labelText: "Log transaction without paymnt or receipt",
+                value: 1,
+              },
+              {
+                labelText: "Make an online payment & generate receipt",
+                value: 2,
+              },
+            ]}
+          />
         </div>
 
         <div className="payment-footer">
-          <Button invert auth className="payment-cancel-btn" onClick={onRevertModal}>
+          <Button
+            invert
+            auth
+            className="payment-cancel-btn"
+            onClick={onRevertModal}
+          >
             Back
           </Button>
           <Button auth className="payment-save-btn">

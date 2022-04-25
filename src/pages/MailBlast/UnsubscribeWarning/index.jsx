@@ -1,5 +1,6 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import RadioGroup from "components/atoms/RadioGroup";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UnsubscribeModal from "../MailblasModals/Unsubscribe";
@@ -21,26 +22,30 @@ function UnsubscribeWarning() {
         </p>
 
         <UnsubscribeOption>
-          <div className="unsub-option">
-            <input type="radio" />
-            <span>I no longer want to receive these emails</span>
-          </div>
-          <div className="unsub-option">
-            <input type="radio" />
-            <span>I never signed up for this mailing list</span>
-          </div>
-          <div className="unsub-option">
-            <input type="radio" />
-            <span>This is not the content I expected</span>
-          </div>
-          <div className="unsub-option">
-            <input type="radio" />
-            <span>I receive emails more ofter than I expected</span>
-          </div>
-          <div className="unsub-option">
-            <input type="radio" />
-            <span>Others</span>
-          </div>
+          <RadioGroup
+            radioData={[
+              {
+                labelText: "I no longer want to receive these emails",
+                value: 1,
+              },
+              {
+                labelText: "I never signed up for this mailing list",
+                value: 2,
+              },
+              {
+                labelText: "This is not the content I expected",
+                value: 3,
+              },
+              {
+                labelText: "I receive emails more ofter than I expected",
+                value: 4,
+              },
+              {
+                labelText: "Others",
+                value: 5,
+              },
+            ]}
+          />
         </UnsubscribeOption>
 
         <UnsubscribeField>

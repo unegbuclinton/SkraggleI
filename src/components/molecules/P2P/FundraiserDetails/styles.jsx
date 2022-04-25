@@ -20,6 +20,9 @@ export const MainWrapper = styled.div`
     background-color: ${COLORS.white};
     display: flex;
     flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
     &__bottom {
       display: flex;
       align-items: center;
@@ -29,6 +32,9 @@ export const MainWrapper = styled.div`
       height: 6.3rem;
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.medium};
+      position: -webkit-sticky;
+      position: sticky;
+      top: 52rem;
     }
   }
 

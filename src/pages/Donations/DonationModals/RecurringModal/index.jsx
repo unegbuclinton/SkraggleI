@@ -14,7 +14,7 @@ function RecurringModal({ onCloseModal }) {
           onChangeModal={() => setShow(false)}
         />
       ) : (
-        <RecurringAssociation show={setShow} />
+        <RecurringAssociation show={setShow} /> 
       )}
     </Modal>
   );

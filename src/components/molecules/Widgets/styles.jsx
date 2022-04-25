@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const WidgetWrapper = styled.div`
   width: 65rem;
+
+  .vertical-tab__container {
+    height: 35rem;
+    overflow-y: auto;
+  }
+
   .vertical-tab-wrapper {
     display: flex;
     flex-direction: column;

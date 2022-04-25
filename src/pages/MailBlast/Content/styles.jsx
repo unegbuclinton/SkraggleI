@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+
 export const ContentWrapper = styled.div`
+  .content-card {
+    padding-bottom: 10rem;
+  }
   margin-top: 1.6rem;
   .reply-item__left {
     display: flex;
@@ -11,6 +15,11 @@ export const ContentWrapper = styled.div`
       display: flex;
       align-items: center;
       gap: 3.4rem;
+
+      .content-check {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
   .reciepient {
@@ -92,7 +101,10 @@ export const ContentBody = styled.div`
       display: flex;
       align-items: center;
       gap: 3.4rem;
-      .added-text {
+
+      .content-check {
+        width: 2rem;
+        height: 2rem;
       }
     }
     &__right {
@@ -101,7 +113,7 @@ export const ContentBody = styled.div`
         height: 4.8rem;
         font-size: ${FONTSIZES.small};
         font-weight: ${FONTWEIGHTS.bold};
-        border: 1px solid ${COLORS.pink};
+        border: 2px solid ${COLORS.pink};
         color: ${COLORS.pink};
         text-align: center;
       }
