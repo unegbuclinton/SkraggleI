@@ -1,10 +1,10 @@
-import { React, useState } from "react";
+import { React, useRef, useState } from "react";
 import FundraiserMain from "./FundraiserMain";
 import { MainWrapper } from "./styles";
 import VerticalTab from "components/molecules/VerticalTabs";
-
 const FundraiserDetails = () => {
   const [activeState, setActiveState] = useState(0);
+  const mainref = useRef(null);
 
   const tabs = [
     {
@@ -18,10 +18,12 @@ const FundraiserDetails = () => {
     {
       title: "Source",
       component: <FundraiserMain activeState={activeState} />,
+      props: { activeState: activeState, ref: mainref },
     },
     {
       title: "Custom fields",
       component: <FundraiserMain activeState={activeState} />,
+      props: { activeState: activeState, ref: mainref },
     },
     {
       title: "Donations",
@@ -36,7 +38,17 @@ const FundraiserDetails = () => {
       component: <FundraiserMain activeState={activeState} />,
     },
   ];
-
+  const scrollToRef = (targetref) => {
+    // console.log(ref);
+    // mainref.current = ref;
+    // console.log(mainref);
+    // window.scrollTo({
+    //  top : mainref.current.offsetTop,
+    //  behavior: "smooth"
+    // })
+    console.log(targetref)
+    mainref.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <MainWrapper>
       <div className="vertical-wrapper">
@@ -45,7 +57,8 @@ const FundraiserDetails = () => {
           setActiveState={setActiveState}
           className="vertical-tab-wrapper"
           verticalWrapper="vertical-tabs"
-          leftBottomClass='vertical-tabs__bottom'
+          leftBottomClass="vertical-tabs__bottom"
+          setRef={scrollToRef}
         >
           Pause P2P Fundraiser
         </VerticalTab>
@@ -53,5 +66,4 @@ const FundraiserDetails = () => {
     </MainWrapper>
   );
 };
-
 export default FundraiserDetails;

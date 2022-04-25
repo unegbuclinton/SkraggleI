@@ -1,4 +1,4 @@
-import React from "react";
+import {React, forwardRef} from "react";
 
 import { DPIconProfileImage } from "icons";
 import styled from "styled-components";

@@ -1,4 +1,4 @@
-import { React, useRef } from "react";
+import { React, useRef, forwardRef } from "react";
 
 import Button from "components/atoms/Button/Button";
 import { DPIconCopy } from "icons";
@@ -7,18 +7,17 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const P2PFundraise = ({className}) => {
+const P2PFundraise = forwardRef(({className}, mainref) => {
 
-  const textAreaRef1 = useRef(null);
+  const textAreaRef = useRef(null);
 
-  function copyToClipboard1(e) {
-    textAreaRef1.current.select();
-    document.execCommand("copy");
-    e.target.focus();
+  function copyToClipboard1() {
+    var text = textAreaRef.current.value;
+    navigator.clipboard.writeText(text)
     alert("Text Copied");
   }
   return (
-    <P2PFundraiser className={className}>
+    <P2PFundraiser className={className} ref={mainref}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">P2P Fundraiser</h1>
@@ -39,7 +38,7 @@ const P2PFundraise = ({className}) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef1}
+              ref={textAreaRef}
             ></textarea>
             <Button
               type="button"
@@ -57,7 +56,7 @@ const P2PFundraise = ({className}) => {
       </div>
     </P2PFundraiser>
   );
-};
+})
 
 export default P2PFundraise;
 

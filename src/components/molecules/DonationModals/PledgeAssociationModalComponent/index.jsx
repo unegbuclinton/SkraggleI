@@ -8,7 +8,7 @@ import data from "utilities/filterData";
 
 import { ModalWrapper, ButtonsContainer, ModalInputDescription } from "./styles";
 
-const PledgeAssociateModalComponent = ({ onRevertModal }) => {
+const PledgeAssociateModalComponent = ({ DecrementTab }) => {
   const [selectedContact, setSelectedContact] = useState(
     "Start typing to search"
   );
@@ -57,7 +57,7 @@ const PledgeAssociateModalComponent = ({ onRevertModal }) => {
         />
 
         <ButtonsContainer>
-          <Button onClick={onRevertModal} className="back-btn" auth invert>
+          <Button onClick={DecrementTab} className="back-btn" auth invert>
             Back
           </Button>
           <Button type="submit" className="save-btn" auth>
