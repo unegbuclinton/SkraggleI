@@ -9,14 +9,14 @@ export const ContactWrapper = styled(Card)`
 `;
 
 export const ContactHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }
@@ -35,65 +35,17 @@ export const ContactContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 11.3rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 11rem;
   }
 
   .info {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["header-grey"]};
-  }
-
-  .email {
-    margin-left: 13.1rem;
-    color: ${COLORS.deepPurple};
-  }
-
-  .home-email {
-    margin-left: 14.7rem;
-    color: ${COLORS.deepPurple};
-  }
-
-  .work-email {
-    margin-left: 14.8rem;
-  }
-
-  .other-email {
-    margin-left: 13.6rem;
-  }
-
-  .primary-phone {
-    color: ${COLORS.deepPurple};
-    margin-left: 12.6rem;
-  }
-
-  .phone {
-    margin-left: 14.3rem;
-  }
-
-  .other-pone {
-    margin-left: 13.2rem;
-  }
-
-  .address-container {
-    line-height: 2rem;
-    margin-left: 17rem;
-    width: 17rem;
-  }
-
-  .home-address {
-    margin-left: 13.3rem;
-  }
-
-  .work-address {
-    margin-left: 13.1rem;
-  }
-
-  .other-address {
-    margin-left: 11.3rem;
   }
 `;

@@ -8,7 +8,7 @@ export const VolunteerWrapper = styled(Card)`
 `;
 
 export const VolunteerHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
@@ -16,7 +16,7 @@ export const VolunteerHeading = styled.div`
   align-items: center;
 
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }
@@ -35,20 +35,17 @@ export const VolunteerContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 15.3rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 7rem;
   }
 
   .info {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["header-grey"]};
-  }
-
-  .size {
-    margin-left: 15.3rem;
   }
 `;

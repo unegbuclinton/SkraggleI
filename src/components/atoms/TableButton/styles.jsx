@@ -9,6 +9,6 @@ export const BtnWrapper = styled.div`
 
   .table-button {
     background-color: ${COLORS["bg-grey-btn"]};
-    color: ${COLORS["tabel-btn-grey"]};
+    color: ${COLORS["gray-500"]};
   }
 `;

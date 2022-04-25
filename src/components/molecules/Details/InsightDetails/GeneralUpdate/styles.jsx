@@ -9,9 +9,9 @@ export const GeneraUpdateWrapper = styled(Card)`
 `;
 
 export const GeneralUpdateHeading = styled.div`
-  border-bottom: 0.1rem ${COLORS.torquoise} solid;
+  border-bottom: 0.1rem ${COLORS["header-grey"]} solid;
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-weight: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
     padding-bottom: 1.7rem;
