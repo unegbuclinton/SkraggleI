@@ -13,7 +13,7 @@ export const Label = styled.label`
 `;
 
 export const RadioWrapper = styled.div`
-  margin: 3.3rem 0 3.678rem 0;
+  margin: 2.3rem 0 3.678rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.822rem;
@@ -88,9 +88,6 @@ export const SelectContainer = styled.div`
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 2.4rem 0 0 0;
-    /* display: flex;
-    align-items: center;
-    padding-left: 1rem; */
   }
 `;
 

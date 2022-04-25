@@ -13,7 +13,7 @@ import {
 import Button from "components/atoms/Button/Button";
 import { promoCodeValidationSchema } from "validation/Schema";
 import { useFormik } from "formik";
-import Radio from "components/atoms/Radio";
+import RadioGroup from "components/atoms/RadioGroup";
 
 function PromoCodeDropdown({ setDropdown }) {
   const formik = useFormik({
@@ -69,8 +69,20 @@ function PromoCodeDropdown({ setDropdown }) {
         </div>
       </InputWrapper>
       <RadioWrapper>
-        <Radio value="any" name="radio-test" labelText="Amount" />
-        <Radio value="all" name="radio-test" labelText="Percentage" />
+        {/* <Radio value="any" name="radio-test" labelText="Amount" />
+        <Radio value="all" name="radio-test" labelText="Percentage" /> */}
+        <RadioGroup
+          radioData={[
+            {
+              labelText: "Amount",
+              value: 1,
+            },
+            {
+              labelText: "Percentage",
+              value: 2,
+            },
+          ]}
+        />
       </RadioWrapper>
       <Container className="container">
         <div>

@@ -8,7 +8,7 @@ import Card from "components/atoms/Card";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
 
-function RecurringAssociation({show}) {
+function RecurringAssociation({ DecrementTab }) {
   return (
     <AssociationWrapper>
       <Card className="association-card">
@@ -42,7 +42,12 @@ function RecurringAssociation({show}) {
         </AssociationLabel>
 
         <div className="association-footer">
-          <Button invert auth className="association-cancel-btn" onClick={show}>
+          <Button
+            invert
+            auth
+            className="association-cancel-btn"
+            onClick={DecrementTab}
+          >
             Back
           </Button>
           <Button auth className="association-save-btn">

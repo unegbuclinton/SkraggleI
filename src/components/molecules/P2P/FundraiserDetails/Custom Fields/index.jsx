@@ -1,12 +1,12 @@
-import React from "react";
+import { React, forwardRef } from "react";
 
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const CustomFields = ({className}) => {
+const CustomFields = forwardRef(({className}, customref) => {
     return(
-        <CustomFieldWrapper className={className}>
+        <CustomFieldWrapper className={className} ref={customref}>
           <div className="fundraiser__top">
             <div className="fundraiser__title">
               <h1 className="fundraiser__heading">Custom Fields</h1>
@@ -21,7 +21,7 @@ const CustomFields = ({className}) => {
           </div>
         </CustomFieldWrapper>
     )
-}
+})
 
 export default CustomFields
 

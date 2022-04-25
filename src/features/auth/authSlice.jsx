@@ -16,7 +16,7 @@ export const counterSlice = createSlice({
   reducers: {
     login: (state, { payload }) => {
       state.isAuthenticated = true;
-      state.token = payload.token;
+      // state.token = payload.token;
     },
     register: (state, payload) => {
       state = { ...state, payload };

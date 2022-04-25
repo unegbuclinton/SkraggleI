@@ -9,7 +9,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
-function RecurringInformation({onChangeModal,onCloseModal}) {
+function RecurringInformation({IncrementTab,onCloseModal}) {
  
   return (
     <InformationWrapper>
@@ -54,7 +54,7 @@ function RecurringInformation({onChangeModal,onCloseModal}) {
           <Button invert auth className="donation-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
-          <Button auth className="donation-save-btn" onClick={onChangeModal}>
+          <Button auth className="donation-save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
@@ -10,8 +10,13 @@ function VerticalTab({
   children,
   onClick,
   leftBottomClass,
+  setRef,
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
+  const listRef = useRef([]);
+  const RenderFunction = (Components,props) => {
+    return <Components {...props} />;
+  };
   return (
     <>
       <VerticalTabWrapper className={className}>
@@ -19,11 +24,13 @@ function VerticalTab({
           <div className={verticalWrapper}>
             {tabs.map(({ title }, index) => (
               <TabButton
+                ref={(ref) => (listRef.current[index] = ref)}
                 key={index}
                 active={activeWidget === index}
                 onClick={() => {
                   setActiveWidget(index);
                   setActiveState(index);
+                  setRef(index);
                 }}
               >
                 {title}
@@ -36,6 +43,7 @@ function VerticalTab({
         </div>
         <div className="content-wrapper" activeWidget={activeWidget}>
           {tabs && tabs[activeWidget]?.component}
+          {/* {tabs && RenderFunction(tabs[activeWidget]?.component)} */}
         </div>
       </VerticalTabWrapper>
     </>

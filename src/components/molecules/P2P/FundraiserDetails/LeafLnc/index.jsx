@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { React, useRef, forwardRef } from "react";
 
 import Button from "components/atoms/Button/Button";
 import { DPIconCopy } from "icons";
@@ -8,13 +8,12 @@ import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const LeafLnc = ({className}) => {
+const LeafLnc =({className}) => {
   const textAreaRef = useRef(null);
 
-  function copyToClipboard(e) {
-    textAreaRef.current.select();
-    document.execCommand("copy");
-    e.target.focus();
+  function copyToClipboard() {
+    const text = textAreaRef.current.value;
+    navigator.clipboard.writeText(text)
     alert("Text Copied");
   }
   return (
