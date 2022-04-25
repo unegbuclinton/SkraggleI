@@ -1,12 +1,13 @@
 import Button from "components/atoms/Button/Button";
 import Card from "components/atoms/Card";
+import Checkbox from "components/atoms/CheckBox";
 import Input from "components/atoms/Input/Input";
 import Switch from "components/atoms/Switch/Switch";
 import React from "react";
 import { MailToLabel } from "./styles";
 import { MailToWrapper } from "./styles";
 
-function MailTo({onClose}) {
+function MailTo({ onClose }) {
   return (
     <MailToWrapper>
       <Card className="mailto-card">
@@ -24,7 +25,7 @@ function MailTo({onClose}) {
         </div>
         <div className="send-email">
           <div className="input-box">
-            <input type="checkbox" />
+            <Checkbox />
             <p>Send to email addresses with unknown subscription status</p>
           </div>
           <textarea id="email">

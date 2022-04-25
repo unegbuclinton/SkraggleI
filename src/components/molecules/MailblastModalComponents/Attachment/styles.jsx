@@ -28,6 +28,7 @@ export const Attachwrapper = styled.div`
     justify-content: flex-end;
     gap: 1.6rem;
     margin-top: 10rem;
+    padding-right: 3.1rem;
   }
 
   .attach-cancel-btn {

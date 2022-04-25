@@ -9,7 +9,7 @@ import StatisticsTracker from "components/molecules/StatisticsTracker";
 function Overview({ ...props }) {
   return (
     <NewstellerWrapper>
-      <Card>
+      <Card className='overview-card'>
         <NewstellerTop>
           <div className="newsteller-left">
             <div className="top">

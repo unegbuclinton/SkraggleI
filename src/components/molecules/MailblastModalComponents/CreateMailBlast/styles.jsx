@@ -7,7 +7,7 @@ export const CreateMailWrapper = styled.div`
     padding: 3.2rem 2.4rem 2.455rem 2.4rem;
 
     .edit-mail-body {
-      margin-bottom: 27.045rem;
+      margin-bottom: 15.045rem;
     }
 
     .edit-mail-footer {

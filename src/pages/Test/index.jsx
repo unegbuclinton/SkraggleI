@@ -5,7 +5,7 @@ import Checkbox from "components/atoms/CheckBox";
 const Test = () => {
   return (
     <Wrapper>
-      <Checkbox />
+      <Checkbox pink/>
     </Wrapper>
   );
 };
