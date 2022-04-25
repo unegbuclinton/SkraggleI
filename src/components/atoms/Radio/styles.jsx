@@ -1,9 +1,6 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import styled, { css } from 'styled-components';
-
-
-
+import { COLORS } from "constants/colors";
+import { FONTSIZES } from "constants/font-spec";
+import styled, { css } from "styled-components";
 export const Wrapper = styled.label`
   display: flex;
   align-items: center;
@@ -11,18 +8,15 @@ export const Wrapper = styled.label`
   cursor: pointer;
   font-size: ${FONTSIZES.small};
   outline: none;
-
   *:focus {
     outline: none;
   }
-
   input {
     &:focus {
       outline: none;
     }
   }
 `;
-
 export const Root = styled.div`
   margin: 5px;
   cursor: pointer;
@@ -35,13 +29,13 @@ export const Root = styled.div`
     width: fit-content;
   }
   &::before {
-    content: '';
+    content: "";
     border-radius: 100%;
     border: 1px solid
       ${(props) =>
-        props.borderColor ? props.borderColor : `${COLORS['gray-500']}`};
+        props.borderColor ? props.borderColor : `${COLORS["gray-500"]}`};
     background: ${(props) =>
-      props.backgroundColor ? props.backgroundColor : '#FAFAFA'};
+      props.backgroundColor ? props.backgroundColor : "#FAFAFA"};
     width: 100%;
     height: 100%;
     position: absolute;
@@ -52,7 +46,6 @@ export const Root = styled.div`
     border-color: ${(props) => props.checked && `${COLORS.pink}`};
   }
 `;
-
 export const Fill = styled.div`
   background: ${(props) =>
     props.fillColor ? props.fillColor : `${COLORS.pink}`};
@@ -66,9 +59,8 @@ export const Fill = styled.div`
   transition: width 0.2s ease-in, height 0.2s ease-in;
   pointer-events: none;
   z-index: 1;
-
   &::before {
-    content: '';
+    content: "";
     opacity: 0;
     /* width: calc(20px - 4px); */
     position: absolute;
@@ -83,7 +75,6 @@ export const Fill = styled.div`
     border-radius: 100%;
   }
 `;
-
 export const Input = styled.input`
   opacity: 0;
   z-index: 2;
@@ -94,11 +85,9 @@ export const Input = styled.input`
   margin: 0;
   cursor: pointer;
   visibility: hidden;
-
   &:focus {
     outline: none;
   }
-
   ${({ checked }) =>
     checked &&
     css`
@@ -106,22 +95,10 @@ export const Input = styled.input`
         width: 15px;
         height: 15px;
         transition: width 0.2s ease-out, height 0.2s ease-out;
-
         &::before {
           opacity: 1;
           transition: opacity 1s ease;
         }
       }
-    `}/* &:checked {
-    & ~ ${Fill} {
-      width: 55px;
-      height: 15px;
-      transition: width 0.2s ease-out, height 0.2s ease-out;
-
-      &::before {
-        opacity: 1;
-        transition: opacity 1s ease;
-      }
-    }
-  } */
+    `}
 `;
