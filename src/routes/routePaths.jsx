@@ -22,6 +22,7 @@ import RegistrationPackage from "components/molecules/EventsDetails/Registration
 import Test from "pages/Test";
 import UnsubscribeWarning from "pages/MailBlast/UnsubscribeWarning";
 import LogIn from "pages/LogIn";
+import DonationBarchart from "components/molecules/BarchartComponent";
 
 export const privateRoutes = [
   {
@@ -159,7 +160,8 @@ export const privateRoutes = [
 
   {
     path: "/test",
-    element: <Test />,
+    // element: <Test />,
+    element: <DonationBarchart />,
   },
 ];
 

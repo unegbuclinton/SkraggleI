@@ -3,20 +3,25 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Card from "../../atoms/Card";
-const Tabs = ({ tabs, stickyTab, ...rest }) => {
+const Tabs = ({ tabs, actionComponent, stickyTab, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
       <TabContainer className={stickyTab ? "sticky-header" : ""} {...rest}>
-        {tabs?.map((tab, index) => (
-          <TabButton
-            key={index}
-            active={activeTab === index}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab.title}
-          </TabButton>
-        ))}
+        <div>
+          {tabs?.map((tab, index) => (
+            <TabButton
+              key={index}
+              active={activeTab === index}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab.title}
+            </TabButton>
+          ))}
+        </div>
+        {tabs[activeTab]?.actionComponent && (
+          <span>{tabs[activeTab]?.actionComponent}</span>
+        )}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
