@@ -6,7 +6,6 @@ import TodosTable from "components/molecules/Details/ProfileTables/TodosTable";
 import TransactionTable from "components/molecules/Details/ProfileTables/TransactionTable";
 import MembershipsTable from "components/molecules/Details/ProfileTables/MembershipsTable";
 import VolunteerTable from "components/molecules/Details/ProfileTables/VolunteerTable";
-
 import Tabs from "components/molecules/Tabs";
 
 function Profile() {
@@ -38,7 +37,7 @@ function Profile() {
   ];
   return (
     <DashboardLayout>
-      <Tabs tabs={links} />
+      <Tabs stickyTab tabs={links} />
     </DashboardLayout>
   );
 }
