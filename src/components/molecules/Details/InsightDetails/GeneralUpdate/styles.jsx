@@ -20,8 +20,8 @@ export const GeneralUpdateHeading = styled.div`
 
 export const UpdateContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 18.068rem;
+  justify-content: space-between;
+  /* gap: 18.068rem; */
 `;
 
 export const UpdateContent = styled.div`

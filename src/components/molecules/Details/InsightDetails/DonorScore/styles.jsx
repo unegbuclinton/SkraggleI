@@ -20,16 +20,20 @@ export const DonorHeading = styled.div`
 
 export const DonorContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 8.106rem;
   gap: 3rem;
   .donor-info {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
-    width: 45rem;
+    /* width: 45rem; */
     line-height: 2rem;
   }
+`;
+
+export const DiamondContainer = styled.div`
+  width: 10rem;
 `;
 
 export const Diamond = styled.div`

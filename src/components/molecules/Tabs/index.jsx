@@ -1,13 +1,13 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Card from '../../atoms/Card';
-const Tabs = ({ tabs, ...rest }) => {
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import Card from "../../atoms/Card";
+const Tabs = ({ tabs, stickyTab, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
-      <TabContainer {...rest}>
+      <TabContainer className={stickyTab ? "sticky-header" : ""} {...rest}>
         {tabs?.map((tab, index) => (
           <TabButton
             key={index}
@@ -26,6 +26,12 @@ const Tabs = ({ tabs, ...rest }) => {
 const TabWrapper = styled.div`
   width: 100%;
   /* overflow-x: auto; */
+  .sticky-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -2rem;
+    z-index: 100;
+  }
 `;
 
 const TabContainer = styled(Card)`
@@ -42,14 +48,14 @@ const TabButton = styled.button`
   cursor: pointer;
   background: transparent;
   padding-bottom: 1.296rem;
-  color: ${COLORS['grey-400']};
+  color: ${COLORS["grey-400"]};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 0;
     height: 2px;
     background: ${COLORS.pink};
