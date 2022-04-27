@@ -6,7 +6,11 @@ import Button from "components/atoms/Button/Button";
 import Input from "components/atoms/Input/Input";
 import data from "utilities/filterData";
 
-import { ModalWrapper, ButtonsContainer, ModalInputDescription } from "./styles";
+import {
+  ModalWrapper,
+  ButtonsContainer,
+  ModalInputDescription,
+} from "./styles";
 
 const PledgeAssociateModalComponent = ({ DecrementTab }) => {
   const [selectedContact, setSelectedContact] = useState(
@@ -14,7 +18,6 @@ const PledgeAssociateModalComponent = ({ DecrementTab }) => {
   );
   const [selectedType, setSelectedType] = useState("Start typing to search");
 
-  
   return (
     <ModalWrapper>
       <Card>
@@ -28,7 +31,13 @@ const PledgeAssociateModalComponent = ({ DecrementTab }) => {
         />
 
         <h1>Impact Area</h1>
-        <Input className="pledge-modal" type="text" id="name" name="name" placeholder="Start typing to search"/>
+        <Input
+          className="pledge-modal"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Start typing to search"
+        />
 
         <h1>Soft Credit</h1>
         <DropdownComponent
@@ -40,10 +49,22 @@ const PledgeAssociateModalComponent = ({ DecrementTab }) => {
         />
 
         <h1>Source</h1>
-        <Input className="pledge-modal" type="text" id="name" name="name" placeholder="Start typing to search"/>
+        <Input
+          className="pledge-modal"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Start typing to search"
+        />
 
         <h1>Keywords</h1>
-        <Input className="pledge-modal" type="text" id="name" name="name" placeholder="Start typing to search"/>
+        <Input
+          className="pledge-modal"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Start typing to search"
+        />
 
         <h1>Dedication</h1>
         <Input className="pledge-modal" type="text" id="name" name="name" />
@@ -53,7 +74,6 @@ const PledgeAssociateModalComponent = ({ DecrementTab }) => {
           type="text"
           id="description"
           name="description"
-          
         />
 
         <ButtonsContainer>
