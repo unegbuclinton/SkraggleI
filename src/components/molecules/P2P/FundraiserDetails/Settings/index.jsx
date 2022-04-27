@@ -1,11 +1,11 @@
-import React from "react";
+import { React } from "react";
 
 import { DPIconProfileImage } from "icons";
 import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const Settings = ({className}) => {
+const Settings = ({ className }) => {
   return (
     <SettingsWrapper className={className}>
       <div className="fundraiser__top">
@@ -52,7 +52,9 @@ const Settings = ({className}) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Fundraiser Photo</h1>
-          <p className="fundraiser__p2"><DPIconProfileImage/></p>
+          <p className="fundraiser__p2">
+            <DPIconProfileImage />
+          </p>
         </div>
       </div>
     </SettingsWrapper>

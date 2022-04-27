@@ -5,7 +5,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React from "react";
 import styled from "styled-components";
 
-function CompleteTransaction({ onRevertModal }) {
+function CompleteTransaction({ DecrementTab }) {
   return (
     <CompleteWrapper>
       <Card className="payment-card">
@@ -30,7 +30,7 @@ function CompleteTransaction({ onRevertModal }) {
             invert
             auth
             className="payment-cancel-btn"
-            onClick={onRevertModal}
+            onClick={DecrementTab}
           >
             Back
           </Button>

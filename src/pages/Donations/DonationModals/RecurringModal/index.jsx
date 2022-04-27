@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "components/layouts/Modal";
 import RecurringAssociation from "components/molecules/DonationModals/Recurring/RecurringAssociation";
 import RecurringInformation from "components/molecules/DonationModals/Recurring/RecurringInfomation";
+import MultiformTabs from "components/molecules/MultiformTabs";
 
 function RecurringModal({ onCloseModal }) {
-  const [show, setShow] = useState(true);
+  const tabs = [
+    {
+      name: "DONATION INFORMATION",
+      component: RecurringInformation,
+    },
+    {
+      name: "ASSOCIATIONS ",
+      component: RecurringAssociation,
+    },
+  ];
 
   return (
-    <Modal header="Recurring" isShown hide={onCloseModal}>
-      {show ? (
-        <RecurringInformation
-          onCloseModal={onCloseModal}
-          onChangeModal={() => setShow(false)}
-        />
-      ) : (
-        <RecurringAssociation show={setShow} /> 
-      )}
+    <Modal
+      header="Recurring"
+      isShown
+      hide={onCloseModal}
+      showClose={onCloseModal}
+    >
+      <MultiformTabs tabs={tabs} />
     </Modal>
   );
 }

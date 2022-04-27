@@ -10,7 +10,8 @@ import FileUploadButton from "components/atoms/FileUploadButton";
 import { ModalWrapper, ButtonsContainer, InstallmentWrapper } from "./styles";
 import { DPIconUploadFile, DPIconDelete } from "icons";
 
-const PledgeInfoModalComponent = ({ onClose, onChangeModal }) => {
+const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
+  console.log({...rest})
   const [selectedContact, setSelectedContact] = useState(
     "Start typing to search"
   );
@@ -164,7 +165,7 @@ const PledgeInfoModalComponent = ({ onClose, onChangeModal }) => {
           <Button onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
-          <Button type="submit" className="save-btn" auth onClick={onChangeModal}>
+          <Button type="button" className="save-btn" auth onClick={IncrementTab}>
             Next
           </Button>
         </ButtonsContainer>

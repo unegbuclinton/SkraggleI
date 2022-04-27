@@ -1,55 +1,53 @@
-import Card from 'components/atoms/Card';
-import Table from 'components/layouts/Table';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
-import styled from 'styled-components';
+import Card from "components/atoms/Card";
+import Table from "components/layouts/Table";
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import React from "react";
+import styled from "styled-components";
 
 const columns = [
   {
-    name: '',
-    // selector: (row) => row.contact,
-    cell: (row) => <input style={{ margin: '0 auto' }} type="checkbox" />,
-    width: '7.8rem',
+    name: "",
+    cell: (row) => <input style={{ margin: "0 auto" }} type="checkbox" />,
+    width: "7.8rem",
   },
   {
-    name: 'CONTACT',
+    name: "CONTACT",
     selector: (row) => row.fullName,
-    width: '19.695rem',
+    width: "19.695rem",
   },
   {
-    name: 'AMOUNT',
+    name: "AMOUNT",
     selector: (row) => row.amount,
-    width: '26.366rem',
+    width: "26.366rem",
   },
   {
-    name: 'DATE',
+    name: "DATE",
     selector: (row) => row.created,
-    width: '26.366rem',
+    width: "26.366rem",
   },
   {
-    name: 'TYPE',
+    name: "TYPE",
     selector: (row) => row.type,
-    width: '100%',
   },
 ];
 
 const data = [
   {
     id: 1,
-    fullName: 'Mohammed Adam',
-    amount: '$500',
-    type: 'Gift',
-    created: '24th Aug',
-    action: '',
+    fullName: "Mohammed Adam",
+    amount: "$500",
+    type: "Gift",
+    created: "24th Aug",
+    action: "",
   },
   {
     id: 2,
-    fullName: 'Mohammed Adam',
-    amount: '$500',
-    type: 'Gift',
-    created: '24th Aug',
-    action: '',
+    fullName: "Mohammed Adam",
+    amount: "$500",
+    type: "Gift",
+    created: "24th Aug",
+    action: "",
   },
 ];
 
@@ -78,11 +76,11 @@ const RecentTransactionsHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS['header-grey']};
+  color: ${COLORS["header-grey"]};
   margin-bottom: 1.6rem;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
