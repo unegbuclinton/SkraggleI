@@ -9,10 +9,14 @@ const BarChart = ({series,categories,width,height}) => {
         width={width}
         height={height}
         series={series}
+        
         options={{
           xaxis:{
             categories,
-          }
+          },
+          chart:{
+            redrawOnParentResize: true
+          },
         }}
       ></Chart>
     </>

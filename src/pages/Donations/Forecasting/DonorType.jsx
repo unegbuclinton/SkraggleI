@@ -44,7 +44,6 @@ function DonorType() {
             <BarChart
               series={series}
               categories={["30", "40", "60"]}
-              width={650}
               height={350}
             />
           </div>

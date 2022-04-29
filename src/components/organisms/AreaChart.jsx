@@ -2,13 +2,17 @@ import { COLORS } from "constants/colors";
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-const AreaChart = ({ data, categories, ...rest }) => {
+const AreaChart = ({ data, categories, type, ...rest }) => {
   const dataProps = {
     options: {
+      responsive: [{
+        breakpoint: undefined,
+        options: {},
+    }],
       chart: {
-        type: "area",
         toolbar: {
           show: false,
+          redrawOnParentResize: true
         },
         colors: ["#FF576B"],
         fill: {
@@ -24,8 +28,8 @@ const AreaChart = ({ data, categories, ...rest }) => {
       dataLabels: {
         enabled: false,
       },
-      
-      colors: ["#FF576B"],
+
+      colors: ["#578EC1"],
 
       stroke: {
         curve: "straight",
@@ -54,7 +58,7 @@ const AreaChart = ({ data, categories, ...rest }) => {
     <ReactApexChart
       options={dataProps.options}
       series={dataProps.series}
-      type="area"
+      type={type || "area"}
       height={350}
       {...rest}
     />
