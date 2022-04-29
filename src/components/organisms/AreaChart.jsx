@@ -24,6 +24,7 @@ const AreaChart = ({ data, categories, ...rest }) => {
       dataLabels: {
         enabled: false,
       },
+      
       colors: ["#FF576B"],
 
       stroke: {
