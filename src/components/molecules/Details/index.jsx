@@ -9,7 +9,11 @@ function ProfileLayOut({ children, heading }) {
     <ProfileContainer>
       <div>
         <h1 className="main-heading">Personal Details</h1>
-        <PersonalDetailsCard />
+        <CardWrapper>
+          <div className="card">
+            <PersonalDetailsCard />
+          </div>
+        </CardWrapper>
       </div>
 
       <ProfileContentWrapper>
@@ -27,7 +31,6 @@ const ProfileContainer = styled.div`
   width: 100%;
   gap: 1.572rem;
   display: flex;
-
   .main-heading {
     font-size: ${FONTSIZES.base};
     font-weight: ${FONTWEIGHTS.normal};
@@ -42,6 +45,16 @@ const ProfileContainer = styled.div`
   }
 `;
 
+const CardWrapper = styled.div`
+  height: 100%;
+  .card {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10rem;
+    margin-bottom: 2.68rem;
+  }
+`;
+
 const ProfileContentWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -49,5 +62,9 @@ const ProfileContentWrapper = styled.div`
 
 const ProfileContent = styled.div`
   flex: 1;
-  padding-bottom: 4.8rem;
+  /* background-color: red; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10rem;
+  overflow: auto;
 `;
