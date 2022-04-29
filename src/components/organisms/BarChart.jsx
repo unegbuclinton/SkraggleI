@@ -15,6 +15,7 @@ const BarChart = ({series,categories,width,height}) => {
             categories,
           },
           chart:{
+            width: '100%',
             redrawOnParentResize: true
           },
         }}

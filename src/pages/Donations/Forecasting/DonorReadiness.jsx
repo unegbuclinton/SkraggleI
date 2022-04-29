@@ -56,7 +56,7 @@ function DonorReadiness() {
                   "Dec",
                 ]}
                 height={385}
-                width={600}
+              
               />
             </div>
           </Card>

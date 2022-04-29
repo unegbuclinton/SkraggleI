@@ -14,6 +14,7 @@ const PieChart = ({ width, height }) => {
             show: false,
           },
           chart:{
+            width: '100%',
             redrawOnParentResize: true
           },
           xaxis: {},

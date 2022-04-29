@@ -31,7 +31,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart width={550} height={360} />
+            <PieChart  height={350} />
           </div>
         </Card>
       </div>

@@ -10,6 +10,7 @@ const AreaChart = ({ data, categories, type, ...rest }) => {
         options: {},
     }],
       chart: {
+        width: '100%',
         toolbar: {
           show: false,
           redrawOnParentResize: true
