@@ -42,6 +42,7 @@ const DonationMetrics = () => {
           />
         </DonationTrackerHeaderWrapper>
         <AreaChart
+          type="area"
           data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
           height={350}
           categories={[

@@ -1,12 +1,22 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { COLORS } from "constants/colors";
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-const AreaChart = ({ data, categories,height, ...rest }) => {
+const AreaChart = ({
+  data,
+  categories,
+  height,
+  yaxis,
+  markers,
+  type,
+  ...rest
+}) => {
   const dataProps = {
     options: {
       chart: {
         type: "area",
+
         toolbar: {
           show: false,
         },
@@ -20,6 +30,15 @@ const AreaChart = ({ data, categories,height, ...rest }) => {
         labels: {
           color: "#FF576B",
         },
+      },
+      yaxis: {
+        axisBorder: {
+          show: true,
+        },
+        ...yaxis,
+      },
+      markers: {
+        ...markers,
       },
       dataLabels: {
         enabled: false,
@@ -44,7 +63,7 @@ const AreaChart = ({ data, categories,height, ...rest }) => {
 
     series: [
       {
-        name: "series-1",
+        name: "",
         data,
       },
     ],
@@ -53,7 +72,7 @@ const AreaChart = ({ data, categories,height, ...rest }) => {
     <ReactApexChart
       options={dataProps.options}
       series={dataProps.series}
-      type="area"
+      type={type}
       height={height}
       {...rest}
     />

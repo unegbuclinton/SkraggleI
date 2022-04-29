@@ -1,7 +1,7 @@
 import CalendarDropdown from "components/atoms/CalendarDropdown";
 import Card from "components/atoms/Card";
 import GoalProgressTracker from "components/molecules/GoalProgressTracker";
-import AreaChart from "components/organisms/AreaChart";
+import Chart from "components/organisms/AreaChart";
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
@@ -51,7 +51,8 @@ const RevenueMetrics = () => {
             open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
-        <AreaChart
+        <Chart
+          type="area"
           data={[300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179]}
           height={350}
           categories={[

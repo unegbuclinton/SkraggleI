@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import Card from "components/atoms/Card";
 import AreaChart from "components/organisms/AreaChart";
 import { COLORS } from "constants/colors";
@@ -23,7 +24,23 @@ const KeyPerformanceIndicatiors = () => {
             </div>
           </KPIContentCardBody>
           <KPIContentCardChart>
-            <AreaChart data={[300, 300, 300]} height={120} />
+            <AreaChart
+              type="area"
+              data={[300, 300, 300]}
+              height={120}
+              markers={{
+                size: 5,
+                colors: "#FF576B",
+              }}
+              yaxis={{
+                labels: {
+                  show: false,
+                  formatter: function (val) {
+                    return Number(val).toLocaleString() + "€";
+                  },
+                },
+              }}
+            />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
@@ -41,7 +58,23 @@ const KeyPerformanceIndicatiors = () => {
             </div>
           </KPIContentCardBody>
           <KPIContentCardChart>
-            <AreaChart data={[300, 305, 300]} height={120} />
+            <AreaChart
+              type="area"
+              data={[300, 305, 300]}
+              height={120}
+              markers={{
+                size: 5,
+                colors: "#FF576B",
+              }}
+              yaxis={{
+                labels: {
+                  show: false,
+                  formatter: function (val) {
+                    return Number(val).toLocaleString() + "€";
+                  },
+                },
+              }}
+            />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
@@ -57,7 +90,23 @@ const KeyPerformanceIndicatiors = () => {
             </div>
           </KPIContentCardBody>
           <KPIContentCardChart>
-            <AreaChart data={[300, 300, 300]} height={120} />
+            <AreaChart
+              type="area"
+              data={[300, 300, 300]}
+              height={120}
+              markers={{
+                size: 5,
+                colors: "#FF576B",
+              }}
+              yaxis={{
+                labels: {
+                  show: false,
+                  formatter: function (val) {
+                    return Number(val).toLocaleString() + "€";
+                  },
+                },
+              }}
+            />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
@@ -75,7 +124,23 @@ const KeyPerformanceIndicatiors = () => {
             </div>
           </KPIContentCardBody>
           <KPIContentCardChart>
-            <AreaChart data={[300, 300, 300]} height={120} />
+            <AreaChart
+              type="area"
+              data={[300, 300, 300]}
+              height={120}
+              markers={{
+                size: 5,
+                colors: "#FF576B",
+              }}
+              yaxis={{
+                labels: {
+                  show: false,
+                  formatter: function (val) {
+                    return Number(val).toLocaleString() + "€";
+                  },
+                },
+              }}
+            />
           </KPIContentCardChart>
         </KPIContentCard>
       </KPIContentWrapper>
@@ -115,7 +180,7 @@ const KPIContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.6rem;
-  padding: 8.7rem 0 2.8rem ;
+  padding: 8.7rem 0 2.8rem;
 `;
 
 const KPIContentCard = styled.div`
