@@ -39,6 +39,7 @@ export const COLORS = {
   'primary-blue' : '#1A95B0',
   'purple-solid':'#8358fe',
   'black-300':'#3c3c3c',
+  'turfts-blue': '#578EC1',
   'check-green': '#00903A',
   'success-background': 'rgba(125, 194, 55, 0.2)',
   'error-background': 'rgba(255, 87, 107, 0.2)',
