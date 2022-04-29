@@ -6,7 +6,7 @@ function DonationBarchart() {
     {
       name: "Skraggle",
       data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: "#FF6868",
+      color: "#FF7989",
     },
   ];
 
@@ -15,6 +15,7 @@ function DonationBarchart() {
       <h1>DonationBarchart</h1>
       <BarChart
         series={series}
+        stacked={true}
         categories={[
           "Jan",
           "Feb",
