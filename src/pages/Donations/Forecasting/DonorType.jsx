@@ -31,7 +31,17 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart width={550} height={360} />
+            <PieChart width={405} height={360} />
+            <div className="pie-legend">
+              <div className="legend-description">
+                <div className="legend-description__donation"></div>
+                <p>New Donations</p>
+              </div>
+              <div className="legend-description">
+                <div className="legend-description__contacts"></div>
+                <p>New Contacts</p>
+              </div>
+            </div>
           </div>
         </Card>
       </div>
@@ -78,9 +88,41 @@ const TypeWrapper = styled.div`
   }
   .pie-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: 0 5.6rem 0 4rem;
     border-top: 1px solid ${COLORS.torquoise};
+
+    .pie-legend {
+      display: flex;
+      gap: 1.7rem;
+      padding-bottom: 3.5rem;
+      padding-top: 4.1rem;
+
+      .legend-description {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+
+        p{
+          font-size: ${FONTSIZES.small};
+          font-weight: ${FONTWEIGHTS.normal};
+        }
+        &__donation {
+          width: 1.6rem;
+          height: 1.6rem;
+          background: ${COLORS["uranian-blue"]};
+        }
+
+        &__contacts {
+          width: 1.6rem;
+          height: 1.6rem;
+          background: ${COLORS["turfts-blue"]};
+        }
+      }
+    }
   }
 `;
 
@@ -106,5 +148,3 @@ const TypeHeader = styled.div`
     padding-bottom: 1.6rem;
   }
 `;
-
-

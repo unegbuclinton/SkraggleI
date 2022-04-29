@@ -24,6 +24,7 @@ const MultiformTabs = ({ tabs, ...rest }) => {
         {tabs?.map((tab, index) => (
           <TabButton
             key={index}
+            disabled
             active={activeTab >= index}
             onClick={() => {
               setActiveTab(index);

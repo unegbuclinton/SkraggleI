@@ -17,11 +17,14 @@ export const DonationWrapper = styled.div`
     color: ${COLORS["header-grey"]};
     padding: 2.4rem 0rem 1.7rem 0rem;
     margin: 0 4.7rem 0 4rem;
-    border-bottom: 1px solid ${COLORS.torquoise};
+ 
   }
 
   .progress-tracker {
-    padding: 4.1rem 4.7rem 6rem 4.1rem;
+    margin: 0rem 4.7rem 6rem 4.1rem;
+    padding-bottom: 5rem;
+    padding-top: 5.3rem;
+    border-top: 1px solid ${COLORS.torquoise};
   }
 `;
 

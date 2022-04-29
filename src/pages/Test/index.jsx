@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Checkbox from "components/atoms/CheckBox";
+import Slider from "components/atoms/Slider";
 
 const Test = () => {
   return (
     <Wrapper>
-      <Checkbox />
+     <Slider />
     </Wrapper>
   );
 };

@@ -20,6 +20,7 @@ function Donation() {
               heading="Yearly Goal"
               value={195400}
               target={500000}
+             
             />
           </div>
         </Card>

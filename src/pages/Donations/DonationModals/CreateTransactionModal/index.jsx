@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "components/layouts/Modal";
 import CompleteTransaction from "components/molecules/DonationModals/CreateTransaction/CompleteTransaction";
 import DonationAssociation from "components/molecules/DonationModals/CreateTransaction/DonationAssociation";
@@ -21,11 +21,15 @@ function CreateTransactionModal({ onCloseModal }) {
     },
   ];
   return (
-    <Modal header="Create a Transaction - Donation" isShown hide={onCloseModal} showClose={onCloseModal} >
+    <Modal
+      header="Create a Transaction - Donation"
+      isShown
+      hide={onCloseModal}
+      showClose={onCloseModal}
+    >
       <MultiformTabs tabs={tabs} />
     </Modal>
   );
 }
 
 export default CreateTransactionModal;
-

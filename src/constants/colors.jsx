@@ -37,6 +37,7 @@ export const COLORS = {
   'orange-100': '#FF8C4B',
   'navy-blue' : '#477BE0',
   'primary-blue' : '#1A95B0',
+  'turfts-blue' : ' #578EC1',
   'purple-solid':'#8358fe',
   'black-300':'#3c3c3c',
   'check-green': '#00903A',
@@ -44,4 +45,6 @@ export const COLORS = {
   'error-background': 'rgba(255, 87, 107, 0.2)',
   'dark-gray':'#7B7B7B',
   "grey-400.2": "rgba(88, 88, 88, .2)",
+  'uranian-blue': '#BEE0FF',
+
 };

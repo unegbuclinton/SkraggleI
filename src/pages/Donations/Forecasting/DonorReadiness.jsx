@@ -25,7 +25,7 @@ function DonorReadiness() {
             <p className="Donor-text">Donor</p>
             <DonorBody>
               <DPIconMembership />
-              <p className="Donor-content">No Expiring Donors</p>
+              <p className="Donor-content">Not Enough Data</p>
               <Button className="Donor-btn" action>
                 Go to contact
               </Button>
