@@ -43,6 +43,7 @@ const DonationMetrics = () => {
         </DonationTrackerHeaderWrapper>
         <AreaChart
           data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
+          color={['#2FC18DF8']}
           categories={[
             "Jan",
             "Feb",

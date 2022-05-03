@@ -5,15 +5,17 @@ import ReactApexChart from "react-apexcharts";
 const AreaChart = ({ data, categories, type, ...rest }) => {
   const dataProps = {
     options: {
-      responsive: [{
-        breakpoint: undefined,
-        options: {},
-    }],
+      responsive: [
+        {
+          breakpoint: undefined,
+          options: {},
+        },
+      ],
       chart: {
-        width: '100%',
+        width: "100%",
         toolbar: {
           show: false,
-          redrawOnParentResize: true
+          redrawOnParentResize: true,
         },
         colors: ["#FF576B"],
         fill: {
@@ -30,7 +32,7 @@ const AreaChart = ({ data, categories, type, ...rest }) => {
         enabled: false,
       },
 
-      colors: ["#578EC1"],
+    color: ['#FF576B'],
 
       stroke: {
         curve: "straight",
