@@ -9,7 +9,7 @@ const GoalProgressTracker = ({ heading, value, target }) => {
   return (
     <GPTWrapper>
       <GPTHeading>{heading}</GPTHeading>
-      <ProgressBar value={value} target={target} />
+      <ProgressBar value={value} target={target} subColor/>
       <GPTMetricsWrapper>
         <div className="metric-wrapper__content">
           <span className="metric-wrapper__content-value metric-count">
@@ -49,12 +49,12 @@ const GPTMetricsWrapper = styled.div`
   justify-content: space-between;
 
   .metric-count {
-    color: ${COLORS.pink};
+    color: ${COLORS['turfts-blue']};
     font-weight: ${FONTWEIGHTS.bold};
   }
 
   .metric-text {
-    color: ${COLORS['gray-500']};
+    color: ${COLORS['turfts-blue']};
     font-weight: ${FONTWEIGHTS.normal};
     margin-right: 1.257rem;
   }
