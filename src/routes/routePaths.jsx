@@ -6,7 +6,7 @@ import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/ResendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
-import SendVerification from 'components/molecules/sendVerification/SendVerification';
+import SendVerification from 'components/molecules/SendVerification/SendVerification';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import Contacts from 'pages/ContactsPage';
