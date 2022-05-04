@@ -55,11 +55,10 @@ const HeadingContainer = styled.div`
 
 const CardWrapper = styled.div`
   height: 100vh;
-  overflow-y: auto;
 `;
 
 const ProfileContentWrapper = styled.div`
-  /* width: 100%; */
+  width: 100%;
   height: 100vh;
   overflow: auto;
 `;
