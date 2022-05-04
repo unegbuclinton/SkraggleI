@@ -10,12 +10,12 @@ import DonorScore from "components/molecules/DonorScore";
 
 function DonorType() {
   const [selected, setSelected] = useState("Filters");
-  const series = [
-    {
-      name: "Skraggle",
-      data: [39, 30, 35, 25, 40, 15],
-    },
-  ];
+  // const series = [
+  //   {
+  //     name: "Skraggle",
+  //     data: [39, 30, 35, 25, 40, 15],
+  //   },
+  // ];
 
   return (
     <TypeWrapper>
