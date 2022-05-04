@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Card from "components/atoms/Card";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import { COLORS } from "constants/colors";
-import BarChart from "components/organisms/BarChart";
 import PieChart from "components/organisms/PieChart";
+import DonorScore from "components/molecules/DonorScore";
 
 function DonorType() {
   const [selected, setSelected] = useState("Filters");
@@ -37,16 +37,26 @@ function DonorType() {
       </div>
       <div className="donor-score">
         <Card>
-          <TypeHeader>
+          {/* <TypeHeader>
             <p className="donor-text">Donor Score</p>
-          </TypeHeader>
+            <div className="donor-label">
+              <div className="donor-label__wrapper">
+                <div className="donor-label__highest" />
+                Highest
+              </div>
+              <div className="donor-label__wrapper">
+                <div className="donor-label__medium" />
+                Medium
+              </div>
+              <div className="donor-label__wrapper">
+                <div className="donor-label__lowest" />
+                Lowest
+              </div>
+            </div>
+          </TypeHeader> */}
           <div className="bar-container">
-            <BarChart
-              series={series}
-              categories={["30", "40", "60"]}
-              width={650}
-              height={350}
-            />
+            <BorderBottom />
+            <DonorScore />
           </div>
         </Card>
       </div>
@@ -105,6 +115,44 @@ const TypeHeader = styled.div`
     border-bottom: 1px solid ${COLORS.torquoise};
     padding-bottom: 1.6rem;
   }
+
+  .donor-label {
+    display: flex;
+    gap: 1rem;
+    &__wrapper {
+      font-size: ${FONTSIZES.xsmall};
+      color: ${COLORS["blue-black"]};
+      display: flex;
+      justify-content: baseline;
+      gap: 0.8rem;
+    }
+    &__highest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #9fff97;
+      justify-content: baseline;
+    }
+    &__medium {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ffe768;
+      justify-content: baseline;
+    }
+    &__lowest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ff576b;
+      justify-content: baseline;
+    }
+  }
 `;
 
+const BorderBottom = styled.div`
+  width: 100%;
+  background-color: ${COLORS.torquoise};
+  height: 0.1rem;
+  position: relative;
+  margin-bottom: -3.5rem;
+  /* margin-left: 1rem; */
+`;
 

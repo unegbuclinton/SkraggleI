@@ -1,68 +1,48 @@
-import { React, useRef, useState } from "react";
+import { React, useState } from "react";
 import FundraiserMain from "./FundraiserMain";
 import { MainWrapper } from "./styles";
-import VerticalTab from "components/molecules/VerticalTabs";
+import Header from "../P2PTabs";
 const FundraiserDetails = () => {
-  const [activeState, setActiveState] = useState(0);
-  const mainref = useRef(null);
-
+  
   const tabs = [
     {
       title: "P2P Fundrasier",
-      component: <FundraiserMain activeState={activeState} />,
+      path: "p2pfund",
     },
     {
       title: "Setting",
-      component: <FundraiserMain activeState={activeState} />,
+      path: "settings",
     },
     {
       title: "Source",
-      component: <FundraiserMain activeState={activeState} />,
-      props: { activeState: activeState, ref: mainref },
+      path:"source"
     },
     {
       title: "Custom fields",
-      component: <FundraiserMain activeState={activeState} />,
-      props: { activeState: activeState, ref: mainref },
+      path:"custom"
     },
     {
       title: "Donations",
-      component: <FundraiserMain activeState={activeState} />,
+      path: "donations",
     },
     {
       title: "Recurring Plans",
-      component: <FundraiserMain activeState={activeState} />,
+      path:"recurring"
     },
     {
       title: "Emails",
-      component: <FundraiserMain activeState={activeState} />,
     },
   ];
-  const scrollToRef = (targetref) => {
-    // console.log(ref);
-    // mainref.current = ref;
-    // console.log(mainref);
-    // window.scrollTo({
-    //  top : mainref.current.offsetTop,
-    //  behavior: "smooth"
-    // })
-    console.log(targetref)
-    mainref.current.scrollIntoView({ behavior: "smooth" });
-  };
+
+  const [activeState, setActiveState] = useState(0);
+
+
   return (
     <MainWrapper>
-      <div className="vertical-wrapper">
-        <VerticalTab
-          tabs={tabs}
-          setActiveState={setActiveState}
-          className="vertical-tab-wrapper"
-          verticalWrapper="vertical-tabs"
-          leftBottomClass="vertical-tabs__bottom"
-          setRef={scrollToRef}
-        >
-          Pause P2P Fundraiser
-        </VerticalTab>
-      </div>
+      <Header setActiveState={setActiveState} tabs={tabs} className="p2p-tabs-wrapper" verticalWrapper="p2p-tabs" leftBottomClass="p2p-tabs__bottom">
+        Pause P2P Fundraiser
+      </Header>
+      <FundraiserMain activeState={activeState}/>
     </MainWrapper>
   );
 };

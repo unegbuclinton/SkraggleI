@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
-const CustomFields = forwardRef(({className}, customref) => {
+const CustomFields = ({className}) => {
     return(
-        <CustomFieldWrapper className={className} ref={customref}>
+        <CustomFieldWrapper className={className}>
           <div className="fundraiser__top">
             <div className="fundraiser__title">
               <h1 className="fundraiser__heading">Custom Fields</h1>
@@ -21,7 +21,7 @@ const CustomFields = forwardRef(({className}, customref) => {
           </div>
         </CustomFieldWrapper>
     )
-})
+}
 
 export default CustomFields
 

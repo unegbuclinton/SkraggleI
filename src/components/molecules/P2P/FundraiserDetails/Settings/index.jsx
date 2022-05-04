@@ -1,4 +1,4 @@
-import {React, forwardRef} from "react";
+import { React } from "react";
 
 import { DPIconProfileImage } from "icons";
 import styled from "styled-components";
@@ -7,7 +7,7 @@ import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 
 const Settings = ({className}) => {
   return (
-    <SettingsWrapper className={className}>
+    <SettingsWrapper className={className} id="settings">
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Settings</h1>
