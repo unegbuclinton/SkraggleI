@@ -1,7 +1,7 @@
-import React from "react";
-import { ResendLinkWrapper } from "./styles";
-import { DPIconEmail } from "icons";
-import AuthLayout from "components/layouts/AuthLayout";
+import React from 'react';
+import { ResendLinkWrapper } from './styles';
+import { DPIconEmail } from 'icons';
+import AuthLayout from 'components/layouts/AuthLayout';
 
 function ResendVerification() {
   return (
