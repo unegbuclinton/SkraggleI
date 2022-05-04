@@ -5,7 +5,7 @@ import Checkbox from "components/atoms/CheckBox";
 const Test = () => {
   return (
     <Wrapper>
-      <Checkbox pink/>
+      <Checkbox />
     </Wrapper>
   );
 };
@@ -13,8 +13,5 @@ const Test = () => {
 export default Test;
 
 const Wrapper = styled.div`
-  /* .checkbox {
-    width: 2rem;
-    height: 2rem;
-  } */
+ 
 `;

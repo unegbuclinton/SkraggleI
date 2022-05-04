@@ -8,7 +8,7 @@ import React from "react";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
-function DonationAssociation({ onChangeModal, onRevertModal }) {
+function DonationAssociation({ IncrementTab, DecrementTab }) {
   return (
     <AssociationWrapper>
       <Card className="association-card">
@@ -51,11 +51,11 @@ function DonationAssociation({ onChangeModal, onRevertModal }) {
             invert
             auth
             className="association-cancel-btn"
-            onClick={onRevertModal}
+            onClick={DecrementTab}
           >
             Back
           </Button>
-          <Button auth className="association-save-btn" onClick={onChangeModal}>
+          <Button auth className="association-save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </div>

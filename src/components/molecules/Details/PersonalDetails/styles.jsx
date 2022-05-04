@@ -144,7 +144,7 @@ export const ContentsWrapper = styled.div`
 
     .tags__btn {
       background-color: ${COLORS["bg-grey-btn"]};
-      color: ${COLORS["tabel-btn-grey"]};
+      color: ${COLORS["gray-500"]};
       margin-top: 1.4rem;
     }
   }

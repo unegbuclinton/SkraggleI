@@ -88,7 +88,7 @@ function FieldDropdown({ setDropdown }) {
           ) : null}
         </div>
         <div className="checkbox-container">
-          <Checkbox className="checkbox" pink label="Required" />
+          <Checkbox className="checkbox" label="Required" />
         </div>
       </FieldTypeWrapper>
       <Label>Maximum Characters</Label>

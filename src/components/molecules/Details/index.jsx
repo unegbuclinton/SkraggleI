@@ -8,12 +8,12 @@ function ProfileLayOut({ children, heading }) {
   return (
     <ProfileContainer>
       <div>
-        <h1 className="heading">Personal Details</h1>
+        <h1 className="main-heading">Personal Details</h1>
         <PersonalDetailsCard />
       </div>
 
       <ProfileContentWrapper>
-        <h1 className="heading">{heading}</h1>
+        <h1 className="main-heading">{heading}</h1>
         <ProfileContent>{children}</ProfileContent>
       </ProfileContentWrapper>
     </ProfileContainer>
@@ -28,7 +28,7 @@ const ProfileContainer = styled.div`
   gap: 1.572rem;
   display: flex;
 
-  .heading {
+  .main-heading {
     font-size: ${FONTSIZES.base};
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS["gray-500"]};
@@ -44,6 +44,5 @@ const ProfileContentWrapper = styled.div`
 
 const ProfileContent = styled.div`
   flex: 1;
-  /* overflow-x: scroll; */
   padding-bottom: 4.8rem;
 `;

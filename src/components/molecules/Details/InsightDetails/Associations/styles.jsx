@@ -9,7 +9,7 @@ export const AssociationWrapper = styled(Card)`
 `;
 
 export const AssociationHeading = styled.div`
-  border-bottom: 0.1rem solid ${COLORS.torquoise};
+  border-bottom: 0.1rem solid ${COLORS["header-grey"]};
   padding-bottom: 1.7rem;
   margin-bottom: 1rem;
   display: flex;
@@ -17,7 +17,7 @@ export const AssociationHeading = styled.div`
   align-items: center;
 
   .heading {
-    color: ${COLORS.deepPurple};
+    color: ${COLORS["header-grey"]};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }
@@ -36,11 +36,12 @@ export const AssociationContainer = styled.div`
   padding-top: 1.6rem;
   display: flex;
   overflow: hidden;
-
+  gap: 11.8rem;
   .title {
     font-size: ${FONTSIZES.xsmall};
     color: ${COLORS["grey-200"]};
     font-weight: ${FONTWEIGHTS.normal};
+    width: 10.5rem;
   }
 
   .info {
@@ -51,14 +52,5 @@ export const AssociationContainer = styled.div`
 
   .name {
     color: ${COLORS.deepPurple};
-    margin-left: 15.6rem;
-  }
-
-  .household {
-    margin-left: 15.3rem;
-  }
-
-  .role {
-    margin-left: 11.8rem;
   }
 `;

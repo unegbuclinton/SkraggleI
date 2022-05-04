@@ -9,7 +9,7 @@ import React from "react";
 import styled from "styled-components";
 import data from "utilities/filterData.json";
 
-function DonationInformation({ onCloseModal, onChangeModal }) {
+function DonationInformation({ onCloseModal, IncrementTab }) {
   return (
     <TransactionWrapper>
       <Card className="transaction-card">
@@ -54,7 +54,7 @@ function DonationInformation({ onCloseModal, onChangeModal }) {
           >
             Cancel
           </Button>
-          <Button auth className="transaction-save-btn" onClick={onChangeModal}>
+          <Button auth className="transaction-save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </div>
