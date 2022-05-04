@@ -4,7 +4,7 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import ForgotPassword from 'components/molecules/ForgotPassword';
 import LogIn from 'components/molecules/LogIn';
 import Registration from 'components/molecules/Registration';
-import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
+import ResendVerification from 'components/molecules/ResendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
 import SendVerification from 'components/molecules/sendVerification/SendVerification';
 import Campaign from 'pages/Campaign';
