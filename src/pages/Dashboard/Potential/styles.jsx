@@ -38,7 +38,6 @@ export const CardLeft = styled.div`
   gap: 3.2rem;
   align-items: center;
   .card-text {
-    width: 60.2rem;
     &__one {
       font-size: 1.4rem;
       margin-bottom: 0.584rem;
@@ -46,6 +45,7 @@ export const CardLeft = styled.div`
     &__two {
       font-size: 1.2rem;
       color: ${COLORS["grey-200"]};
+      word-break: break-word;
     }
   }
 `;

@@ -10,28 +10,28 @@ const KeyPerformanceIndicatiors = () => {
     {
       name: "Skraggle",
       data: [300, 300, 300],
-      color: "#578EC1",
+      color: "#3BADC6",
     },
   ];
   const series2 = [
     {
       name: "Skraggle",
       data: [300, 305, 300],
-      color: "#578EC1",
+      color: "#3BADC6",
     },
   ];
   const series3 = [
     {
       name: "Skraggle",
       data: [300, 300, 300],
-      color: "#578EC1",
+      color: "#3BADC6",
     },
   ];
   const series4 = [
     {
       name: "Skraggle",
       data: [300, 300, 300],
-      color: "#578EC1",
+      color: "#3BADC6",
     },
   ];
   return (
@@ -56,7 +56,7 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#578EC1",
+                colors: "#3BADC6",
               }}
               yaxis={{
                 labels: {
@@ -67,7 +67,7 @@ const KeyPerformanceIndicatiors = () => {
                 },
               }}
               stroke={{
-                colors: ["#578EC1"],
+                colors: ["#3BADC6"],
               }}
             />
           </KPIContentCardChart>
@@ -92,7 +92,7 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#578EC1",
+                colors: "#3BADC6",
               }}
               yaxis={{
                 labels: {
@@ -103,7 +103,7 @@ const KeyPerformanceIndicatiors = () => {
                 },
               }}
               stroke={{
-                colors: ["#578EC1"],
+                colors: ["#3BADC6"],
               }}
             />
           </KPIContentCardChart>
@@ -126,7 +126,7 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#578EC1",
+                colors: "#3BADC6",
               }}
               yaxis={{
                 labels: {
@@ -137,7 +137,7 @@ const KeyPerformanceIndicatiors = () => {
                 },
               }}
               stroke={{
-                colors: ["#578EC1"],
+                colors: ["#3BADC6"],
               }}
             />
           </KPIContentCardChart>
@@ -162,7 +162,7 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#578EC1",
+                colors: "#3BADC6",
               }}
               yaxis={{
                 labels: {
@@ -173,7 +173,7 @@ const KeyPerformanceIndicatiors = () => {
                 },
               }}
               stroke={{
-                colors: ["#578EC1"],
+                colors: ["#3BADC6"],
               }}
             />
           </KPIContentCardChart>

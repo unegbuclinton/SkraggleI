@@ -13,7 +13,7 @@ export const ThankYouWrapper = styled.div`
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
 
-  .thankyou-card{
+  .thankyou-card {
     padding-bottom: 2.9em;
   }
 `;
@@ -33,7 +33,6 @@ export const ThankyouCard = styled.div`
   justify-content: space-between;
 
   .card-text {
-    width: 60.2rem;
     &__one {
       font-size: 1.4rem;
       margin-bottom: 0.584rem;
@@ -41,6 +40,7 @@ export const ThankyouCard = styled.div`
     &__two {
       font-size: 1.2rem;
       color: ${COLORS["grey-200"]};
+      word-break: break-word;
     }
   }
   .contact {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "components/layouts/Modal";
 import CompleteTransaction from "components/molecules/DonationModals/CreateTransaction/CompleteTransaction";
 import DonationAssociation from "components/molecules/DonationModals/CreateTransaction/DonationAssociation";

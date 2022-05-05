@@ -42,8 +42,8 @@ function VerticalTab({
           </div>
         </div>
         <div className="content-wrapper" activeWidget={activeWidget}>
-          {tabs && tabs[activeWidget]?.component}
-          {/* {tabs && RenderFunction(tabs[activeWidget]?.component)} */}
+          {/* {tabs && tabs[activeWidget]?.component} */}
+          {tabs && RenderFunction(tabs[activeWidget]?.component)}
         </div>
       </VerticalTabWrapper>
     </>

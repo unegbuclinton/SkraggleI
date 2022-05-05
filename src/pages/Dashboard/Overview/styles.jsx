@@ -9,6 +9,7 @@ export const OverviewWrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 1.6rem;
     padding: 1.64rem 1.6rem 1.56rem 4rem;
+    /* overflow-x: auto; */
   }
   .overview-heder__text {
     font-size: ${FONTSIZES.lg};
