@@ -19,7 +19,7 @@ function CreateTransactionModal({ onCloseModal }) {
       name: "COMPLETE TRANSACTION ",
       component: CompleteTransaction,
     },
-  ];
+  ];   
   return (
     <Modal
       header="Create a Transaction - Donation"
