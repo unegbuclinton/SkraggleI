@@ -2,20 +2,23 @@ import { COLORS } from "constants/colors";
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-const AreaChart = ({ data, categories, type, ...rest }) => {
+const AreaChart = ({
+  categories,
+  height,
+  yaxis,
+  markers,
+  colors,
+  stroke,
+  series,
+  ...rest
+}) => {
   const dataProps = {
     options: {
-      responsive: [
-        {
-          breakpoint: undefined,
-          options: {},
-        },
-      ],
       chart: {
-        width: "100%",
+        type: "area",
+
         toolbar: {
           show: false,
-          redrawOnParentResize: true,
         },
         colors: ["#FF576B"],
         fill: {
@@ -25,19 +28,27 @@ const AreaChart = ({ data, categories, type, ...rest }) => {
       xaxis: {
         categories,
         labels: {
-          color: "#E6EFF1",
+          color: "#FF576B",
         },
+      },
+      yaxis: {
+        axisBorder: {
+          show: true,
+        },
+        ...yaxis,
+      },
+      markers: {
+        ...markers,
       },
       dataLabels: {
         enabled: false,
       },
 
-    color: ['#FF576B'],
-
       stroke: {
         curve: "straight",
         width: 3,
-        colors: ["#FF576B", "#FFE5E9", "#FFFFFF"],
+        colors: ["#FF576B"],
+        ...stroke,
       },
       grid: {
         borderColor: `${COLORS["fog-grey"]}`,
@@ -49,20 +60,13 @@ const AreaChart = ({ data, categories, type, ...rest }) => {
         },
       },
     },
-
-    series: [
-      {
-        name: "series-1",
-        data,
-      },
-    ],
   };
   return (
     <ReactApexChart
       options={dataProps.options}
-      series={dataProps.series}
-      type={type || "area"}
-      height={350}
+      series={series}
+      type="area"
+      height={height}
       {...rest}
     />
   );

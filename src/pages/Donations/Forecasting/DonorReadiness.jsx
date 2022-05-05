@@ -8,8 +8,14 @@ import { FONTWEIGHTS } from "constants/font-spec";
 
 import Card from "components/atoms/Card";
 import BarChart from "components/organisms/BarChart";
+import { useNavigate } from "react-router-dom";
 
 function DonorReadiness() {
+  const navigate = useNavigate();
+
+  const NavigateTo = () => {
+    navigate("/contacts");
+  };
   const series = [
     {
       name: "Skraggle",
@@ -26,7 +32,7 @@ function DonorReadiness() {
             <DonorBody>
               <DPIconMembership />
               <p className="Donor-content">No Expiring Donors</p>
-              <Button className="Donor-btn" action>
+              <Button className="Donor-btn" action onClick={NavigateTo}>
                 Go to contact
               </Button>
             </DonorBody>
@@ -56,7 +62,6 @@ function DonorReadiness() {
                   "Dec",
                 ]}
                 height={385}
-              
               />
             </div>
           </Card>
