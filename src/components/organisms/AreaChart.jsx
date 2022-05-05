@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import { COLORS } from "constants/colors";
 import React from "react";
 import ReactApexChart from "react-apexcharts";

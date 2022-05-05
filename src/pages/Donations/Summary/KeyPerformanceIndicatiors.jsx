@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import Card from "components/atoms/Card";
 import AreaChart from "components/organisms/AreaChart";
 import { COLORS } from "constants/colors";
