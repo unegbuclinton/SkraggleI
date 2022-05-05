@@ -1,5 +1,11 @@
 stages:
   - deploy
+  - build
+
+build:
+  script:
+    - npm install --save-dev --save-exact prettier
+    - npx prettier --check .
 
 deploy:
   image: alpine:latest
