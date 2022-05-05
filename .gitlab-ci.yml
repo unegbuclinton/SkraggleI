@@ -1,13 +1,7 @@
 stages:
   - build
   - deploy
-  - build
-
-build:
-  script:
-    - npm install --save-dev --save-exact prettier
-    - npx prettier --check .
-
+  
 build:
   stage: build
   script:
