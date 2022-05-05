@@ -1,20 +1,18 @@
-import { React, useRef, forwardRef } from "react";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconCopy } from 'icons';
+import { React, useRef } from 'react';
+import styled from 'styled-components';
 
-import Button from "components/atoms/Button/Button";
-import { DPIconCopy } from "icons";
-
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import Card from "components/atoms/Card";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-
-const LeafLnc =({className}) => {
+const LeafLnc = ({ className }) => {
   const textAreaRef = useRef(null);
 
   function copyToClipboard() {
     const text = textAreaRef.current.value;
-    navigator.clipboard.writeText(text)
-    alert("Text Copied");
+    navigator.clipboard.writeText(text);
+    alert('Text Copied');
   }
   return (
     <P2PFundraiserWrapper className={className}>
@@ -99,13 +97,13 @@ export const P2PFundraiserWrapper = styled(Card)`
     }
     &__id {
       font-size: 1.47rem;
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
     }
     &__no {
       display: flex;
       align-items: baseline;
       font-size: 1.47rem;
-      color: ${COLORS["grey-500"]};
+      color: ${COLORS['grey-500']};
     }
     &__copy-button {
       display: flex;
