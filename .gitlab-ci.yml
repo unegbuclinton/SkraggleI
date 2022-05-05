@@ -3,9 +3,11 @@ stages:
   - deploy
   
 build:
+  image: node:latest
   stage: build
   script:
-    - npm install --save-dev --save-exact prettier
+    - yarn
+    - yarn install --save-dev --save-exact prettier
     - npx prettier --check .
 
 deploy:
