@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Pagination from "components/molecules/Pagination";
-import { columns, data } from "utilities/transactionData";
-import Table from "components/layouts/Table";
-import { TableHeading, TableWrapper } from "./styles";
-import ProfileLayOut from "..";
+import React, { useState } from 'react';
+import Pagination from 'components/molecules/Pagination';
+import { columns, data } from 'utilities/transactionData';
+import Table from 'components/layouts/Table';
+import { TableHeading, TableWrapper } from './styles';
+import ProfileLayOut from '..';
 
 function TransactionTable() {
   const [currentPage, setCurrentPage] = useState(1);

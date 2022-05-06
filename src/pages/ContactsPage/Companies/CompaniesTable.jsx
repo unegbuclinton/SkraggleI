@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Table from "components/layouts/Table";
-import { columns, data } from "utilities/CompaniesData";
-import { TableWrapper } from "./styles";
-import TableHeader from "components/molecules/TableHeader/TableHeader";
+import React, { useState } from 'react';
+import Table from 'components/layouts/Table';
+import { columns, data } from 'utilities/CompaniesData';
+import { TableWrapper } from './styles';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 // import { useNavigate } from "react-router-dom";
-import Pagination from "components/molecules/Pagination";
-import CompanyModal from "components/molecules/Contacts/Modals/CompanyModal/MainModal/index";
+import Pagination from 'components/molecules/Pagination';
+import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
 
 function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,11 +28,7 @@ function CompaniesTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader
-          title="Add Company"
-          header="24 Companies"
-          setOpen={setOpen}
-        />
+        <TableHeader title="Add Company" header="24 Companies" setOpen={setOpen} />
         <CompanyModal
           isShown={open}
           onClose={() => {

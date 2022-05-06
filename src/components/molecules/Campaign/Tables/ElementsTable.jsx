@@ -1,60 +1,60 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import Checkbox from "components/atoms/CheckBox";
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import Checkbox from 'components/atoms/CheckBox';
 
-import { DPPlusIcon } from "icons";
-import datas from "utilities/filterData";
+import { DPPlusIcon } from 'icons';
+import datas from 'utilities/filterData';
 
-import { ElementsData } from "utilities/campaigndata";
+import { ElementsData } from 'utilities/campaigndata';
 
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
-import DropdownComponent from "components/atoms/Dropdown";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
 
 const ElementsTable = () => {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   const columns = [
     {
-      name: " ",
-      cell: () => <Checkbox/>,
+      name: ' ',
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "ID",
+      name: 'ID',
       selector: (row) => row.uid,
-      width: "15rem",
+      width: '15rem'
     },
 
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.type,
-      width: "15rem",
+      width: '15rem'
     },
     {
-      name: "CAMPAIGN",
+      name: 'CAMPAIGN',
       selector: (row) => row.campaign,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "STATISTICS",
+      name: 'STATISTICS',
       selector: (row) => row.statistics,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "LAST SEEN",
-      selector: (row) => row.lastseen,
-    },
+      name: 'LAST SEEN',
+      selector: (row) => row.lastseen
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,14 +71,14 @@ const ElementsTable = () => {
     type: elementsData.type,
     campaign: elementsData.campaign,
     statistics: elementsData.statistics,
-    lastseen: elementsData.lastseen,
+    lastseen: elementsData.lastseen
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/elements");
+    navigate('/elements');
   };
 
   return (
@@ -91,21 +91,20 @@ const ElementsTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

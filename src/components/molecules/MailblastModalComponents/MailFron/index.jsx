@@ -1,11 +1,11 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Input from "components/atoms/Input/Input";
-import React from "react";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Input from 'components/atoms/Input/Input';
+import React from 'react';
 
-import { MailFromWrapper, MailFromLabel } from "./styles";
+import { MailFromWrapper, MailFromLabel } from './styles';
 
-function MailFrom({onClose}) {
+function MailFrom({ onClose }) {
   return (
     <MailFromWrapper>
       <Card className="mailfrom-card">
@@ -18,8 +18,7 @@ function MailFrom({onClose}) {
           <Input className="mailfrom-input" />
         </div>
         <div className="bottom-text">
-          Use something subscribers will instantly recognize. For example: your
-          company name.
+          Use something subscribers will instantly recognize. For example: your company name.
         </div>
 
         <div className="mailfrom-footer">

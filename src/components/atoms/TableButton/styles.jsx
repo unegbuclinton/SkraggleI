@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
 
 export const BtnWrapper = styled.div`
   justify-content: flex-start;
@@ -8,7 +8,7 @@ export const BtnWrapper = styled.div`
   gap: 1.62rem;
 
   .table-button {
-    background-color: ${COLORS["bg-grey-btn"]};
-    color: ${COLORS["gray-500"]};
+    background-color: ${COLORS['bg-grey-btn']};
+    color: ${COLORS['gray-500']};
   }
 `;

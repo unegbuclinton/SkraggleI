@@ -1,21 +1,19 @@
-import Input from "components/atoms/Input/Input";
-import Switch from "components/atoms/Switch/Switch";
-import React from "react";
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import React from 'react';
 import {
   DetailLabel,
   DetailsSubHeading,
   EventWrapper,
   InputWrapper,
   SwitchLabel,
-  SwitchWrapper,
-} from "./styles";
+  SwitchWrapper
+} from './styles';
 
 function DisplaySettings({ formik, ErrorMsg }) {
   return (
     <div>
-      <DetailsSubHeading className="event-heading">
-        Display settings
-      </DetailsSubHeading>
+      <DetailsSubHeading className="event-heading">Display settings</DetailsSubHeading>
       <EventWrapper>
         <DetailLabel>Maximum number of total participants</DetailLabel>
         <Input

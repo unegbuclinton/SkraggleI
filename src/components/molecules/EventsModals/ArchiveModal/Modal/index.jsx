@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import ArchiveEvent from "../Archive";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import ArchiveEvent from '../Archive';
 
 function ArchiveModal({ isShown, onClose }) {
   return (

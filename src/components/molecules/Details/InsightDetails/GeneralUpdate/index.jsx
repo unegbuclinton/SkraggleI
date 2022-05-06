@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   GeneralUpdateHeading,
   GeneraUpdateWrapper,
   UpdateContainer,
-  UpdateContent,
-} from "./styles";
+  UpdateContent
+} from './styles';
 
 function GeneralUpdate() {
   return (

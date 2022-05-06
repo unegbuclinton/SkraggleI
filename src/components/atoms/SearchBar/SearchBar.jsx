@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
-import { Input, IconWrapper, SearchbarWrapper } from "./styles";
-import { DPIconSearch } from "icons";
+import React, { useRef, useState } from 'react';
+import { Input, IconWrapper, SearchbarWrapper } from './styles';
+import { DPIconSearch } from 'icons';
 
 function SearchBar({ setClick, className }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [barOpened, setBarOpened] = useState(false);
 
   const inputFocus = useRef();

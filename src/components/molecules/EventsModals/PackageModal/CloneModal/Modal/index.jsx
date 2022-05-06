@@ -1,7 +1,7 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
 
-import ClonePackage from "../ClonePackage";
+import ClonePackage from '../ClonePackage';
 
 function ClonePackageModal({ isShown, onClose }) {
   return (

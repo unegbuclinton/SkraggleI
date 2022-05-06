@@ -1,5 +1,14 @@
 stages:
+  - build
   - deploy
+  
+build:
+  image: node:14
+  stage: build
+  script:
+    - yarn
+    - yarn run lint
+    - yarn run eslint
 
 deploy:
   image: alpine:latest

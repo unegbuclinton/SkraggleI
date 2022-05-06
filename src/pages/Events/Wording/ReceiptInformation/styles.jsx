@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const WordingWrapper = styled.div`
   margin-top: 1.6rem;
@@ -13,7 +13,7 @@ export const WordingWrapper = styled.div`
       &TableHeadRow {
         padding-left: 5rem;
         margin-bottom: 0;
-        color: ${COLORS["grey-300"]};
+        color: ${COLORS['grey-300']};
         font-weight: ${FONTWEIGHTS.normal};
         font-size: ${FONTSIZES.xsmall};
       }

@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Button from "components/atoms/Button/Button";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import Button from 'components/atoms/Button/Button';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -15,7 +15,7 @@ export const ModalWrapper = styled.form`
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
 
   .modal-inputs {
@@ -23,7 +23,7 @@ export const ModalWrapper = styled.form`
     padding-left: 2.083rem;
     height: 6.4rem;
     width: 100%;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
   }
 
@@ -32,11 +32,11 @@ export const ModalWrapper = styled.form`
     padding-left: 2.083rem;
     width: 30.1rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
   }
 
-  .modal-inputs__container-input{
+  .modal-inputs__container-input {
     width: 30.1rem;
   }
 
@@ -49,34 +49,34 @@ export const ModalWrapper = styled.form`
       width: 100%;
       margin-bottom: 2.4rem;
       border-radius: 0.5rem;
-      border: 1px solid ${COLORS["moore-grey"]};
-      color: ${COLORS["moore-grey"]};
+      border: 1px solid ${COLORS['moore-grey']};
+      color: ${COLORS['moore-grey']};
     }
     &__select-designation {
       width: 100%;
       margin-bottom: 2.4rem;
       border-radius: 0.5rem;
-      border: 1px solid ${COLORS["moore-grey"]};
-      color: ${COLORS["blue-black"]};
+      border: 1px solid ${COLORS['moore-grey']};
+      color: ${COLORS['blue-black']};
     }
     &__select-currency {
       padding-top: 2.3rem;
-      color: ${COLORS["moore-grey"]};
+      color: ${COLORS['moore-grey']};
       width: 11.8rem;
       height: 6.4rem;
       margin-left: 2.4rem;
       border-radius: 0.5rem;
-      border: 1px solid ${COLORS["moore-grey"]};
+      border: 1px solid ${COLORS['moore-grey']};
       align-items: center;
     }
   }
   .cancel-btn {
     width: 30.8rem;
     height: 5.1rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     background-color: ${COLORS.white};
     border-radius: 0.5rem;
-    color: ${COLORS["moore-grey"]};
+    color: ${COLORS['moore-grey']};
     margin-top: 1.6rem;
   }
   .save-btn {
@@ -133,7 +133,7 @@ export const SecondModalWrapper = styled.form`
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
 
   .copy {
@@ -170,7 +170,7 @@ export const CopyText = styled.textarea`
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
   font-size: 1.47038rem;
-  color: ${COLORS["moore-grey"]};
+  color: ${COLORS['moore-grey']};
 `;
 
 export const SecondButtonsContainer = styled.div`

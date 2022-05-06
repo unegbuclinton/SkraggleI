@@ -1,12 +1,12 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import React from "react";
-import { DefaultWrapper, DefaultHeader, TemplateItems } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import React from 'react';
+import { DefaultWrapper, DefaultHeader, TemplateItems } from './styles';
 
-function DefaultTemplate({onClose}) {
+function DefaultTemplate({ onClose }) {
   return (
     <DefaultWrapper>
-      <Card className = 'default-card'>
+      <Card className="default-card">
         <div className="section-container">
           <DefaultHeader>Newsletter</DefaultHeader>
           <TemplateItems>

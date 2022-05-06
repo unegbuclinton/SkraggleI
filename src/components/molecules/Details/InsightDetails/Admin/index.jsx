@@ -1,6 +1,6 @@
-import React from "react";
-import { AdminContainer, AdminHeading, AdminWrapper } from "./styles";
-import Button from "components/atoms/Button/Button";
+import React from 'react';
+import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
+import Button from 'components/atoms/Button/Button';
 
 function Admin() {
   return (
@@ -11,9 +11,7 @@ function Admin() {
       </AdminHeading>
       <AdminContainer>
         <h2 className="title">ID</h2>
-        <p className="info id">
-          TRIAL_AQRpNrDp42rGPzdoy_usa_4CbBWuSFt8e2Srqi9.
-        </p>
+        <p className="info id">TRIAL_AQRpNrDp42rGPzdoy_usa_4CbBWuSFt8e2Srqi9.</p>
       </AdminContainer>
 
       <AdminContainer>

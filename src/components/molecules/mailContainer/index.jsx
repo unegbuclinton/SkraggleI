@@ -1,6 +1,6 @@
-import React from "react";
-import { DPIconCancel } from "icons";
-import { MailWrapper } from "./styles";
+import React from 'react';
+import { DPIconCancel } from 'icons';
+import { MailWrapper } from './styles';
 
 function MailContainer({ mail, Delete, id }) {
   return (

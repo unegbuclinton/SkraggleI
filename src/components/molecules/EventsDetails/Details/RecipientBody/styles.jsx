@@ -1,11 +1,11 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DetailLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 
 export const DetailsText = styled.p`

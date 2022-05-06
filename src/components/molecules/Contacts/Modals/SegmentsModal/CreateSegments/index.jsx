@@ -1,26 +1,26 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import { useFormik } from "formik";
-import { segmentValidationSchema } from "validation/Schema";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import { segmentValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-} from "./styles";
+  ModalWrapper
+} from './styles';
 
 function CreateNewSegment({ onClose }) {
   const formik = useFormik({
     initialValues: {
-      segment: "",
+      segment: ''
     },
     validationSchema: segmentValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <ModalWrapper>

@@ -1,7 +1,7 @@
-import { COLORS } from "constants/colors";
-import Card from "components/atoms/Card";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import Card from 'components/atoms/Card';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DetailsWrapper = styled(Card)`
   padding: 2.2rem 1.3rem 0 1.3rem;
@@ -34,10 +34,10 @@ export const ButtonWrapper = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem ${COLORS["gray-500"]} solid;
+    border: 0.1rem ${COLORS['gray-500']} solid;
     border-radius: 0.34rem;
     background-color: ${COLORS.white};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
     font-weight: ${FONTWEIGHTS.xbold};
     font-size: ${FONTSIZES.small};
   }

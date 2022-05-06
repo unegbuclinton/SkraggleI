@@ -1,13 +1,13 @@
-import Button from "components/atoms/Button/Button";
-import { COLORS } from "constants/colors";
-import React from "react";
-import styled from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import styled from 'styled-components';
 
 function MailButton({ btn }) {
   return (
     <ButtonWrapper>
       {btn.map(({ title, index }) => (
-        <Button className="mail-btn" index={index} pill>
+        <Button key={index} className="mail-btn" index={index} pill>
           {title}
         </Button>
       ))}

@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
 import {
   ButtonContainer,
   CheckBoxWrapper,
@@ -10,23 +10,23 @@ import {
   ModalWrapper,
   TagContainer,
   TagWrapper,
-  ErrorMsg,
-} from "./styles";
-import Switch from "components/atoms/Switch/Switch";
-import { createCompanyValidatonSchema } from "validation/Schema";
-import { useFormik } from "formik";
+  ErrorMsg
+} from './styles';
+import Switch from 'components/atoms/Switch/Switch';
+import { createCompanyValidatonSchema } from 'validation/Schema';
+import { useFormik } from 'formik';
 
 function CreateCompany({ onClose }) {
   const formik = useFormik({
     initialValues: {
-      companyName: "",
-      primaryPhone: "",
-      tags: "",
+      companyName: '',
+      primaryPhone: '',
+      tags: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
 
   return (
@@ -85,13 +85,7 @@ function CreateCompany({ onClose }) {
             </CheckBoxWrapper>
           </TagContainer>
           <ButtonContainer>
-            <Button
-              type="button"
-              className="cancel"
-              onClick={onClose}
-              auth
-              invert
-            >
+            <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
             <Button className="continue">Save</Button>
