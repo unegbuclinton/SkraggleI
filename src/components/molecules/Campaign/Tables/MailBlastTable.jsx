@@ -31,7 +31,7 @@ const MailBlastTable = () => {
     {
       name: 'ASSIGNEE',
       selector: (row) => row.assignee,
-      cell: (col) => (
+      cell: () => (
         <Assignee>
           <DPIconAssignee />
           Tillie Mendoza
@@ -47,7 +47,7 @@ const MailBlastTable = () => {
     {
       name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>
+      cell: () => <Button className="table-button">Active</Button>
     }
   ];
 

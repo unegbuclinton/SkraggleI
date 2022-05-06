@@ -13,8 +13,7 @@ const BarChart = ({ series, categories, width, height }) => {
           xaxis: {
             categories
           }
-        }}
-      ></Chart>
+        }}></Chart>
     </>
   );
 };

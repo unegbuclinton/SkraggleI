@@ -6,7 +6,7 @@ import Button from 'components/atoms/Button/Button';
 import { NewstellerBody } from './styles';
 import StatisticsTracker from 'components/molecules/StatisticsTracker';
 
-function Overview({ ...props }) {
+function Overview() {
   return (
     <NewstellerWrapper>
       <Card className="overview-card">

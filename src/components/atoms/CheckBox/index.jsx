@@ -15,8 +15,7 @@ const Checkbox = ({ className, styledClass, label, radial, checked, inverted, pi
         radial={radial}
         pink={pink}
         inverted={inverted}
-        className={styledClass}
-      >
+        className={styledClass}>
         <CheckIcon />
       </StyledCheckbox>
       <p className="label-text">{label}</p>

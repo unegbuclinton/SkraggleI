@@ -10,7 +10,7 @@ function RecentTransaction() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: () => <input type="checkbox" />,
       width: '3.069rem'
     },
     {

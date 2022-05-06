@@ -11,25 +11,24 @@ const DropdownComponent = ({
   iconDropdown,
   onChange,
   selected,
-  setSelected,
-  ...rest
+  setSelected
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  let options = data.map((option) => (
+  let options = data.map((option, index) => (
     <div
-      onClick={(e) => {
+      key={index}
+      onClick={() => {
         setSelected(option.name);
         setIsActive(false);
       }}
-      className="dropdown__item"
-    >
+      className="dropdown__item">
       {option.name}
     </div>
   ));
   return (
     <DropdownWrapper className={className} onChange={onChange}>
-      <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
+      <div className="dropdown__btn" onClick={() => setIsActive(!isActive)}>
         {selected}
         <span>
           <DPIconDropDown className={iconDropdown} />

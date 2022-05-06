@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { OverviewLeft } from './styles';
-import { OverviewWrapper } from './styles';
-import { datas1 } from 'utilities/overviewData';
-import { OverviewRight } from './styles';
 import Button from 'components/atoms/Button/Button';
-import { DatePicker } from './styles';
-import DateRange from 'components/molecules/DateRange';
-import { DPIconRangeIcon } from 'icons';
-import { DPIconDateArrow } from 'icons';
-import dayjs from 'dayjs';
-import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
+import DateRange from 'components/molecules/DateRange';
+import dayjs from 'dayjs';
+import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
+import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
+import React, { useState } from 'react';
+import { datas1 } from 'utilities/overviewData';
+import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 
 function Overview() {
   const [selected, setSelected] = useState('Filters');
@@ -61,8 +57,7 @@ function Overview() {
             onClick={() => {
               setOpenWidget(true);
             }}
-            className="overview-btn"
-          >
+            className="overview-btn">
             Manage Widgets
           </Button>
           {openWidget && (

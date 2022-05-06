@@ -5,7 +5,7 @@ const initialState = {
   token: null
 };
 
-const loginUser = createAsyncThunk('auth/login', async (userId, thunkAPI) => {
+const loginUser = createAsyncThunk('auth/login', async () => {
   const response = await axios.post('/url', {});
   return response.data;
 });
@@ -14,14 +14,14 @@ export const counterSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, { payload }) => {
+    login: (state) => {
       state.isAuthenticated = true;
       // state.token = payload.token;
     },
     register: (state, payload) => {
       state = { ...state, payload };
     },
-    resendVerification: (state, action) => {}
+    resendVerification: () => {}
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed

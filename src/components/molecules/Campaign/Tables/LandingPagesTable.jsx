@@ -47,7 +47,7 @@ const LandingPagesTable = () => {
     {
       name: 'ACTION',
       selector: (row) => row.action,
-      cell: (col) => (
+      cell: () => (
         <span>
           <Button className="table-button__clone">Clone</Button>
           <Button className="table-button__edit">Edit</Button>
@@ -59,7 +59,7 @@ const LandingPagesTable = () => {
     {
       name: 'ADVANCE',
       selector: (row) => row.advance,
-      cell: (col) => (
+      cell: () => (
         <span className="table-button__span">
           <Button className="table-button__view">View</Button>
           <Button className="table-button__testing">A/B Testing</Button>

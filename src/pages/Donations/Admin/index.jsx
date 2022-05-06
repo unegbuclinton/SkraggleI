@@ -38,7 +38,7 @@ const Admin = () => {
     {
       name: 'ASSIGNEE',
       selector: (row) => row.createdby,
-      cell: (col) => (
+      cell: () => (
         <Assignee>
           <DPIconAssignee />
           Tillie Mendoza
@@ -49,13 +49,13 @@ const Admin = () => {
     {
       name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
+      cell: () => <Button className="table-button">Active</Button>,
       width: '15rem'
     },
     {
       name: ' ',
       selector: (row) => row.delete,
-      cell: (col) => <DPIconDelete />
+      cell: () => <DPIconDelete />
     }
   ];
 
@@ -67,7 +67,7 @@ const Admin = () => {
     status: adminData.status,
     delete: adminData.delete
   }));
-  const onRowClicked = (row) => {};
+  const onRowClicked = () => {};
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 

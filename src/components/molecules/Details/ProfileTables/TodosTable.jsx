@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Pagination from 'components/molecules/Pagination';
-import { columns, data } from 'utilities/TodosData';
-import { TableHeading, TableWrapper } from './styles';
 import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/TodosData';
 import ProfileLayOut from '..';
+import { TableHeading, TableWrapper } from './styles';
 
 function TodosTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +15,7 @@ function TodosTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
   return (
-    <ProfileLayOut heading="To-Do's">
+    <ProfileLayOut heading="To-Do&#39;s">
       <TableWrapper>
         <TableHeading>
           <h2 className="heading">5 To-Do</h2>

@@ -45,7 +45,7 @@ const Pledge = () => {
     {
       name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>
+      cell: () => <Button className="table-button">Active</Button>
     },
 
     {
@@ -64,7 +64,7 @@ const Pledge = () => {
     type: pledgeData.type
   }));
 
-  const onRowClicked = (row) => {};
+  const onRowClicked = () => {};
 
   const [selected, setSelected] = useState('Filters');
 

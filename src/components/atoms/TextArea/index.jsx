@@ -1,10 +1,9 @@
-import React from 'react';
-
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
-const TextArea = ({ className, maxLength, ...rest }) => {
+const TextArea = ({ className, maxLength }) => {
   const [textAreaCount, ChangeTextAreaCount] = React.useState(0);
   const recalculate = (e) => {
     ChangeTextAreaCount(e.target.value.length);

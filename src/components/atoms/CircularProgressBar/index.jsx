@@ -22,8 +22,7 @@ const Circle = ({ colour, pct }) => {
       strokeWidth={'2rem'}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
-      strokeLinecap="round"
-    ></circle>
+      strokeLinecap="round"></circle>
   );
 };
 
@@ -35,7 +34,7 @@ const Text = ({ percentage, num, y, header }) => {
   );
 };
 
-const CircularProgressBar = ({ percentage, colour, num, header }) => {
+const CircularProgressBar = ({ percentage, colour, num }) => {
   const pct = cleanPercentage(percentage);
   return (
     <svg width={200} height={200}>

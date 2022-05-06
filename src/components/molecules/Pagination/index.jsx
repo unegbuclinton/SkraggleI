@@ -28,8 +28,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
           key={index}
           id={number}
           onClick={handleClick}
-          className={currentPage === number ? 'active' : 'pagenumber'}
-        >
+          className={currentPage === number ? 'active' : 'pagenumber'}>
           {number}
         </li>
       );
@@ -88,8 +87,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
       <PaginationButtons
         pill
         disabled={currentPage === renderPageNumbers.length}
-        onClick={handlePageIncrement}
-      >
+        onClick={handlePageIncrement}>
         <DPIconsArrowRight className="arrow" />
       </PaginationButtons>
     </PaginationWrapper>

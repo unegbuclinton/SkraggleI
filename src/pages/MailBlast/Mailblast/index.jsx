@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import NameLogo from 'components/molecules/NameLogo';
+import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
-import Button from 'components/atoms/Button/Button';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import Pagination from 'components/molecules/Pagination';
-import NameLogo from 'components/molecules/NameLogo';
-import Checkbox from 'components/atoms/CheckBox';
+import styled from 'styled-components';
 import CreateMailModal from '../MailblasModals/CreateMail';
 
 function Mail() {
@@ -27,7 +26,7 @@ function Mail() {
   const columns = [
     {
       name: '',
-      cell: (row) => <Checkbox />,
+      cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {
@@ -36,7 +35,7 @@ function Mail() {
     },
     {
       name: 'ASSIGNEE',
-      cell: (ow) => <NameLogo text="John Doe" />
+      cell: () => <NameLogo text="John Doe" />
     },
     {
       name: 'SCHEDULED'
@@ -44,7 +43,7 @@ function Mail() {
     {
       name: 'STATUS',
 
-      cell: (ow) => (
+      cell: () => (
         <Button pill error className="mail-btn">
           Sent
         </Button>

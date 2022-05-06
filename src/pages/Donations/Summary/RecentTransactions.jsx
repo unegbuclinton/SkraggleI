@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const columns = [
   {
     name: '',
-    cell: (row) => <input style={{ margin: '0 auto' }} type="checkbox" />,
+    cell: () => <input style={{ margin: '0 auto' }} type="checkbox" />,
     width: '7.8rem'
   },
   {

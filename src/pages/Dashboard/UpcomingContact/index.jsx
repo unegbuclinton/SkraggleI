@@ -10,7 +10,7 @@ function UpcomingContact() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: () => <input type="checkbox" />,
       width: '3.069rem'
     },
     {
@@ -67,7 +67,7 @@ function UpcomingContact() {
   return (
     <UpcomingWrapper>
       <Card>
-        <p className="upcoming-header__text">Upcoming Contact To-Do's</p>
+        <p className="upcoming-header__text">Upcoming Contact To-Do&#39;s</p>
         <div className="table-container">
           <Table columns={columns} data={data} />
         </div>
