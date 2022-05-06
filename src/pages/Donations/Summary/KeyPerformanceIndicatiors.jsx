@@ -1,9 +1,9 @@
-import Card from "components/atoms/Card";
-import AreaChart from "components/organisms/AreaChart";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import AreaChart from 'components/organisms/AreaChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 const KeyPerformanceIndicatiors = () => {
   return (
@@ -29,23 +29,21 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#FF576B",
+                colors: '#FF576B'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
             />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
-          <KPIContentCardHeader>
-            Donor Acquisition Rate (Monthly)
-          </KPIContentCardHeader>
+          <KPIContentCardHeader>Donor Acquisition Rate (Monthly)</KPIContentCardHeader>
           <KPIContentCardBody>
             <div>
               <h2>Current</h2>
@@ -63,15 +61,15 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#FF576B",
+                colors: '#FF576B'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
             />
           </KPIContentCardChart>
@@ -95,23 +93,21 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#FF576B",
+                colors: '#FF576B'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
             />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
-          <KPIContentCardHeader>
-            Donor Acquisition Rate (Monthly)
-          </KPIContentCardHeader>
+          <KPIContentCardHeader>Donor Acquisition Rate (Monthly)</KPIContentCardHeader>
           <KPIContentCardBody>
             <div>
               <h2>Current</h2>
@@ -129,15 +125,15 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#FF576B",
+                colors: '#FF576B'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
             />
           </KPIContentCardChart>
@@ -162,10 +158,10 @@ const KPIHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
@@ -203,7 +199,7 @@ const KPIContentCardBody = styled.div`
   h2 {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
 
   h1 {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   ActionWrapper,
   Container,
@@ -7,12 +7,12 @@ import {
   PackageWrapper,
   PriceWrapper,
   SwitchIconWrapper,
-  ViewWrapper,
-} from "./styles";
-import Switch from "components/atoms/Switch/Switch";
-import PackageDropdown from "../DropdownComponents/PackagesDropdown";
-import DeletePackageModal from "components/molecules/EventsModals/PackageModal/DeleteModal/Modal";
-import ClonePackageModal from "components/molecules/EventsModals/PackageModal/CloneModal/Modal";
+  ViewWrapper
+} from './styles';
+import Switch from 'components/atoms/Switch/Switch';
+import PackageDropdown from '../DropdownComponents/PackagesDropdown';
+import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
+import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 
 function Packages() {
   const [dropdown, setDropdown] = useState(false);
@@ -33,10 +33,7 @@ function Packages() {
   return (
     <PackageWrapper>
       <Container>
-        <ClonePackageModal
-          isShown={openCloneModal}
-          onClose={() => setOpenCloneModal(false)}
-        />
+        <ClonePackageModal isShown={openCloneModal} onClose={() => setOpenCloneModal(false)} />
         <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
 
         <ContentContainer onClick={() => setDropdown(true)}>
@@ -74,9 +71,7 @@ function Packages() {
             </p>
           </ActionWrapper>
         </ContentContainer>
-        {dropdown && (
-          <PackageDropdown dropdown={dropdown} setDropdown={setDropdown} />
-        )}
+        {dropdown && <PackageDropdown dropdown={dropdown} setDropdown={setDropdown} />}
         <ContentContainer onClick={() => setOpenDropdown(true)}>
           <ContentsWrapper>
             <h2 className="heading">Gift pack</h2>
@@ -113,10 +108,7 @@ function Packages() {
           </ActionWrapper>
         </ContentContainer>
         {openDropdown && (
-          <PackageDropdown
-            openDropdown={openDropdown}
-            setOpenDropdown={setOpenDropdown}
-          />
+          <PackageDropdown openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
         )}
       </Container>
     </PackageWrapper>

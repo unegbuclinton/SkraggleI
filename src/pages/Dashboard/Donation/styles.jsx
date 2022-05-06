@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS, FONTSIZES } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DonationContainer = styled.div`
   display: flex;
@@ -14,10 +14,9 @@ export const DonationWrapper = styled.div`
     width: 47.4rem;
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     padding: 2.4rem 0rem 1.7rem 0rem;
     margin: 0 4.7rem 0 4rem;
- 
   }
 
   .progress-tracker {
@@ -34,7 +33,7 @@ export const RevenueWrapper = styled.div`
     width: 47.4rem;
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     padding: 2.4rem 0rem 1.7rem 4.1rem;
     margin: 0;
   }
@@ -51,7 +50,7 @@ export const RevenueWrapper = styled.div`
     &__text {
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["header-grey"]};
+      color: ${COLORS['header-grey']};
     }
   }
 `;

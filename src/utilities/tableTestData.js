@@ -6,39 +6,39 @@ export const columns = [
         style={{
           justifyContent: 'center',
           display: 'flex',
-          width: '100%',
+          width: '100%'
         }}
       >
         <input type="checkbox" />
       </div>
     ),
-    width: '8rem',
+    width: '8rem'
   },
   {
     name: 'First Name',
-    selector: (row) => row.firstName,
+    selector: (row) => row.firstName
   },
   {
     name: 'Last Name',
     selector: (row) => row.lastName,
-    width: 200,
+    width: 200
   },
   {
     name: 'Age',
-    selector: (row) => row.age,
+    selector: (row) => row.age
   },
   {
     name: 'Visits',
-    selector: (row) => row.visits,
+    selector: (row) => row.visits
   },
   {
     name: 'Progress',
-    selector: (row) => row.progress,
+    selector: (row) => row.progress
   },
   {
     name: 'Status',
-    selector: (row) => row.status,
-  },
+    selector: (row) => row.status
+  }
 ];
 
 export const data = [
@@ -48,7 +48,7 @@ export const data = [
     age: 7,
     visits: 24,
     progress: 91,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'youth',
@@ -56,7 +56,7 @@ export const data = [
     age: 4,
     visits: 48,
     progress: 65,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'pleasure',
@@ -64,7 +64,7 @@ export const data = [
     age: 6,
     visits: 88,
     progress: 91,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'acoustics',
@@ -72,7 +72,7 @@ export const data = [
     age: 1,
     visits: 74,
     progress: 74,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'box',
@@ -80,7 +80,7 @@ export const data = [
     age: 16,
     visits: 4,
     progress: 33,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'unit',
@@ -88,7 +88,7 @@ export const data = [
     age: 12,
     visits: 26,
     progress: 72,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'satisfaction',
@@ -96,7 +96,7 @@ export const data = [
     age: 25,
     visits: 49,
     progress: 82,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'grandfather',
@@ -104,7 +104,7 @@ export const data = [
     age: 9,
     visits: 98,
     progress: 19,
-    status: 'complicated',
+    status: 'complicated'
   },
   {
     firstName: 'taste',
@@ -112,7 +112,7 @@ export const data = [
     age: 23,
     visits: 22,
     progress: 10,
-    status: 'complicated',
+    status: 'complicated'
   },
   {
     firstName: 'downtown',
@@ -120,7 +120,7 @@ export const data = [
     age: 29,
     visits: 50,
     progress: 69,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'collection',
@@ -128,7 +128,7 @@ export const data = [
     age: 7,
     visits: 24,
     progress: 91,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'youth',
@@ -136,7 +136,7 @@ export const data = [
     age: 4,
     visits: 48,
     progress: 65,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'pleasure',
@@ -144,7 +144,7 @@ export const data = [
     age: 6,
     visits: 88,
     progress: 91,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'acoustics',
@@ -152,7 +152,7 @@ export const data = [
     age: 1,
     visits: 74,
     progress: 74,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'box',
@@ -160,7 +160,7 @@ export const data = [
     age: 16,
     visits: 4,
     progress: 33,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'unit',
@@ -168,7 +168,7 @@ export const data = [
     age: 12,
     visits: 26,
     progress: 72,
-    status: 'single',
+    status: 'single'
   },
   {
     firstName: 'satisfaction',
@@ -176,7 +176,7 @@ export const data = [
     age: 25,
     visits: 49,
     progress: 82,
-    status: 'relationship',
+    status: 'relationship'
   },
   {
     firstName: 'grandfather',
@@ -184,7 +184,7 @@ export const data = [
     age: 9,
     visits: 98,
     progress: 19,
-    status: 'complicated',
+    status: 'complicated'
   },
   {
     firstName: 'taste',
@@ -192,7 +192,7 @@ export const data = [
     age: 23,
     visits: 22,
     progress: 10,
-    status: 'complicated',
+    status: 'complicated'
   },
   {
     firstName: 'downtown',
@@ -200,6 +200,6 @@ export const data = [
     age: 29,
     visits: 50,
     progress: 69,
-    status: 'relationship',
-  },
+    status: 'relationship'
+  }
 ];

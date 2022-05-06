@@ -1,6 +1,6 @@
-import React from "react";
-import CreateTags from "../createTages";
-import Modal from "components/layouts/Modal";
+import React from 'react';
+import CreateTags from '../createTages';
+import Modal from 'components/layouts/Modal';
 
 function TagsModal({ isShown, onClose }) {
   return (

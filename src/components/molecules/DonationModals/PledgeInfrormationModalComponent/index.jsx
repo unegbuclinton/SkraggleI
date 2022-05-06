@@ -1,21 +1,19 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 
-import Card from "components/atoms/Card";
-import DropdownComponent from "components/atoms/Dropdown";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import data from "utilities/filterData";
-import FileUploadButton from "components/atoms/FileUploadButton";
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import data from 'utilities/filterData';
+import FileUploadButton from 'components/atoms/FileUploadButton';
 
-import { ModalWrapper, ButtonsContainer, InstallmentWrapper } from "./styles";
-import { DPIconUploadFile, DPIconDelete } from "icons";
+import { ModalWrapper, ButtonsContainer, InstallmentWrapper } from './styles';
+import { DPIconUploadFile, DPIconDelete } from 'icons';
 
 const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
-  console.log({...rest})
-  const [selectedContact, setSelectedContact] = useState(
-    "Start typing to search"
-  );
-  const [selectedType, setSelectedType] = useState("Donation");
+  console.log({ ...rest });
+  const [selectedContact, setSelectedContact] = useState('Start typing to search');
+  const [selectedType, setSelectedType] = useState('Donation');
   const [showAddInstallment, setShowAddInstallment] = useState(false);
   const [btnAddInstallment, setBtnAddInstallment] = useState(true);
 
@@ -52,18 +50,10 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
         />
 
         <h1>Start Date</h1>
-        <Input
-          className="modal-inputs"
-          type="date"
-          placeholder="Enter Amount"
-        />
+        <Input className="modal-inputs" type="date" placeholder="Enter Amount" />
 
         <h1>End Date</h1>
-        <Input
-          className="modal-inputs"
-          type="date"
-          placeholder="Enter Amount"
-        />
+        <Input className="modal-inputs" type="date" placeholder="Enter Amount" />
         <h1>Attachments</h1>
         <FileUploadButton imgPreview="img-preview">
           <DPIconUploadFile />
@@ -71,7 +61,13 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
 
         <h1>Installments</h1>
         {btnAddInstallment && (
-          <Button type="submit" className="installment-btn__add"  onClick={(e)=>{e.preventDefault()}}>
+          <Button
+            type="submit"
+            className="installment-btn__add"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
             Add Installment
           </Button>
         )}
@@ -135,7 +131,13 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
               />
               <DPIconDelete className="icon-delete" />
             </div>
-            <Button type="submit" className="installment-btn__pink" onClick={(e)=>{e.preventDefault()}}>
+            <Button
+              type="submit"
+              className="installment-btn__pink"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
               Add Installment
             </Button>
           </InstallmentWrapper>
@@ -152,11 +154,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
             selected={selectedType}
             setSelected={setSelectedType}
           />
-          <Button
-            type="submit"
-            className="installment-btn__calculate"
-            onClick={showInstallment}
-          >
+          <Button type="submit" className="installment-btn__calculate" onClick={showInstallment}>
             Calculate Installment
           </Button>
         </div>

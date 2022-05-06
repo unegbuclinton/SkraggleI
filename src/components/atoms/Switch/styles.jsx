@@ -1,5 +1,5 @@
-import { COLORS } from "constants/colors";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import styled from 'styled-components';
 
 export const Label = styled.label`
   display: flex;
@@ -17,7 +17,7 @@ export const Switched = styled.div`
   padding: 0.4rem;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 1.366rem;
     height: 1.366rem;

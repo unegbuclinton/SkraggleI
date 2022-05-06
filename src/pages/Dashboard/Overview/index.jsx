@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { OverviewLeft } from "./styles";
-import { OverviewWrapper } from "./styles";
-import { datas1 } from "utilities/overviewData";
-import { OverviewRight } from "./styles";
-import Button from "components/atoms/Button/Button";
-import { DatePicker } from "./styles";
-import DateRange from "components/molecules/DateRange";
-import { DPIconRangeIcon } from "icons";
-import { DPIconDateArrow } from "icons";
-import dayjs from "dayjs";
-import WidgetModal from "pages/Dashboard/modals/WidgetModal";
-import Card from "components/atoms/Card";
-import DropdownComponent from "components/atoms/Dropdown";
+import React, { useState } from 'react';
+import { OverviewLeft } from './styles';
+import { OverviewWrapper } from './styles';
+import { datas1 } from 'utilities/overviewData';
+import { OverviewRight } from './styles';
+import Button from 'components/atoms/Button/Button';
+import { DatePicker } from './styles';
+import DateRange from 'components/molecules/DateRange';
+import { DPIconRangeIcon } from 'icons';
+import { DPIconDateArrow } from 'icons';
+import dayjs from 'dayjs';
+import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
 
 function Overview() {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
   const [openWidget, setOpenWidget] = useState(false);
 
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
-    endDate: new Date(),
+    endDate: new Date()
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
@@ -34,27 +34,15 @@ function Overview() {
               <DatePicker>
                 <DPIconRangeIcon />
               </DatePicker>
-              <DatePicker>
-                {dayjs(filterRange.startDate).format("MMM DD YYYY")}
-              </DatePicker>
+              <DatePicker>{dayjs(filterRange.startDate).format('MMM DD YYYY')}</DatePicker>
               <DatePicker>
                 <DPIconDateArrow />
               </DatePicker>
-              <DatePicker>
-                {dayjs(filterRange.endDate).format("MMM DD YYYY")}
-              </DatePicker>
+              <DatePicker>{dayjs(filterRange.endDate).format('MMM DD YYYY')}</DatePicker>
             </div>
 
-            <DropdownComponent
-              selected={selected}
-              setSelected={setSelected}
-              data={datas1}
-            />
-            <DropdownComponent
-              selected={selected}
-              setSelected={setSelected}
-              data={datas1}
-            />
+            <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
+            <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
           </div>
           {datePick && (
             <DateRange

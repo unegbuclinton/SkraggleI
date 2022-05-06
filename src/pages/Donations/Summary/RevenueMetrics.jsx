@@ -1,12 +1,12 @@
-import CalendarDropdown from "components/atoms/CalendarDropdown";
-import Card from "components/atoms/Card";
-import GoalProgressTracker from "components/molecules/GoalProgressTracker";
-import Chart from "components/organisms/AreaChart";
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
+import Card from 'components/atoms/Card';
+import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
+import Chart from 'components/organisms/AreaChart';
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const RevenueMetrics = () => {
   const [openRange, setOpenRange] = useState(false);
@@ -14,7 +14,7 @@ const RevenueMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: "Today",
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 
@@ -23,21 +23,9 @@ const RevenueMetrics = () => {
       <RevenueGoalsWrapper>
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Monthly Goal"
-          />
-          <GoalProgressTracker
-            value={38540.23}
-            target={93825}
-            heading="Quarterly Goal"
-          />
-          <GoalProgressTracker
-            value={29540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Monthly Goal" />
+          <GoalProgressTracker value={38540.23} target={93825} heading="Quarterly Goal" />
+          <GoalProgressTracker value={29540.23} target={93825} heading="Yearly Goal" />
         </RevenueGoalsContentWrapper>
       </RevenueGoalsWrapper>
 
@@ -56,18 +44,18 @@ const RevenueMetrics = () => {
           data={[300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179]}
           height={350}
           categories={[
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
           ]}
         />
       </RevenueTrackerWrapper>
@@ -94,10 +82,10 @@ const RevenueGoalsHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
@@ -131,10 +119,10 @@ const RevenueTrackerHeaderWrapper = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;

@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import { Container } from "./styles";
-import Input from "components/atoms/Input/Input";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { Container } from './styles';
+import Input from 'components/atoms/Input/Input';
 
 function EventsForm({ setClick }) {
   return (
@@ -11,11 +11,7 @@ function EventsForm({ setClick }) {
         <Button type="button" className="btn-save">
           Save
         </Button>
-        <Button
-          type="button"
-          onClick={() => setClick(false)}
-          className="btn-cancel"
-        >
+        <Button type="button" onClick={() => setClick(false)} className="btn-cancel">
           Cancel
         </Button>
       </div>

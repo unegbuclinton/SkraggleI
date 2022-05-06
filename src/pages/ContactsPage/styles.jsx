@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
 export const TabLinksWrapper = styled.div`
   margin-bottom: 1.6rem;

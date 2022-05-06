@@ -1,52 +1,52 @@
-import React from "react";
-import styled from "styled-components";
-import Table from "components/layouts/Table";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
+import React from 'react';
+import styled from 'styled-components';
+import Table from 'components/layouts/Table';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import Card from 'components/atoms/Card';
 
 function FormResponse() {
   const columns = [
     {
-      name: "",
+      name: '',
       selector: (row) => row.contact,
       cell: (row) => <input type="checkbox" />,
-      width: "3.069rem",
+      width: '3.069rem'
     },
     {
-      name: "CONTACT",
-      selector: (row) => row.contact,
+      name: 'CONTACT',
+      selector: (row) => row.contact
     },
     {
-      name: "FORM",
+      name: 'FORM',
       selector: (row) => row.form,
-      width: "30.33rem",
+      width: '30.33rem'
     },
     {
-      name: "SUBMITTED",
-      selector: (row) => row.submitted,
-    },
+      name: 'SUBMITTED',
+      selector: (row) => row.submitted
+    }
   ];
 
   const data = [
     {
       id: 1,
-      contact: "Mohammed Adam",
-      form: "Subscription Form",
-      submitted: "24th Aug",
+      contact: 'Mohammed Adam',
+      form: 'Subscription Form',
+      submitted: '24th Aug'
     },
     {
       id: 2,
-      contact: "Mohammed Adam",
-      form: "Subscription Form",
-      submitted: "24th Aug",
+      contact: 'Mohammed Adam',
+      form: 'Subscription Form',
+      submitted: '24th Aug'
     },
     {
       id: 3,
-      contact: "Mohammed Adam",
-      form: "Subscription Form",
-      submitted: "24th Aug",
-    },
+      contact: 'Mohammed Adam',
+      form: 'Subscription Form',
+      submitted: '24th Aug'
+    }
   ];
 
   return (
@@ -69,7 +69,7 @@ const FormResponsewrapper = styled.div`
   .form-response__text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin: 0rem 3.9rem 0 3.6rem;
     padding: 2.4rem 0rem 1.7rem 0rem;
     border-bottom: 1px solid ${COLORS.torquoise};

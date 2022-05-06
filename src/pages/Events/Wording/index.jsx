@@ -1,11 +1,11 @@
-import React from "react";
-import Description from "./Description";
-import BillinInfomation from "./BillingInfomation";
-import EventInformation from "./EventInfomation";
-import PaymentInformation from "./PaymentInformation";
-import ReceiptInformation from "./ReceiptInformation";
-import styled from "styled-components";
-import Card from "components/atoms/Card";
+import React from 'react';
+import Description from './Description';
+import BillinInfomation from './BillingInfomation';
+import EventInformation from './EventInfomation';
+import PaymentInformation from './PaymentInformation';
+import ReceiptInformation from './ReceiptInformation';
+import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 
 function Wording() {
   return (

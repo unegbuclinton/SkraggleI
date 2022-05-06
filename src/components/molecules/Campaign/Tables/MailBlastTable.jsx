@@ -1,40 +1,35 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon, DPIconAssignee } from "icons";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon, DPIconAssignee } from 'icons';
 
-import datas from "utilities/filterData";
+import datas from 'utilities/filterData';
 
-import { mailBlastData } from "utilities/campaigndata";
+import { mailBlastData } from 'utilities/campaigndata';
 
-import {
-  TableWrapper,
-  TableHeaderWrapper,
-  ContainerBody,
-  Assignee,
-} from "./styles";
-import DropdownComponent from "components/atoms/Dropdown";
-import Checkbox from "components/atoms/CheckBox";
+import { TableWrapper, TableHeaderWrapper, ContainerBody, Assignee } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const MailBlastTable = () => {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "ASSIGNEE",
+      name: 'ASSIGNEE',
       selector: (row) => row.assignee,
       cell: (col) => (
         <Assignee>
@@ -42,18 +37,18 @@ const MailBlastTable = () => {
           Tillie Mendoza
         </Assignee>
       ),
-      width: "45rem",
+      width: '45rem'
     },
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.type,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-    },
+      cell: (col) => <Button className="table-button">Active</Button>
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,16 +61,16 @@ const MailBlastTable = () => {
     name: mailData.name,
     assignee: mailData.assignee,
     type: mailData.type,
-    status: mailData.status,
+    status: mailData.status
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/mail-blast");
+    navigate('/mail-blast');
   };
 
   return (
@@ -88,12 +83,14 @@ const MailBlastTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -13,22 +13,22 @@ export const ModalWrapper = styled.form`
     margin-bottom: 0.5rem;
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
 
   .dropdown-followers {
     width: 100%;
     margin-bottom: 13.9rem;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
   }
   .cancel-btn {
     width: 14rem;
     height: 4.8rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     background-color: ${COLORS.white};
     border-radius: 0.5rem;
-    color: ${COLORS["moore-grey"]};
+    color: ${COLORS['moore-grey']};
     margin-right: 1.6rem;
   }
   .save-btn {
@@ -43,13 +43,12 @@ export const ModalWrapper = styled.form`
     margin-bottom: 0.8rem;
     height: 6.4rem;
     width: 100%;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
   }
 `;
 
 export const ModalInput = styled.input``;
-
 
 export const ModalInputDescription = styled.textarea`
   padding-left: 2.083rem;
@@ -59,7 +58,7 @@ export const ModalInputDescription = styled.textarea`
   resize: none;
   outline: none;
   width: 100%;
-  border: 1px solid ${COLORS["gray-500"]};
+  border: 1px solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
 `;
 

@@ -1,13 +1,13 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DropdownWrapper = styled.form`
   padding: 4.8rem 0 6.8rem 0;
   .normal-input {
     width: 61.4rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 3.2rem 0;
@@ -25,14 +25,14 @@ export const DropdownWrapper = styled.form`
     margin: 0.8rem 0 3.2rem 0;
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 `;
 
 export const Label = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 
 export const SwitchWrapper = styled.div`
@@ -53,7 +53,7 @@ export const FieldTypeWrapper = styled.div`
   .field-type-dropdown {
     width: 28.3rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 3.2rem 0;
@@ -85,7 +85,7 @@ export const Container = styled.div`
   .pack-container {
     width: 99.1rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 2.4rem 0 0 0;
@@ -100,10 +100,10 @@ export const ButtonContainer = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.3rem;
     background-color: ${COLORS.white};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .save-btn {

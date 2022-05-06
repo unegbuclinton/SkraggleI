@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS } from 'constants/font-spec';
 
 export const GeneralWrapper = styled.div`
   .general-card {
@@ -18,7 +18,7 @@ export const GeneralHeader = styled.div`
   .body-text {
     font-size: 1.8rem;
     font-weight: ${FONTWEIGHTS.bold};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
   }
   .dropdown {
     width: 14.4rem;

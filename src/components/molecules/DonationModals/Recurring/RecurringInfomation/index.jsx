@@ -1,16 +1,15 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Checkbox from "components/atoms/CheckBox";
-import DropdownComponent from "components/atoms/Dropdown";
-import Input from "components/atoms/Input/Input";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
-import data from "utilities/filterData.json";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
-function RecurringInformation({IncrementTab,onCloseModal}) {
- 
+function RecurringInformation({ IncrementTab, onCloseModal }) {
   return (
     <InformationWrapper>
       <Card className="donation-card">
@@ -50,7 +49,7 @@ function RecurringInformation({IncrementTab,onCloseModal}) {
           <DropdownComponent className="donation-dropdown" data={data} />
         </DonationLabel>
 
-        <div className="donation-footer" >
+        <div className="donation-footer">
           <Button invert auth className="donation-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
@@ -102,12 +101,12 @@ const DonationLabel = styled.div`
     margin-bottom: 0.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
   .donation-dropdown {
     width: 60.2rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
   }
@@ -122,13 +121,13 @@ const DonationLabel = styled.div`
       max-width: 11.9rem;
       height: 6.4rem;
       background-color: transparent;
-      border: 1px solid ${COLORS["moore-grey"]};
+      border: 1px solid ${COLORS['moore-grey']};
     }
 
     &-dropdown {
       max-width: 16.9rem;
       height: 6.4rem;
-      border: 1px solid ${COLORS["moore-grey"]};
+      border: 1px solid ${COLORS['moore-grey']};
       border-radius: 0.5rem;
     }
   }
@@ -139,12 +138,12 @@ const DonationInput = styled.div`
     margin-bottom: 0.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
   .donation-input {
     width: 60.2rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
     background-color: transparent;

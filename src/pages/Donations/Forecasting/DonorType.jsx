@@ -1,20 +1,20 @@
-import DropdownComponent from "components/atoms/Dropdown";
-import React, { useState } from "react";
-import data from "utilities/filterData.json";
-import styled from "styled-components";
-import Card from "components/atoms/Card";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import { COLORS } from "constants/colors";
-import BarChart from "components/organisms/BarChart";
-import PieChart from "components/organisms/PieChart";
+import DropdownComponent from 'components/atoms/Dropdown';
+import React, { useState } from 'react';
+import data from 'utilities/filterData.json';
+import styled from 'styled-components';
+import Card from 'components/atoms/Card';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { COLORS } from 'constants/colors';
+import BarChart from 'components/organisms/BarChart';
+import PieChart from 'components/organisms/PieChart';
 
 function DonorType() {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
   const series = [
     {
-      name: "Skraggle",
-      data: [39, 30, 35, 25, 40, 15],
-    },
+      name: 'Skraggle',
+      data: [39, 30, 35, 25, 40, 15]
+    }
   ];
 
   return (
@@ -23,11 +23,7 @@ function DonorType() {
         <Card>
           <TypeHeader>
             <p className="transaction-text">2021 Transaction Types</p>
-            <DropdownComponent
-              selected={selected}
-              setSelected={setSelected}
-              data={data}
-            />
+            <DropdownComponent selected={selected} setSelected={setSelected} data={data} />
           </TypeHeader>
 
           <div className="pie-container">
@@ -51,12 +47,7 @@ function DonorType() {
             <p className="donor-text">Donor Score</p>
           </TypeHeader>
           <div className="bar-container">
-            <BarChart
-              series={series}
-              categories={["30", "40", "60"]}
-              width={650}
-              height={350}
-            />
+            <BarChart series={series} categories={['30', '40', '60']} width={650} height={350} />
           </div>
         </Card>
       </div>
@@ -105,21 +96,20 @@ const TypeWrapper = styled.div`
         align-items: center;
         gap: 0.8rem;
 
-
-        p{
+        p {
           font-size: ${FONTSIZES.small};
           font-weight: ${FONTWEIGHTS.normal};
         }
         &__donation {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["uranian-blue"]};
+          background: ${COLORS['uranian-blue']};
         }
 
         &__contacts {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["turfts-blue"]};
+          background: ${COLORS['turfts-blue']};
         }
       }
     }

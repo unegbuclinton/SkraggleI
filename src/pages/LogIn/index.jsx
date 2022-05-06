@@ -12,14 +12,14 @@ import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 import { login } from 'features/auth/authSlice';
 
-const LogIn = ({onClick}) => {
+const LogIn = ({ onClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
@@ -27,7 +27,7 @@ const LogIn = ({onClick}) => {
       navigate('/dashboard');
       // persistedReducer.pause();
       // persistedReducer.purge();
-    },
+    }
   });
   return (
     <AuthLayout>
@@ -59,15 +59,17 @@ const LogIn = ({onClick}) => {
             <ErrorMessage>{formik.errors.password}</ErrorMessage>
           ) : null}
           <div className="forgot-password__container">
-            <LoginLink className="forgot-password" to={"/forgotpassword"}>
+            <LoginLink className="forgot-password" to={'/forgotpassword'}>
               Forgot Password?
             </LoginLink>
           </div>
-          <Button className="login-button" onClick={onClick}>LOG IN</Button>
+          <Button className="login-button" onClick={onClick}>
+            LOG IN
+          </Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {" "}
+              {' '}
               Sign Up
             </LoginLink>
           </p>

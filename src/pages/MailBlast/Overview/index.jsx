@@ -1,15 +1,15 @@
-import React from "react";
-import Card from "components/atoms/Card";
-import { NewstellerWrapper } from "./styles";
-import { NewstellerTop } from "./styles";
-import Button from "components/atoms/Button/Button";
-import { NewstellerBody } from "./styles";
-import StatisticsTracker from "components/molecules/StatisticsTracker";
+import React from 'react';
+import Card from 'components/atoms/Card';
+import { NewstellerWrapper } from './styles';
+import { NewstellerTop } from './styles';
+import Button from 'components/atoms/Button/Button';
+import { NewstellerBody } from './styles';
+import StatisticsTracker from 'components/molecules/StatisticsTracker';
 
 function Overview({ ...props }) {
   return (
     <NewstellerWrapper>
-      <Card className='overview-card'>
+      <Card className="overview-card">
         <NewstellerTop>
           <div className="newsteller-left">
             <div className="top">

@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import DeletePackage from "../DeletePackages";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import DeletePackage from '../DeletePackages';
 
 function DeletePackageModal({ isShown, onClose }) {
   return (

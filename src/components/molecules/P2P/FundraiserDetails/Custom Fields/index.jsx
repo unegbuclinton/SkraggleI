@@ -1,29 +1,29 @@
-import { React, forwardRef } from "react";
+import { React, forwardRef } from 'react';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-const CustomFields = forwardRef(({className}, customref) => {
-    return(
-        <CustomFieldWrapper className={className} ref={customref}>
-          <div className="fundraiser__top">
-            <div className="fundraiser__title">
-              <h1 className="fundraiser__heading">Custom Fields</h1>
-            </div>
-          </div>
-          <div className="fundraiser__down">
-            <div className="fundraiser__custom-field">
-              <h1 className="fundraiser__custom-title">
-                There are no custom fields on the associated campaign
-              </h1>
-            </div>
-          </div>
-        </CustomFieldWrapper>
-    )
-})
+const CustomFields = forwardRef(({ className }, customref) => {
+  return (
+    <CustomFieldWrapper className={className} ref={customref}>
+      <div className="fundraiser__top">
+        <div className="fundraiser__title">
+          <h1 className="fundraiser__heading">Custom Fields</h1>
+        </div>
+      </div>
+      <div className="fundraiser__down">
+        <div className="fundraiser__custom-field">
+          <h1 className="fundraiser__custom-title">
+            There are no custom fields on the associated campaign
+          </h1>
+        </div>
+      </div>
+    </CustomFieldWrapper>
+  );
+});
 
-export default CustomFields
+export default CustomFields;
 
 export const CustomFieldWrapper = styled.div`
   display: flex;

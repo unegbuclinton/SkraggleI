@@ -1,22 +1,21 @@
-import { React, useState } from "react";
-import styled, { css } from "styled-components";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import { COLORS } from "constants/colors";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { React, useState } from 'react';
+import styled, { css } from 'styled-components';
 
-const MultiformTabs = ({ tabs, ...rest }) => {
+function RenderComponent(Components, IncrementTab, DecrementTab) {
+  return <Components IncrementTab={IncrementTab} DecrementTab={DecrementTab} />;
+}
+function MultiformTabs({ tabs, ...rest }) {
   const [activeTab, setActiveTab] = useState(0);
 
-  function IncrementTab(){
-    setActiveTab(prev => prev+1)
+  function IncrementTab() {
+    setActiveTab((prev) => prev + 1);
   }
 
-  function DecrementTab(){
-    setActiveTab(prev => prev-1)
+  function DecrementTab() {
+    setActiveTab((prev) => prev - 1);
   }
-
-  function RenderComponent(Components){
-    return <Components IncrementTab={IncrementTab} DecrementTab={DecrementTab}/>
- }
 
   return (
     <>
@@ -34,10 +33,12 @@ const MultiformTabs = ({ tabs, ...rest }) => {
           </TabButton>
         ))}
       </TabContainer>
-      <TabContent>{tabs && RenderComponent(tabs[activeTab]?.component)}</TabContent>
+      <TabContent>
+        {tabs && RenderComponent(tabs[activeTab]?.component, IncrementTab, DecrementTab)}
+      </TabContent>
     </>
   );
-};
+}
 
 export default MultiformTabs;
 
@@ -54,10 +55,10 @@ const TabButton = styled.button`
   position: relative;
   background: transparent;
   border-bottom: 2px solid ${COLORS.torquoise};
-  color: ${COLORS["grey-400"]};
+  color: ${COLORS['grey-400']};
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     background: ${COLORS.pink};

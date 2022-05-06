@@ -1,12 +1,12 @@
-import CalendarDropdown from "components/atoms/CalendarDropdown";
-import Card from "components/atoms/Card";
-import GoalProgressTracker from "components/molecules/GoalProgressTracker";
-import AreaChart from "components/organisms/AreaChart";
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
+import Card from 'components/atoms/Card';
+import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
+import AreaChart from 'components/organisms/AreaChart';
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const DonationMetrics = () => {
   const [openRange, setOpenRange] = useState(false);
@@ -14,7 +14,7 @@ const DonationMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: "Today",
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 
@@ -23,11 +23,7 @@ const DonationMetrics = () => {
       <DonationGoalsWrapper>
         <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
         <DonationGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Yearly Goal" />
         </DonationGoalsContentWrapper>
       </DonationGoalsWrapper>
 
@@ -46,18 +42,18 @@ const DonationMetrics = () => {
           data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
           height={350}
           categories={[
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
           ]}
         />
       </DonationTrackerWrapper>
@@ -84,10 +80,10 @@ const DonationGoalsHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
@@ -118,10 +114,10 @@ const DonationTrackerHeaderWrapper = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;

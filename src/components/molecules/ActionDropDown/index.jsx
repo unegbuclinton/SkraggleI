@@ -1,16 +1,12 @@
-import DropdownComponent from "components/atoms/Dropdown";
-import { datas1 } from "utilities/overviewData";
-import React, { useState } from "react";
+import DropdownComponent from 'components/atoms/Dropdown';
+import { datas1 } from 'utilities/overviewData';
+import React, { useState } from 'react';
 
 function ActionDropDown() {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
   return (
     <>
-      <DropdownComponent
-        selected={selected}
-        setSelected={setSelected}
-        data={datas1}
-      />
+      <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
     </>
   );
 }

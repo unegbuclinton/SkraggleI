@@ -8,15 +8,13 @@ function SendVerification() {
     <AuthLayout>
       <VerificationWrapper>
         <div className="send-verification">
-          <h1 className="send-verification__heading">
-            Check your inbox to verify your account
-          </h1>
+          <h1 className="send-verification__heading">Check your inbox to verify your account</h1>
           <div className="send-verification__image-wrapper">
             <DPIconEmail className="send-verification__image-wrapper--image" />
           </div>
           <p className="send-verification__info">
-            To complete the sign up and log in, click the verification link in
-            the email we have sent to
+            To complete the sign up and log in, click the verification link in the email we have
+            sent to
           </p>
 
           <div className="send-verification__email">john@example.com</div>

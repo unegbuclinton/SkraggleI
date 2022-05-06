@@ -1,11 +1,10 @@
-import {React} from "react";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconProfileImage } from 'icons';
+import { React } from 'react';
+import styled from 'styled-components';
 
-import { DPIconProfileImage } from "icons";
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-
-const Settings = ({className}) => {
+function Settings({ className }) {
   return (
     <SettingsWrapper className={className}>
       <div className="fundraiser__top">
@@ -41,9 +40,8 @@ const Settings = ({className}) => {
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Personal Message</h1>
           <p className="fundraiser__p3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-            dignissim enim erat lacus sagittis metus. Habitant adipiscing
-            aliquam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor dignissim enim erat
+            lacus sagittis metus. Habitant adipiscing aliquam.
           </p>
         </div>
         <div className="fundraiser__row">
@@ -52,12 +50,14 @@ const Settings = ({className}) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Fundraiser Photo</h1>
-          <p className="fundraiser__p2"><DPIconProfileImage/></p>
+          <p className="fundraiser__p2">
+            <DPIconProfileImage />
+          </p>
         </div>
       </div>
     </SettingsWrapper>
   );
-};
+}
 
 export default Settings;
 

@@ -1,7 +1,7 @@
-import { COLORS } from "constants/colors";
-import React from "react";
-import styled from "styled-components";
-import { css } from "styled-components";
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import styled from 'styled-components';
+import { css } from 'styled-components';
 
 const ProgressBar = ({ value, target, subColor, ...rest }) => {
   const range = (value / target) * 100;
@@ -12,13 +12,13 @@ export default ProgressBar;
 
 const ProgressBarWrapper = styled.div`
   position: relative;
-  background-color: ${COLORS["garage-mix-grey"]};
+  background-color: ${COLORS['garage-mix-grey']};
   border-radius: 2rem;
   height: 2rem;
 
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     left: 0;
     top: 0;
     width: ${({ range }) => range}%;
@@ -30,8 +30,8 @@ const ProgressBarWrapper = styled.div`
   ${({ subColor }) =>
     subColor &&
     css`
-     &::before{
-      background-color: ${COLORS['turfts-blue']};
-     }
+      &::before {
+        background-color: ${COLORS['turfts-blue']};
+      }
     `};
 `;

@@ -3,17 +3,18 @@ import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
-import { React, useRef } from 'react';
+import { React, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 
-const LeafLnc = ({ className }) => {
+function LeafLnc({ className }) {
   const textAreaRef = useRef(null);
 
-  function copyToClipboard() {
+  const copyToClipboard = useCallback(() => {
     const text = textAreaRef.current.value;
     navigator.clipboard.writeText(text);
     alert('Text Copied');
-  }
+  }, []);
+
   return (
     <P2PFundraiserWrapper className={className}>
       <div className="fundraiser__top">
@@ -24,16 +25,8 @@ const LeafLnc = ({ className }) => {
         <div>
           <div className="fundraiser__id">ID</div>
           <div className="fundraiser__no">
-            <textarea
-              className="fundraiser__textArea"
-              value="NRTFSTPL"
-              ref={textAreaRef}
-            ></textarea>
-            <Button
-              type="button"
-              className="fundraiser__copy-button"
-              onClick={copyToClipboard}
-            >
+            <textarea className="fundraiser__textArea" value="NRTFSTPL" ref={textAreaRef} />
+            <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard}>
               <DPIconCopy />
             </Button>
           </div>
@@ -59,7 +52,7 @@ const LeafLnc = ({ className }) => {
       </div>
     </P2PFundraiserWrapper>
   );
-};
+}
 
 export default LeafLnc;
 

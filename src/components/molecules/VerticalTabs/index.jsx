@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
-import styled, { css } from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import React, { useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 function VerticalTab({
   tabs,
   setActiveState,
@@ -10,7 +10,7 @@ function VerticalTab({
   children,
   onClick,
   leftBottomClass,
-  setRef,
+  setRef
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
   const listRef = useRef([]);
@@ -68,7 +68,7 @@ const TabButton = styled.button`
   height: 1.7rem;
   font-size: ${FONTSIZES.normal};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["moore-grey"]};
+  color: ${COLORS['moore-grey']};
   margin-bottom: 4.8rem;
   cursor: pointer;
   text-align: left;
@@ -78,7 +78,7 @@ const TabButton = styled.button`
     active &&
     css`
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0.3rem;
         left: -1.9rem;

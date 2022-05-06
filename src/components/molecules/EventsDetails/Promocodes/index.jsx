@@ -1,7 +1,7 @@
-import Switch from "components/atoms/Switch/Switch";
-import DeletePromoCodeModal from "components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal";
-import React, { useState } from "react";
-import PromoCodeDropdown from "../DropdownComponents/PromoCodeDropdown";
+import Switch from 'components/atoms/Switch/Switch';
+import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
+import React, { useState } from 'react';
+import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
 import {
   ActionWrapper,
   Container,
@@ -10,8 +10,8 @@ import {
   PromoCodeWrapper,
   RequiredWrapper,
   SwitchIconWrapper,
-  ViewWrapper,
-} from "./styles";
+  ViewWrapper
+} from './styles';
 
 function PromoCodes() {
   const [dropdown, setDropdown] = useState(false);
@@ -24,10 +24,7 @@ function PromoCodes() {
   return (
     <PromoCodeWrapper>
       <Container>
-        <DeletePromoCodeModal
-          isShown={openDelete}
-          onClose={() => setOpenDelete(false)}
-        />
+        <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
 
         <ContentContainer onClick={() => setDropdown(true)}>
           <ContentsWrapper>

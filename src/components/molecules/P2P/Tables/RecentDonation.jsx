@@ -1,48 +1,48 @@
-import { React } from "react";
+import { React } from 'react';
 
-import { donationData } from "utilities/p2pData";
+import { donationData } from 'utilities/p2pData';
 
-import Table from "components/layouts/Table";
-import { ContainerBody, TableWrapper } from "./styles";
+import Table from 'components/layouts/Table';
+import { ContainerBody, TableWrapper } from './styles';
 
 const RecentDonation = () => {
   const columns = [
     {
-      name: "RANK",
+      name: 'RANK',
       selector: (row) => row.rank,
-      width: "10rem",
+      width: '10rem'
     },
     {
-      name: "CAMPAIGN",
+      name: 'CAMPAIGN',
       selector: (row) => row.participants,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "FUNDRAISER",
+      name: 'FUNDRAISER',
       selector: (row) => row.name,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "GOAL",
+      name: 'GOAL',
       selector: (row) => row.goals,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "RAISED",
+      name: 'RAISED',
       selector: (row) => row.amount,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "CREATED",
+      name: 'CREATED',
       selector: (row) => row.date,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "GOAL DATE",
+      name: 'GOAL DATE',
       selector: (row) => row.location,
-      width: "20rem",
-    },
+      width: '20rem'
+    }
   ];
 
   const tableData = donationData.map((P2PData, index) => ({
@@ -52,17 +52,14 @@ const RecentDonation = () => {
     name: P2PData.name,
     amount: P2PData.amount,
     date: P2PData.date,
-    location: P2PData.location,
+    location: P2PData.location
   }));
 
   return (
     <div>
       <ContainerBody>
         <TableWrapper className="donations">
-          <Table
-            columns={columns}
-            data={tableData}
-          />
+          <Table columns={columns} data={tableData} />
         </TableWrapper>
       </ContainerBody>
     </div>

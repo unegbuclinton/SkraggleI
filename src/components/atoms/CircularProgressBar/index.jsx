@@ -1,6 +1,6 @@
-import { FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import { FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 const cleanPercentage = (percentage) => {
   const tooLow = !Number.isFinite(+percentage) || percentage < 0;
@@ -18,8 +18,8 @@ const Circle = ({ colour, pct }) => {
       cx={100}
       cy={100}
       fill="transparent"
-      stroke={strokePct !== circ ? colour : ""} // remove colour as 0% sets full circumference
-      strokeWidth={"2rem"}
+      stroke={strokePct !== circ ? colour : ''} // remove colour as 0% sets full circumference
+      strokeWidth={'2rem'}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
       strokeLinecap="round"
@@ -29,13 +29,7 @@ const Circle = ({ colour, pct }) => {
 
 const Text = ({ percentage, num, y, header }) => {
   return (
-    <Texted
-      x="50%"
-      y={y}
-      dominantBaseline="central"
-      textAnchor="middle"
-      color="red"
-    >
+    <Texted x="50%" y={y} dominantBaseline="central" textAnchor="middle" color="red">
       {percentage.toFixed(0)}% {num} {header}
     </Texted>
   );
@@ -45,7 +39,7 @@ const CircularProgressBar = ({ percentage, colour, num, header }) => {
   const pct = cleanPercentage(percentage);
   return (
     <svg width={200} height={200}>
-      <g transform={`rotate(-90 ${"100 100"})`}>
+      <g transform={`rotate(-90 ${'100 100'})`}>
         <Circle colour="lightgrey" />
         <Circle colour={colour} pct={pct} />
       </g>

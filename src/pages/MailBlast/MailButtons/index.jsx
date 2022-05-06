@@ -1,7 +1,7 @@
-import Button from "components/atoms/Button/Button";
-import { COLORS } from "constants/colors";
-import React from "react";
-import styled from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import styled from 'styled-components';
 
 function MailButton({ btn }) {
   return (

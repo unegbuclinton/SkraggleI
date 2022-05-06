@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DetailsSubHeading = styled.h2`
   font-weight: ${FONTWEIGHTS.normal};
@@ -13,7 +13,7 @@ export const DetailsSubHeading = styled.h2`
 export const DetailLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 
 export const EventWrapper = styled.div`
@@ -24,7 +24,7 @@ export const EventWrapper = styled.div`
   .details-input {
     width: 61.4rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 2.4rem 0;
@@ -37,7 +37,7 @@ export const EventWrapper = styled.div`
   }
 
   /* Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 
@@ -68,7 +68,7 @@ export const InputWrapper = styled.div`
   gap: 2.4rem;
   flex-wrap: wrap;
   .date-time-input {
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     width: 34.9rem;

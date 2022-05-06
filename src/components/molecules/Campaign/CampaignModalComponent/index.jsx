@@ -1,33 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Card from "components/atoms/Card";
-import DropdownComponent from "components/atoms/Dropdown";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import data from "utilities/filterData";
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import data from 'utilities/filterData';
 
-import { useFormik } from "formik";
-import { createCampaignSchema } from "validation/Schema";
+import { useFormik } from 'formik';
+import { createCampaignSchema } from 'validation/Schema';
 
-import {
-  ModalWrapper,
-  ModalInputDescription,
-  ButtonsContainer,
-} from "./styles";
-import ErrorMessage from "components/atoms/ErrorMessage";
+import { ModalWrapper, ModalInputDescription, ButtonsContainer } from './styles';
+import ErrorMessage from 'components/atoms/ErrorMessage';
 
 const CampaignModalComponent = ({ onClose }) => {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      name: ''
     },
     validationSchema: createCampaignSchema,
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 4));
-    },
+    }
   });
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>

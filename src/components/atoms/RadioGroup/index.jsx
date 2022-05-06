@@ -2,15 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Radio from '../Radio';
 
-const RadioGroupWrapper = (props) => {
-  const {
-    Component,
-    name,
-    selectedValue,
-    onClickRadioButton,
-    children,
-    ...rest
-  } = props;
+function RadioGroupWrapper(props) {
+  const { Component, name, selectedValue, onClickRadioButton, children, ...rest } = props;
   return (
     <Component role="radiogroup" {...rest} name={name}>
       {React.Children.map(children, (element) =>
@@ -18,30 +11,27 @@ const RadioGroupWrapper = (props) => {
           ...element.props,
           checked: selectedValue === element.props.labelText,
           onChange: () => onClickRadioButton(element.props.labelText),
-          name,
+          name
         })
       )}
     </Component>
   );
-};
+}
 
 RadioGroupWrapper.propTypes = {
   name: PropTypes.string,
+  selectedValue: PropTypes.string,
   children: PropTypes.node.isRequired,
-  Component: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.object,
-  ]),
+  Component: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.object])
 };
 
 RadioGroupWrapper.defaultProps = {
   name: '',
   selectedValue: '',
-  Component: 'div',
+  Component: 'div'
 };
 
-const RadioGroup = ({ groupName, radioData, size }) => {
+function RadioGroup({ groupName, radioData }) {
   const [state, setState] = useState({ selectedValue: '' });
   const onClickRadioButton = (selectedValue) => setState({ selectedValue });
 
@@ -51,23 +41,15 @@ const RadioGroup = ({ groupName, radioData, size }) => {
       onClickRadioButton={onClickRadioButton}
       selectedValue={state.selectedValue}
     >
-      
-      {radioData.map((curr, index) => {
-        return (
-          <Radio
-            key={curr?.value + index}
-            value={curr.value}
-            labelText={curr.labelText}
-          />
-        );
-      })}
+      {radioData.map((curr, index) => (
+        <Radio key={Number(curr?.value) + index} value={curr.value} labelText={curr.labelText} />
+      ))}
     </RadioGroupWrapper>
   );
-};
+}
 
 RadioGroup.propTypes = {
-  groupName: PropTypes.string.isRequired,
-  radioData: PropTypes.arrayOf(PropTypes.object),
+  groupName: PropTypes.string.isRequired
 };
 
 export default RadioGroup;

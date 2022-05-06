@@ -2,11 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { SidebarContent } from 'utilities/SidebarContent';
 import LogoComponent from '../LogoComponent';
-import {
-  SidebarContainer,
-  SidebarLinksWrapper,
-  SideNavLinkText,
-} from './styles';
+import { SidebarContainer, SidebarLinksWrapper, SideNavLinkText } from './styles';
 
 const Sidebar = () => {
   return (
@@ -21,9 +17,7 @@ const Sidebar = () => {
             <NavLink
               key={Math.random()}
               to={route}
-              className={({ isActive }) =>
-                `nav-link ${isActive ? 'nav-link--selected' : ''}`
-              }
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--selected' : ''}`}
             >
               <span>{icon}</span> <SideNavLinkText>{text}</SideNavLinkText>
             </NavLink>

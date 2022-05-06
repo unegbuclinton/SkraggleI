@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import Slider from "components/atoms/Slider";
+import Slider from 'components/atoms/Slider';
+import React from 'react';
+import styled from 'styled-components';
 
-const Test = () => {
+function Test() {
   return (
     <Wrapper>
       <Slider />
     </Wrapper>
   );
-};
+}
 
 export default Test;
 

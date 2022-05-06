@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const TabLinksWrapper = styled.div`
   /* background-color: ${COLORS.white};
@@ -38,7 +38,7 @@ export const ProfileWrapper = styled.div`
   gap: 1.572rem;
 
   .header {
-    color: ${COLORS["tabel-btn-grey"]};
+    color: ${COLORS['tabel-btn-grey']};
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.base};
     padding-bottom: 1.6rem;

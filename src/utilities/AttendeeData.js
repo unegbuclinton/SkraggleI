@@ -1,64 +1,64 @@
 export const columns = [
   {
-    name: "ID",
+    name: 'ID',
     selector: (row) => row.id,
-    width: "10rem",
+    width: '10rem'
   },
   {
-    name: "DATE",
+    name: 'DATE',
     selector: (row) => row.date,
-    width: "10.7rem",
+    width: '10.7rem'
   },
 
   {
-    name: "NAME",
+    name: 'NAME',
     selector: (row) => row.name,
-    width: "26.4rem",
+    width: '26.4rem'
   },
   {
-    name: "PACKAGE",
+    name: 'PACKAGE',
     selector: (row) => row.package,
-    width: "10.5rem",
+    width: '10.5rem'
   },
   {
-    name: "AMOUNT",
+    name: 'AMOUNT',
     selector: (row) => row.amount,
-    width: "10.5rem",
+    width: '10.5rem'
   },
 
   {
-    name: "OPTED IN",
+    name: 'OPTED IN',
     selector: (row) => row.optedIn,
-    width: "10.5rem",
+    width: '10.5rem'
   },
 
   {
-    name: "ATTENDING",
+    name: 'ATTENDING',
     selector: (row) => row.attending,
-    width: "10.5rem",
+    width: '10.5rem'
   },
 
   {
-    name: "STATUS",
+    name: 'STATUS',
     selector: (row) => row.status,
-    width: "10.5rem",
+    width: '10.5rem'
   },
   {
-    name: "",
+    name: '',
     cell: () => <p>Edit</p>,
-    width: "8rem",
-  },
+    width: '8rem'
+  }
 ];
 
 export const data = [
   {
     id: 12345678,
-    date: "12 / 8 / 2021",
-    name: "Mohammed Adam - Participant 1",
-    package: "Bag pack",
-    amount: "$15.00",
-    optedIn: "No",
-    attending: "yes",
-    status: "Checked in",
-  },
+    date: '12 / 8 / 2021',
+    name: 'Mohammed Adam - Participant 1',
+    package: 'Bag pack',
+    amount: '$15.00',
+    optedIn: 'No',
+    attending: 'yes',
+    status: 'Checked in'
+  }
 ];

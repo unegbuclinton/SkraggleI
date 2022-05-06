@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
 
-const TextArea = ({className, maxLength, ...rest}) => {
+const TextArea = ({ className, maxLength, ...rest }) => {
   const [textAreaCount, ChangeTextAreaCount] = React.useState(0);
   const recalculate = (e) => {
     ChangeTextAreaCount(e.target.value.length);
@@ -30,7 +30,7 @@ export default TextArea;
 export const TextContainer = styled.div`
   display: flex;
   position: relative;
-  border: 1px solid ${COLORS["gray-500"]};
+  border: 1px solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
   .count_number {
     position: absolute;
