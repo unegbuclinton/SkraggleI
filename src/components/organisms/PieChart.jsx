@@ -15,8 +15,7 @@ const PieChart = ({ width, height }) => {
           },
           xaxis: {},
           colors: ['#BEE0FF', '#578EC1']
-        }}
-      ></Chart>
+        }}></Chart>
     </>
   );
 };

@@ -11,7 +11,7 @@ function FundRaise() {
         <div className="card-detail">
           <h1 className="card-detail__header">Donation Goals</h1>
           <p className="card-detail__description">
-            View and manage your organization's donation goals
+            View and manage your organization&#39;s donation goals
           </p>
         </div>
         <div>
@@ -24,7 +24,7 @@ function FundRaise() {
         <div className="card-detail">
           <h1 className="card-detail__header">Revenue Goals</h1>
           <p className="card-detail__description">
-            View and manage your organization's revenue goals
+            View and manage your organization&#39;s revenue goals
           </p>
         </div>
         <div>

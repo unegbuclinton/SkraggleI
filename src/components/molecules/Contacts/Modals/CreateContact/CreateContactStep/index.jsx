@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useState } from 'react';
 import CreateContactStepOne from '../CreateContactStepOne';
 import ContactStepTwo from '../CreateContactStepTwo';
@@ -33,12 +34,7 @@ const MultiStepForm = ({ onClose }) => {
   };
 
   const steps = [
-    <CreateContactStepOne
-      // formik={formik}
-      next={handleNextStep}
-      formData={formData}
-      onClose={onClose}
-    />,
+    <CreateContactStepOne next={handleNextStep} formData={formData} onClose={onClose} />,
     <ContactStepTwo
       next={handleNextStep}
       prev={handlePrevStep}

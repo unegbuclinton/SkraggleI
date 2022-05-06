@@ -2,9 +2,8 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
 import SetRevenueModal from 'pages/Dashboard/modals/SetRevenueModal';
-import React from 'react';
-import { useState } from 'react';
-import { RevenueWrapper, DonationContainer, DonationWrapper } from './styles';
+import React, { useState } from 'react';
+import { DonationContainer, DonationWrapper, RevenueWrapper } from './styles';
 
 function Donation() {
   const [donations, setDonations] = useState([]);
@@ -27,8 +26,8 @@ function Donation() {
             {donations.length === 0 ? (
               <p className="revenue-progress__text">No revenue goals set yet.</p>
             ) : (
-              donations.map((value, target, duration) => (
-                <GoalProgressTracker value={value} target={target} />
+              donations.map((value, target) => (
+                <GoalProgressTracker key={value} value={value} target={target} />
               ))
             )}
 
@@ -36,8 +35,7 @@ function Donation() {
               action
               onClick={() => {
                 setOpen(true);
-              }}
-            >
+              }}>
               Set Goals
             </Button>
             {open && (

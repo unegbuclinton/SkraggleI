@@ -18,7 +18,7 @@ function Subscription() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <Checkbox />,
+      cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {
@@ -37,7 +37,7 @@ function Subscription() {
     {
       name: 'TAG',
       selector: (row) => row.tag,
-      cell: (ow) => <MailButton btn={subscription} />
+      cell: () => <MailButton btn={subscription} />
     }
   ];
 

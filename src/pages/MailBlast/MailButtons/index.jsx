@@ -7,7 +7,7 @@ function MailButton({ btn }) {
   return (
     <ButtonWrapper>
       {btn.map(({ title, index }) => (
-        <Button className="mail-btn" index={index} pill>
+        <Button key={index} className="mail-btn" index={index} pill>
           {title}
         </Button>
       ))}

@@ -2,15 +2,13 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import NameLogo from 'components/molecules/NameLogo';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import AttachmentModal from '../MailblasModals/Attachment';
 import MailFromModal from '../MailblasModals/MailFrom';
 import MailToModal from '../MailblasModals/Mailto';
 import SubjectModal from '../MailblasModals/Subject';
 import TemplateModal from '../MailblasModals/Template';
-import { ContentBody } from './styles';
-import { ContentWrapper, ContentTop } from './styles';
+import { ContentBody, ContentTop, ContentWrapper } from './styles';
 function MailContent() {
   const [open, setOpen] = useState(false);
   const [reciept, setReciept] = useState(false);
@@ -50,8 +48,7 @@ function MailContent() {
                 invert
                 onClick={() => {
                   setReciept(true);
-                }}
-              >
+                }}>
                 Add Receipients
               </Button>
               {reciept && (
@@ -75,8 +72,7 @@ function MailContent() {
                 invert
                 onClick={() => {
                   setOpenSender(true);
-                }}
-              >
+                }}>
                 Add Sender
               </Button>
               {openSender && (
@@ -117,8 +113,7 @@ function MailContent() {
                 invert
                 onClick={() => {
                   setOpenSubject(true);
-                }}
-              >
+                }}>
                 Add Subject
               </Button>
               {openSubject && (
@@ -144,8 +139,7 @@ function MailContent() {
                 invert
                 onClick={() => {
                   setOpenAttach(true);
-                }}
-              >
+                }}>
                 Add Attachments
               </Button>
               {openAttach && (
@@ -169,8 +163,7 @@ function MailContent() {
                 invert
                 onClick={() => {
                   setOpen(true);
-                }}
-              >
+                }}>
                 Add Content
               </Button>
               {open && (

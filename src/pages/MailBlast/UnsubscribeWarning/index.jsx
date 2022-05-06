@@ -4,9 +4,7 @@ import RadioGroup from 'components/atoms/RadioGroup';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UnsubscribeModal from '../MailblasModals/Unsubscribe';
-import { UnsubscribeField } from './styles';
-import { UnsubscribeOption } from './styles';
-import { WarningWrapper } from './styles';
+import { UnsubscribeField, UnsubscribeOption, WarningWrapper } from './styles';
 
 function UnsubscribeWarning() {
   const [openModal, setOpenModal] = useState(false);
@@ -63,8 +61,7 @@ function UnsubscribeWarning() {
           <Button
             className="unsubscription-footer__back"
             invert
-            onClick={() => navigate('/mail-blasts')}
-          >
+            onClick={() => navigate('/mail-blasts')}>
             Back
           </Button>
           <Button
@@ -72,8 +69,7 @@ function UnsubscribeWarning() {
             auth
             onClick={() => {
               setOpenModal(true);
-            }}
-          >
+            }}>
             Confirm
           </Button>
           {openModal && (

@@ -1,17 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconMessage } from 'icons';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import styled from 'styled-components';
 
 function AddedContact() {
   const columns = [
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: () => <input type="checkbox" />,
       width: '3.069rem'
     },
     {
@@ -36,7 +36,7 @@ function AddedContact() {
     {
       name: 'ACTION',
       selector: (row) => row.action,
-      cell: (row) => <DPIconMessage />
+      cell: () => <DPIconMessage />
     }
   ];
 

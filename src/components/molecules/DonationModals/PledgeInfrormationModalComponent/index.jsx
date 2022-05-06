@@ -1,14 +1,12 @@
-import { React, useState } from 'react';
-
+import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import Button from 'components/atoms/Button/Button';
-import Input from 'components/atoms/Input/Input';
-import data from 'utilities/filterData';
 import FileUploadButton from 'components/atoms/FileUploadButton';
-
-import { ModalWrapper, ButtonsContainer, InstallmentWrapper } from './styles';
-import { DPIconUploadFile, DPIconDelete } from 'icons';
+import Input from 'components/atoms/Input/Input';
+import { DPIconDelete, DPIconUploadFile } from 'icons';
+import { React, useState } from 'react';
+import data from 'utilities/filterData';
+import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
 const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
   console.log({ ...rest });
@@ -66,8 +64,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
             className="installment-btn__add"
             onClick={(e) => {
               e.preventDefault();
-            }}
-          >
+            }}>
             Add Installment
           </Button>
         )}
@@ -136,8 +133,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
               className="installment-btn__pink"
               onClick={(e) => {
                 e.preventDefault();
-              }}
-            >
+              }}>
               Add Installment
             </Button>
           </InstallmentWrapper>

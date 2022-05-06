@@ -15,7 +15,7 @@ function DonationRecurring() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <Checkbox />,
+      cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {
@@ -35,7 +35,7 @@ function DonationRecurring() {
     },
     {
       name: 'STATUS',
-      cell: (ow) => (
+      cell: () => (
         <Button pill success className="mail-btn">
           Active
         </Button>

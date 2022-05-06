@@ -1,6 +1,7 @@
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
-import { privateRoutes, publicRoutes } from './routePaths';
 import { useSelector } from 'react-redux';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import generateUUID from 'utilities/helpers';
+import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {
   // let isLogged = false;
@@ -18,7 +19,7 @@ const Routing = () => {
               <Routes>
                 {route?.children?.map((child, index) => {
                   return (
-                    <Route element={<PrivateRoute />}>
+                    <Route key={generateUUID} element={<PrivateRoute />}>
                       <Route
                         path={child.path}
                         key={index}

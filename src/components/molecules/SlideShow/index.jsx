@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { images } from 'utilities/imageData';
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import { images } from 'utilities/imageData';
 
 const Slideshow = () => {
   const delay = 2500;
@@ -41,8 +41,7 @@ const Slideshow = () => {
             className={`slideshowDot${index === idx ? ' active' : ''}`}
             onClick={() => {
               setIndex(idx);
-            }}
-          ></div>
+            }}></div>
         ))}
       </div>
     </SlideshowWrapper>

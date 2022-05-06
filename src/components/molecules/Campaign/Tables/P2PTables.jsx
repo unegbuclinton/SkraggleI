@@ -47,7 +47,7 @@ const P2PTable = () => {
     {
       name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>
+      cell: () => <Button className="table-button">Active</Button>
     }
   ];
 

@@ -1,18 +1,16 @@
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TableContacts } from 'utilities/campaigndata';
-
 import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
-import Checkbox from 'components/atoms/CheckBox';
 import { DPPlusIcon } from 'icons';
-
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
-import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 import CreateCampaignModal from '../CreateCampaignModal';
-import DropdownComponent from 'components/atoms/Dropdown';
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const columns = [
@@ -35,7 +33,7 @@ const CampaignTable = () => {
     {
       name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>
+      cell: () => <Button className="table-button">Active</Button>
     },
     {
       name: 'FUNDRAISING GOALS',

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from 'components/atoms/Button/Button';
 import DropdownComponent from 'components/atoms/Dropdown';
-
 import { DPIconTransaction } from 'icons/index';
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
@@ -102,8 +100,7 @@ const CampaignOverview = () => {
           <div className="campaign-name__button-container">
             <Button
               className="campaign-name__transaction-button"
-              onClick={() => HandleButtonClick()}
-            >
+              onClick={() => HandleButtonClick()}>
               Go to Transaction
             </Button>
           </div>

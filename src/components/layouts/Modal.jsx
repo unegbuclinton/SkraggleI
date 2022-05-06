@@ -13,7 +13,6 @@ const Modal = ({
   header,
   children,
   className,
-  rounded,
   showClose,
   plain,
   contrast,

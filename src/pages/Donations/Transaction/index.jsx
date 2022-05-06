@@ -14,7 +14,7 @@ function Transaction() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <Checkbox />,
+      cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {

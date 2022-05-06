@@ -7,7 +7,6 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { persistedReducer } from 'store';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 import { login } from 'features/auth/authSlice';
@@ -22,7 +21,7 @@ const LogIn = ({ onClick }) => {
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: (values) => {
+    onSubmit: () => {
       dispatch(login());
       navigate('/dashboard');
       // persistedReducer.pause();

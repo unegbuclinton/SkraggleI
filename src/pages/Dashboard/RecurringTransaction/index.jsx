@@ -11,7 +11,7 @@ function RecurringTransaction() {
     {
       name: '',
       selector: (row) => row.contact,
-      cell: (row) => <input type="checkbox" />,
+      cell: () => <input type="checkbox" />,
       width: '3.069rem'
     },
     {
@@ -29,7 +29,7 @@ function RecurringTransaction() {
     {
       name: 'ACTION',
       selector: (row) => row.action,
-      cell: (row) => <DPIconMessage />,
+      cell: () => <DPIconMessage />,
       width: '25.494rem'
     }
   ];

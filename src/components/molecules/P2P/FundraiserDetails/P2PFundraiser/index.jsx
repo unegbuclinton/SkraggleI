@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
+// eslint-disable-next-line react/display-name
 const P2PFundraise = forwardRef(({ className }, mainref) => {
   const textAreaRef = useRef(null);
 
@@ -37,8 +38,7 @@ const P2PFundraise = forwardRef(({ className }, mainref) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef}
-            ></textarea>
+              ref={textAreaRef}></textarea>
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>

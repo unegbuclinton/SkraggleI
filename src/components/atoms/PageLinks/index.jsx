@@ -3,7 +3,7 @@ import { DPIconPageNavigation } from 'icons';
 import { React } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-const PageLinks = ({ pageLinkBefore, pageLinkAfter, navigationIcon, names, to, ...rest }) => {
+const PageLinks = ({ pageLinkBefore, names, to }) => {
   const name = names;
   return (
     <PageLinksWrapper>

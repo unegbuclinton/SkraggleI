@@ -10,7 +10,7 @@ function PotentialDonor() {
   return (
     <PotentialWrapper>
       <Card className="potential-card">
-        <p className="thankyou-text">October's Potential Donors</p>
+        <p className="thankyou-text">October&#39;s Potential Donors</p>
 
         <PotentialBody>
           <PotentialCard>
