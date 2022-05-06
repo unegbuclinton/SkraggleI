@@ -1,71 +1,71 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
 
-import datas from "utilities/filterData";
+import datas from 'utilities/filterData';
 
-import { landingPagesData } from "utilities/campaigndata";
+import { landingPagesData } from 'utilities/campaigndata';
 
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
-import DropdownComponent from "components/atoms/Dropdown";
-import Checkbox from "components/atoms/CheckBox";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const LandingPagesTable = () => {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "ID",
+      name: 'ID',
       selector: (row) => row.uid,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "CAMPAIGN",
+      name: 'CAMPAIGN',
       selector: (row) => row.campaign,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.type,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "ACTION",
+      name: 'ACTION',
       selector: (row) => row.action,
-      cell: (col) => (
+      cell: () => (
         <span>
           <Button className="table-button__clone">Clone</Button>
           <Button className="table-button__edit">Edit</Button>
           <Button className="table-button__remove">Active</Button>
         </span>
       ),
-      width: "35rem",
+      width: '35rem'
     },
     {
-      name: "ADVANCE",
+      name: 'ADVANCE',
       selector: (row) => row.advance,
-      cell: (col) => (
+      cell: () => (
         <span className="table-button__span">
           <Button className="table-button__view">View</Button>
           <Button className="table-button__testing">A/B Testing</Button>
         </span>
-      ),
-    },
+      )
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,16 +80,16 @@ const LandingPagesTable = () => {
     campaign: landingData.campaign,
     type: landingData.type,
     action: landingData.action,
-    advance: landingData.advance,
+    advance: landingData.advance
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/landing-page");
+    navigate('/landing-page');
   };
 
   return (
@@ -101,12 +101,14 @@ const LandingPagesTable = () => {
               <h1>88 Landing Pages</h1>
             </div>
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>

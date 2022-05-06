@@ -1,29 +1,29 @@
-import Table from "components/layouts/Table";
-import React from "react";
-import RightRowData from "../tableRow/RightRowData";
-import TableRowLeft from "../tableRow/TableRowLeft";
-import { WordingHeader, WordingWrapper } from "./styles";
+import Table from 'components/layouts/Table';
+import React from 'react';
+import RightRowData from '../tableRow/RightRowData';
+import TableRowLeft from '../tableRow/TableRowLeft';
+import { WordingHeader, WordingWrapper } from './styles';
 
 function Description() {
   const columns = [
     {
-      name: "ORIGINAL",
+      name: 'ORIGINAL',
       selector: (row) => row.original,
       cell: () => <TableRowLeft leftText="Required" />,
-      width: "57rem",
+      width: '57rem'
     },
 
     {
-      name: "CUSTOM",
+      name: 'CUSTOM',
       selector: (row) => row.custom,
-      cell: () => <RightRowData />,
-    },
+      cell: () => <RightRowData />
+    }
   ];
   const data = [
     {
-      original: "",
-      custom: "",
-    },
+      original: '',
+      custom: ''
+    }
   ];
   return (
     <WordingWrapper>

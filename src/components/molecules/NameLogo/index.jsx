@@ -1,15 +1,15 @@
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS } from "constants/font-spec";
-import { FONTSIZES } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import { FONTSIZES } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 function NameLogo({ text }) {
   const getFirstLetter = (str) => {
     const firstLetter = str
-      .split(" ")
+      .split(' ')
       .map((word) => word[0])
-      .join("");
+      .join('');
 
     return firstLetter;
   };
@@ -37,14 +37,14 @@ const NameLogoWrapper = styled.text`
     height: 3rem;
     font-size: ${FONTSIZES.xsmall};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["grey-500"]};
-    background-color: ${COLORS["orange-100"]};
+    color: ${COLORS['grey-500']};
+    background-color: ${COLORS['orange-100']};
     border-radius: 50%;
   }
 
-  .logo-text{
+  .logo-text {
     font-size: ${FONTSIZES.xsmall};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
 `;

@@ -1,20 +1,20 @@
-import { React, useRef, forwardRef } from "react";
+import { React, useRef, forwardRef } from 'react';
 
-import Button from "components/atoms/Button/Button";
-import { DPIconCopy } from "icons";
+import Button from 'components/atoms/Button/Button';
+import { DPIconCopy } from 'icons';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-const P2PFundraise = forwardRef(({className}, mainref) => {
-
+// eslint-disable-next-line react/display-name
+const P2PFundraise = forwardRef(({ className }, mainref) => {
   const textAreaRef = useRef(null);
 
   function copyToClipboard1() {
     var text = textAreaRef.current.value;
-    navigator.clipboard.writeText(text)
-    alert("Text Copied");
+    navigator.clipboard.writeText(text);
+    alert('Text Copied');
   }
   return (
     <P2PFundraiser className={className} ref={mainref}>
@@ -38,13 +38,8 @@ const P2PFundraise = forwardRef(({className}, mainref) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef}
-            ></textarea>
-            <Button
-              type="button"
-              className="fundraiser__copy-button"
-              onClick={copyToClipboard1}
-            >
+              ref={textAreaRef}></textarea>
+            <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>
           </div>
@@ -56,7 +51,7 @@ const P2PFundraise = forwardRef(({className}, mainref) => {
       </div>
     </P2PFundraiser>
   );
-})
+});
 
 export default P2PFundraise;
 
@@ -118,7 +113,7 @@ export const P2PFundraiser = styled.div`
       display: flex;
       align-items: baseline;
       font-size: 1.47rem;
-      color: ${COLORS["grey-500"]};
+      color: ${COLORS['grey-500']};
     }
     &__copy-button {
       width: 2rem;

@@ -11,7 +11,7 @@ const FundraisingActivity = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: 'Today',
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 

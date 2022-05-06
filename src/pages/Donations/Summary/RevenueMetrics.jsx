@@ -1,7 +1,7 @@
 import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
-import AreaChart from 'components/organisms/AreaChart';
+import Chart from 'components/organisms/AreaChart';
 // import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
@@ -14,7 +14,7 @@ const RevenueMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: 'Today',
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 
@@ -23,21 +23,9 @@ const RevenueMetrics = () => {
       <RevenueGoalsWrapper>
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Monthly Goal"
-          />
-          <GoalProgressTracker
-            value={38540.23}
-            target={93825}
-            heading="Quarterly Goal"
-          />
-          <GoalProgressTracker
-            value={29540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Monthly Goal" />
+          <GoalProgressTracker value={38540.23} target={93825} heading="Quarterly Goal" />
+          <GoalProgressTracker value={29540.23} target={93825} heading="Yearly Goal" />
         </RevenueGoalsContentWrapper>
       </RevenueGoalsWrapper>
 
@@ -51,8 +39,10 @@ const RevenueMetrics = () => {
             open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
-        <AreaChart
+        <Chart
+          type="area"
           data={[300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179]}
+          height={350}
           categories={[
             'Jan',
             'Feb',
@@ -65,7 +55,7 @@ const RevenueMetrics = () => {
             'Sep',
             'Oct',
             'Nov',
-            'Dec',
+            'Dec'
           ]}
         />
       </RevenueTrackerWrapper>

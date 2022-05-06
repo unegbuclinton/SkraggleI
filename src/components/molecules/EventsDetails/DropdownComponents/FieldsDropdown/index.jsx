@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Button from "components/atoms/Button/Button";
-import Checkbox from "components/atoms/CheckBox";
-import DropdownComponent from "components/atoms/Dropdown";
-import Input from "components/atoms/Input/Input";
-import Switch from "components/atoms/Switch/Switch";
-import { useFormik } from "formik";
-import { fieldValidationSchema } from "validation/Schema";
+import React, { useState } from 'react';
+import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import { useFormik } from 'formik';
+import { fieldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   Container,
@@ -13,28 +13,28 @@ import {
   ErrorMsg,
   FieldTypeWrapper,
   Label,
-  SwitchWrapper,
-} from "./styles";
+  SwitchWrapper
+} from './styles';
 
 function FieldDropdown({ setDropdown }) {
-  const [selected, setSelected] = useState("Displayedlabel");
+  const [selected, setSelected] = useState('Displayedlabel');
   const data = [
     {
       id: 1,
-      name: "Displayedlabel",
-    },
+      name: 'Displayedlabel'
+    }
   ];
 
   const formik = useFormik({
     initialValues: {
-      fieldLabel: "",
-      reportLabel: "",
-      fieldType: "",
+      fieldLabel: '',
+      reportLabel: '',
+      fieldType: ''
     },
     validationSchema: fieldValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <DropdownWrapper onSubmit={formik.handleSubmit}>
@@ -106,11 +106,7 @@ function FieldDropdown({ setDropdown }) {
         <div className="pack-container"></div>
       </Container>
       <ButtonContainer>
-        <Button
-          type="button"
-          onClick={() => setDropdown(false)}
-          className="cancel-btn"
-        >
+        <Button type="button" onClick={() => setDropdown(false)} className="cancel-btn">
           Cancel
         </Button>
         <Button className="save-btn">Save</Button>

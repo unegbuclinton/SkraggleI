@@ -1,12 +1,12 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import DropdownComponent from "components/atoms/Dropdown";
-import Input from "components/atoms/Input/Input";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
-import data from "utilities/filterData.json";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonationAssociation({ IncrementTab, DecrementTab }) {
   return (
@@ -47,12 +47,7 @@ function DonationAssociation({ IncrementTab, DecrementTab }) {
         </AssociationInput>
 
         <div className="association-footer">
-          <Button
-            invert
-            auth
-            className="association-cancel-btn"
-            onClick={DecrementTab}
-          >
+          <Button invert auth className="association-cancel-btn" onClick={DecrementTab}>
             Back
           </Button>
           <Button auth className="association-save-btn" onClick={IncrementTab}>
@@ -92,12 +87,12 @@ const AssociationLabel = styled.div`
     margin-bottom: 0.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
   .association-dropdown {
     width: 60.2rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
   }
@@ -108,12 +103,12 @@ const AssociationInput = styled.div`
     margin-bottom: 0.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
   .association-input {
     width: 60.2rem;
     height: 6.4rem;
-    border: 1px solid ${COLORS["moore-grey"]};
+    border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
     background-color: transparent;

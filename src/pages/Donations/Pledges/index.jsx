@@ -1,57 +1,57 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 
-import datas from "utilities/filterData";
-import { PledgeData } from "utilities/donationData";
-import { DPPlusIcon } from "icons";
+import datas from 'utilities/filterData';
+import { PledgeData } from 'utilities/donationData';
+import { DPPlusIcon } from 'icons';
 
-import Button from "components/atoms/Button/Button";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Checkbox from "components/atoms/CheckBox";
+import Button from 'components/atoms/Button/Button';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Checkbox from 'components/atoms/CheckBox';
 
-import DropdownComponent from "components/atoms/Dropdown";
-import Card from "components/atoms/Card";
+import DropdownComponent from 'components/atoms/Dropdown';
+import Card from 'components/atoms/Card';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import PledgeModal from "components/molecules/DonationModals/PledgeModal";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import PledgeModal from 'components/molecules/DonationModals/PledgeModal';
 const Pledge = () => {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "CONTACT",
+      name: 'CONTACT',
       selector: (row) => row.contact,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "AMOUNT",
-      selector: (row) => row.amount,
+      name: 'AMOUNT',
+      selector: (row) => row.amount
     },
     {
-      name: "START DATE",
-      selector: (row) => row.startdate,
+      name: 'START DATE',
+      selector: (row) => row.startdate
     },
     {
-      name: "DEADLINE",
-      selector: (row) => row.deadline,
+      name: 'DEADLINE',
+      selector: (row) => row.deadline
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
+      cell: () => <Button className="table-button">Active</Button>
     },
 
     {
-      name: "TYPE",
-      selector: (row) => row.type,
-    },
+      name: 'TYPE',
+      selector: (row) => row.type
+    }
   ];
 
   const tableData = PledgeData.map((pledgeData, index) => ({
@@ -61,13 +61,12 @@ const Pledge = () => {
     startdate: pledgeData.startdate,
     deadline: pledgeData.deadline,
     status: pledgeData.status,
-    type: pledgeData.type,
+    type: pledgeData.type
   }));
 
+  const onRowClicked = () => {};
 
-  const onRowClicked = (row) => {};
-
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -88,10 +87,7 @@ const Pledge = () => {
                 className="dropdown-pledge"
               />
               <SearchBar className="search-icon" />
-              <Button
-                className="pledge-button"
-                onClick={() => setModalIsOpen(true)}
-              >
+              <Button className="pledge-button" onClick={() => setModalIsOpen(true)}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>
@@ -105,11 +101,7 @@ const Pledge = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={tableData}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={tableData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
     </div>
@@ -151,7 +143,7 @@ export const TableHeaderWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.lg};
     line-height: 21px;
-    color: ${COLORS["gray-1"]};
+    color: ${COLORS['gray-1']};
   }
 
   .table-header {

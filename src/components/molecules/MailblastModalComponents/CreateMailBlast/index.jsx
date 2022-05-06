@@ -1,12 +1,12 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import Input from "components/atoms/Input/Input";
-import React from "react";
-import { Category, Partho, Search } from "utilities/maildatas";
-import { CreateMailWrapper, CreateLabel } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import Input from 'components/atoms/Input/Input';
+import React from 'react';
+import { Category, Partho, Search } from 'utilities/maildatas';
+import { CreateMailWrapper, CreateLabel } from './styles';
 
-function CreateMailBlast({onCloseModal}) {
+function CreateMailBlast({ onCloseModal }) {
   return (
     <CreateMailWrapper>
       <Card className="edit-card">

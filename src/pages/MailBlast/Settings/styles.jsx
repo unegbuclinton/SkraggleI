@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const SettingWrapper = styled.div`
   margin-top: 1.6rem;
@@ -15,7 +15,7 @@ export const SettingWrapper = styled.div`
     &__text {
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.bold};
-      color: ${COLORS["gray-1"]};
+      color: ${COLORS['gray-1']};
     }
   }
   .setting-header-right {
@@ -26,7 +26,7 @@ export const SettingWrapper = styled.div`
     width: 7.8rem;
     height: 4.8rem;
     background-color: ${COLORS.torquoise};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
   .setting-preview-btn {
     width: 9.8rem;
@@ -34,7 +34,7 @@ export const SettingWrapper = styled.div`
     color: ${COLORS.white};
   }
 
-  .feedback{
+  .feedback {
     display: flex;
     align-items: center;
     margin-left: 8.2rem;
@@ -43,11 +43,11 @@ export const SettingWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.nornal};
     padding-bottom: 29.2rem;
 
-    &-header{
+    &-header {
       margin-right: 4rem;
       font-weight: ${FONTWEIGHTS.medium};
     }
-    &-text{
+    &-text {
       margin-right: 6.4rem;
       font-weight: ${FONTWEIGHTS.medium};
     }
@@ -59,10 +59,10 @@ export const SettingBody = styled.div`
   gap: 4rem;
   padding: 4.2rem 2.4rem 4.4rem 10.2rem;
 
-  .setting-body-text{
-      font-size: ${FONTSIZES.lg};
-      font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS['grey-400']};
+  .setting-body-text {
+    font-size: ${FONTSIZES.lg};
+    font-weight: ${FONTWEIGHTS.medium};
+    color: ${COLORS['grey-400']};
   }
   #text {
     border: none;
@@ -72,6 +72,5 @@ export const SettingBody = styled.div`
     height: 26.8rem;
     color: ${COLORS['grey-400']};
     padding: 3.5rem 4.7rem 4.1rem 3.5rem;
-   
   }
 `;

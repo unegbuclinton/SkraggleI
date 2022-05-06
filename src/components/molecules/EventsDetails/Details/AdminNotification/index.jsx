@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import MailContainer from "components/molecules/mailContainer";
+import React, { useState } from 'react';
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import MailContainer from 'components/molecules/mailContainer';
 
 import {
   DetailLabel,
@@ -9,12 +9,12 @@ import {
   DetailsText,
   EventWrapper,
   ButtonWrapper,
-  InputWrapper,
-} from "./styles";
+  InputWrapper
+} from './styles';
 
 function AdminNotification({ formik, ErrorMsg }) {
   const [showInput, setShowInput] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [mails, setMails] = useState([]);
 
   function emailHandleChange(e) {
@@ -25,7 +25,7 @@ function AdminNotification({ formik, ErrorMsg }) {
   function handleAdd() {
     const newMails = mails.concat({ email });
     setMails(newMails);
-    setEmail("");
+    setEmail('');
   }
 
   function Delete(e) {
@@ -39,9 +39,7 @@ function AdminNotification({ formik, ErrorMsg }) {
 
   return (
     <div>
-      <DetailsSubHeading className="notification-heading">
-        Admin notifications
-      </DetailsSubHeading>
+      <DetailsSubHeading className="notification-heading">Admin notifications</DetailsSubHeading>
       <EventWrapper>
         <DetailsText className="notification-info">
           Notify the following person by email when a registration occurs
@@ -49,21 +47,15 @@ function AdminNotification({ formik, ErrorMsg }) {
         <DetailLabel>Choose recipients</DetailLabel>
         <div className="choose-recipient-input">
           {mails.map((item, index) => (
-            <MailContainer
-              key={index}
-              id={index}
-              Delete={Delete}
-              mail={item.email}
-            />
+            <MailContainer key={index} id={index} Delete={Delete} mail={item.email} />
           ))}
         </div>
         {formik.touched.email && formik.errors.email ? (
           <ErrorMsg>{formik.errors.email}</ErrorMsg>
         ) : null}
         <DetailsText className="email-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          accumsan, massa ac adipiscing enim bibendum interdum dictum nunc. Sit
-          nisl etiam.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan, massa ac
+          adipiscing enim bibendum interdum dictum nunc. Sit nisl etiam.
         </DetailsText>
         {showInput && (
           <InputWrapper>
@@ -81,21 +73,13 @@ function AdminNotification({ formik, ErrorMsg }) {
               <Button type="button" onClick={handleAdd} className="save-btn">
                 Save
               </Button>
-              <Button
-                type="button"
-                onClick={() => setShowInput(false)}
-                className="cancel-btn"
-              >
+              <Button type="button" onClick={() => setShowInput(false)} className="cancel-btn">
                 Cancel
               </Button>
             </ButtonWrapper>
           </InputWrapper>
         )}
-        <Button
-          type="button"
-          onClick={() => setShowInput(true)}
-          className="add-email-btn"
-        >
+        <Button type="button" onClick={() => setShowInput(true)} className="add-email-btn">
           Add an email
         </Button>
       </EventWrapper>

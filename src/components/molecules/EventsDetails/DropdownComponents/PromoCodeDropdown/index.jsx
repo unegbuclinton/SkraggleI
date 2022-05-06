@@ -1,5 +1,5 @@
-import React from "react";
-import Input from "components/atoms/Input/Input";
+import React from 'react';
+import Input from 'components/atoms/Input/Input';
 import {
   ButtonContainer,
   Container,
@@ -8,27 +8,27 @@ import {
   InputWrapper,
   Label,
   RadioWrapper,
-  SelectContainer,
-} from "./styles";
-import Button from "components/atoms/Button/Button";
-import { promoCodeValidationSchema } from "validation/Schema";
-import { useFormik } from "formik";
-import RadioGroup from "components/atoms/RadioGroup";
+  SelectContainer
+} from './styles';
+import Button from 'components/atoms/Button/Button';
+import { promoCodeValidationSchema } from 'validation/Schema';
+import { useFormik } from 'formik';
+import RadioGroup from 'components/atoms/RadioGroup';
 
 function PromoCodeDropdown({ setDropdown }) {
   const formik = useFormik({
     initialValues: {
-      promoCode: "",
-      description: "",
-      discount: "",
-      maxUsers: "",
-      startDate: "",
-      endDate: "",
+      promoCode: '',
+      description: '',
+      discount: '',
+      maxUsers: '',
+      startDate: '',
+      endDate: ''
     },
     validationSchema: promoCodeValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <DropdownWrapper onSubmit={formik.handleSubmit}>
@@ -74,13 +74,13 @@ function PromoCodeDropdown({ setDropdown }) {
         <RadioGroup
           radioData={[
             {
-              labelText: "Amount",
-              value: 1,
+              labelText: 'Amount',
+              value: 1
             },
             {
-              labelText: "Percentage",
-              value: 2,
-            },
+              labelText: 'Percentage',
+              value: 2
+            }
           ]}
         />
       </RadioWrapper>
@@ -117,9 +117,7 @@ function PromoCodeDropdown({ setDropdown }) {
             <ErrorMsg>{formik.errors.maxUsers}</ErrorMsg>
           ) : null}
 
-          <p className="max-label">
-            How many of this promo code can be used per event?
-          </p>
+          <p className="max-label">How many of this promo code can be used per event?</p>
         </div>
       </Container>
       <Container>
@@ -159,11 +157,7 @@ function PromoCodeDropdown({ setDropdown }) {
         <Input className="select-box" placeholder="Select some Options " />
       </SelectContainer>
       <ButtonContainer>
-        <Button
-          type="button"
-          onClick={() => setDropdown(false)}
-          className="cancel-btn"
-        >
+        <Button type="button" onClick={() => setDropdown(false)} className="cancel-btn">
           Cancel
         </Button>
         <Button className="save-btn">Save</Button>

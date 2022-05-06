@@ -1,8 +1,8 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { DPIconDropDown } from "icons";
-import React, { useState } from "react";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { DPIconDropDown } from 'icons';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const DropdownComponent = ({
   data,
@@ -11,36 +11,31 @@ const DropdownComponent = ({
   iconDropdown,
   onChange,
   selected,
-  setSelected,
-  ...rest
+  setSelected
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  let options = data.map((option) => (
+  let options = data.map((option, index) => (
     <div
-      onClick={(e) => {
+      key={index}
+      onClick={() => {
         setSelected(option.name);
         setIsActive(false);
       }}
-      className="dropdown__item"
-    >
+      className="dropdown__item">
       {option.name}
     </div>
   ));
   return (
     <DropdownWrapper className={className} onChange={onChange}>
-      <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
+      <div className="dropdown__btn" onClick={() => setIsActive(!isActive)}>
         {selected}
         <span>
           <DPIconDropDown className={iconDropdown} />
         </span>
       </div>
       {isActive && (
-        <div
-          className={`dropdown__content ${
-            content ? "dropdown__content-large" : ""
-          }`}
-        >
+        <div className={`dropdown__content ${content ? 'dropdown__content-large' : ''}`}>
           {options}
         </div>
       )}
@@ -52,8 +47,8 @@ export const DropdownWrapper = styled.div`
   width: 14.4rem;
   height: 4.8rem;
   position: relative;
-  border: 1px solid ${COLORS["porcelain-white"]};
-  color: ${COLORS["grey-400"]};
+  border: 1px solid ${COLORS['porcelain-white']};
+  color: ${COLORS['grey-400']};
   padding-top: 1.6rem;
   padding-left: 1.6rem;
   padding-right: 1.33rem;
@@ -75,7 +70,7 @@ export const DropdownWrapper = styled.div`
       box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
       font-size: ${FONTSIZES.small};
       line-height: 16px;
-      color: ${COLORS["grey-400"]};
+      color: ${COLORS['grey-400']};
       width: 100%;
     }
     &__content-large {
@@ -84,7 +79,7 @@ export const DropdownWrapper = styled.div`
       box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
       font-size: ${FONTSIZES.small};
       line-height: 16px;
-      color: ${COLORS["grey-400"]};
+      color: ${COLORS['grey-400']};
       width: 140%;
     }
     &__item {

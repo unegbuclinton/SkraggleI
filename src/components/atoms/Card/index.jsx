@@ -1,12 +1,8 @@
-import React from 'react'
-import { CardWrapper } from './styles'
+import React from 'react';
+import { CardWrapper } from './styles';
 
-const Card = ({ children, ...rest}) => {
-  return (
-      <CardWrapper {...rest}>
-          {children}
-    </CardWrapper>
-  )
-}
+const Card = ({ children, ...rest }) => {
+  return <CardWrapper {...rest}>{children}</CardWrapper>;
+};
 
-export default Card
+export default Card;

@@ -1,46 +1,42 @@
-import PageLinks from "components/atoms/PageLinks";
-import DashboardLayout from "components/layouts/DashboardLayout";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import Tabs from "../Tabs";
-import Attendees from "./Attendees";
-import SearchFilter from "./Attendees/SearchFilter";
-import Details from "./Details";
-import Fields from "./Fields";
-import Packages from "./Packages";
-import PromoCodes from "./Promocodes";
+import PageLinks from 'components/atoms/PageLinks';
+import DashboardLayout from 'components/layouts/DashboardLayout';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Tabs from '../Tabs';
+import Attendees from './Attendees';
+import SearchFilter from './Attendees/SearchFilter';
+import Details from './Details';
+import Fields from './Fields';
+import Packages from './Packages';
+import PromoCodes from './Promocodes';
 
 function EventsDetails() {
   const links = [
     {
-      title: "Details",
-      component: <Details />,
+      title: 'Details',
+      component: <Details />
     },
     {
-      title: "Packages",
-      component: <Packages />,
+      title: 'Packages',
+      component: <Packages />
     },
     {
-      title: "Fields",
-      component: <Fields />,
+      title: 'Fields',
+      component: <Fields />
     },
     {
-      title: "Promo codes",
-      component: <PromoCodes />,
+      title: 'Promo codes',
+      component: <PromoCodes />
     },
     {
-      title: "Attendee",
+      title: 'Attendee',
       component: <Attendees />,
-      actionComponent: <SearchFilter />,
-    },
+      actionComponent: <SearchFilter />
+    }
   ];
   const name = useLocation()?.state?.name;
   return (
-    <DashboardLayout
-      pageLinks={
-        <PageLinks pageLinkBefore="Events" to="/events" names={name} />
-      }
-    >
+    <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Events" to="/events" names={name} />}>
       <Tabs tabs={links} />
     </DashboardLayout>
   );

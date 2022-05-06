@@ -1,10 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-
-
-export const SavedWrapper=styled.div`
-    
-    .saved-card{
-        padding : 2.4rem ;
-    }
-`
+export const SavedWrapper = styled.div`
+  .saved-card {
+    padding: 2.4rem;
+  }
+`;

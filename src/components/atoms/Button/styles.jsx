@@ -48,7 +48,7 @@ export const ButtonWrapper = styled.button`
       color: ${COLORS['moore-grey']};
     `};
 
-  ${({ error, success }) =>
+  ${({ error }) =>
     error &&
     css`
       color: ${COLORS.pink};

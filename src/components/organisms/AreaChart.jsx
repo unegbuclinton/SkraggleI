@@ -1,61 +1,71 @@
-import { COLORS } from "constants/colors";
-import React from "react";
-import ReactApexChart from "react-apexcharts";
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
-const AreaChart = ({ data, categories, ...rest }) => {
+const AreaChart = ({ data, categories, height, yaxis, markers, type, ...rest }) => {
   const dataProps = {
     options: {
       chart: {
-        type: "area",
+        type: 'area',
+
         toolbar: {
-          show: false,
+          show: false
         },
-        colors: ["#FF576B"],
+        colors: ['#FF576B'],
         fill: {
-          colors: ["#000000"],
-        },
+          colors: ['#000000']
+        }
       },
       xaxis: {
         categories,
         labels: {
-          color: "#E6EFF1",
+          color: '#FF576B'
+        }
+      },
+      yaxis: {
+        axisBorder: {
+          show: true
         },
+        ...yaxis
+      },
+      markers: {
+        ...markers
       },
       dataLabels: {
-        enabled: false,
+        enabled: false
       },
       
       colors: ["#FF576B"],
 
       stroke: {
-        curve: "straight",
+        curve: 'straight',
         width: 3,
-        colors: ["#FF576B", "#FFE5E9", "#FFFFFF"],
+        colors: ['#FF576B', '#FFE5E9', '#FFFFFF']
       },
       grid: {
-        borderColor: `${COLORS["fog-grey"]}`,
-        strokeDashArray: 10,
+        borderColor: `${COLORS['fog-grey']}`,
+        strokeDashArray: 10
       },
       plotOptions: {
         area: {
-          fillTo: "origin",
-        },
-      },
+          fillTo: 'origin'
+        }
+      }
     },
 
     series: [
       {
-        name: "series-1",
-        data,
-      },
-    ],
+        name: '',
+        data
+      }
+    ]
   };
   return (
     <ReactApexChart
       options={dataProps.options}
       series={dataProps.series}
-      type="area"
-      height={350}
+      type={type}
+      height={height}
       {...rest}
     />
   );

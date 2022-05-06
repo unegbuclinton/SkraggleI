@@ -16,7 +16,7 @@ const TestComponent = () => {
     'Sep',
     'Oct',
     'Nov',
-    'Dec',
+    'Dec'
   ];
   return (
     <DashboardLayout>

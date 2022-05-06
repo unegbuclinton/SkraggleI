@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import Card from 'components/atoms/Card';
 
-import Button from "components/atoms/Button/Button";
+import Button from 'components/atoms/Button/Button';
 
 export const PreviewWrapper = styled.div`
   display: flex;
@@ -36,19 +36,19 @@ export const PreviewWrapper = styled.div`
     &__profile-name {
       font-size: ${FONTSIZES.xsmall};
       font-weight: ${FONTWEIGHTS.normal};
-      color: ${COLORS["purple-solid"]};
+      color: ${COLORS['purple-solid']};
     }
     &__heading {
       margin-top: 3.2rem;
       font-size: ${FONTSIZES['logo-large']};
       font-weight: ${FONTWEIGHTS.bold};
-      color: ${COLORS["blue-black"]};
+      color: ${COLORS['blue-black']};
       margin-bottom: 6rem;
     }
     &__select-donation {
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["black-300"]};
+      color: ${COLORS['black-300']};
       margin-top: 3.2rem;
     }
     &__button-container {
@@ -56,7 +56,7 @@ export const PreviewWrapper = styled.div`
       margin-top: 1.47rem;
     }
     &__button {
-      background: ${COLORS["blue-black"]};
+      background: ${COLORS['blue-black']};
       color: white;
       width: 7.3rem;
       height: 3.646rem;
@@ -65,7 +65,7 @@ export const PreviewWrapper = styled.div`
     }
     &__notActive {
       background: transparent;
-      color: ${COLORS["dark-gray"]};
+      color: ${COLORS['dark-gray']};
       width: 7.3rem;
       height: 3.646rem;
       border-radius: 0.5rem;
@@ -116,23 +116,21 @@ export const PreviewWrapper = styled.div`
       gap: 4.59rem;
       padding-top: 1rem;
       font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       &__initial {
         font-size: 1.02rem;
       }
       &__mid {
-      font-size: 1.2315rem;
-      font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["gray-500"]};
+        font-size: 1.2315rem;
+        font-weight: ${FONTWEIGHTS.medium};
+        color: ${COLORS['gray-500']};
+      }
+      &__high {
+        font-size: 1.2315rem;
+        font-weight: ${FONTWEIGHTS.medium};
+        color: ${COLORS['header-grey']};
+      }
     }
-    &__high{
-      font-size: 1.2315rem;
-      font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["header-grey"]};
-    }
-    }
-
-    
   }
 `;
 
@@ -150,7 +148,7 @@ export const LinksWrapper = styled(Card)`
       font-size: 14px;
       line-height: 152.69%;
       text-align: center;
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
     }
     &__textarea {
       display: flex;
@@ -205,7 +203,7 @@ export const CopyText = styled.textarea`
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
   font-size: 1.47038rem;
-  color: ${COLORS["gray-500"]};
+  color: ${COLORS['gray-500']};
 `;
 
 export const ButtonCopy = styled(Button)`
@@ -226,9 +224,9 @@ export const Leaderboard = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: ${FONTWEIGHTS.bold};
-  font-size: ${FONTSIZES["logo-large"]};
+  font-size: ${FONTSIZES['logo-large']};
   line-height: 3.8rem;
-  color: ${COLORS["blue-black"]};
+  color: ${COLORS['blue-black']};
 
   .leaderboard-icon {
     margin-top: 3.2rem;

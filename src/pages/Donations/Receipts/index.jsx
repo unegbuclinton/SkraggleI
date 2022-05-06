@@ -1,57 +1,57 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Checkbox from "components/atoms/CheckBox";
-import DropdownComponent from "components/atoms/Dropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import { DPIconAssignee } from "icons";
-import { React, useState } from "react";
-import styled from "styled-components";
-import { ReceiptsData } from "utilities/donationData";
-import datas from "utilities/filterData";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconAssignee } from 'icons';
+import { React, useState } from 'react';
+import styled from 'styled-components';
+import { ReceiptsData } from 'utilities/donationData';
+import datas from 'utilities/filterData.json';
 
-const Receipts = () => {
+function Receipts() {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "CONTACT",
+      name: 'CONTACT',
       selector: (row) => row.contact,
-      cell: (col) => (
+      cell: () => (
         <Assignee>
           <DPIconAssignee />
           Tillie Mendoza
         </Assignee>
       ),
-      width: "25rem",
+      width: '25rem'
     },
     {
-      name: "DATE RECEIVED",
+      name: 'DATE RECEIVED',
       selector: (row) => row.dateReceived,
-      width: "25rem",
+      width: '25rem'
     },
     {
-      name: "AMOUNT",
+      name: 'AMOUNT',
       selector: (row) => row.amount,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.amount,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-      width: "15rem",
-    },
+      cell: () => <Button className="table-button">Active</Button>,
+      width: '15rem'
+    }
   ];
 
   const tableData = ReceiptsData.map((adminData, index) => ({
@@ -60,10 +60,10 @@ const Receipts = () => {
     dateReceived: adminData.dateReceived,
     amount: adminData.amount,
     type: adminData.type,
-    status: adminData.status,
+    status: adminData.status
   }));
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   return (
     <div>
@@ -89,7 +89,7 @@ const Receipts = () => {
       </ContainerBody>
     </div>
   );
-};
+}
 
 export default Receipts;
 
@@ -126,7 +126,7 @@ export const TableHeaderWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.lg};
     line-height: 21px;
-    color: ${COLORS["gray-1"]};
+    color: ${COLORS['gray-1']};
   }
 
   .table-header {

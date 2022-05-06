@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
 
 export const DropdownWrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const DropdownSelect = styled.select`
   padding-right: 20px;
   border: none;
   outline: none;
-  color: ${COLORS["grey-400"]};
+  color: ${COLORS['grey-400']};
   font-size: ${FONTSIZES.small};
   line-height: 1.6rem;
   border-radius: 0px;

@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import CloneEvent from "../CloneEvent";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import CloneEvent from '../CloneEvent';
 
 function CloneEventModal({ isShown, onClose }) {
   return (

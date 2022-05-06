@@ -1,22 +1,22 @@
-import React from "react";
-import AuthLayout from "components/layouts/AuthLayout";
-import Input from "components/atoms/Input/Input";
-import { Form, ErrorMsg } from "./styles";
-import Button from "components/atoms/Button/Button";
-import { useFormik } from "formik";
-import Card from "components/atoms/Card";
-import { resetSchema } from "validation/Schema";
+import React from 'react';
+import AuthLayout from 'components/layouts/AuthLayout';
+import Input from 'components/atoms/Input/Input';
+import { Form, ErrorMsg } from './styles';
+import Button from 'components/atoms/Button/Button';
+import { useFormik } from 'formik';
+import Card from 'components/atoms/Card';
+import { resetSchema } from 'validation/Schema';
 
 function ResetPassword() {
   const formik = useFormik({
     initialValues: {
-      password: "",
+      password: ''
     },
     validationSchema: resetSchema,
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <AuthLayout>

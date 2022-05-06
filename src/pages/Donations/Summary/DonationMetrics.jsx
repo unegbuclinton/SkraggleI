@@ -14,7 +14,7 @@ const DonationMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: 'Today',
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 
@@ -23,11 +23,7 @@ const DonationMetrics = () => {
       <DonationGoalsWrapper>
         <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
         <DonationGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Yearly Goal" />
         </DonationGoalsContentWrapper>
       </DonationGoalsWrapper>
 
@@ -42,7 +38,9 @@ const DonationMetrics = () => {
           />
         </DonationTrackerHeaderWrapper>
         <AreaChart
+          type="area"
           data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
+          height={350}
           categories={[
             'Jan',
             'Feb',
@@ -55,7 +53,7 @@ const DonationMetrics = () => {
             'Sep',
             'Oct',
             'Nov',
-            'Dec',
+            'Dec'
           ]}
         />
       </DonationTrackerWrapper>
