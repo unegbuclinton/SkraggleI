@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-const BarChart = ({series,categories,width,height}) => {
+const BarChart = ({ series, categories, width, height }) => {
   return (
     <>
       <Chart
@@ -9,14 +9,16 @@ const BarChart = ({series,categories,width,height}) => {
         width={width}
         height={height}
         series={series}
-        
         options={{
-          xaxis:{
+          xaxis: {
             categories,
           },
-          chart:{
-            width: '100%',
-            redrawOnParentResize: true
+          chart: {
+            toolbar: {
+              show: false,
+            },
+            width: "100%",
+            redrawOnParentResize: true,
           },
         }}
       ></Chart>
