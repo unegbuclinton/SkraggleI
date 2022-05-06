@@ -6,13 +6,8 @@ build:
   image: node:14
   stage: build
   script:
-  yarn run lint //checks all files with prettier
-yarn run lint:fix //fixes all issues and leaves unstaged files
-yarn run eslint //check all files with eslint
-yarn run eslint:fix //fixes issues that can be resolved by eslint
-
-    - yarn add prettier
-    - npx prettier --check .
+    - yarn run lint
+    - yarn run eslint
 
 deploy:
   image: alpine:latest
