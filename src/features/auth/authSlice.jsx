@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 const initialState = {
   isAuthenticated: false,
-  token: null,
+  token: null
 };
 
 const loginUser = createAsyncThunk('auth/login', async (userId, thunkAPI) => {
@@ -21,7 +21,7 @@ export const counterSlice = createSlice({
     register: (state, payload) => {
       state = { ...state, payload };
     },
-    resendVerification: (state, action) => {},
+    resendVerification: (state, action) => {}
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -37,7 +37,7 @@ export const counterSlice = createSlice({
       // Add user to the state array
       state.entities.push(action.payload);
     });
-  },
+  }
 });
 
 export const { login, register, resendVerification } = counterSlice.actions;

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Table from "components/layouts/Table";
-import { columns, data } from "utilities/tagsData";
-import Pagination from "components/molecules/Pagination";
-import { TableWrapper } from "./styles";
-import TableHeader from "components/molecules/TableHeader/TableHeader";
+import React, { useState } from 'react';
+import Table from 'components/layouts/Table';
+import { columns, data } from 'utilities/tagsData';
+import Pagination from 'components/molecules/Pagination';
+import { TableWrapper } from './styles';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 // import { useNavigate } from "react-router-dom";
-import TagsModal from "components/molecules/Contacts/Modals/TagsModal/mainmodal/index";
+import TagsModal from 'components/molecules/Contacts/Modals/TagsModal/mainmodal/index';
 
 function TagsTable() {
   const [currentPage, setCurrentPage] = useState(1);

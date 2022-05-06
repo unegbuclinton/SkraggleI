@@ -1,7 +1,7 @@
-import React from "react";
-import { COLORS } from "constants/colors";
-import styled from "styled-components";
-import Button from "components/atoms/Button/Button";
+import React from 'react';
+import { COLORS } from 'constants/colors';
+import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
 
 function SendMail({ onCloseModal }) {
   return (
@@ -33,7 +33,7 @@ const MailWrapper = styled.div`
   .send-cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
   .send-save-btn {
     width: 20.5rem;

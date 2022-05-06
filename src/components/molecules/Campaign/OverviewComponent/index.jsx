@@ -1,43 +1,43 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "components/atoms/Button/Button";
-import DropdownComponent from "components/atoms/Dropdown";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from 'components/atoms/Button/Button';
+import DropdownComponent from 'components/atoms/Dropdown';
 
-import { DPIconTransaction } from "icons/index";
+import { DPIconTransaction } from 'icons/index';
 
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
   LeftSection,
   MainWrapper,
-  RightSection,
-} from "./styles";
+  RightSection
+} from './styles';
 
 const CampaignOverview = () => {
   const data = [
     {
-      id: "1",
-      name: "Action",
+      id: '1',
+      name: 'Action'
     },
     {
-      id: "2",
-      name: "Add",
+      id: '2',
+      name: 'Add'
     },
     {
-      id: "3",
-      name: "Delete",
+      id: '3',
+      name: 'Delete'
     },
     {
-      id: "4",
-      name: "Modify",
-    },
+      id: '4',
+      name: 'Modify'
+    }
   ];
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const HandleButtonClick = () => {
-    navigate("/donations");
+    navigate('/donations');
   };
   return (
     <MainWrapper>
@@ -93,9 +93,8 @@ const CampaignOverview = () => {
         <div className="campaign-name__bottom">
           <h1 className="campaign-name__bottom-heading">No trasaction yet</h1>
           <p className="campaign-name__bottom-paragraph">
-            All fundraising transactions will be tracked here (manually or
-            automatically through online forms). You can also issue tax receipts
-            and manage other sources of revenue.
+            All fundraising transactions will be tracked here (manually or automatically through
+            online forms). You can also issue tax receipts and manage other sources of revenue.
           </p>
           <div className="campaign-name__transaction-icon">
             <DPIconTransaction />

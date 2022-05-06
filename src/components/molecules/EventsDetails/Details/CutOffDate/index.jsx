@@ -1,13 +1,7 @@
-import Input from "components/atoms/Input/Input";
-import Switch from "components/atoms/Switch/Switch";
-import React from "react";
-import {
-  DetailLabel,
-  EventWrapper,
-  InputWrapper,
-  SwitchLabel,
-  SwitchWrapper,
-} from "./styles";
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import React from 'react';
+import { DetailLabel, EventWrapper, InputWrapper, SwitchLabel, SwitchWrapper } from './styles';
 
 function CutOffDate({ formik, ErrorMsg }) {
   return (
@@ -30,8 +24,7 @@ function CutOffDate({ formik, ErrorMsg }) {
               onBlur={formik.handleBlur}
               value={formik.values.registrationDate}
             />
-            {formik.touched.registrationDate &&
-            formik.errors.registrationDate ? (
+            {formik.touched.registrationDate && formik.errors.registrationDate ? (
               <ErrorMsg>{formik.errors.registrationDate}</ErrorMsg>
             ) : null}
           </div>

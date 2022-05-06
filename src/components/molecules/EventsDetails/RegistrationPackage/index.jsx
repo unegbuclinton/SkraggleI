@@ -1,14 +1,14 @@
-import Button from "components/atoms/Button/Button";
-import Switch from "components/atoms/Switch/Switch";
-import React from "react";
+import Button from 'components/atoms/Button/Button';
+import Switch from 'components/atoms/Switch/Switch';
+import React from 'react';
 import {
   ButtonContainer,
   ContainerWrapper,
   HeaderWrapper,
   Heading,
   SwitchLabel,
-  SwitchWrapper,
-} from "./styles";
+  SwitchWrapper
+} from './styles';
 
 function RegistrationPackage({ setClick }) {
   return (
@@ -26,11 +26,7 @@ function RegistrationPackage({ setClick }) {
         <Switch />
       </SwitchWrapper>
       <ButtonContainer>
-        <Button
-          type="button"
-          onClick={() => setClick(false)}
-          className="cancel-btn"
-        >
+        <Button type="button" onClick={() => setClick(false)} className="cancel-btn">
           Cancel
         </Button>
         <Button className="save-btn">Save</Button>

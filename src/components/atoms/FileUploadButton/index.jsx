@@ -1,7 +1,7 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState, useEffect, useRef } from 'react';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
@@ -36,26 +36,13 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
   return (
     <>
       {preview ? (
-        <ImagePreview
-          className={imgPreview}
-          src={preview}
-          onClick={handleClick}
-        />
+        <ImagePreview className={imgPreview} src={preview} onClick={handleClick} />
       ) : (
-        <UploadButtonWrapper
-          type="button"
-          onClick={handleClick}
-          className={className}
-        >
+        <UploadButtonWrapper type="button" onClick={handleClick} className={className}>
           {children}
         </UploadButtonWrapper>
       )}
-      <FileUploadInput
-        type="file"
-        accept="image/*"
-        ref={hiddenFileInput}
-        onChange={handleChange}
-      />
+      <FileUploadInput type="file" accept="image/*" ref={hiddenFileInput} onChange={handleChange} />
     </>
   );
 };
@@ -67,7 +54,7 @@ export const UploadButtonWrapper = styled.button`
   width: 12.6rem;
   height: 8.1rem;
   background-color: ${COLORS.white};
-  border: 1px solid ${COLORS["gray-500"]};
+  border: 1px solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
 `;
 

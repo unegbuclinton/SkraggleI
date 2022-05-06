@@ -1,18 +1,11 @@
-import { DPIconMark, DPIconSkraggleEyeClose } from "icons";
-import React from "react";
-import {
-  DetailLabel,
-  DetailsSubHeading,
-  EventWrapper,
-  IconWrapper,
-} from "./styles";
+import { DPIconMark, DPIconSkraggleEyeClose } from 'icons';
+import React from 'react';
+import { DetailLabel, DetailsSubHeading, EventWrapper, IconWrapper } from './styles';
 
 function DisplayOptions() {
   return (
     <div>
-      <DetailsSubHeading className="event-heading">
-        Display options
-      </DetailsSubHeading>
+      <DetailsSubHeading className="event-heading">Display options</DetailsSubHeading>
       <EventWrapper>
         <IconWrapper>
           <div className="icon-container">

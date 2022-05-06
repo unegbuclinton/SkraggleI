@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
 export const Form = styled.form`
   padding-top: 6.134rem;
@@ -23,7 +23,7 @@ export const Form = styled.form`
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
     margin-bottom: 4rem;
-    color: ${COLORS["moore-grey"]};
+    color: ${COLORS['moore-grey']};
     margin-top: 5.6rem;
 
     &__path {

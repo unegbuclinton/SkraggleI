@@ -1,8 +1,8 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS } from "constants/font-spec";
+import Button from 'components/atoms/Button/Button';
+import React from 'react';
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS } from 'constants/font-spec';
 
 function FundRaise() {
   return (
@@ -37,8 +37,7 @@ function FundRaise() {
         <div className="card-detail">
           <h1 className="card-detail__header">Recent Transactions</h1>
           <p className="card-detail__description">
-            View the recent Donations and Revenues contributed to your
-            organization
+            View the recent Donations and Revenues contributed to your organization
           </p>
         </div>
         <div>
@@ -49,12 +48,8 @@ function FundRaise() {
       </WidgetCard>
       <WidgetCard>
         <div className="card-detail">
-          <h1 className="card-detail__header">
-            Upcoming Recurring Transactions
-          </h1>
-          <p className="card-detail__description">
-            View the upcoming recurring transactions
-          </p>
+          <h1 className="card-detail__header">Upcoming Recurring Transactions</h1>
+          <p className="card-detail__description">View the upcoming recurring transactions</p>
         </div>
 
         <div>
@@ -74,7 +69,7 @@ const WidgetCard = styled.div`
   width: 39.5rem;
   margin: 2.4rem 0 0.8rem 0;
   justify-content: space-between;
-  border: 1px solid ${COLORS["porcelain-white"]};
+  border: 1px solid ${COLORS['porcelain-white']};
   padding: 1.6rem 1rem 2.2rem 1.6rem;
 
   .btn-card {
@@ -94,7 +89,7 @@ const WidgetCard = styled.div`
     }
     &__description {
       font-size: 1.2rem;
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
     }
   }
 `;

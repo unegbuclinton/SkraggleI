@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ActiveInactiveWrapper = styled(Card)`
   padding: 3.1rem 2.4rem 63rem 2.4rem;
@@ -15,7 +15,7 @@ export const Container = styled.div`
         padding-left: 5.8rem;
         font-weight: ${FONTWEIGHTS.normal};
         font-size: ${FONTSIZES.lg};
-        color: ${COLORS["grey-500"]};
+        color: ${COLORS['grey-500']};
         white-space: nowrap;
       }
       &TableHeadRow {
@@ -39,7 +39,7 @@ export const ContentsWrapper = styled.div`
   .heading {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
     white-space: nowrap;
   }
 `;
@@ -56,13 +56,13 @@ export const DateWrapper = styled.div`
   .title {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .date {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
   }
 `;
 
@@ -72,13 +72,13 @@ export const ViewWrapper = styled.div`
   .title {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .view {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     white-space: nowrap;
   }
 `;
@@ -89,7 +89,7 @@ export const ActionWrapper = styled.div`
   .action {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
     cursor: pointer;
   }
 

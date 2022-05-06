@@ -1,26 +1,21 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Switch from "components/atoms/Switch/Switch";
-import React from "react";
-import { RevenueForm } from "./styles";
-import {
-  SetInputField,
-  CardItems,
-  RevenueFooter,
-  RevenueLabel,
-} from "./styles";
-import { useFormik } from "formik";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Switch from 'components/atoms/Switch/Switch';
+import React from 'react';
+import { RevenueForm } from './styles';
+import { SetInputField, CardItems, RevenueFooter, RevenueLabel } from './styles';
+import { useFormik } from 'formik';
 
 function SetRevenueModalContent({ onClose, setValue }) {
   const formik = useFormik({
     initialValues: {
-      monthly: "",
-      quarterly: "",
-      yearly: "",
+      monthly: '',
+      quarterly: '',
+      yearly: ''
     },
     onSubmit: (values) => {
       setValue(values);
-    },
+    }
   });
 
   return (

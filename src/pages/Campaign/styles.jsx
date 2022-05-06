@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import Card from "components/atoms/Card";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import Card from 'components/atoms/Card';
 // components / atoms / Card;
 export const CampaignBody = styled(Card)`
   background-color: ${COLORS.white};

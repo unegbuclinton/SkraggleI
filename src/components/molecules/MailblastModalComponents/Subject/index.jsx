@@ -1,10 +1,10 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Input from "components/atoms/Input/Input";
-import React from "react";
-import { SubjectWrapper, SubjectLabel } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Input from 'components/atoms/Input/Input';
+import React from 'react';
+import { SubjectWrapper, SubjectLabel } from './styles';
 
-function Subject({onClose}) {
+function Subject({ onClose }) {
   return (
     <SubjectWrapper>
       <Card className="subject-card">

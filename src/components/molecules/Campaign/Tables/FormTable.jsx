@@ -1,55 +1,55 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
 
-import datas from "utilities/filterData";
+import datas from 'utilities/filterData';
 
-import { CampaignForm } from "utilities/campaigndata";
+import { CampaignForm } from 'utilities/campaigndata';
 
-import { ContainerBody, TableWrapper, TableHeaderWrapper } from "./styles";
-import DropdownComponent from "components/atoms/Dropdown";
-import Checkbox from "components/atoms/CheckBox";
+import { ContainerBody, TableWrapper, TableHeaderWrapper } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const FormsTable = () => {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "FORM NAME",
+      name: 'FORM NAME',
       selector: (row) => row.name,
-      width: "35rem",
+      width: '35rem'
     },
 
     {
-      name: "FORM TYPE",
+      name: 'FORM TYPE',
       selector: (row) => row.type,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "RAISED",
+      name: 'RAISED',
       selector: (row) => row.raised,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "DONATIONS",
+      name: 'DONATIONS',
       selector: (row) => row.donations,
-      width: "35rem",
+      width: '35rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-    },
+      cell: (col) => <Button className="table-button">Active</Button>
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,14 +63,14 @@ const FormsTable = () => {
     type: campaignData.type,
     raised: campaignData.raised,
     donations: campaignData.donations,
-    status: campaignData.status,
+    status: campaignData.status
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/forms");
+    navigate('/forms');
   };
 
   return (
@@ -90,10 +90,7 @@ const FormsTable = () => {
                 className="dropdown-campaign"
               />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>

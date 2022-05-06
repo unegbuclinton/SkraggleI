@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const TableWrapper = styled(Card)`
   padding: 1.6rem 2.4rem;
@@ -15,7 +15,7 @@ export const TableHeading = styled.div`
   align-items: center;
 
   .heading {
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     font-size: ${FONTWEIGHTS.medium};
     font-size: ${FONTSIZES.lg};
   }

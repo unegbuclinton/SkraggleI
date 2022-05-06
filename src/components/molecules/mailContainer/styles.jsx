@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const MailWrapper = styled.div`
   background-color: ${COLORS.torquoise};
@@ -10,7 +10,7 @@ export const MailWrapper = styled.div`
   p {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
   }
   display: flex;
   justify-content: space-between;

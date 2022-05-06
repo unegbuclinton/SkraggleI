@@ -1,10 +1,10 @@
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "./routePaths";
-import { useSelector } from "react-redux";
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import { privateRoutes, publicRoutes } from './routePaths';
+import { useSelector } from 'react-redux';
 
 const Routing = () => {
   // let isLogged = false;
-  const {isAuthenticated} = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   function PrivateRoute() {
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
@@ -31,22 +31,10 @@ const Routing = () => {
               </Routes>
             );
           };
-          return (
-            <Route
-              key={Math.random()}
-              path={route.path}
-              element={<Children />}
-            />
-          );
+          return <Route key={Math.random()} path={route.path} element={<Children />} />;
         }
 
-        return (
-          <Route
-            key={Math.random()}
-            path={route.path}
-            element={route.element}
-          />
-        );
+        return <Route key={Math.random()} path={route.path} element={route.element} />;
       })}
 
       {publicRoutes.map((publicRoute) => {
@@ -67,22 +55,10 @@ const Routing = () => {
               </Routes>
             );
           };
-          return (
-            <Route
-              key={Math.random()}
-              path={publicRoute.path}
-              element={<Children />}
-            />
-          );
+          return <Route key={Math.random()} path={publicRoute.path} element={<Children />} />;
         }
 
-        return (
-          <Route
-            key={Math.random()}
-            path={publicRoute.path}
-            element={publicRoute.element}
-          />
-        );
+        return <Route key={Math.random()} path={publicRoute.path} element={publicRoute.element} />;
       })}
       {/* <Route
       path="/login"

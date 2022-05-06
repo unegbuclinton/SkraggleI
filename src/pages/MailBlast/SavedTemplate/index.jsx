@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Table from "components/layouts/Table";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
-import TableHeader from "components/molecules/TableHeader/TableHeader";
-import Pagination from "components/molecules/Pagination";
-import CreateTemplateModal from "../MailblasModals/CreateTemplate";
-import Checkbox from "components/atoms/CheckBox";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Table from 'components/layouts/Table';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import Card from 'components/atoms/Card';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import Pagination from 'components/molecules/Pagination';
+import CreateTemplateModal from '../MailblasModals/CreateTemplate';
+import Checkbox from 'components/atoms/CheckBox';
 
 function SavedTemplate() {
   const [show, setShow] = useState(false);
@@ -16,28 +16,28 @@ function SavedTemplate() {
   const itemsPerPage = 5;
   const columns = [
     {
-      name: "",
+      name: '',
       selector: (row) => row.contact,
       cell: (row) => <Checkbox />,
-      width: "3.069rem",
+      width: '3.069rem'
     },
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "78.7rem",
+      width: '78.7rem'
     },
     {
-      name: "CREATED",
-      selector: (row) => row.created,
-    },
+      name: 'CREATED',
+      selector: (row) => row.created
+    }
   ];
 
   const data = [
     {
-      action: "",
-      name: "Monthly newsletter",
-      created: "Dec 7, 2021",
-    },
+      action: '',
+      name: 'Monthly newsletter',
+      created: 'Dec 7, 2021'
+    }
   ];
 
   const indexLasttList = currentPage * itemsPerPage;
@@ -56,7 +56,7 @@ function SavedTemplate() {
             title="Create Template"
             setOpen={setShow}
           />
-          {show && <CreateTemplateModal isShown={show} onCloseModal ={()=> setShow(false)}/>}   
+          {show && <CreateTemplateModal isShown={show} onCloseModal={() => setShow(false)} />}
         </div>
 
         <div className="table-container">
@@ -106,7 +106,7 @@ const TemplateWrapper = styled.div`
     .table-header {
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["header-grey"]};
+      color: ${COLORS['header-grey']};
     }
   }
 

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Table from "components/layouts/Table";
-import { columns, data } from "utilities/segmentsData";
-import Pagination from "components/molecules/Pagination";
-import { TableWrapper } from "./styles";
-import TableHeader from "components/molecules/TableHeader/TableHeader";
+import React, { useState } from 'react';
+import Table from 'components/layouts/Table';
+import { columns, data } from 'utilities/segmentsData';
+import Pagination from 'components/molecules/Pagination';
+import { TableWrapper } from './styles';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 // import { useNavigate } from "react-router-dom";
-import SegmentsModal from "components/molecules/Contacts/Modals/SegmentsModal/mainModal/index";
+import SegmentsModal from 'components/molecules/Contacts/Modals/SegmentsModal/mainModal/index';
 
 function SegmentsTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,11 +27,7 @@ function SegmentsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader
-          title="Create Segments"
-          header="14 Segments"
-          setOpen={setOpen}
-        />
+        <TableHeader title="Create Segments" header="14 Segments" setOpen={setOpen} />
         <Table
           columns={columns}
           data={currentList}

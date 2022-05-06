@@ -1,19 +1,14 @@
-import Checkbox from "components/atoms/CheckBox";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import Checkbox from 'components/atoms/CheckBox';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 function SubscriptionUpdate() {
   return (
     <SubscriptionUpdateWrapper>
       <div className="status-alert">
-        <Checkbox
-          styledClass="subsribeUodate-check"
-          inverted
-          checked={true}
-          radial
-        />
+        <Checkbox styledClass="subsribeUodate-check" inverted checked={true} radial />
         Subscription Status Updated.
       </div>
       <p> Subscription Status Updated.</p>
@@ -38,7 +33,7 @@ const SubscriptionUpdateWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1.6rem;
-    background: ${COLORS["light-pink"]};
+    background: ${COLORS['light-pink']};
     color: ${COLORS.deepPurple};
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};

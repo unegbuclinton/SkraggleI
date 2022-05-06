@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ContainerWrapper = styled(Card)`
   padding: 5.3rem 8.2rem 0 4.7rem;
@@ -43,10 +43,10 @@ export const ButtonContainer = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.3rem;
     background-color: ${COLORS.white};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .save-btn {

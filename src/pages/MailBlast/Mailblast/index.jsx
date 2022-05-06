@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Table from "components/layouts/Table";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import Card from "components/atoms/Card";
-import Button from "components/atoms/Button/Button";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Table from 'components/layouts/Table';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import Card from 'components/atoms/Card';
+import Button from 'components/atoms/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
-import TableHeader from "components/molecules/TableHeader/TableHeader";
-import Pagination from "components/molecules/Pagination";
-import NameLogo from "components/molecules/NameLogo";
-import Checkbox from "components/atoms/CheckBox";
-import CreateMailModal from "../MailblasModals/CreateMail";
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import Pagination from 'components/molecules/Pagination';
+import NameLogo from 'components/molecules/NameLogo';
+import Checkbox from 'components/atoms/CheckBox';
+import CreateMailModal from '../MailblasModals/CreateMail';
 
 function Mail() {
   const [show, setShow] = useState(false);
@@ -26,62 +26,62 @@ function Mail() {
 
   const columns = [
     {
-      name: "",
+      name: '',
       cell: (row) => <Checkbox />,
-      width: "3.069rem",
+      width: '3.069rem'
     },
     {
-      name: "NAME",
-      selector: (row) => row.name,
+      name: 'NAME',
+      selector: (row) => row.name
     },
     {
-      name: "ASSIGNEE",
-      cell: (ow) => <NameLogo text="John Doe" />,
+      name: 'ASSIGNEE',
+      cell: (ow) => <NameLogo text="John Doe" />
     },
     {
-      name: "SCHEDULED",
+      name: 'SCHEDULED'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
 
       cell: (ow) => (
         <Button pill error className="mail-btn">
           Sent
         </Button>
-      ),
-    },
+      )
+    }
   ];
   const mailData = [
     {
       id: 1,
-      action: "",
-      name: "Monthly newsletter",
-      assignee: "Partho Datta",
-      scheduled: "",
-      status: "",
+      action: '',
+      name: 'Monthly newsletter',
+      assignee: 'Partho Datta',
+      scheduled: '',
+      status: ''
     },
     {
       id: 2,
-      action: "",
-      name: "Yearly newsletter",
-      assignee: "Partho Datta",
-      scheduled: "",
-      status: "",
+      action: '',
+      name: 'Yearly newsletter',
+      assignee: 'Partho Datta',
+      scheduled: '',
+      status: ''
     },
     {
       id: 3,
-      action: "",
-      name: "Another newsletter",
-      scheduled: "",
-      status: "",
+      action: '',
+      name: 'Another newsletter',
+      scheduled: '',
+      status: ''
     },
     {
       id: 4,
-      action: "",
-      name: "Centuary newsletter",
-      scheduled: "",
-      status: "",
-    },
+      action: '',
+      name: 'Centuary newsletter',
+      scheduled: '',
+      status: ''
+    }
   ];
 
   const mail = mailData.map((data, index) => ({
@@ -89,7 +89,7 @@ function Mail() {
     created: data.created,
     campaign: data.campaign,
     goals: data.goals,
-    status: data.status,
+    status: data.status
   }));
   const indexLasttList = currentPage * itemsPerPage;
   const indexFirstList = indexLasttList - itemsPerPage;
@@ -105,19 +105,10 @@ function Mail() {
             title="New Mail Blasts"
             setOpen={setShow}
           />
-          {show && (
-            <CreateMailModal
-              isShown={show}
-              onCloseModal={() => setShow(false)}
-            />
-          )}
+          {show && <CreateMailModal isShown={show} onCloseModal={() => setShow(false)} />}
         </div>
         <div className="table-container">
-          <Table
-            columns={columns}
-            data={mailData}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={mailData} onRowClicked={onRowClicked} />
         </div>
       </Card>
       <Pagination
@@ -150,7 +141,7 @@ const MailWrapper = styled.div`
     .table-header {
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.medium};
-      color: ${COLORS["header-grey"]};
+      color: ${COLORS['header-grey']};
     }
   }
   .mail-btn {

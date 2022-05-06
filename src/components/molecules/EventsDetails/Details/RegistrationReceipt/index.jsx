@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Input from "components/atoms/Input/Input";
-import Switch from "components/atoms/Switch/Switch";
-import DropdownComponent from "components/atoms/Dropdown";
+import React, { useState } from 'react';
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import DropdownComponent from 'components/atoms/Dropdown';
 import {
   DetailLabel,
   DetailsSubHeading,
@@ -9,16 +9,16 @@ import {
   InputWrapper,
   SectionWrapper,
   SwitchLabel,
-  SwitchWrapper,
-} from "./styles";
+  SwitchWrapper
+} from './styles';
 
 function RegistrationReceipt({ formik, ErrorMsg }) {
-  const [selected, setSelected] = useState("Event registration");
+  const [selected, setSelected] = useState('Event registration');
   const data = [
     {
       id: 1,
-      name: "Event registration",
-    },
+      name: 'Event registration'
+    }
   ];
   return (
     <div>
@@ -42,9 +42,8 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
           <ErrorMsg>{formik.errors.receipt}</ErrorMsg>
         ) : null}
         <DetailsText className="receipt-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          accumsan, massa ac adipiscing enim bibendum interdum dictum nunc. Sit
-          nisl etiam.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan, massa ac
+          adipiscing enim bibendum interdum dictum nunc. Sit nisl etiam.
         </DetailsText>
         <InputWrapper>
           <div>
@@ -97,8 +96,7 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
               value={formik.values.receiptDescription}
             />
             <div className="error-container">
-              {formik.touched.receiptDescription &&
-              formik.errors.receiptDescription ? (
+              {formik.touched.receiptDescription && formik.errors.receiptDescription ? (
                 <ErrorMsg>{formik.errors.receiptDescription}</ErrorMsg>
               ) : null}
             </div>
