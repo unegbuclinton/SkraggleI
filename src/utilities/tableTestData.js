@@ -7,8 +7,7 @@ export const columns = [
           justifyContent: 'center',
           display: 'flex',
           width: '100%'
-        }}
-      >
+        }}>
         <input type="checkbox" />
       </div>
     ),

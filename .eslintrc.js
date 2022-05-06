@@ -26,5 +26,13 @@ module.exports = {
         paths: ['src']
       }
     }
-  }
+  },
+  overrides: [
+    {
+      files: ['**/*.spec.js', '**/*.spec.jsx'],
+      env: {
+        jest: true
+      }
+    }
+  ]
 };
