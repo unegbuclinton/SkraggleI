@@ -1,6 +1,6 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
-import { ButtonWrapper, ModalContainer, ModalWrapper } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import React from 'react';
+import { ButtonWrapper, ModalContainer, ModalWrapper } from './styles';
 
 function ClonePackage({ onClose }) {
   return (

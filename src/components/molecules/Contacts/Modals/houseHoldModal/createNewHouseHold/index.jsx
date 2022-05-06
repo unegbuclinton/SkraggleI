@@ -1,26 +1,26 @@
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import { useFormik } from "formik";
-import React from "react";
-import { houseHoldValidationSchema } from "validation/Schema";
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React from 'react';
+import { houseHoldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-} from "./styles";
+  ModalWrapper
+} from './styles';
 
 function CraeteNewHouseHold({ onClose }) {
   const formik = useFormik({
     initialValues: {
-      name: "",
+      name: ''
     },
     validationSchema: houseHoldValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <ModalWrapper>

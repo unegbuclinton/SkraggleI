@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import DropdownComponent from "components/atoms/Dropdown";
-import Input from "components/atoms/Input/Input";
-import Switch from "components/atoms/Switch/Switch";
-import { state } from "utilities/modalData";
+import React, { useState } from 'react';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import { state } from 'utilities/modalData';
 
 import {
   AddressWrapper,
   DetailLabel,
   DetailsSubHeading,
   DetailsText,
-  EventWrapper,
-} from "./styles";
+  EventWrapper
+} from './styles';
 
 function EventLocation({ formik, ErrorMsg }) {
-  const [selected, setSelected] = useState("State");
+  const [selected, setSelected] = useState('State');
   return (
     <div>
-      <DetailsSubHeading className="event-heading">
-        Event location
-      </DetailsSubHeading>
+      <DetailsSubHeading className="event-heading">Event location</DetailsSubHeading>
       <EventWrapper>
         <DetailLabel>Vanue</DetailLabel>
         <Input

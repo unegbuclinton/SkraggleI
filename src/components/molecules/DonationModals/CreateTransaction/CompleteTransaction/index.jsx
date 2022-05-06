@@ -1,9 +1,9 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import RadioGroup from "components/atoms/RadioGroup";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import RadioGroup from 'components/atoms/RadioGroup';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 function CompleteTransaction({ DecrementTab }) {
   return (
@@ -14,24 +14,19 @@ function CompleteTransaction({ DecrementTab }) {
           <RadioGroup
             radioData={[
               {
-                labelText: "Log transaction without paymnt or receipt",
-                value: 1,
+                labelText: 'Log transaction without paymnt or receipt',
+                value: 1
               },
               {
-                labelText: "Make an online payment & generate receipt",
-                value: 2,
-              },
+                labelText: 'Make an online payment & generate receipt',
+                value: 2
+              }
             ]}
           />
         </div>
 
         <div className="payment-footer">
-          <Button
-            invert
-            auth
-            className="payment-cancel-btn"
-            onClick={DecrementTab}
-          >
+          <Button invert auth className="payment-cancel-btn" onClick={DecrementTab}>
             Back
           </Button>
           <Button auth className="payment-save-btn">

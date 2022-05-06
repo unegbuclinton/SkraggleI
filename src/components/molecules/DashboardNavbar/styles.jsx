@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const HeaderLeftContent = styled.div`
   display: flex;
@@ -12,28 +12,28 @@ export const HeaderLeftContent = styled.div`
       color: ${COLORS.deepPurple};
       font-weight: ${FONTWEIGHTS.bold};
       font-size: ${FONTSIZES.lg};
-      font-family: "Inter" sans-serif;
+      font-family: 'Inter' sans-serif;
       line-height: 2.2rem;
     }
   }
 `;
 
 export const Header = styled.header`
-  display:flex;
+  display: flex;
   flex-direction: column;
   padding: 1.6rem 4rem 1.463rem 3.2rem;
   height: 9rem;
-  border-bottom: 1px solid ${COLORS["porcelain-white"]};
+  border-bottom: 1px solid ${COLORS['porcelain-white']};
   position: sticky;
   justify-content: center;
 
-  .header{
-    &__first-row{
+  .header {
+    &__first-row {
       display: flex;
       justify-content: space-between;
       width: 100%;
     }
-    &__second-row{
+    &__second-row {
       height: 2rem;
     }
     &__page-links-before {
@@ -46,7 +46,7 @@ export const Header = styled.header`
       color: rgba(88, 88, 88, 1);
       margin-right: 1.514rem;
     }
-    &__navigation-icon{
+    &__navigation-icon {
       margin-right: 1.514rem;
     }
     &__page-links-after {
@@ -67,7 +67,7 @@ export const HeaderRightContent = styled.div`
 
   .user-info {
     padding-left: 8.8rem;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,13 +88,13 @@ export const HeaderLinks = styled.div`
 
   row-gap: 2.4rem;
   padding-right: 4rem;
-  border-right: 1px solid ${COLORS["fog-grey"]};
+  border-right: 1px solid ${COLORS['fog-grey']};
   gap: 2.4rem;
-  font-family: "Inter" sans-serif;
+  font-family: 'Inter' sans-serif;
 
   .header__links {
     text-decoration: none;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     font-size: ${FONTSIZES.small};
     line-height: 1.6rem;
   }

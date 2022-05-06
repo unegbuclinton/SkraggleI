@@ -31,11 +31,7 @@ const DonationMetrics = () => {
       <DonationGoalsWrapper>
         <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
         <DonationGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Yearly Goal" />
         </DonationGoalsContentWrapper>
       </DonationGoalsWrapper>
 

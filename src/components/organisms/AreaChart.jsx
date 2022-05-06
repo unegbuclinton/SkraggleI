@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import React from "react";
-import ReactApexChart from "react-apexcharts";
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 const AreaChart = ({
   categories,
@@ -18,12 +18,12 @@ const AreaChart = ({
         type: "area",
 
         toolbar: {
-          show: false,
+          show: false
         },
-        colors: ["#FF576B"],
+        colors: ['#FF576B'],
         fill: {
-          colors: ["#000000"],
-        },
+          colors: ['#000000']
+        }
       },
       xaxis: {
         categories,
@@ -41,24 +41,24 @@ const AreaChart = ({
         ...markers,
       },
       dataLabels: {
-        enabled: false,
+        enabled: false
       },
 
       stroke: {
-        curve: "straight",
+        curve: 'straight',
         width: 3,
         colors: ["#FF576B"],
         ...stroke,
       },
       grid: {
-        borderColor: `${COLORS["fog-grey"]}`,
-        strokeDashArray: 10,
+        borderColor: `${COLORS['fog-grey']}`,
+        strokeDashArray: 10
       },
       plotOptions: {
         area: {
-          fillTo: "origin",
-        },
-      },
+          fillTo: 'origin'
+        }
+      }
     },
   };
   return (

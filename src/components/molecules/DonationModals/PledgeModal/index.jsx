@@ -1,22 +1,22 @@
-import Modal from "components/layouts/Modal";
-import PledgeInfoModalComponent from "../PledgeInfrormationModalComponent";
-import PledgeAssociateModalComponent from "../PledgeAssociationModalComponent";
-import MultiformTabs from "components/molecules/MultiformTabs";
+import Modal from 'components/layouts/Modal';
+import PledgeInfoModalComponent from '../PledgeInfrormationModalComponent';
+import PledgeAssociateModalComponent from '../PledgeAssociationModalComponent';
+import MultiformTabs from 'components/molecules/MultiformTabs';
 
-function PledgeModal({ onClose}) {
+function PledgeModal({ onClose }) {
   const tabs = [
     {
-      name: "PLEDGE INFORMATION",
+      name: 'PLEDGE INFORMATION',
       component: PledgeInfoModalComponent
     },
     {
-      name: "ASSOCIATIONS ",
+      name: 'ASSOCIATIONS ',
       component: PledgeAssociateModalComponent
-    },
+    }
   ];
   return (
     <Modal header="Pledge" isShown hide={onClose} showClose={onClose}>
-      <MultiformTabs tabs={tabs}/>
+      <MultiformTabs tabs={tabs} />
     </Modal>
   );
 }

@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import DeleteEvent from "../DeleteEvent";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import DeleteEvent from '../DeleteEvent';
 
 function DeleteEventModal({ isShown, onClose }) {
   return (

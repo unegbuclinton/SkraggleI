@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-const ErrorMessage = ({children}) => {
+const ErrorMessage = ({ children }) => {
   return <ErrorMsg>{children}</ErrorMsg>;
 };
 

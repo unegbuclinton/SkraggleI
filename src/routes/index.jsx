@@ -1,10 +1,11 @@
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { privateRoutes, publicRoutes } from "./routePaths";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import generateUUID from 'utilities/helpers';
+import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {
   // let isLogged = false;
-  const {isAuthenticated} = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   function PrivateRoute() {
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
@@ -18,7 +19,7 @@ const Routing = () => {
               <Routes>
                 {route?.children?.map((child, index) => {
                   return (
-                    <Route element={<PrivateRoute />}>
+                    <Route key={generateUUID} element={<PrivateRoute />}>
                       <Route
                         path={child.path}
                         key={index}
@@ -31,22 +32,10 @@ const Routing = () => {
               </Routes>
             );
           };
-          return (
-            <Route
-              key={Math.random()}
-              path={route.path}
-              element={<Children />}
-            />
-          );
+          return <Route key={Math.random()} path={route.path} element={<Children />} />;
         }
 
-        return (
-          <Route
-            key={Math.random()}
-            path={route.path}
-            element={route.element}
-          />
-        );
+        return <Route key={Math.random()} path={route.path} element={route.element} />;
       })}
 
       {publicRoutes.map((publicRoute) => {
@@ -67,22 +56,10 @@ const Routing = () => {
               </Routes>
             );
           };
-          return (
-            <Route
-              key={Math.random()}
-              path={publicRoute.path}
-              element={<Children />}
-            />
-          );
+          return <Route key={Math.random()} path={publicRoute.path} element={<Children />} />;
         }
 
-        return (
-          <Route
-            key={Math.random()}
-            path={publicRoute.path}
-            element={publicRoute.element}
-          />
-        );
+        return <Route key={Math.random()} path={publicRoute.path} element={publicRoute.element} />;
       })}
       {/* <Route
       path="/login"

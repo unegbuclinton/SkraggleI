@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import MultiStepForm from "../CreateContactStep";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import MultiStepForm from '../CreateContactStep';
 
 function ContactsModal({ onClose, isShown }) {
   return (

@@ -1,14 +1,14 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ThankYouWrapper = styled.div`
   margin-bottom: 1.6rem;
   .thankyou-text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }

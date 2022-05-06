@@ -1,19 +1,21 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
-import styled from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import React from 'react';
+import styled from 'styled-components';
 
-function NewsTellerAction({ShowSendBlast}) {
+function NewsTellerAction({ ShowSendBlast }) {
   return (
     <ActionWrapper>
       <Button invert className="action-btn">
         Edit
       </Button>
-      <Button className="action-btn" onClick={ShowSendBlast}>Send</Button>
+      <Button className="action-btn" onClick={ShowSendBlast}>
+        Send
+      </Button>
     </ActionWrapper>
   );
 }
 
-export default NewsTellerAction; 
+export default NewsTellerAction;
 
 const ActionWrapper = styled.div`
   display: flex;

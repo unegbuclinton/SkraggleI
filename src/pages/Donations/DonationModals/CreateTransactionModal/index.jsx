@@ -8,24 +8,27 @@ import MultiformTabs from "components/molecules/MultiformTabs";
 function CreateTransactionModal({ onCloseModal }) {
   const tabs = [
     {
-      name: "DONATION INFORMATION",
-      component: DonationInformation,
+      name: 'DONATION INFORMATION',
+      component: DonationInformation
     },
     {
-      name: "ASSOCIATIONS ",
-      component: DonationAssociation,
+      name: 'ASSOCIATIONS ',
+      component: DonationAssociation
     },
     {
-      name: "COMPLETE TRANSACTION ",
-      component: CompleteTransaction,
-    },
+      name: 'COMPLETE TRANSACTION ',
+      component: CompleteTransaction
+    }
   ];
   return (
-    <Modal header="Create a Transaction - Donation" isShown hide={onCloseModal} showClose={onCloseModal} >
+    <Modal
+      header="Create a Transaction - Donation"
+      isShown
+      hide={onCloseModal}
+      showClose={onCloseModal}>
       <MultiformTabs tabs={tabs} />
     </Modal>
   );
 }
 
 export default CreateTransactionModal;
-

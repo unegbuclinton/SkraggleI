@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Switch from "components/atoms/Switch/Switch";
+import React, { useState } from 'react';
+import Switch from 'components/atoms/Switch/Switch';
 import {
   ActionWrapper,
   Container,
@@ -8,10 +8,10 @@ import {
   FieldWrapper,
   RequiredWrapper,
   SwitchIconWrapper,
-  ViewWrapper,
-} from "./styles";
-import FieldDropdown from "../DropdownComponents/FieldsDropdown";
-import DeleteFieldModal from "components/molecules/EventsModals/FieldsModal/DeleteModal/Modal";
+  ViewWrapper
+} from './styles';
+import FieldDropdown from '../DropdownComponents/FieldsDropdown';
+import DeleteFieldModal from 'components/molecules/EventsModals/FieldsModal/DeleteModal/Modal';
 
 function Fields() {
   const [dropdown, setDropdown] = useState(false);

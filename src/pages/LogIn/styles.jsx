@@ -1,7 +1,7 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FormWrapper = styled.form`
   margin-top: 11.734rem;
@@ -17,7 +17,7 @@ export const FormWrapper = styled.form`
       font-weight: ${FONTWEIGHTS.bold};
       font-size: ${FONTSIZES.xlarge};
       line-height: 2.3rem;
-      color: ${COLORS["blue-black"]};
+      color: ${COLORS['blue-black']};
       padding-top: 3.44rem;
       padding-bottom: 3.86rem;
     }
@@ -28,7 +28,7 @@ export const FormWrapper = styled.form`
       font-weight: ${FONTWEIGHTS.medium};
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       display: flex;
       justify-content: center;
       margin-bottom: 4rem;
@@ -43,7 +43,7 @@ export const FormWrapper = styled.form`
     color: ${COLORS.white};
     margin-bottom: 5.6rem;
   }
-  .forgot-password__container{
+  .forgot-password__container {
     display: flex;
     justify-content: right;
   }

@@ -1,8 +1,8 @@
-import React from "react";
-import Table from "components/layouts/Table";
-import { columns, data } from "utilities/interactionData";
-import { TableHeading, TableWrapper } from "./styles";
-import ProfileLayOut from "..";
+import React from 'react';
+import Table from 'components/layouts/Table';
+import { columns, data } from 'utilities/interactionData';
+import { TableHeading, TableWrapper } from './styles';
+import ProfileLayOut from '..';
 
 function InteractionTable() {
   return (

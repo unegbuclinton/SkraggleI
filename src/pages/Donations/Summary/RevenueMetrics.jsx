@@ -30,21 +30,9 @@ const RevenueMetrics = () => {
       <RevenueGoalsWrapper>
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Monthly Goal"
-          />
-          <GoalProgressTracker
-            value={38540.23}
-            target={93825}
-            heading="Quarterly Goal"
-          />
-          <GoalProgressTracker
-            value={29540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Monthly Goal" />
+          <GoalProgressTracker value={38540.23} target={93825} heading="Quarterly Goal" />
+          <GoalProgressTracker value={29540.23} target={93825} heading="Yearly Goal" />
         </RevenueGoalsContentWrapper>
       </RevenueGoalsWrapper>
 

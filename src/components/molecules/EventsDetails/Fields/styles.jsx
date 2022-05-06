@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const FieldWrapper = styled(Card)`
   padding: 3.1rem 2.4rem 6.8rem 2.4rem;
@@ -16,7 +16,7 @@ export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 1.2rem 2rem 1.2rem 3.1rem;
-  border: 0.08rem solid ${COLORS["porcelain-white"]};
+  border: 0.08rem solid ${COLORS['porcelain-white']};
   justify-content: space-between;
   /* min-width: 110.4rem !important; */
   cursor: pointer;
@@ -28,13 +28,13 @@ export const ContentsWrapper = styled.div`
   .heading {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
     margin-bottom: 0.4rem;
   }
   .heading-text {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
   }
 `;
 
@@ -49,13 +49,13 @@ export const RequiredWrapper = styled.div`
   .title {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .price {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
   }
 `;
 
@@ -66,13 +66,13 @@ export const ViewWrapper = styled.div`
   .title {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .view {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     white-space: nowrap;
   }
 `;
@@ -84,7 +84,7 @@ export const ActionWrapper = styled.div`
   .action {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.lg};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
     cursor: pointer;
   }
 

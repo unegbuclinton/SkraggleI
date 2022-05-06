@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-import Card from "components/atoms/Card";
+import Card from 'components/atoms/Card';
 
 export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
@@ -11,8 +11,7 @@ export const ContainerBody = styled(Card)`
   padding-bottom: 2.4rem;
 `;
 
-export const TableWrapper = styled.div`
-`;
+export const TableWrapper = styled.div``;
 
 export const TableHeaderWrapper = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ export const TableHeaderWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.lg};
     line-height: 21px;
-    color: ${COLORS["gray-1"]};
+    color: ${COLORS['gray-1']};
   }
 
   .table-header {
@@ -86,7 +85,7 @@ export const ArchiveWrapper = styled.div`
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
       text-align: center;
-      color: ${COLORS["black-shade"]};
+      color: ${COLORS['black-shade']};
     }
   }
 `;

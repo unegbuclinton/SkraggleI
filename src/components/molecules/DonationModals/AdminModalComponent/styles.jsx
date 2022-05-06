@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -13,7 +13,7 @@ export const ModalWrapper = styled.form`
     margin-bottom: 0.8rem;
     font-size: ${FONTSIZES.small};
     line-height: 152.69%;
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
   .save-btn {
     width: 14rem;
@@ -27,7 +27,7 @@ export const ModalWrapper = styled.form`
     margin-bottom: 0.8rem;
     height: 6.4rem;
     width: 100%;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
   }
 `;
@@ -40,7 +40,7 @@ export const ModalInputDescription = styled.textarea`
   resize: none;
   outline: none;
   width: 100%;
-  border: 1px solid ${COLORS["gray-500"]};
+  border: 1px solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
 `;
 
