@@ -27,8 +27,7 @@ function MultiformTabs({ tabs, ...rest }) {
             active={activeTab >= index}
             onClick={() => {
               setActiveTab(index);
-            }}
-          >
+            }}>
             {tab.name}
           </TabButton>
         ))}

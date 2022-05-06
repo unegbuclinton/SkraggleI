@@ -39,8 +39,7 @@ function RadioGroup({ groupName, radioData }) {
     <RadioGroupWrapper
       name={groupName}
       onClickRadioButton={onClickRadioButton}
-      selectedValue={state.selectedValue}
-    >
+      selectedValue={state.selectedValue}>
       {radioData.map((curr, index) => (
         <Radio key={Number(curr?.value) + index} value={curr.value} labelText={curr.labelText} />
       ))}

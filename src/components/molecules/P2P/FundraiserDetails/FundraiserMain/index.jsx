@@ -9,6 +9,7 @@ import Plans from '../Reccuring Plans';
 import Settings from '../Settings';
 import Source from '../Source';
 
+// eslint-disable-next-line react/display-name
 const FundraiserMain = forwardRef((props, mainref, customref, settingref) => (
   <RightSection>
     <LeafLnc className={props.activeState === 0 ? 'active-div' : null} />

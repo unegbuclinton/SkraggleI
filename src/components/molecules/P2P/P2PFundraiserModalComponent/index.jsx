@@ -35,8 +35,7 @@ function P2PModalComponent({ onClose, isShown }) {
       header="Create P2P Fundraiser"
       onClose={() => setShowFirstModal(false)}
       isShown={isShown}
-      hide={onClose}
-    >
+      hide={onClose}>
       <ModalWrapper>
         <Card>
           <h1>CAMPAIGN</h1>
@@ -116,8 +115,7 @@ function P2PModalComponent({ onClose, isShown }) {
       header="Your P2P fundraiser is live!"
       isShown={isShown}
       hide={onClose}
-      showClose={onClose}
-    >
+      showClose={onClose}>
       <SecondModalWrapper onClose={onClose}>
         <Card>
           <h1>Use this link to direct donors to your new P2P fundraiser</h1>

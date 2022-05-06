@@ -25,8 +25,7 @@ function CreateTransactionModal({ onCloseModal }) {
       header="Create a Transaction - Donation"
       isShown
       hide={onCloseModal}
-      showClose={onCloseModal}
-    >
+      showClose={onCloseModal}>
       <MultiformTabs tabs={tabs} />
     </Modal>
   );

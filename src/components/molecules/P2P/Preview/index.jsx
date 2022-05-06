@@ -96,8 +96,7 @@ function Preview() {
                   key={btn.id}
                   className={active === btn.id ? 'preview__button' : 'preview__notActive'}
                   id={btn.id}
-                  onClick={handleClick}
-                >
+                  onClick={handleClick}>
                   {btn.title}
                 </Button>
               ))}

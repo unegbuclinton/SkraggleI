@@ -17,7 +17,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 'off',
-    'react/no-unstable-nested -components': { allowAsProps: true },
+    'react/no-unstable-nested -components': 'off',
     'react/no-array-index-key': 'off'
   },
   settings: {

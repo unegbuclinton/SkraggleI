@@ -17,8 +17,7 @@ const Sidebar = () => {
             <NavLink
               key={Math.random()}
               to={route}
-              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--selected' : ''}`}
-            >
+              className={({ isActive }) => `nav-link ${isActive ? 'nav-link--selected' : ''}`}>
               <span>{icon}</span> <SideNavLinkText>{text}</SideNavLinkText>
             </NavLink>
           );

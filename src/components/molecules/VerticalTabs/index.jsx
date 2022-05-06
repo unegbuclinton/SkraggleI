@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
 function VerticalTab({
   tabs,
   setActiveState,
@@ -31,8 +31,7 @@ function VerticalTab({
                   setActiveWidget(index);
                   setActiveState(index);
                   setRef(index);
-                }}
-              >
+                }}>
                 {title}
               </TabButton>
             ))}
