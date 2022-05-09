@@ -9,13 +9,13 @@ import styled from "styled-components";
 import data from "utilities/filterData.json";
 
 function DonorType() {
-  const [selected, setSelected] = useState('Filters');
-  const series = [
-    {
-      name: 'Skraggle',
-      data: [39, 30, 35, 25, 40, 15]
-    }
-  ];
+  const [selected, setSelected] = useState("Filters");
+  // const series = [
+  //   {
+  //     name: "Skraggle",
+  //     data: [39, 30, 35, 25, 40, 15],
+  //   },
+  // ];
 
   return (
     <TypeWrapper>
