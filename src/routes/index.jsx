@@ -4,7 +4,6 @@ import generateUUID from 'utilities/helpers';
 import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {
-  // let isLogged = false;
   const { isAuthenticated } = useSelector((state) => state.auth);
 
   function PrivateRoute() {
