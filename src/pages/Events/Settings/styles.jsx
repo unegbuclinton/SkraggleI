@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const SettingsWrapper = styled(Card)`
   padding: 3.2rem 3.2rem 3.2rem 2.4rem;
@@ -60,7 +60,7 @@ export const SettingsContainer = styled.form`
 export const Label = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
   padding-bottom: 0.8rem;
 `;
 
@@ -71,9 +71,9 @@ export const LeftInputs = styled.div`
     width: 52.5rem;
     height: 6.4rem;
     padding: 0 2.083rem 0 2.083rem;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     border-radius: 0.5rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     margin-bottom: 2.4rem;
     background-color: ${COLORS.white};
   }
@@ -81,7 +81,7 @@ export const LeftInputs = styled.div`
   .info {
     font-weight: ${FONTWEIGHTS.normal};
     font-size: ${FONTSIZES.small};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
     margin-top: 1.6rem;
     position: relative;
     bottom: 3rem;
@@ -94,9 +94,9 @@ export const RightInputs = styled.div`
   .right-input {
     height: 6.4rem;
     padding: 0 2.083rem 0 2.083rem;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     border-radius: 0.5rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     margin-bottom: 2.4rem;
     background-color: ${COLORS.white};
     width: 36.4rem;
@@ -110,10 +110,10 @@ export const ButtonContainer = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.3rem;
     background-color: ${COLORS.white};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .save-btn {

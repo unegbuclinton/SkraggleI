@@ -1,15 +1,15 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import Switch from "components/atoms/Switch/Switch";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { SettingWrapper, SettingBody } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Switch from 'components/atoms/Switch/Switch';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SettingWrapper, SettingBody } from './styles';
 
 function Setting() {
   const navigate = useNavigate();
 
   const ChangeRoute = () => {
-    navigate("subscription-update");
+    navigate('subscription-update');
   };
   return (
     <SettingWrapper>
@@ -26,9 +26,8 @@ function Setting() {
         <SettingBody>
           <h1 className="setting-body-text">Description</h1>
           <textarea name="text" id="text" placeholder="text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod
-            tempore inventore harum rem sapiente est maiores optio aperiam
-            asperiores ullam?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod tempore inventore harum
+            rem sapiente est maiores optio aperiam asperiores ullam?
           </textarea>
         </SettingBody>
         <div className="feedback">

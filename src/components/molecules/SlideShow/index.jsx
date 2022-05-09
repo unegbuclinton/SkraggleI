@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { images } from "utilities/imageData";
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
+import { COLORS } from 'constants/colors';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import { images } from 'utilities/imageData';
 
 const Slideshow = () => {
   const delay = 2500;
@@ -17,10 +17,7 @@ const Slideshow = () => {
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        ),
+      () => setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1)),
       delay
     );
 
@@ -31,10 +28,7 @@ const Slideshow = () => {
 
   return (
     <SlideshowWrapper className="slideshow">
-      <div
-        className="slideshowSlider"
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-      >
+      <div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
         {images.map((img, index) => (
           <img className="slide" src={img.img} alt="" key={index} />
         ))}
@@ -44,11 +38,10 @@ const Slideshow = () => {
         {images.map((_, idx) => (
           <div
             key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
+            className={`slideshowDot${index === idx ? ' active' : ''}`}
             onClick={() => {
               setIndex(idx);
-            }}
-          ></div>
+            }}></div>
         ))}
       </div>
     </SlideshowWrapper>
@@ -83,7 +76,7 @@ export const SlideshowWrapper = styled.div`
 
     cursor: pointer;
     margin: 17px 7px 0px;
-    background-color: ${COLORS["light-pink"]};
+    background-color: ${COLORS['light-pink']};
   }
 
   .slideshowDot.active {

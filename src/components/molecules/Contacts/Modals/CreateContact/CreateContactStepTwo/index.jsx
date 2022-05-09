@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import Button from "components/atoms/Button/Button";
+import React, { useContext } from 'react';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import Button from 'components/atoms/Button/Button';
 import {
   ButtonContainer,
   AddressContainer,
@@ -9,10 +9,10 @@ import {
   FormInput,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-} from "./styles";
-import { subcription } from "utilities/modalData";
-import MultiFormContext from "../ContactFormContext/MultiFormContext";
+  ModalWrapper
+} from './styles';
+import { subcription } from 'utilities/modalData';
+import MultiFormContext from '../ContactFormContext/MultiFormContext';
 
 function ContactStepTwo() {
   const { stepTwo, setStepTwo, onClose } = useContext(MultiFormContext);
@@ -30,28 +30,12 @@ function ContactStepTwo() {
           <FormInput type="text" placeholder="Unit" />
 
           <AddressContainer>
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="City"
-            />
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="State"
-            />
+            <AddressInput className="address-input" type="text" placeholder="City" />
+            <AddressInput className="address-input" type="text" placeholder="State" />
           </AddressContainer>
           <AddressContainer>
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="Postal/Zip"
-            />
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="Country"
-            />
+            <AddressInput className="address-input" type="text" placeholder="Postal/Zip" />
+            <AddressInput className="address-input" type="text" placeholder="Country" />
           </AddressContainer>
           <FormLabel>HOUSEHOLD</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
@@ -62,14 +46,7 @@ function ContactStepTwo() {
           <FormLabel>TAGS</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
           <ButtonContainer>
-            <Button
-              className="cancel"
-              type="button"
-              proute
-              onClick={onClose}
-              auth
-              invert
-            >
+            <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
             <Button className="continue" onClick={handleSubmit}>

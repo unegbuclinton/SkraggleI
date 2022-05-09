@@ -1,5 +1,5 @@
-import React from "react";
-import Chart from "react-apexcharts";
+import React from 'react';
+import Chart from 'react-apexcharts';
 
 const BarChart = ({ series, categories, width, height, chart, legend, title }) => {
   return (

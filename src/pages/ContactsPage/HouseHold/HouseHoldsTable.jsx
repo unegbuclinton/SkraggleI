@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Table from "components/layouts/Table";
-import { columns, data } from "utilities/houseHoldData";
-import Pagination from "components/molecules/Pagination";
+import React, { useState } from 'react';
+import Table from 'components/layouts/Table';
+import { columns, data } from 'utilities/houseHoldData';
+import Pagination from 'components/molecules/Pagination';
 // import { useNavigate } from "react-router-dom";
-import { TableWrapper } from "./styles";
-import TableHeader from "components/molecules/TableHeader/TableHeader";
-import HouseHoldModal from "components/molecules/Contacts/Modals/houseHoldModal/mainModal/index";
+import { TableWrapper } from './styles';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 
 function HouseHoldsTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,11 +27,7 @@ function HouseHoldsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader
-          title="Add Household"
-          header="15 Household"
-          setOpen={setOpen}
-        />
+        <TableHeader title="Add Household" header="15 Household" setOpen={setOpen} />
         <Table
           columns={columns}
           data={currentList}

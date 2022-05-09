@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Table from "components/layouts/Table";
-import { data, columns } from "utilities/AttendeeData";
-import { AttendeeWrapper } from "./styles";
-import RegistrationPackage from "../RegistrationPackage";
+import React, { useState } from 'react';
+import Table from 'components/layouts/Table';
+import { data, columns } from 'utilities/AttendeeData';
+import { AttendeeWrapper } from './styles';
+import RegistrationPackage from '../RegistrationPackage';
 
 function Attendees() {
   const [click, setClick] = useState(false);
@@ -12,11 +12,7 @@ function Attendees() {
       {click ? (
         <RegistrationPackage setClick={setClick} />
       ) : (
-        <Table
-          data={data}
-          onRowClicked={() => setClick((prev) => !prev)}
-          columns={columns}
-        />
+        <Table data={data} onRowClicked={() => setClick((prev) => !prev)} columns={columns} />
       )}
     </AttendeeWrapper>
   );

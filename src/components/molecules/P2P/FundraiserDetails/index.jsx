@@ -1,7 +1,7 @@
 import { React, useState } from "react";
+import Header from "../P2PTabs";
 import FundraiserMain from "./FundraiserMain";
 import { MainWrapper } from "./styles";
-import Header from "../P2PTabs";
 const FundraiserDetails = () => {
   
   const tabs = [

@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import DeletePromoCode from "../DeletePromocode";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import DeletePromoCode from '../DeletePromocode';
 
 function DeletePromoCodeModal({ isShown, onClose }) {
   return (

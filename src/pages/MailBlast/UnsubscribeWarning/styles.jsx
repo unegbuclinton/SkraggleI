@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS, FONTSIZES } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const WarningWrapper = styled.div`
   height: 100%;
@@ -18,7 +18,7 @@ export const WarningWrapper = styled.div`
     }
     .warning-text {
       text-align: center;
-      color: ${COLORS["grey-400"]};
+      color: ${COLORS['grey-400']};
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.normal};
       margin-bottom: 4.5rem;
@@ -56,8 +56,8 @@ export const UnsubscribeOption = styled.div`
     font-weight: ${FONTWEIGHTS.normal};
   }
 
-  .radio-class{
-    width : 30rem;
+  .radio-class {
+    width: 30rem;
   }
 `;
 
@@ -79,14 +79,14 @@ export const UnsubscribeField = styled.div`
   .feedback-text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
   }
   #feeback-field {
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     outline: none;
     width: 100%;
     height: 16.5rem;
-    color: ${COLORS["grey-400"]};
+    color: ${COLORS['grey-400']};
     padding: 1.5rem 1.7rem 1.1rem 1.5rem;
   }
 `;

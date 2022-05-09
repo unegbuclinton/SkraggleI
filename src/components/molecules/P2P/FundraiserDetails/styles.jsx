@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
 import Card from "components/atoms/Card";
+import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from "styled-components";
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ export const MainWrapper = styled.div`
       align-items: center;
       justify-content: center;
       background-color: ${COLORS.white};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       height: 6.3rem;
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.medium};

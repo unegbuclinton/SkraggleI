@@ -1,14 +1,14 @@
-import { React } from "react";
+import React from "react";
 import styled from "styled-components";
-
-import LeafLnc from "../LeafLnc";
-import P2PFundraise from "../P2PFundraiser";
-import Settings from "../Settings";
-import Source from "../Source";
 import CustomFields from "../Custom Fields";
 import Donations from "../Donations";
-import Plans from "../Reccuring Plans";
 import Emails from "../Emails";
+import LeafLnc from "../LeafLnc";
+import P2PFundraise from "../P2PFundraiser";
+import Plans from "../Reccuring Plans";
+import Settings from "../Settings";
+import Source from "../Source";
+
 
 const FundraiserMain = (props) => {
   console.log(props);

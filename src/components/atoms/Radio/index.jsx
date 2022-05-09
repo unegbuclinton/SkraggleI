@@ -28,13 +28,13 @@ const Radio = (props) => {
 Radio.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
-  labelText: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired
 };
 
 Radio.defaultProps = {
   onChange: () => {},
   value: '',
-  labelText: '',
+  labelText: ''
 };
 
 export default Radio;

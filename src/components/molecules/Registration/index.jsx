@@ -1,26 +1,26 @@
-import React from "react";
-import { Form, CatchError } from "./styles";
-import Input from "components/atoms/Input/Input";
-import AuthLayout from "components/layouts/AuthLayout";
-import Button from "components/atoms/Button/Button";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import Card from "components/atoms/Card";
-import { registrationSchema } from "validation/Schema";
+import React from 'react';
+import { Form, CatchError } from './styles';
+import Input from 'components/atoms/Input/Input';
+import AuthLayout from 'components/layouts/AuthLayout';
+import Button from 'components/atoms/Button/Button';
+import { Link } from 'react-router-dom';
+import { useFormik } from 'formik';
+import Card from 'components/atoms/Card';
+import { registrationSchema } from 'validation/Schema';
 
 function Registration() {
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     },
     validationSchema: registrationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
 
   return (

@@ -1,7 +1,7 @@
-import Button from "components/atoms/Button/Button";
-import { DPIconsPen } from "icons";
-import React from "react";
-import { CardWrapper, ContentsWrapper, Line } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import { DPIconsPen } from 'icons';
+import React from 'react';
+import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
   return (

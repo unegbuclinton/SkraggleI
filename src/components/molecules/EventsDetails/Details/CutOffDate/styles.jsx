@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const EventWrapper = styled.div`
   border-bottom: ${COLORS.torquoise} 0.1rem solid;
@@ -28,7 +28,7 @@ export const SwitchLabel = styled.div`
 export const DetailLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 
 export const InputWrapper = styled.div`
@@ -36,7 +36,7 @@ export const InputWrapper = styled.div`
   gap: 2.4rem;
   flex-wrap: wrap;
   .date-time-input {
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     width: 34.9rem;

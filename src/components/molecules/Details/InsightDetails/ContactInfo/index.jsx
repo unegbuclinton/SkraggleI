@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import { ContactContainer, ContactHeading, ContactWrapper } from "./styles";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { ContactContainer, ContactHeading, ContactWrapper } from './styles';
 
 function ContactInfo() {
   return (

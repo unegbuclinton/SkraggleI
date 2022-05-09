@@ -1,22 +1,45 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React from 'react';
+import { houseHoldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
+  ErrorMsg,
   FormContainer,
-  FormInput,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-} from "./styles";
+  ModalWrapper
+} from './styles';
 
 function CraeteNewHouseHold({ onClose }) {
+  const formik = useFormik({
+    initialValues: {
+      name: ''
+    },
+    validationSchema: houseHoldValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    }
+  });
   return (
     <ModalWrapper>
       <ModalContainer>
-        <FormContainer>
+        <FormContainer onSubmit={formik.handleSubmit}>
           <FormLabel>NAME</FormLabel>
-          <FormInput type="text" placeholder=" Name" />
-
+          <Input
+            className="input-field"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name ? (
+            <ErrorMsg>{formik.errors.name}</ErrorMsg>
+          ) : null}
           <ButtonContainer>
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel

@@ -1,20 +1,19 @@
-import { React, useRef } from "react";
-
-import Button from "components/atoms/Button/Button";
-import { DPIconCopy } from "icons";
-
-import styled from "styled-components";
+import Button from 'components/atoms/Button/Button';
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { DPIconCopy } from 'icons';
+import { React, useRef } from "react";
+import styled from "styled-components";
+
+
 
 const P2PFundraise = ({className}) => {
-
   const textAreaRef = useRef(null);
 
   function copyToClipboard1() {
     var text = textAreaRef.current.value;
-    navigator.clipboard.writeText(text)
-    alert("Text Copied");
+    navigator.clipboard.writeText(text);
+    alert('Text Copied');
   }
 
   return (
@@ -39,13 +38,8 @@ const P2PFundraise = ({className}) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef}
-            ></textarea>
-            <Button
-              type="button"
-              className="fundraiser__copy-button"
-              onClick={copyToClipboard1}
-            >
+              ref={textAreaRef}></textarea>
+            <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>
           </div>
@@ -119,7 +113,7 @@ export const P2PFundraiser = styled.div`
       display: flex;
       align-items: baseline;
       font-size: 1.47rem;
-      color: ${COLORS["grey-500"]};
+      color: ${COLORS['grey-500']};
     }
     &__copy-button {
       width: 2rem;

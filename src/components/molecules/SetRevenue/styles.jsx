@@ -1,11 +1,8 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
-
-export const RevenueForm=styled.form`
-
-`
+export const RevenueForm = styled.form``;
 
 export const SetRevenueWrapper = styled.div`
   width: 65rem;
@@ -15,14 +12,14 @@ export const SetRevenueWrapper = styled.div`
 `;
 export const RevenueLabel = styled.p`
   padding: 2.4rem 0 0.5rem 0;
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 export const SetInputField = styled.input`
   width: 30.5rem;
   height: 6.5rem;
   outline: none;
   padding-left: 2.083rem;
-  border: 0.1rem solid ${COLORS["moore-grey"]};
+  border: 0.1rem solid ${COLORS['moore-grey']};
   border-radius: 0.5rem;
 `;
 export const RevenueFooter = styled.div`
@@ -33,7 +30,7 @@ export const RevenueFooter = styled.div`
   .footer-btn {
     width: 14rem;
   }
-  .set-revenue-btn{
+  .set-revenue-btn {
     height: 4.8rem;
   }
 `;

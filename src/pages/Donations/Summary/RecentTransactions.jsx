@@ -8,30 +8,28 @@ import styled from 'styled-components';
 const columns = [
   {
     name: '',
-    // selector: (row) => row.contact,
-    cell: (row) => <input style={{ margin: '0 auto' }} type="checkbox" />,
-    width: '7.8rem',
+    cell: () => <input style={{ margin: '0 auto' }} type="checkbox" />,
+    width: '7.8rem'
   },
   {
     name: 'CONTACT',
     selector: (row) => row.fullName,
-    width: '19.695rem',
+    width: '19.695rem'
   },
   {
     name: 'AMOUNT',
     selector: (row) => row.amount,
-    width: '26.366rem',
+    width: '26.366rem'
   },
   {
     name: 'DATE',
     selector: (row) => row.created,
-    width: '26.366rem',
+    width: '26.366rem'
   },
   {
     name: 'TYPE',
-    selector: (row) => row.type,
-    width: '100%',
-  },
+    selector: (row) => row.type
+  }
 ];
 
 const data = [
@@ -41,7 +39,7 @@ const data = [
     amount: '$500',
     type: 'Gift',
     created: '24th Aug',
-    action: '',
+    action: ''
   },
   {
     id: 2,
@@ -49,8 +47,8 @@ const data = [
     amount: '$500',
     type: 'Gift',
     created: '24th Aug',
-    action: '',
-  },
+    action: ''
+  }
 ];
 
 const RecentTransactions = () => {

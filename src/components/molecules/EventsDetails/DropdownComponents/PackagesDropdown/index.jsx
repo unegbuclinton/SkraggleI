@@ -1,5 +1,5 @@
-import React from "react";
-import Input from "components/atoms/Input/Input";
+import React from 'react';
+import Input from 'components/atoms/Input/Input';
 import {
   ButtonContainer,
   DropDownWrapper,
@@ -9,36 +9,31 @@ import {
   Label,
   RadioWrapper,
   SwitchLabel,
-  SwitchWrapper,
-} from "./styles";
-import Switch from "components/atoms/Switch/Switch";
-import Button from "components/atoms/Button/Button";
-import { useFormik } from "formik";
-import { packageValidatioSchema } from "validation/Schema";
-import Radio from "components/atoms/Radio";
+  SwitchWrapper
+} from './styles';
+import Switch from 'components/atoms/Switch/Switch';
+import Button from 'components/atoms/Button/Button';
+import { useFormik } from 'formik';
+import { packageValidatioSchema } from 'validation/Schema';
+import RadioGroup from 'components/atoms/RadioGroup';
 
-function PackageDropdown({
-  setDropdown,
-  setOpenDropdown,
-  dropdown,
-  openDropdown,
-}) {
+function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, openDropdown }) {
   const formik = useFormik({
     initialValues: {
-      name: "",
-      price: "",
-      directCost: "",
-      discount: "",
-      earlyBid: "",
-      endTime: "",
-      participant: "",
-      qty: "",
-      packageQuantity: "",
+      name: '',
+      price: '',
+      directCost: '',
+      discount: '',
+      earlyBid: '',
+      endTime: '',
+      participant: '',
+      qty: '',
+      packageQuantity: ''
     },
     validationSchema: packageValidatioSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <DropDownWrapper onSubmit={formik.handleSubmit}>
@@ -53,9 +48,7 @@ function PackageDropdown({
         onBlur={formik.handleBlur}
         value={formik.values.name}
       />
-      {formik.touched.name && formik.errors.name ? (
-        <ErrorMsg>{formik.errors.name}</ErrorMsg>
-      ) : null}
+      {formik.touched.name && formik.errors.name ? <ErrorMsg>{formik.errors.name}</ErrorMsg> : null}
       <Label>Description</Label>
       <div className="text-editor"></div>
       <SwitchWrapper className="maplink-container">
@@ -105,8 +98,18 @@ function PackageDropdown({
         <Switch />
       </SwitchWrapper>
       <RadioWrapper>
-        <Radio value="any" name="radio-test" labelText="Amount" />
-        <Radio value="all" name="radio-test" labelText="Percentage" />
+        <RadioGroup
+          radioData={[
+            {
+              labelText: 'Amount',
+              value: 1
+            },
+            {
+              labelText: 'Percentage',
+              value: 2
+            }
+          ]}
+        />
       </RadioWrapper>
       <InputWrapper>
         <div>
@@ -165,9 +168,7 @@ function PackageDropdown({
         </div>
       </InputWrapper>
       <SwitchWrapper className="multiple-package-wrapper">
-        <SwitchLabel>
-          Adjust the per package price when punchasing multiple packages
-        </SwitchLabel>
+        <SwitchLabel>Adjust the per package price when punchasing multiple packages</SwitchLabel>
         <Switch />
       </SwitchWrapper>
       <InputWrapper>
@@ -188,9 +189,7 @@ function PackageDropdown({
               <ErrorMsg>{formik.errors.participant}</ErrorMsg>
             ) : null}
           </div>
-          <GenericText>
-            How many participants are included in each package?
-          </GenericText>
+          <GenericText>How many participants are included in each package?</GenericText>
         </div>
 
         <div className="input-container">
@@ -198,9 +197,7 @@ function PackageDropdown({
           <div className="unlimited-container">
             <p>Unlimited</p>
           </div>
-          <GenericText>
-            How many of this package are available for purchase?
-          </GenericText>
+          <GenericText>How many of this package are available for purchase?</GenericText>
         </div>
       </InputWrapper>
 
@@ -254,21 +251,13 @@ function PackageDropdown({
       </InputWrapper>
       <ButtonContainer>
         {dropdown === true && (
-          <Button
-            type="button"
-            onClick={() => setDropdown(false)}
-            className="cancel-btn"
-          >
+          <Button type="button" onClick={() => setDropdown(false)} className="cancel-btn">
             Cancel
           </Button>
         )}
 
         {openDropdown && (
-          <Button
-            type="button"
-            onClick={() => setOpenDropdown(false)}
-            className="cancel-btn"
-          >
+          <Button type="button" onClick={() => setOpenDropdown(false)} className="cancel-btn">
             Cancel
           </Button>
         )}

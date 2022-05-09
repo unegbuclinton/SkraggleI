@@ -1,12 +1,7 @@
-import React, { useState } from "react";
-import {
-  CheckboxContainer,
-  CheckIcon,
-  HiddenCheckbox,
-  StyledCheckbox,
-} from "./styles";
+import React, { useState } from 'react';
+import { CheckboxContainer, CheckIcon, HiddenCheckbox, StyledCheckbox } from './styles';
 
-const Checkbox = ({ className, styledClass, label, radial, checked, inverted,pink, ...props }) => {
+const Checkbox = ({ className, styledClass, label, radial, checked, inverted, pink, ...props }) => {
   const [state, setState] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -14,17 +9,17 @@ const Checkbox = ({ className, styledClass, label, radial, checked, inverted,pin
   };
   return (
     <CheckboxContainer className={className} pink={pink} checked={checked || state}>
-      <HiddenCheckbox
+      <HiddenCheckbox checked={checked || state} onChange={handleCheckboxChange} {...props} />
+      <StyledCheckbox
         checked={checked || state}
-        onChange={handleCheckboxChange}
-        {...props}
-      />
-      <StyledCheckbox checked={checked || state} radial={radial} pink={pink} inverted={inverted} className={styledClass}>
+        radial={radial}
+        pink={pink}
+        inverted={inverted}
+        className={styledClass}>
         <CheckIcon />
-      </StyledCheckbox >
+      </StyledCheckbox>
       <p className="label-text">{label}</p>
     </CheckboxContainer>
   );
 };
 export default Checkbox;
-

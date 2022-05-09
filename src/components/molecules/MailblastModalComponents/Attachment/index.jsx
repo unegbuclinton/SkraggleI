@@ -1,9 +1,9 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import React from "react";
-import { Attachwrapper } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import React from 'react';
+import { Attachwrapper } from './styles';
 
-function Attachment({onClose}) {
+function Attachment({ onClose }) {
   return (
     <Attachwrapper>
       <Card className="attach-card">

@@ -1,8 +1,7 @@
-import React, { forwardRef } from "react";
-
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 const Source = ({className}) => {
     return(
@@ -26,7 +25,7 @@ const Source = ({className}) => {
     )
 }
 
-export default Source
+export default Source;
 
 export const SourceWrapper = styled.div`
   display: flex;
@@ -110,10 +109,9 @@ export const SourceWrapper = styled.div`
       color: #9a9aa9;
       margin-bottom: 1.6rem;
     }
-    &__donations{
-        font-size: ${FONTSIZES.base};
-        font-weight: ${FONTWEIGHTS.normal};
+    &__donations {
+      font-size: ${FONTSIZES.base};
+      font-weight: ${FONTWEIGHTS.normal};
     }
   }
 `;
-

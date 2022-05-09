@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import { WebsiteContainer, WebsiteHeading, WebsiteWrapper } from "./styles";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { WebsiteContainer, WebsiteHeading, WebsiteWrapper } from './styles';
 
 function Websites() {
   return (

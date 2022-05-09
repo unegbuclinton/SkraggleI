@@ -1,62 +1,62 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 
-import datas from "utilities/filterData";
-import { AdminData } from "utilities/donationData";
-import { DPIconAssignee, DPPlusIcon, DPIconDelete } from "icons";
+import datas from 'utilities/filterData';
+import { AdminData } from 'utilities/donationData';
+import { DPIconAssignee, DPPlusIcon, DPIconDelete } from 'icons';
 
-import Button from "components/atoms/Button/Button";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Checkbox from "components/atoms/CheckBox";
+import Button from 'components/atoms/Button/Button';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Checkbox from 'components/atoms/CheckBox';
 
-import DropdownComponent from "components/atoms/Dropdown";
-import Card from "components/atoms/Card";
+import DropdownComponent from 'components/atoms/Dropdown';
+import Card from 'components/atoms/Card';
 
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import NewAdminModal from "components/molecules/DonationModals/NewAdminModal";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import NewAdminModal from 'components/molecules/DonationModals/NewAdminModal';
 
 const Admin = () => {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "25rem",
+      width: '25rem'
     },
     {
-      name: "DATE CREATED",
+      name: 'DATE CREATED',
       selector: (row) => row.datecreated,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "ASSIGNEE",
+      name: 'ASSIGNEE',
       selector: (row) => row.createdby,
-      cell: (col) => (
+      cell: () => (
         <Assignee>
           <DPIconAssignee />
           Tillie Mendoza
         </Assignee>
       ),
-      width: "45rem",
+      width: '45rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-      width: "15rem",
+      cell: () => <Button className="table-button">Active</Button>,
+      width: '15rem'
     },
     {
-      name: " ",
+      name: ' ',
       selector: (row) => row.delete,
-      cell: (col) => <DPIconDelete />,
-    },
+      cell: () => <DPIconDelete />
+    }
   ];
 
   const tableData = AdminData.map((adminData, index) => ({
@@ -65,13 +65,13 @@ const Admin = () => {
     datecreated: adminData.datecreated,
     createdby: adminData.createdby,
     status: adminData.status,
-    delete: adminData.delete,
+    delete: adminData.delete
   }));
-  const onRowClicked = (row) => {};
+  const onRowClicked = () => {};
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   return (
     <div>
@@ -90,10 +90,7 @@ const Admin = () => {
                 className="dropdown-pledge"
               />
               <SearchBar className="search-icon" />
-              <Button
-                className="pledge-button"
-                onClick={() => setModalIsOpen(true)}
-              >
+              <Button className="pledge-button" onClick={() => setModalIsOpen(true)}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>
@@ -107,11 +104,7 @@ const Admin = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={tableData}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={tableData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
     </div>
@@ -153,7 +146,7 @@ export const TableHeaderWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.lg};
     line-height: 21px;
-    color: ${COLORS["gray-1"]};
+    color: ${COLORS['gray-1']};
   }
 
   .table-header {

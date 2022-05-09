@@ -1,13 +1,13 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DropDownWrapper = styled.form`
   padding: 4.8rem 0 8rem 0;
   .name-input {
     width: 61.4rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 2.4rem 0;
@@ -16,7 +16,7 @@ export const DropDownWrapper = styled.form`
   .text-editor {
     width: 61.4rem;
     height: 30.6rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     margin-top: 0.8rem;
   }
@@ -28,10 +28,10 @@ export const DropDownWrapper = styled.form`
   .money-input {
     width: 34.9rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
-    margin-top: 0.8rem;
+    margin: 0.8rem 0 0 0;
     padding-left: 1rem;
   }
 
@@ -44,7 +44,7 @@ export const DropDownWrapper = styled.form`
   .discount-input {
     width: 28.3rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin-top: 0.8rem;
@@ -53,7 +53,7 @@ export const DropDownWrapper = styled.form`
   .date-time-input {
     width: 24.3rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 0 0;
@@ -66,7 +66,7 @@ export const DropDownWrapper = styled.form`
   .normal-input {
     width: 28.3rem;
     height: 6.4rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     margin: 0.8rem 0 0 0;
@@ -85,7 +85,7 @@ export const DropDownWrapper = styled.form`
     p {
       font-size: ${FONTSIZES.small};
       font-weight: ${FONTWEIGHTS.normal};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
     }
   }
 `;
@@ -93,7 +93,7 @@ export const DropDownWrapper = styled.form`
 export const Label = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
 `;
 
 export const SwitchLabel = styled.p`
@@ -136,7 +136,7 @@ export const InputWrapper = styled.div`
     .email-container {
       height: 6.4rem;
       width: 99.1rem;
-      border: 0.1rem solid ${COLORS["gray-500"]};
+      border: 0.1rem solid ${COLORS['gray-500']};
       border-radius: 0.5rem;
       background-color: ${COLORS.white};
       margin-top: 0.8rem;
@@ -149,7 +149,7 @@ export const InputWrapper = styled.div`
   }
 
   /* Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 `;
@@ -164,7 +164,7 @@ export const RadioWrapper = styled.div`
 export const GenericText = styled.p`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
-  color: ${COLORS["grey-200"]};
+  color: ${COLORS['grey-200']};
   margin-top: 1.6rem;
   width: 28.3rem;
   line-height: 2rem;
@@ -178,10 +178,10 @@ export const ButtonContainer = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem solid ${COLORS["gray-500"]};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.3rem;
     background-color: ${COLORS.white};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
 
   .save-btn {

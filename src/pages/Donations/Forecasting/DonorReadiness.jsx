@@ -1,21 +1,21 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import { DPIconMembership } from "icons";
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { DPIconMembership } from 'icons';
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
 
-import Card from "components/atoms/Card";
-import BarChart from "components/organisms/BarChart";
+import Card from 'components/atoms/Card';
+import BarChart from 'components/organisms/BarChart';
 
 function DonorReadiness() {
   const series = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: "#FF6868",
-    },
+      color: '#FF6868'
+    }
   ];
   return (
     <ReadyWrappe>
@@ -25,7 +25,7 @@ function DonorReadiness() {
             <p className="Donor-text">Donor</p>
             <DonorBody>
               <DPIconMembership />
-              <p className="Donor-content">No Expiring Donors</p>
+              <p className="Donor-content">Not Enough Data</p>
               <Button className="Donor-btn" action>
                 Go to contact
               </Button>
@@ -42,18 +42,18 @@ function DonorReadiness() {
               <BarChart
                 series={series}
                 categories={[
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
+                  'Jan',
+                  'Feb',
+                  'Mar',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'Aug',
+                  'Sep',
+                  'Oct',
+                  'Nov',
+                  'Dec'
                 ]}
                 height={385}
                 width={600}
@@ -90,7 +90,7 @@ const DonorWrapper = styled.div`
   .duration-text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
@@ -107,7 +107,7 @@ const DonorBody = styled.div`
   .Donor-content {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin-bottom: 3rem;
   }
   .Donor-btn {

@@ -1,10 +1,6 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import {
-  VolunteerContainer,
-  VolunteerHeading,
-  VolunteerWrapper,
-} from "./styles";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { VolunteerContainer, VolunteerHeading, VolunteerWrapper } from './styles';
 
 function VolunteerInfo() {
   return (
