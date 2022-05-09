@@ -5,12 +5,6 @@ import ReactApexChart from 'react-apexcharts';
 const AreaChart = ({ data, categories, height, yaxis, markers, type, ...rest }) => {
   const dataProps = {
     options: {
-      responsive: [
-        {
-          breakpoint: undefined,
-          options: {}
-        }
-      ],
       chart: {
         type: 'area',
 

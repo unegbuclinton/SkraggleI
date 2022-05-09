@@ -1,13 +1,11 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
-import { DPIconMembership } from 'icons';
-import styled from 'styled-components';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
-
 import Card from 'components/atoms/Card';
 import BarChart from 'components/organisms/BarChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconMembership } from 'icons';
+import React from 'react';
+import styled from 'styled-components';
 
 function DonorReadiness() {
   const series = [
@@ -36,7 +34,7 @@ function DonorReadiness() {
 
       <div className="duration-wrapper">
         <DonorWrapper>
-          <Card>
+          <Card className="duration-card">
             <p className="duration-text">Time of year</p>
             <div className="duraton-chart">
               <BarChart
@@ -55,8 +53,7 @@ function DonorReadiness() {
                   'Nov',
                   'Dec'
                 ]}
-                height={385}
-                width={600}
+                height={380}
               />
             </div>
           </Card>
@@ -79,12 +76,14 @@ const ReadyWrappe = styled.div`
   .duration-wrapper {
     flex: 1;
     width: 100%;
-    overflow: auto;
   }
 `;
 
 const DonorWrapper = styled.div`
   margin-bottom: 1.6rem;
+
+  .duration-card {
+  }
 
   .Donor-text,
   .duration-text {

@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart height={360} />
+            <PieChart height={300} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -47,7 +47,7 @@ function DonorType() {
             <p className="donor-text">Donor Score</p>
           </TypeHeader>
           <div className="bar-container">
-            <BarChart series={series} categories={['30', '40', '60']} height={350} />
+            <BarChart series={series} categories={['30', '40', '60']} height={360} />
           </div>
         </Card>
       </div>
