@@ -1,9 +1,9 @@
-import Modal from "components/layouts/Modal";
-import CompleteTransaction from "components/molecules/DonationModals/CreateTransaction/CompleteTransaction";
-import DonationAssociation from "components/molecules/DonationModals/CreateTransaction/DonationAssociation";
-import DonationInformation from "components/molecules/DonationModals/CreateTransaction/DonationInfomation";
-import MultiformTabs from "components/molecules/MultiformTabs";
-import React from "react";
+import Modal from 'components/layouts/Modal';
+import CompleteTransaction from 'components/molecules/DonationModals/CreateTransaction/CompleteTransaction';
+import DonationAssociation from 'components/molecules/DonationModals/CreateTransaction/DonationAssociation';
+import DonationInformation from 'components/molecules/DonationModals/CreateTransaction/DonationInfomation';
+import MultiformTabs from 'components/molecules/MultiformTabs';
+import React from 'react';
 
 function CreateTransactionModal({ onCloseModal }) {
   const tabs = [

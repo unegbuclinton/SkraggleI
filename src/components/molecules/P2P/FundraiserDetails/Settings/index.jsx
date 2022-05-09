@@ -1,7 +1,7 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconProfileImage } from 'icons';
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 
 function Settings({ className }) {

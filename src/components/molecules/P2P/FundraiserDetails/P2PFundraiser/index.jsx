@@ -1,13 +1,11 @@
 import Button from 'components/atoms/Button/Button';
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
-import { React, useRef } from "react";
-import styled from "styled-components";
+import { React, useRef } from 'react';
+import styled from 'styled-components';
 
-
-
-const P2PFundraise = ({className}) => {
+const P2PFundraise = ({ className }) => {
   const textAreaRef = useRef(null);
 
   function copyToClipboard1() {
@@ -51,7 +49,7 @@ const P2PFundraise = ({className}) => {
       </div>
     </P2PFundraiser>
   );
-}
+};
 
 export default P2PFundraise;
 

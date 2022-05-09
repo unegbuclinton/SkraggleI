@@ -13,20 +13,19 @@ const BarChart = ({ series, categories, width, height, chart, legend, title }) =
           chart: {
             stacked: false,
             toolbar: false,
-            ...chart,
+            ...chart
           },
           xaxis: {
-            categories,
+            categories
           },
           title: {
             ...title
           },
           legend: {
             show: false,
-            ...legend,
-          },
-        }}
-      ></Chart>
+            ...legend
+          }
+        }}></Chart>
     </>
   );
 };

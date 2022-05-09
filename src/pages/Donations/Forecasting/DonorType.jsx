@@ -1,15 +1,15 @@
-import Card from "components/atoms/Card";
-import DropdownComponent from "components/atoms/Dropdown";
-import DonorScore from "components/molecules/DonorScore";
-import PieChart from "components/organisms/PieChart";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
-import styled from "styled-components";
-import data from "utilities/filterData.json";
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
+import DonorScore from 'components/molecules/DonorScore';
+import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
   // const series = [
   //   {
   //     name: "Skraggle",
@@ -140,7 +140,7 @@ const TypeHeader = styled.div`
     gap: 1rem;
     &__wrapper {
       font-size: ${FONTSIZES.xsmall};
-      color: ${COLORS["blue-black"]};
+      color: ${COLORS['blue-black']};
       display: flex;
       justify-content: baseline;
       gap: 0.8rem;
@@ -165,4 +165,3 @@ const TypeHeader = styled.div`
     }
   }
 `;
-

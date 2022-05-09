@@ -3,27 +3,27 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-const Source = ({className}) => {
-    return(
-        <SourceWrapper id="source" className={className}>
-          <div className="fundraiser__top">
-            <div className="fundraiser__title">
-              <h1 className="fundraiser__heading">Source</h1>
-            </div>
-          </div>
-          <div className="fundraiser__down">
-            <div className="fundraiser__row">
-              <h1 className="fundraiser__titles">Source</h1>
-              <p className="fundraiser__p2">Leaf Inc</p>
-            </div>
-            <div className="fundraiser__row">
-              <h1 className="fundraiser__titles">Dashboard</h1>
-              <p className="fundraiser__p2">Mohammad Adam</p>
-            </div>
-          </div>
-        </SourceWrapper>
-    )
-}
+const Source = ({ className }) => {
+  return (
+    <SourceWrapper id="source" className={className}>
+      <div className="fundraiser__top">
+        <div className="fundraiser__title">
+          <h1 className="fundraiser__heading">Source</h1>
+        </div>
+      </div>
+      <div className="fundraiser__down">
+        <div className="fundraiser__row">
+          <h1 className="fundraiser__titles">Source</h1>
+          <p className="fundraiser__p2">Leaf Inc</p>
+        </div>
+        <div className="fundraiser__row">
+          <h1 className="fundraiser__titles">Dashboard</h1>
+          <p className="fundraiser__p2">Mohammad Adam</p>
+        </div>
+      </div>
+    </SourceWrapper>
+  );
+};
 
 export default Source;
 

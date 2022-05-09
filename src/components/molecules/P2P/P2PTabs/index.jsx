@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-scroll";
-import styled, { css } from "styled-components";
-import { COLORS } from "constants/colors";
+import { COLORS } from 'constants/colors';
+import React, { useState } from 'react';
+import { Link } from 'react-scroll';
+import styled, { css } from 'styled-components';
 
 function Header({
   setActiveState,
@@ -10,7 +10,7 @@ function Header({
   verticalWrapper,
   children,
   onClick,
-  leftBottomClass,
+  leftBottomClass
 }) {
   const [actives, setactives] = useState(0);
   return (
@@ -27,8 +27,7 @@ function Header({
               onClick={() => {
                 setactives(index);
                 setActiveState(index);
-              }}
-            >
+              }}>
               {title}
             </TabButton>
           ))}
@@ -54,7 +53,7 @@ export const TabButton = styled(Link)`
   height: 1.7rem;
   font-size: 14px;
   font-weight: bold;
-  color: ${COLORS["gray-500"]};
+  color: ${COLORS['gray-500']};
   margin-bottom: 3.9rem;
   cursor: pointer;
   text-align: left;
@@ -64,7 +63,7 @@ export const TabButton = styled(Link)`
     active &&
     css`
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0.3rem;
         left: -1.9rem;

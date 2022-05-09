@@ -1,7 +1,7 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const MainWrapper = styled.div`
     padding-left: 3.54rem;
     padding-top: 3.7rem;
     background-color: ${COLORS.white};
-    &__bottom{
+    &__bottom {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,7 +41,7 @@ export const MainWrapper = styled.div`
       top: 52rem;
     }
   }
-`; 
+`;
 export const LeftSidebar = styled(Card)`
   width: 20.9rem;
   margin-right: 1.6rem;
