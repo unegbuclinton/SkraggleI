@@ -10,6 +10,12 @@ const BarChart = ({ series, categories, width, height }) => {
         height={height}
         series={series}
         options={{
+          responsive: [
+            {
+              breakpoint: undefined,
+              options: {}
+            }
+          ],
           xaxis: {
             categories
           }

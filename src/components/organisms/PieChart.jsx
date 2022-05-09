@@ -10,6 +10,12 @@ const PieChart = ({ width, height }) => {
         height={height}
         series={[350, 50]}
         options={{
+          responsive: [
+            {
+              breakpoint: undefined,
+              options: {}
+            }
+          ],
           legend: {
             show: false
           },
