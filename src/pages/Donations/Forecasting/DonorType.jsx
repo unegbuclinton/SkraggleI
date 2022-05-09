@@ -1,12 +1,12 @@
-import DropdownComponent from 'components/atoms/Dropdown';
-import React, { useState } from 'react';
-import data from 'utilities/filterData.json';
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { COLORS } from 'constants/colors';
+import DropdownComponent from 'components/atoms/Dropdown';
 import BarChart from 'components/organisms/BarChart';
 import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
@@ -47,7 +47,7 @@ function DonorType() {
             <p className="donor-text">Donor Score</p>
           </TypeHeader>
           <div className="bar-container">
-            <BarChart series={series} categories={['30', '40', '60']} width={650} height={350} />
+            <BarChart series={series} categories={['30', '40', '60']} height={350} />
           </div>
         </Card>
       </div>
@@ -73,8 +73,8 @@ const TypeWrapper = styled.div`
 
   .bar-container,
   .pie-container {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     padding-top: 2.4rem;
   }
   .pie-container {
