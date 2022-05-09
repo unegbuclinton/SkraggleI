@@ -1,12 +1,12 @@
-import DropdownComponent from 'components/atoms/Dropdown';
-import React, { useState } from 'react';
-import data from 'utilities/filterData.json';
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { COLORS } from 'constants/colors';
+import DropdownComponent from 'components/atoms/Dropdown';
 import BarChart from 'components/organisms/BarChart';
 import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
@@ -96,21 +96,20 @@ const TypeWrapper = styled.div`
         align-items: center;
         gap: 0.8rem;
 
-
-        p{
+        p {
           font-size: ${FONTSIZES.small};
           font-weight: ${FONTWEIGHTS.normal};
         }
         &__donation {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["uranian-blue"]};
+          background: ${COLORS['uranian-blue']};
         }
 
         &__contacts {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["turfts-blue"]};
+          background: ${COLORS['turfts-blue']};
         }
       }
     }
