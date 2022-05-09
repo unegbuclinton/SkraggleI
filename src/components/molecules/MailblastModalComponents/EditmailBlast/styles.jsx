@@ -1,7 +1,7 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const EditMailWrapper = styled.div`
   .edit-card {
@@ -20,7 +20,7 @@ export const EditMailWrapper = styled.div`
     .edit-cancel-btn {
       width: 10.7rem;
       height: 5.1rem;
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
     }
     .edit-save-btn {
       width: 20.5rem;
@@ -33,13 +33,13 @@ export const EditMailWrapper = styled.div`
     height: 6.4rem;
     padding-left: 1.6rem;
     background-color: transparent;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
   }
   .edit-dropdown {
     width: 60.2rem;
     height: 6.4rem;
     padding: 0 1.6rem;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     margin-bottom: 0.8rem;
   }
@@ -48,6 +48,6 @@ export const EditMailWrapper = styled.div`
 export const EditLabel = styled.p`
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.normal};
-  color: ${COLORS["black-shade"]};
+  color: ${COLORS['black-shade']};
   margin-bottom: 0.8rem;
 `;

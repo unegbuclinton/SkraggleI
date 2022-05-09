@@ -1,10 +1,10 @@
-import React from "react";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
-import Card from "components/atoms/Card";
-import Input from "components/atoms/Input/Input";
-import Button from "components/atoms/Button/Button";
+import React from 'react';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
+import Card from 'components/atoms/Card';
+import Input from 'components/atoms/Input/Input';
+import Button from 'components/atoms/Button/Button';
 
 function CreateTemplate({ onCloseModal }) {
   return (
@@ -16,12 +16,7 @@ function CreateTemplate({ onCloseModal }) {
         </div>
 
         <div className="template-footer">
-          <Button
-            invert
-            auth
-            className="template-cancel-btn"
-            onClick={onCloseModal}
-          >
+          <Button invert auth className="template-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
           <Button auth className="template-save-btn">
@@ -43,7 +38,7 @@ const CreateTemplateWrapper = styled.div`
     height: 6.4rem;
     padding-left: 1.6rem;
     background-color: transparent;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
     margin-top: 0.8rem;
   }
 
@@ -67,5 +62,5 @@ const CreateTemplateWrapper = styled.div`
 const CreateTemplateLabel = styled.label`
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.normal};
-  color: ${COLORS["black-shade"]};
+  color: ${COLORS['black-shade']};
 `;

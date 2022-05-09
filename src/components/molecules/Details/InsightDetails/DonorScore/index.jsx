@@ -1,11 +1,5 @@
-import React from "react";
-import {
-  Diamond,
-  DiamondContainer,
-  DonorContainer,
-  DonorHeading,
-  DonorWrapper,
-} from "./styles";
+import React from 'react';
+import { Diamond, DiamondContainer, DonorContainer, DonorHeading, DonorWrapper } from './styles';
 
 function Donor() {
   return (
@@ -20,8 +14,8 @@ function Donor() {
           </Diamond>
         </DiamondContainer>
         <p className="donor-info">
-          Contact Insights are a way for you to gauge the level of engagement of
-          this contact. Note: insights can take up to 24 hours to update.
+          Contact Insights are a way for you to gauge the level of engagement of this contact. Note:
+          insights can take up to 24 hours to update.
         </p>
       </DonorContainer>
     </DonorWrapper>

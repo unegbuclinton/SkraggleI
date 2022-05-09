@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Pagination from "components/molecules/Pagination";
-import { columns, data } from "utilities/volunteerData";
-import { TableHeading, TableWrapper } from "./styles";
-import Table from "components/layouts/Table";
-import ProfileLayOut from "..";
+import React, { useState } from 'react';
+import Pagination from 'components/molecules/Pagination';
+import { columns, data } from 'utilities/volunteerData';
+import { TableHeading, TableWrapper } from './styles';
+import Table from 'components/layouts/Table';
+import ProfileLayOut from '..';
 
 function VolunteerTable() {
   const [currentPage, setCurrentPage] = useState(1);

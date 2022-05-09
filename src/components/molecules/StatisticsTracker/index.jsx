@@ -1,14 +1,14 @@
-import CircularProgressBar from "components/atoms/CircularProgressBar";
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS } from "constants/font-spec";
-import { FONTSIZES } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import CircularProgressBar from 'components/atoms/CircularProgressBar';
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import { FONTSIZES } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
-function StatisticsTracker({ percentage, colour, num,value, text,header }) {
+function StatisticsTracker({ percentage, colour, num, value, text, header }) {
   return (
     <StatisticWrapper>
-      <CircularProgressBar percentage={percentage} colour={colour} num={num} header={header}/>
+      <CircularProgressBar percentage={percentage} colour={colour} num={num} header={header} />
 
       <div className="statistic-footer">
         <p className="statistic-num"> {value}</p>
@@ -39,7 +39,6 @@ const StatisticWrapper = styled.div`
       font-weight: ${FONTWEIGHTS.bold};
     }
     .statistic-text {
-        
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.bold};
     }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   ButtonContainer,
   Label,
@@ -9,27 +9,27 @@ import {
   SettingsMessage,
   SettingsWrapper,
   SwitchHeaderWrapper,
-  ErrorMsg,
-} from "./styles";
-import { DPIconCaretDown } from "icons";
-import Switch from "components/atoms/Switch/Switch";
-import Button from "components/atoms/Button/Button";
-import { useFormik } from "formik";
-import { generalSettingsValidationSchema } from "validation/Schema";
-import Input from "components/atoms/Input/Input";
+  ErrorMsg
+} from './styles';
+import { DPIconCaretDown } from 'icons';
+import Switch from 'components/atoms/Switch/Switch';
+import Button from 'components/atoms/Button/Button';
+import { useFormik } from 'formik';
+import { generalSettingsValidationSchema } from 'validation/Schema';
+import Input from 'components/atoms/Input/Input';
 
 function Settings() {
   const [dropDown, setDropDown] = useState(false);
   const formik = useFormik({
     initialValues: {
-      eventMessage: "",
-      donationMessage: "",
-      linkText: "",
+      eventMessage: '',
+      donationMessage: '',
+      linkText: ''
     },
     validationSchema: generalSettingsValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-    },
+    }
   });
   return (
     <SettingsWrapper>
@@ -37,10 +37,7 @@ function Settings() {
         <h1 onClick={() => setDropDown(!dropDown)} className="heading">
           General Settings
         </h1>
-        <DPIconCaretDown
-          className="icon"
-          onClick={() => setDropDown(!dropDown)}
-        />
+        <DPIconCaretDown className="icon" onClick={() => setDropDown(!dropDown)} />
       </SettingsHeader>
       {dropDown && (
         <SettingsContainer onSubmit={formik.handleSubmit}>
@@ -51,9 +48,7 @@ function Settings() {
                 <Switch />
               </div>
             </SwitchHeaderWrapper>
-            <p className="message">
-              We recommend keeping your message short and sweet.
-            </p>
+            <p className="message">We recommend keeping your message short and sweet.</p>
           </SettingsMessage>
           <div className="input-container">
             <LeftInputs>
@@ -84,14 +79,11 @@ function Settings() {
                 onBlur={formik.handleBlur}
                 value={formik.values.donationMessage}
               />
-              {formik.touched.donationMessage &&
-              formik.errors.donationMessage ? (
+              {formik.touched.donationMessage && formik.errors.donationMessage ? (
                 <ErrorMsg>{formik.errors.donationMessage}</ErrorMsg>
               ) : null}
 
-              <p className="info">
-                Banner only display when there is at least one active event.
-              </p>
+              <p className="info">Banner only display when there is at least one active event.</p>
             </LeftInputs>
 
             <RightInputs>
@@ -128,11 +120,7 @@ function Settings() {
           </div>
 
           <ButtonContainer>
-            <Button
-              type="button"
-              onClick={() => setDropDown(false)}
-              className="cancel-btn"
-            >
+            <Button type="button" onClick={() => setDropDown(false)} className="cancel-btn">
               Cancel
             </Button>
             <Button className="save-btn">Save</Button>

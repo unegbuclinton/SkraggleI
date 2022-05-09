@@ -1,8 +1,8 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
-import PersonalDetailsCard from "./PersonalDetails/PersonalDetailsCard";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
+import PersonalDetailsCard from './PersonalDetails/PersonalDetailsCard';
 
 function ProfileLayOut({ children, heading }) {
   return (
@@ -31,14 +31,14 @@ const ProfileContainer = styled.div`
   .main-heading {
     font-size: ${FONTSIZES.base};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
     padding-bottom: 1.6rem;
     padding-top: 2.4rem;
     position: -webkit-sticky;
     position: sticky;
     top: 4.8rem;
     z-index: 1;
-    background-color: ${COLORS["bg-light-blue"]};
+    background-color: ${COLORS['bg-light-blue']};
   }
 `;
 

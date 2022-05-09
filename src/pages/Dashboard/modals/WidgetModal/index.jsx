@@ -4,7 +4,7 @@ import React from 'react';
 
 function WidgetModal({ onCloseWidget, isShown }) {
   return (
-    <Modal header="Add Widget" isShown={isShown} hide={onCloseWidget}> 
+    <Modal header="Add Widget" isShown={isShown} hide={onCloseWidget}>
       <Widget onCloseWidget={onCloseWidget} />
     </Modal>
   );

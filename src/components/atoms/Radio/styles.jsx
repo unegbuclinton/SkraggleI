@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import styled, { css } from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import styled, { css } from 'styled-components';
 export const Wrapper = styled.label`
   display: flex;
   align-items: center;
@@ -29,13 +29,11 @@ export const Root = styled.div`
     width: fit-content;
   }
   &::before {
-    content: "";
+    content: '';
     border-radius: 100%;
     border: 1px solid
-      ${(props) =>
-        props.borderColor ? props.borderColor : `${COLORS["gray-500"]}`};
-    background: ${(props) =>
-      props.backgroundColor ? props.backgroundColor : "#FAFAFA"};
+      ${(props) => (props.borderColor ? props.borderColor : `${COLORS['gray-500']}`)};
+    background: ${(props) => (props.backgroundColor ? props.backgroundColor : '#FAFAFA')};
     width: 100%;
     height: 100%;
     position: absolute;
@@ -47,8 +45,7 @@ export const Root = styled.div`
   }
 `;
 export const Fill = styled.div`
-  background: ${(props) =>
-    props.fillColor ? props.fillColor : `${COLORS.pink}`};
+  background: ${(props) => (props.fillColor ? props.fillColor : `${COLORS.pink}`)};
   width: 0;
   height: 0;
   border-radius: 100%;
@@ -60,7 +57,7 @@ export const Fill = styled.div`
   pointer-events: none;
   z-index: 1;
   &::before {
-    content: "";
+    content: '';
     opacity: 0;
     /* width: calc(20px - 4px); */
     position: absolute;
@@ -70,8 +67,7 @@ export const Fill = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid
-      ${(props) => (props.borderActive ? props.borderActive : `${COLORS.pink}`)};
+    border: 1px solid ${(props) => (props.borderActive ? props.borderActive : `${COLORS.pink}`)};
     border-radius: 100%;
   }
 `;

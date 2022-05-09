@@ -1,8 +1,8 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-import styled from "styled-components";
-import Card from "components/atoms/Card/index";
+import styled from 'styled-components';
+import Card from 'components/atoms/Card/index';
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ export const ContainerDropdwon = styled.div`
   padding-right: 0.8rem;
   padding-top: 1.6rem;
   margin-bottom: 1.1rem;
-  .dropdown-icon{
+  .dropdown-icon {
     width: 0.8rem;
     height: 1.4rem;
   }
@@ -122,14 +122,14 @@ export const RightSection = styled(Card)`
     &__bottom-heading {
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
-      color: ${COLORS["black-shade"]};
+      color: ${COLORS['black-shade']};
       margin-bottom: 1.3rem;
     }
     &__bottom-paragraph {
       text-align: center;
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
     }
     &__transaction-icon {
       display: flex;

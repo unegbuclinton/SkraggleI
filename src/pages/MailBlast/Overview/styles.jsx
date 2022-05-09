@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const NewstellerWrapper = styled.div`
   margin-top: 1.6rem;
@@ -23,7 +23,7 @@ export const NewstellerTop = styled.div`
       justify-content: space-between;
       font-size: ${FONTSIZES.lg};
       font-weight: ${FONTWEIGHTS.bold};
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
       margin-bottom: 1.6rem;
     }
     .bottom {
@@ -33,17 +33,17 @@ export const NewstellerTop = styled.div`
       font-weight: ${FONTWEIGHTS.bold};
 
       .left {
-        color: ${COLORS["grey-500"]};
+        color: ${COLORS['grey-500']};
       }
 
       .right {
-        color: ${COLORS["navy-blue"]};
+        color: ${COLORS['navy-blue']};
       }
     }
   }
 
   .newsteller-right {
-    border: 1px solid ${COLORS["primary-blue"]};
+    border: 1px solid ${COLORS['primary-blue']};
     font-size: ${FONTSIZES.base};
     padding: 1rem 1.4rem 0.9rem 1.4rem;
     text-align: center;
@@ -62,11 +62,11 @@ export const NewstellerBody = styled.div`
   .body-header {
     font-size: ${FONTSIZES.xlarge};
     font-weight: ${FONTWEIGHTS.bold};
-    color: ${COLORS["grey-500"]};
+    color: ${COLORS['grey-500']};
     padding-bottom: 4.6rem;
 
     .added-text {
-      color: ${COLORS["navy-blue"]};
+      color: ${COLORS['navy-blue']};
     }
   }
 

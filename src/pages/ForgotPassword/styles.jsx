@@ -1,7 +1,7 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FormWrapper = styled.form`
   margin-top: 6.134rem;
@@ -18,7 +18,7 @@ export const FormWrapper = styled.form`
       font-weight: ${FONTWEIGHTS.bold};
       font-size: ${FONTSIZES.xlarge};
       line-height: 2.3rem;
-      color: ${COLORS["blue-black"]};
+      color: ${COLORS['blue-black']};
       margin-bottom: 9rem;
     }
 
@@ -32,7 +32,7 @@ export const FormWrapper = styled.form`
       color: ${COLORS.deepPurple};
     }
 
-    .recovery-button{
+    .recovery-button {
       border-radius: 0.5rem;
       height: 6.4rem;
       font-size: ${FONTSIZES.small};
@@ -52,7 +52,7 @@ export const ReturnLoginLink = styled(Link)`
   font-weight: ${FONTWEIGHTS.bold};
   font-size: ${FONTSIZES.lg};
   line-height: 2.1rem;
-  color: ${COLORS["blue-200"]};
+  color: ${COLORS['blue-200']};
 `;
 
 export const ErrorMessage = styled.p`

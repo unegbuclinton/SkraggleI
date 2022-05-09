@@ -1,20 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Header,
-  HeaderLinks,
-  HeaderLeftContent,
-  HeaderRightContent,
-} from "./styles";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Header, HeaderLinks, HeaderLeftContent, HeaderRightContent } from './styles';
 
-const DashboardHeader = ({
-  pageLinkBefore,
-  pageLinkAfter,
-  path,
-  navigationIcon,
-  pageLinks,
-  ...rest
-}) => {
+function DashboardHeader({ pageLinks }) {
   return (
     <Header>
       <div className="header__first-row">
@@ -36,11 +24,9 @@ const DashboardHeader = ({
           </div>
         </HeaderRightContent>
       </div>
-      <div className="header__second-row">
-      {pageLinks}
-      </div>
+      <div className="header__second-row">{pageLinks}</div>
     </Header>
   );
-};
+}
 
 export default DashboardHeader;

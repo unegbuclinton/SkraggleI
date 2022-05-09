@@ -1,5 +1,5 @@
-import React from "react";
-import Chart from "react-apexcharts";
+import React from 'react';
+import Chart from 'react-apexcharts';
 
 const BarChart = ({ series, categories, width, height, chart, legend }) => {
   return (
@@ -13,27 +13,26 @@ const BarChart = ({ series, categories, width, height, chart, legend }) => {
           chart: {
             stacked: false,
             toolbar: false,
-            ...chart,
+            ...chart
           },
           xaxis: {
-            categories,
+            categories
           },
           title: {
-            text: "Time of year",
-            align: "left",
+            text: 'Time of year',
+            align: 'left',
             style: {
-              fontSize: "14px",
-              fontWeight: "bold",
-              color: "#1F2847",
-              position: "relative",
-            },
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#1F2847',
+              position: 'relative'
+            }
           },
           legend: {
             show: false,
-            ...legend,
-          },
-        }}
-      ></Chart>
+            ...legend
+          }
+        }}></Chart>
     </>
   );
 };

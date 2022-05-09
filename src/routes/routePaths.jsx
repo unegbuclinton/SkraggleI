@@ -30,21 +30,21 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <Dashboard />,
+        element: <Dashboard />
       },
       {
         path: 'smart',
-        element: <Campaign />,
+        element: <Campaign />
       },
       {
         path: 'contact',
-        element: <SendVerification />,
+        element: <SendVerification />
       },
       {
         path: 'fundraising',
-        element: <SendVerification />,
-      },
-    ],
+        element: <SendVerification />
+      }
+    ]
   },
 
   {
@@ -53,18 +53,18 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <Contacts />,
+        element: <Contacts />
       },
       {
         path: 'contact-profile',
-        element: <Profile />,
-      },
-    ],
+        element: <Profile />
+      }
+    ]
   },
 
   {
     path: '/donations',
-    element: <Donations />,
+    element: <Donations />
   },
   {
     path: 'mail-blasts/*',
@@ -72,17 +72,17 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <MailBlast />,
+        element: <MailBlast />
       },
       {
         path: ':id',
-        element: <MonthlyNewsteller />,
+        element: <MonthlyNewsteller />
       },
       {
         path: 'subscription-update',
-        element: <UnsubscribeWarning />,
-      },
-    ],
+        element: <UnsubscribeWarning />
+      }
+    ]
   },
   {
     path: 'campaign/*',
@@ -90,13 +90,13 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <Campaign />,
+        element: <Campaign />
       },
       {
         path: ':id',
-        element: <CampaignDetails />,
-      },
-    ],
+        element: <CampaignDetails />
+      }
+    ]
   },
   {
     path: 'events/*',
@@ -104,17 +104,17 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <Events />,
+        element: <Events />
       },
       {
         path: 'events-details',
-        element: <EventsDetails />,
+        element: <EventsDetails />
       },
       {
         path: 'registration-package',
-        element: <RegistrationPackage />,
-      },
-    ],
+        element: <RegistrationPackage />
+      }
+    ]
   },
   {
     path: 'peer-to-peer/*',
@@ -122,31 +122,31 @@ export const privateRoutes = [
     children: [
       {
         path: '/',
-        element: <P2P />,
+        element: <P2P />
       },
       {
         path: ':id',
-        element: <P2PDetails />,
-      },
-    ],
+        element: <P2PDetails />
+      }
+    ]
   },
   {
     path: '/forms',
-    element: <DashboardLayout>Forms yet to be added</DashboardLayout>,
+    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
   },
 
   {
     path: '/elements',
-    element: <DashboardLayout>Elements yet to be added</DashboardLayout>,
+    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
   },
 
   {
     path: '/landing-page',
-    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>,
+    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>
   },
   {
     path: '/reports',
-    element: <DashboardLayout>Reports yet to be added</DashboardLayout>,
+    element: <DashboardLayout>Reports yet to be added</DashboardLayout>
   },
   {
     path: '*',
@@ -154,42 +154,42 @@ export const privateRoutes = [
       <DashboardLayout>
         <h1>404</h1>
       </DashboardLayout>
-    ),
+    )
   },
 
   {
     path: '/test',
-    element: <Test />,
-  },
+    element: <Test />
+  }
 ];
 
 export const publicRoutes = [
   {
     path: '/',
-    element: <Link to="/login">Go to Login</Link>,
+    element: <Link to="/login">Go to Login</Link>
   },
   {
     path: '/login',
-    element: <LogIn onClick />,
+    element: <LogIn onClick />
   },
   {
     path: '/forgotpassword',
-    element: <ForgotPassword />,
+    element: <ForgotPassword />
   },
   {
     path: '/signup',
-    element: <Registration />,
+    element: <Registration />
   },
   {
     path: '/reset-password',
-    element: <ResetPassword />,
+    element: <ResetPassword />
   },
   {
     path: '/resend-verification',
-    element: <ResendVerification />,
+    element: <ResendVerification />
   },
   {
     path: '/send-verification',
-    element: <SendVerification />,
-  },
+    element: <SendVerification />
+  }
 ];

@@ -1,26 +1,24 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import { DPIconMembership } from "icons";
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
-
-import Card from "components/atoms/Card";
-import BarChart from "components/organisms/BarChart";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import BarChart from 'components/organisms/BarChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconMembership } from 'icons';
+import React from 'react';
+import styled from 'styled-components';
 
 function DonorReadiness() {
   const series = [
     {
-      name: "Above Target",
+      name: 'Above Target',
       data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: "#FF576B",
+      color: '#FF576B'
     },
     {
-      name: "Target",
+      name: 'Target',
       data: [20, 25, 30, 35, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: "#1E003E",
-    },
+      color: '#1E003E'
+    }
   ];
 
   return (
@@ -31,7 +29,7 @@ function DonorReadiness() {
             <p className="Donor-text">Donor</p>
             <DonorBody>
               <DPIconMembership />
-              <p className="Donor-content">No Expiring Donors</p>
+              <p className="Donor-content">Not Enough Data</p>
               <Button className="Donor-btn" action>
                 Go to contact
               </Button>
@@ -51,41 +49,39 @@ function DonorReadiness() {
                 chart={{ stacked: true }}
                 legend={{
                   show: true,
-                  position: "top",
+                  position: 'top',
                   offsetY: -34,
-                  horizontalAlign: "right",
-                  fontSize: "12px",
+                  horizontalAlign: 'right',
+                  fontSize: '12px',
                   markers: {
-                    width: "16px",
-                    height: "16px",
+                    width: '16px',
+                    height: '16px',
                     offsetY: 3,
-                    offsetX: -2,
+                    offsetX: -2
                   },
                   itemMargin: {
-                    horizontal: 10,
-                  },
+                    horizontal: 10
+                  }
                 }}
                 categories={[
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
+                  'Jan',
+                  'Feb',
+                  'Mar',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'Aug',
+                  'Sep',
+                  'Oct',
+                  'Nov',
+                  'Dec'
                 ]}
                 height={385}
                 width={600}
               />
             </div>
-            <div className="donattion-title">
-              Donors likely to donate each month
-            </div>
+            <div className="donattion-title">Donors likely to donate each month</div>
           </BarchartWrapper>
         </DonorWrapper>
       </div>
@@ -133,7 +129,7 @@ const DonorWrapper = styled.div`
   .duration-text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
@@ -150,7 +146,7 @@ const DonorBody = styled.div`
   .Donor-content {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin-bottom: 3rem;
   }
   .Donor-btn {

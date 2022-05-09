@@ -1,54 +1,54 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
 
-import datas from "utilities/filterData";
+import datas from 'utilities/filterData';
 
-import { P2PForm } from "utilities/campaigndata";
+import { P2PForm } from 'utilities/campaigndata';
 
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from "./styles";
-import DropdownComponent from "components/atoms/Dropdown";
-import Checkbox from "components/atoms/CheckBox";
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const P2PTable = () => {
   const columns = [
     {
-      name: " ",
+      name: ' ',
       cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "P2P EVENTS NAME",
+      name: 'P2P EVENTS NAME',
       selector: (row) => row.name,
-      width: "35rem",
+      width: '35rem'
     },
 
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.type,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "RAISED",
+      name: 'RAISED',
       selector: (row) => row.raised,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "DONATIONS",
+      name: 'DONATIONS',
       selector: (row) => row.donations,
-      width: "35rem",
+      width: '35rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-    },
+      cell: () => <Button className="table-button">Active</Button>
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,16 +62,16 @@ const P2PTable = () => {
     type: p2pData.type,
     raised: p2pData.raised,
     donations: p2pData.donations,
-    status: p2pData.status,
+    status: p2pData.status
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [selected, setSelected] = useState("Filters");
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/peer-to-peer");
+    navigate('/peer-to-peer');
   };
 
   return (
@@ -84,21 +84,20 @@ const P2PTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas} className="dropdown-campaign" />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

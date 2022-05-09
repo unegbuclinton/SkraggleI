@@ -1,20 +1,21 @@
+import React from 'react';
+import Chart from 'react-apexcharts';
 
-import React from "react";
-import Chart from "react-apexcharts";
-
-const PieChart = ({width,height}) => {
+const PieChart = ({ width, height }) => {
   return (
     <>
       <Chart
         type="pie"
         width={width}
         height={height}
-        series={[350,50]}
+        series={[350, 50]}
         options={{
+          legend: {
+            show: false
+          },
           xaxis: {},
-          colors :['#FF576B','#1E003E']
-        }}
-      ></Chart>
+          colors: ['#BEE0FF', '#578EC1']
+        }}></Chart>
     </>
   );
 };
