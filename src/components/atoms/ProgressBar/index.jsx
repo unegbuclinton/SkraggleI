@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import React from "react";
-import styled, { css } from "styled-components";
+import { COLORS } from 'constants/colors';
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const ProgressBar = ({ value, target, subColor, ...rest }) => {
   const range = (value / target) * 100;
