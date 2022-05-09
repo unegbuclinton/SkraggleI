@@ -1,6 +1,6 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import styled from 'styled-components';
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from "styled-components";
 
 export const InputContainer = styled.div`
   padding: 5rem 0;
