@@ -2,6 +2,7 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+
 function VerticalTab({
   tabs,
   setActiveState,

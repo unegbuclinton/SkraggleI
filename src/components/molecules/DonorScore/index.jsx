@@ -1,53 +1,53 @@
-import React from "react";
-import BarChart from "components/organisms/BarChart";
-import styled from "styled-components";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import { COLORS } from "constants/colors";
-import Card from "components/atoms/Card";
+import Card from 'components/atoms/Card';
+import BarChart from 'components/organisms/BarChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 function DonorScore() {
   const series = [
     {
-      name: "Data",
-      color: "#9FFF97",
+      name: 'Data',
+      color: '#9FFF97',
       data: [
         {
-          x: "category A",
+          x: 'category A',
           y: 20,
-          fillColor: "#FFE768",
+          fillColor: '#FFE768'
         },
         {
-          x: "category A",
+          x: 'category A',
           y: 30,
-          fillColor: "#FFE768",
+          fillColor: '#FFE768'
         },
         {
-          x: "category B",
+          x: 'category B',
           y: 13,
-          fillColor: "#FF576B",
+          fillColor: '#FF576B'
         },
         {
-          x: "category A",
+          x: 'category A',
           y: 40,
-          fillColor: "#FFE768",
+          fillColor: '#FFE768'
         },
         {
-          x: "category C",
+          x: 'category C',
           y: 60,
-          fillColor: "#9FFF97",
+          fillColor: '#9FFF97'
         },
         {
-          x: "category B",
+          x: 'category B',
           y: 20,
-          fillColor: "#FF576B",
+          fillColor: '#FF576B'
         },
         {
-          x: "category A",
+          x: 'category A',
           y: 13,
-          fillColor: "#FFE768",
-        },
-      ],
-    },
+          fillColor: '#FFE768'
+        }
+      ]
+    }
   ];
 
   return (
@@ -61,40 +61,38 @@ function DonorScore() {
               legend={{
                 show: true,
                 showForSingleSeries: true,
-                customLegendItems: ["Highest", "Medium", "Lowest"],
-                position: "top",
+                customLegendItems: ['Highest', 'Medium', 'Lowest'],
+                position: 'top',
                 offsetY: -34,
-                horizontalAlign: "right",
-                fontSize: "12px",
+                horizontalAlign: 'right',
+                fontSize: '12px',
                 markers: {
-                  fillColors: ["#9FFF97", "#FFE768","#FF576B"],
-                  width: "16px",
-                  height: "16px",
+                  fillColors: ['#9FFF97', '#FFE768', '#FF576B'],
+                  width: '16px',
+                  height: '16px',
                   offsetY: 3,
-                  offsetX: -2,
+                  offsetX: -2
                 },
                 itemMargin: {
-                  horizontal: 10,
-                },
+                  horizontal: 10
+                }
               }}
               title={{
-                text: "Donor Score",
-                align: "left",
+                text: 'Donor Score',
+                align: 'left',
                 style: {
-                  fontSize: "14px",
-                  fontWeight: "bold",
-                  color: "#1F2847",
-                  position: "relative",
-                },
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  color: '#1F2847',
+                  position: 'relative'
+                }
               }}
-              categories={[" ", "30", " ", "40", " ", "60"]}
+              categories={[' ', '30', ' ', '40', ' ', '60']}
               width={650}
               height={350}
             />
           </div>
-          <div className="donattion-title">
-            Donors likely to donate each month
-          </div>
+          <div className="donattion-title">Donors likely to donate each month</div>
         </BarchartWrapper>
       </DonorWrapper>
     </div>
@@ -122,11 +120,12 @@ const DonorWrapper = styled.div`
   .duration-text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
     margin: 0;
     padding: 2.4rem 0rem 1.7rem 4rem;
   }
 `;
+
 const BorderBottom = styled.div`
   width: 100%;
   background-color: ${COLORS.torquoise};

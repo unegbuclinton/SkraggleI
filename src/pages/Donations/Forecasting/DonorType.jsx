@@ -44,7 +44,6 @@ function DonorType() {
       <div className="donor-score">
         <Card>
           <div className="bar-container">
-            <BorderBottom />
             <DonorScore />
           </div>
         </Card>
@@ -165,14 +164,5 @@ const TypeHeader = styled.div`
       justify-content: baseline;
     }
   }
-`;
-
-const BorderBottom = styled.div`
-  width: 100%;
-  background-color: ${COLORS.torquoise};
-  height: 0.1rem;
-  position: relative;
-  margin-bottom: -3.5rem;
-  /* margin-left: 1rem; */
 `;
 
