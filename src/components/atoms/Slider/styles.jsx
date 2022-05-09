@@ -1,6 +1,6 @@
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import styled from 'styled-components';
+import { COLORS } from "constants/colors";
+import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from "styled-components";
 
 export const InputContainer = styled.div`
   padding: 5rem 0;
@@ -24,12 +24,12 @@ export const SelectValue = styled.div`
   font-weight: ${FONTWEIGHTS.bold};
 
   &::after {
-    content: "";
+    content: '';
     width: 3.7rem;
     height: 3.7rem;
     position: absolute;
     left: 0;
-    background: ${COLORS["turfts-blue"]};
+    background: ${COLORS['turfts-blue']};
     transform: rotate(45deg);
     z-index: -1;
     border-top-left-radius: 50%;
@@ -37,14 +37,14 @@ export const SelectValue = styled.div`
     border-bottom-left-radius: 50%;
   }
 `;
-export const InputSlider = styled.input.attrs({ type: "range" })`
+export const InputSlider = styled.input.attrs({ type: 'range' })`
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: 0;
   height: 12px;
   width: 29.98rem;
   border-radius: 5px;
-  background: ${COLORS["turfts-blue"]};
+  background: ${COLORS['turfts-blue']};
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 
@@ -52,18 +52,16 @@ export const InputSlider = styled.input.attrs({ type: "range" })`
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
-    background-image: radial-gradient(circle ,#ff9800 40%,  #f7f7fc 45%);
+    background-image: radial-gradient(circle, #ff9800 40%, #f7f7fc 45%);
     border-radius: 50%;
     box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.12);
-
   }
-
 
   ::-moz-range-thumb {
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
-    background-image: radial-gradient(circle ,#ff9800 40%,  #f7f7fc 45%);
+    background-image: radial-gradient(circle, #ff9800 40%, #f7f7fc 45%);
     border-radius: 50%;
     box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.12);
   }
