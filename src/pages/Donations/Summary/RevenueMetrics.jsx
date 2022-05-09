@@ -2,7 +2,6 @@ import CalendarDropdown from "components/atoms/CalendarDropdown";
 import Card from "components/atoms/Card";
 import GoalProgressTracker from "components/molecules/GoalProgressTracker";
 import AreaChart from "components/organisms/AreaChart";
-// import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from "constants/colors";
 import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
 import React, { useState } from "react";
