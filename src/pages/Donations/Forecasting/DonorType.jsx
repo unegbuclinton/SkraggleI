@@ -71,12 +71,6 @@ const TypeWrapper = styled.div`
     width: 100%;
   }
 
-  .bar-container,
-  .pie-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 2.4rem;
-  }
   .pie-container {
     display: flex;
     flex-direction: column;
