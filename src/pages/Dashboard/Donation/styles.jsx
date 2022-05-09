@@ -1,5 +1,5 @@
 import { COLORS } from 'constants/colors';
-import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const DonationContainer = styled.div`
@@ -19,7 +19,7 @@ export const DonationWrapper = styled.div`
     margin: 0 4.7rem 0 4rem;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
@@ -43,12 +43,12 @@ export const RevenueWrapper = styled.div`
     position: relative;
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
-    padding: 2.4rem 0rem 1.7rem ;
+    color: ${COLORS['header-grey']};
+    padding: 2.4rem 0rem 1.7rem;
     margin: 0 4.7rem 0 4rem;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;

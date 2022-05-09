@@ -1,20 +1,18 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
-import { DPIconMembership } from 'icons';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
+import BarChart from 'components/organisms/BarChart';
 import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
-
-import Card from "components/atoms/Card";
-import BarChart from "components/organisms/BarChart";
-import { useNavigate } from "react-router-dom";
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconMembership } from 'icons';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 function DonorReadiness() {
   const navigate = useNavigate();
 
   const NavigateTo = () => {
-    navigate("/contacts");
+    navigate('/contacts');
   };
   const series = [
     {

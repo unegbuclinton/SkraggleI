@@ -1,6 +1,5 @@
 import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const ThankYouWrapper = styled.div`
@@ -39,7 +38,7 @@ export const ThankyouCard = styled.div`
     }
     &__two {
       font-size: 1.2rem;
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       word-break: break-word;
     }
   }

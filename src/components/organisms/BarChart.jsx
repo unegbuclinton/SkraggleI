@@ -11,17 +11,16 @@ const BarChart = ({ series, categories, width, height }) => {
         series={series}
         options={{
           xaxis: {
-            categories,
+            categories
           },
           chart: {
             toolbar: {
-              show: false,
+              show: false
             },
-            width: "100%",
-            redrawOnParentResize: true,
-          },
-        }}
-      ></Chart>
+            width: '100%',
+            redrawOnParentResize: true
+          }
+        }}></Chart>
     </>
   );
 };

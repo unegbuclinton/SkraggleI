@@ -1,5 +1,5 @@
-import React from "react";
-import Chart from "react-apexcharts";
+import React from 'react';
+import Chart from 'react-apexcharts';
 
 const PieChart = ({ width, height }) => {
   return (
@@ -11,16 +11,15 @@ const PieChart = ({ width, height }) => {
         series={[350, 50]}
         options={{
           legend: {
-            show: false,
+            show: false
           },
-          chart:{
+          chart: {
             width: '100%',
             redrawOnParentResize: true
           },
           xaxis: {},
-          colors: ["#BEE0FF", "#578EC1"],
-        }}
-      ></Chart>
+          colors: ['#BEE0FF', '#578EC1']
+        }}></Chart>
     </>
   );
 };

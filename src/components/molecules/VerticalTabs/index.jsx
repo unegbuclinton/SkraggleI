@@ -14,9 +14,9 @@ function VerticalTab({
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
   const listRef = useRef([]);
-  // const RenderFunction = (Components,props) => {
-  //   return <Components {...props} />;
-  // };
+  const RenderFunction = (Components, props) => {
+    return <Components {...props} />;
+  };
   return (
     <>
       <VerticalTabWrapper className={className}>

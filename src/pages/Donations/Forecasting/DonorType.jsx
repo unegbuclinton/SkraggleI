@@ -1,12 +1,12 @@
-import DropdownComponent from 'components/atoms/Dropdown';
-import React, { useState } from 'react';
-import data from 'utilities/filterData.json';
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { COLORS } from 'constants/colors';
+import DropdownComponent from 'components/atoms/Dropdown';
 import BarChart from 'components/organisms/BarChart';
 import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart height={360} width={350}/>
+            <PieChart height={360} width={350} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -49,7 +49,7 @@ function DonorType() {
           <div className="bar-container">
             <BarChart
               series={series}
-              categories={["30", "40", "60", "70", "80", "100"]}
+              categories={['30', '40', '60', '70', '80', '100']}
               height={420}
             />
           </div>
@@ -107,13 +107,13 @@ const TypeWrapper = styled.div`
         &__donation {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["uranian-blue"]};
+          background: ${COLORS['uranian-blue']};
         }
 
         &__contacts {
           width: 1.6rem;
           height: 1.6rem;
-          background: ${COLORS["turfts-blue"]};
+          background: ${COLORS['turfts-blue']};
         }
       }
     }
@@ -129,7 +129,7 @@ const TypeHeader = styled.div`
   margin-left: 4.1rem;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: calc(100% - 3.1rem);
     background: ${COLORS.torquoise};

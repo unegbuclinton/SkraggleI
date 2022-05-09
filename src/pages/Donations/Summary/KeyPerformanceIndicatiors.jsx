@@ -1,38 +1,38 @@
-import Card from "components/atoms/Card";
-import AreaChart from "components/organisms/AreaChart";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React from "react";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import AreaChart from 'components/organisms/AreaChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 const KeyPerformanceIndicatiors = () => {
   const series1 = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [300, 300, 300],
-      color: "#3BADC6",
-    },
+      color: '#3BADC6'
+    }
   ];
   const series2 = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [300, 305, 300],
-      color: "#3BADC6",
-    },
+      color: '#3BADC6'
+    }
   ];
   const series3 = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [300, 300, 300],
-      color: "#3BADC6",
-    },
+      color: '#3BADC6'
+    }
   ];
   const series4 = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [300, 300, 300],
-      color: "#3BADC6",
-    },
+      color: '#3BADC6'
+    }
   ];
   return (
     <KPIWrapper>
@@ -56,26 +56,24 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#3BADC6",
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
               stroke={{
-                colors: ["#3BADC6"],
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
-          <KPIContentCardHeader>
-            Donor Acquisition Rate (Monthly)
-          </KPIContentCardHeader>
+          <KPIContentCardHeader>Donor Acquisition Rate (Monthly)</KPIContentCardHeader>
           <KPIContentCardBody>
             <div>
               <h2>Current</h2>
@@ -92,18 +90,18 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#3BADC6",
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
               stroke={{
-                colors: ["#3BADC6"],
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
@@ -126,26 +124,24 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#3BADC6",
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
               stroke={{
-                colors: ["#3BADC6"],
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
         </KPIContentCard>
         <KPIContentCard>
-          <KPIContentCardHeader>
-            Donor Acquisition Rate (Monthly)
-          </KPIContentCardHeader>
+          <KPIContentCardHeader>Donor Acquisition Rate (Monthly)</KPIContentCardHeader>
           <KPIContentCardBody>
             <div>
               <h2>Current</h2>
@@ -162,18 +158,18 @@ const KeyPerformanceIndicatiors = () => {
               height={120}
               markers={{
                 size: 5,
-                colors: "#3BADC6",
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
                   show: false,
                   formatter: function (val) {
-                    return Number(val).toLocaleString() + "€";
-                  },
-                },
+                    return Number(val).toLocaleString() + '€';
+                  }
+                }
               }}
               stroke={{
-                colors: ["#3BADC6"],
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
@@ -198,10 +194,10 @@ const KPIHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
@@ -239,7 +235,7 @@ const KPIContentCardBody = styled.div`
   h2 {
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-200"]};
+    color: ${COLORS['grey-200']};
   }
 
   h1 {

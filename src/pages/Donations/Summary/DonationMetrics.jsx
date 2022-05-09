@@ -1,11 +1,11 @@
-import CalendarDropdown from "components/atoms/CalendarDropdown";
-import Card from "components/atoms/Card";
-import GoalProgressTracker from "components/molecules/GoalProgressTracker";
-import AreaChart from "components/organisms/AreaChart";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
-import styled from "styled-components";
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
+import Card from 'components/atoms/Card';
+import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
+import AreaChart from 'components/organisms/AreaChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const DonationMetrics = () => {
   const [openRange, setOpenRange] = useState(false);
@@ -13,16 +13,16 @@ const DonationMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: "Today",
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
 
   const series = [
     {
-      name: "Skraggle",
+      name: 'Skraggle',
       data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: "#2FC18D",
-    },
+      color: '#2FC18D'
+    }
   ];
 
   return (
@@ -44,24 +44,24 @@ const DonationMetrics = () => {
             open={openRange}
           />
         </DonationTrackerHeaderWrapper>
-       
+
         <AreaChart
-        series={series}
+          series={series}
           categories={[
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
           ]}
-          stroke={{ colors: ["#2FC18D"],}}
+          stroke={{ colors: ['#2FC18D'] }}
         />
       </DonationTrackerWrapper>
     </DonationMetricsContainer>
@@ -87,10 +87,10 @@ const DonationGoalsHeader = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
@@ -121,10 +121,10 @@ const DonationTrackerHeaderWrapper = styled.div`
   position: relative;
   font-size: ${FONTSIZES.lg};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["header-grey"]};
+  color: ${COLORS['header-grey']};
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     background: ${COLORS.torquoise};
     height: 1px;
