@@ -9,63 +9,63 @@ import {
   DPIconLandingPage,
   DPIconMailBlasts,
   DPIconP2P,
-  DPIconReports,
+  DPIconReports
 } from 'icons';
 
 export const SidebarContent = [
   {
     route: '/dashboard',
     icon: <DPIconDashboard />,
-    text: 'Dashboard',
+    text: 'Dashboard'
   },
   {
     route: '/contacts',
     icon: <DPIconContacts />,
-    text: 'Contacts',
+    text: 'Contacts'
   },
   {
     route: '/campaign',
     icon: <DPIconCampaign />,
-    text: 'Campaign',
+    text: 'Campaign'
   },
   {
     route: '/donations',
     icon: <DPIconDonations />,
-    text: 'Donations',
+    text: 'Donations'
   },
   {
     route: '/forms',
     icon: <DPIconForms />,
-    text: 'Forms',
+    text: 'Forms'
   },
   {
     route: '/peer-to-peer',
     icon: <DPIconP2P />,
-    text: 'P2P',
+    text: 'P2P'
   },
   {
     route: '/events',
     icon: <DPIconEvents />,
-    text: 'Events',
+    text: 'Events'
   },
   {
     route: '/landing-page',
     icon: <DPIconLandingPage />,
-    text: 'Landing Page',
+    text: 'Landing Page'
   },
   {
     route: '/elements',
     icon: <DPIconElements />,
-    text: 'Elements',
+    text: 'Elements'
   },
   {
-    route: '/mail-blast',
+    route: '/mail-blasts',
     icon: <DPIconMailBlasts />,
-    text: 'Mail Blasts',
+    text: 'Mail Blasts'
   },
   {
     route: '/reports',
     icon: <DPIconReports />,
-    text: 'Reports',
-  },
+    text: 'Reports'
+  }
 ];

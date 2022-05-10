@@ -4,17 +4,17 @@ import { COLORS } from 'constants/colors';
 import React from 'react';
 import styled from 'styled-components';
 
-const DashboardLayout = ({ children }) => {
+function DashboardLayout({ children, pageLinks }) {
   return (
     <DashboardContainer>
       <Sidebar />
       <DashboardContentWrapper>
-        <DashboardHeader />
+        <DashboardHeader pageLinks={pageLinks} />
         <DashboardContent>{children}</DashboardContent>
       </DashboardContentWrapper>
     </DashboardContainer>
   );
-};
+}
 
 export default DashboardLayout;
 
@@ -30,6 +30,7 @@ const DashboardContentWrapper = styled.aside`
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 
 const DashboardContent = styled.div`

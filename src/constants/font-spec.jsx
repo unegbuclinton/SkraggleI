@@ -4,11 +4,14 @@ export const FONTSIZES = {
   base: '1.6rem',
   lg: '1.8rem',
   xlarge: '2rem',
-  'logo-large': '3.383rem',
+  xxlarge: '2.4rem',
+  xxxlarge: '2.6rem',
+  'logo-large': '3.383rem'
 };
 
 export const FONTWEIGHTS = {
   normal: 400,
   medium: 500,
   bold: 700,
+  xbold: 900
 };

@@ -2,15 +2,11 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
-export const Header = styled.header`
-  padding: 1.6rem 4rem 1.463rem 3.2rem;
-  height: 9rem;
-  border-bottom: 1px solid ${COLORS['porcelain-white']};
+export const HeaderLeftContent = styled.div`
   display: flex;
-  align-items: center;
+  flex: 5;
   justify-content: space-between;
-  position: sticky;
-
+  align-items: center;
   .header {
     &__company-name {
       color: ${COLORS.deepPurple};
@@ -18,6 +14,49 @@ export const Header = styled.header`
       font-size: ${FONTSIZES.lg};
       font-family: 'Inter' sans-serif;
       line-height: 2.2rem;
+    }
+  }
+`;
+
+export const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 4rem 1.463rem 3.2rem;
+  height: 9rem;
+  border-bottom: 1px solid ${COLORS['porcelain-white']};
+  position: sticky;
+  justify-content: center;
+
+  .header {
+    &__first-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    &__second-row {
+      height: 2rem;
+    }
+    &__page-links-before {
+      text-decoration: none;
+      font-size: ${FONTSIZES.xsmall};
+      font-style: normal;
+      font-weight: ${FONTWEIGHTS.bold};
+      line-height: 2.1rem;
+      letter-spacing: 0em;
+      color: rgba(88, 88, 88, 1);
+      margin-right: 1.514rem;
+    }
+    &__navigation-icon {
+      margin-right: 1.514rem;
+    }
+    &__page-links-after {
+      text-decoration: none;
+      font-size: ${FONTSIZES.xsmall};
+      font-style: normal;
+      font-weight: ${FONTWEIGHTS.bold};
+      line-height: 2.1rem;
+      letter-spacing: 0em;
+      color: rgba(154, 154, 169, 1);
     }
   }
 `;

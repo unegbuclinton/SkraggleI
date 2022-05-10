@@ -1,27 +1,43 @@
-import React, { useState } from 'react'
-import { InputField, InputFieldIcon, Container } from './styles'
-import { DPIconSkraggleEyeOpen } from 'icons'
-import { DPIconSkraggleEyeClose } from 'icons'
+import React, { useState } from 'react';
+import { InputField, InputFieldIcon, Container } from './styles';
+import { DPIconSkraggleEyeOpen } from 'icons';
+import { DPIconSkraggleEyeClose } from 'icons';
 
-
-
-const Input = ({ type, placeholder }) => {
-
-  const [click, setClick] = useState(false)
-  const Show = () => setClick((prev) => !prev)
+const Input = ({
+  type,
+  placeholder,
+  disabled,
+  onChange,
+  name,
+  id,
+  onBlur,
+  className,
+  containerClass,
+  value
+}) => {
+  const [show, setShow] = useState(false);
+  const toggleShowPassword = () => setShow((prev) => !prev);
 
   return (
-    <Container>
-
-      <InputField type={click ? type === 'text' : 'password'} placeholder={placeholder} />
-      {type === 'password' && <InputFieldIcon onClick={Show}>
-        {click ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
-      </InputFieldIcon>}
+    <Container className={containerClass}>
+      <InputField
+        className={className}
+        disabled={disabled}
+        name={name}
+        id={id}
+        type={type === 'password' ? (show ? 'text' : 'password') : type}
+        placeholder={placeholder}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+      />
+      {type === 'password' && (
+        <InputFieldIcon onClick={toggleShowPassword}>
+          {show ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
+        </InputFieldIcon>
+      )}
     </Container>
-  )
-}
+  );
+};
 
-export default Input
-
-
-
+export default Input;

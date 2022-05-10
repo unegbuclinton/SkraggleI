@@ -22,12 +22,10 @@ const LogoWrapper = styled.div`
   display: flex;
   gap: 1.582rem;
   font-weight: ${FONTWEIGHTS.bold};
-  
 
   .logo {
     &__header {
-      color: ${({ light }) =>
-        light ? `${COLORS.white}` : `${COLORS.deepPurple}`};
+      color: ${({ light }) => (light ? `${COLORS.white}` : `${COLORS.deepPurple}`)};
       font-size: ${FONTSIZES['logo-large']};
       line-height: 4rem;
     }
