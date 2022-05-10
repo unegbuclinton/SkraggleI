@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import apiInstance from 'api';
+
 const initialState = {
   isAuthenticated: false,
   token: null
 };
 
-const loginUser = createAsyncThunk('auth/login', async () => {
-  const response = await axios.post('/url', {});
-  return response.data;
+const loginUser = createAsyncThunk('auth/login', async (body) => {
+  const response = await apiInstance.post('/admin/signup', body);
+  return console.log(response.data);
 });
 
 export const counterSlice = createSlice({
