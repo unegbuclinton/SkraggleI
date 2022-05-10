@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 const initialState = {
   isAuthenticated: false,
   token: null

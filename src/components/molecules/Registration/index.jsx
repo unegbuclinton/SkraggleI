@@ -1,14 +1,16 @@
-import React from 'react';
-import { Form, CatchError } from './styles';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
-import Button from 'components/atoms/Button/Button';
-import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { registrationSchema } from 'validation/Schema';
+import { CatchError, Form } from './styles';
 
 function Registration() {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
