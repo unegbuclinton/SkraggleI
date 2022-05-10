@@ -9,8 +9,6 @@ import { registrationSchema } from 'validation/Schema';
 import { CatchError, Form } from './styles';
 
 function Registration() {
-  const dispatch = useDispatch();
-
   const formik = useFormik({
     initialValues: {
       firstName: '',
