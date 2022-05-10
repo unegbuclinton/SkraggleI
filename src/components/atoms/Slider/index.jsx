@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { InputContainer, InputSlider, SelectValue } from "./styles";
+import React, { useState } from 'react';
+import { InputContainer, InputSlider, SelectValue } from './styles';
 
 function Slider() {
   const [value, setValue] = useState(10);
