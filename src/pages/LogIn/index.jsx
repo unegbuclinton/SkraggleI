@@ -3,13 +3,13 @@ import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
+import { login } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
-import { login } from 'features/auth/authSlice';
 
 const LogIn = ({ onClick }) => {
   const dispatch = useDispatch();
