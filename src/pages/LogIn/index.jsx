@@ -7,7 +7,7 @@ import AuthLayout from 'components/layouts/AuthLayout';
 import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
@@ -15,7 +15,6 @@ import { FormWrapper, LoginLink } from './styles';
 const LogIn = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -28,7 +27,9 @@ const LogIn = () => {
         password: formik.values.password
       };
 
-      dispatch(loginUser(body).then(isAuthenticated));
+      dispatch(loginUser(body)).then((data) =>
+        console.log(data).catch((error) => console.log(error))
+      );
       // navigate('/dashboard');
       // persistedReducer.pause();
       // persistedReducer.purge();
