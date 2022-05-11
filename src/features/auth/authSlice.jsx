@@ -58,8 +58,15 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
-  const response = await apiInstance.post('/admin/login', body);
-  return console.log(response.data);
+  try {
+    return await apiInstance({
+      method: 'post',
+      url: '/admin/login',
+      data: body
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 const authSlice = createSlice({
@@ -71,10 +78,13 @@ const authSlice = createSlice({
   reducers: {},
 
   extraReducers: {
-    [loginUser.fulfilled]: (state, { payload }) => {
-      state.isAuthenticated = true;
-      state.token = payload.token;
-      console.log(payload);
+    [loginUser.fulfilled]: (state, action) => {
+      state.isAuthenticated = action.payload;
+      // state.loginUser = action.payload;
+      // state.token = payload.token;
+    },
+    [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
     }
   }
 });

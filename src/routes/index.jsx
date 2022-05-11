@@ -1,11 +1,11 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import generateUUID from 'utilities/helpers';
 import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {
-  // const { isAuthenticated } = useSelector((state) => state.auth);
-  let isAuthenticated = false;
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   function PrivateRoute() {
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
   }
