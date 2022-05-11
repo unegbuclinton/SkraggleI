@@ -1,22 +1,26 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
-import { DPIconMembership } from 'icons';
-import styled from 'styled-components';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
-
 import Card from 'components/atoms/Card';
 import BarChart from 'components/organisms/BarChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconMembership } from 'icons';
+import React from 'react';
+import styled from 'styled-components';
 
 function DonorReadiness() {
   const series = [
     {
-      name: 'Skraggle',
+      name: 'Above Target',
       data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
-      color: '#FF6868'
+      color: '#FF576B'
+    },
+    {
+      name: 'Target',
+      data: [20, 25, 30, 35, 40, 15, 52, 44, 25, 35, 44, 55],
+      color: '#1E003E'
     }
   ];
+
   return (
     <ReadyWrappe>
       <div className="donor-readiness">
@@ -36,11 +40,29 @@ function DonorReadiness() {
 
       <div className="duration-wrapper">
         <DonorWrapper>
-          <Card>
-            <p className="duration-text">Time of year</p>
+          <BarchartWrapper>
+            {/* <p className="duration-text">Time of year</p> */}
             <div className="duraton-chart">
+              <BorderBottom />
               <BarChart
                 series={series}
+                chart={{ stacked: true }}
+                legend={{
+                  show: true,
+                  position: 'top',
+                  offsetY: -34,
+                  horizontalAlign: 'right',
+                  fontSize: '12px',
+                  markers: {
+                    width: '16px',
+                    height: '16px',
+                    offsetY: 3,
+                    offsetX: -2
+                  },
+                  itemMargin: {
+                    horizontal: 10
+                  }
+                }}
                 categories={[
                   'Jan',
                   'Feb',
@@ -55,11 +77,11 @@ function DonorReadiness() {
                   'Nov',
                   'Dec'
                 ]}
-                height={385}
-                width={600}
+                height={380}
               />
             </div>
-          </Card>
+            <div className="donattion-title">Donors likely to donate each month</div>
+          </BarchartWrapper>
         </DonorWrapper>
       </div>
     </ReadyWrappe>
@@ -79,12 +101,30 @@ const ReadyWrappe = styled.div`
   .duration-wrapper {
     flex: 1;
     width: 100%;
-    overflow: auto;
+  }
+`;
+
+const BarchartWrapper = styled(Card)`
+  padding: 5.4rem 3.1rem 3.5rem 2.6rem;
+  overflow: auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  text-align: center;
+  .donattion-title {
+    font-weight: ${FONTWEIGHTS.normal};
+    font-size: ${FONTSIZES.xsmall};
+    letter-spacing: 0.02em;
+    color: ${COLORS.deepPurple};
   }
 `;
 
 const DonorWrapper = styled.div`
   margin-bottom: 1.6rem;
+
+  .duration-card {
+  }
 
   .Donor-text,
   .duration-text {
@@ -114,4 +154,13 @@ const DonorBody = styled.div`
     font-size: ${FONTSIZES.xsmall};
     padding: 1.1rem 0;
   }
+`;
+
+const BorderBottom = styled.div`
+  width: 100%;
+  background-color: ${COLORS.torquoise};
+  height: 0.1rem;
+  position: relative;
+  margin-bottom: -3.5rem;
+  /* margin-left: 1rem; */
 `;

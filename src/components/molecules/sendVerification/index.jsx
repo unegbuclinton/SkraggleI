@@ -2,7 +2,6 @@ import AuthLayout from 'components/layouts/AuthLayout';
 import { DPIconEmail } from 'icons';
 import React from 'react';
 import { VerificationWrapper } from './styles';
-
 function SendVerification() {
   return (
     <AuthLayout>
@@ -16,14 +15,11 @@ function SendVerification() {
             To complete the sign up and log in, click the verification link in the email we have
             sent to
           </p>
-
           <div className="send-verification__email">john@example.com</div>
-
           <p className="send-verification__link">Resend verification email</p>
         </div>
       </VerificationWrapper>
     </AuthLayout>
   );
 }
-
 export default SendVerification;

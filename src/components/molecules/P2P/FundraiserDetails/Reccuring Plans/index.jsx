@@ -6,7 +6,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
 const Plans = ({ className }) => {
   return (
-    <PlansWrapper className={className}>
+    <PlansWrapper id="recurring" className={className}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Reccurring Plans</h1>

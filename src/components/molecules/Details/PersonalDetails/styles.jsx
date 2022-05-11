@@ -7,6 +7,9 @@ import styled from 'styled-components';
 export const CardWrapper = styled(Card)`
   padding: 0 0.8rem 2.488rem 0.8rem;
   width: 34.628rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10rem;
 `;
 
 export const ContentsWrapper = styled.div`

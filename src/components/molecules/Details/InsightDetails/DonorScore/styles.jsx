@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const DonorWrapper = styled(Card)`
   padding: 2.428rem 3.996rem 5.036rem 3.996rem;
@@ -20,7 +20,7 @@ export const DonorHeading = styled.div`
 
 export const DonorContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 8.106rem;
   gap: 3rem;
   .donor-info {
@@ -30,6 +30,10 @@ export const DonorContainer = styled.div`
     width: 45rem;
     line-height: 2rem;
   }
+`;
+
+export const DiamondContainer = styled.div`
+  width: 10rem;
 `;
 
 export const Diamond = styled.div`

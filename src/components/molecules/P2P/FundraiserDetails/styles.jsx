@@ -1,27 +1,32 @@
-import styled from 'styled-components';
-import { COLORS } from 'constants/colors';
 import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
+
 export const MainWrapper = styled.div`
   display: flex;
   margin-top: 2.4rem;
   width: 100%;
-  .vertical-tab-wrapper {
+  height: 50%;
+  gap: 1.6rem;
+  .p2p-tabs-wrapper {
     display: flex;
-    gap: 1.6rem;
-    border-bottom: 1px solid ${COLORS.torquoise};
+    height: 50.7rem;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    background-color: transparent;
   }
-  .vertical-tabs {
+  .p2p-tabs {
+    display: flex;
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+    height: 42.7rem;
     width: 20.9rem;
-    height: fit-content;
     padding-left: 3.54rem;
     padding-top: 3.7rem;
     background-color: ${COLORS.white};
-    display: flex;
-    flex-direction: column;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 10px;
     &__bottom {
       display: flex;
       align-items: center;
@@ -35,10 +40,6 @@ export const MainWrapper = styled.div`
       position: sticky;
       top: 52rem;
     }
-  }
-  .vertical-wrapper {
-    display: flex;
-    flex-direction: column;
   }
 `;
 export const LeftSidebar = styled(Card)`

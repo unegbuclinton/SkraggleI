@@ -1,4 +1,3 @@
-// import TokenService from 'api/api_token';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
