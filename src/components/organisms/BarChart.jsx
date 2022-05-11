@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 
-const BarChart = ({ series, categories, width, height }) => {
+const BarChart = ({ series, categories, width, height, chart, legend, title }) => {
   return (
     <>
       <Chart
@@ -10,8 +10,28 @@ const BarChart = ({ series, categories, width, height }) => {
         height={height}
         series={series}
         options={{
+          chart: {
+            stacked: false,
+            toolbar: false,
+            ...chart
+          },
           xaxis: {
             categories
+          },
+          title: {
+            text: 'Time of year',
+            align: 'left',
+            style: {
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#1F2847',
+              position: 'relative'
+            },
+            ...title
+          },
+          legend: {
+            show: false,
+            ...legend
           }
         }}></Chart>
     </>
