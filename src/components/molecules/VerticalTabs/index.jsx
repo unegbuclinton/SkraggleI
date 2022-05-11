@@ -1,7 +1,8 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+
 function VerticalTab({
   tabs,
   setActiveState,
@@ -13,7 +14,7 @@ function VerticalTab({
   setRef
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
-  const listRef = useRef([]);
+
   const RenderFunction = (Components, props) => {
     return <Components {...props} />;
   };
@@ -24,7 +25,6 @@ function VerticalTab({
           <div className={verticalWrapper}>
             {tabs.map(({ title }, index) => (
               <TabButton
-                ref={(ref) => (listRef.current[index] = ref)}
                 key={index}
                 active={activeWidget === index}
                 onClick={() => {
@@ -41,7 +41,6 @@ function VerticalTab({
           </div>
         </div>
         <div className="content-wrapper" activeWidget={activeWidget}>
-          {/* {tabs && tabs[activeWidget]?.component} */}
           {tabs && RenderFunction(tabs[activeWidget]?.component)}
         </div>
       </VerticalTabWrapper>
@@ -57,8 +56,6 @@ const VerticalTabWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    position: sticky;
-    top: 0;
   }
 `;
 const TabButton = styled.button`

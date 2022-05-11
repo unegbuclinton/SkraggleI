@@ -1,14 +1,11 @@
-import { React, useRef, forwardRef } from 'react';
-
 import Button from 'components/atoms/Button/Button';
-import { DPIconCopy } from 'icons';
-
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconCopy } from 'icons';
+import { React, useRef } from 'react';
+import styled from 'styled-components';
 
-// eslint-disable-next-line react/display-name
-const P2PFundraise = forwardRef(({ className }, mainref) => {
+const P2PFundraise = ({ className }) => {
   const textAreaRef = useRef(null);
 
   function copyToClipboard1() {
@@ -16,8 +13,9 @@ const P2PFundraise = forwardRef(({ className }, mainref) => {
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }
+
   return (
-    <P2PFundraiser className={className} ref={mainref}>
+    <P2PFundraiser id="p2pfund" className={className}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">P2P Fundraiser</h1>
@@ -51,7 +49,7 @@ const P2PFundraise = forwardRef(({ className }, mainref) => {
       </div>
     </P2PFundraiser>
   );
-});
+};
 
 export default P2PFundraise;
 

@@ -1,12 +1,11 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { forwardRef, React } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-// eslint-disable-next-line react/display-name
-const CustomFields = forwardRef(({ className }, customref) => {
+const CustomFields = ({ className }) => {
   return (
-    <CustomFieldWrapper className={className} ref={customref}>
+    <CustomFieldWrapper className={className}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Custom Fields</h1>
@@ -21,7 +20,7 @@ const CustomFields = forwardRef(({ className }, customref) => {
       </div>
     </CustomFieldWrapper>
   );
-});
+};
 
 export default CustomFields;
 

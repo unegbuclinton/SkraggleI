@@ -10,6 +10,9 @@ const PieChart = ({ width, height }) => {
         height={height}
         series={[350, 50]}
         options={{
+          toolbar: {
+            show: false
+          },
           legend: {
             show: false
           },

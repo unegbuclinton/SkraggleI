@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart height={360} width={350} />
+            <PieChart height={300} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -43,15 +43,8 @@ function DonorType() {
       </div>
       <div className="donor-score">
         <Card>
-          <TypeHeader>
-            <p className="donor-text">Donor Score</p>
-          </TypeHeader>
           <div className="bar-container">
-            <BarChart
-              series={series}
-              categories={['30', '40', '60', '70', '80', '100']}
-              height={420}
-            />
+            <BarChart series={series} categories={['30', '40', '60']} height={360} />
           </div>
         </Card>
       </div>
@@ -78,10 +71,6 @@ const TypeWrapper = styled.div`
     flex: 1;
   }
 
-  .bar-container,
-  .pie-container {
-    padding-top: 2.4rem;
-  }
   .pie-container {
     display: flex;
     flex-direction: column;
@@ -150,5 +139,35 @@ const TypeHeader = styled.div`
     color: ${COLORS.deepPurple};
     width: 100%;
     padding-top: 2.4rem;
+  }
+
+  .donor-label {
+    display: flex;
+    gap: 1rem;
+    &__wrapper {
+      font-size: ${FONTSIZES.xsmall};
+      color: ${COLORS['blue-black']};
+      display: flex;
+      justify-content: baseline;
+      gap: 0.8rem;
+    }
+    &__highest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #9fff97;
+      justify-content: baseline;
+    }
+    &__medium {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ffe768;
+      justify-content: baseline;
+    }
+    &__lowest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ff576b;
+      justify-content: baseline;
+    }
   }
 `;

@@ -40,7 +40,7 @@ function DonorReadiness() {
 
       <div className="duration-wrapper">
         <DonorWrapper>
-          <Card>
+          <Card className="duration-card">
             <p className="duration-text">Time of year</p>
             <div className="duraton-chart">
               <BarChart
@@ -82,12 +82,14 @@ const ReadyWrappe = styled.div`
   .duration-wrapper {
     flex: 1;
     width: 100%;
-    overflow: auto;
   }
 `;
 
 const DonorWrapper = styled.div`
   margin-bottom: 1.6rem;
+
+  .duration-card {
+  }
 
   .Donor-text,
   .duration-text {
