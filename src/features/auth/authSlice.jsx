@@ -1,46 +1,84 @@
+// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+// import apiInstance from 'api';
+
+// const initialState = {
+//   isAuthenticated: false,
+//   token: null
+// };
+
+// export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
+//   const response = await apiInstance.post('/admin/login', body);
+//   return console.log(response.data);
+// });
+
+// export const authSlice = createSlice({
+//   name: 'auth',
+//   initialState,
+//   reducers: {},
+//   //   register: (state, payload) => {
+//   //     state = { ...state, payload };
+//   //   },
+//   //   resendVerification: () => {}
+//   // },
+//   extraReducers: {
+//     // Add reducers for additional action types here, and handle loading state as needed
+//     // builder.addCase(loginUser.fulfilled, (state, { payload }) => {
+//     //   state.isAuthenticated = true;
+//     //   state.token = payload.token;
+//     // });
+//     // builder.addCase(loginUser.rejected, (state, action) => {
+//     //   Add user to the state array
+//     //   state.entities.push(action.payload);
+//     // });
+//     // builder.addCase(loginUser.pending, (state, action) => {
+//     //   Add user to the state array
+//     //   state.entities.push(action.payload);
+//     // });
+//     [loginUser.pending]: (state) => {
+//       state.post = [...state.post];
+//     },
+
+//     [loginUser.fulfilled]: (state, { payload }) => {
+//       state.isAuthenticated = true;
+//       state.token = payload.token.then();
+//     },
+
+//     [loginUser.rejected]: (state) => {
+//       state.isSuccess = false;
+//       // state.post = [...state.post, payload];
+//     }
+//   }
+// });
+
+// export const { login, register, resendVerification } = authSlice.actions;
+
+// export default authSlice.reducer;
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
 
-const initialState = {
-  isAuthenticated: false,
-  token: null
-};
-
-const loginUser = createAsyncThunk('auth/login', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
+export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
+  const response = await apiInstance.post('/admin/login', body);
   return console.log(response.data);
 });
 
-export const counterSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
-  initialState,
-  reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
-      // state.token = payload.token;
-    },
-    register: (state, payload) => {
-      state = { ...state, payload };
-    },
-    resendVerification: () => {}
+  initialState: {
+    isAuthenticated: false,
+    token: null
   },
-  extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
+  reducers: {},
+
+  extraReducers: {
+    [loginUser.fulfilled]: (state, { payload }) => {
       state.isAuthenticated = true;
       state.token = payload.token;
-    });
-    builder.addCase(loginUser.rejected, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
-    builder.addCase(loginUser.pending, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
+      console.log(payload);
+    }
   }
 });
 
-export const { login, register, resendVerification } = counterSlice.actions;
+export const { login, register, resendVerification } = authSlice.actions;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;

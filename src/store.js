@@ -10,7 +10,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  log: authReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

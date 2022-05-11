@@ -1,20 +1,21 @@
+// import TokenService from 'api/api_token';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
+import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
-import { login } from 'features/auth/authSlice';
 
 const LogIn = ({ onClick }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+  // const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -22,8 +23,13 @@ const LogIn = ({ onClick }) => {
     },
     validationSchema: loginSchema,
     onSubmit: () => {
-      dispatch(login());
-      navigate('/dashboard');
+      const body = {
+        email: formik.values.email,
+        password: formik.values.password
+      };
+
+      dispatch(loginUser(body).then(isAuthenticated));
+      // navigate('/dashboard');
       // persistedReducer.pause();
       // persistedReducer.purge();
     }
@@ -68,7 +74,6 @@ const LogIn = ({ onClick }) => {
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {' '}
               Sign Up
             </LoginLink>
           </p>
