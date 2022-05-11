@@ -1,21 +1,21 @@
-import DropdownComponent from 'components/atoms/Dropdown';
-import React, { useState } from 'react';
-import data from 'utilities/filterData.json';
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { COLORS } from 'constants/colors';
-import BarChart from 'components/organisms/BarChart';
+import DropdownComponent from 'components/atoms/Dropdown';
+import DonorScore from 'components/molecules/DonorScore';
 import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
-  const series = [
-    {
-      name: 'Skraggle',
-      data: [39, 30, 35, 25, 40, 15]
-    }
-  ];
+  // const series = [
+  //   {
+  //     name: "Skraggle",
+  //     data: [39, 30, 35, 25, 40, 15],
+  //   },
+  // ];
 
   return (
     <TypeWrapper>
@@ -43,11 +43,8 @@ function DonorType() {
       </div>
       <div className="donor-score">
         <Card>
-          <TypeHeader>
-            <p className="donor-text">Donor Score</p>
-          </TypeHeader>
           <div className="bar-container">
-            <BarChart series={series} categories={['30', '40', '60']} width={650} height={350} />
+            <DonorScore />
           </div>
         </Card>
       </div>
@@ -136,5 +133,35 @@ const TypeHeader = styled.div`
     margin: 0.8rem 5.6rem 0 4.1rem;
     border-bottom: 1px solid ${COLORS.torquoise};
     padding-bottom: 1.6rem;
+  }
+
+  .donor-label {
+    display: flex;
+    gap: 1rem;
+    &__wrapper {
+      font-size: ${FONTSIZES.xsmall};
+      color: ${COLORS['blue-black']};
+      display: flex;
+      justify-content: baseline;
+      gap: 0.8rem;
+    }
+    &__highest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #9fff97;
+      justify-content: baseline;
+    }
+    &__medium {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ffe768;
+      justify-content: baseline;
+    }
+    &__lowest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ff576b;
+      justify-content: baseline;
+    }
   }
 `;
