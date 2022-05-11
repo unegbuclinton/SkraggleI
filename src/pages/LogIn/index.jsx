@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
-const LogIn = ({ onClick }) => {
+const LogIn = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -68,7 +68,7 @@ const LogIn = ({ onClick }) => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button className="login-button" onClick={onClick}>
+          <Button type="submit" className="login-button">
             LOG IN
           </Button>
           <p className="login-card__signup-link">
