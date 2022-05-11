@@ -43,9 +43,6 @@ function DonorType() {
       </div>
       <div className="donor-score">
         <Card>
-          <TypeHeader>
-            <p className="donor-text">Donor Score</p>
-          </TypeHeader>
           <div className="bar-container">
             <BarChart series={series} categories={['30', '40', '60']} height={360} />
           </div>
@@ -132,5 +129,35 @@ const TypeHeader = styled.div`
     margin: 0.8rem 5.6rem 0 4.1rem;
     border-bottom: 1px solid ${COLORS.torquoise};
     padding-bottom: 1.6rem;
+  }
+
+  .donor-label {
+    display: flex;
+    gap: 1rem;
+    &__wrapper {
+      font-size: ${FONTSIZES.xsmall};
+      color: ${COLORS['blue-black']};
+      display: flex;
+      justify-content: baseline;
+      gap: 0.8rem;
+    }
+    &__highest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #9fff97;
+      justify-content: baseline;
+    }
+    &__medium {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ffe768;
+      justify-content: baseline;
+    }
+    &__lowest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ff576b;
+      justify-content: baseline;
+    }
   }
 `;

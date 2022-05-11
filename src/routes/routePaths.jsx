@@ -1,6 +1,6 @@
-import React from 'react';
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import ForgotPassword from 'pages/ForgotPassword';
+import EventsDetails from 'components/molecules/EventsDetails';
+import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/resendVerification/ResendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
@@ -12,16 +12,16 @@ import Profile from 'pages/ContactsPage/Profile';
 import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
 import Events from 'pages/Events';
+import ForgotPassword from 'pages/ForgotPassword';
+import LogIn from 'pages/LogIn';
+import MailBlast from 'pages/MailBlast';
+import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
+import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
-import MailBlast from 'pages/MailBlast';
-import { Link, Outlet } from 'react-router-dom';
-import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
-import EventsDetails from 'components/molecules/EventsDetails';
-import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import Test from 'pages/Test';
-import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
-import LogIn from 'pages/LogIn';
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 export const privateRoutes = [
   {
