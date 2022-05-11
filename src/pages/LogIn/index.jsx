@@ -3,10 +3,10 @@ import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
-import { login } from 'features/auth/authSlice';
+import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
@@ -14,7 +14,7 @@ import { FormWrapper, LoginLink } from './styles';
 const LogIn = ({ onClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -22,12 +22,23 @@ const LogIn = ({ onClick }) => {
     },
     validationSchema: loginSchema,
     onSubmit: () => {
-      dispatch(login());
-      navigate('/dashboard');
-      // persistedReducer.pause();
-      // persistedReducer.purge();
+      const body = {
+        email: formik.values.email,
+        password: formik.values.password
+      };
+
+      dispatch(loginUser(body))
+        .then(() => {
+          if (isAuthenticated.data.message.statusCode === 200) {
+            navigate('/dashboard');
+          } else {
+            navigate('/login');
+          }
+        })
+        .catch((err) => err);
     }
   });
+
   return (
     <AuthLayout>
       <FormWrapper onSubmit={formik.handleSubmit}>
@@ -62,13 +73,12 @@ const LogIn = ({ onClick }) => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button className="login-button" onClick={onClick}>
+          <Button type="submit" onClick={onClick} className="login-button">
             LOG IN
           </Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {' '}
               Sign Up
             </LoginLink>
           </p>
