@@ -1,14 +1,22 @@
-import React from 'react';
-import { Form, CatchError } from './styles';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
-import Button from 'components/atoms/Button/Button';
-import { Link } from 'react-router-dom';
+import { registerUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
-import Card from 'components/atoms/Card';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { registrationSchema } from 'validation/Schema';
+import LoadingScreen from '../LoadingScreen';
+import { CatchError, Form } from './styles';
 
 function Registration() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isRegistered, isLoading, isError } = useSelector((state) => state.auth);
+
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -19,12 +27,30 @@ function Registration() {
     },
     validationSchema: registrationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        password: values.password,
+        type_of: 'user',
+        permission_level: 'administrator'
+      };
+      dispatch(registerUser(body));
     }
   });
 
+  useEffect(() => {
+    if (isRegistered === true) {
+      navigate('/resend-verification');
+    }
+  }, [isRegistered]);
+  const errorMessage = () => toast(isError);
+  console.log(isLoading);
   return (
     <AuthLayout>
+      {isLoading === true && <LoadingScreen />}
+      {isError && <div>{errorMessage}</div>}
+      <ToastContainer />
       <Form onSubmit={formik.handleSubmit}>
         <Card className="signup-card">
           <p className="signup-header"> Sign up</p>

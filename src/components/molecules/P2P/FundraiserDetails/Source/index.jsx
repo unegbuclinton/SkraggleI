@@ -1,12 +1,11 @@
-import React from 'react';
-
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
-const Source = ({ className, ref }) => {
+const Source = ({ className }) => {
   return (
-    <SourceWrapper className={className} ref={ref}>
+    <SourceWrapper id="source" className={className}>
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Source</h1>
