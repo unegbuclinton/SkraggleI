@@ -19,6 +19,14 @@ const BarChart = ({ series, categories, width, height, chart, legend, title }) =
             categories
           },
           title: {
+            text: 'Time of year',
+            align: 'left',
+            style: {
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#1F2847',
+              position: 'relative'
+            },
             ...title
           },
           legend: {

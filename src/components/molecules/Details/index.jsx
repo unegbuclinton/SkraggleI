@@ -33,7 +33,12 @@ const ProfileContainer = styled.div`
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS['gray-500']};
     padding-bottom: 1.6rem;
-    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4.8rem;
+    z-index: 1;
+    background-color: ${COLORS['bg-light-blue']};
   }
 `;
 
