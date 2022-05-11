@@ -15,7 +15,7 @@ import { CatchError, Form } from './styles';
 function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated, isLoading, isError } = useSelector((state) => state.auth);
+  const { isRegistered, isLoading, isError } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -27,24 +27,23 @@ function Registration() {
     },
     validationSchema: registrationSchema,
     onSubmit: (values) => {
-      dispatch(
-        registerUser({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          password: values.password,
-          type_of: 'user',
-          permission_level: 'administrator'
-        })
-      );
+      const body = {
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        password: values.password,
+        type_of: 'user',
+        permission_level: 'administrator'
+      };
+      dispatch(registerUser(body));
     }
   });
 
   useEffect(() => {
-    if (isAuthenticated === true) {
+    if (isRegistered === true) {
       navigate('/resend-verification');
     }
-  }, [isAuthenticated]);
+  }, [isRegistered]);
   const errorMessage = () => toast(isError);
   console.log(isLoading);
   return (

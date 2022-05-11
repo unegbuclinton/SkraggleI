@@ -4,24 +4,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
+  isRegistered: false,
   token: null,
   isLoading: false,
   isError: false,
   errorMessage: ''
 };
 
-export const registerUser = createAsyncThunk(
-  'auth/register',
-  async ({ firstName, lastName, email, password }) => {
-    const response = await apiInstance.post('/admin/signup', {
-      firstName,
-      lastName,
-      email,
-      password
-    });
-    return response.data;
-  }
-);
+export const registerUser = createAsyncThunk('auth/register', async (body) => {
+  const response = await apiInstance.post('/admin/signup', body);
+  return response.data;
+});
 
 const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => {
   try {
@@ -46,9 +39,9 @@ export const counterSlice = createSlice({
     resendVerification: () => {}
   },
   extraReducers: {
-    [registerUser.fulfilled]: (state, { payload }) => {
-      state.isAuthenticated = true;
-      state.token = payload.token;
+    [registerUser.fulfilled]: (state, action) => {
+      state.isRegistered = true;
+      state.registerUser = action.payload;
       state.isLoading = false;
     },
     [registerUser.rejected]: (state, action) => {
