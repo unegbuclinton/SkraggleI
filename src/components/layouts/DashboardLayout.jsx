@@ -37,4 +37,10 @@ const DashboardContent = styled.div`
   flex: 1;
   overflow-y: auto;
   padding: 1.6rem;
+  .profile-tab {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: red;
+  }
 `;
