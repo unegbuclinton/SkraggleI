@@ -14,7 +14,6 @@ function VerticalTab({
   setRef
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
-
   const RenderFunction = (Components, props) => {
     return <Components {...props} />;
   };
