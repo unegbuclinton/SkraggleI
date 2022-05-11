@@ -77,8 +77,7 @@ function DonorReadiness() {
                   'Nov',
                   'Dec'
                 ]}
-                height={385}
-                width={600}
+                height={380}
               />
             </div>
             <div className="donattion-title">Donors likely to donate each month</div>
@@ -102,7 +101,6 @@ const ReadyWrappe = styled.div`
   .duration-wrapper {
     flex: 1;
     width: 100%;
-    overflow: auto;
   }
 `;
 
@@ -124,6 +122,9 @@ const BarchartWrapper = styled(Card)`
 
 const DonorWrapper = styled.div`
   margin-bottom: 1.6rem;
+
+  .duration-card {
+  }
 
   .Donor-text,
   .duration-text {

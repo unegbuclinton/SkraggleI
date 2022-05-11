@@ -1,12 +1,12 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconProfileImage } from 'icons';
-import { React } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 function Settings({ className }) {
   return (
-    <SettingsWrapper className={className}>
+    <SettingsWrapper className={className} id="settings">
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Settings</h1>
