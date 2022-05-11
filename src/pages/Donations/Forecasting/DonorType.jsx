@@ -1,6 +1,6 @@
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import DonorScore from 'components/molecules/DonorScore';
+import BarChart from 'components/organisms/BarChart';
 import PieChart from 'components/organisms/PieChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
@@ -10,12 +10,12 @@ import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
-  // const series = [
-  //   {
-  //     name: "Skraggle",
-  //     data: [39, 30, 35, 25, 40, 15],
-  //   },
-  // ];
+  const series = [
+    {
+      name: 'Skraggle',
+      data: [39, 30, 35, 25, 40, 15]
+    }
+  ];
 
   return (
     <TypeWrapper>
@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart width={405} height={360} />
+            <PieChart height={300} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -44,7 +44,7 @@ function DonorType() {
       <div className="donor-score">
         <Card>
           <div className="bar-container">
-            <DonorScore />
+            <BarChart series={series} categories={['30', '40', '60']} height={360} />
           </div>
         </Card>
       </div>
@@ -62,18 +62,14 @@ const TypeWrapper = styled.div`
 
   .transaction {
     width: 100%;
+    flex: 1;
   }
 
   .donor-score {
     width: 100%;
+    flex: 1;
   }
 
-  .bar-container,
-  .pie-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 2.4rem;
-  }
   .pie-container {
     display: flex;
     flex-direction: column;

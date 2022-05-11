@@ -1,6 +1,6 @@
 import { COLORS } from 'constants/colors';
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 function Header({

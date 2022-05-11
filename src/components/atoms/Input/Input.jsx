@@ -1,7 +1,6 @@
+import { DPIconSkraggleEyeClose, DPIconSkraggleEyeOpen } from 'icons';
 import React, { useState } from 'react';
-import { InputField, InputFieldIcon, Container } from './styles';
-import { DPIconSkraggleEyeOpen } from 'icons';
-import { DPIconSkraggleEyeClose } from 'icons';
+import { Container, InputField, InputFieldIcon } from './styles';
 
 const Input = ({
   type,
