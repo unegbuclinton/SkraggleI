@@ -1,14 +1,35 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
-  token: null
+  token: null,
+  isLoading: false,
+  isError: false,
+  errorMessage: ''
 };
 
-const loginUser = createAsyncThunk('auth/login', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
-  return console.log(response.data);
+export const registerUser = createAsyncThunk(
+  'auth/register',
+  async ({ firstName, lastName, email, password }) => {
+    const response = await apiInstance.post('/admin/signup', {
+      firstName,
+      lastName,
+      email,
+      password
+    });
+    return response.data;
+  }
+);
+
+const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => {
+  try {
+    const response = await apiInstance.post('/admin/login', { email, password });
+    return response.data;
+  } catch (error) {
+    console.log('Error', error.response.data);
+  }
 });
 
 export const counterSlice = createSlice({
@@ -24,20 +45,37 @@ export const counterSlice = createSlice({
     },
     resendVerification: () => {}
   },
-  extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
+  extraReducers: {
+    [registerUser.fulfilled]: (state, { payload }) => {
       state.isAuthenticated = true;
       state.token = payload.token;
-    });
-    builder.addCase(loginUser.rejected, (state, action) => {
+      state.isLoading = false;
+    },
+    [registerUser.rejected]: (state, action) => {
       // Add user to the state array
       state.entities.push(action.payload);
-    });
-    builder.addCase(loginUser.pending, (state, action) => {
+    },
+    [registerUser.pending]: (state) => {
+      // Add user to the state array
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    },
+
+    [loginUser.fulfilled]: (state, { payload }) => {
+      state.isAuthenticated = true;
+      state.token = payload.token;
+      state.isLoading = false;
+    },
+    [loginUser.rejected]: (state, action) => {
       // Add user to the state array
       state.entities.push(action.payload);
-    });
+      state.isLoading = false;
+    },
+    [loginUser.pending]: (state) => {
+      // Add user to the state array
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    }
   }
 });
 
