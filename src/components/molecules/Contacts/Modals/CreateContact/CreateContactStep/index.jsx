@@ -1,19 +1,31 @@
-import React, { useState } from "react";
-import CreateContactStepOne from "../CreateContactStepOne";
-import ContactStepTwo from "../CreateContactStepTwo";
+import React, { useState } from 'react';
+import CreateContactStepOne from '../CreateContactStepOne';
+import ContactStepTwo from '../CreateContactStepTwo';
 
 const MultiStepForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    date: '',
+    emailSubscription: '',
+    tags: '',
+    street: '',
+    unit: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: '',
+    household: '',
+    priority: '',
+    assignee: '',
   });
 
   const [currentStep, setCurrentStep] = useState(0);
 
   const endPoint = (contactDatas) => {
-    console.log("Form Submitted", contactDatas);
+    console.log('Form Submitted', contactDatas);
   };
 
   const handleNextStep = (newData, final = false) => {
@@ -23,7 +35,7 @@ const MultiStepForm = ({ onClose }) => {
       endPoint(newData);
       return;
     }
-
+    console.log(newData);
     setCurrentStep((prev) => prev + 1);
   };
 

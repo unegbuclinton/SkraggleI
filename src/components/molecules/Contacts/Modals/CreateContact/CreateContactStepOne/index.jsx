@@ -1,41 +1,41 @@
-import React, { useState } from "react";
-import DropdownComponent from "components/atoms/Dropdown";
+import Button from 'components/atoms/Button/Button';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import {
+  dateDate,
+  monthData,
+  subcription,
+  yearsData,
+} from 'utilities/modalData';
+import { createContactValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DateContainer,
+  ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
   ModalWrapper,
-  ErrorMsg,
-} from "./styles";
-import {
-  subcription,
-  dateDate,
-  monthData,
-  yearsData,
-} from "utilities/modalData";
-import Button from "components/atoms/Button/Button";
-import Input from "components/atoms/Input/Input";
-import { useFormik } from "formik";
-import { createContactValidationSchema } from "validation/Schema";
+} from './styles';
 
 function CreateContactStepOne({ onClose, next, formData }) {
-  const [selected, setSelected] = useState("select");
-  const [selectDate, setSelectDate] = useState("Date");
-  const [selectMonth, setSelectMonth] = useState("Month");
-  const [selectYear, setSelectYear] = useState("Year");
+  const [selected, setSelected] = useState('select');
+  const [selectDate, setSelectDate] = useState('Date');
+  const [selectMonth, setSelectMonth] = useState('Month');
+  const [selectYear, setSelectYear] = useState('Year');
 
   const formik = useFormik({
     initialValues: formData,
     validationSchema: createContactValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      next(values);
+      next(values, true);
     },
   });
 
-  console.log(formik.errors);
+  // console.log(formik.errors);
 
   return (
     <ModalWrapper>
