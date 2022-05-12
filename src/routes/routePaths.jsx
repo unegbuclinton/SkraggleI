@@ -39,10 +39,6 @@ export const privateRoutes = [
       {
         path: 'contact',
         element: <SendVerification />
-      },
-      {
-        path: 'fundraising',
-        element: <SendVerification />
       }
     ]
   },

@@ -1,7 +1,9 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { contactHouseHold } from 'features/contact/ContactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { houseHoldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -13,13 +15,18 @@ import {
 } from './styles';
 
 function CraeteNewHouseHold({ onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: ''
     },
     validationSchema: houseHoldValidationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: () => {
+      const body = {
+        name: formik.values
+      };
+      dispatch(contactHouseHold(body));
+      // alert(JSON.stringify(values, null, 2));
     }
   });
   return (
