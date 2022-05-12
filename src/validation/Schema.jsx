@@ -53,7 +53,7 @@ export const createContactStepTwoValidationSchema = Yup.object({
   unit: Yup.string().required('Unit is required'),
   city: Yup.string().required('City is required'),
   state: Yup.string().required('State is required'),
-  postalCode: Yup.string().required('postalcode is required'),
+  postalcode: Yup.string().required('postalcode is required'),
   country: Yup.string().required('Country is required')
 });
 
