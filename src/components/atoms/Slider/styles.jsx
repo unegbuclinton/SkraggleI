@@ -14,7 +14,6 @@ export const SelectValue = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-``
   top: 0;
   left: ${({ value }) => value}px;
   background: transparent;
