@@ -1,9 +1,13 @@
-import React from 'react';
-import { ResendLinkWrapper } from './styles';
-import { DPIconEmail } from 'icons';
 import AuthLayout from 'components/layouts/AuthLayout';
-
+import { DPIconEmail } from 'icons';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { ResendLinkWrapper } from './styles';
+// useDispatch,
 function ResendVerification() {
+  // const dispatch = useDispatch();
+  const { isRegistered } = useSelector((state) => state.auth);
+  console.log(isRegistered.data);
   return (
     <AuthLayout>
       <ResendLinkWrapper>
@@ -14,7 +18,7 @@ function ResendVerification() {
           </div>
           <p className="resend-verification__info">We sent a recovery link to you at</p>
 
-          <div className="resend-verification__email">john@example.com</div>
+          <div className="resend-verification__email">{isRegistered.data}</div>
 
           <p className="resend-verification__link">Resend verification email</p>
         </div>

@@ -16,7 +16,7 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   return response.data;
 });
 
-const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => {
+export const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => {
   try {
     const response = await apiInstance.post('/admin/login', { email, password });
     return response.data;
@@ -25,23 +25,18 @@ const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => 
   }
 });
 
-export const counterSlice = createSlice({
+export const resendVerification = createAsyncThunk('auth/resendVerification', async () => {
+  const response = await apiInstance.post('/email/verification/send');
+  return response.data;
+});
+
+export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
-      // state.token = payload.token;
-    },
-    register: (state, payload) => {
-      state = { ...state, payload };
-    },
-    resendVerification: () => {}
-  },
+  reducers: {},
   extraReducers: {
     [registerUser.fulfilled]: (state, action) => {
-      state.isRegistered = true;
-      state.registerUser = action.payload;
+      state.isRegistered = action.payload;
       state.isLoading = false;
     },
     [registerUser.rejected]: (state, action) => {
@@ -72,6 +67,4 @@ export const counterSlice = createSlice({
   }
 });
 
-export const { login, register, resendVerification } = counterSlice.actions;
-
-export default counterSlice.reducer;
+export default authSlice.reducer;

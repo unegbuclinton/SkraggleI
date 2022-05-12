@@ -1,8 +1,11 @@
 import AuthLayout from 'components/layouts/AuthLayout';
 import { DPIconEmail } from 'icons';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { VerificationWrapper } from './styles';
 function SendVerification() {
+  const location = useLocation();
+  const email = location.state;
   return (
     <AuthLayout>
       <VerificationWrapper>
@@ -15,7 +18,7 @@ function SendVerification() {
             To complete the sign up and log in, click the verification link in the email we have
             sent to
           </p>
-          <div className="send-verification__email">john@example.com</div>
+          <div className="send-verification__email">{email}</div>
           <p className="send-verification__link">Resend verification email</p>
         </div>
       </VerificationWrapper>
