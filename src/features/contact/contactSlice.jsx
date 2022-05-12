@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api/index';
 
-export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => {
+export const contactHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
   try {
-    return apiInstance({
+    return await apiInstance({
       method: 'post',
       url: '/households/add',
       data: body
@@ -31,5 +31,4 @@ export const contactSlice = createSlice({
     }
   }
 });
-
-export default contactSlice.reducer;
+export default contactSlice;

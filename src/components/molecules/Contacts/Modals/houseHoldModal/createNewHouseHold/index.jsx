@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { contactHouseHold } from 'features/contact/ContactSlice';
+import { contactHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -26,7 +26,6 @@ function CraeteNewHouseHold({ onClose }) {
         name: formik.values
       };
       dispatch(contactHouseHold(body));
-      // alert(JSON.stringify(values, null, 2));
     }
   });
   return (
@@ -51,7 +50,9 @@ function CraeteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Continue</Button>
+            <Button type="submit" className="continue">
+              Continue
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>
