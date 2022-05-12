@@ -1,66 +1,71 @@
-import Button from 'components/atoms/Button/Button';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Table from 'components/layouts/Table';
-import Pagination from 'components/molecules/Pagination';
-import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { landingPagesData } from 'utilities/campaigndata';
+
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
+
 import datas from 'utilities/filterData';
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+
+import { landingPagesData } from 'utilities/campaigndata';
+
+import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const LandingPagesTable = () => {
   const columns = [
     {
       name: ' ',
-      cell: () => <Box type="checkbox"></Box>,
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: '5rem',
+      width: '5rem'
     },
     {
       name: 'ID',
       selector: (row) => row.uid,
-      width: '20rem',
+      width: '20rem'
     },
 
     {
       name: 'NAME',
       selector: (row) => row.name,
-      width: '20rem',
+      width: '20rem'
     },
     {
       name: 'CAMPAIGN',
       selector: (row) => row.campaign,
-      width: '20rem',
+      width: '20rem'
     },
     {
       name: 'TYPE',
       selector: (row) => row.type,
-      width: '20rem',
+      width: '20rem'
     },
     {
       name: 'ACTION',
       selector: (row) => row.action,
-      cell: (col) => (
+      cell: () => (
         <span>
           <Button className="table-button__clone">Clone</Button>
           <Button className="table-button__edit">Edit</Button>
           <Button className="table-button__remove">Active</Button>
         </span>
       ),
-      width: '35rem',
+      width: '35rem'
     },
     {
       name: 'ADVANCE',
       selector: (row) => row.advance,
-      cell: (col) => (
+      cell: () => (
         <span className="table-button__span">
           <Button className="table-button__view">View</Button>
           <Button className="table-button__testing">A/B Testing</Button>
         </span>
-      ),
-    },
+      )
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -75,14 +80,12 @@ const LandingPagesTable = () => {
     campaign: landingData.campaign,
     type: landingData.type,
     action: landingData.action,
-    advance: landingData.advance,
+    advance: landingData.advance
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
@@ -97,24 +100,21 @@ const LandingPagesTable = () => {
             <div className="table-header__left">
               <h1>88 Landing Pages</h1>
             </div>
-
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => handleButtonClick()}
-              >
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />
                 Create New
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

@@ -1,12 +1,13 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ArchiveWrapper = styled.div`
   height: 100vh;
 
   .archive-card {
     height: 100%;
+    margin-top: 1.6rem;
     padding: 3.2rem 2.4rem 0 2.4rem;
   }
 `;

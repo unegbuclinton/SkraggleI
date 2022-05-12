@@ -1,16 +1,17 @@
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import React from "react";
-import { GeneralBody, GeneralHeader, GeneralWrapper } from "./styles";
-import data from "utilities/filterData.json";
-import Card from "components/atoms/Card";
+import React, { useState } from 'react';
+import { GeneralBody, GeneralHeader, GeneralWrapper } from './styles';
+import data from 'utilities/filterData.json';
+import Card from 'components/atoms/Card';
+import DropdownComponent from 'components/atoms/Dropdown';
 
 function GeneralUpdate() {
+  const [selected, setSelected] = useState('Filters');
   return (
     <GeneralWrapper>
       <Card className="general-card">
         <GeneralHeader>
           <p className="body-text">General Update</p>
-          <CustomDropdown data={data} />
+          <DropdownComponent selected={selected} setSelected={setSelected} data={data} />
         </GeneralHeader>
         <GeneralBody>
           <div className="body--wrapper">

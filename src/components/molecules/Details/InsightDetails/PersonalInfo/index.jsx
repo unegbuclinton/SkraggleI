@@ -1,10 +1,6 @@
-import React from "react";
-import Button from "components/atoms/Button/Button";
-import {
-  PersonalInfoContainer,
-  PersonalInfoHeading,
-  PersonalInfoWrapper,
-} from "./styles";
+import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import { PersonalInfoContainer, PersonalInfoHeading, PersonalInfoWrapper } from './styles';
 
 function PersonalInfo() {
   return (

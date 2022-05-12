@@ -1,8 +1,8 @@
-import Card from "components/atoms/Card";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
-import styled from "styled-components";
+import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const CardWrapper = styled(Card)`
   padding: 0 0.8rem 2.488rem 0.8rem;
@@ -58,7 +58,7 @@ export const ContentsWrapper = styled.div`
     }
 
     &__phone {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
       padding-top: 3.2rem;
@@ -74,7 +74,7 @@ export const ContentsWrapper = styled.div`
   .primary {
     padding: 2.4rem 0 0 2.526rem;
     &__heading {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
     }
@@ -89,7 +89,7 @@ export const ContentsWrapper = styled.div`
   .address {
     padding: 3.2rem 0 0 2.526rem;
     &__heading {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
     }
@@ -107,7 +107,7 @@ export const ContentsWrapper = styled.div`
   .assignee {
     padding: 3.2rem 0 0 2.526rem;
     &__heading {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
     }
@@ -123,7 +123,7 @@ export const ContentsWrapper = styled.div`
   .priority {
     padding: 3.2rem 0 0 2.526rem;
     &__heading {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
     }
@@ -139,14 +139,14 @@ export const ContentsWrapper = styled.div`
   .tags {
     padding: 3.2rem 0 0 2.526rem;
     &__heading {
-      color: ${COLORS["grey-200"]};
+      color: ${COLORS['grey-200']};
       font-weight: ${FONTWEIGHTS.normal};
       font-size: ${FONTSIZES.xsmall};
     }
 
     .tags__btn {
-      background-color: ${COLORS["bg-grey-btn"]};
-      color: ${COLORS["gray-500"]};
+      background-color: ${COLORS['bg-grey-btn']};
+      color: ${COLORS['gray-500']};
       margin-top: 1.4rem;
     }
   }

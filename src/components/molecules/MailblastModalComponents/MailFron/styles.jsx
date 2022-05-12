@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
 
 export const MailFromWrapper = styled.div`
   .mailfrom-card {
@@ -13,14 +13,14 @@ export const MailFromWrapper = styled.div`
     padding-left: 1.6rem;
     margin-bottom: 2.5rem;
     background-color: transparent;
-    border: 1px solid ${COLORS["gray-500"]};
+    border: 1px solid ${COLORS['gray-500']};
   }
   .bottom-text {
     width: 31.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.normal};
-    color: ${COLORS["grey-400"]};
-    margin-bottom: 43.645rem;
+    color: ${COLORS['grey-400']};
+    margin-bottom: 10.645rem;
   }
 
   .mailfrom-footer {
@@ -32,7 +32,7 @@ export const MailFromWrapper = styled.div`
   .mail-cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
   .mail-save-btn {
     width: 20.5rem;
@@ -43,6 +43,6 @@ export const MailFromWrapper = styled.div`
 export const MailFromLabel = styled.p`
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.normal};
-  color: ${COLORS["black-shade"]};
+  color: ${COLORS['black-shade']};
   margin-bottom: 0.8rem;
 `;

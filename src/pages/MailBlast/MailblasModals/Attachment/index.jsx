@@ -1,6 +1,6 @@
-import Modal from "components/layouts/Modal";
-import Attachment from "components/molecules/MailblastModalComponents/Attachment";
-import React from "react";
+import Modal from 'components/layouts/Modal';
+import Attachment from 'components/molecules/MailblastModalComponents/Attachment';
+import React from 'react';
 
 function AttachmentModal({ onClose, isShown }) {
   return (

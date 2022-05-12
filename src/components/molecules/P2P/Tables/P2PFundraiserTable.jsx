@@ -1,63 +1,64 @@
-import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import datas from "utilities/filterData";
-import { P2PTableData } from "utilities/p2pData";
-import CreateP2PModal from "../CreateP2PFundraiserModal";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import datas from 'utilities/filterData.json';
+import { P2PTableData } from 'utilities/p2pData';
+import P2PModalComponent from '../P2PFundraiserModalComponent';
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
-
-
-const P2PTable = () => {
+function P2PTable() {
   const columns = [
     {
-      name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      name: ' ',
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "CAMPAIGN",
+      name: 'CAMPAIGN',
       selector: (row) => row.campaign,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "FUNDRAISER",
+      name: 'FUNDRAISER',
       selector: (row) => row.fundraiser,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "GOAL",
+      name: 'GOAL',
       selector: (row) => row.goals,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "RAISED",
+      name: 'RAISED',
       selector: (row) => row.raised,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "CREATED",
+      name: 'CREATED',
       selector: (row) => row.created,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "GOAL DATE",
+      name: 'GOAL DATE',
       selector: (row) => row.goaldate,
-      width: "20rem",
+      width: '20rem'
     },
     {
-      name: "1M STATISTICS -_-_",
+      name: '1M STATISTICS -_-_',
       selector: (row) => row.statistics,
-      width: "15rem",
-    },
+      width: '15rem'
+    }
   ];
+
+  const [selected, setSelected] = useState('Filters');
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -74,16 +75,15 @@ const P2PTable = () => {
     raised: P2PData.raised,
     created: P2PData.created,
     goaldate: P2PData.goaldate,
-    statistics: P2PData.statistics,
+    statistics: P2PData.statistics
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLasttList);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onRowClicked = (row) => {
-    // const pathName = row.campaign.toLowerCase().replace(/ /g, "-");
-    navigate(`/peer-to-peer/${row.key+1}`, { state: row });
+    navigate(`/peer-to-peer/${row.key + 1}`, { state: row });
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -98,18 +98,20 @@ const P2PTable = () => {
             </div>
 
             <div className="table-header__right">
-              <CustomDropdown className="dropdown-filter" data={datas} />
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                className="dropdown-filter"
+                data={datas}
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="p2p-button"
-                onClick={() => setModalIsOpen(true)}
-              >
+              <Button className="p2p-button" onClick={() => setModalIsOpen(true)}>
                 <DPPlusIcon className="plus-icon" />
                 New P2P Fundraiser
               </Button>
               {modalIsOpen && (
-                <CreateP2PModal
-                isShown={modalIsOpen}
+                <P2PModalComponent
+                  isShown={modalIsOpen}
                   onClose={() => {
                     setModalIsOpen(false);
                   }}
@@ -117,11 +119,7 @@ const P2PTable = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
       <Pagination
@@ -132,6 +130,6 @@ const P2PTable = () => {
       />
     </div>
   );
-};
+}
 
 export default P2PTable;

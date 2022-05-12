@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { InputField, InputFieldIcon, Container } from "./styles";
-import { DPIconSkraggleEyeOpen } from "icons";
-import { DPIconSkraggleEyeClose } from "icons";
+import { DPIconSkraggleEyeClose, DPIconSkraggleEyeOpen } from 'icons';
+import React, { useState } from 'react';
+import { Container, InputField, InputFieldIcon } from './styles';
 
 const Input = ({
   type,
@@ -12,23 +11,26 @@ const Input = ({
   id,
   onBlur,
   className,
+  containerClass,
+  value
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
 
   return (
-    <Container>
+    <Container className={containerClass}>
       <InputField
         className={className}
         disabled={disabled}
         name={name}
         id={id}
-        type={type === "password" ? (show ? "text" : "password") : type}
+        type={type === 'password' ? (show ? 'text' : 'password') : type}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        value={value}
       />
-      {type === "password" && (
+      {type === 'password' && (
         <InputFieldIcon onClick={toggleShowPassword}>
           {show ? <DPIconSkraggleEyeOpen /> : <DPIconSkraggleEyeClose />}
         </InputFieldIcon>

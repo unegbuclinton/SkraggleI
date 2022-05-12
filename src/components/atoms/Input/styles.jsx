@@ -12,20 +12,6 @@ export const InputField = styled.input`
   padding: 20px;
   margin-bottom: 16px;
 
-  ${({ type }) => {
-    console.log(type);
-    return (
-      type !== 'text' &&
-      css`
-        width: inherit;
-        height: inherit;
-        margin-bottom: 0;
-      `
-    );
-  }};
-
-
-
   ${({ disabled }) =>
     disabled &&
     css`
@@ -42,4 +28,5 @@ export const InputFieldIcon = styled.span`
 `;
 export const Container = styled.div`
   position: relative;
+  width: 100%;
 `;

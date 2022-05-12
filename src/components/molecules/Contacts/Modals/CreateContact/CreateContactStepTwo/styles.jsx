@@ -34,6 +34,17 @@ export const FormContainer = styled.form`
     margin-bottom: 1.606rem;
     background-color: ${COLORS.white};
   }
+
+  .address-input {
+    width: 17.842rem !important;
+    height: 6.4rem;
+    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border-radius: 0.5rem;
+    margin-bottom: 1.606rem;
+    padding: 0 2.83rem 0 2.83rem;
+    outline: none;
+    background-color: ${COLORS.white};
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -46,16 +57,6 @@ export const FormLabel = styled.label`
 export const AddressContainer = styled.div`
   display: flex !important;
   gap: 1.6rem;
-`;
-
-export const AddressInput = styled.input`
-  width: 17.842rem !important;
-  height: 6.4rem;
-  border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-  border-radius: 0.5rem;
-  margin-bottom: 1.606rem;
-  padding: 0 2.83rem 0 2.83rem;
-  outline: none;
 `;
 
 export const ButtonContainer = styled.div`

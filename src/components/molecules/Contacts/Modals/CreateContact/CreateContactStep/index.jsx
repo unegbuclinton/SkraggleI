@@ -19,7 +19,7 @@ const MultiStepForm = ({ onClose }) => {
     country: '',
     household: '',
     priority: '',
-    assignee: '',
+    assignee: ''
   });
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -38,26 +38,23 @@ const MultiStepForm = ({ onClose }) => {
     setCurrentStep((prev) => prev + 1);
   };
 
-  const handlePrevStep = (newData) => {
-    setFormData((prev) => ({ ...prev, ...newData }));
-    setCurrentStep((prev) => prev - 1);
-  };
+  // const handlePrevStep = (newData) => {
+  //   setFormData((prev) => ({ ...prev, ...newData }));
+  //   setCurrentStep((prev) => prev - 1);
+  // };
 
   const steps = [
-    <CreateContactStepOne
-      // formik={formik}
-      next={handleNextStep}
-      formData={formData}
-      onClose={onClose}
-    />,
+    // eslint-disable-next-line react/jsx-key
+    <CreateContactStepOne next={handleNextStep} formData={formData} onClose={onClose} />,
+    // eslint-disable-next-line react/jsx-key
     <ContactStepTwo
       next={handleNextStep}
-      prev={handlePrevStep}
+      // prev={handlePrevStep}
       onClose={onClose}
       formData={formData}
-    />,
+    />
   ];
 
-  return <div>{steps[currentStep]}</div>;
+  return <>{steps[currentStep]}</>;
 };
 export default MultiStepForm;

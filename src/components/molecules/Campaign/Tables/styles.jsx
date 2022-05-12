@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-import Card from "components/atoms/Card";
+import Card from 'components/atoms/Card';
 
 export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
@@ -96,7 +96,7 @@ export const TableHeaderWrapper = styled.div`
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.lg};
     line-height: 21px;
-    color: ${COLORS["gray-1"]};
+    color: ${COLORS['gray-1']};
   }
 
   .table-header {
@@ -112,7 +112,7 @@ export const TableHeaderWrapper = styled.div`
       flex-direction: row;
       justify-content: right;
 
-      .dropdown-filter {
+      .dropdown-campaign {
         margin-right: 1.6rem;
       }
 
@@ -152,11 +152,6 @@ export const TableHeaderWrapper = styled.div`
   }
 `;
 
-export const Box = styled.input`
-  width: 1.5rem;
-  height: 1.5rem;
-`;
-
 export const ArchiveWrapper = styled.div`
   display: flex;
 
@@ -178,7 +173,14 @@ export const ArchiveWrapper = styled.div`
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
       text-align: center;
-      color: ${COLORS["black-shade"]};
+      color: ${COLORS['black-shade']};
     }
   }
+`;
+
+export const Assignee = styled.div`
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+  align-items: center;
 `;

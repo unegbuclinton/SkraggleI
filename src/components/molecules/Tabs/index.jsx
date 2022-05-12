@@ -1,22 +1,21 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import Card from "../../atoms/Card";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import Card from '../../atoms/Card';
 const Tabs = ({ tabs, stickyTab, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
-      <TabContainer className={stickyTab ? "sticky-header" : ""} {...rest}>
-        {tabs?.map((tab, index) => (
-          <TabButton
-            key={index}
-            active={activeTab === index}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab.title}
-          </TabButton>
-        ))}
+      <TabContainer className={stickyTab ? 'sticky-header' : ''} {...rest}>
+        <div>
+          {tabs?.map((tab, index) => (
+            <TabButton key={index} active={activeTab === index} onClick={() => setActiveTab(index)}>
+              {tab.title}
+            </TabButton>
+          ))}
+        </div>
+        {tabs[activeTab]?.actionComponent && <span>{tabs[activeTab]?.actionComponent}</span>}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
     </TabWrapper>
@@ -37,7 +36,9 @@ const TabWrapper = styled.div`
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  overflow-x: auto;
 `;
 const TabButton = styled.button`
   width: 14.4rem;
@@ -48,19 +49,19 @@ const TabButton = styled.button`
   cursor: pointer;
   background: transparent;
   padding-bottom: 1.296rem;
-  color: ${COLORS["grey-400"]};
+  color: ${COLORS['grey-400']};
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     background: ${COLORS.pink};
     bottom: 0px;
-    z-index: 100;
+    z-index: 1;
     left: 0;
   }
   ${({ active }) =>

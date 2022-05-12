@@ -1,5 +1,25 @@
-build project:
-  image: node
+stages:
+  - build
+  - deploy
+  
+build:
+  image: node:14
+  stage: build
   script:
+    - yarn
+    - yarn run lint
+    - yarn run eslint
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  script:
+    - chmod 600 $IDRSA
+    - apk update
+    - apk add --update yarn openssh-client
     - yarn install
-    - yarn build  
+    - yarn build
+    - ssh -i $IDRSA -o StrictHostKeyChecking=no $SKRAGGLE_USER@$SKRAGGLE_HOST "rm -rf ~/build/*"
+    - scp -i $IDRSA -o StrictHostKeyChecking=no -r build/* $SKRAGGLE_USER@$SKRAGGLE_HOST:~/build/
+  only:
+    - develop

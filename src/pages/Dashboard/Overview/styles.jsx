@@ -1,6 +1,6 @@
-import { COLORS } from "constants/colors";
-import { FONTWEIGHTS, FONTSIZES } from "constants/font-spec";
-import styled from "styled-components";
+import { COLORS } from 'constants/colors';
+import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const OverviewWrapper = styled.div`
   .overview-card {
@@ -9,11 +9,13 @@ export const OverviewWrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 1.6rem;
     padding: 1.64rem 1.6rem 1.56rem 4rem;
+    flex-wrap: wrap;
+    /* overflow-x: auto; */
   }
   .overview-heder__text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS["header-grey"]};
+    color: ${COLORS['header-grey']};
   }
 `;
 
@@ -37,7 +39,7 @@ export const OverviewLeft = styled.div`
     cursor: pointer;
     padding: 1.4rem 2.1rem 1.4rem 1.8rem;
     gap: 1rem;
-    border: 1px solid ${COLORS["porcelain-white"]};
+    border: 1px solid ${COLORS['porcelain-white']};
   }
 
   .date-range-picker {
@@ -55,5 +57,5 @@ export const OverviewRight = styled.div`
 
 export const DatePicker = styled.span`
   font-size: ${FONTSIZES.xsmall};
-  color: ${COLORS["grey-100"]};
+  color: ${COLORS['grey-100']};
 `;

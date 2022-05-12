@@ -6,23 +6,22 @@ import { subcription } from 'utilities/modalData';
 import { createContactStepTwoValidationSchema } from 'validation/Schema';
 import {
   AddressContainer,
-  AddressInput,
   ButtonContainer,
   ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
+  ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, next, formData, prev }) {
+function ContactStepTwo({ onClose, next, formData }) {
   const formik = useFormik({
     initialValues: formData,
     validationSchema: createContactStepTwoValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       next(values, true);
-    },
+    }
   });
   return (
     <ModalWrapper>
@@ -57,7 +56,7 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
           ) : null}
           <AddressContainer>
             <div>
-              <AddressInput
+              <Input
                 className="address-input"
                 type="text"
                 placeholder="City"
@@ -72,7 +71,7 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
               ) : null}
             </div>
             <div>
-              <AddressInput
+              <Input
                 className="address-input"
                 type="text"
                 placeholder="State"
@@ -89,10 +88,10 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
           </AddressContainer>
           <AddressContainer>
             <div>
-              <AddressInput
+              <Input
                 className="address-input"
                 type="text"
-                placeholder="Postal/Zip"
+                placeholder="Postal/zip"
                 name="postalcode"
                 id="postalcode"
                 onChange={formik.handleChange}
@@ -104,7 +103,7 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
               ) : null}
             </div>
             <div>
-              <AddressInput
+              <Input
                 className="address-input"
                 type="text"
                 placeholder="Country"
@@ -128,14 +127,7 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
           <FormLabel>TAGS</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
           <ButtonContainer>
-            <Button
-              className="cancel"
-              type="button"
-              proute
-              onClick={onClose}
-              auth
-              invert
-            >
+            <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
             <Button type="submit" className="continue">

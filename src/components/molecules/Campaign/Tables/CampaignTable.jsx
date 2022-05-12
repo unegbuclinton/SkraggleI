@@ -1,45 +1,44 @@
-import Button from "components/atoms/Button/Button";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { TableContacts } from "utilities/campaigndata";
-import datas from "utilities/filterData";
-import { Box, ContainerBody, TableHeaderWrapper, TableWrapper } from "./styles";
-import CreateCampaignModal from "../CreateCampaignModal";
-import DropdownComponent from "components/atoms/Dropdown";
+import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon } from 'icons';
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { TableContacts } from 'utilities/campaigndata';
+import datas from 'utilities/filterData';
+import CreateCampaignModal from '../CreateCampaignModal';
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
-  const [selected, setSelected] = useState("Filters");
-
   const columns = [
     {
-      name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      name: ' ',
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "CREATED",
+      name: 'CREATED',
       selector: (row) => row.created,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "CAMPAIGN",
-      selector: (row) => row.campaign,
+      name: 'CAMPAIGN',
+      selector: (row) => row.campaign
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
+      cell: () => <Button className="table-button">Active</Button>
     },
     {
-      name: "FUNDRAISING GOALS",
-      selector: (row) => row.goals,
-    },
+      name: 'FUNDRAISING GOALS',
+      selector: (row) => row.goals
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +53,7 @@ const CampaignTable = () => {
     created: Campaigndata.created,
     campaign: Campaigndata.campaign,
     goals: Campaigndata.goals,
-    status: Campaigndata.status,
+    status: Campaigndata.status
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
@@ -64,6 +63,8 @@ const CampaignTable = () => {
   const onRowClicked = (row) => {
     navigate(`/campaign/${row.key + 1}`, { state: row });
   };
+
+  const [selected, setSelected] = useState('Filters');
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -77,12 +78,14 @@ const CampaignTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent selected={selected} setSelected={setSelected} data={datas}/>
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
               <SearchBar className="search-icon" />
-              <Button
-                className="campaign-button"
-                onClick={() => setModalIsOpen(true)}
-              >
+              <Button className="campaign-button" onClick={() => setModalIsOpen(true)}>
                 <DPPlusIcon className="plus-icon" />
                 New Campaign
               </Button>
@@ -96,11 +99,7 @@ const CampaignTable = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table
-            columns={columns}
-            data={currentList}
-            onRowClicked={onRowClicked}
-          />
+          <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

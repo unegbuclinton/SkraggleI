@@ -1,15 +1,15 @@
-import React from "react";
-import Card from "components/atoms/Card";
-import { NewstellerWrapper } from "./styles";
-import { NewstellerTop } from "./styles";
-import Button from "components/atoms/Button/Button";
-import { NewstellerBody } from "./styles";
-import StatisticsTracker from "components/molecules/StatisticsTracker";
+import React from 'react';
+import Card from 'components/atoms/Card';
+import { NewstellerWrapper } from './styles';
+import { NewstellerTop } from './styles';
+import Button from 'components/atoms/Button/Button';
+import { NewstellerBody } from './styles';
+import StatisticsTracker from 'components/molecules/StatisticsTracker';
 
 function Overview() {
   return (
     <NewstellerWrapper>
-      <Card>
+      <Card className="overview-card">
         <NewstellerTop>
           <div className="newsteller-left">
             <div className="top">
@@ -38,7 +38,7 @@ function Overview() {
               colour="#FF576B"
               num="(32)"
               value="20"
-              header='Delivered'
+              header="Delivered"
               text="Unopened"
             />
             <StatisticsTracker

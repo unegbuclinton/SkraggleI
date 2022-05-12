@@ -1,39 +1,60 @@
-import React, { useState } from "react";
-import styled,{css} from "styled-components";
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-function VerticalTab({ tabs }) {
+function VerticalTab({
+  tabs,
+  setActiveState,
+  className,
+  verticalWrapper,
+  children,
+  onClick,
+  leftBottomClass,
+  setRef
+}) {
   const [activeWidget, setActiveWidget] = useState(0);
+  const RenderFunction = (Components, props) => {
+    return <Components {...props} />;
+  };
   return (
-    <VerticalTabWrapper>
-      <div className="vertical-tab-wrapper">
-        {tabs.map(({ title }, index) => (
-          <TabButton
-            key={index}
-            active={activeWidget === index}
-            onClick={() => setActiveWidget(index)}
-          >
-            {title}
-          </TabButton>
-        ))}
-      </div>
-
-      <div> {tabs && tabs[activeWidget]?.component}</div>
-    </VerticalTabWrapper>
+    <>
+      <VerticalTabWrapper className={className}>
+        <div className="left-tabs">
+          <div className={verticalWrapper}>
+            {tabs.map(({ title }, index) => (
+              <TabButton
+                key={index}
+                active={activeWidget === index}
+                onClick={() => {
+                  setActiveWidget(index);
+                  setActiveState(index);
+                  setRef(index);
+                }}>
+                {title}
+              </TabButton>
+            ))}
+          </div>
+          <div className={leftBottomClass} onClick={onClick}>
+            {children}
+          </div>
+        </div>
+        <div className="content-wrapper" activeWidget={activeWidget}>
+          {tabs && RenderFunction(tabs[activeWidget]?.component)}
+        </div>
+      </VerticalTabWrapper>
+    </>
   );
 }
-
 export default VerticalTab;
-
 const VerticalTabWrapper = styled.div`
   display: flex;
   gap: 7.4rem;
   border-bottom: 1px solid ${COLORS.torquoise};
-  .vertical-tab-wrapper {
+  .left-tabs {
     display: flex;
     flex-direction: column;
-    margin: 4.004rem 0 0 5.4rem;
+    gap: 1.6rem;
   }
 `;
 const TabButton = styled.button`
@@ -42,20 +63,19 @@ const TabButton = styled.button`
   height: 1.7rem;
   font-size: ${FONTSIZES.normal};
   font-weight: ${FONTWEIGHTS.medium};
-  color: ${COLORS["moore-grey"]};
+  color: ${COLORS['moore-grey']};
   margin-bottom: 4.8rem;
   cursor: pointer;
   text-align: left;
   border: none;
   background: transparent;
-
   ${({ active }) =>
     active &&
     css`
       &::before {
-        content: "";
+        content: '';
         position: absolute;
-        top: .3rem;
+        top: 0.3rem;
         left: -1.9rem;
         width: 1.1rem;
         height: 1.1rem;

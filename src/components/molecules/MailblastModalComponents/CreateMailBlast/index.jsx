@@ -1,12 +1,12 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import Input from "components/atoms/Input/Input";
-import React from "react";
-import { Category, Partho, Search } from "utilities/maildatas";
-import { CreateMailWrapper, CreateLabel } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import Input from 'components/atoms/Input/Input';
+import React from 'react';
+import { Category, Partho, Search } from 'utilities/maildatas';
+import { CreateMailWrapper, CreateLabel } from './styles';
 
-function CreateMailBlast() {
+function CreateMailBlast({ onCloseModal }) {
   return (
     <CreateMailWrapper>
       <Card className="edit-card">
@@ -29,7 +29,7 @@ function CreateMailBlast() {
           </div>
         </div>
         <div className="edit-mail-footer">
-          <Button invert auth className="edit-cancel-btn">
+          <Button invert auth className="edit-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
           <Button auth className="edit-save-btn">

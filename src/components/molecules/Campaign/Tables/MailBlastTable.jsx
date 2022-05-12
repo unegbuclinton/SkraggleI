@@ -1,49 +1,54 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-import SearchBar from "components/atoms/SearchBar/SearchBar";
-import Table from "components/layouts/Table";
-import Button from "components/atoms/Button/Button";
-import Pagination from "components/molecules/Pagination";
-import { DPPlusIcon } from "icons";
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import Table from 'components/layouts/Table';
+import Button from 'components/atoms/Button/Button';
+import Pagination from 'components/molecules/Pagination';
+import { DPPlusIcon, DPIconAssignee } from 'icons';
 
-import datas from "utilities/filterData";
+import datas from 'utilities/filterData';
 
-import { mailBlastData } from "utilities/campaigndata";
+import { mailBlastData } from 'utilities/campaigndata';
 
-import { TableWrapper, TableHeaderWrapper, Box, ContainerBody } from "./styles";
+import { TableWrapper, TableHeaderWrapper, ContainerBody, Assignee } from './styles';
+import DropdownComponent from 'components/atoms/Dropdown';
+import Checkbox from 'components/atoms/CheckBox';
 
 const MailBlastTable = () => {
   const columns = [
     {
-      name: " ",
-      cell: () => <Box type="checkbox"></Box>,
+      name: ' ',
+      cell: () => <Checkbox />,
       ignoreRowClick: false,
-      width: "5rem",
+      width: '5rem'
     },
     {
-      name: "NAME",
+      name: 'NAME',
       selector: (row) => row.name,
-      width: "20rem",
+      width: '20rem'
     },
 
     {
-      name: "ASSIGNEE",
+      name: 'ASSIGNEE',
       selector: (row) => row.assignee,
-      cell: (col) => 
-      <span>Tillie Mendoza</span>,
-      width: "45rem",
+      cell: () => (
+        <Assignee>
+          <DPIconAssignee />
+          Tillie Mendoza
+        </Assignee>
+      ),
+      width: '45rem'
     },
     {
-      name: "TYPE",
+      name: 'TYPE',
       selector: (row) => row.type,
-      width: "30rem",
+      width: '30rem'
     },
     {
-      name: "STATUS",
+      name: 'STATUS',
       selector: (row) => row.status,
-      cell: (col) => <Button className="table-button">Active</Button>,
-    },
+      cell: () => <Button className="table-button">Active</Button>
+    }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,49 +61,50 @@ const MailBlastTable = () => {
     name: mailData.name,
     assignee: mailData.assignee,
     type: mailData.type,
-    status: mailData.status,
+    status: mailData.status
   }));
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const onRowClicked = (row, event) => {
-    console.log(row, event);
-  };
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/mail-blast");
+    navigate('/mail-blast');
   };
 
   return (
     <div>
-    <ContainerBody>
-    <TableWrapper>
-      <TableHeaderWrapper className="table-header">
-        <div className="table-header__left">
-          <h1>34 Events</h1>
-        </div>
+      <ContainerBody>
+        <TableWrapper>
+          <TableHeaderWrapper className="table-header">
+            <div className="table-header__left">
+              <h1>96 Mails Blasts</h1>
+            </div>
 
-        <div className="table-header__right">
-          <CustomDropdown className="dropdown-filter" data={datas} />
-          <SearchBar className="search-icon" />
-          <Button
-            className="campaign-button"
-            onClick={() => handleButtonClick()}
-          >
-            <DPPlusIcon className="plus-icon" />
-            Create New
-          </Button>
-        </div>
-      </TableHeaderWrapper>
-      <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
-    </TableWrapper>
-    </ContainerBody>
-    <Pagination
-    currentPage={currentPage}
-    itemsPerPage={itemsPerPage}
-    data={mailBlastData}
-    setCurrentPage={setCurrentPage}/>
+            <div className="table-header__right">
+              <DropdownComponent
+                selected={selected}
+                setSelected={setSelected}
+                data={datas}
+                className="dropdown-campaign"
+              />
+              <SearchBar className="search-icon" />
+              <Button className="campaign-button" onClick={() => handleButtonClick()}>
+                <DPPlusIcon className="plus-icon" />
+                Create New
+              </Button>
+            </div>
+          </TableHeaderWrapper>
+          <Table columns={columns} data={currentList} />
+        </TableWrapper>
+      </ContainerBody>
+      <Pagination
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        data={mailBlastData}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

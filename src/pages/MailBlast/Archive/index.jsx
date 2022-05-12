@@ -1,6 +1,6 @@
-import Card from "components/atoms/Card";
-import React, { useState } from "react";
-import { ArchiveWrapper, ArchiveComment } from "./styles";
+import Card from 'components/atoms/Card';
+import React, { useState } from 'react';
+import { ArchiveWrapper, ArchiveComment } from './styles';
 
 function Archive() {
   const [archive, setArchive] = useState([]);

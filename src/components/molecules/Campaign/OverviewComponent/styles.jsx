@@ -1,8 +1,8 @@
-import { COLORS } from "constants/colors";
-import { FONTSIZES, FONTWEIGHTS } from "constants/font-spec";
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 
-import styled from "styled-components";
-import Card from "components/atoms/Card/index";
+import styled from 'styled-components';
+import Card from 'components/atoms/Card/index';
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -19,8 +19,14 @@ export const LeftSection = styled(Card)`
   height: 74.6rem;
 
   .action-dropdown__container {
+    width: 8rem;
+    height: 3rem;
     border-radius: 0.5rem;
     border: 1px solid #1e003e;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 1.3rem;
+    padding-right: 0.8rem;
     font-size: ${FONTSIZES.xsmall};
   }
 `;
@@ -33,6 +39,10 @@ export const ContainerDropdwon = styled.div`
   padding-right: 0.8rem;
   padding-top: 1.6rem;
   margin-bottom: 1.1rem;
+  .dropdown-icon {
+    width: 0.8rem;
+    height: 1.4rem;
+  }
 `;
 export const CampaignNameWrapper = styled.div`
   border-bottom: 1px solid #e6eff1;
@@ -112,14 +122,14 @@ export const RightSection = styled(Card)`
     &__bottom-heading {
       font-size: ${FONTSIZES.lg};
       line-height: 2.1rem;
-      color: ${COLORS["black-shade"]};
+      color: ${COLORS['black-shade']};
       margin-bottom: 1.3rem;
     }
     &__bottom-paragraph {
       text-align: center;
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
-      color: ${COLORS["gray-500"]};
+      color: ${COLORS['gray-500']};
     }
     &__transaction-icon {
       display: flex;

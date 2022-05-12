@@ -1,50 +1,54 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "components/atoms/Button/Button";
-import CustomDropdown from "components/atoms/CustomDropdown/CustomDropdown";
-
-import { DPIconTransaction } from "icons/index";
-
+import Button from 'components/atoms/Button/Button';
+import DropdownComponent from 'components/atoms/Dropdown';
+import { DPIconTransaction } from 'icons/index';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
   LeftSection,
   MainWrapper,
-  RightSection,
-} from "./styles";
+  RightSection
+} from './styles';
 
 const CampaignOverview = () => {
   const data = [
     {
-      id: "1",
-      name: "Action",
+      id: '1',
+      name: 'Action'
     },
     {
-      id: "2",
-      name: "Add",
+      id: '2',
+      name: 'Add'
     },
     {
-      id: "3",
-      name: "Delete",
+      id: '3',
+      name: 'Delete'
     },
     {
-      id: "4",
-      name: "Modify",
-    },
+      id: '4',
+      name: 'Modify'
+    }
   ];
+
+  const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const HandleButtonClick = () => {
-    navigate("/donations");
+    navigate('/donations');
   };
   return (
     <MainWrapper>
       <LeftSection>
         <ContainerDropdwon>
-          <CustomDropdown
+          <DropdownComponent
             data={data}
+            selected={selected}
+            setSelected={setSelected}
             className="action-dropdown__container"
-          ></CustomDropdown>
+            content
+            iconDropdown="dropdown-icon"
+          />
         </ContainerDropdwon>
 
         <CampaignNameWrapper className="campaign-name">
@@ -87,9 +91,8 @@ const CampaignOverview = () => {
         <div className="campaign-name__bottom">
           <h1 className="campaign-name__bottom-heading">No trasaction yet</h1>
           <p className="campaign-name__bottom-paragraph">
-            All fundraising transactions will be tracked here (manually or
-            automatically through online forms). You can also issue tax receipts
-            and manage other sources of revenue.
+            All fundraising transactions will be tracked here (manually or automatically through
+            online forms). You can also issue tax receipts and manage other sources of revenue.
           </p>
           <div className="campaign-name__transaction-icon">
             <DPIconTransaction />
@@ -97,8 +100,7 @@ const CampaignOverview = () => {
           <div className="campaign-name__button-container">
             <Button
               className="campaign-name__transaction-button"
-              onClick={() => HandleButtonClick()}
-            >
+              onClick={() => HandleButtonClick()}>
               Go to Transaction
             </Button>
           </div>

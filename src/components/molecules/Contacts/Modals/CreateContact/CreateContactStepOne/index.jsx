@@ -3,12 +3,7 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import Input from 'components/atoms/Input/Input';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import {
-  dateDate,
-  monthData,
-  subcription,
-  yearsData,
-} from 'utilities/modalData';
+import { dateDate, monthData, subcription, yearsData } from 'utilities/modalData';
 import { createContactStepOneValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -17,7 +12,7 @@ import {
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
+  ModalWrapper
 } from './styles';
 
 function CreateContactStepOne({ onClose, next, formData }) {
@@ -32,7 +27,7 @@ function CreateContactStepOne({ onClose, next, formData }) {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       next(values);
-    },
+    }
   });
 
   // console.log(formik.errors);
@@ -181,13 +176,7 @@ function CreateContactStepOne({ onClose, next, formData }) {
             <ErrorMsg>{formik.errors.company}</ErrorMsg>
           ) : null}
           <ButtonContainer>
-            <Button
-              className="cancel"
-              type="button"
-              onClick={onClose}
-              auth
-              invert
-            >
+            <Button className="cancel" type="button" onClick={onClose} auth invert>
               Cancel
             </Button>
             <Button type="submit" className="continue">

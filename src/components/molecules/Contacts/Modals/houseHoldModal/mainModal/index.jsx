@@ -1,6 +1,6 @@
-import React from "react";
-import Modal from "components/layouts/Modal";
-import CraeteNewHouseHold from "../createNewHouseHold";
+import React from 'react';
+import Modal from 'components/layouts/Modal';
+import CraeteNewHouseHold from '../createNewHouseHold';
 
 function HouseHoldModal({ onClose, isShown }) {
   return (

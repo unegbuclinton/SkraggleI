@@ -2,7 +2,6 @@ import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
 import AreaChart from 'components/organisms/AreaChart';
-// import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
@@ -14,20 +13,24 @@ const DonationMetrics = () => {
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    label: 'Today',
+    label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
+
+  const series = [
+    {
+      name: 'Skraggle',
+      data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
+      color: '#2FC18D'
+    }
+  ];
 
   return (
     <DonationMetricsContainer>
       <DonationGoalsWrapper>
         <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
         <DonationGoalsContentWrapper>
-          <GoalProgressTracker
-            value={19540.23}
-            target={93825}
-            heading="Yearly Goal"
-          />
+          <GoalProgressTracker value={19540.23} target={93825} heading="Yearly Goal" />
         </DonationGoalsContentWrapper>
       </DonationGoalsWrapper>
 
@@ -41,8 +44,9 @@ const DonationMetrics = () => {
             open={openRange}
           />
         </DonationTrackerHeaderWrapper>
+
         <AreaChart
-          data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
+          series={series}
           categories={[
             'Jan',
             'Feb',
@@ -55,8 +59,9 @@ const DonationMetrics = () => {
             'Sep',
             'Oct',
             'Nov',
-            'Dec',
+            'Dec'
           ]}
+          stroke={{ colors: ['#2FC18D'] }}
         />
       </DonationTrackerWrapper>
     </DonationMetricsContainer>

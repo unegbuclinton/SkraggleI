@@ -1,6 +1,7 @@
-import { COLORS } from 'constants/colors';
-import { React, useEffect, useRef, useState } from 'react';
+import { React, useState, useEffect, useRef } from 'react';
+
 import styled from 'styled-components';
+import { COLORS } from 'constants/colors';
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
@@ -35,29 +36,13 @@ const FileUploadButton = ({ className, children, imgPreview }) => {
   return (
     <>
       {preview ? (
-        <ImagePreview
-          className={imgPreview}
-          src={preview}
-          style={{ objectFit: 'cover' }}
-          onClick={() => {
-            setImage(null);
-          }}
-        />
+        <ImagePreview className={imgPreview} src={preview} onClick={handleClick} />
       ) : (
-        <UploadButtonWrapper
-          type="button"
-          onClick={handleClick}
-          className={className}
-        >
+        <UploadButtonWrapper type="button" onClick={handleClick} className={className}>
           {children}
         </UploadButtonWrapper>
       )}
-      <FileUploadInput
-        type="file"
-        accept="image/*"
-        ref={hiddenFileInput}
-        onChange={handleChange}
-      />
+      <FileUploadInput type="file" accept="image/*" ref={hiddenFileInput} onChange={handleChange} />
     </>
   );
 };
@@ -76,6 +61,7 @@ export const UploadButtonWrapper = styled.button`
 export const ImagePreview = styled.img`
   cursor: pointer;
   border-radius: 0.5rem;
+  object-fit: cover;
 `;
 
 export const FileUploadInput = styled.input`

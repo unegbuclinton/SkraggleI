@@ -1,6 +1,7 @@
+import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
 import { DPIconSkraggleCheck } from 'icons';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CheckboxContainer = styled.label`
   display: flex;
@@ -32,12 +33,41 @@ export const StyledCheckbox = styled.div`
   justify-content: center;
   align-items: center;
   width: 1.5rem;
+  border: #e6eff1;
   height: 1.5rem;
   border: 2px solid ${({ checked }) => (checked ? '#00913A' : '#E6EFF1')};
   border-radius: 5px;
   transition: all 150ms;
-  
+  ${({ pink }) =>
+    pink &&
+    css`
+      svg {
+        path {
+          fill: ${COLORS.pink};
+        }
+      }
+      border: 2px solid ${COLORS.pink};
+    `};
+
+  ${({ inverted, checked }) =>
+    inverted &&
+    css`
+      svg {
+        path {
+          fill: white;
+        }
+      }
+
+      background: ${checked && '#00913A'};
+    `};
+
   ${CheckIcon} {
     visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
   }
+
+  ${({ radial }) =>
+    radial &&
+    css`
+      border-radius: 50%;
+    `};
 `;

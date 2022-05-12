@@ -1,23 +1,28 @@
-import Button from "components/atoms/Button/Button";
-import React from "react";
-import { COLORS } from "constants/colors";
-import styled from "styled-components";
-import { FONTSIZES } from "constants/font-spec";
-import { FONTWEIGHTS } from "constants/font-spec";
+import Button from 'components/atoms/Button/Button';
+import React from 'react';
+import { COLORS } from 'constants/colors';
+import styled from 'styled-components';
+import { FONTSIZES } from 'constants/font-spec';
+import { FONTWEIGHTS } from 'constants/font-spec';
+import { useNavigate } from 'react-router-dom';
 
-function Unsubscribe() {
+function Unsubscribe({ onCloseModal }) {
+  const navigate = useNavigate();
+
   return (
-    <UnsubscribeWrapper>
-      <p> We are sad to see you go :(</p>
-      <div className="btn-wrapper">
-        <Button invert auth className="send-cancel-btn">
-          Nevermind
-        </Button>
-        <Button auth className="send-save-btn">
-          Confirm
-        </Button>
-      </div>
-    </UnsubscribeWrapper>
+    <>
+      <UnsubscribeWrapper>
+        <p> We are sad to see you go :(</p>
+        <div className="btn-wrapper">
+          <Button invert auth className="send-cancel-btn" onClick={() => navigate('/mail-blasts')}>
+            Nevermind
+          </Button>
+          <Button auth className="send-save-btn" onClick={onCloseModal}>
+            Confirm
+          </Button>
+        </div>
+      </UnsubscribeWrapper>
+    </>
   );
 }
 
@@ -46,7 +51,7 @@ const UnsubscribeWrapper = styled.div`
   .send-cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    color: ${COLORS["gray-500"]};
+    color: ${COLORS['gray-500']};
   }
   .send-save-btn {
     width: 10.7rem;

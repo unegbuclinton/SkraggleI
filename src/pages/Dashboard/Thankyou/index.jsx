@@ -1,8 +1,8 @@
-import Button from "components/atoms/Button/Button";
-import Card from "components/atoms/Card";
-import { DPIconThankYou } from "icons";
-import React from "react";
-import { ThankYouBody, ThankyouCard, ThankYouWrapper } from "./styles";
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import { DPIconThankYou } from 'icons';
+import React from 'react';
+import { ThankYouBody, ThankyouCard, ThankYouWrapper } from './styles';
 
 function ThankYou() {
   return (
@@ -16,8 +16,8 @@ function ThankYou() {
               <div className="card-text">
                 <p className="card-text__one">Contacts Who Donated this year</p>
                 <p className="card-text__two">
-                  Donors (2021) are contacts who have made a monetary
-                  contribution to your organization, at least one, in 2021.
+                  Donors (2021) are contacts who have made a monetary contribution to your
+                  organization, at least one, in 2021.
                 </p>
               </div>
             </div>
@@ -34,8 +34,8 @@ function ThankYou() {
               <div className="card-text">
                 <p className="card-text__one">Contacts Who Donated this year</p>
                 <p className="card-text__two">
-                  Donors (2021) are contacts who have made a monetary
-                  contribution to your organization, at least one, in 2021.
+                  Donors (2021) are contacts who have made a monetary contribution to your
+                  organization, at least one, in 2021.
                 </p>
               </div>
             </div>

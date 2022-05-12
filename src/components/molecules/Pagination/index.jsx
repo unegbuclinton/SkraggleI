@@ -1,9 +1,9 @@
-import Button from "components/atoms/Button/Button";
-import { COLORS } from "constants/colors";
-import { FONTSIZES } from "constants/font-spec";
-import { DPIconsArrowLeft, DPIconsArrowRight } from "icons";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import Button from 'components/atoms/Button/Button';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES } from 'constants/font-spec';
+import { DPIconsArrowLeft, DPIconsArrowRight } from 'icons';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
 const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
@@ -28,8 +28,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
           key={index}
           id={number}
           onClick={handleClick}
-          className={currentPage === number ? "active" : "pagenumber"}
-        >
+          className={currentPage === number ? 'active' : 'pagenumber'}>
           {number}
         </li>
       );
@@ -74,15 +73,9 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
     );
   }
 
-  console.log(renderPageNumbers.length);
-
   return (
     <PaginationWrapper renderPageNumbers={renderPageNumbers}>
-      <PaginationButtons
-        pill
-        disabled={currentPage === 1}
-        onClick={handlePageDecrement}
-      >
+      <PaginationButtons pill disabled={currentPage === 1} onClick={handlePageDecrement}>
         <DPIconsArrowLeft className="arrow" />
       </PaginationButtons>
       {pageDecrementBtn}
@@ -94,8 +87,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
       <PaginationButtons
         pill
         disabled={currentPage === renderPageNumbers.length}
-        onClick={handlePageIncrement}
-      >
+        onClick={handlePageIncrement}>
         <DPIconsArrowRight className="arrow" />
       </PaginationButtons>
     </PaginationWrapper>
@@ -107,7 +99,7 @@ export default Pagination;
 const PaginationWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  display: ${({ renderPageNumbers }) => !renderPageNumbers && "none"};
+  display: ${({ renderPageNumbers }) => !renderPageNumbers && 'none'};
   padding-top: 1.6rem;
   justify-content: flex-end;
 `;
@@ -150,9 +142,9 @@ const TrackerBtn = styled(Button)`
   height: 4.5rem !important;
   width: 5rem !important;
   list-style: none;
-  border: 0.1rem solid ${COLORS["pagination-bg"]} !important;
+  border: 0.1rem solid ${COLORS['pagination-bg']} !important;
   background-color: transparent !important;
-  color: ${COLORS["text-pagination"]} !important;
+  color: ${COLORS['text-pagination']} !important;
   font-size: large;
   border-radius: 0 !important;
   font-size: ${FONTSIZES.xxlarge} !important;
@@ -171,8 +163,8 @@ const PageTracker = styled.div`
     .pagenumber {
       height: 4.5rem;
       width: 4.5rem;
-      border: 0.1rem solid ${COLORS["pagination-bg"]};
-      color: ${COLORS["text-pagination"]};
+      border: 0.1rem solid ${COLORS['pagination-bg']};
+      color: ${COLORS['text-pagination']};
       display: flex;
       justify-content: center;
       align-items: center;

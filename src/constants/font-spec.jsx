@@ -5,11 +5,13 @@ export const FONTSIZES = {
   lg: '1.8rem',
   xlarge: '2rem',
   xxlarge: '2.4rem',
-  'logo-large': '3.383rem',
+  xxxlarge: '2.6rem',
+  'logo-large': '3.383rem'
 };
 
 export const FONTWEIGHTS = {
   normal: 400,
   medium: 500,
   bold: 700,
+  xbold: 900
 };
