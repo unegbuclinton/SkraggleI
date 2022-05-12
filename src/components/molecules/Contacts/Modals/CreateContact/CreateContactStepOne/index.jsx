@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import Button from 'components/atoms/Button/Button';
 import DropdownComponent from 'components/atoms/Dropdown';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import { dateDate, monthData, subcription, yearsData } from 'utilities/modalData';
+import { createContactStepOneValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DateContainer,
+  ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-  ErrorMsg
+  ModalWrapper
 } from './styles';
-import { subcription, dateDate, monthData, yearsData } from 'utilities/modalData';
-import Button from 'components/atoms/Button/Button';
-import Input from 'components/atoms/Input/Input';
-import { useFormik } from 'formik';
-import { createContactValidationSchema } from 'validation/Schema';
 
 function CreateContactStepOne({ onClose, next, formData }) {
   const [selected, setSelected] = useState('select');
@@ -23,14 +23,14 @@ function CreateContactStepOne({ onClose, next, formData }) {
 
   const formik = useFormik({
     initialValues: formData,
-    validationSchema: createContactValidationSchema,
+    validationSchema: createContactStepOneValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       next(values);
     }
   });
 
-  console.log(formik.errors);
+  // console.log(formik.errors);
 
   return (
     <ModalWrapper>

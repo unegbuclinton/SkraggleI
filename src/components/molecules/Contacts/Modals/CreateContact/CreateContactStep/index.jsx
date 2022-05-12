@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { useState } from 'react';
 import CreateContactStepOne from '../CreateContactStepOne';
 import ContactStepTwo from '../CreateContactStepTwo';
@@ -16,8 +15,12 @@ const MultiStepForm = ({ onClose }) => {
     date: '',
     emailSubscription: '',
     tags: '',
-    street: '',
+    address: '',
     unit: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: '',
     household: '',
     priority: '',
     assignee: ''
@@ -37,25 +40,26 @@ const MultiStepForm = ({ onClose }) => {
       endPoint(newData);
       return;
     }
-
     setCurrentStep((prev) => prev + 1);
   };
 
-  const handlePrevStep = (newData) => {
-    setFormData((prev) => ({ ...prev, ...newData }));
-    setCurrentStep((prev) => prev - 1);
-  };
+  // const handlePrevStep = (newData) => {
+  //   setFormData((prev) => ({ ...prev, ...newData }));
+  //   setCurrentStep((prev) => prev - 1);
+  // };
 
   const steps = [
+    // eslint-disable-next-line react/jsx-key
     <CreateContactStepOne next={handleNextStep} formData={formData} onClose={onClose} />,
+    // eslint-disable-next-line react/jsx-key
     <ContactStepTwo
       next={handleNextStep}
-      prev={handlePrevStep}
+      // prev={handlePrevStep}
       onClose={onClose}
       formData={formData}
     />
   ];
 
-  return <div>{steps[currentStep]}</div>;
+  return <>{steps[currentStep]}</>;
 };
 export default MultiStepForm;

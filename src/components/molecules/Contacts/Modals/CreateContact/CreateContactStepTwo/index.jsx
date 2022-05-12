@@ -1,41 +1,122 @@
 import Button from 'components/atoms/Button/Button';
 import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
-import React, { useContext } from 'react';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
 import { subcription } from 'utilities/modalData';
-import MultiFormContext from '../ContactFormContext/MultiFormContext';
+import { createContactStepTwoValidationSchema } from 'validation/Schema';
 import {
   AddressContainer,
-  AddressInput,
   ButtonContainer,
+  ErrorMsg,
   FormContainer,
-  FormInput,
   FormLabel,
   ModalContainer,
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo() {
-  const { stepTwo, setStepTwo, onClose } = useContext(MultiFormContext);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStepTwo({ stepTwo });
-  };
-
+function ContactStepTwo({ onClose, next, formData }) {
+  const formik = useFormik({
+    initialValues: formData,
+    validationSchema: createContactStepTwoValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      next(values, true);
+    }
+  });
   return (
     <ModalWrapper>
       <ModalContainer>
-        <FormContainer>
+        <FormContainer onSubmit={formik.handleSubmit}>
           <FormLabel>ADDRESS</FormLabel>
-          <FormInput type="text" placeholder="Address" />
-          <FormInput type="text" placeholder="Unit" />
-
+          <Input
+            className="form-input"
+            id="address"
+            type="text"
+            name="address"
+            placeholder="Address"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.address}
+          />
+          {formik.touched.address && formik.errors.address ? (
+            <ErrorMsg>{formik.errors.address}</ErrorMsg>
+          ) : null}
+          <Input
+            className="form-input"
+            type="text"
+            placeholder="Unit"
+            name="unit"
+            id="unit"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.unit}
+          />
+          {formik.touched.unit && formik.errors.unit ? (
+            <ErrorMsg>{formik.errors.unit}</ErrorMsg>
+          ) : null}
           <AddressContainer>
-            <AddressInput className="address-input" type="text" placeholder="City" />
-            <AddressInput className="address-input" type="text" placeholder="State" />
+            <div>
+              <Input
+                className="address-input"
+                type="text"
+                placeholder="City"
+                name="city"
+                id="city"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.city}
+              />
+              {formik.touched.city && formik.errors.city ? (
+                <ErrorMsg>{formik.errors.city}</ErrorMsg>
+              ) : null}
+            </div>
+            <div>
+              <Input
+                className="address-input"
+                type="text"
+                placeholder="State"
+                name="state"
+                id="state"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.state}
+              />
+              {formik.touched.state && formik.errors.state ? (
+                <ErrorMsg>{formik.errors.state}</ErrorMsg>
+              ) : null}
+            </div>
           </AddressContainer>
           <AddressContainer>
-            <AddressInput className="address-input" type="text" placeholder="Postal/Zip" />
-            <AddressInput className="address-input" type="text" placeholder="Country" />
+            <div>
+              <Input
+                className="address-input"
+                type="text"
+                placeholder="Postal/zip"
+                name="postalcode"
+                id="postalcode"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.postalcode}
+              />
+              {formik.touched.postalcode && formik.errors.postalcode ? (
+                <ErrorMsg>{formik.errors.postalcode}</ErrorMsg>
+              ) : null}
+            </div>
+            <div>
+              <Input
+                className="address-input"
+                type="text"
+                placeholder="Country"
+                name="country"
+                id="country"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.country}
+              />
+              {formik.touched.country && formik.errors.country ? (
+                <ErrorMsg>{formik.errors.country}</ErrorMsg>
+              ) : null}
+            </div>
           </AddressContainer>
           <FormLabel>HOUSEHOLD</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
@@ -49,7 +130,7 @@ function ContactStepTwo() {
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue" onClick={handleSubmit}>
+            <Button type="submit" className="continue">
               Save
             </Button>
           </ButtonContainer>
