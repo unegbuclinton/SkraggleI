@@ -15,7 +15,7 @@ import { CatchError, Form } from './styles';
 function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isRegistered, isLoading, isError } = useSelector((state) => state.auth);
+  const { isLoading, isError } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -36,8 +36,8 @@ function Registration() {
         permission_level: 'administrator'
       };
       dispatch(registerUser(body))
-        .then(() => {
-          if (isRegistered) {
+        .then((data) => {
+          if (data.payload.success) {
             navigate('/send-verification', { state: values.email });
           }
         })

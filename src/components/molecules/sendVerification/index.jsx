@@ -1,11 +1,14 @@
 import AuthLayout from 'components/layouts/AuthLayout';
+import { resendVerification } from 'features/auth/authSlice';
 import { DPIconEmail } from 'icons';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { VerificationWrapper } from './styles';
 function SendVerification() {
   const location = useLocation();
   const email = location.state;
+  const dispatch = useDispatch();
   return (
     <AuthLayout>
       <VerificationWrapper>
@@ -19,7 +22,11 @@ function SendVerification() {
             sent to
           </p>
           <div className="send-verification__email">{email}</div>
-          <p className="send-verification__link">Resend verification email</p>
+          <p
+            className="send-verification__link"
+            onClick={() => dispatch(resendVerification(email))}>
+            Resend verification email
+          </p>
         </div>
       </VerificationWrapper>
     </AuthLayout>

@@ -8,7 +8,8 @@ const initialState = {
   token: null,
   isLoading: false,
   isError: false,
-  errorMessage: ''
+  errorMessage: '',
+  isSend: false
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -16,12 +17,15 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   return response.data;
 });
 
-export const loginUser = createAsyncThunk('auth/login', async ({ email, password }) => {
+export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
-    const response = await apiInstance.post('/admin/login', { email, password });
-    return response.data;
+    return await apiInstance({
+      method: 'post',
+      url: '/admin/login',
+      data: body
+    });
   } catch (error) {
-    console.log('Error', error.response.data);
+    console.log(error);
   }
 });
 
@@ -48,21 +52,18 @@ export const authSlice = createSlice({
       state.isLoading = true;
       // state.entities.push(action.payload);
     },
-
-    [loginUser.fulfilled]: (state, { payload }) => {
+    [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
-      state.token = payload.token;
-      state.isLoading = false;
+      state.token = action.payload;
     },
-    [loginUser.rejected]: (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-      state.isLoading = false;
+    [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
     },
-    [loginUser.pending]: (state) => {
-      // Add user to the state array
-      state.isLoading = true;
-      // state.entities.push(action.payload);
+    [resendVerification.fulfilled]: (state) => {
+      state.isSend = true;
+    },
+    [resendVerification.rejected]: (state) => {
+      state.isSend = false;
     }
   }
 });
