@@ -1,6 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
 
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
+  try {
+    return await apiInstance({
+      method: 'post',
+      url: '/admin/forgot-password',
+      data: body
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
     return await apiInstance({
@@ -17,7 +29,8 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isAuthenticated: false,
-    token: null
+    token: null,
+    mail: ''
   },
   reducers: {},
 
@@ -27,6 +40,14 @@ const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+    },
+
+    //Forgot Password Extra Reducers
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.mail = action.payload;
+    },
+    [forgotPassword.rejected]: (state, action) => {
+      state.mail = action.payload;
     }
   }
 });
