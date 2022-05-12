@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import Button from 'components/atoms/Button/Button';
+import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import React, { useContext } from 'react';
+import { subcription } from 'utilities/modalData';
+import MultiFormContext from '../ContactFormContext/MultiFormContext';
 import {
-  ButtonContainer,
   AddressContainer,
-  FormContainer,
   AddressInput,
+  ButtonContainer,
+  FormContainer,
   FormInput,
   FormLabel,
   ModalContainer,
   ModalWrapper
 } from './styles';
-import { subcription } from 'utilities/modalData';
-import MultiFormContext from '../ContactFormContext/MultiFormContext';
 
 function ContactStepTwo() {
   const { stepTwo, setStepTwo, onClose } = useContext(MultiFormContext);

@@ -2,19 +2,32 @@
 import React, { useState } from 'react';
 import CreateContactStepOne from '../CreateContactStepOne';
 import ContactStepTwo from '../CreateContactStepTwo';
+// import { useDispatch } from 'react-redux';
+// import { createContact } from 'features/contact/contactslice';
 
 const MultiStepForm = ({ onClose }) => {
+  // const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    company: ''
+    company: '',
+    date: '',
+    emailSubscription: '',
+    tags: '',
+    street: '',
+    unit: '',
+    household: '',
+    priority: '',
+    assignee: ''
   });
 
   const [currentStep, setCurrentStep] = useState(0);
 
   const endPoint = (contactDatas) => {
     console.log('Form Submitted', contactDatas);
+    // dispatch(createContact(formData))
   };
 
   const handleNextStep = (newData, final = false) => {
