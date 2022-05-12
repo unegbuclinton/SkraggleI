@@ -41,7 +41,6 @@ const authSlice = createSlice({
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
     },
-
     //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
       state.mail = action.payload;
