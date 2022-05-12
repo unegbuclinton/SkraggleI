@@ -1,45 +1,57 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-const initialState = {
-  isAuthenticated: false,
-  token: null
-};
+import apiInstance from 'api';
 
-const loginUser = createAsyncThunk('auth/login', async () => {
-  const response = await axios.post('/url', {});
-  return response.data;
-});
-
-export const counterSlice = createSlice({
-  name: 'auth',
-  initialState,
-  reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
-      // state.token = payload.token;
-    },
-    register: (state, payload) => {
-      state = { ...state, payload };
-    },
-    resendVerification: () => {}
-  },
-  extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
-      state.isAuthenticated = true;
-      state.token = payload.token;
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
+  try {
+    return await apiInstance({
+      method: 'post',
+      url: '/admin/forgot-password',
+      data: body
     });
-    builder.addCase(loginUser.rejected, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
-    builder.addCase(loginUser.pending, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
-export const { login, register, resendVerification } = counterSlice.actions;
+export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
+  try {
+    return await apiInstance({
+      method: 'post',
+      url: '/admin/login',
+      data: body
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-export default counterSlice.reducer;
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: {
+    isAuthenticated: false,
+    token: null,
+    mail: ''
+  },
+  reducers: {},
+
+  extraReducers: {
+    [loginUser.fulfilled]: (state, action) => {
+      state.isAuthenticated = action.payload;
+    },
+    [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
+    },
+
+    //Forgot Password Extra Reducers
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.mail = action.payload;
+    },
+    [forgotPassword.rejected]: (state, action) => {
+      state.mail = action.payload;
+    }
+  }
+});
+
+export const { login, register, resendVerification } = authSlice.actions;
+
+export default authSlice.reducer;
