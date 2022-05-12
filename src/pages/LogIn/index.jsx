@@ -28,7 +28,6 @@ const LogIn = ({ onClick }) => {
 
       dispatch(loginUser(body))
         .then((data) => {
-          console.log(data);
           if (data.payload.status === 200) {
             navigate('/dashboard');
           } else {
