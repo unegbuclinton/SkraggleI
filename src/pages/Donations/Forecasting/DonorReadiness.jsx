@@ -5,9 +5,15 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconMembership } from 'icons';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 function DonorReadiness() {
+  const navigate = useNavigate();
+
+  const NavigateTo = () => {
+    navigate('/contacts');
+  };
   const series = [
     {
       name: 'Above Target',
@@ -29,8 +35,8 @@ function DonorReadiness() {
             <p className="Donor-text">Donor</p>
             <DonorBody>
               <DPIconMembership />
-              <p className="Donor-content">Not Enough Data</p>
-              <Button className="Donor-btn" action>
+              <p className="Donor-content">No Expiring Donors</p>
+              <Button className="Donor-btn" action onClick={NavigateTo}>
                 Go to contact
               </Button>
             </DonorBody>
@@ -77,7 +83,7 @@ function DonorReadiness() {
                   'Nov',
                   'Dec'
                 ]}
-                height={380}
+                height={385}
               />
             </div>
             <div className="donattion-title">Donors likely to donate each month</div>

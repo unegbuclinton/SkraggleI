@@ -14,7 +14,9 @@ function VerticalTab({
   setRef
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
-
+  const RenderFunction = (Components, props) => {
+    return <Components {...props} />;
+  };
   return (
     <>
       <VerticalTabWrapper className={className}>
@@ -38,7 +40,7 @@ function VerticalTab({
           </div>
         </div>
         <div className="content-wrapper" activeWidget={activeWidget}>
-          {tabs && tabs[activeWidget]?.component}
+          {tabs && RenderFunction(tabs[activeWidget]?.component)}
         </div>
       </VerticalTabWrapper>
     </>
