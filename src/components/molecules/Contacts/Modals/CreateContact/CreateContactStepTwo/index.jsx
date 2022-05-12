@@ -3,7 +3,7 @@ import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import Input from 'components/atoms/Input/Input';
 import { useFormik } from 'formik';
 import { subcription } from 'utilities/modalData';
-import { createContactValidationSchema } from 'validation/Schema';
+import { createContactStepTwoValidationSchema } from 'validation/Schema';
 import {
   AddressContainer,
   AddressInput,
@@ -18,10 +18,10 @@ import {
 function ContactStepTwo({ onClose, next, formData, prev }) {
   const formik = useFormik({
     initialValues: formData,
-    validationSchema: createContactValidationSchema,
+    validationSchema: createContactStepTwoValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      next(values);
+      next(values, true);
     },
   });
   return (
@@ -56,60 +56,68 @@ function ContactStepTwo({ onClose, next, formData, prev }) {
             <ErrorMsg>{formik.errors.unit}</ErrorMsg>
           ) : null}
           <AddressContainer>
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="City"
-              name="city"
-              id="city"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.city}
-            />
-            {formik.touched.city && formik.errors.city ? (
-              <ErrorMsg>{formik.errors.city}</ErrorMsg>
-            ) : null}
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="State"
-              name="state"
-              id="state"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.state}
-            />
-            {formik.touched.state && formik.errors.state ? (
-              <ErrorMsg>{formik.errors.state}</ErrorMsg>
-            ) : null}
+            <div>
+              <AddressInput
+                className="address-input"
+                type="text"
+                placeholder="City"
+                name="city"
+                id="city"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.city}
+              />
+              {formik.touched.city && formik.errors.city ? (
+                <ErrorMsg>{formik.errors.city}</ErrorMsg>
+              ) : null}
+            </div>
+            <div>
+              <AddressInput
+                className="address-input"
+                type="text"
+                placeholder="State"
+                name="state"
+                id="state"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.state}
+              />
+              {formik.touched.state && formik.errors.state ? (
+                <ErrorMsg>{formik.errors.state}</ErrorMsg>
+              ) : null}
+            </div>
           </AddressContainer>
           <AddressContainer>
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="Postal/Zip"
-              name="postalcode"
-              id="postalcode"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.postalcode}
-            />
-            {formik.touched.postalcode && formik.errors.postalcode ? (
-              <ErrorMsg>{formik.errors.postalcode}</ErrorMsg>
-            ) : null}
-            <AddressInput
-              className="address-input"
-              type="text"
-              placeholder="Country"
-              name="country"
-              id="country"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.country}
-            />
-            {formik.touched.country && formik.errors.country ? (
-              <ErrorMsg>{formik.errors.country}</ErrorMsg>
-            ) : null}
+            <div>
+              <AddressInput
+                className="address-input"
+                type="text"
+                placeholder="Postal/Zip"
+                name="postalcode"
+                id="postalcode"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.postalcode}
+              />
+              {formik.touched.postalcode && formik.errors.postalcode ? (
+                <ErrorMsg>{formik.errors.postalcode}</ErrorMsg>
+              ) : null}
+            </div>
+            <div>
+              <AddressInput
+                className="address-input"
+                type="text"
+                placeholder="Country"
+                name="country"
+                id="country"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.country}
+              />
+              {formik.touched.country && formik.errors.country ? (
+                <ErrorMsg>{formik.errors.country}</ErrorMsg>
+              ) : null}
+            </div>
           </AddressContainer>
           <FormLabel>HOUSEHOLD</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />

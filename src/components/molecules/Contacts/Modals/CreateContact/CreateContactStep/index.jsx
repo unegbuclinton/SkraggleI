@@ -11,7 +11,7 @@ const MultiStepForm = ({ onClose }) => {
     date: '',
     emailSubscription: '',
     tags: '',
-    street: '',
+    address: '',
     unit: '',
     city: '',
     state: '',
@@ -35,7 +35,6 @@ const MultiStepForm = ({ onClose }) => {
       endPoint(newData);
       return;
     }
-    console.log(newData);
     setCurrentStep((prev) => prev + 1);
   };
 

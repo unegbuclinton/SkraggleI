@@ -38,7 +38,7 @@ export const forgotPasswordSchema = Yup.object({
   email: Yup.string().email('Invalid Email').required('Email is Required'),
 });
 
-export const createContactValidationSchema = Yup.object({
+export const createContactStepOneValidationSchema = Yup.object({
   firstName: Yup.string()
     .max(15, 'Must be 15 characters or less')
     .required('First name is required'),
@@ -53,9 +53,14 @@ export const createContactValidationSchema = Yup.object({
   company: Yup.string().required('Company is required'),
 });
 
-// export const createContactStepTwoValidationSchema = Yup.object({
-
-// })
+export const createContactStepTwoValidationSchema = Yup.object({
+  address: Yup.string().required('Address is required'),
+  unit: Yup.string().required('Unit is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postalcode: Yup.string().required('postalcode is required'),
+  country: Yup.string().required('Country is required'),
+});
 
 export const createCompanyValidatonSchema = Yup.object({
   companyName: Yup.string().required('Company name is required'),

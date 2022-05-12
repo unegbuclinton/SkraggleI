@@ -9,7 +9,7 @@ import {
   subcription,
   yearsData,
 } from 'utilities/modalData';
-import { createContactValidationSchema } from 'validation/Schema';
+import { createContactStepOneValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DateContainer,
@@ -28,10 +28,10 @@ function CreateContactStepOne({ onClose, next, formData }) {
 
   const formik = useFormik({
     initialValues: formData,
-    validationSchema: createContactValidationSchema,
+    validationSchema: createContactStepOneValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      next(values, true);
+      next(values);
     },
   });
 

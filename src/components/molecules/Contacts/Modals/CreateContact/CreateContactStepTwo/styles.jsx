@@ -85,5 +85,7 @@ export const ErrorMsg = styled.p`
   color: red;
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.medium};
-  padding-top: 0.5rem;
+  /* padding-top: 0.5rem; */
+  position: relative;
+  bottom: 1rem;
 `;
