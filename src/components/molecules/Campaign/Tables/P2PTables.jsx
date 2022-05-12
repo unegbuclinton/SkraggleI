@@ -1,19 +1,15 @@
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import Button from 'components/atoms/Button/Button';
 import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
-
-import datas from 'utilities/filterData';
-
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { P2PForm } from 'utilities/campaigndata';
-
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
-import Checkbox from 'components/atoms/CheckBox';
+import datas from 'utilities/filterData';
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const P2PTable = () => {
   const columns = [
