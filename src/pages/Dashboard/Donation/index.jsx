@@ -13,7 +13,7 @@ function Donation() {
     <DonationContainer>
       <DonationWrapper>
         <Card className="progress-card">
-          <p className="donation-text">Donation Goals</p>
+          <div className="donation-text">Donation Goals</div>
           <div className="progress-tracker">
             <GoalProgressTracker heading="Yearly Goal" value={195400} target={500000} />
           </div>

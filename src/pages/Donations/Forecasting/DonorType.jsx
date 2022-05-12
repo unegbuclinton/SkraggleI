@@ -57,6 +57,7 @@ export default DonorType;
 const TypeWrapper = styled.div`
   margin: 1.6rem 0;
   width: 100%;
+  height: 100%;
   display: flex;
   gap: 1.2rem;
 
@@ -82,7 +83,6 @@ const TypeWrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 5.6rem 0 4rem;
-    border-top: 1px solid ${COLORS.torquoise};
 
     .pie-legend {
       display: flex;
@@ -117,9 +117,21 @@ const TypeWrapper = styled.div`
 
 const TypeHeader = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 4.1rem 1.2rem 4.1rem;
+  padding: 0.8rem 4.1rem 1.2rem 0;
+  margin-left: 4.1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 3.1rem);
+    background: ${COLORS.torquoise};
+    height: 1px;
+    bottom: 0;
+    left: 0;
+  }
 
   .transaction-text {
     font-size: ${FONTSIZES.lg};
@@ -132,9 +144,7 @@ const TypeHeader = styled.div`
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS.deepPurple};
     width: 100%;
-    margin: 0.8rem 5.6rem 0 4.1rem;
-    border-bottom: 1px solid ${COLORS.torquoise};
-    padding-bottom: 1.6rem;
+    padding-top: 2.4rem;
   }
 
   .donor-label {

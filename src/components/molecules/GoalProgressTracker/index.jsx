@@ -52,7 +52,7 @@ const GPTMetricsWrapper = styled.div`
   }
 
   .metric-text {
-    color: ${COLORS['gray-500']};
+    color: ${COLORS['turfts-blue']};
     font-weight: ${FONTWEIGHTS.normal};
     margin-right: 1.257rem;
   }
