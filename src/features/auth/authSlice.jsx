@@ -56,8 +56,8 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
-export const resendVerification = createAsyncThunk('auth/resendVerification', async () => {
-  const response = await apiInstance.post('/email/verification/send');
+export const resendVerification = createAsyncThunk('auth/resendVerification', async (body) => {
+  const response = await apiInstance.post('/email/verification/send', body);
   return response.data;
 });
 
@@ -84,9 +84,13 @@ export const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
-      state.token = null;
     },
-
+    [resendVerification.fulfilled]: (state, action) => {
+      state.isSend = action.payload;
+    },
+    [resendVerification.rejected]: (state) => {
+      state.isSend = false;
+    },
     //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
       state.mail = action.payload;
