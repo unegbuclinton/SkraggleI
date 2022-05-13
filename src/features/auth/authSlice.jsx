@@ -36,7 +36,8 @@ const authSlice = createSlice({
 
   extraReducers: {
     [loginUser.fulfilled]: (state, action) => {
-      state.isAuthenticated = action.payload;
+      state.isAuthenticated = true;
+      state.token = action.payload;
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;

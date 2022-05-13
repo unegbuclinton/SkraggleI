@@ -1,3 +1,4 @@
+import TokenService from 'api/api_token';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
@@ -6,7 +7,7 @@ import AuthLayout from 'components/layouts/AuthLayout';
 import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
@@ -14,7 +15,6 @@ import { FormWrapper, LoginLink } from './styles';
 const LogIn = ({ onClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -28,8 +28,9 @@ const LogIn = ({ onClick }) => {
       };
 
       dispatch(loginUser(body))
-        .then(() => {
-          if (isAuthenticated.data.message.statusCode === 200) {
+        .then((data) => {
+          TokenService.setUser(data.payload.data.message);
+          if (data.payload.status === 200) {
             navigate('/dashboard');
           } else {
             navigate('/login');
