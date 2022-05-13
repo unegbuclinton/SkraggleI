@@ -21,11 +21,9 @@ function CraeteNewHouseHold({ onClose }) {
       name: ''
     },
     validationSchema: houseHoldValidationSchema,
-    onSubmit: () => {
-      const body = {
-        name: formik.values
-      };
-      dispatch(contactHouseHold(body));
+    onSubmit: (values) => {
+      const body = { name: values.name };
+      dispatch(contactHouseHold(body)).then(() => onClose());
     }
   });
   return (
