@@ -15,8 +15,17 @@ const initialState = {
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
-  return response.data;
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/signup',
+      data: body
+    });
+    return response.data.message;
+  } catch (error) {
+    toast.error('User already exists');
+  }
 });
 
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
@@ -61,12 +70,11 @@ export const authSlice = createSlice({
       state.isRegistered = action.payload;
       state.isLoading = false;
     },
-    [registerUser.rejected]: (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
+    [registerUser.rejected]: (state) => {
+      state.isLoading = false;
+      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
-      // Add user to the state array
       state.isLoading = true;
       // state.entities.push(action.payload);
     },
@@ -82,7 +90,6 @@ export const authSlice = createSlice({
     },
     [resendVerification.rejected]: (state) => {
       state.isSend = false;
-      state.token = null;
     },
     //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
