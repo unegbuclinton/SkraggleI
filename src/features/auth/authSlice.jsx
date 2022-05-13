@@ -15,8 +15,17 @@ const initialState = {
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
-  return response.data;
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/signup',
+      data: body
+    });
+    return response.data.message;
+  } catch (error) {
+    toast.error('User already exists');
+  }
 });
 
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
@@ -47,12 +56,28 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
-const authSlice = createSlice({
+export const resendVerification = createAsyncThunk('auth/resendVerification', async () => {
+  const response = await apiInstance.post('/email/verification/send');
+  return response.data;
+});
+
+export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-
   extraReducers: {
+    [registerUser.fulfilled]: (state, action) => {
+      state.isRegistered = action.payload;
+      state.isLoading = false;
+    },
+    [registerUser.rejected]: (state) => {
+      state.isLoading = false;
+      state.isRegistered = false;
+    },
+    [registerUser.pending]: (state) => {
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    },
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
       state.token = action.payload;
