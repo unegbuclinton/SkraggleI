@@ -4,7 +4,7 @@ import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { registerUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -15,7 +15,7 @@ import { CatchError, Form } from './styles';
 function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isRegistered, isLoading, isError } = useSelector((state) => state.auth);
+  const { isLoading, isError } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -35,17 +35,17 @@ function Registration() {
         type_of: 'user',
         permission_level: 'administrator'
       };
-      dispatch(registerUser(body));
+      dispatch(registerUser(body))
+        .then((data) => {
+          if (data.payload.success) {
+            navigate('/send-verification', { state: values.email });
+          }
+        })
+        .catch((error) => error);
     }
   });
-
-  useEffect(() => {
-    if (isRegistered === true) {
-      navigate('/resend-verification');
-    }
-  }, [isRegistered]);
   const errorMessage = () => toast(isError);
-  console.log(isLoading);
+
   return (
     <AuthLayout>
       {isLoading === true && <LoadingScreen />}

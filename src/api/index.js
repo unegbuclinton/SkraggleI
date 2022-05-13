@@ -2,7 +2,6 @@ import axios from 'axios';
 import TokenService from './api_token';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
-console.log(baseUrl);
 const instance = axios.create({
   baseURL: baseUrl,
   headers: {
@@ -15,7 +14,6 @@ instance.interceptors.request.use(
     if (token) {
       config.headers['Authorization'] = 'Bearer ' + token;
     }
-    console.log(config);
     return config;
   },
   (error) => {
@@ -24,8 +22,6 @@ instance.interceptors.request.use(
 );
 instance.interceptors.response.use(
   (response) => {
-    console.log(response);
-
     return response;
   },
   async (err) => {
