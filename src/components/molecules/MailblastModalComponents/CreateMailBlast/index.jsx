@@ -4,7 +4,7 @@ import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import Input from 'components/atoms/Input/Input';
 import React from 'react';
 import { Category, Partho, Search } from 'utilities/maildatas';
-import { CreateMailWrapper, CreateLabel } from './styles';
+import { CreateLabel, CreateMailWrapper } from './styles';
 
 function CreateMailBlast({ onCloseModal }) {
   return (
