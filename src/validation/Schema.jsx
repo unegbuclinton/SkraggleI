@@ -8,11 +8,7 @@ export const registrationSchema = Yup.object({
     .required('Password is required')
     .matches(
       /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
-<<<<<<< HEAD
       'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
-=======
-      'a capital letter, a small letter, a number and a special character'
->>>>>>> 218b0bf50645741c248bcf01c64fa502c0c584ed
     ),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
