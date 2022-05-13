@@ -29,8 +29,8 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
-export const resendVerification = createAsyncThunk('auth/resendVerification', async () => {
-  const response = await apiInstance.post('/email/verification/send');
+export const resendVerification = createAsyncThunk('auth/resendVerification', async (body) => {
+  const response = await apiInstance.post('/email/verification/send', body);
   return response.data;
 });
 
@@ -59,8 +59,8 @@ export const authSlice = createSlice({
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
     },
-    [resendVerification.fulfilled]: (state) => {
-      state.isSend = true;
+    [resendVerification.fulfilled]: (state, action) => {
+      state.isSend = action.payload;
     },
     [resendVerification.rejected]: (state) => {
       state.isSend = false;

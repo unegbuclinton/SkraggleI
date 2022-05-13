@@ -9,6 +9,7 @@ function SendVerification() {
   const location = useLocation();
   const email = location.state;
   const dispatch = useDispatch();
+  console.log(email);
   return (
     <AuthLayout>
       <VerificationWrapper>
@@ -24,7 +25,7 @@ function SendVerification() {
           <div className="send-verification__email">{email}</div>
           <p
             className="send-verification__link"
-            onClick={() => dispatch(resendVerification(email))}>
+            onClick={() => dispatch(resendVerification({ email }))}>
             Resend verification email
           </p>
         </div>
