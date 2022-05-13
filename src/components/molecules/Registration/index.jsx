@@ -7,7 +7,6 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
 import { registrationSchema } from 'validation/Schema';
 import LoadingScreen from '../LoadingScreen';
 import { CatchError, Form } from './styles';
@@ -15,7 +14,7 @@ import { CatchError, Form } from './styles';
 function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading, isError } = useSelector((state) => state.auth);
+  const { isLoading } = useSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -44,13 +43,10 @@ function Registration() {
         .catch((error) => error);
     }
   });
-  const errorMessage = () => toast(isError);
 
   return (
     <AuthLayout>
       {isLoading === true && <LoadingScreen />}
-      {isError && <div>{errorMessage}</div>}
-      <ToastContainer />
       <Form onSubmit={formik.handleSubmit}>
         <Card className="signup-card">
           <p className="signup-header"> Sign up</p>

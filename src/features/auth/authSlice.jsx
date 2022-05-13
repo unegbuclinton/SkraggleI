@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
@@ -13,19 +14,30 @@ const initialState = {
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
-  return response.data;
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/signup',
+      data: body
+    });
+    return response.data.message;
+  } catch (error) {
+    toast.error('User already exists');
+  }
 });
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
-    return await apiInstance({
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
       method: 'post',
       url: '/admin/login',
       data: body
     });
+    return response.data.message;
   } catch (error) {
-    console.log(error);
+    toast.error('username or password is incorrect');
   }
 });
 
@@ -43,8 +55,9 @@ export const authSlice = createSlice({
       state.isRegistered = action.payload;
       state.isLoading = false;
     },
-    [registerUser.rejected]: (state, action) => {
-      state.entities.push(action.payload);
+    [registerUser.rejected]: (state) => {
+      state.isLoading = false;
+      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
