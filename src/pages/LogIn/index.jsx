@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
-const LogIn = ({ onClick }) => {
+const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -74,7 +74,7 @@ const LogIn = ({ onClick }) => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button type="submit" onClick={onClick} className="login-button">
+          <Button type="submit" className="login-button">
             LOG IN
           </Button>
           <p className="login-card__signup-link">
