@@ -166,7 +166,7 @@ export const publicRoutes = [
   },
   {
     path: '/login',
-    element: <LogIn onClick />
+    element: <LogIn />
   },
   {
     path: '/forgotpassword',

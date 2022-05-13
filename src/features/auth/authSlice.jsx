@@ -10,7 +10,8 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: '',
-  isSend: false
+  isSend: false,
+  mail: ''
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -24,6 +25,20 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
     return response.data.message;
   } catch (error) {
     toast.error('User already exists');
+  }
+});
+
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
+  try {
+    const forgotResponse = await apiInstance({
+      method: 'post',
+      url: '/admin/forgot-password',
+      data: body
+    });
+    console.log(forgotResponse);
+    return forgotResponse.data.message;
+  } catch (error) {
+    toast.error('No user is found');
   }
 });
 
@@ -69,12 +84,15 @@ export const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+      state.token = null;
     },
-    [resendVerification.fulfilled]: (state) => {
-      state.isSend = true;
+
+    //Forgot Password Extra Reducers
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.mail = action.payload;
     },
-    [resendVerification.rejected]: (state) => {
-      state.isSend = false;
+    [forgotPassword.rejected]: (state, action) => {
+      state.mail = action.payload;
     }
   }
 });

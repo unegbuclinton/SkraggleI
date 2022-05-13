@@ -10,7 +10,6 @@ import Settings from '../Settings';
 import Source from '../Source';
 
 const FundraiserMain = (props) => {
-  console.log(props);
   return (
     <div>
       <RightSection>
