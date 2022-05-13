@@ -1,37 +1,55 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const initialState = {
+  isAuthenticated: false,
+  isRegistered: false,
+  token: null,
+  isLoading: false,
+  isError: false,
+  errorMessage: '',
+  isSend: false,
+  mail: ''
+};
+
+export const registerUser = createAsyncThunk('auth/register', async (body) => {
+  const response = await apiInstance.post('/admin/signup', body);
+  return response.data;
+});
 
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
   try {
-    return await apiInstance({
+    const forgotResponse = await apiInstance({
       method: 'post',
       url: '/admin/forgot-password',
       data: body
     });
+    console.log(forgotResponse);
+    return forgotResponse.data.message;
   } catch (error) {
-    console.log(error);
+    toast.error('No user is found');
   }
 });
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
-    return await apiInstance({
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
       method: 'post',
       url: '/admin/login',
       data: body
     });
+    return response.data.message;
   } catch (error) {
-    console.log(error);
+    toast.error('username or password is incorrect');
   }
 });
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    isAuthenticated: false,
-    token: null,
-    mail: ''
-  },
+  initialState,
   reducers: {},
 
   extraReducers: {
@@ -41,7 +59,9 @@ const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+      state.token = null;
     },
+
     //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
       state.mail = action.payload;
@@ -51,7 +71,5 @@ const authSlice = createSlice({
     }
   }
 });
-
-export const { login, register, resendVerification } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,4 +1,3 @@
-import TokenService from 'api/api_token';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
@@ -21,22 +20,17 @@ const LogIn = () => {
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: () => {
+    onSubmit: (values) => {
       const body = {
-        email: formik.values.email,
-        password: formik.values.password
+        email: values.email,
+        password: values.password
       };
 
-      dispatch(loginUser(body))
-        .then((data) => {
-          TokenService.setUser(data.payload.data.message);
-          if (data.payload.status === 200) {
-            navigate('/dashboard');
-          } else {
-            navigate('/login');
-          }
-        })
-        .catch((err) => err);
+      dispatch(loginUser(body)).then((data) => {
+        if (data.payload) {
+          navigate('/dashboard');
+        }
+      });
     }
   });
 

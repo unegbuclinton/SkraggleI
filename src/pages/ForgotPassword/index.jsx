@@ -26,15 +26,15 @@ const ForgotPassword = () => {
         email: values.email
       };
 
-      dispatch(forgotPassword(body))
-        .then((data) => {
-          if (data.payload.status === 200) {
-            navigate('/resend-verification', { state: values.email });
-          }
-        })
-        .catch((err) => err);
+      dispatch(forgotPassword(body)).then((data) => {
+        console.log(data);
+        if (data.payload) {
+          navigate('/resend-verification', { state: values.email });
+        }
+      });
     }
   });
+
   return (
     <AuthLayout>
       <FormWrapper onSubmit={formik.handleSubmit}>

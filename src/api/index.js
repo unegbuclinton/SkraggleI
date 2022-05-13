@@ -1,50 +1,87 @@
 import axios from 'axios';
-import TokenService from './api_token';
+import store from 'store';
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
-console.log(baseUrl);
-
-const instance = axios.create({
-  baseURL: baseUrl,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+const request = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL
 });
-instance.interceptors.request.use(
-  (config) => {
-    const token = TokenService.getLocalAccessToken();
-    if (token) {
-      config.headers['Authorization'] = 'Bearer ' + token;
+
+/**
+ *  refresh user token
+ * @param {payload} param0
+ */
+function refreshUserToken({ refreshToken }) {
+  return axios({
+    method: 'POST',
+    url: `${process.env.REACT_APP_BASE_URL}/admin/refresh`,
+    headers: { Authorization: `Bearer ${refreshToken}` }
+  });
+}
+
+request.interceptors.request.use((config) => {
+  const {
+    auth: { token }
+  } = store.getState();
+
+  console.log(token);
+
+  const { noToken } = config.headers;
+  delete config.headers.noToken;
+
+  if (!token || noToken) return config;
+
+  const newConfig = {
+    ...config,
+    headers: {
+      ...config.headers,
+      Authorization: `Bearer ${token.access}`
     }
-    return config;
+  };
+  return newConfig;
+});
+
+//Add a response interceptor
+request.interceptors.response.use(
+  function (response) {
+    return response;
   },
-  (error) => {
+  async function (error) {
+    const {
+      auth: { token },
+      user: { data: userData }
+    } = store.getState();
+
+    if (error.response && error.response.status === 401 && token.access) {
+      if (userData?.id && userData?.email && token.refresh) {
+        try {
+          const { refresh } = token;
+          const refreshTokenResponse = await refreshUserToken({
+            refresh
+          });
+          const { access_token: newToken } = refreshTokenResponse.data;
+
+          const newConfig = {
+            ...error.config,
+            headers: {
+              ...error.config.headers,
+              Authorization: `Bearer ${newToken}`
+            }
+          };
+          const newResponse = await axios.request(newConfig);
+          // store.dispatch(fetchUser());
+          return newResponse;
+        } catch (err) {
+          // store.dispatch(logout());
+
+          return Promise.reject(error);
+        }
+      } else {
+        // store.dispatch(logout());
+        return Promise.reject(error);
+      }
+    }
+
     return Promise.reject(error);
   }
 );
-instance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (err) => {
-    const originalConfig = err.config;
-    if (originalConfig.url !== baseUrl && err.response) {
-      if (err.response.status === 401 && !originalConfig._retry) {
-        originalConfig._retry = true;
-        try {
-          const rs = await instance.post('/auth/refreshtoken', {
-            refreshToken: TokenService.getLocalRefreshToken()
-          });
-          const { accessToken } = rs.data;
-          TokenService.updateLocalAccessToken(accessToken);
-          return instance(originalConfig);
-        } catch (_error) {
-          return Promise.reject(_error);
-        }
-      }
-    }
-    return Promise.reject(err);
-  }
-);
 
-export default instance;
+export default request;
