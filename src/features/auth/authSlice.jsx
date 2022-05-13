@@ -22,7 +22,7 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
       url: '/admin/signup',
       data: body
     });
-    return response.data.message;
+    return response.data;
   } catch (error) {
     toast.error('User already exists');
   }
