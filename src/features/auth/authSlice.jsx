@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
@@ -9,7 +10,8 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: '',
-  isSend: false
+  isSend: false,
+  mail: ''
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -17,15 +19,31 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   return response.data;
 });
 
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
+  try {
+    const forgotResponse = await apiInstance({
+      method: 'post',
+      url: '/admin/forgot-password',
+      data: body
+    });
+    console.log(forgotResponse);
+    return forgotResponse.data.message;
+  } catch (error) {
+    toast.error('No user is found');
+  }
+});
+
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
-    return await apiInstance({
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
       method: 'post',
       url: '/admin/login',
       data: body
     });
+    return response.data.message;
   } catch (error) {
-    console.log(error);
+    toast.error('username or password is incorrect');
   }
 });
 
@@ -64,6 +82,14 @@ export const authSlice = createSlice({
     },
     [resendVerification.rejected]: (state) => {
       state.isSend = false;
+      state.token = null;
+    },
+    //Forgot Password Extra Reducers
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.mail = action.payload;
+    },
+    [forgotPassword.rejected]: (state, action) => {
+      state.mail = action.payload;
     }
   }
 });
