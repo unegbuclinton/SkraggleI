@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { contactHouseHold } from 'features/contact/contactSlice';
+import { createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ function CraeteNewHouseHold({ onClose }) {
     validationSchema: houseHoldValidationSchema,
     onSubmit: (values) => {
       const body = { name: values.name };
-      dispatch(contactHouseHold(body)).then(() => onClose());
+      dispatch(createHouseHold(body)).then(() => onClose());
     }
   });
   return (

@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api/index';
 
-export const contactHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
+const initialState = {
+  isSuccess: false,
+  houseHoldData: null
+};
+export const createHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
   try {
     const response = await apiInstance({
       method: 'post',
@@ -14,20 +18,41 @@ export const contactHouseHold = createAsyncThunk('contact/houseHold', async (bod
   }
 });
 
+export const allHouseHold = createAsyncThunk('contact./allHouseHold', async () => {
+  try {
+    const response = await apiInstance({
+      method: 'get',
+      url: 'households/all/1'
+    });
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+});
+
 export const contactSlice = createSlice({
   name: 'contact',
-  initialState: {
-    isSuccess: false
-  },
+  initialState,
 
   reducers: {},
 
   extraReducers: {
-    [contactHouseHold.fulfilled]: (state) => {
+    [createHouseHold.fulfilled]: (state) => {
       state.isSuccess = true;
     },
 
-    [contactHouseHold.rejected]: (state) => {
+    [createHouseHold.rejected]: (state) => {
+      state.isSuccess = false;
+    },
+
+    //Get all Households
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isSuccess = true;
+      state.houseHoldData = action.payload;
+    },
+
+    [allHouseHold.rejected]: (state) => {
       state.isSuccess = false;
     }
   }

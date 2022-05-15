@@ -1,5 +1,3 @@
-// import TokenService from 'api/api_token';
-import TokenService from 'api/api_token';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
@@ -30,7 +28,6 @@ const LogIn = ({ onClick }) => {
 
       dispatch(loginUser(body))
         .then((data) => {
-          TokenService.setUser(data.payload.data.message);
           if (data.payload.status === 200) {
             navigate('/dashboard');
           } else {
