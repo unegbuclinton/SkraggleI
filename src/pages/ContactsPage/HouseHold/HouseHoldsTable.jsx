@@ -11,17 +11,18 @@ import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
   const dispatch = useDispatch();
-  const { houseHoldData } = useSelector((state) => state.contact);
   useEffect(() => {
     dispatch(allHouseHold());
   }, []);
-
+  const { houseHoldData } = useSelector((state) => state.contact);
+  console.log(houseHoldData);
   const tableDatas = houseHoldData.map((tableData) => {
     return {
       familyName: tableData.name,
       created: tableData.created_on
     };
   });
+
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;

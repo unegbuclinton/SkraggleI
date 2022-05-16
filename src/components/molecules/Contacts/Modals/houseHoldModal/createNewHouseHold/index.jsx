@@ -14,7 +14,7 @@ import {
   ModalWrapper
 } from './styles';
 
-function CraeteNewHouseHold({ onClose }) {
+function CreateNewHouseHold({ onClose }) {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -58,4 +58,4 @@ function CraeteNewHouseHold({ onClose }) {
   );
 }
 
-export default CraeteNewHouseHold;
+export default CreateNewHouseHold;

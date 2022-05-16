@@ -14,11 +14,11 @@ export const createHouseHold = createAsyncThunk('contact/houseHold', async (body
     });
     return response.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 });
 
-export const allHouseHold = createAsyncThunk('contact./allHouseHold', async () => {
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', async () => {
   try {
     const response = await apiInstance({
       method: 'get',
