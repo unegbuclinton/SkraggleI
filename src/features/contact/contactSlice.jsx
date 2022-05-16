@@ -1,0 +1,59 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import apiInstance from 'api/index';
+import { toast } from 'react-toastify';
+
+const initialState = {
+  isLoading: false,
+  houseHolds: []
+};
+export const createHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
+  try {
+    const response = await apiInstance({
+      method: 'post',
+      url: '/households/add',
+      data: body
+    });
+    return response?.data;
+  } catch (error) {
+    toast.error('HouseHold could not be created');
+  }
+});
+
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', async () => {
+  try {
+    const response = await apiInstance({
+      method: 'get',
+      url: 'households/all/1'
+    });
+    return response?.data.message;
+  } catch (error) {
+    return error;
+  }
+});
+
+export const contactSlice = createSlice({
+  name: 'contact',
+  initialState,
+
+  reducers: {},
+
+  extraReducers: {
+    [createHouseHold.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+
+    [createHouseHold.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
+    },
+
+    [allHouseHold.rejected]: (state) => {
+      state.isLoading = false;
+    }
+  }
+});
+export default contactSlice.reducer;

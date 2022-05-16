@@ -1,4 +1,5 @@
 import CheckBox from 'components/atoms/CheckBox';
+import dayjs from 'dayjs';
 
 export const columns = [
   {
@@ -8,51 +9,16 @@ export const columns = [
   },
   {
     name: 'NAME',
-    selector: (row) => row.familyName,
+    selector: (row) => {
+      return row?.name;
+    },
     width: '33.5769rem'
   },
   {
     name: 'CREATED',
-    selector: (row) => row.created,
+    selector: (row) => {
+      return dayjs(row?.created_on).format('MMM DD YYYY');
+    },
     width: '54.9rem'
-  }
-];
-
-export const data = [
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
-  },
-  {
-    familyName: 'A Family Name.',
-    created: '24th Aug, 2021'
   }
 ];
