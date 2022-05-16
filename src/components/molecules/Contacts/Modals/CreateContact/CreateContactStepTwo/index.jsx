@@ -1,9 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
 import Input from 'components/atoms/Input/Input';
-import { useFormik } from 'formik';
 import { subcription } from 'utilities/modalData';
-import { createContactStepTwoValidationSchema } from 'validation/Schema';
 import {
   AddressContainer,
   ButtonContainer,
@@ -14,15 +12,7 @@ import {
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, next, formData }) {
-  const formik = useFormik({
-    initialValues: formData,
-    validationSchema: createContactStepTwoValidationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      next(values, true);
-    }
-  });
+function ContactStepTwo({ onClose, formik }) {
   return (
     <ModalWrapper>
       <ModalContainer>

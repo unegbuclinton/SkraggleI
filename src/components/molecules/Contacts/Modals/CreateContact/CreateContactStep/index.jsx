@@ -1,36 +1,49 @@
+import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import {
+  createContactStepOneValidationSchema,
+  createContactStepTwoValidationSchema
+} from 'validation/Schema';
 import CreateContactStepOne from '../CreateContactStepOne';
 import ContactStepTwo from '../CreateContactStepTwo';
 
 const MultiStepForm = ({ onClose }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    company: '',
-    date: '',
-    emailSubscription: '',
-    tags: '',
-    address: '',
-    unit: '',
-    city: '',
-    state: '',
-    postalCode: '',
-    country: '',
-    household: '',
-    priority: '',
-    assignee: ''
-  });
-
   const [currentStep, setCurrentStep] = useState(0);
+
+  const validationSchema =
+    currentStep === 0 ? createContactStepOneValidationSchema : createContactStepTwoValidationSchema;
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      emailSubscription: '',
+      date: '',
+      company: '',
+      tags: '',
+      address: '',
+      unit: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      country: '',
+      household: '',
+      priority: '',
+      assignee: ''
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      handleNextStep(values);
+    }
+  });
 
   const endPoint = (contactDatas) => {
     console.log('Form Submitted', contactDatas);
   };
 
   const handleNextStep = (newData, final = false) => {
-    setFormData((prev) => ({ ...prev, ...newData }));
-
     if (final) {
       endPoint(newData);
       return;
@@ -38,20 +51,22 @@ const MultiStepForm = ({ onClose }) => {
     setCurrentStep((prev) => prev + 1);
   };
 
-  const handlePrevStep = (newData) => {
-    setFormData((prev) => ({ ...prev, ...newData }));
-    setCurrentStep((prev) => prev - 1);
-  };
-
   const steps = [
     // eslint-disable-next-line react/jsx-key
-    <CreateContactStepOne next={handleNextStep} formData={formData} onClose={onClose} />,
+    <CreateContactStepOne
+      next={handleNextStep}
+      formik={formik}
+      onSubmit={formik.handleSubmit}
+      onChange={formik.handleChange}
+      onClose={onClose}
+    />,
     // eslint-disable-next-line react/jsx-key
     <ContactStepTwo
       next={handleNextStep}
-      prev={handlePrevStep}
+      formik={formik}
+      onSubmit={formik.handleSubmit}
+      onChange={formik.handleChange}
       onClose={onClose}
-      formData={formData}
     />
   ];
 
