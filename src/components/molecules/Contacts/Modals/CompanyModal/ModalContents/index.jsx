@@ -1,36 +1,53 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+// import LoadingScreen from 'components/molecules/LoadingScreen';
+import { createNewCompany } from 'features/contact/contactSlice';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   CheckBoxWrapper,
+  ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
   ModalWrapper,
   TagContainer,
-  TagWrapper,
-  ErrorMsg
+  TagWrapper
 } from './styles';
-import Switch from 'components/atoms/Switch/Switch';
-import { createCompanyValidatonSchema } from 'validation/Schema';
-import { useFormik } from 'formik';
 
 function CreateCompany({ onClose }) {
+  const dispatch = useDispatch();
+  const { isLoading, isSuccess } = useSelector((state) => state.contact);
   const formik = useFormik({
     initialValues: {
       companyName: '',
       primaryPhone: '',
-      tags: ''
+      tags: '',
+      tag: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        company_name: values.companyName,
+        primary_phone: values.primaryPhone,
+        tags: values.tags,
+        tag: values.tag
+      };
+      dispatch(createNewCompany(body)).then(() => {
+        if (isSuccess) {
+          toast('new company created successfully');
+        }
+      });
     }
   });
 
   return (
     <ModalWrapper>
+      {/* {isLoading === true && <LoadingScreen />} */}
       <ModalContainer>
         <FormContainer onSubmit={formik.handleSubmit}>
           <FormLabel>COMPANY NAME</FormLabel>

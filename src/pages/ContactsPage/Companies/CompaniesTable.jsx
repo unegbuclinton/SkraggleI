@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import Table from 'components/layouts/Table';
-import { columns, data } from 'utilities/CompaniesData';
-import { TableWrapper } from './styles';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
 // import { useNavigate } from "react-router-dom";
 import Pagination from 'components/molecules/Pagination';
-import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/CompaniesData';
+import { TableWrapper } from './styles';
 
 function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
