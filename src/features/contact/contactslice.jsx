@@ -3,58 +3,57 @@ import apiInstance from 'api/index';
 import { toast } from 'react-toastify';
 
 const initialState = {
-  contactCreated: false,
-  contactData: null
+  isLoading: false,
+  houseHolds: []
 };
-
-export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => {
+export const createHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
   try {
-    return apiInstance({
+    const response = await apiInstance({
       method: 'post',
       url: '/households/add',
       data: body
     });
+    return response?.data;
   } catch (error) {
-    console.log(error);
+    toast.error('HouseHold could not be created');
   }
 });
 
-export const createContact = createAsyncThunk('contact/createContact', async (body) => {
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', async () => {
   try {
-    const createContactResponse = await apiInstance({
-      method: 'post',
-      url: '/contacts/create',
-      data: body
+    const response = await apiInstance({
+      method: 'get',
+      url: 'households/all/1'
     });
-    return createContactResponse;
+    return response?.data.message;
   } catch (error) {
-    toast.error('Contact did not created successfully');
+    return error;
   }
 });
 
 export const contactSlice = createSlice({
   name: 'contact',
   initialState,
+
   reducers: {},
 
   extraReducers: {
-    [contactHouseHold.fulfilled]: (state) => {
-      state.isSuccess = true;
+    [createHouseHold.fulfilled]: (state) => {
+      state.isLoading = false;
     },
 
-    [contactHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+    [createHouseHold.rejected]: (state) => {
+      state.isLoading = false;
     },
 
-    //CREATE CONTACT
-    [createContact.fulfilled]: (state) => {
-      state.contactCreated = true;
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
     },
 
-    [createContact.rejected]: (state) => {
-      state.contactCreated = false;
+    [allHouseHold.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });
-
 export default contactSlice.reducer;
