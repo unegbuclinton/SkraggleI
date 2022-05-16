@@ -34,7 +34,6 @@ export const VolunteerContainer = styled.div`
   padding-bottom: 1.2rem;
   padding-top: 1.6rem;
   display: flex;
-  overflow: hidden;
   gap: 15.3rem;
   .title {
     font-size: ${FONTSIZES.xsmall};

@@ -35,7 +35,6 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
       url: '/admin/forgot-password',
       data: body
     });
-    console.log(forgotResponse);
     return forgotResponse.data.message;
   } catch (error) {
     toast.error('No user is found');
@@ -76,7 +75,6 @@ export const authSlice = createSlice({
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
-      // state.entities.push(action.payload);
     },
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
@@ -84,6 +82,7 @@ export const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+      state.token = null;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;

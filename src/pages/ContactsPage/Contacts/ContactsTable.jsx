@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import Table from 'components/layouts/Table';
+import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
+import Pagination from 'components/molecules/Pagination/index';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { columns, data } from 'utilities/contactsData';
 import { TableWrapper } from './styles';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import Pagination from 'components/molecules/Pagination/index';
-import { useNavigate } from 'react-router-dom';
-import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
 
 function ContactsTable() {
   const [currentPage, setCurrentPage] = useState(1);
