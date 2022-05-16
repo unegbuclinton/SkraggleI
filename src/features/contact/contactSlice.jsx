@@ -3,8 +3,8 @@ import apiInstance from 'api/index';
 import { toast } from 'react-toastify';
 
 const initialState = {
-  isSuccess: false,
-  houseHoldData: null
+  isLoading: false,
+  houseHolds: []
 };
 export const createHouseHold = createAsyncThunk('contact/houseHold', async (body) => {
   try {
@@ -19,7 +19,7 @@ export const createHouseHold = createAsyncThunk('contact/houseHold', async (body
   }
 });
 
-export const allHouseHold = createAsyncThunk('contact./allHouseHold', async () => {
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', async () => {
   try {
     const response = await apiInstance({
       method: 'get',
@@ -39,20 +39,20 @@ export const contactSlice = createSlice({
 
   extraReducers: {
     [createHouseHold.fulfilled]: (state) => {
-      state.isSuccess = true;
+      state.isLoading = false;
     },
 
     [createHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+      state.isLoading = false;
     },
 
     [allHouseHold.fulfilled]: (state, action) => {
-      state.isSuccess = true;
-      state.houseHoldData = action.payload;
+      state.isLoading = false;
+      state.houseHolds = action.payload;
     },
 
     [allHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+      state.isLoading = false;
     }
   }
 });

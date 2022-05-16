@@ -1,41 +1,52 @@
+import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import dayjs from 'dayjs';
 import { allHouseHold } from 'features/contact/contactSlice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { columns } from 'utilities/houseHoldData';
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
+  const columns = [
+    {
+      name: '',
+      cell: () => <CheckBox />,
+      width: '8rem'
+    },
+    {
+      name: 'NAME',
+      selector: (row) => {
+        return row?.name;
+      },
+      width: '33.5769rem'
+    },
+    {
+      name: 'CREATED',
+      selector: (row) => {
+        return dayjs(row?.created_on).format('DD MMM YYYY');
+      },
+      width: '54.9rem'
+    }
+  ];
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(allHouseHold());
   }, []);
-  const { houseHoldData } = useSelector((state) => state.contact);
-  const tableDatas = houseHoldData.map((tableData) => {
-    return {
-      familyName: tableData.name,
-      created: tableData.created_on
-    };
-  });
+  const { houseHolds } = useSelector((state) => state.contact);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
 
-  const indexLasttList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLasttList - itemsPerPage;
-
-  const currentList = tableDatas.slice(indexFirstList, indexLasttList);
-
   return (
     <div>
       <TableWrapper>
         <TableHeader title="Add Household" header="15 Household" setOpen={setOpen} />
-        <Table columns={columns} data={currentList} />
+        <Table columns={columns} data={houseHolds} />
       </TableWrapper>
 
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
@@ -43,7 +54,7 @@ function HouseHoldsTable() {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={tableDatas}
+        data={houseHolds}
         setCurrentPage={setCurrentPage}
       />
     </div>
