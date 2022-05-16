@@ -1,11 +1,12 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-// import LoadingScreen from 'components/molecules/LoadingScreen';
+import LoadingScreen from 'components/molecules/LoadingScreen';
 import { createNewCompany } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -26,16 +27,16 @@ function CreateCompany({ onClose }) {
     initialValues: {
       companyName: '',
       primaryPhone: '',
-      tags: '',
-      tag: ''
+      tags: ''
+      // tag: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
       const body = {
         company_name: values.companyName,
         primary_phone: values.primaryPhone,
-        tags: values.tags,
-        tag: values.tag
+        tags: values.tags
+        // tag: values.tag
       };
       dispatch(createNewCompany(body)).then(() => {
         if (isSuccess) {
@@ -47,7 +48,7 @@ function CreateCompany({ onClose }) {
 
   return (
     <ModalWrapper>
-      {/* {isLoading === true && <LoadingScreen />} */}
+      {isLoading === true && <LoadingScreen />}
       <ModalContainer>
         <FormContainer onSubmit={formik.handleSubmit}>
           <FormLabel>COMPANY NAME</FormLabel>
