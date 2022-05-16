@@ -1,8 +1,8 @@
-import { createContact } from 'features/contact/contactslice';
+// import { createContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { useDispatch } from 'react-redux';
+// import { toast } from 'react-toastify';
 import {
   createContactStepOneValidationSchema,
   createContactStepTwoValidationSchema
@@ -13,7 +13,7 @@ import ContactStepTwo from '../CreateContactStepTwo';
 const MultiStepForm = ({ onClose }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const validationSchema =
     currentStep === 0 ? createContactStepOneValidationSchema : createContactStepTwoValidationSchema;
@@ -48,35 +48,35 @@ const MultiStepForm = ({ onClose }) => {
     }
   });
 
-  const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
+  // const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
 
-  const body = {
-    fullname: fullname,
-    primary_phone: formik.values.primary_phone,
-    primary_email: formik.values.primary_email,
-    firstName: formik.values.firstName,
-    lastName: formik.values.lastName,
-    emailSubscription: formik.values.emailSubscription,
-    date: formik.values.date,
-    company: formik.values.company,
-    tags: formik.values.tags,
-    address: formik.values.address,
-    unit: formik.values.unit,
-    city: formik.values.city,
-    state: formik.values.state,
-    postalCode: formik.values.postalCode,
-    country: formik.values.country,
-    household: formik.values.household,
-    priority: formik.values.priority,
-    assignee: formik.values.assignee
-  };
+  // const body = {
+  //   fullname: fullname,
+  //   primary_phone: formik.values.primary_phone,
+  //   primary_email: formik.values.primary_email,
+  //   firstName: formik.values.firstName,
+  //   lastName: formik.values.lastName,
+  //   emailSubscription: formik.values.emailSubscription,
+  //   date: formik.values.date,
+  //   company: formik.values.company,
+  //   tags: formik.values.tags,
+  //   address: formik.values.address,
+  //   unit: formik.values.unit,
+  //   city: formik.values.city,
+  //   state: formik.values.state,
+  //   postalCode: formik.values.postalCode,
+  //   country: formik.values.country,
+  //   household: formik.values.household,
+  //   priority: formik.values.priority,
+  //   assignee: formik.values.assignee
+  // };
 
   const handleCreateContact = () => {
     // console.log('Form Submitted', contactDatas);
-    dispatch(createContact(body)).then(() => {
-      toast('Contact Created Successfully');
-      onClose();
-    });
+    // dispatch(createContact(body)).then(() => {
+    //   toast('Contact Created Successfully');
+    //   onClose();
+    // });
   };
 
   const handleNextStep = (newData, final = false) => {
