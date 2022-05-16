@@ -1,5 +1,5 @@
 import { COLORS } from 'constants/colors';
-import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const DonationContainer = styled.div`
@@ -11,12 +11,22 @@ export const DonationContainer = styled.div`
 export const DonationWrapper = styled.div`
   width: 100%;
   .donation-text {
-    width: 47.4rem;
+    position: relative;
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS['header-grey']};
     padding: 2.4rem 0rem 1.7rem 0rem;
     margin: 0 4.7rem 0 4rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border: 1px solid ${COLORS.torquoise};
+      height: 1px;
+      width: calc(100% - 3rem);
+    }
   }
 
   .progress-tracker {
@@ -30,12 +40,22 @@ export const DonationWrapper = styled.div`
 export const RevenueWrapper = styled.div`
   width: 100%;
   .revenue-text {
-    width: 47.4rem;
+    position: relative;
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS['header-grey']};
-    padding: 2.4rem 0rem 1.7rem 4.1rem;
-    margin: 0;
+    padding: 2.4rem 0rem 1.7rem;
+    margin: 0 4.7rem 0 4rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border: 1px solid ${COLORS.torquoise};
+      height: 1px;
+      width: calc(100% - 3rem);
+    }
   }
   .revenue-progress {
     display: flex;
@@ -45,7 +65,6 @@ export const RevenueWrapper = styled.div`
     gap: 2.4rem;
     padding: 3.7rem 0 5.593rem 0;
     margin: 0 5.6rem 0 4rem;
-    border-top: 1px solid ${COLORS.torquoise};
 
     &__text {
       font-size: ${FONTSIZES.lg};

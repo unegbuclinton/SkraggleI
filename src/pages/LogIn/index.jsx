@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
-const LogIn = ({ onClick }) => {
+const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -20,21 +20,17 @@ const LogIn = ({ onClick }) => {
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: () => {
+    onSubmit: (values) => {
       const body = {
-        email: formik.values.email,
-        password: formik.values.password
+        email: values.email,
+        password: values.password
       };
 
-      dispatch(loginUser(body))
-        .then((data) => {
-          if (data.payload.status === 200) {
-            navigate('/dashboard');
-          } else {
-            navigate('/login');
-          }
-        })
-        .catch((err) => err);
+      dispatch(loginUser(body)).then((data) => {
+        if (data.payload) {
+          navigate('/dashboard');
+        }
+      });
     }
   });
 
@@ -72,7 +68,7 @@ const LogIn = ({ onClick }) => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button type="submit" onClick={onClick} className="login-button">
+          <Button type="submit" className="login-button">
             LOG IN
           </Button>
           <p className="login-card__signup-link">
