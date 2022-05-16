@@ -18,13 +18,13 @@ function ContactsTable() {
     dispatch(viewContact());
   }, []);
 
-  const data = contactData.map((contact) => {
-    return {
-      fullName: contact.fullname,
-      primaryEmail: contact.primary_email,
-      primaryPhone: contact.primary_phone
-    };
-  });
+  // const data = contactData.map((contact) => {
+  //   return {
+  //     fullName: contact.fullname,
+  //     primaryEmail: contact.primary_email,
+  //     primaryPhone: contact.primary_phone
+  //   };
+  // });
 
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
@@ -34,7 +34,7 @@ function ContactsTable() {
 
   const indexFirstList = indexLasttList - itemsPerPage;
 
-  const currentList = data.slice(indexFirstList, indexLasttList);
+  const currentList = contactData.slice(indexFirstList, indexLasttList);
 
   const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ function ContactsTable() {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={data}
+        data={contactData}
         setCurrentPage={setCurrentPage}
       />
     </div>
