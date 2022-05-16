@@ -35,7 +35,11 @@ const MultiStepForm = ({ onClose }) => {
     validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      handleNextStep(values);
+      if (currentStep === 0) {
+        handleNextStep(values);
+      } else {
+        handleNextStep(values, true);
+      }
     }
   });
 
@@ -54,7 +58,6 @@ const MultiStepForm = ({ onClose }) => {
   const steps = [
     // eslint-disable-next-line react/jsx-key
     <CreateContactStepOne
-      next={handleNextStep}
       formik={formik}
       onSubmit={formik.handleSubmit}
       onChange={formik.handleChange}
@@ -62,7 +65,6 @@ const MultiStepForm = ({ onClose }) => {
     />,
     // eslint-disable-next-line react/jsx-key
     <ContactStepTwo
-      next={handleNextStep}
       formik={formik}
       onSubmit={formik.handleSubmit}
       onChange={formik.handleChange}
