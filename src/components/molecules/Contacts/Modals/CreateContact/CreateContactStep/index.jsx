@@ -1,4 +1,4 @@
-import { createContact } from 'features/contact/contactslice';
+import { createContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';

@@ -2,12 +2,22 @@ import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import React, { useState } from 'react';
+import { viewContact } from 'features/contact/contactSlice';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { columns, data } from 'utilities/contactsData';
+import { columns } from 'utilities/contactsData';
 import { TableWrapper } from './styles';
 
 function ContactsTable() {
+  const { contactData } = useSelector((state) => state.contact);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(viewContact());
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
@@ -16,7 +26,7 @@ function ContactsTable() {
 
   const indexFirstList = indexLasttList - itemsPerPage;
 
-  const currentList = data.slice(indexFirstList, indexLasttList);
+  const currentList = contactData.slice(indexFirstList, indexLasttList);
 
   const navigate = useNavigate();
 
@@ -36,7 +46,7 @@ function ContactsTable() {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={data}
+        data={contactData}
         setCurrentPage={setCurrentPage}
       />
     </div>

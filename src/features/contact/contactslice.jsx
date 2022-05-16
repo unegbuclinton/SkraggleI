@@ -26,9 +26,23 @@ export const createContact = createAsyncThunk('contact/createContact', async (bo
       url: '/contacts/create',
       data: body
     });
+    toast.done('Contact created successfully');
     return createContactResponse;
   } catch (error) {
     toast.error('Contact did not created successfully');
+  }
+});
+
+export const viewContact = createAsyncThunk('contact/viewContact', async (body) => {
+  try {
+    const contactResponse = await apiInstance({
+      method: 'get',
+      url: '/contacts/all/1',
+      data: body
+    });
+    return contactResponse.data.message;
+  } catch (error) {
+    console.log(error);
   }
 });
 
@@ -53,6 +67,15 @@ export const contactSlice = createSlice({
 
     [createContact.rejected]: (state) => {
       state.contactCreated = false;
+    },
+
+    //VIEW CONTACTS
+    [viewContact.fulfilled]: (state, action) => {
+      state.contactData = action.payload;
+    },
+
+    [viewContact.rejected]: (state, action) => {
+      state.contactData = action.payload;
     }
   }
 });
