@@ -6,7 +6,6 @@ import { allHouseHold } from 'features/contact/contactSlice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { columns } from 'utilities/houseHoldData';
-// import { useNavigate } from "react-router-dom";
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
@@ -32,22 +31,11 @@ function HouseHoldsTable() {
 
   const currentList = tableDatas.slice(indexFirstList, indexLasttList);
 
-  // const navigate = useNavigate();
-
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
-
   return (
     <div>
       <TableWrapper>
         <TableHeader title="Add Household" header="15 Household" setOpen={setOpen} />
-        <Table
-          columns={columns}
-          data={currentList}
-          // onRowClicked={onRowClicked}
-        />
+        <Table columns={columns} data={currentList} />
       </TableWrapper>
 
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api/index';
+import { toast } from 'react-toastify';
 
 const initialState = {
   isSuccess: false,
@@ -12,9 +13,9 @@ export const createHouseHold = createAsyncThunk('contact/houseHold', async (body
       url: '/households/add',
       data: body
     });
-    return response.data;
+    return response?.data;
   } catch (error) {
-    return error;
+    toast.error('HouseHold could not be created');
   }
 });
 
@@ -24,7 +25,7 @@ export const allHouseHold = createAsyncThunk('contact./allHouseHold', async () =
       method: 'get',
       url: 'households/all/1'
     });
-    return response.data.message;
+    return response?.data.message;
   } catch (error) {
     return error;
   }
@@ -45,7 +46,6 @@ export const contactSlice = createSlice({
       state.isSuccess = false;
     },
 
-    //Get all Households
     [allHouseHold.fulfilled]: (state, action) => {
       state.isSuccess = true;
       state.houseHoldData = action.payload;
