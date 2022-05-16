@@ -26,7 +26,6 @@ export const createContact = createAsyncThunk('contact/createContact', async (bo
       url: '/contacts/create',
       data: body
     });
-    toast.done('Contact created successfully');
     return createContactResponse;
   } catch (error) {
     toast.error('Contact did not created successfully');
