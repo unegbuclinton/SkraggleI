@@ -10,12 +10,22 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: '',
-  isSend: false
+  isSend: false,
+  mail: ''
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
-  const response = await apiInstance.post('/admin/signup', body);
-  return response.data;
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/signup',
+      data: body
+    });
+    return response.data;
+  } catch (error) {
+    toast.error('User already exists');
+  }
 });
 
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
@@ -27,7 +37,7 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
     });
     return forgotResponse.data.message;
   } catch (error) {
-    toast.error('Username is not available');
+    toast.error('No user is found');
   }
 });
 
@@ -45,12 +55,27 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
-const authSlice = createSlice({
+export const resendVerification = createAsyncThunk('auth/resendVerification', async (body) => {
+  const response = await apiInstance.post('/email/verification/send', body);
+  return response.data;
+});
+
+export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-
   extraReducers: {
+    [registerUser.fulfilled]: (state, action) => {
+      state.isRegistered = action.payload;
+      state.isLoading = false;
+    },
+    [registerUser.rejected]: (state) => {
+      state.isLoading = false;
+      state.isRegistered = false;
+    },
+    [registerUser.pending]: (state) => {
+      state.isLoading = true;
+    },
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
       state.token = action.payload;
@@ -58,6 +83,12 @@ const authSlice = createSlice({
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
       state.token = null;
+    },
+    [resendVerification.fulfilled]: (state, action) => {
+      state.isSend = action.payload;
+    },
+    [resendVerification.rejected]: (state) => {
+      state.isSend = false;
     },
     //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
