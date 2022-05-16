@@ -5,13 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   createCompany: false,
-  isLoading: false,
-  isSuccess: false
+  isLoading: false
 };
 
 export const createNewCompany = createAsyncThunk('auth/register', async (body) => {
   try {
-    // localStorage.removeItem('persist:root');
     const response = await apiInstance({
       method: 'post',
       url: '/company/add',
@@ -19,7 +17,8 @@ export const createNewCompany = createAsyncThunk('auth/register', async (body) =
     });
     return response.data;
   } catch (error) {
-    toast.error('cants add new company');
+    toast.error();
+    console.log(error);
   }
 });
 
@@ -28,19 +27,16 @@ export const contactSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [createNewCompany.fulfilled]: (state, action) => {
-      state.createCompany = action.payload;
+    [createNewCompany.fulfilled]: (state) => {
+      // state.createCompany = action.payload;
       state.isLoading = false;
-      state.isSuccess = true;
     },
     [createNewCompany.rejected]: (state) => {
       state.isLoading = false;
       state.createCompany = false;
-      state.isSuccess = false;
     },
     [createNewCompany.pending]: (state) => {
       state.isLoading = true;
-      state.isSuccess = false;
       // state.entities.push(action.payload);
     }
   }
