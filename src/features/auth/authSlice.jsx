@@ -1,45 +1,104 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import apiInstance from 'api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const initialState = {
   isAuthenticated: false,
-  token: null
+  isRegistered: false,
+  token: null,
+  isLoading: false,
+  isError: false,
+  errorMessage: '',
+  isSend: false,
+  mail: ''
 };
 
-const loginUser = createAsyncThunk('auth/login', async () => {
-  const response = await axios.post('/url', {});
-  return response.data;
-});
-
-export const counterSlice = createSlice({
-  name: 'auth',
-  initialState,
-  reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
-      // state.token = payload.token;
-    },
-    register: (state, payload) => {
-      state = { ...state, payload };
-    },
-    resendVerification: () => {}
-  },
-  extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
-      state.isAuthenticated = true;
-      state.token = payload.token;
+export const registerUser = createAsyncThunk('auth/register', async (body) => {
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/signup',
+      data: body
     });
-    builder.addCase(loginUser.rejected, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
-    builder.addCase(loginUser.pending, (state, action) => {
-      // Add user to the state array
-      state.entities.push(action.payload);
-    });
+    return response.data;
+  } catch (error) {
+    toast.error('User already exists');
   }
 });
 
-export const { login, register, resendVerification } = counterSlice.actions;
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
+  try {
+    const forgotResponse = await apiInstance({
+      method: 'post',
+      url: '/admin/forgot-password',
+      data: body
+    });
+    console.log(forgotResponse);
+    return forgotResponse.data.message;
+  } catch (error) {
+    toast.error('No user is found');
+  }
+});
 
-export default counterSlice.reducer;
+export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
+  try {
+    // localStorage.removeItem('persist:root');
+    const response = await apiInstance({
+      method: 'post',
+      url: '/admin/login',
+      data: body
+    });
+    return response.data.message;
+  } catch (error) {
+    toast.error('username or password is incorrect');
+  }
+});
+
+export const resendVerification = createAsyncThunk('auth/resendVerification', async (body) => {
+  const response = await apiInstance.post('/email/verification/send', body);
+  return response.data;
+});
+
+export const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [registerUser.fulfilled]: (state, action) => {
+      state.isRegistered = action.payload;
+      state.isLoading = false;
+    },
+    [registerUser.rejected]: (state) => {
+      state.isLoading = false;
+      state.isRegistered = false;
+    },
+    [registerUser.pending]: (state) => {
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    },
+    [loginUser.fulfilled]: (state, action) => {
+      state.isAuthenticated = true;
+      state.token = action.payload;
+    },
+    [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
+    },
+    [resendVerification.fulfilled]: (state, action) => {
+      state.isSend = action.payload;
+    },
+    [resendVerification.rejected]: (state) => {
+      state.isSend = false;
+    },
+    //Forgot Password Extra Reducers
+    [forgotPassword.fulfilled]: (state, action) => {
+      state.mail = action.payload;
+    },
+    [forgotPassword.rejected]: (state, action) => {
+      state.mail = action.payload;
+    }
+  }
+});
+
+export default authSlice.reducer;
