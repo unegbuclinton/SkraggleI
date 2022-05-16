@@ -24,7 +24,7 @@ export const allHouseHold = createAsyncThunk('contact./allHouseHold', async () =
       method: 'get',
       url: 'households/all/1'
     });
-    return response.data;
+    return response.data.message;
   } catch (error) {
     return error;
   }
