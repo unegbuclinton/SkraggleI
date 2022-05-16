@@ -70,7 +70,7 @@ function CreateCompany({ onClose }) {
             {formik.touched.companyName && formik.errors.companyName ? (
               <ErrorMsg>{formik.errors.companyName}</ErrorMsg>
             ) : null}
-            <FormLabel>PRIMANRY PHONE</FormLabel>
+            <FormLabel>PRIMARY PHONE</FormLabel>
             <Input
               className="input-field"
               id="primaryPhone"
