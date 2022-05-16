@@ -5,11 +5,23 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { allHouseHold } from 'features/contact/contactSlice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { columns, data } from 'utilities/houseHoldData';
+import { columns } from 'utilities/houseHoldData';
 // import { useNavigate } from "react-router-dom";
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
+  const dispatch = useDispatch();
+  const { houseHoldData } = useSelector((state) => state.contact);
+  useEffect(() => {
+    dispatch(allHouseHold());
+  }, []);
+
+  const tableDatas = houseHoldData.map((tableData) => {
+    return {
+      familyName: tableData.name,
+      created: tableData.created_on
+    };
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
@@ -18,7 +30,7 @@ function HouseHoldsTable() {
 
   const indexFirstList = indexLasttList - itemsPerPage;
 
-  const currentList = data.slice(indexFirstList, indexLasttList);
+  const currentList = tableDatas.slice(indexFirstList, indexLasttList);
 
   // const navigate = useNavigate();
 
@@ -26,22 +38,6 @@ function HouseHoldsTable() {
   //   let path = "/contact-profile";
   //   navigate(path);
   // };
-  const dispatch = useDispatch();
-  const { houseHoldData } = useSelector((state) => state.contact);
-  console.log(houseHoldData);
-  useEffect(() => {
-    dispatch(allHouseHold());
-  }, []);
-
-  // const tableDatas = houseHoldData.map((tableData) => {
-  //   return [
-  //     {
-  //       name: tableData.name,
-  //       created: tableData.created_on
-  //     }
-  //   ];
-  // });
-  // console.log(tableDatas);
 
   return (
     <div>
@@ -59,7 +55,7 @@ function HouseHoldsTable() {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={data}
+        data={tableDatas}
         setCurrentPage={setCurrentPage}
       />
     </div>
