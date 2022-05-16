@@ -33,19 +33,6 @@ export const createContact = createAsyncThunk('contact/createContact', async (bo
   }
 });
 
-export const viewContact = createAsyncThunk('contact/viewContact', async (body) => {
-  try {
-    const contactResponse = await apiInstance({
-      method: 'get',
-      url: '/contacts/all/1',
-      data: body
-    });
-    return contactResponse.data.message;
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 export const contactSlice = createSlice({
   name: 'contact',
   initialState,
@@ -67,15 +54,6 @@ export const contactSlice = createSlice({
 
     [createContact.rejected]: (state) => {
       state.contactCreated = false;
-    },
-
-    //VIEW CONTACTS
-    [viewContact.fulfilled]: (state, action) => {
-      state.contactData = action.payload;
-    },
-
-    [viewContact.rejected]: (state, action) => {
-      state.contactData = action.payload;
     }
   }
 });
