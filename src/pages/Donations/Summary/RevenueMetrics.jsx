@@ -1,8 +1,7 @@
 import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
-import Chart from 'components/organisms/AreaChart';
-// import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
+import AreaChart from 'components/organisms/AreaChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
@@ -18,6 +17,13 @@ const RevenueMetrics = () => {
   });
   const handleSetRange = (range) => setFilterRange(range);
 
+  const series = [
+    {
+      name: 'Skraggle',
+      data: [300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179],
+      color: '#2FC18D'
+    }
+  ];
   return (
     <RevenueMetricsContainer>
       <RevenueGoalsWrapper>
@@ -39,10 +45,8 @@ const RevenueMetrics = () => {
             open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
-        <Chart
-          type="area"
-          data={[300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179]}
-          height={350}
+        <AreaChart
+          series={series}
           categories={[
             'Jan',
             'Feb',
@@ -57,6 +61,7 @@ const RevenueMetrics = () => {
             'Nov',
             'Dec'
           ]}
+          stroke={{ colors: ['#2FC18D'] }}
         />
       </RevenueTrackerWrapper>
     </RevenueMetricsContainer>

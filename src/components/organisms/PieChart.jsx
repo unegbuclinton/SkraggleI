@@ -16,6 +16,10 @@ const PieChart = ({ width, height }) => {
           legend: {
             show: false
           },
+          chart: {
+            width: '100%',
+            redrawOnParentResize: true
+          },
           xaxis: {},
           colors: ['#BEE0FF', '#578EC1']
         }}></Chart>

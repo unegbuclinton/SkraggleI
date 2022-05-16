@@ -22,7 +22,6 @@ import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-
 export const privateRoutes = [
   {
     path: 'dashboard/*',
@@ -166,7 +165,7 @@ export const publicRoutes = [
   },
   {
     path: '/login',
-    element: <LogIn onClick />
+    element: <LogIn />
   },
   {
     path: '/forgotpassword',

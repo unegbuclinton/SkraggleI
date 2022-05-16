@@ -2,7 +2,6 @@ import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
 import GoalProgressTracker from 'components/molecules/GoalProgressTracker';
 import AreaChart from 'components/organisms/AreaChart';
-// import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
@@ -17,6 +16,14 @@ const DonationMetrics = () => {
     label: 'Today'
   });
   const handleSetRange = (range) => setFilterRange(range);
+
+  const series = [
+    {
+      name: 'Skraggle',
+      data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
+      color: '#2FC18D'
+    }
+  ];
 
   return (
     <DonationMetricsContainer>
@@ -37,10 +44,9 @@ const DonationMetrics = () => {
             open={openRange}
           />
         </DonationTrackerHeaderWrapper>
+
         <AreaChart
-          type="area"
-          data={[300, 300, 117, 293, 400, 179, 300, 300, 117, 293, 400, 179]}
-          height={350}
+          series={series}
           categories={[
             'Jan',
             'Feb',
@@ -55,6 +61,7 @@ const DonationMetrics = () => {
             'Nov',
             'Dec'
           ]}
+          stroke={{ colors: ['#2FC18D'] }}
         />
       </DonationTrackerWrapper>
     </DonationMetricsContainer>
