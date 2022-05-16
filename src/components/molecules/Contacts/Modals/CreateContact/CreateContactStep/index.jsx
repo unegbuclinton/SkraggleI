@@ -73,8 +73,8 @@ const MultiStepForm = ({ onClose }) => {
     assignee: formik.values.assignee
   };
 
-  const handleCreateContact = (contactDatas) => {
-    console.log('Form Submitted', contactDatas);
+  const handleCreateContact = () => {
+    // console.log('Form Submitted', contactDatas);
     dispatch(createContact(body)).then(() => {
       if (contactCreated) {
         toast('Contact created successfully');
