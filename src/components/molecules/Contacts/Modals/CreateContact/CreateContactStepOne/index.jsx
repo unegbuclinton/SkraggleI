@@ -1,10 +1,8 @@
 import Button from 'components/atoms/Button/Button';
 import DropdownComponent from 'components/atoms/Dropdown';
 import Input from 'components/atoms/Input/Input';
-import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { dateDate, monthData, subcription, yearsData } from 'utilities/modalData';
-import { createContactStepOneValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DateContainer,
@@ -15,27 +13,20 @@ import {
   ModalWrapper
 } from './styles';
 
-function CreateContactStepOne({ onClose, next, formData }) {
+function CreateContactStepOne({ onClose, formik }) {
   const [selected, setSelected] = useState('select');
   const [selectDate, setSelectDate] = useState('Date');
   const [selectMonth, setSelectMonth] = useState('Month');
   const [selectYear, setSelectYear] = useState('Year');
 
-  const formik = useFormik({
-    initialValues: formData,
-    validationSchema: createContactStepOneValidationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      next(values);
-    }
-  });
-
-  // console.log(formik.errors);
-
   return (
     <ModalWrapper>
       <ModalContainer>
-        <FormContainer onSubmit={formik.handleSubmit}>
+        <FormContainer
+          onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+          }}>
           <FormLabel>FIRST NAME</FormLabel>
           <Input
             className="input-field"
@@ -67,35 +58,32 @@ function CreateContactStepOne({ onClose, next, formData }) {
           <FormLabel>EMAIL</FormLabel>
           <Input
             className="input-field"
-            id="email"
-            name="email"
-            type="email"
+            id="primary_email"
+            name="primary_email"
+            type="primary_email"
             placeholder="Email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
+            value={formik.values.primary_email}
           />
-          {formik.touched.email && formik.errors.email ? (
-            <ErrorMsg>{formik.errors.email}</ErrorMsg>
+          {formik.touched.primary_email && formik.errors.primary_email ? (
+            <ErrorMsg>{formik.errors.primary_email}</ErrorMsg>
           ) : null}
-          <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
-          {/* <select
-            name="subcription"
-            id="subcription"
+          <FormLabel>PHONE</FormLabel>
+          <Input
+            className="input-field"
+            id="primary_phone"
+            name="primary_phone"
+            type="primary_phone"
+            placeholder="Phone"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.emailSubcription}
-          >
-            <option value="">select</option>
-            {subcription.map((item, index) => (
-              <option value="" id={index}>
-                {item.name}
-              </option>
-            ))}
-          </select> */}
-          {/* {formik.touched.emailSubcription && formik.errors.emailSubcription ? (
-            <ErrorMsg>{formik.errors.emailSubcription}</ErrorMsg>
-          ) : null} */}
+            value={formik.values.primary_phone}
+          />
+          {formik.touched.primary_phone && formik.errors.primary_phone ? (
+            <ErrorMsg>{formik.errors.primary_phone}</ErrorMsg>
+          ) : null}
+          <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
           <DropdownComponent
             className="email-dropdown"
             id="emailSubcription"

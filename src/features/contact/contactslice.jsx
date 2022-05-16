@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'api/index';
+import { toast } from 'react-toastify';
+
+const initialState = {
+  contactCreated: false,
+  contactData: null
+};
 
 export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => {
   try {
@@ -13,25 +19,28 @@ export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => 
   }
 });
 
-export const createContact = createAsyncThunk('contact/createContact', (body) => {
+export const createContact = createAsyncThunk('contact/createContact', async (body) => {
   try {
-    return apiInstance({
+    const createContactResponse = await apiInstance({
       method: 'post',
       url: '/contacts/create',
       data: body
     });
+    toast.done('Contact created successfully');
+    return createContactResponse;
   } catch (error) {
-    console.log(error);
+    toast.error('Contact did not created successfully');
   }
 });
 
-export const viewContact = createAsyncThunk('contact/viewContact', (body) => {
+export const viewContact = createAsyncThunk('contact/viewContact', async (body) => {
   try {
-    return apiInstance({
+    const contactResponse = await apiInstance({
       method: 'get',
       url: '/contacts/all/1',
       data: body
     });
+    return contactResponse.data.message;
   } catch (error) {
     console.log(error);
   }
@@ -39,39 +48,34 @@ export const viewContact = createAsyncThunk('contact/viewContact', (body) => {
 
 export const contactSlice = createSlice({
   name: 'contact',
-  initialState: {
-    isSuccess: false,
-    contactCreated: false,
-    viewContacts: ''
-  },
-
+  initialState,
   reducers: {},
 
   extraReducers: {
-    // [contactHouseHold.fulfilled]: (state) => {
-    //   state.isSuccess = true;
-    // },
+    [contactHouseHold.fulfilled]: (state) => {
+      state.isSuccess = true;
+    },
 
-    // [contactHouseHold.rejected]: (state) => {
-    //   state.isSuccess = false;
-    // },
+    [contactHouseHold.rejected]: (state) => {
+      state.isSuccess = false;
+    },
 
-    // //CREATE CONTACT
-    // [createContact.fulfilled]: (state) => {
-    //   state.contactCreated = true;
-    // },
+    //CREATE CONTACT
+    [createContact.fulfilled]: (state) => {
+      state.contactCreated = true;
+    },
 
-    // [createContact.rejected]: (state) => {
-    //   state.contactCreated = false;
-    // },
+    [createContact.rejected]: (state) => {
+      state.contactCreated = false;
+    },
 
     //VIEW CONTACTS
     [viewContact.fulfilled]: (state, action) => {
-      state.viewContacts = action.payload;
+      state.contactData = action.payload;
     },
 
     [viewContact.rejected]: (state, action) => {
-      state.viewContacts = action.payload;
+      state.contactData = action.payload;
     }
   }
 });
