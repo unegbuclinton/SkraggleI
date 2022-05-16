@@ -2,7 +2,7 @@ import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { viewContact } from 'features/contact/contactSlice';
+import { viewContact } from 'features/contact/contactslice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
