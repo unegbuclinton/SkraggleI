@@ -6,6 +6,34 @@ import React from 'react';
 import styled from 'styled-components';
 
 const KeyPerformanceIndicatiors = () => {
+  const series1 = [
+    {
+      name: 'Skraggle',
+      data: [300, 300, 300],
+      color: '#3BADC6'
+    }
+  ];
+  const series2 = [
+    {
+      name: 'Skraggle',
+      data: [300, 305, 300],
+      color: '#3BADC6'
+    }
+  ];
+  const series3 = [
+    {
+      name: 'Skraggle',
+      data: [300, 300, 300],
+      color: '#3BADC6'
+    }
+  ];
+  const series4 = [
+    {
+      name: 'Skraggle',
+      data: [300, 300, 300],
+      color: '#3BADC6'
+    }
+  ];
   return (
     <KPIWrapper>
       <KPIHeader>Key Performance Indicators (KPIs)</KPIHeader>
@@ -24,12 +52,11 @@ const KeyPerformanceIndicatiors = () => {
           </KPIContentCardBody>
           <KPIContentCardChart>
             <AreaChart
-              type="area"
-              data={[300, 300, 300]}
+              series={series1}
               height={120}
               markers={{
                 size: 5,
-                colors: '#FF576B'
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
@@ -38,6 +65,9 @@ const KeyPerformanceIndicatiors = () => {
                     return Number(val).toLocaleString() + '€';
                   }
                 }
+              }}
+              stroke={{
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
@@ -56,12 +86,11 @@ const KeyPerformanceIndicatiors = () => {
           </KPIContentCardBody>
           <KPIContentCardChart>
             <AreaChart
-              type="area"
-              data={[300, 305, 300]}
+              series={series2}
               height={120}
               markers={{
                 size: 5,
-                colors: '#FF576B'
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
@@ -70,6 +99,9 @@ const KeyPerformanceIndicatiors = () => {
                     return Number(val).toLocaleString() + '€';
                   }
                 }
+              }}
+              stroke={{
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
@@ -88,12 +120,11 @@ const KeyPerformanceIndicatiors = () => {
           </KPIContentCardBody>
           <KPIContentCardChart>
             <AreaChart
-              type="area"
-              data={[300, 300, 300]}
+              series={series3}
               height={120}
               markers={{
                 size: 5,
-                colors: '#FF576B'
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
@@ -102,6 +133,9 @@ const KeyPerformanceIndicatiors = () => {
                     return Number(val).toLocaleString() + '€';
                   }
                 }
+              }}
+              stroke={{
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>
@@ -120,12 +154,11 @@ const KeyPerformanceIndicatiors = () => {
           </KPIContentCardBody>
           <KPIContentCardChart>
             <AreaChart
-              type="area"
-              data={[300, 300, 300]}
+              series={series4}
               height={120}
               markers={{
                 size: 5,
-                colors: '#FF576B'
+                colors: '#3BADC6'
               }}
               yaxis={{
                 labels: {
@@ -134,6 +167,9 @@ const KeyPerformanceIndicatiors = () => {
                     return Number(val).toLocaleString() + '€';
                   }
                 }
+              }}
+              stroke={{
+                colors: ['#3BADC6']
               }}
             />
           </KPIContentCardChart>

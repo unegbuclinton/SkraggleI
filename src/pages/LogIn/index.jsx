@@ -3,31 +3,37 @@ import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
 import AuthLayout from 'components/layouts/AuthLayout';
+import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
-import { login } from 'features/auth/authSlice';
 
-const LogIn = ({ onClick }) => {
+const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const formik = useFormik({
     initialValues: {
       email: '',
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: () => {
-      dispatch(login());
-      navigate('/dashboard');
-      // persistedReducer.pause();
-      // persistedReducer.purge();
+    onSubmit: (values) => {
+      const body = {
+        email: values.email,
+        password: values.password
+      };
+
+      dispatch(loginUser(body)).then((data) => {
+        if (data.payload) {
+          navigate('/dashboard');
+        }
+      });
     }
   });
+
   return (
     <AuthLayout>
       <FormWrapper onSubmit={formik.handleSubmit}>
@@ -62,13 +68,12 @@ const LogIn = ({ onClick }) => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button className="login-button" onClick={onClick}>
+          <Button type="submit" className="login-button">
             LOG IN
           </Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
             <LoginLink className="signup" to="/signup">
-              {' '}
               Sign Up
             </LoginLink>
           </p>

@@ -1,12 +1,12 @@
-import DropdownComponent from 'components/atoms/Dropdown';
-import React, { useState } from 'react';
-import data from 'utilities/filterData.json';
-import styled from 'styled-components';
 import Card from 'components/atoms/Card';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { COLORS } from 'constants/colors';
+import DropdownComponent from 'components/atoms/Dropdown';
 import BarChart from 'components/organisms/BarChart';
 import PieChart from 'components/organisms/PieChart';
+import { COLORS } from 'constants/colors';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart width={405} height={360} />
+            <PieChart height={300} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -43,11 +43,8 @@ function DonorType() {
       </div>
       <div className="donor-score">
         <Card>
-          <TypeHeader>
-            <p className="donor-text">Donor Score</p>
-          </TypeHeader>
           <div className="bar-container">
-            <BarChart series={series} categories={['30', '40', '60']} width={650} height={350} />
+            <BarChart series={series} categories={['30', '40', '60']} height={360} />
           </div>
         </Card>
       </div>
@@ -60,21 +57,24 @@ export default DonorType;
 const TypeWrapper = styled.div`
   margin: 1.6rem 0;
   width: 100%;
+  height: 100%;
   display: flex;
   gap: 1.2rem;
 
   .transaction {
     width: 100%;
+    flex: 1;
   }
 
   .donor-score {
     width: 100%;
+    flex: 1;
   }
 
   .bar-container,
   .pie-container {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     padding-top: 2.4rem;
   }
   .pie-container {
@@ -83,7 +83,6 @@ const TypeWrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 5.6rem 0 4rem;
-    border-top: 1px solid ${COLORS.torquoise};
 
     .pie-legend {
       display: flex;
@@ -118,9 +117,21 @@ const TypeWrapper = styled.div`
 
 const TypeHeader = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 4.1rem 1.2rem 4.1rem;
+  padding: 0.8rem 4.1rem 1.2rem 0;
+  margin-left: 4.1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 3.1rem);
+    background: ${COLORS.torquoise};
+    height: 1px;
+    bottom: 0;
+    left: 0;
+  }
 
   .transaction-text {
     font-size: ${FONTSIZES.lg};
@@ -133,8 +144,36 @@ const TypeHeader = styled.div`
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS.deepPurple};
     width: 100%;
-    margin: 0.8rem 5.6rem 0 4.1rem;
-    border-bottom: 1px solid ${COLORS.torquoise};
-    padding-bottom: 1.6rem;
+    padding-top: 2.4rem;
+  }
+
+  .donor-label {
+    display: flex;
+    gap: 1rem;
+    &__wrapper {
+      font-size: ${FONTSIZES.xsmall};
+      color: ${COLORS['blue-black']};
+      display: flex;
+      justify-content: baseline;
+      gap: 0.8rem;
+    }
+    &__highest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #9fff97;
+      justify-content: baseline;
+    }
+    &__medium {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ffe768;
+      justify-content: baseline;
+    }
+    &__lowest {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: #ff576b;
+      justify-content: baseline;
+    }
   }
 `;

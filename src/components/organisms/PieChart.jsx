@@ -10,8 +10,15 @@ const PieChart = ({ width, height }) => {
         height={height}
         series={[350, 50]}
         options={{
+          toolbar: {
+            show: false
+          },
           legend: {
             show: false
+          },
+          chart: {
+            width: '100%',
+            redrawOnParentResize: true
           },
           xaxis: {},
           colors: ['#BEE0FF', '#578EC1']

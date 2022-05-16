@@ -2,7 +2,7 @@ import { COLORS } from 'constants/colors';
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const AreaChart = ({ data, categories, height, yaxis, markers, type, ...rest }) => {
+const AreaChart = ({ categories, height, yaxis, markers, stroke, series, ...rest }) => {
   const dataProps = {
     options: {
       chart: {
@@ -34,12 +34,12 @@ const AreaChart = ({ data, categories, height, yaxis, markers, type, ...rest }) 
       dataLabels: {
         enabled: false
       },
-      colors: ['#FF576B'],
 
       stroke: {
         curve: 'straight',
         width: 3,
-        colors: ['#FF576B', '#FFE5E9', '#FFFFFF']
+        colors: ['#FF576B'],
+        ...stroke
       },
       grid: {
         borderColor: `${COLORS['fog-grey']}`,
@@ -50,20 +50,13 @@ const AreaChart = ({ data, categories, height, yaxis, markers, type, ...rest }) 
           fillTo: 'origin'
         }
       }
-    },
-
-    series: [
-      {
-        name: '',
-        data
-      }
-    ]
+    }
   };
   return (
     <ReactApexChart
       options={dataProps.options}
-      series={dataProps.series}
-      type={type}
+      series={series}
+      type="area"
       height={height}
       {...rest}
     />

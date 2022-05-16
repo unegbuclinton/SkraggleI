@@ -50,6 +50,7 @@ export const VerificationWrapper = styled(Card)`
       color: ${COLORS['blue-200']};
       padding-top: 5.6rem;
       text-align: center;
+      cursor: pointer;
     }
   }
 `;
