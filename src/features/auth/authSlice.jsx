@@ -80,6 +80,7 @@ export const authSlice = createSlice({
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+      state.token = null;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;
