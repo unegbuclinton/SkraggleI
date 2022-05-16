@@ -1,10 +1,8 @@
 import Button from 'components/atoms/Button/Button';
 import DropdownComponent from 'components/atoms/Dropdown';
 import Input from 'components/atoms/Input/Input';
-// import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { dateDate, monthData, subcription, yearsData } from 'utilities/modalData';
-// import { createContactStepOneValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DateContainer,
@@ -20,17 +18,6 @@ function CreateContactStepOne({ onClose, formik }) {
   const [selectDate, setSelectDate] = useState('Date');
   const [selectMonth, setSelectMonth] = useState('Month');
   const [selectYear, setSelectYear] = useState('Year');
-
-  // const formik = useFormik({
-  //   initialValues: formData,
-  //   validationSchema: createContactStepOneValidationSchema,
-  //   onSubmit: (values) => {
-  //     alert(JSON.stringify(values, null, 2));
-  //     next(values);
-  //   }
-  // });
-
-  // console.log(formik.errors);
 
   return (
     <ModalWrapper>
