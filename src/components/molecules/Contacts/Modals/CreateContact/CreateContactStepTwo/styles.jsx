@@ -24,6 +24,27 @@ export const FormContainer = styled.form`
     border: 0.1rem solid ${COLORS['tabel-btn-grey']};
     /* padding: 0 2rem 0 2rem; */
   }
+  .form-input {
+    width: 60.2rem;
+    height: 6.4rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    padding: 0 2.83rem 0 2.83rem;
+    margin-bottom: 1.606rem;
+    background-color: ${COLORS.white};
+  }
+
+  .address-input {
+    width: 17.842rem !important;
+    height: 6.4rem;
+    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border-radius: 0.5rem;
+    margin-bottom: 1.606rem;
+    padding: 0 2.83rem 0 2.83rem;
+    outline: none;
+    background-color: ${COLORS.white};
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -33,29 +54,9 @@ export const FormLabel = styled.label`
   color: ${COLORS['grey-200']};
 `;
 
-export const FormInput = styled.input`
-  width: 60.2rem;
-  height: 6.4rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-  padding: 0 2.83rem 0 2.83rem;
-  margin-bottom: 1.606rem;
-`;
-
 export const AddressContainer = styled.div`
   display: flex !important;
   gap: 1.6rem;
-`;
-
-export const AddressInput = styled.input`
-  width: 17.842rem !important;
-  height: 6.4rem;
-  border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-  border-radius: 0.5rem;
-  margin-bottom: 1.606rem;
-  padding: 0 2.83rem 0 2.83rem;
-  outline: none;
 `;
 
 export const ButtonContainer = styled.div`
@@ -79,4 +80,13 @@ export const ButtonContainer = styled.div`
     background-color: ${COLORS.pink};
     color: ${COLORS.white};
   }
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
+  /* padding-top: 0.5rem; */
+  position: relative;
+  bottom: 1rem;
 `;
