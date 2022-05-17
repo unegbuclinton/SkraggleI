@@ -117,7 +117,7 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>TAGS</FormLabel>
           <CustomDropdown className="dropdown" data={subcription} />
           <ButtonContainer>
-            <Button className="cancel" type="button" proute onClose={onClose} auth invert>
+            <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
             <Button type="submit" className="continue">

@@ -1,7 +1,7 @@
-import { createContact } from 'features/contact/contactslice';
+import { createContact, viewContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import {
   createContactStepOneValidationSchema,
@@ -12,8 +12,6 @@ import ContactStepTwo from '../CreateContactStepTwo';
 
 const MultiStepForm = ({ onClose }) => {
   const [currentStep, setCurrentStep] = useState(0);
-
-  const { contactCreated } = useSelector((state) => state.contact);
 
   const dispatch = useDispatch();
 
@@ -73,12 +71,12 @@ const MultiStepForm = ({ onClose }) => {
     assignee: formik.values.assignee
   };
 
-  const handleCreateContact = (contactDatas) => {
-    console.log('Form Submitted', contactDatas);
+  const handleCreateContact = () => {
+    // console.log('Form Submitted', contactDatas);
     dispatch(createContact(body)).then(() => {
-      if (contactCreated) {
-        toast('Contact created successfully');
-      }
+      toast('Contact Created Successfully');
+      onClose();
+      dispatch(viewContact());
     });
   };
 
