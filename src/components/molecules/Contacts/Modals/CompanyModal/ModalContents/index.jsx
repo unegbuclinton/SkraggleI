@@ -2,8 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
 import LoadingScreen from 'components/molecules/LoadingScreen';
-// import LoadingScreen from 'components/molecules/LoadingScreen';
-import { createNewCompany } from 'features/contact/contactSlice';
+import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +40,8 @@ function CreateCompany({ onClose }) {
       };
       dispatch(createNewCompany(body)).then(() => {
         onClose();
-        toast('new company created successfully');
+        toast.success('new company created successfully');
+        dispatch(getAllCompanies());
       });
     }
   });
