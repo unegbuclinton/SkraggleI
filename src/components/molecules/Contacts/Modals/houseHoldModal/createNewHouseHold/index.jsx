@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { createHouseHold } from 'features/contact/contactSlice';
+import { allHouseHold, createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -30,6 +30,10 @@ function CreateteNewHouseHold({ onClose }) {
       });
     }
   });
+
+  const getData = () => {
+    dispatch(allHouseHold());
+  };
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -52,7 +56,7 @@ function CreateteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" onClick={getData()} className="continue">
               Continue
             </Button>
           </ButtonContainer>
