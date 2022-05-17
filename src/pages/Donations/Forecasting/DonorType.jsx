@@ -1,6 +1,6 @@
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import BarChart from 'components/organisms/BarChart';
+import DonorScore from 'components/molecules/DonorScore';
 import PieChart from 'components/organisms/PieChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
@@ -10,12 +10,12 @@ import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
-  const series = [
-    {
-      name: 'Skraggle',
-      data: [39, 30, 35, 25, 40, 15]
-    }
-  ];
+  // const series = [
+  //   {
+  //     name: 'Skraggle',
+  //     data: [39, 30, 35, 25, 40, 15]
+  //   }
+  // ];
 
   return (
     <TypeWrapper>
@@ -27,7 +27,7 @@ function DonorType() {
           </TypeHeader>
 
           <div className="pie-container">
-            <PieChart height={300} />
+            <PieChart width={405} height={360} />
             <div className="pie-legend">
               <div className="legend-description">
                 <div className="legend-description__donation"></div>
@@ -44,7 +44,8 @@ function DonorType() {
       <div className="donor-score">
         <Card>
           <div className="bar-container">
-            <BarChart series={series} categories={['30', '40', '60']} height={360} />
+            <BorderBottom />
+            <DonorScore />
           </div>
         </Card>
       </div>
@@ -57,24 +58,21 @@ export default DonorType;
 const TypeWrapper = styled.div`
   margin: 1.6rem 0;
   width: 100%;
-  height: 100%;
   display: flex;
   gap: 1.2rem;
 
   .transaction {
     width: 100%;
-    flex: 1;
   }
 
   .donor-score {
     width: 100%;
-    flex: 1;
   }
 
   .bar-container,
   .pie-container {
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
     padding-top: 2.4rem;
   }
   .pie-container {
@@ -83,6 +81,7 @@ const TypeWrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 5.6rem 0 4rem;
+    border-top: 1px solid ${COLORS.torquoise};
 
     .pie-legend {
       display: flex;
@@ -117,21 +116,9 @@ const TypeWrapper = styled.div`
 
 const TypeHeader = styled.div`
   display: flex;
-  position: relative;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 4.1rem 1.2rem 0;
-  margin-left: 4.1rem;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: calc(100% - 3.1rem);
-    background: ${COLORS.torquoise};
-    height: 1px;
-    bottom: 0;
-    left: 0;
-  }
+  padding: 0.8rem 4.1rem 1.2rem 4.1rem;
 
   .transaction-text {
     font-size: ${FONTSIZES.lg};
@@ -144,7 +131,9 @@ const TypeHeader = styled.div`
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS.deepPurple};
     width: 100%;
-    padding-top: 2.4rem;
+    margin: 0.8rem 5.6rem 0 4.1rem;
+    border-bottom: 1px solid ${COLORS.torquoise};
+    padding-bottom: 1.6rem;
   }
 
   .donor-label {
@@ -176,4 +165,13 @@ const TypeHeader = styled.div`
       justify-content: baseline;
     }
   }
+`;
+
+const BorderBottom = styled.div`
+  width: 100%;
+  background-color: ${COLORS.torquoise};
+  height: 0.1rem;
+  position: relative;
+  margin-bottom: -3.5rem;
+  /* margin-left: 1rem; */
 `;
