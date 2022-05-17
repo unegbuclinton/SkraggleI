@@ -12,15 +12,12 @@ import {
   ModalWrapper
 } from './styles';
 
-function CraeteNewHouseHold({ onClose }) {
+function CreateteNewHouseHold({ onClose }) {
   const formik = useFormik({
     initialValues: {
       name: ''
     },
-    validationSchema: houseHoldValidationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    }
+    validationSchema: houseHoldValidationSchema
   });
   return (
     <ModalWrapper>
@@ -44,7 +41,9 @@ function CraeteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Continue</Button>
+            <Button type="submit" className="continue">
+              Continue
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>
@@ -52,4 +51,4 @@ function CraeteNewHouseHold({ onClose }) {
   );
 }
 
-export default CraeteNewHouseHold;
+export default CreateteNewHouseHold;

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
-import generateUUID from 'utilities/helpers';
+import { generateUUID } from 'utilities/helpers';
 import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {

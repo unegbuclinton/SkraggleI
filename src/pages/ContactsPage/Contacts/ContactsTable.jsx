@@ -11,7 +11,6 @@ import { TableWrapper } from './styles';
 
 function ContactsTable() {
   const { contactData } = useSelector((state) => state.contact);
-  console.log(contactData);
 
   const dispatch = useDispatch();
 
@@ -37,12 +36,7 @@ function ContactsTable() {
         <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
       </TableWrapper>
 
-      <Pagination
-        currentPage={currentPage}
-        // itemsPerPage={itemsPerPage}
-        data={contactData}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} data={contactData} setCurrentPage={setCurrentPage} />
     </div>
   );
 }
