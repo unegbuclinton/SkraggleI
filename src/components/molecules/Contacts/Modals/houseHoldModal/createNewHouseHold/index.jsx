@@ -1,7 +1,10 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { allHouseHold, createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { houseHoldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -13,12 +16,22 @@ import {
 } from './styles';
 
 function CreateteNewHouseHold({ onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: ''
     },
-    validationSchema: houseHoldValidationSchema
+    validationSchema: houseHoldValidationSchema,
+    onSubmit: (values) => {
+      const body = { name: values.name };
+      dispatch(createHouseHold(body)).then(() => {
+        onClose();
+        toast.success('Successfully Created a new HouseHold');
+        dispatch(allHouseHold());
+      });
+    }
   });
+
   return (
     <ModalWrapper>
       <ModalContainer>
