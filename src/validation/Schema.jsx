@@ -31,8 +31,7 @@ export const loginSchema = Yup.object({
 });
 
 export const forgotPasswordSchema = Yup.object({
-  email: Yup.string().email('Invalid Email').required('Email is Required'),
-  password: Yup.string().required('Password is Required')
+  email: Yup.string().email('Invalid Email').required('Email is Required')
 });
 
 export const createContactStepOneValidationSchema = Yup.object({

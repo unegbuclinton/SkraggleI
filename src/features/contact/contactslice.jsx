@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const initialState = {
   contactCreated: false,
-  contactData: null
+  contactData: []
 };
 
 export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => {
@@ -33,13 +33,13 @@ export const createContact = createAsyncThunk('contact/createContact', async (bo
   }
 });
 
-export const viewContact = createAsyncThunk('contact/viewContact', async (body) => {
+export const viewContact = createAsyncThunk('contact/viewContact', async () => {
   try {
     const contactResponse = await apiInstance({
       method: 'get',
-      url: '/contacts/all/1',
-      data: body
+      url: '/contacts/all/1'
     });
+    console.log(contactResponse);
     return contactResponse.data.message;
   } catch (error) {
     console.log(error);
