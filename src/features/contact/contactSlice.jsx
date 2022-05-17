@@ -1,49 +1,62 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addHousehold } from 'api/contacts/household';
-import apiInstance from 'apiInstance';
-import { toast } from 'react-toastify';
+import { addCompanies, getCompanies } from 'api/contacts/company';
+import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 
 const initialState = {
+  companies: [],
+  isLoading: false,
   contactCreated: false,
   contactData: null
 };
 
+export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCompanies);
+export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
-
-export const createContact = createAsyncThunk('contact/createContact', async (body) => {
-  try {
-    const createContactResponse = await apiInstance({
-      method: 'post',
-      url: '/contacts/create',
-      data: body
-    });
-    return createContactResponse;
-  } catch (error) {
-    toast.error('Contact did not created successfully');
-  }
-});
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouseHold);
 
 export const contactSlice = createSlice({
   name: 'contact',
   initialState,
   reducers: {},
-
   extraReducers: {
+    [createNewCompany.fulfilled]: (state) => {
+      // state.createCompany = action.payload;
+      state.isLoading = false;
+    },
+    [createNewCompany.rejected]: (state) => {
+      state.isLoading = false;
+      state.createCompany = false;
+    },
+    [createNewCompany.pending]: (state) => {
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    },
+
+    [getAllCompanies.fulfilled]: (state, action) => {
+      // state.createCompany = action.payload;
+      state.isLoading = false;
+      state.companies = action.payload;
+    },
+    [getAllCompanies.rejected]: (state) => {
+      state.isLoading = false;
+      state.createCompany = false;
+    },
+    [getAllCompanies.pending]: (state) => {
+      state.isLoading = true;
+      // state.entities.push(action.payload);
+    },
+
     [createHouseHold.fulfilled]: (state) => {
       state.isSuccess = true;
     },
 
-    [createHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
     },
 
-    //CREATE CONTACT
-    [createContact.fulfilled]: (state) => {
-      state.contactCreated = true;
-    },
-
-    [createContact.rejected]: (state) => {
-      state.contactCreated = false;
+    [allHouseHold.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });
