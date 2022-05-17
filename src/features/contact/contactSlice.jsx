@@ -1,39 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import apiInstance from 'api';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { addCompanies, getCompanies } from 'api/contacts/company';
+import { addHousehold } from 'api/contacts/household';
 const initialState = {
   companies: [],
-  isLoading: false
+  isLoading: false,
+  contactCreated: false,
+  contactData: null
 };
 
-export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', async () => {
-  try {
-    const response = await apiInstance({
-      method: 'get',
-      url: '/company/all/1'
-    });
-    return response.data.message;
-  } catch (error) {
-    toast.error();
-    console.log(error);
-  }
-});
-
-export const createNewCompany = createAsyncThunk('contact/createCompany', async (body) => {
-  try {
-    const response = await apiInstance({
-      method: 'post',
-      url: '/company/add',
-      data: body
-    });
-    return response.data;
-  } catch (error) {
-    toast.error();
-    console.log(error);
-  }
-});
+export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCompanies);
+export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
+export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -57,7 +34,6 @@ export const contactSlice = createSlice({
       // state.createCompany = action.payload;
       state.isLoading = false;
       state.companies = action.payload;
-      console.log(action.payload);
     },
     [getAllCompanies.rejected]: (state) => {
       state.isLoading = false;
@@ -66,6 +42,14 @@ export const contactSlice = createSlice({
     [getAllCompanies.pending]: (state) => {
       state.isLoading = true;
       // state.entities.push(action.payload);
+    },
+
+    [createHouseHold.fulfilled]: (state) => {
+      state.isSuccess = true;
+    },
+
+    [createHouseHold.rejected]: (state) => {
+      state.isSuccess = false;
     }
   }
 });

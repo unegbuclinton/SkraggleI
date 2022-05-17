@@ -3,13 +3,16 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { getAllCompanies } from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { datas1 } from 'utilities/overviewData';
 import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 
 function Overview() {
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState('Filters');
   const [openWidget, setOpenWidget] = useState(false);
 
@@ -19,6 +22,9 @@ function Overview() {
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
+  useEffect(() => {
+    dispatch(getAllCompanies());
+  }, [dispatch]);
 
   return (
     <OverviewWrapper>
