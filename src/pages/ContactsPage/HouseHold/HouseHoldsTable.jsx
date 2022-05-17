@@ -4,12 +4,12 @@ import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
-import { allHouseHold } from 'features/contact/contactSlice';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
+  const { houseHolds } = useSelector((state) => state.contact);
   const columns = [
     {
       name: '',
@@ -31,12 +31,6 @@ function HouseHoldsTable() {
       width: '54.9rem'
     }
   ];
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(allHouseHold());
-  }, []);
-  const { houseHolds } = useSelector((state) => state.contact);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);

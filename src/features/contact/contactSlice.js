@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import apiInstance from 'api/index';
+import { addHousehold } from 'api/contacts/household';
+import apiInstance from 'apiInstance';
 import { toast } from 'react-toastify';
 
 const initialState = {
@@ -7,17 +8,7 @@ const initialState = {
   contactData: null
 };
 
-export const contactHouseHold = createAsyncThunk('contact/houseHold', (body) => {
-  try {
-    return apiInstance({
-      method: 'post',
-      url: '/households/add',
-      data: body
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
 
 export const createContact = createAsyncThunk('contact/createContact', async (body) => {
   try {
@@ -38,11 +29,11 @@ export const contactSlice = createSlice({
   reducers: {},
 
   extraReducers: {
-    [contactHouseHold.fulfilled]: (state) => {
+    [createHouseHold.fulfilled]: (state) => {
       state.isSuccess = true;
     },
 
-    [contactHouseHold.rejected]: (state) => {
+    [createHouseHold.rejected]: (state) => {
       state.isSuccess = false;
     },
 
