@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
-import { addHousehold } from 'api/contacts/household';
+import { addHousehold, getAllHouseHold } from 'api/contacts/household';
+
 const initialState = {
   companies: [],
   isLoading: false,
@@ -11,6 +12,7 @@ const initialState = {
 export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCompanies);
 export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
+export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouseHold);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -48,8 +50,13 @@ export const contactSlice = createSlice({
       state.isSuccess = true;
     },
 
-    [createHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
+    },
+
+    [allHouseHold.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });

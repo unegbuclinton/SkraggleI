@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { createHouseHold } from 'features/contact/contactSlice';
+import { allHouseHold, createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -27,9 +27,11 @@ function CreateteNewHouseHold({ onClose }) {
       dispatch(createHouseHold(body)).then(() => {
         onClose();
         toast.success('Successfully Created a new HouseHold');
+        dispatch(allHouseHold());
       });
     }
   });
+
   return (
     <ModalWrapper>
       <ModalContainer>

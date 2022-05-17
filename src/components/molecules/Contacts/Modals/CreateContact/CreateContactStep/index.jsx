@@ -43,7 +43,9 @@ const MultiStepForm = ({ onClose }) => {
     }
   });
 
-  const handleCreateContact = () => {};
+  const handleCreateContact = () => {
+    // console.log('Form Submitted', contactDatas);
+  };
 
   const handleNextStep = (newData, final = false) => {
     if (final) {
