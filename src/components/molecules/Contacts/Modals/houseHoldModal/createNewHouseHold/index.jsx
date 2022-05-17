@@ -27,13 +27,11 @@ function CreateteNewHouseHold({ onClose }) {
       dispatch(createHouseHold(body)).then(() => {
         onClose();
         toast.success('Successfully Created a new HouseHold');
+        dispatch(allHouseHold());
       });
     }
   });
 
-  const getData = () => {
-    dispatch(allHouseHold());
-  };
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -56,7 +54,7 @@ function CreateteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" onClick={getData()} className="continue">
+            <Button type="submit" className="continue">
               Continue
             </Button>
           </ButtonContainer>

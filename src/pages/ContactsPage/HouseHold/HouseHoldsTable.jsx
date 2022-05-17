@@ -45,7 +45,11 @@ function HouseHoldsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader title="Add Household" header="15 Household" setOpen={setOpen} />
+        <TableHeader
+          title="Add Household"
+          header={`${houseHolds.length} Households`}
+          setOpen={setOpen}
+        />
         <Table columns={columns} data={houseHolds} />
       </TableWrapper>
 
