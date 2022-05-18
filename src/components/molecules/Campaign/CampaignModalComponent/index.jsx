@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
-
+import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import Button from 'components/atoms/Button/Button';
-import Input from 'components/atoms/Input/Input';
-import data from 'utilities/filterData';
-
-import { useFormik } from 'formik';
-import { createCampaignSchema } from 'validation/Schema';
-
-import { ModalWrapper, ModalInputDescription, ButtonsContainer } from './styles';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import data from 'utilities/filterData';
+import { createCampaignSchema } from 'validation/Schema';
+import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const CampaignModalComponent = ({ onClose }) => {
   const [selected, setSelected] = useState('Filters');
 
   const formik = useFormik({
     initialValues: {
-      name: ''
+      name: '',
+      description: '',
+      goals: ''
     },
     validationSchema: createCampaignSchema,
 
