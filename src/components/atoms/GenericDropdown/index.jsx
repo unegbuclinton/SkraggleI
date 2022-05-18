@@ -1,17 +1,26 @@
 import React from 'react';
 import Select from 'react-select';
 
-function SelectDropDown({ className, options, defaultValue, onChange, styles, width, height }) {
+function SelectDropDown({
+  options,
+  defaultValue,
+  onChange,
+  styles,
+  width,
+  isMulti,
+  classNamePrefix
+}) {
   return (
     <>
       <Select
         styles={styles}
-        className={className}
+        classNamePrefix={classNamePrefix}
         defaultValue={defaultValue}
         onChange={onChange}
         options={options}
         width={width}
-        height={height}
+        isMulti={isMulti}
+        components={{ IndicatorSeparator: () => null }}
       />
     </>
   );
