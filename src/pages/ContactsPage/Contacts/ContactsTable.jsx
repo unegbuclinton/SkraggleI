@@ -24,7 +24,7 @@ function ContactsTable() {
   }, []);
 
   const search = (rows) => {
-    return rows.filter(
+    return rows?.filter(
       (row) =>
         // searchColumns.some(
         //   (column) => row[column].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
