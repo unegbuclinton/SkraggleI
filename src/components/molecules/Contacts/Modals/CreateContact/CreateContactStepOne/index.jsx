@@ -74,7 +74,7 @@ function CreateContactStepOne({ onClose, formik }) {
             className="input-field"
             id="primary_phone"
             name="primary_phone"
-            type="primary_phone"
+            type="number"
             placeholder="Phone"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

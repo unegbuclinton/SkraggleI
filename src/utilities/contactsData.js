@@ -9,17 +9,17 @@ export const columns = [
   },
   {
     name: 'FULL NAME',
-    selector: (row) => row.fullName,
+    selector: (row) => row.fullname,
     width: '16.8rem'
   },
   {
     name: 'PRIMARY EMAIL',
-    selector: (row) => row.primaryEmail,
+    selector: (row) => row.primary_email,
     width: '30.8rem'
   },
   {
     name: 'PRIMARY PHONE',
-    selector: (row) => row.primaryPhone,
+    selector: (row) => row.primary_phone,
 
     Width: '27.173rem'
   },
