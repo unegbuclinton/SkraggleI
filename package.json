@@ -12,6 +12,7 @@
     "datejs": "^1.0.0-rc3",
     "dayjs": "^1.11.0",
     "formik": "^2.2.9",
+    "lodash.debounce": "^4.0.8",
     "materialui-daterange-picker": "^1.1.92",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",

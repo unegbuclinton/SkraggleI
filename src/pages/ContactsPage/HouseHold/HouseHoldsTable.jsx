@@ -4,6 +4,7 @@ import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
+// import { getSearchDebounce } from 'features/contact/contactSlice';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
