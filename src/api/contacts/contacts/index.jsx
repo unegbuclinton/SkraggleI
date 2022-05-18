@@ -19,7 +19,7 @@ export const allContacts = async () => {
   try {
     const contactResponse = await request({
       method: 'get',
-      url: '/contacts/all/1'
+      url: '/contacts/all/1?q=agboo'
     });
     return contactResponse.data.message;
   } catch (error) {
