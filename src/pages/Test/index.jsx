@@ -17,16 +17,16 @@ function Test() {
   //   })
   // };
 
-  // const options = [
-  //   { value: 'chocolate', label: 'Chocolate' },
-  //   { value: 'strawberry', label: 'Strawberry' },
-  //   { value: 'vanilla', label: 'Vanilla' }
-  // ];
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ];
 
   return (
     <Wrapper>
       {/* <Slider /> */}
-      <SelectDropDown classNamePrefix="react-select" />
+      <SelectDropDown options={options} className="dropdown" classNamePrefix="select" />
     </Wrapper>
   );
 }
@@ -35,10 +35,14 @@ export default Test;
 
 const Wrapper = styled.div`
   margin: 20px 0 0 20px;
-  /* .dropdown {
-    width: 200px;
-  } */
-  .react-select__control {
-    width: 14.4rem;
+
+  .dropdown {
+    width: 20.2rem;
+    .react-select__control {
+      height: 3.4rem;
+    }
+    .react-select__option {
+      background-color: red;
+    }
   }
 `;
