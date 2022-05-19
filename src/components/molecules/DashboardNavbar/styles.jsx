@@ -63,7 +63,10 @@ export const Header = styled.header`
 
 export const HeaderRightContent = styled.div`
   display: flex;
+  position: relative;
   align-self: stretch;
+  align-items: center;
+  gap: 1rem;
 
   .user-info {
     padding-left: 8.8rem;
@@ -78,6 +81,45 @@ export const HeaderRightContent = styled.div`
     }
     &__user-name {
       font-size: ${FONTSIZES.xsmall};
+    }
+  }
+
+  .user-dropdown {
+    span {
+      width: 4rem;
+      height: 4rem;
+      cursor: pointer;
+    }
+  }
+
+  .user-menu {
+    display: flex;
+    position: absolute;
+    height: ${({ open }) => (open ? '' : '0')};
+    overflow: ${({ open }) => (open ? '' : 'hidden')};
+    right: 0;
+    top: 3rem;
+    flex-direction: column;
+    background: ${COLORS.white};
+    justify-content: center;
+    width: 15rem;
+    align-items: center;
+    box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%),
+      0px 5px 5px -3px rgb(0 0 0 / 20%);
+
+    .user-menu__links {
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: ${COLORS['grey-400']};
+      font-size: ${FONTSIZES.small};
+      line-height: 1.6rem;
+      padding: 1rem;
+
+      &:hover {
+        background: ${COLORS.pink};
+        color: ${COLORS.white};
+      }
     }
   }
 `;
