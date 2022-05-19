@@ -1,7 +1,13 @@
-import { DPIconDropDown } from 'icons';
+import { DPIconLogout, DPIconMenuDrop, DPIconProfile, DPIconSetting } from 'icons';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, HeaderLeftContent, HeaderLinks, HeaderRightContent } from './styles';
+import {
+  Header,
+  HeaderLeftContent,
+  HeaderLinks,
+  HeaderRightContent,
+  UserMenuLinkText
+} from './styles';
 
 function DashboardHeader({ pageLinks }) {
   const [open, setOpen] = useState(false);
@@ -28,18 +34,27 @@ function DashboardHeader({ pageLinks }) {
           </div>
           <div className="user-dropdown">
             <span onClick={toggleMenu}>
-              <DPIconDropDown />
+              <DPIconMenuDrop />
             </span>
           </div>
           <div className="user-menu">
             <Link className="user-menu__links" to="/contacts">
-              Profile
+              <span>
+                <DPIconProfile />
+              </span>
+              <UserMenuLinkText> Profile</UserMenuLinkText>
             </Link>
             <Link className="user-menu__links" to="/contacts">
-              Settings
+              <span>
+                <DPIconSetting />
+              </span>
+              <UserMenuLinkText> Settings</UserMenuLinkText>
             </Link>
             <Link className="user-menu__links" to="/contacts">
-              Logout
+              <span>
+                <DPIconLogout />
+              </span>
+              <UserMenuLinkText> Logout</UserMenuLinkText>
             </Link>
           </div>
         </HeaderRightContent>

@@ -108,14 +108,19 @@ export const HeaderRightContent = styled.div`
       0px 5px 5px -3px rgb(0 0 0 / 20%);
 
     .user-menu__links {
-      width: 100%;
-      text-align: center;
+      display: flex;
+      align-items: center;
       text-decoration: none;
+      width: 100%;
       color: ${COLORS['grey-400']};
       font-size: ${FONTSIZES.small};
       line-height: 1.6rem;
       padding: 1rem;
 
+      span {
+        width: 2rem;
+        height: 2rem;
+      }
       &:hover {
         background: ${COLORS.pink};
         color: ${COLORS.white};
@@ -123,7 +128,10 @@ export const HeaderRightContent = styled.div`
     }
   }
 `;
-
+export const UserMenuLinkText = styled.p`
+  display: block;
+  padding: 1rem;
+`;
 export const HeaderLinks = styled.div`
   display: flex;
   align-items: center;
