@@ -53,6 +53,18 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
+export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
+  try {
+    const response = await apiInstance({
+      method: 'delete',
+      url: '/admin/logout'
+    });
+    return response.data.message;
+  } catch (error) {
+    return error;
+  }
+});
+
 export const resendVerification = createAsyncThunk('auth/resendVerification', async (body) => {
   const response = await apiInstance.post('/email/verification/send', body);
   return response?.data;
@@ -79,6 +91,10 @@ export const authSlice = createSlice({
       state.token = action.payload;
     },
     [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
+      state.token = null;
+    },
+    [logoutUser.fulfilled]: (state) => {
       state.isAuthenticated = false;
       state.token = null;
     },
