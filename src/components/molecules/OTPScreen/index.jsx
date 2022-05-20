@@ -1,8 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import AuthLayout from 'components/layouts/AuthLayout';
-import { confirmforgotPassword } from 'features/auth/authSlice';
-// import { useFormik } from 'formik';
+import { confirmforgotPassword, forgotPassword } from 'features/auth/authSlice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -38,7 +37,10 @@ function OTP() {
         navigate('/password-confirm');
       }
     });
-    console.log(body);
+  };
+
+  const handleClick = () => {
+    dispatch(forgotPassword(email));
   };
   return (
     <AuthLayout>
@@ -70,7 +72,9 @@ function OTP() {
           </Button>
           <p className="otp-card__resend-link">
             <span>Didn’t get OTP? </span>
-            <ResendLink className="resend">Resend</ResendLink>
+            <ResendLink className="resend" onClick={(e) => handleClick(e)}>
+              Resend
+            </ResendLink>
           </p>
         </Card>
       </FormWrapper>

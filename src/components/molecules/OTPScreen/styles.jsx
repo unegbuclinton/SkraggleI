@@ -60,4 +60,5 @@ export const OTPBox = styled.input`
 
 export const ResendLink = styled.a`
   color: blue;
+  cursor: pointer;
 `;

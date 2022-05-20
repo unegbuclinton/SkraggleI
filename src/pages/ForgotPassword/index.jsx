@@ -26,10 +26,10 @@ const ForgotPassword = () => {
         email: values.email
       };
 
-      dispatch(forgotPassword(body)).then(() => {
-        // if (data.payload) {
-        navigate('/otp-verify', { state: values.email });
-        // }
+      dispatch(forgotPassword(body)).then((data) => {
+        if (data.payload) {
+          navigate('/otp-verify', { state: values.email });
+        }
       });
     }
   });
