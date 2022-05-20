@@ -7,6 +7,7 @@ const initialState = {
   companies: [],
   isLoading: false,
   contactCreated: false,
+  allHouseHold: [],
   contactData: []
 };
 

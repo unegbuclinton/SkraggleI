@@ -3,7 +3,6 @@ import { DPIconLogout, DPIconMenuDrop, DPIconProfile, DPIconSetting } from 'icon
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import persistStore from 'redux-persist/es/persistStore';
 import {
   Header,
   HeaderLeftContent,
@@ -17,7 +16,8 @@ function DashboardHeader({ pageLinks }) {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => setOpen((prev) => !prev);
   const userLogout = () => {
-    dispatch(logoutUser()).then(() => persistStore.purgue());
+    dispatch(logoutUser());
+    console.log('log out user');
   };
   const menuContent = [
     {
@@ -33,11 +33,11 @@ function DashboardHeader({ pageLinks }) {
       onClickFunc: () => {}
     },
     {
-      route: '/contacts',
+      route: '/login',
       icon: <DPIconLogout />,
       text: 'Logout',
       onClickFunc: () => {
-        userLogout;
+        userLogout();
       }
     }
   ];
@@ -77,24 +77,6 @@ function DashboardHeader({ pageLinks }) {
                 <UserMenuLinkText>{text}</UserMenuLinkText>
               </Link>
             ))}
-            {/* <Link className="user-menu__links" to="/contacts">
-              <span>
-                <DPIconProfile />
-              </span>
-              <UserMenuLinkText> Profile</UserMenuLinkText>
-            </Link>
-            <Link className="user-menu__links" to="/contacts">
-              <span>
-                <DPIconSetting />
-              </span>
-              <UserMenuLinkText> Settings</UserMenuLinkText>
-            </Link>
-            <Link className="user-menu__links" to="/contacts" onClick={userLogout}>
-              <span>
-                <DPIconLogout />
-              </span>
-              <UserMenuLinkText> Logout</UserMenuLinkText>
-            </Link> */}
           </div>
         </HeaderRightContent>
       </div>
