@@ -5,11 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
-  isRegistered: false,
   token: null,
   isLoading: false,
-  isError: false,
-  errorMessage: '',
   isSend: false,
   mail: '',
   resetData: '',
@@ -81,13 +78,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [registerUser.fulfilled]: (state, action) => {
-      state.isRegistered = action.payload;
+    [registerUser.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [registerUser.rejected]: (state) => {
       state.isLoading = false;
-      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;

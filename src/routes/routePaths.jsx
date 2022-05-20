@@ -4,9 +4,9 @@ import RegistrationPackage from 'components/molecules/EventsDetails/Registration
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTP from 'components/molecules/OTPScreen';
 import Registration from 'components/molecules/Registration';
-import ResendVerification from 'components/molecules/ResendVerification';
+import ResendVerification from 'components/molecules/resendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
-import SendVerification from 'components/molecules/SendVerification';
+import SendVerification from 'components/molecules/sendVerification';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import Contacts from 'pages/ContactsPage';
