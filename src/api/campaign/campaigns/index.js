@@ -2,12 +2,13 @@ import request from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const getCompanies = async () => {
+export const getCampaings = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/company/all/1'
+      url: '/campaigns/all/1'
     });
+    console.log(response);
     return response?.data.message;
   } catch (error) {
     toast.error(error);
@@ -17,11 +18,12 @@ export const getCompanies = async () => {
 
 export const addCampaign = async (body) => {
   try {
-    return await request({
+    const response = await request({
       method: 'post',
       url: '/campaigns/create',
       data: body
     });
+    return response.data;
   } catch (error) {
     toast.error();
     console.log(error);
