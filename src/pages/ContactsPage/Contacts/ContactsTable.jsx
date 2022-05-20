@@ -31,7 +31,11 @@ function ContactsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader title="Add Contacts" header="88 Contacts" setOpen={setOpen} />
+        <TableHeader
+          title="Add Contacts"
+          header={`${contactData.length} Contacts`}
+          setOpen={setOpen}
+        />
         <ContactsModal isShown={open} onClose={() => setOpen(false)} />
         <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
       </TableWrapper>
