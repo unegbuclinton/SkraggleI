@@ -27,9 +27,8 @@ const ForgotPassword = () => {
       };
 
       dispatch(forgotPassword(body)).then((data) => {
-        console.log(data);
         if (data.payload) {
-          navigate('/resend-verification', { state: values.email });
+          navigate('/otp-verify', { state: values.email });
         }
       });
     }
