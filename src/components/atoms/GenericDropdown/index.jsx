@@ -2,12 +2,11 @@ import React from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 
-function SelectDropDown({ className, options, defaultValue, onChange, styles, width, isMulti }) {
+function SelectDropDown({ className, options, defaultValue, onChange, width, isMulti }) {
   return (
     <Container className={className}>
       <CustomSelect
         className={className}
-        styles={styles}
         classNamePrefix="react-select"
         defaultValue={defaultValue}
         onChange={onChange}
