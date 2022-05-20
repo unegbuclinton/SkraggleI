@@ -2,9 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
 import { addContact, allContacts } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
-// import { contactSearch } from 'api/contacts/search';
-// import debounce from 'lodash.debounce';
-// import { useCallback } from 'react';
 
 const initialState = {
   companies: [],
@@ -19,12 +16,6 @@ export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCo
 export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
 export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouseHold);
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
-
-// export const getSearchDebounce = useCallback(
-//   debounce((searchText) => {
-//     contactSearch(searchText);
-//   }, 3000)
-// );
 
 export const contactSlice = createSlice({
   name: 'contact',

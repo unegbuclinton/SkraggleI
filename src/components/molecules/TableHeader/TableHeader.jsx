@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Button from 'components/atoms/Button/Button';
+import DropdownComponent from 'components/atoms/Dropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import { DPIconAdd } from 'icons';
+import React, { useState } from 'react';
 import { datas1 } from 'utilities/overviewData';
 import { HeaderWrapper } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
 
 function TableHeader({ title, header, setOpen, className }) {
   const [selected, setSelected] = useState('Filters');
+
   return (
     <HeaderWrapper>
       <h2 className={className}>{header}</h2>

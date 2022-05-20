@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react';
-import { Input, IconWrapper, SearchbarWrapper } from './styles';
+import { contactSearch } from 'api/contacts/search';
 import { DPIconSearch } from 'icons';
+import debounce from 'lodash.debounce';
+import React, { useCallback, useRef, useState } from 'react';
+import { IconWrapper, Input, SearchbarWrapper } from './styles';
 
 function SearchBar({ setClick, className }) {
   const [input, setInput] = useState('');
@@ -8,6 +10,13 @@ function SearchBar({ setClick, className }) {
 
   const inputFocus = useRef();
 
+  const getSearchDebounce = useCallback(
+    debounce(() => {
+      contactSearch;
+    }, 500),
+    [input]
+  );
+  getSearchDebounce();
   return (
     <div>
       <SearchbarWrapper
