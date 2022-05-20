@@ -1,7 +1,10 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { allHouseHold, createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { houseHoldValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -12,16 +15,23 @@ import {
   ModalWrapper
 } from './styles';
 
-function CraeteNewHouseHold({ onClose }) {
+function CreateteNewHouseHold({ onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: ''
     },
     validationSchema: houseHoldValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = { name: values.name };
+      dispatch(createHouseHold(body)).then(() => {
+        onClose();
+        toast.success('Successfully Created a new HouseHold');
+        dispatch(allHouseHold());
+      });
     }
   });
+
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -44,7 +54,9 @@ function CraeteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Continue</Button>
+            <Button type="submit" className="continue">
+              Continue
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>
@@ -52,4 +64,4 @@ function CraeteNewHouseHold({ onClose }) {
   );
 }
 
-export default CraeteNewHouseHold;
+export default CreateteNewHouseHold;

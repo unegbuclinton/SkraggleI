@@ -8,7 +8,7 @@ export const registrationSchema = Yup.object({
     .required('Password is required')
     .matches(
       /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
-      'Password is not strong'
+      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
     ),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -31,8 +31,7 @@ export const loginSchema = Yup.object({
 });
 
 export const forgotPasswordSchema = Yup.object({
-  email: Yup.string().email('Invalid Email').required('Email is Required'),
-  password: Yup.string().required('Password is Required')
+  email: Yup.string().email('Invalid Email').required('Email is Required')
 });
 
 export const createContactStepOneValidationSchema = Yup.object({
@@ -40,7 +39,8 @@ export const createContactStepOneValidationSchema = Yup.object({
     .max(15, 'Must be 15 characters or less')
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
-  email: Yup.string().email('invalid Mail').required('Email is required'),
+  primary_email: Yup.string().email('invalid Mail').required('Email is required'),
+  primary_phone: Yup.string().required('Email is required'),
   // emailSucription: Yup.string().required("Email Subscription is required"),
   // date: Yup.string().required("Date is required"),
   // month: Yup.string().required("Month is required"),

@@ -58,35 +58,32 @@ function CreateContactStepOne({ onClose, formik }) {
           <FormLabel>EMAIL</FormLabel>
           <Input
             className="input-field"
-            id="email"
-            name="email"
-            type="email"
+            id="primary_email"
+            name="primary_email"
+            type="primary_email"
             placeholder="Email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
+            value={formik.values.primary_email}
           />
-          {formik.touched.email && formik.errors.email ? (
-            <ErrorMsg>{formik.errors.email}</ErrorMsg>
+          {formik.touched.primary_email && formik.errors.primary_email ? (
+            <ErrorMsg>{formik.errors.primary_email}</ErrorMsg>
           ) : null}
-          <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
-          {/* <select
-            name="subcription"
-            id="subcription"
+          <FormLabel>PHONE</FormLabel>
+          <Input
+            className="input-field"
+            id="primary_phone"
+            name="primary_phone"
+            type="number"
+            placeholder="Phone"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.emailSubcription}
-          >
-            <option value="">select</option>
-            {subcription.map((item, index) => (
-              <option value="" id={index}>
-                {item.name}
-              </option>
-            ))}
-          </select> */}
-          {/* {formik.touched.emailSubcription && formik.errors.emailSubcription ? (
-            <ErrorMsg>{formik.errors.emailSubcription}</ErrorMsg>
-          ) : null} */}
+            value={formik.values.primary_phone}
+          />
+          {formik.touched.primary_phone && formik.errors.primary_phone ? (
+            <ErrorMsg>{formik.errors.primary_phone}</ErrorMsg>
+          ) : null}
+          <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
           <DropdownComponent
             className="email-dropdown"
             id="emailSubcription"

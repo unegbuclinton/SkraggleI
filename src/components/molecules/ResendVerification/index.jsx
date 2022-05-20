@@ -1,9 +1,12 @@
-import React from 'react';
-import { ResendLinkWrapper } from './styles';
-import { DPIconEmail } from 'icons';
 import AuthLayout from 'components/layouts/AuthLayout';
+import { DPIconEmail } from 'icons';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { ResendLinkWrapper } from './styles';
 
 function ResendVerification() {
+  const location = useLocation();
+  const email = location.state;
   return (
     <AuthLayout>
       <ResendLinkWrapper>
@@ -14,7 +17,7 @@ function ResendVerification() {
           </div>
           <p className="resend-verification__info">We sent a recovery link to you at</p>
 
-          <div className="resend-verification__email">john@example.com</div>
+          <div className="resend-verification__email">{email}</div>
 
           <p className="resend-verification__link">Resend verification email</p>
         </div>
