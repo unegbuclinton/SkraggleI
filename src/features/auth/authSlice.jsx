@@ -5,13 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
-  isRegistered: false,
   token: null,
   isLoading: false,
-  isError: false,
-  errorMessage: '',
   isSend: false,
-  mail: ''
+  mail: '',
+  resetData: '',
+  resetPassword: false
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -39,6 +38,22 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
     toast.error('No user is found');
   }
 });
+
+export const confirmforgotPassword = createAsyncThunk(
+  'auth/confirmforgotPassword',
+  async (body) => {
+    try {
+      const confirmforgotResponse = await apiInstance({
+        method: 'post',
+        url: '/admin/reset-password',
+        data: body
+      });
+      return confirmforgotResponse.data.message;
+    } catch (error) {
+      toast.error('OTP is incorrect');
+    }
+  }
+);
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
@@ -75,13 +90,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [registerUser.fulfilled]: (state, action) => {
-      state.isRegistered = action.payload;
+    [registerUser.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [registerUser.rejected]: (state) => {
       state.isLoading = false;
-      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
@@ -109,6 +122,14 @@ export const authSlice = createSlice({
     },
     [forgotPassword.rejected]: (state, action) => {
       state.mail = action.payload;
+    },
+    [confirmforgotPassword.fulfilled]: (state, action) => {
+      state.resetMail = action.payload;
+      state.resetPassword = true;
+    },
+    [confirmforgotPassword.rejected]: (state, action) => {
+      state.resetMail = action.payload;
+      state.resetPassword = false;
     }
   }
 });
