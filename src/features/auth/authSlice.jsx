@@ -5,18 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
-  isRegistered: false,
   token: null,
   isLoading: false,
-  isError: false,
-  errorMessage: '',
   isSend: false,
   mail: ''
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
   try {
-    // localStorage.removeItem('persist:root');
     const response = await apiInstance({
       method: 'post',
       url: '/admin/signup',
@@ -44,7 +40,6 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
-    // localStorage.removeItem('persist:root');
     const response = await apiInstance({
       method: 'post',
       url: '/admin/login',
@@ -66,17 +61,14 @@ export const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [registerUser.fulfilled]: (state, action) => {
-      state.isRegistered = action.payload;
+    [registerUser.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [registerUser.rejected]: (state) => {
       state.isLoading = false;
-      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
-      // state.entities.push(action.payload);
     },
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
@@ -86,8 +78,6 @@ export const authSlice = createSlice({
       state.isAuthenticated = false;
       state.token = null;
     },
-
-    //Forgot Password Extra Reducers
     [forgotPassword.fulfilled]: (state, action) => {
       state.mail = action.payload;
     },
