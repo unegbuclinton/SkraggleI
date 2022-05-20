@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authReducer from 'features/auth/authSlice';
 import contactReducer from 'features/contact/contactSlice';
+import p2pReducer from 'features/p2p/p2pSlice';
 import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 const persistConfig = {
@@ -11,7 +12,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  contact: contactReducer
+  contact: contactReducer,
+  p2p: p2pReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

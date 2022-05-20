@@ -10,6 +10,7 @@ import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
+
   const columns = [
     {
       name: '',

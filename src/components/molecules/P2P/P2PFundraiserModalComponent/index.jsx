@@ -5,8 +5,10 @@ import FileUploadButton from 'components/atoms/FileUploadButton';
 import Input from 'components/atoms/Input/Input';
 import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
+import { createP2p } from 'features/p2p/p2pSlice';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import data from 'utilities/filterData.json';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
 
@@ -14,7 +16,7 @@ function P2PModalComponent({ onClose, isShown }) {
   const [selectedCampaign, setSelectedCampaign] = useState('Filters');
   const [selectedDesignation, setSelectedDesignation] = useState('Filters');
   const [selected, setSelected] = useState('Filters');
-
+  const dispatch = useDispatch();
   const [showFirstModal, setShowFirstModal] = useState(true);
   const textAreaRef = useRef(null);
 
@@ -28,6 +30,7 @@ function P2PModalComponent({ onClose, isShown }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowFirstModal(false);
+    dispatch(createP2p());
   };
 
   return showFirstModal ? (
