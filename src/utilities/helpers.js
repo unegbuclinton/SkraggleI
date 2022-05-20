@@ -17,6 +17,6 @@ export function generateUUID() {
   });
 }
 
-export function formatDate(d) {
-  dayjs(d).format('DD MMM YYYY');
+export function formatDate(date) {
+  return dayjs(date).format('DD MMM YYYY');
 }
