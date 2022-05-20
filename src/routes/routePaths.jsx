@@ -1,10 +1,12 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
+import OTPConfirmation from 'components/molecules/OTPConfirmation';
+import OTP from 'components/molecules/OTPScreen';
 import Registration from 'components/molecules/Registration';
-import ResendVerification from 'components/molecules/ResendVerification';
+import ResendVerification from 'components/molecules/resendVerification';
 import ResetPassword from 'components/molecules/ResetPassword';
-import SendVerification from 'components/molecules/SendVerification';
+import SendVerification from 'components/molecules/sendVerification';
 import Campaign from 'pages/Campaign';
 import CampaignDetails from 'pages/CampaignDetails';
 import Contacts from 'pages/ContactsPage';
@@ -20,8 +22,10 @@ import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
+// import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+
 export const privateRoutes = [
   {
     path: 'dashboard/*',
@@ -155,6 +159,14 @@ export const privateRoutes = [
   {
     path: '/test',
     element: <Test />
+  },
+  {
+    path: '/otp-verify',
+    element: <OTP />
+  },
+  {
+    path: '/password-confirm',
+    element: <OTPConfirmation />
   }
 ];
 
