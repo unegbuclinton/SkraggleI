@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 /* eslint-disable no-bitwise */
 export function generateUUID() {
   let d = new Date().getTime();
@@ -15,4 +17,6 @@ export function generateUUID() {
   });
 }
 
-export function formatDate() {}
+export function formatDate(d) {
+  dayjs(d).format('DD MMM YYYY');
+}

@@ -30,6 +30,7 @@ export { ReactComponent as DPIconForms } from 'icons/svgs/formsIcon.svg';
 export { ReactComponent as DPIconLandingPage } from 'icons/svgs/landingPageIcon.svg';
 export { ReactComponent as DPIconLeaderBoard } from 'icons/svgs/leaderboard.svg';
 export { ReactComponent as DPIconLinkedin } from 'icons/svgs/linkedin.svg';
+export { ReactComponent as DPIconLoading } from 'icons/svgs/loading.svg';
 export { ReactComponent as DPIconLogout } from 'icons/svgs/logout.svg';
 export { ReactComponent as DPIconMailBlasts } from 'icons/svgs/mailIcon.svg';
 export { ReactComponent as DPIconMark } from 'icons/svgs/mark.svg';
