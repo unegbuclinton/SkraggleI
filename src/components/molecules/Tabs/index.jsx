@@ -8,7 +8,7 @@ const Tabs = ({ tabs, stickyTab, ...rest }) => {
   return (
     <TabWrapper>
       <TabContainer className={stickyTab ? 'sticky-header' : ''} {...rest}>
-        <div>
+        <div className="container">
           {tabs?.map((tab, index) => (
             <TabButton key={index} active={activeTab === index} onClick={() => setActiveTab(index)}>
               {tab.title}
@@ -24,12 +24,16 @@ const Tabs = ({ tabs, stickyTab, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
-  /* overflow-x: auto; */
   .sticky-header {
     position: -webkit-sticky;
     position: sticky;
     top: -2rem;
     z-index: 100;
+    overflow-x: auto;
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+    }
   }
 `;
 
@@ -39,6 +43,10 @@ const TabContainer = styled(Card)`
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
   overflow-x: auto;
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 `;
 const TabButton = styled.button`
   width: 14.4rem;
