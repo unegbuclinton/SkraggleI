@@ -1,12 +1,10 @@
-import { React, useState } from 'react';
-
+import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { React, useState } from 'react';
 import data from 'utilities/filterData';
-
-import { ModalWrapper, ButtonsContainer, ModalInputDescription } from './styles';
+import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const PledgeAssociateModalComponent = ({ DecrementTab }) => {
   const [selectedContact, setSelectedContact] = useState('Start typing to search');
