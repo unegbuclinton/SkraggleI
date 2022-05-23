@@ -5,11 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   isAuthenticated: false,
-  isRegistered: false,
   token: null,
   isLoading: false,
-  isError: false,
-  errorMessage: '',
   isSend: false,
   mail: '',
   resetData: '',
@@ -36,7 +33,7 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
       url: '/admin/forgot-password',
       data: body
     });
-    return forgotResponse.data.message;
+    return forgotResponse?.data?.message;
   } catch (error) {
     toast.error('No user is found');
   }
@@ -65,9 +62,21 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
       url: '/admin/login',
       data: body
     });
-    return response?.data.message;
+    return response?.data?.message;
   } catch (error) {
     toast.error('username or password is incorrect');
+  }
+});
+
+export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
+  try {
+    const response = await apiInstance({
+      method: 'delete',
+      url: '/admin/logout'
+    });
+    return response?.data?.message;
+  } catch (error) {
+    return error;
   }
 });
 
@@ -81,13 +90,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [registerUser.fulfilled]: (state, action) => {
-      state.isRegistered = action.payload;
+    [registerUser.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [registerUser.rejected]: (state) => {
       state.isLoading = false;
-      state.isRegistered = false;
     },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
@@ -97,6 +104,10 @@ export const authSlice = createSlice({
       state.token = action.payload;
     },
     [loginUser.rejected]: (state) => {
+      state.isAuthenticated = false;
+      state.token = null;
+    },
+    [logoutUser.fulfilled]: (state) => {
       state.isAuthenticated = false;
       state.token = null;
     },
