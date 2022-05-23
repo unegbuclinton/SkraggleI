@@ -17,7 +17,6 @@ export const p2pSlice = createSlice({
   extraReducers: {
     [createP2p.fulfilled]: (state, action) => {
       state.p2pData = action.payload;
-      console.log(action.payload);
     },
 
     [fetchP2p.fulfilled]: (state, action) => {

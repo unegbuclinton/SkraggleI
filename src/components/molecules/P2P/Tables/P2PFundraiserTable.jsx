@@ -3,7 +3,7 @@ import Checkbox from 'components/atoms/CheckBox';
 import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import Pagination from 'components/molecules/Pagination';
+// import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -61,7 +61,7 @@ function P2PTable() {
 
   const [selected, setSelected] = useState('Filters');
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
   const navigate = useNavigate();
 
@@ -77,7 +77,7 @@ function P2PTable() {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>{p2pData.length} Campaigns</h1>
+              <h1>25 Campaigns</h1>
             </div>
 
             <div className="table-header__right">
@@ -105,7 +105,7 @@ function P2PTable() {
           <Table columns={columns} data={p2pData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-      <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} />
+      {/* <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} /> */}
     </div>
   );
 }

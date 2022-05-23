@@ -146,6 +146,6 @@ export const p2pFundraiserValidationSchema = Yup.object({
   goalAmount: Yup.string().required('field is required'),
   offlineAmount: Yup.string().required('field is required'),
   offlineDonation: Yup.string().required('field is required'),
-  goalDate: Yup.string().required('field is required'),
-  personalMessage: Yup.string().required('field is required')
+  goalDate: Yup.string().required('field is required')
+  // personalMessage: Yup.string().required('field is required')
 });

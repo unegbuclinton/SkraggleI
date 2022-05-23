@@ -6,14 +6,11 @@ import FileUploadButton from 'components/atoms/FileUploadButton';
 import Input from 'components/atoms/Input/Input';
 // import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
-// import { createP2p } from 'features/p2p/p2pSlice';
-// import { createP2p } from 'features/p2p/p2pSlice';
+import { createP2p, fetchP2p } from 'features/p2p/p2pSlice';
 import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import createPersistoid from 'redux-persist/lib/createPersistoid';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import data from 'utilities/filterData.json';
 import { p2pFundraiserValidationSchema } from 'validation/Schema';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
@@ -22,7 +19,7 @@ function P2PModalComponent({ onClose, isShown }) {
   const [selectedCampaign, setSelectedCampaign] = useState('Filters');
   const [selectedDesignation, setSelectedDesignation] = useState('Filters');
   const [selected, setSelected] = useState('Filters');
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [showFirstModal, setShowFirstModal] = useState(true);
   const textAreaRef = useRef(null);
 
@@ -47,24 +44,25 @@ function P2PModalComponent({ onClose, isShown }) {
     },
     validationSchema: p2pFundraiserValidationSchema,
 
-    onSubmit: () => {
-      // const body = {
-      //   displayName: values.displayName,
-      //   firstName: values.firstName,
-      //   lastName: values.lastName,
-      //   email: values.email,
-      //   goalAmount: values.goalAmount,
-      //   offlineAmount: values.offlineAmount,
-      //   offlineDonation: values.offlineDonation,
-      //   goalDate: values.goalDate,
-      //   personalMessage: values.personalMessage
-      // };
+    onSubmit: (values) => {
+      const body = {
+        displayName: values.displayName,
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        goalAmount: values.goalAmount,
+        offlineAmount: values.offlineAmount,
+        offlineDonation: values.offlineDonation,
+        goalDate: values.goalDate,
+        personalMessage: values.personalMessage
+      };
 
-      console.log('p2p is created');
-      // setShowFirstModal(false);
-      // dispatch(createP2p(body));
+      dispatch(createP2p(body));
+      setShowFirstModal(false);
+      dispatch(fetchP2p());
     }
   });
+
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setShowFirstModal(false);
