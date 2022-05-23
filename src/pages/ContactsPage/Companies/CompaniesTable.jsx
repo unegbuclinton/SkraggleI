@@ -2,7 +2,6 @@ import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
-import LoadingScreen from 'components/molecules/LoadingScreen';
 // import { useNavigate } from "react-router-dom";
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
@@ -15,7 +14,7 @@ function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
 
-  const { isLoading, companies } = useSelector((state) => state.contact);
+  const { companies } = useSelector((state) => state.contact);
   // const itemsPerPage = 5;
 
   // const indexLasttList = currentPage * itemsPerPage;
@@ -59,14 +58,12 @@ function CompaniesTable() {
   ];
   return (
     <>
-      {isLoading === true && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <LoadingScreen />
-        </div>
-      )}
-
       <TableWrapper>
-        <TableHeader title="Add Company" header="24 Companies" setOpen={setOpen} />
+        <TableHeader
+          title="Add Company"
+          header={`${companies.length} Companies`}
+          setOpen={setOpen}
+        />
         <CompanyModal
           isShown={open}
           onClose={() => {
