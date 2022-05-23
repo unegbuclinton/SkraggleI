@@ -11,7 +11,7 @@ const Table = ({ data, columns, handleRowSelect, onRowClicked, className }) => {
     <TableWrapper className={className}>
       <DataTable
         columns={TableColumns}
-        data={TableData}
+        data={TableData || []}
         // selectableRows={!handleRowSelect}
         onSelectedRowsChange={handleRowSelect}
         onRowClicked={onRowClicked}
