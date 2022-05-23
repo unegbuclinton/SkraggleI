@@ -1,8 +1,8 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import FileUploadButton from 'components/atoms/FileUploadButton';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 // import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
@@ -11,14 +11,10 @@ import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import data from 'utilities/filterData.json';
 import { p2pFundraiserValidationSchema } from 'validation/Schema';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
 
 function P2PModalComponent({ onClose, isShown }) {
-  const [selectedCampaign, setSelectedCampaign] = useState('Filters');
-  const [selectedDesignation, setSelectedDesignation] = useState('Filters');
-  const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
   const [showFirstModal, setShowFirstModal] = useState(true);
   const textAreaRef = useRef(null);
@@ -29,15 +25,32 @@ function P2PModalComponent({ onClose, isShown }) {
     e.target.focus();
     alert('Text Copied');
   }, []);
-
+  const campaignOptions = [
+    { value: 'Location', label: 'Location' },
+    { value: 'Renovation', label: 'Renovation' },
+    { value: 'Charity', label: 'Charity' }
+  ];
+  const designationOptions = [
+    { value: 'One-time', label: 'One-time' },
+    { value: 'Recurring', label: 'Recurring' },
+    { value: 'Infinite', label: 'Infinite' }
+  ];
+  const currencyOptions = [
+    { value: 'USD', label: 'USD' },
+    { value: 'NGN', label: 'NGN' },
+    { value: 'INR', label: 'INR' }
+  ];
   const formik = useFormik({
     initialValues: {
+      campaign: 'Location',
+      designation: 'Infinite',
       displayName: '',
       firstName: '',
       lastName: '',
       email: '',
       goalAmount: '',
       offlineAmount: '',
+      currency: 'NGN',
       offlineDonation: '',
       goalDate: '',
       personalMessage: ''
@@ -46,6 +59,8 @@ function P2PModalComponent({ onClose, isShown }) {
 
     onSubmit: (values) => {
       const body = {
+        designation: values.designation,
+        campaign: values.campaign,
         displayName: values.displayName,
         firstName: values.firstName,
         lastName: values.lastName,
@@ -54,6 +69,7 @@ function P2PModalComponent({ onClose, isShown }) {
         offlineAmount: values.offlineAmount,
         offlineDonation: values.offlineDonation,
         goalDate: values.goalDate,
+        currency: values.currency,
         personalMessage: values.personalMessage
       };
 
@@ -79,18 +95,22 @@ function P2PModalComponent({ onClose, isShown }) {
       <ModalWrapper onSubmit={formik.handleSubmit}>
         <Card>
           <h1>CAMPAIGN</h1>
-          <DropdownComponent
-            selected={selectedCampaign}
-            setSelected={setSelectedCampaign}
-            data={data}
-            className="dropdown__select-campaign"
+          <SelectDropDown
+            id="campaign"
+            type={'text'}
+            options={campaignOptions}
+            value={formik.values.campaign}
+            onChange={(value) => formik.setFieldValue('campaign', value.value)}
+            onBlur={formik.handleBlur}
           />
           <h1>DESIGNATION</h1>
-          <DropdownComponent
-            selected={selectedDesignation}
-            setSelected={setSelectedDesignation}
-            data={data}
-            className="dropdown__select-designation"
+          <SelectDropDown
+            id="designation"
+            type={'text'}
+            options={designationOptions}
+            value={formik.values.designation}
+            onChange={(value) => formik.setFieldValue('designation', value.value)}
+            onBlur={formik.handleBlur}
           />
           <h1>Fundraiser Display Name</h1>
           <Input
@@ -161,11 +181,13 @@ function P2PModalComponent({ onClose, isShown }) {
               onBlur={formik.handleBlur}
               value={formik.values.goalAmount}
             />
-            <DropdownComponent
-              selected={selected}
-              setSelected={setSelected}
-              data={data}
-              className="dropdown__select-currency"
+            <SelectDropDown
+              id="currency"
+              type={'text'}
+              options={currencyOptions}
+              value={formik.values.currency}
+              onChange={(value) => formik.setFieldValue('currency', value.value)}
+              onBlur={formik.handleBlur}
             />
             {formik.touched.goalAmount && formik.errors.goalAmount ? (
               <ErrorMessage>{formik.errors.goalAmount}</ErrorMessage>
@@ -190,7 +212,7 @@ function P2PModalComponent({ onClose, isShown }) {
             className="modal-inputs"
             id="offlineDonation"
             name="offlineDonation"
-            type="number"
+            type="text"
             placeholder="Enter Amount"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -218,10 +240,17 @@ function P2PModalComponent({ onClose, isShown }) {
             onBlur={formik.handleBlur}
             value={formik.values.personalMessage}
             maxLength={120}
+          /> */}
+          <textarea
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.personalMessage}
+            id="personalMessage"
+            name="personalMessage"
           />
           {formik.touched.personalMessage && formik.errors.personalMessage ? (
             <ErrorMessage>{formik.errors.personalMessage}</ErrorMessage>
-          ) : null} */}
+          ) : null}
           <h1>Profile Photo</h1>
           <FileUploadButton imgPreview="img-preview__profile">
             <DPIconUploadFile />
