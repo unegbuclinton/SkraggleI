@@ -1,5 +1,6 @@
 import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
+import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { viewContact } from 'features/contact/contactSlice';
 import React, { useEffect, useState } from 'react';
@@ -17,6 +18,7 @@ function ContactsTable() {
     dispatch(viewContact());
   }, []);
 
+  const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -29,14 +31,12 @@ function ContactsTable() {
   return (
     <div>
       <TableWrapper>
-        <TableHeader
-          title="Add Contacts"
-          header={`${contactData.length} Contacts`}
-          setOpen={setOpen}
-        />
+        <TableHeader title="Add Contacts" header="88 Contacts" setOpen={setOpen} />
         <ContactsModal isShown={open} onClose={() => setOpen(false)} />
         <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
       </TableWrapper>
+
+      <Pagination currentPage={currentPage} data={contactData} setCurrentPage={setCurrentPage} />
     </div>
   );
 }
