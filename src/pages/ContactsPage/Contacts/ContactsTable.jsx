@@ -1,5 +1,7 @@
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
+import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
@@ -21,15 +23,25 @@ function ContactsTable() {
   };
 
   return (
-    <div>
-      <TableWrapper>
-        <TableHeader title="Add Contacts" header="88 Contacts" setOpen={setOpen} />
-        <ContactsModal isShown={open} onClose={() => setOpen(false)} />
-        <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
-      </TableWrapper>
+    <>
+      <ContactsModal isShown={open} onClose={() => setOpen(false)} />
+      {!!contactData.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeader title="Add Contacts" header="88 Contacts" setOpen={setOpen} />
+            <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
+          </TableWrapper>
 
-      <Pagination currentPage={currentPage} data={contactData} setCurrentPage={setCurrentPage} />
-    </div>
+          <Pagination
+            currentPage={currentPage}
+            data={contactData}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      ) : (
+        <ContactEmptyState setOpen={setOpen} />
+      )}
+    </>
   );
 }
 
