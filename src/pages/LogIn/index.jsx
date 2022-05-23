@@ -28,6 +28,7 @@ const LogIn = () => {
 
       dispatch(loginUser(body)).then((data) => {
         if (data.payload) {
+          console.log(data.payload);
           navigate('/dashboard');
         }
       });
