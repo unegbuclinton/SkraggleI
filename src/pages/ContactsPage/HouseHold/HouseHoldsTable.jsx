@@ -4,15 +4,14 @@ import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import dayjs from 'dayjs';
 import debounce from 'lodash.debounce';
-// import { getSearchDebounce } from 'features/contact/contactSlice';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
-
 function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
+  console.log(houseHolds);
   const [input, setInput] = useState('');
 
   const getSearchDebounce = useCallback(
@@ -43,7 +42,7 @@ function HouseHoldsTable() {
     {
       name: 'CREATED',
       selector: (row) => {
-        return dayjs(row?.created_on).format('DD MMM YYYY');
+        return formatDate(row?.created_on);
       },
       width: '54.9rem'
     }

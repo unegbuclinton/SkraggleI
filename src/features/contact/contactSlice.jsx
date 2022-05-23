@@ -2,11 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
 import { addContact, allContacts } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
+import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 
 const initialState = {
   companies: [],
   isLoading: false,
   contactCreated: false,
+  houseHolds: [],
   contactData: []
 };
 
@@ -16,6 +18,11 @@ export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCo
 export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
 export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouseHold);
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
+
+//search
+export const searchContact = createAsyncThunk('contact/createContact', contactSearch);
+export const searchCompanies = createAsyncThunk('contact/createContact', companiesSearch);
+export const searchHouseHold = createAsyncThunk('contact/createContact', houseHoldSearch);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -66,12 +73,24 @@ export const contactSlice = createSlice({
     [createHouseHold.rejected]: (state) => {
       state.isSuccess = false;
     },
-    [allHouseHold.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.houseHolds = action.payload;
-    },
+    // [allHouseHold.fulfilled]: (state, action) => {
+    //   state.isLoading = false;
+    //   state.houseHolds = action.payload;
+    // },
     [allHouseHold.rejected]: (state) => {
       state.isLoading = false;
+    },
+    [searchContact.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.contactData = action.payload;
+    },
+    [searchCompanies.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.companies = action.payload;
+    },
+    [searchHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
     }
   }
 });
