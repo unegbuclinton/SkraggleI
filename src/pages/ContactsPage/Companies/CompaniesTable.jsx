@@ -4,7 +4,7 @@ import Table from 'components/layouts/Table';
 import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
 import LoadingScreen from 'components/molecules/LoadingScreen';
 // import { useNavigate } from "react-router-dom";
-import Pagination from 'components/molecules/Pagination';
+// import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
 
 function CompaniesTable() {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
 
   const { isLoading, companies } = useSelector((state) => state.contact);
@@ -80,12 +80,12 @@ function CompaniesTable() {
         />
       </TableWrapper>
 
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         // itemsPerPage={itemsPerPage}
         data={companies}
         setCurrentPage={setCurrentPage}
-      />
+      /> */}
     </>
   );
 }
