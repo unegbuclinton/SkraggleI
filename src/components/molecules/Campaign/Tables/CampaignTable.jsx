@@ -4,6 +4,7 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
+import dayjs from 'dayjs';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -15,7 +16,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  console.log(campaigns);
   const columns = [
     {
       name: ' ',
@@ -25,7 +25,9 @@ const CampaignTable = () => {
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created_on,
+      selector: (row) => {
+        return dayjs(row?.created_on).format('DD MMM YYYY');
+      },
       width: '20rem'
     },
 
@@ -45,21 +47,6 @@ const CampaignTable = () => {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  // const itemsPerPage = 10;
-
-  // const indexLastList = currentPage * itemsPerPage;
-
-  // const indexFirstList = indexLastList - itemsPerPage;
-
-  // const tableData = TableContacts.map((Campaigndata, index) => ({
-  //   key: index,
-  //   created: Campaigndata.created,
-  //   campaign: Campaigndata.campaign,
-  //   goals: Campaigndata.goals,
-  //   status: Campaigndata.status
-  // }));
-
-  // const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
 
@@ -77,7 +64,7 @@ const CampaignTable = () => {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>15 Campaigns</h1>
+              <h1>{`${campaigns.length} Campaigns`}</h1>
             </div>
 
             <div className="table-header__right">

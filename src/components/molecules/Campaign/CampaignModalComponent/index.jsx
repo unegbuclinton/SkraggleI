@@ -3,7 +3,7 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
-import { createNewCampaign } from 'features/campaign/campaignSlice';
+import { createNewCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -32,6 +32,7 @@ const CampaignModalComponent = ({ onClose }) => {
       dispatch(createNewCampaign(body)).then(() => {
         onClose();
         toast.success('new campaign created successfully');
+        dispatch(getAllCampaigns());
       });
     }
   });
