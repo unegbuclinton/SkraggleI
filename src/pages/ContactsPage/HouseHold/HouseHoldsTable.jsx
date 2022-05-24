@@ -1,6 +1,8 @@
+/* eslint-disable no-extra-boolean-cast */
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
+import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
@@ -37,25 +39,29 @@ function HouseHoldsTable() {
   const itemsPerPage = 5;
 
   return (
-    <div>
-      <TableWrapper>
-        <TableHeader
-          title="Add Household"
-          header={`${houseHolds.length} Households`}
-          setOpen={setOpen}
-        />
-        <Table columns={columns} data={houseHolds} />
-      </TableWrapper>
-
+    <>
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
-
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={houseHolds}
-        setCurrentPage={setCurrentPage}
-      />
-    </div>
+      {!!houseHolds.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeader
+              title="Add Household"
+              header={`${houseHolds.length} Households`}
+              setOpen={setOpen}
+            />
+            <Table columns={columns} data={houseHolds} />
+          </TableWrapper>
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            data={houseHolds}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      ) : (
+        <HouseHoldEmptyState setOpen={setOpen} />
+      )}
+    </>
   );
 }
 
