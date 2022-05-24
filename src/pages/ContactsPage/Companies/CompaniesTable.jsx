@@ -1,4 +1,5 @@
 /* eslint-disable no-extra-boolean-cast */
+
 import { companiesSearch } from 'api/contacts/search';
 import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';

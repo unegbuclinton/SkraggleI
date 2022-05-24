@@ -1,33 +1,39 @@
 /* eslint-disable no-extra-boolean-cast */
-import { houseHoldSearch } from 'api/contacts/search';
+
+// import { houseHoldSearch } from 'api/contacts/search';
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
 // import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import debounce from 'lodash.debounce';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { searchHouseHold } from 'features/contact/contactSlice';
+// import debounce from 'lodash.debounce';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
+
 function HouseHoldsTable() {
-  // const data = useSelector((state) => state.contact);
-  // const searchHouseHold = data.searchHouseHold;
-  // console.log(searchHouseHold, data);
   const { houseHolds } = useSelector((state) => state.contact);
+  console.log(houseHolds);
+  const dispatch = useDispatch();
   const [input, setInput] = useState('');
 
-  const getSearchDebounce = useCallback(
-    debounce(() => {
-      houseHoldSearch(input);
-    }, 500),
-    [input]
-  );
-  useEffect(() => {
-    getSearchDebounce();
+  // const getSearchDebounce = useCallback(
+  //   debounce(() => {
+  //     dispatch(searchHouseHold(input));
+  //   }, 500),
+  //   [input]
+  // );
+  // useEffect(() => {
+  //   getSearchDebounce();
 
-    return getSearchDebounce.cancel;
+  //   return getSearchDebounce.cancel;
+  // }, [input]);
+
+  useEffect(() => {
+    dispatch(searchHouseHold(input, 0));
   }, [input]);
 
   const columns = [
@@ -59,7 +65,7 @@ function HouseHoldsTable() {
   return (
     <>
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
-      {!!houseHolds.length ? (
+      {!!houseHolds?.length ? (
         <div>
           <TableWrapper>
             <TableHeader

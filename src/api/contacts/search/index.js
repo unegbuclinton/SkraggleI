@@ -25,12 +25,13 @@ export const companiesSearch = async (search, page = 0) => {
 };
 
 export const houseHoldSearch = async (search, page = 0) => {
+  console.log({ search, page });
   try {
     const response = await request({
       method: 'get',
       url: `households/search?search_string=${search}&page=${page}`
     });
-    // console.log(response.data.message);
+    console.log(response.data.message);
     return response?.data?.message;
   } catch (error) {
     return error;

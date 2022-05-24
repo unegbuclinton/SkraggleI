@@ -1,13 +1,15 @@
 /* eslint-disable no-extra-boolean-cast */
-import { contactSearch } from 'api/contacts/search';
+
+// import { contactSearch } from 'api/contacts/search';
 import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { searchContact } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { columns } from 'utilities/contactsData';
 import { TableWrapper } from './styles';
@@ -15,10 +17,10 @@ import { TableWrapper } from './styles';
 function ContactsTable() {
   const [input, setInput] = useState('');
   const { contactData } = useSelector((state) => state.contact);
-
+  const dispatch = useDispatch();
   const getSearchDebounce = useCallback(
     debounce(() => {
-      contactSearch(input);
+      dispatch(searchContact(input, 0));
     }, 500),
     [input]
   );
