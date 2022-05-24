@@ -1,44 +1,63 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import { createHouseHold, getAllCompanies } from 'features/contact/contactSlice';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   CheckBoxWrapper,
+  ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
   ModalWrapper,
   TagContainer,
-  TagWrapper,
-  ErrorMsg
+  TagWrapper
 } from './styles';
-import Switch from 'components/atoms/Switch/Switch';
-import { createCompanyValidatonSchema } from 'validation/Schema';
-import { useFormik } from 'formik';
 
 function CreateCompany({ onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       companyName: '',
       primaryPhone: '',
       tags: ''
+      // tag: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        company_name: values.companyName,
+        primary_phone: values.primaryPhone,
+        tags: values.tags
+        // tag: values.tag
+      };
+      dispatch(createHouseHold(body)).then(() => {
+        onClose();
+        toast.success('new company created successfully');
+        dispatch(getAllCompanies());
+      });
     }
   });
 
   return (
     <ModalWrapper>
       <ModalContainer>
-        <FormContainer onSubmit={formik.handleSubmit}>
+        <FormContainer
+          onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+          }}>
           <FormLabel>COMPANY NAME</FormLabel>
           <Input
             className="input-field"
             type="text"
-            id="company name"
-            name="company name"
+            id="companyName"
+            name="companyName"
             placeholder="Company Name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -47,11 +66,11 @@ function CreateCompany({ onClose }) {
           {formik.touched.companyName && formik.errors.companyName ? (
             <ErrorMsg>{formik.errors.companyName}</ErrorMsg>
           ) : null}
-          <FormLabel>PRIMANRY PHONE</FormLabel>
+          <FormLabel>PRIMARY PHONE</FormLabel>
           <Input
             className="input-field"
-            id="primary phone"
-            name="primary phone"
+            id="primaryPhone"
+            name="primaryPhone"
             type="number"
             placeholder="Primary Phone"
             onChange={formik.handleChange}
@@ -64,8 +83,8 @@ function CreateCompany({ onClose }) {
           <FormLabel>TAGS</FormLabel>
           <Input
             className="input-field"
-            id="tag"
-            name="tag"
+            id="tags"
+            name="tags"
             type="text"
             placeholder="Tags"
             onChange={formik.handleChange}
@@ -88,7 +107,9 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Save</Button>
+            <Button type="submit" className="continue">
+              Save
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>

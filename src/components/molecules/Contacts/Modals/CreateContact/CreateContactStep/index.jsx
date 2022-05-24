@@ -1,4 +1,4 @@
-import { createContact } from 'features/contact/contactSlice';
+import { createContact, viewContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -76,6 +76,7 @@ const MultiStepForm = ({ onClose }) => {
     dispatch(createContact(body)).then(() => {
       toast('Contact Created Successfully');
       onClose();
+      dispatch(viewContact());
     });
   };
 
