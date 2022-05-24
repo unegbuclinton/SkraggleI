@@ -20,9 +20,9 @@ export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouse
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
 
 //search
-export const searchContact = createAsyncThunk('contact/createContact', contactSearch);
-export const searchCompanies = createAsyncThunk('contact/createContact', companiesSearch);
-export const searchHouseHold = createAsyncThunk('contact/createContact', houseHoldSearch);
+export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
+export const searchCompanies = createAsyncThunk('contact/searchCompanies', companiesSearch);
+export const searchHouseHold = createAsyncThunk('contact/searchHouseHold', houseHoldSearch);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -73,10 +73,10 @@ export const contactSlice = createSlice({
     [createHouseHold.rejected]: (state) => {
       state.isSuccess = false;
     },
-    // [allHouseHold.fulfilled]: (state, action) => {
-    //   state.isLoading = false;
-    //   state.houseHolds = action.payload;
-    // },
+    [allHouseHold.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.houseHolds = action.payload;
+    },
     [allHouseHold.rejected]: (state) => {
       state.isLoading = false;
     },
@@ -87,11 +87,12 @@ export const contactSlice = createSlice({
     [searchCompanies.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.companies = action.payload;
-    },
-    [searchHouseHold.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.houseHolds = action.payload;
     }
+    // [searchHouseHold.fulfilled]: (state, action) => {
+    //   console.log(action.payload);
+    //   state.isLoading = false;
+    //   state.houseHolds = action.payload;
+    // }
   }
 });
 

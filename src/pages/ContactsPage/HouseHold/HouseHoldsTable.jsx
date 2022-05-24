@@ -2,7 +2,7 @@ import { houseHoldSearch } from 'api/contacts/search';
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
-import Pagination from 'components/molecules/Pagination';
+// import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import debounce from 'lodash.debounce';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -10,8 +10,10 @@ import { useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
 function HouseHoldsTable() {
+  // const data = useSelector((state) => state.contact);
+  // const searchHouseHold = data.searchHouseHold;
+  // console.log(searchHouseHold, data);
   const { houseHolds } = useSelector((state) => state.contact);
-  console.log(houseHolds);
   const [input, setInput] = useState('');
 
   const getSearchDebounce = useCallback(
@@ -48,16 +50,16 @@ function HouseHoldsTable() {
     }
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
-  const itemsPerPage = 5;
+  // const itemsPerPage = 5;
 
   return (
     <div>
       <TableWrapper>
         <TableHeader
           title="Add Household"
-          header={`${houseHolds.length} Households`}
+          header={`${houseHolds?.length} Households`}
           setOpen={setOpen}
           onChange={(e) => setInput(e.target.value)}
         />
@@ -66,12 +68,12 @@ function HouseHoldsTable() {
 
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
 
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={houseHolds}
+        data={searchHouseHold}
         setCurrentPage={setCurrentPage}
-      />
+      /> */}
     </div>
   );
 }
