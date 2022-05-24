@@ -2,13 +2,16 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
 import { addContact, allContacts } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
+import { addTags, allTags } from 'api/contacts/tags';
 
 const initialState = {
   companies: [],
   isLoading: false,
   contactCreated: false,
+  tagsCreated: false,
   houseHolds: [],
-  contactData: []
+  contactData: [],
+  tagsData: []
 };
 
 export const createContact = createAsyncThunk('contact/createContact', addContact);
@@ -17,6 +20,8 @@ export const getAllCompanies = createAsyncThunk('contact/getAllCompanies', getCo
 export const createNewCompany = createAsyncThunk('contact/createCompany', addCompanies);
 export const allHouseHold = createAsyncThunk('contact/allHouseHold', getAllHouseHold);
 export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehold);
+export const createTags = createAsyncThunk('contact/createTags', addTags);
+export const viewTags = createAsyncThunk('contact/viewTags', allTags);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -73,6 +78,23 @@ export const contactSlice = createSlice({
     },
     [allHouseHold.rejected]: (state) => {
       state.isLoading = false;
+    },
+
+    //CREATE TAGS
+    [createTags.fulfilled]: (state) => {
+      state.tagsCreated = true;
+    },
+
+    [createTags.rejected]: (state) => {
+      state.tagsCreated = false;
+    },
+
+    //VIEW TAGS
+    [viewTags.fulfilled]: (state, action) => {
+      state.tagsData = action.payload;
+    },
+    [viewTags.rejected]: (state, action) => {
+      state.tagsData = action.payload;
     }
   }
 });
