@@ -18,28 +18,26 @@ function TransactionTable() {
   const currentList = data.slice(indexFirstList, indexLasttList);
 
   return (
-    <>
-      <ProfileLayOut heading="Transactions">
-        {!!data.length ? (
-          <div>
-            <TableWrapper>
-              <TableHeading>
-                <h2 className="heading">7 Transactions</h2>
-              </TableHeading>
-              <Table columns={columns} data={currentList} />
-            </TableWrapper>
-            <Pagination
-              currentPage={currentPage}
-              itemsPerPage={itemsPerPage}
-              data={data}
-              setCurrentPage={setCurrentPage}
-            />
-          </div>
-        ) : (
-          <DonationSubTabEmptyState />
-        )}
-      </ProfileLayOut>
-    </>
+    <ProfileLayOut heading="Transactions">
+      {!!data.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeading>
+              <h2 className="heading">7 Transactions</h2>
+            </TableHeading>
+            <Table columns={columns} data={currentList} />
+          </TableWrapper>
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            data={data}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      ) : (
+        <DonationSubTabEmptyState />
+      )}
+    </ProfileLayOut>
   );
 }
 
