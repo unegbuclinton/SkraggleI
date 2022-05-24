@@ -4,6 +4,7 @@ import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/Co
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+// import { viewContact } from 'features/contact/contactSlice';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +15,7 @@ function ContactsTable() {
   const { contactData } = useSelector((state) => state.contact);
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
+  const itemsPerPage = 5;
 
   const navigate = useNavigate();
 
@@ -38,6 +40,7 @@ function ContactsTable() {
 
           <Pagination
             currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
             data={contactData}
             setCurrentPage={setCurrentPage}
           />
