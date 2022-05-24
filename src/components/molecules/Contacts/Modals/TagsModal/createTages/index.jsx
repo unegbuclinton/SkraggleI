@@ -1,6 +1,6 @@
-import { addTags, allTags } from 'api/contacts/tags';
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { createTags, viewTags } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -24,10 +24,10 @@ function CreateTags({ onClose }) {
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
       const body = { tag_name: values.tag };
-      dispatch(addTags(body)).then(() => {
-        toast.success('Tag added Successfully');
+      dispatch(createTags(body)).then(() => {
         onClose();
-        dispatch(allTags());
+        toast.success('Tag added Successfully');
+        dispatch(viewTags());
       });
     }
   });

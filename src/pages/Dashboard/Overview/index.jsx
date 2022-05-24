@@ -4,7 +4,12 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
 import { getAllCampaigns } from 'features/campaign/campaignSlice';
-import { allHouseHold, getAllCompanies, viewContact } from 'features/contact/contactSlice';
+import {
+  allHouseHold,
+  getAllCompanies,
+  viewContact,
+  viewTags
+} from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
@@ -37,6 +42,10 @@ function Overview() {
 
   useEffect(() => {
     dispatch(getAllCampaigns());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(viewTags());
   }, [dispatch]);
 
   return (
