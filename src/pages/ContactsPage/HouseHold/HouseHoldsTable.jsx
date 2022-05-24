@@ -1,17 +1,35 @@
 /* eslint-disable no-extra-boolean-cast */
+import { houseHoldSearch } from 'api/contacts/search';
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
-import Pagination from 'components/molecules/Pagination';
+// import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import React, { useState } from 'react';
+import debounce from 'lodash.debounce';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
-
 function HouseHoldsTable() {
+  // const data = useSelector((state) => state.contact);
+  // const searchHouseHold = data.searchHouseHold;
+  // console.log(searchHouseHold, data);
   const { houseHolds } = useSelector((state) => state.contact);
+  const [input, setInput] = useState('');
+
+  const getSearchDebounce = useCallback(
+    debounce(() => {
+      houseHoldSearch(input);
+    }, 500),
+    [input]
+  );
+  useEffect(() => {
+    getSearchDebounce();
+
+    return getSearchDebounce.cancel;
+  }, [input]);
+
   const columns = [
     {
       name: '',
@@ -34,9 +52,9 @@ function HouseHoldsTable() {
     }
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
-  const itemsPerPage = 5;
+  // const itemsPerPage = 5;
 
   return (
     <>
@@ -46,17 +64,20 @@ function HouseHoldsTable() {
           <TableWrapper>
             <TableHeader
               title="Add Household"
-              header={`${houseHolds.length} Households`}
+              header={`${houseHolds?.length} Households`}
               setOpen={setOpen}
+              onChange={(e) => setInput(e.target.value)}
             />
             <Table columns={columns} data={houseHolds} />
           </TableWrapper>
-          <Pagination
+
+          <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
+          {/* <Pagination
             currentPage={currentPage}
             itemsPerPage={itemsPerPage}
             data={houseHolds}
             setCurrentPage={setCurrentPage}
-          />
+          /> */}
         </div>
       ) : (
         <HouseHoldEmptyState setOpen={setOpen} />

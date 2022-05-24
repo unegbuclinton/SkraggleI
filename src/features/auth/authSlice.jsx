@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { persistor } from 'store';
 
 const initialState = {
   isAuthenticated: false,
@@ -74,6 +75,14 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
       method: 'delete',
       url: '/admin/logout'
     });
+    persistor
+      .purge()
+      .then(() => {
+        return persistor.flush();
+      })
+      .then(() => {
+        persistor.pause();
+      });
     return response?.data?.message;
   } catch (error) {
     return error;

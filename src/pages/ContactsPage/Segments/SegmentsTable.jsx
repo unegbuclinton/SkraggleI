@@ -27,6 +27,7 @@ function SegmentsTable() {
   //   let path = "/contact-profile";
   //   navigate(path);
   // };
+
   return (
     <>
       <SegmentsModal isShown={open} onClose={() => setOpen(false)} />

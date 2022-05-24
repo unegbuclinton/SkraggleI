@@ -1,7 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-import { createHouseHold, getAllCompanies } from 'features/contact/contactSlice';
+import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -36,7 +36,7 @@ function CreateCompany({ onClose }) {
         tags: values.tags
         // tag: values.tag
       };
-      dispatch(createHouseHold(body)).then(() => {
+      dispatch(createNewCompany(body)).then(() => {
         onClose();
         toast.success('new company created successfully');
         dispatch(getAllCompanies());
