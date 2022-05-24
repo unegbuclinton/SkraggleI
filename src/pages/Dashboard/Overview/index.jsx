@@ -3,7 +3,8 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
-import { allHouseHold, getAllCompanies } from 'features/contact/contactSlice';
+import { getAllCampaigns } from 'features/campaign/campaignSlice';
+import { allHouseHold, getAllCompanies, viewContact } from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
@@ -28,7 +29,16 @@ function Overview() {
 
   useEffect(() => {
     dispatch(allHouseHold());
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(viewContact());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllCampaigns());
+  }, [dispatch]);
+
   return (
     <OverviewWrapper>
       <Card className="overview-card">

@@ -1,11 +1,10 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-import LoadingScreen from 'components/molecules/LoadingScreen';
 import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
@@ -22,7 +21,6 @@ import {
 
 function CreateCompany({ onClose }) {
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.contact);
   const formik = useFormik({
     initialValues: {
       companyName: '',
@@ -47,78 +45,75 @@ function CreateCompany({ onClose }) {
   });
 
   return (
-    <>
-      {isLoading === true && <LoadingScreen />}
-      <ModalWrapper>
-        <ModalContainer>
-          <FormContainer
-            onSubmit={(e) => {
-              e.preventDefault();
-              formik.handleSubmit();
-            }}>
-            <FormLabel>COMPANY NAME</FormLabel>
-            <Input
-              className="input-field"
-              type="text"
-              id="companyName"
-              name="companyName"
-              placeholder="Company Name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.companyName}
-            />
-            {formik.touched.companyName && formik.errors.companyName ? (
-              <ErrorMsg>{formik.errors.companyName}</ErrorMsg>
-            ) : null}
-            <FormLabel>PRIMARY PHONE</FormLabel>
-            <Input
-              className="input-field"
-              id="primaryPhone"
-              name="primaryPhone"
-              type="number"
-              placeholder="Primary Phone"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.primaryPhone}
-            />
-            {formik.touched.primaryPhone && formik.errors.primaryPhone ? (
-              <ErrorMsg>{formik.errors.primaryPhone}</ErrorMsg>
-            ) : null}
-            <FormLabel>TAGS</FormLabel>
-            <Input
-              className="input-field"
-              id="tags"
-              name="tags"
-              type="text"
-              placeholder="Tags"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.tags}
-            />
-            {formik.touched.tags && formik.errors.tags ? (
-              <ErrorMsg>{formik.errors.tags}</ErrorMsg>
-            ) : null}
-            <TagContainer>
-              <TagWrapper>
-                <h2 className="title">Auto Tag</h2>
-                <p className="info">Auto Tag Contacts who fill this form</p>
-              </TagWrapper>
-              <CheckBoxWrapper>
-                <Switch />
-              </CheckBoxWrapper>
-            </TagContainer>
-            <ButtonContainer>
-              <Button type="button" className="cancel" onClick={onClose} auth invert>
-                Cancel
-              </Button>
-              <Button type="submit" className="continue">
-                Save
-              </Button>
-            </ButtonContainer>
-          </FormContainer>
-        </ModalContainer>
-      </ModalWrapper>
-    </>
+    <ModalWrapper>
+      <ModalContainer>
+        <FormContainer
+          onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+          }}>
+          <FormLabel>COMPANY NAME</FormLabel>
+          <Input
+            className="input-field"
+            type="text"
+            id="companyName"
+            name="companyName"
+            placeholder="Company Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.companyName}
+          />
+          {formik.touched.companyName && formik.errors.companyName ? (
+            <ErrorMsg>{formik.errors.companyName}</ErrorMsg>
+          ) : null}
+          <FormLabel>PRIMARY PHONE</FormLabel>
+          <Input
+            className="input-field"
+            id="primaryPhone"
+            name="primaryPhone"
+            type="number"
+            placeholder="Primary Phone"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.primaryPhone}
+          />
+          {formik.touched.primaryPhone && formik.errors.primaryPhone ? (
+            <ErrorMsg>{formik.errors.primaryPhone}</ErrorMsg>
+          ) : null}
+          <FormLabel>TAGS</FormLabel>
+          <Input
+            className="input-field"
+            id="tags"
+            name="tags"
+            type="text"
+            placeholder="Tags"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.tags}
+          />
+          {formik.touched.tags && formik.errors.tags ? (
+            <ErrorMsg>{formik.errors.tags}</ErrorMsg>
+          ) : null}
+          <TagContainer>
+            <TagWrapper>
+              <h2 className="title">Auto Tag</h2>
+              <p className="info">Auto Tag Contacts who fill this form</p>
+            </TagWrapper>
+            <CheckBoxWrapper>
+              <Switch />
+            </CheckBoxWrapper>
+          </TagContainer>
+          <ButtonContainer>
+            <Button type="button" className="cancel" onClick={onClose} auth invert>
+              Cancel
+            </Button>
+            <Button type="submit" className="continue">
+              Save
+            </Button>
+          </ButtonContainer>
+        </FormContainer>
+      </ModalContainer>
+    </ModalWrapper>
   );
 }
 

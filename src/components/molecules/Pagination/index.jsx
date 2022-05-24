@@ -13,7 +13,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
 
   const pages = [];
 
-  for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(data?.length / itemsPerPage); i++) {
     pages.push(i);
   }
 
@@ -56,7 +56,7 @@ const Pagination = ({ currentPage, data, itemsPerPage, setCurrentPage }) => {
   };
 
   let pageIncrementBtn = null;
-  if (pages.length > maxPageNumberLimit) {
+  if (pages?.length > maxPageNumberLimit) {
     pageIncrementBtn = (
       <TrackerBtn pill onClick={handlePageIncrement}>
         &hellip;
