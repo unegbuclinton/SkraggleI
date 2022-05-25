@@ -1,5 +1,5 @@
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
-// import { useNavigate } from "react-router-dom";
 import SegmentsModal from 'components/molecules/Contacts/Modals/SegmentsModal/mainModal/index';
 import SegmentsEmptyState from 'components/molecules/EmptyState/Contacts/Segments';
 import Pagination from 'components/molecules/Pagination';
@@ -19,18 +19,12 @@ function SegmentsTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
 
-  const Segment = false;
+  const segment = [];
 
-  // const navigate = useNavigate();
-
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
   return (
     <>
       <SegmentsModal isShown={open} onClose={() => setOpen(false)} />
-      {Segment ? (
+      {!!segment.length ? (
         <div>
           <TableWrapper>
             <TableHeader title="Create Segments" header="14 Segments" setOpen={setOpen} />
