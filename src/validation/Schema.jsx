@@ -137,3 +137,15 @@ export const createCampaignSchema = Yup.object({
   goals: Yup.string().required('Please enter Fundraiser Goals')
   // followers: Yup.string().required('Select a Follower')
 });
+
+export const p2pFundraiserValidationSchema = Yup.object({
+  displayName: Yup.string().required('field is required'),
+  firstName: Yup.string().required('field is required'),
+  lastName: Yup.string().required('field is required'),
+  email: Yup.string().required('field is required'),
+  goalAmount: Yup.string().required('field is required'),
+  offlineAmount: Yup.string().required('field is required'),
+  offlineDonation: Yup.string().required('field is required'),
+  goalDate: Yup.string().required('field is required'),
+  personalMessage: Yup.string().required('field is required')
+});
