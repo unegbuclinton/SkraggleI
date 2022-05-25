@@ -30,6 +30,10 @@ function Overview() {
   // }, []);
 
   // useEffect(() => {
+  //   dispatch(viewTags());
+  // }, [dispatch]);
+
+  // useEffect(() => {
   //   dispatch(viewContact());
   // }, []);
   return (

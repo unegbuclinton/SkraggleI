@@ -8,12 +8,12 @@ export const columns = [
   },
   {
     name: 'NAME',
-    selector: (row) => row.familyName,
+    selector: (row) => row?.tag_name,
     width: '33.5769rem'
   },
   {
     name: 'CREATED',
-    selector: (row) => row.created,
+    selector: (row) => row?.created_on,
     width: '54.9rem'
   }
 ];

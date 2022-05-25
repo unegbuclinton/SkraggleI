@@ -10,8 +10,10 @@ const initialState = {
   isLoading: false,
   isSend: false,
   mail: '',
-  resetData: '',
-  resetPassword: false
+  resetMail: [],
+  resetPassword: false,
+  confirmEmailOTP: false,
+  emailOTP: []
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -24,6 +26,19 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
     return response.data;
   } catch (error) {
     toast.error('User already exists');
+  }
+});
+
+export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
+  try {
+    const signupOTPResponse = await apiInstance({
+      method: 'post',
+      url: '/email/confirm',
+      data: body
+    });
+    return signupOTPResponse?.data?.message;
+  } catch (error) {
+    toast.error('OTP is incorrect');
   }
 });
 
@@ -136,9 +151,15 @@ export const authSlice = createSlice({
       state.resetMail = action.payload;
       state.resetPassword = true;
     },
-    [confirmforgotPassword.rejected]: (state, action) => {
-      state.resetMail = action.payload;
+    [confirmforgotPassword.rejected]: (state) => {
       state.resetPassword = false;
+    },
+    [signupOTP.fulfilled]: (state, action) => {
+      state.emailOTP = action.payload;
+      state.confirmEmailOTP = true;
+    },
+    [signupOTP.rejected]: (state) => {
+      state.confirmEmailOTP = false;
     }
   }
 });

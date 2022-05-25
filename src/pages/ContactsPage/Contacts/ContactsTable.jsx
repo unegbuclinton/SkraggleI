@@ -31,6 +31,7 @@ function ContactsTable() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
+  const itemsPerPage = 5;
 
   const navigate = useNavigate();
 
@@ -47,7 +48,7 @@ function ContactsTable() {
           <TableWrapper>
             <TableHeader
               title="Add Contacts"
-              header="88 Contacts"
+              header={`${contactData.length} Contacts`}
               setOpen={setOpen}
               onChange={(e) => setInput(e.target.value)}
             />
@@ -56,6 +57,7 @@ function ContactsTable() {
 
           <Pagination
             currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
             data={contactData}
             setCurrentPage={setCurrentPage}
           />
