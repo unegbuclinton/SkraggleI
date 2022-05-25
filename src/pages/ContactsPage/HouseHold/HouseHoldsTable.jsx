@@ -1,30 +1,26 @@
-import { houseHoldSearch } from 'api/contacts/search';
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 // import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { searchHouseHold } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
 function HouseHoldsTable() {
-  // const data = useSelector((state) => state.contact);
-  // const searchHouseHold = data.searchHouseHold;
-  // console.log(searchHouseHold, data);
   const { houseHolds } = useSelector((state) => state.contact);
   const [input, setInput] = useState('');
-
+  const dispatch = useDispatch();
   const getSearchDebounce = useCallback(
     debounce(() => {
-      houseHoldSearch(input);
+      dispatch(searchHouseHold({ search: input, page: 0 }));
     }, 500),
     [input]
   );
   useEffect(() => {
     getSearchDebounce();
-
     return getSearchDebounce.cancel;
   }, [input]);
 
@@ -52,7 +48,6 @@ function HouseHoldsTable() {
 
   // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
-  // const itemsPerPage = 5;
 
   return (
     <div>
@@ -70,8 +65,7 @@ function HouseHoldsTable() {
 
       {/* <Pagination
         currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={searchHouseHold}
+        data={houseHolds}
         setCurrentPage={setCurrentPage}
       /> */}
     </div>

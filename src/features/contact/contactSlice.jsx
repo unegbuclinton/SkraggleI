@@ -87,12 +87,10 @@ export const contactSlice = createSlice({
     [searchCompanies.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.companies = action.payload;
+    },
+    [searchHouseHold.fulfilled]: (state, action) => {
+      state.houseHolds = action.payload;
     }
-    // [searchHouseHold.fulfilled]: (state, action) => {
-    //   console.log(action.payload);
-    //   state.isLoading = false;
-    //   state.houseHolds = action.payload;
-    // }
   }
 });
 
