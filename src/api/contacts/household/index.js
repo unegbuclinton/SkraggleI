@@ -8,7 +8,7 @@ export const addHousehold = async (body) => {
       data: body
     });
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 

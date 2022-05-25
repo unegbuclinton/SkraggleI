@@ -1,7 +1,10 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import { createTags, viewTags } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { tagValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -13,13 +16,19 @@ import {
 } from './styles';
 
 function CreateTags({ onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       tag: ''
     },
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = { tag_name: values.tag };
+      dispatch(createTags(body)).then(() => {
+        onClose();
+        toast.success('Tag added Successfully');
+        dispatch(viewTags());
+      });
     }
   });
   return (
@@ -44,7 +53,9 @@ function CreateTags({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button className="continue">Continue</Button>
+            <Button type="submit" className="continue">
+              Continue
+            </Button>
           </ButtonContainer>
         </FormContainer>
       </ModalContainer>

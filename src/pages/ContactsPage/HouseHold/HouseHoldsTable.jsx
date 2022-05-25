@@ -3,7 +3,7 @@ import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
 import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
-// import Pagination from 'components/molecules/Pagination';
+import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { searchHouseHold } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
@@ -14,7 +14,7 @@ import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
-  console.log(houseHolds);
+
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
   const getSearchDebounce = useCallback(
@@ -50,7 +50,7 @@ function HouseHoldsTable() {
     }
   ];
 
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
 
   return (
@@ -67,14 +67,7 @@ function HouseHoldsTable() {
             />
             <Table columns={columns} data={houseHolds} />
           </TableWrapper>
-
-          <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
-          {/* <Pagination
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
-            data={houseHolds}
-            setCurrentPage={setCurrentPage}
-          /> */}
+          <Pagination currentPage={currentPage} data={houseHolds} setCurrentPage={setCurrentPage} />
         </div>
       ) : (
         <HouseHoldEmptyState setOpen={setOpen} />

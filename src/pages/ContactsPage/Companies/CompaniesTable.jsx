@@ -1,5 +1,4 @@
 /* eslint-disable no-extra-boolean-cast */
-
 import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
@@ -21,7 +20,6 @@ function CompaniesTable() {
   const dispatch = useDispatch();
 
   const { companies } = useSelector((state) => state.contact);
-  // const itemsPerPage = 5;
 
   const getSearchDebounce = useCallback(
     debounce(() => {
@@ -69,7 +67,7 @@ function CompaniesTable() {
           setOpen(false);
         }}
       />
-      {!!companies ? (
+      {!!companies?.length ? (
         <div>
           <TableWrapper>
             <TableHeader
@@ -84,19 +82,10 @@ function CompaniesTable() {
                 setOpen(false);
               }}
             />
-            <Table
-              columns={columns}
-              data={companies}
-              // onRowClicked={onRowClicked}
-            />
+            <Table columns={columns} data={companies} />
           </TableWrapper>
 
-          <Pagination
-            currentPage={currentPage}
-            // itemsPerPage={itemsPerPage}
-            data={companies}
-            setCurrentPage={setCurrentPage}
-          />
+          <Pagination currentPage={currentPage} data={companies} setCurrentPage={setCurrentPage} />
         </div>
       ) : (
         <CompaniesEmptyState setOpen={setOpen} />

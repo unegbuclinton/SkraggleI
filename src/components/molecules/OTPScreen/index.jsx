@@ -1,7 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import AuthLayout from 'components/layouts/AuthLayout';
-import { confirmforgotPassword, forgotPassword } from 'features/auth/authSlice';
+import { signupOTP } from 'features/auth/authSlice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ function OTP() {
       email: email,
       token: otp.join('')
     };
-    dispatch(confirmforgotPassword(body)).then((data) => {
+    dispatch(signupOTP(body)).then((data) => {
       if (data.payload) {
         toast('OTP Successful.');
         navigate('/password-confirm');
@@ -40,7 +40,7 @@ function OTP() {
   };
 
   const handleClick = () => {
-    dispatch(forgotPassword(email));
+    // dispatch(forgotPassword(email));
   };
   return (
     <AuthLayout>
