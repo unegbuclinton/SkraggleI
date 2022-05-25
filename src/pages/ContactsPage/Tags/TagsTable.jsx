@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import Table from 'components/layouts/Table';
-import { columns, data } from 'utilities/tagsData';
-import Pagination from 'components/molecules/Pagination';
-import { TableWrapper } from './styles';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
-// import { useNavigate } from "react-router-dom";
 import TagsModal from 'components/molecules/Contacts/Modals/TagsModal/mainmodal/index';
+import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/tagsData';
+import { TableWrapper } from './styles';
 
 function TagsTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,12 +17,6 @@ function TagsTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
 
-  // const navigate = useNavigate();
-
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
   return (
     <div>
       <TableWrapper>

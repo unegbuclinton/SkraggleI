@@ -1,28 +1,27 @@
-import { companiesSearch } from 'api/contacts/search';
 import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
 import LoadingScreen from 'components/molecules/LoadingScreen';
-// import { useNavigate } from "react-router-dom";
 // import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { searchCompanies } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-// import { data } from 'utilities/CompaniesData';
+import { useDispatch, useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
 
 function CompaniesTable() {
   // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
+  const dispatch = useDispatch();
 
   const { isLoading, companies } = useSelector((state) => state.contact);
 
   const getSearchDebounce = useCallback(
     debounce(() => {
-      companiesSearch(input);
+      dispatch(searchCompanies({ search: input, page: 0 }));
     }, 500),
     [input]
   );
