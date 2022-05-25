@@ -37,7 +37,7 @@ function Registration() {
       dispatch(registerUser(body))
         .then((data) => {
           if (data.payload.success) {
-            navigate('/send-verification', { state: values.email });
+            navigate('/otp-verify', { state: values.email });
           }
         })
         .catch((error) => error);
