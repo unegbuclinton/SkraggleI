@@ -1,7 +1,9 @@
+/* eslint-disable no-extra-boolean-cast */
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
-// import Pagination from 'components/molecules/Pagination';
+import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
+import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { searchHouseHold } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
@@ -46,29 +48,29 @@ function HouseHoldsTable() {
     }
   ];
 
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      <TableWrapper>
-        <TableHeader
-          title="Add Household"
-          header={`${houseHolds?.length} Households`}
-          setOpen={setOpen}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <Table columns={columns} data={houseHolds} />
-      </TableWrapper>
-
+    <>
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
-
-      {/* <Pagination
-        currentPage={currentPage}
-        data={houseHolds}
-        setCurrentPage={setCurrentPage}
-      /> */}
-    </div>
+      {!!houseHolds.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeader
+              title="Add Household"
+              header={`${houseHolds.length} Households`}
+              setOpen={setOpen}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <Table columns={columns} data={houseHolds} />
+          </TableWrapper>
+          <Pagination currentPage={currentPage} data={houseHolds} setCurrentPage={setCurrentPage} />
+        </div>
+      ) : (
+        <HouseHoldEmptyState setOpen={setOpen} />
+      )}
+    </>
   );
 }
 

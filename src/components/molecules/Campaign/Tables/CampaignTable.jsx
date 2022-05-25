@@ -4,8 +4,10 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
+import dayjs from 'dayjs';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
@@ -13,6 +15,7 @@ import CreateCampaignModal from '../CreateCampaignModal';
 import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
+  const { campaigns } = useSelector((state) => state.campaign);
   const columns = [
     {
       name: ' ',
@@ -22,13 +25,15 @@ const CampaignTable = () => {
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created,
+      selector: (row) => {
+        return dayjs(row?.created_on).format('DD MMM YYYY');
+      },
       width: '20rem'
     },
 
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign
+      selector: (row) => row.name
     },
     {
       name: 'STATUS',
@@ -37,26 +42,11 @@ const CampaignTable = () => {
     },
     {
       name: 'FUNDRAISING GOALS',
-      selector: (row) => row.goals
+      selector: (row) => row.fundraising_goal.toLocaleString()
     }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const indexLastList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLastList - itemsPerPage;
-
-  const tableData = TableContacts.map((Campaigndata, index) => ({
-    key: index,
-    created: Campaigndata.created,
-    campaign: Campaigndata.campaign,
-    goals: Campaigndata.goals,
-    status: Campaigndata.status
-  }));
-
-  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   let navigate = useNavigate();
 
@@ -74,7 +64,7 @@ const CampaignTable = () => {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>15 Campaigns</h1>
+              <h1>{`${campaigns.length} Campaigns`}</h1>
             </div>
 
             <div className="table-header__right">
@@ -99,12 +89,12 @@ const CampaignTable = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
+          <Table columns={columns} data={campaigns} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
       <Pagination
         currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
+        // itemsPerPage={itemsPerPage}
         data={TableContacts}
         setCurrentPage={setCurrentPage}
       />

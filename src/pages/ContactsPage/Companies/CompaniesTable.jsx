@@ -1,9 +1,11 @@
+/* eslint-disable no-extra-boolean-cast */
 import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/MainModal/index';
-import LoadingScreen from 'components/molecules/LoadingScreen';
-// import Pagination from 'components/molecules/Pagination';
+import CompaniesEmptyState from 'components/molecules/EmptyState/Contacts/Companies';
+import Pagination from 'components/molecules/Pagination';
+// import { useNavigate } from "react-router-dom";
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { searchCompanies } from 'features/contact/contactSlice';
 import debounce from 'lodash.debounce';
@@ -12,12 +14,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
 
 function CompaniesTable() {
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  const { isLoading, companies } = useSelector((state) => state.contact);
+  const { companies } = useSelector((state) => state.contact);
 
   const getSearchDebounce = useCallback(
     debounce(() => {
@@ -59,38 +61,35 @@ function CompaniesTable() {
   ];
   return (
     <>
-      {isLoading === true && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <LoadingScreen />
+      <CompanyModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
+      {!!companies ? (
+        <div>
+          <TableWrapper>
+            <TableHeader
+              title="Add Company"
+              header={`${companies.length} Companies`}
+              setOpen={setOpen}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <CompanyModal
+              isShown={open}
+              onClose={() => {
+                setOpen(false);
+              }}
+            />
+            <Table columns={columns} data={companies} />
+          </TableWrapper>
+
+          <Pagination currentPage={currentPage} data={companies} setCurrentPage={setCurrentPage} />
         </div>
+      ) : (
+        <CompaniesEmptyState setOpen={setOpen} />
       )}
-
-      <TableWrapper>
-        <TableHeader
-          title="Add Company"
-          header="24 Companies"
-          setOpen={setOpen}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <CompanyModal
-          isShown={open}
-          onClose={() => {
-            setOpen(false);
-          }}
-        />
-        <Table
-          columns={columns}
-          data={companies}
-          // onRowClicked={onRowClicked}
-        />
-      </TableWrapper>
-
-      {/* <Pagination
-        currentPage={currentPage}
-        // itemsPerPage={itemsPerPage}
-        data={companies}
-        setCurrentPage={setCurrentPage}
-      /> */}
     </>
   );
 }
