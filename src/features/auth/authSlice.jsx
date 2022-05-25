@@ -32,7 +32,7 @@ export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
   try {
     const signupOTPResponse = await apiInstance({
       method: 'post',
-      url: '/email/verification/confirm',
+      url: '/email/confirm',
       data: body
     });
     return signupOTPResponse?.data?.message;
