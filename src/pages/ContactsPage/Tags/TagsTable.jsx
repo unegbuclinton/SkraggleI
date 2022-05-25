@@ -1,5 +1,5 @@
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
-// import { useNavigate } from "react-router-dom";
 import TagsModal from 'components/molecules/Contacts/Modals/TagsModal/mainmodal/index';
 import TagsEmptyState from 'components/molecules/EmptyState/Contacts/Tags';
 import Pagination from 'components/molecules/Pagination';
@@ -20,12 +20,7 @@ function TagsTable() {
   const currentList = data.slice(indexFirstList, indexLasttList);
 
   const tag = false;
-  // const navigate = useNavigate();
 
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
   return (
     <>
       <TagsModal isShown={open} onClose={() => setOpen(false)} />
@@ -33,11 +28,7 @@ function TagsTable() {
         <div>
           <TableWrapper>
             <TableHeader title="Create Tag" header="64 Tags" setOpen={setOpen} />
-            <Table
-              columns={columns}
-              data={currentList}
-              // onRowClicked={onRowClicked}
-            />
+            <Table columns={columns} data={currentList} />
           </TableWrapper>
           <Pagination
             currentPage={currentPage}
