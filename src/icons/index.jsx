@@ -25,6 +25,7 @@ export { ReactComponent as DPIconElements } from 'icons/svgs/elementsIcon.svg';
 export { ReactComponent as DPIconEmail } from 'icons/svgs/email.svg';
 export { ReactComponent as DPIconEmailShare } from 'icons/svgs/emailShare.svg';
 export { ReactComponent as DPIconSubDonation } from 'icons/svgs/EmptySubDonation.svg';
+export { ReactComponent as DPIconSubVolunteer } from 'icons/svgs/EmptySubVolunteer.svg';
 export { ReactComponent as DPIconEvents } from 'icons/svgs/eventsIcon.svg';
 export { ReactComponent as DPIconSkraggleEyeClose } from 'icons/svgs/eyeclosed.svg';
 export { ReactComponent as DPIconSkraggleEyeOpen } from 'icons/svgs/eyeopen.svg';

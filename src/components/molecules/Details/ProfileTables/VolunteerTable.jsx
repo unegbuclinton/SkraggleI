@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import Pagination from 'components/molecules/Pagination';
-import { columns, data } from 'utilities/volunteerData';
-import { TableHeading, TableWrapper } from './styles';
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
+import SubvolunteerEmptyState from 'components/molecules/EmptyState/ContactSubTabs/Volunteer';
+import Pagination from 'components/molecules/Pagination';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/volunteerData';
 import ProfileLayOut from '..';
+import { TableHeading, TableWrapper } from './styles';
 
 function VolunteerTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,18 +18,24 @@ function VolunteerTable() {
   const currentList = data.slice(indexFirstList, indexLasttList);
   return (
     <ProfileLayOut heading="Volunteering">
-      <TableWrapper>
-        <TableHeading>
-          <h2 className="heading">7 Activity</h2>
-        </TableHeading>
-        <Table columns={columns} data={currentList} />
-      </TableWrapper>
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={data}
-        setCurrentPage={setCurrentPage}
-      />
+      {!!data.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeading>
+              <h2 className="heading">7 Activity</h2>
+            </TableHeading>
+            <Table columns={columns} data={currentList} />
+          </TableWrapper>
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            data={data}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      ) : (
+        <SubvolunteerEmptyState />
+      )}
     </ProfileLayOut>
   );
 }
