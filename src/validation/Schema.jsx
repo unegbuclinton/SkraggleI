@@ -134,6 +134,6 @@ export const generalSettingsValidationSchema = Yup.object({
 export const createCampaignSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   description: Yup.string().required('Description is required'),
-  goals: Yup.string().required('Please enter Fundraiser Goals'),
-  followers: Yup.string().required('Select a Follower')
+  goals: Yup.string().required('Please enter Fundraiser Goals')
+  // followers: Yup.string().required('Select a Follower')
 });

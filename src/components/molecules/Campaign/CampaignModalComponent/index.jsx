@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
-
+import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
-import Button from 'components/atoms/Button/Button';
-import Input from 'components/atoms/Input/Input';
-import data from 'utilities/filterData';
-
-import { useFormik } from 'formik';
-import { createCampaignSchema } from 'validation/Schema';
-
-import { ModalWrapper, ModalInputDescription, ButtonsContainer } from './styles';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import Input from 'components/atoms/Input/Input';
+import { createNewCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import data from 'utilities/filterData';
+import { createCampaignSchema } from 'validation/Schema';
+import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const CampaignModalComponent = ({ onClose }) => {
-  const [selected, setSelected] = useState('Filters');
+  // const [selected, setSelected] = useState('Filters');
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
-      name: ''
+      name: '',
+      description: '',
+      goals: ''
     },
     validationSchema: createCampaignSchema,
-
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 4));
+      const body = {
+        name: values.name,
+        fundraising_goal: values.goals,
+        description: values.description
+      };
+      dispatch(createNewCampaign(body)).then(() => {
+        onClose();
+        toast.success('new campaign created successfully');
+        dispatch(getAllCampaigns());
+      });
     }
   });
   return (
@@ -75,14 +86,14 @@ const CampaignModalComponent = ({ onClose }) => {
           data={data}
           className="dropdown-followers"
           type=""
-          selected={selected}
-          setSelected={setSelected}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          // selected={selected}
+          // setSelected={setSelected}
+          // onChange={formik.handleChange}
+          // onBlur={formik.handleBlur}
         />
-        {formik.touched.followers && formik.errors.followers ? (
+        {/* {formik.touched.followers && formik.errors.followers ? (
           <ErrorMessage>{formik.errors.followers}</ErrorMessage>
-        ) : null}
+        ) : null} */}
         <ButtonsContainer>
           <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel
