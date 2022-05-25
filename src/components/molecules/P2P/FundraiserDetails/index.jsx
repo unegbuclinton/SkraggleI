@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import Header from '../P2PTabs';
+import PauseP2PModal from '../PauseP2PModal';
 import FundraiserMain from './FundraiserMain';
 import { MainWrapper } from './styles';
 const FundraiserDetails = () => {
@@ -34,6 +35,7 @@ const FundraiserDetails = () => {
   ];
 
   const [activeState, setActiveState] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <MainWrapper>
@@ -42,9 +44,18 @@ const FundraiserDetails = () => {
         tabs={tabs}
         className="p2p-tabs-wrapper"
         verticalWrapper="p2p-tabs"
-        leftBottomClass="p2p-tabs__bottom">
+        leftBottomClass="p2p-tabs__bottom"
+        onClick={() => setModalIsOpen(true)}>
         Pause P2P Fundraiser
       </Header>
+      {modalIsOpen && (
+        <PauseP2PModal
+          isShown={modalIsOpen}
+          onClose={() => {
+            setModalIsOpen(false);
+          }}
+        />
+      )}
       <FundraiserMain activeState={activeState} />
     </MainWrapper>
   );
