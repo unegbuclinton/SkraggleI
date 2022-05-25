@@ -1,11 +1,11 @@
-import React from 'react';
-import ContactsTable from 'pages/ContactsPage/Contacts/ContactsTable';
-import CompaniesTable from 'pages/ContactsPage/Companies/CompaniesTable';
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import HouseHoldsTable from 'pages/ContactsPage/HouseHold/HouseHoldsTable';
-import TagsTable from 'pages/ContactsPage/Tags/TagsTable';
-import SegmentsTable from 'pages/ContactsPage/Segments/SegmentsTable';
 import Tabs from 'components/molecules/Tabs';
+import CompaniesTable from 'pages/ContactsPage/Companies/CompaniesTable';
+import ContactsTable from 'pages/ContactsPage/Contacts/ContactsTable';
+import HouseHoldsTable from 'pages/ContactsPage/HouseHold/HouseHoldsTable';
+import SegmentsTable from 'pages/ContactsPage/Segments/SegmentsTable';
+import TagsTable from 'pages/ContactsPage/Tags/TagsTable';
+import React from 'react';
 
 const Contacts = () => {
   const links = [
