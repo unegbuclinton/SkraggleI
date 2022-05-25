@@ -1,6 +1,4 @@
 /* eslint-disable no-extra-boolean-cast */
-
-// import { contactSearch } from 'api/contacts/search';
 import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
@@ -18,9 +16,10 @@ function ContactsTable() {
   const [input, setInput] = useState('');
   const { contactData } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
+
   const getSearchDebounce = useCallback(
     debounce(() => {
-      dispatch(searchContact(input, 0));
+      dispatch(searchContact({ search: input, page: 0 }));
     }, 500),
     [input]
   );

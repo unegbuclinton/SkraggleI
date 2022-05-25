@@ -1,6 +1,4 @@
 /* eslint-disable no-extra-boolean-cast */
-
-// import { houseHoldSearch } from 'api/contacts/search';
 import CheckBox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
 import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/mainModal/index';
@@ -8,8 +6,8 @@ import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseH
 // import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { searchHouseHold } from 'features/contact/contactSlice';
-// import debounce from 'lodash.debounce';
-import React, { useEffect, useState } from 'react';
+import debounce from 'lodash.debounce';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
@@ -19,21 +17,15 @@ function HouseHoldsTable() {
   console.log(houseHolds);
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
-
-  // const getSearchDebounce = useCallback(
-  //   debounce(() => {
-  //     dispatch(searchHouseHold(input));
-  //   }, 500),
-  //   [input]
-  // );
-  // useEffect(() => {
-  //   getSearchDebounce();
-
-  //   return getSearchDebounce.cancel;
-  // }, [input]);
-
+  const getSearchDebounce = useCallback(
+    debounce(() => {
+      dispatch(searchHouseHold({ search: input, page: 0 }));
+    }, 500),
+    [input]
+  );
   useEffect(() => {
-    dispatch(searchHouseHold(input, 0));
+    getSearchDebounce();
+    return getSearchDebounce.cancel;
   }, [input]);
 
   const columns = [
@@ -60,7 +52,6 @@ function HouseHoldsTable() {
 
   // const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
-  // const itemsPerPage = 5;
 
   return (
     <>

@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
 import { addContact, allContacts } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
-import { companiesSearch, contactSearch } from 'api/contacts/search';
-import request from 'apiInstance';
+import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 
 const initialState = {
   companies: [],
@@ -23,23 +22,7 @@ export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehol
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
 export const searchCompanies = createAsyncThunk('contact/searchCompanies', companiesSearch);
-// export const searchHouseHold = createAsyncThunk('contact/searchHouseHold', houseHoldSearch);
-
-export const searchHouseHold = createAsyncThunk(
-  'contact/houseHoldSearch',
-  async (search, page = 0) => {
-    try {
-      const response = await request({
-        method: 'get',
-        url: `households/search?search_string=${search}&page=${page}`
-      });
-      console.log(response.data.message);
-      return response?.data?.message;
-    } catch (error) {
-      return error;
-    }
-  }
-);
+export const searchHouseHold = createAsyncThunk('contact/searchHouseHold', houseHoldSearch);
 
 export const contactSlice = createSlice({
   name: 'contact',
@@ -106,8 +89,6 @@ export const contactSlice = createSlice({
       state.companies = action.payload;
     },
     [searchHouseHold.fulfilled]: (state, action) => {
-      // console.log(action.payload);
-      state.isLoading = false;
       state.houseHolds = action.payload;
     }
   }

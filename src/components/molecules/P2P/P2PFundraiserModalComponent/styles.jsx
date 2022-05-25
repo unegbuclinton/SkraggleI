@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Button from 'components/atoms/Button/Button';
+import styled from 'styled-components';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;

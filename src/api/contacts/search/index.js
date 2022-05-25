@@ -1,6 +1,6 @@
 import request from 'apiInstance';
 
-export const contactSearch = async (search, page = 0) => {
+export const contactSearch = async ({ search, page }) => {
   try {
     const response = await request({
       method: 'get',
@@ -12,7 +12,7 @@ export const contactSearch = async (search, page = 0) => {
   }
 };
 
-export const companiesSearch = async (search, page = 0) => {
+export const companiesSearch = async ({ search, page }) => {
   try {
     const response = await request({
       method: 'get',
@@ -24,8 +24,7 @@ export const companiesSearch = async (search, page = 0) => {
   }
 };
 
-export const houseHoldSearch = async (search, page = 0) => {
-  console.log({ search, page });
+export const houseHoldSearch = async ({ search, page }) => {
   try {
     const response = await request({
       method: 'get',
