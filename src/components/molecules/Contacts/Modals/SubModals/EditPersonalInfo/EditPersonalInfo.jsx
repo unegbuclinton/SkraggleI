@@ -8,7 +8,7 @@ import React from 'react';
 import { editContactProfileSchema } from 'validation/Schema';
 import { EditPersonalInfoForm, EditPersonalInfoRow, EditPersonalLabel } from './styles';
 
-function EditPersonalInfo() {
+function EditPersonalInfo({ onClose }) {
   const titleOptions = [
     { value: 'Mr', label: 'Mr' },
     { value: 'Mrs', label: 'Mrs' }
@@ -267,7 +267,7 @@ function EditPersonalInfo() {
           </div>
         </EditPersonalInfoRow>
         <div className="edit-profile__footer">
-          <Button invert auth className="edit-profile__cancel-btn">
+          <Button invert auth className="edit-profile__cancel-btn" onClick={onClose}>
             Cancel
           </Button>
           <Button type="submit" auth className="edit-profile__save-btn">

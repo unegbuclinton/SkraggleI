@@ -28,7 +28,7 @@ const TabWrapper = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: -2rem;
-    z-index: 100;
+    z-index: 1;
     overflow-x: auto;
     .container {
       display: flex;
