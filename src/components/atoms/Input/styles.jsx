@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components';
 export const InputField = styled.input`
   outline: none;
   border: none;
-  width: 37.52rem;
-  height: 6.4rem;
+  /* width: 37.52rem; */
+  height: 4.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
   color: ${COLORS['grey-400']};
