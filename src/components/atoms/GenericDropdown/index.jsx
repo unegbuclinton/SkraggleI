@@ -27,7 +27,7 @@ export default SelectDropDown;
 const CustomSelect = styled(Select)`
   width: 60.2rem;
   .react-select__control {
-    height: 6.4rem;
+    height: 4.4rem;
     font-weight: 400;
     font-size: 1.2rem;
     border: 1px solid #9a9aa9;
