@@ -31,6 +31,7 @@ export const ModalInput = styled(Input)`
   padding: 2.5rem 2rem 2.5rem 2rem;
   font-size: ${FONTSIZES.xsmall};
   color: ${COLORS['gray-500']};
+  border: 1px solid ${COLORS['gray-500']};
 `;
 
 export const AddAddressButton = styled(Button)`
