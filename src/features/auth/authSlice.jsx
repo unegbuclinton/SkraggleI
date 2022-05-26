@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { persistor } from 'store';
 
 const initialState = {
   isAuthenticated: false,
@@ -9,8 +10,10 @@ const initialState = {
   isLoading: false,
   isSend: false,
   mail: '',
-  resetData: '',
-  resetPassword: false
+  resetMail: [],
+  resetPassword: false,
+  confirmEmailOTP: false,
+  emailOTP: []
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -23,6 +26,19 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
     return response.data;
   } catch (error) {
     toast.error('User already exists');
+  }
+});
+
+export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
+  try {
+    const signupOTPResponse = await apiInstance({
+      method: 'post',
+      url: '/email/confirm',
+      data: body
+    });
+    return signupOTPResponse?.data?.message;
+  } catch (error) {
+    toast.error('OTP is incorrect');
   }
 });
 
@@ -74,6 +90,14 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
       method: 'delete',
       url: '/admin/logout'
     });
+    persistor
+      .purge()
+      .then(() => {
+        return persistor.flush();
+      })
+      .then(() => {
+        persistor.pause();
+      });
     return response?.data?.message;
   } catch (error) {
     return error;
@@ -127,9 +151,15 @@ export const authSlice = createSlice({
       state.resetMail = action.payload;
       state.resetPassword = true;
     },
-    [confirmforgotPassword.rejected]: (state, action) => {
-      state.resetMail = action.payload;
+    [confirmforgotPassword.rejected]: (state) => {
       state.resetPassword = false;
+    },
+    [signupOTP.fulfilled]: (state, action) => {
+      state.emailOTP = action.payload;
+      state.confirmEmailOTP = true;
+    },
+    [signupOTP.rejected]: (state) => {
+      state.confirmEmailOTP = false;
     }
   }
 });

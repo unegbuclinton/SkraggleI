@@ -17,7 +17,6 @@ function DashboardHeader({ pageLinks }) {
   const toggleMenu = () => setOpen((prev) => !prev);
   const userLogout = () => {
     dispatch(logoutUser());
-    console.log('log out user');
   };
   const menuContent = [
     {
