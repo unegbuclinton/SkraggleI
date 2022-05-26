@@ -1,5 +1,5 @@
-import React from 'react';
 import Modal from 'components/layouts/Modal';
+import React from 'react';
 import CreateCompany from '../ModalContents';
 
 function CompanyModal({ onClose, isShown }) {

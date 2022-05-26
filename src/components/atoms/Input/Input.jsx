@@ -12,7 +12,8 @@ const Input = ({
   onBlur,
   className,
   containerClass,
-  value
+  value,
+  autoWidth
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
@@ -21,6 +22,7 @@ const Input = ({
     <Container className={containerClass}>
       <InputField
         className={className}
+        autoWidth={autoWidth}
         disabled={disabled}
         name={name}
         id={id}

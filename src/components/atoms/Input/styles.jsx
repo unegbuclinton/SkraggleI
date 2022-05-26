@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const InputField = styled.input`
   outline: none;
   border: none;
-  width: 37.52rem;
+  width: ${({ autoWidth }) => (autoWidth ? '100%' : '37.52rem')};
   height: 6.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
