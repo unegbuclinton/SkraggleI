@@ -28,7 +28,7 @@ function EditAmin({ onClose }) {
     },
     validationSchema: AdminEditValidationSchema,
     onSubmit: (values) => {
-      alert(values);
+      alert(JSON.stringify(values, null, 2));
     }
   });
   const priorityOptions = [
