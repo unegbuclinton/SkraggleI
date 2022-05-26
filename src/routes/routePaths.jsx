@@ -1,4 +1,5 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import EdiWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
@@ -21,7 +22,6 @@ import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
-import Test from 'pages/Test';
 // import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
@@ -158,7 +158,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <Test />
+    element: <EdiWebsiteModal />
   },
   {
     path: '/otp-verify',

@@ -137,3 +137,12 @@ export const createCampaignSchema = Yup.object({
   goals: Yup.string().required('Please enter Fundraiser Goals')
   // followers: Yup.string().required('Select a Follower')
 });
+
+export const editWebsiteSchema = Yup.object({
+  website: Yup.string().required('This field is required'),
+  twitter: Yup.string().required('This field is required'),
+  facebook: Yup.string().required('This field is required'),
+  instagram: Yup.string().required('This field is required'),
+  linkedin: Yup.string().required('This field is required'),
+  youtube: Yup.string().required('This field is required')
+});
