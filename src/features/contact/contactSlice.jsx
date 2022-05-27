@@ -5,6 +5,7 @@ import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags } from 'api/contacts/tags';
 
+import { logoutUser } from 'features/auth/authSlice';
 const initialState = {
   companies: [],
   isLoading: false,
@@ -113,6 +114,9 @@ export const contactSlice = createSlice({
     },
     [searchHouseHold.fulfilled]: (state, action) => {
       state.houseHolds = action.payload;
+    },
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });

@@ -2,13 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { persistor } from 'store';
 
 const initialState = {
   isAuthenticated: false,
   token: null,
   isLoading: false,
-  isSend: false,
   mail: '',
   resetMail: [],
   resetPassword: false,
@@ -86,21 +84,10 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    const response = await apiInstance({
-      method: 'delete',
-      url: '/admin/logout'
-    });
-    persistor
-      .purge()
-      .then(() => {
-        return persistor.flush();
-      })
-      .then(() => {
-        persistor.pause();
-      });
-    return response?.data?.message;
+    await apiInstance.delete('/admin/logout');
+    return;
   } catch (error) {
-    return error;
+    return error?.message;
   }
 });
 
@@ -108,6 +95,8 @@ export const resendVerification = createAsyncThunk('auth/resendVerification', as
   const response = await apiInstance.post('/email/verification/send', body);
   return response?.data;
 });
+
+export const purge = () => {};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -131,9 +120,8 @@ export const authSlice = createSlice({
       state.isAuthenticated = false;
       state.token = null;
     },
-    [logoutUser.fulfilled]: (state) => {
-      state.isAuthenticated = false;
-      state.token = null;
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;
