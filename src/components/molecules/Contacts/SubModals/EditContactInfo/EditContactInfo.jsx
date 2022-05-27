@@ -3,11 +3,31 @@ import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 import { CatchError } from 'components/molecules/Registration/styles';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { EditContactSchema } from 'validation/Schema';
 import { EditContactInfoForm, EditContactInfoRow, EditContactlLabel } from './styles';
 
-function EditContactInfo() {
+function EditContactInfo({ onCloseModal }) {
+  const [email, setEmail] = useState([
+    { placeholder: 'Home Email', id: 'homeEmail', name: 'homeEmail' },
+    { placeholder: 'Work Email', id: 'workEmail', name: 'workEmail' }
+  ]);
+
+  const [phone, setPhone] = useState([
+    { placeholder: 'Home Phone', id: 'homePhone', name: 'homePhone' },
+    { placeholder: 'Work Phone', id: 'workPhone', name: 'workPhone' }
+  ]);
+  const newPhone = { placeholder: 'Other Phone', id: 'otherPhone', name: 'otherPhone' };
+
+  const newEmail = { placeholder: 'Other Email', id: 'otherEmail', name: 'otherEmail' };
+
+  const addEmail = () => {
+    setEmail([...email, newEmail]);
+  };
+
+  const addPhone = () => {
+    setPhone([...phone, newPhone]);
+  };
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -41,7 +61,7 @@ function EditContactInfo() {
   return (
     <EditContactInfoForm onSubmit={formik.handleSubmit}>
       <Card className="contact-info__card">
-        <div>
+        <div className="list-input">
           <EditContactlLabel>Email</EditContactlLabel>
           <Input
             autoWidth
@@ -56,35 +76,30 @@ function EditContactInfo() {
           {formik.touched.email && formik.errors.email ? (
             <CatchError>{formik.errors.email}</CatchError>
           ) : null}
-          <EditContactInfoRow>
-            <div>
-              <EditContactlLabel>Home Mail</EditContactlLabel>
-              <Input
-                placeholder="Enter Home Mail"
-                id="homeMail"
-                name="homeMail"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                className="contact-edit__input"
-              />
-            </div>
 
-            <div className="contact-info__container">
-              <EditContactlLabel>Work Mail</EditContactlLabel>
-              <Input
-                placeholder="Enter Work Mail"
-                id="workMail"
-                name="workMail"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                className="contact-edit__input"
-              />
-              <Button className="contact-edit-btn"> Add Other Phone</Button>
-            </div>
+          <EditContactInfoRow>
+            {email.map(({ placeholder, name, id, label }) => (
+              <div key={Math.random()}>
+                <EditContactlLabel>{label}</EditContactlLabel>
+                <Input
+                  placeholder={placeholder}
+                  id={id}
+                  name={name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className="contact-edit__input"
+                />
+              </div>
+            ))}
           </EditContactInfoRow>
+          <div className="add-input-btn">
+            <Button type="button" className="contact-edit-btn" onClick={addEmail}>
+              Add Other Email
+            </Button>
+          </div>
         </div>
 
-        <div>
+        <div className="list-input">
           <EditContactlLabel>Phone</EditContactlLabel>
           <Input
             autoWidth
@@ -100,31 +115,25 @@ function EditContactInfo() {
             <CatchError>{formik.errors.phone}</CatchError>
           ) : null}
           <EditContactInfoRow>
-            <div>
-              <EditContactlLabel>Home Phone</EditContactlLabel>
-              <Input
-                placeholder="Enter Home Phone"
-                id="homeMail"
-                name="homeMail"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                className="contact-edit__input"
-              />
-            </div>
-
-            <div className="contact-info__container">
-              <EditContactlLabel>Work Phone</EditContactlLabel>
-              <Input
-                placeholder="Enter Work Phone"
-                id="workPhone"
-                name="workPhone"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                className="contact-edit__input"
-              />
-              <Button className="contact-edit-btn"> Add Other Phone</Button>
-            </div>
+            {phone.map(({ placeholder, name, id, label }) => (
+              <div key={Math.random()}>
+                <EditContactlLabel>{label}</EditContactlLabel>
+                <Input
+                  placeholder={placeholder}
+                  id={id}
+                  name={name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  className="contact-edit__input"
+                />
+              </div>
+            ))}
           </EditContactInfoRow>
+          <div className="add-input-btn">
+            <Button type="button" className="contact-edit-btn" onClick={addPhone}>
+              Add Other Phone
+            </Button>
+          </div>
         </div>
         <EditContactlLabel>Address</EditContactlLabel>
 
@@ -322,12 +331,8 @@ function EditContactInfo() {
           </div>
         </EditContactInfoRow>
 
-        <div className="lst-btn">
-          <Button className="contact-edit-btn"> Add Other Phone</Button>
-        </div>
-
         <div className="edit-contact__footer">
-          <Button invert auth className="edit-contact__cancel-btn">
+          <Button invert auth className="edit-contact__cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
           <Button type="submit" auth className="edit-contact__save-btn">

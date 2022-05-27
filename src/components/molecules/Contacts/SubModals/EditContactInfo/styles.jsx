@@ -6,16 +6,23 @@ export const EditContactInfoForm = styled.form`
   .contact-info__card {
     padding: 2.4rem;
 
-    .lst-btn {
+    .list-input {
       display: flex;
       flex-direction: column;
 
-      .contact-edit-btn {
-        width: 18.2rem;
-        height: 5.1rem;
-        background-color: ${COLORS.torquoise};
-        color: ${COLORS['grey-400']};
-        align-self: self-end;
+      .add-input-btn {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1rem;
+
+        .contact-edit-btn {
+          width: 18.2rem;
+          height: 5.1rem;
+          border-radius: 0.3rem;
+          background-color: ${COLORS.torquoise};
+          color: ${COLORS['grey-400']};
+          align-self: self-end;
+        }
       }
     }
 
@@ -38,7 +45,7 @@ export const EditContactInfoForm = styled.form`
   }
 
   .contact-top__input {
-    width: 100%;
+    width: 98%;
     height: 4.4rem;
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
@@ -52,8 +59,8 @@ export const EditContactlLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
 `;
 export const EditContactInfoRow = styled.div`
-  display: flex;
-  gap: 2.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   .contact-edit__input {
     width: 28.3rem;
