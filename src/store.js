@@ -6,6 +6,7 @@ import p2pReducer from 'features/p2p/p2pSlice';
 import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
+
 const persistConfig = {
   key: 'root',
   version: 1,
