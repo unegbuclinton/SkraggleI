@@ -1,15 +1,18 @@
-import Slider from 'components/atoms/Slider';
+import DashboardLayout from 'components/layouts/DashboardLayout';
+import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
 import React from 'react';
-import styled from 'styled-components';
 
 function Test() {
   return (
-    <Wrapper>
-      <Slider />
-    </Wrapper>
+    <DashboardLayout>
+      <EditPersonalInfoModal />
+    </DashboardLayout>
   );
 }
 
 export default Test;
 
-const Wrapper = styled.div``;
+// const Wrapper = styled.div`
+//   background-color: #333;
+//   height: 100vh;
+// `;

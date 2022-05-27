@@ -1,7 +1,7 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
   margin-top: 11.734rem;
@@ -11,6 +11,10 @@ export const FormWrapper = styled.form`
     padding-top: 3.439rem;
     padding-bottom: 4rem;
 
+    .login-input {
+      width: 37.52rem;
+      height: 6.4rem;
+    }
     &__heading {
       display: flex;
       justify-content: center;

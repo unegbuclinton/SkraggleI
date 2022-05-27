@@ -31,8 +31,7 @@ export const loginSchema = Yup.object({
 });
 
 export const forgotPasswordSchema = Yup.object({
-  email: Yup.string().email('Invalid Email').required('Email is Required'),
-  password: Yup.string().required('Password is Required')
+  email: Yup.string().email('Invalid Email').required('Email is Required')
 });
 
 export const createContactStepOneValidationSchema = Yup.object({
@@ -40,7 +39,8 @@ export const createContactStepOneValidationSchema = Yup.object({
     .max(15, 'Must be 15 characters or less')
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
-  email: Yup.string().email('invalid Mail').required('Email is required'),
+  primary_email: Yup.string().email('invalid Mail').required('Email is required'),
+  primary_phone: Yup.string().required('Email is required'),
   // emailSucription: Yup.string().required("Email Subscription is required"),
   // date: Yup.string().required("Date is required"),
   // month: Yup.string().required("Month is required"),
@@ -134,6 +134,32 @@ export const generalSettingsValidationSchema = Yup.object({
 export const createCampaignSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   description: Yup.string().required('Description is required'),
-  goals: Yup.string().required('Please enter Fundraiser Goals'),
-  followers: Yup.string().required('Select a Follower')
+  goals: Yup.string().required('Please enter Fundraiser Goals')
+  // followers: Yup.string().required('Select a Follower')
+});
+
+export const EditContactSchema = Yup.object({
+  phone: Yup.string().required('Phone is required'),
+  email: Yup.string().required('Email is required'),
+  street: Yup.string().required('Street is required'),
+  unit: Yup.string().required('Unit is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postal: Yup.string().required('Postal Code is required'),
+  country: Yup.string().required('Country is required')
+});
+
+export const editContactProfileSchema = Yup.object({
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  preferredName: Yup.string().required('Preferred name is required'),
+  phone: Yup.string().required('Phone is required'),
+  dob: Yup.string().required('Date of birth is required'),
+  street: Yup.string().required('Street is required'),
+  unit: Yup.string().required('Unit is required'),
+  country: Yup.string().required('Country is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postal: Yup.string().required('Postal/Zip code is required'),
+  email: Yup.string().required('Recipient is required')
 });
