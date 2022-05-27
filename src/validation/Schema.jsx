@@ -137,3 +137,18 @@ export const createCampaignSchema = Yup.object({
   goals: Yup.string().required('Please enter Fundraiser Goals')
   // followers: Yup.string().required('Select a Follower')
 });
+
+export const editContactProfileSchema = Yup.object({
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  preferredName: Yup.string().required('Preferred name is required'),
+  phone: Yup.string().required('Phone is required'),
+  dob: Yup.string().required('Date of birth is required'),
+  street: Yup.string().required('Street is required'),
+  unit: Yup.string().required('Unit is required'),
+  country: Yup.string().required('Country is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postal: Yup.string().required('Postal/Zip code is required'),
+  email: Yup.string().required('Recipient is required')
+});
