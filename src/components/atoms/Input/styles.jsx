@@ -5,7 +5,7 @@ export const InputField = styled.input`
   outline: none;
   border: none;
   width: ${({ autoWidth }) => (autoWidth ? '100%' : '37.52rem')};
-  height: 6.4rem;
+  height: 4.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
   color: ${COLORS['grey-400']};
