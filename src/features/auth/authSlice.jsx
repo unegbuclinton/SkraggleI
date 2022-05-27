@@ -7,10 +7,11 @@ const initialState = {
   isAuthenticated: false,
   token: null,
   isLoading: false,
-  isSend: false,
   mail: '',
-  resetData: '',
-  resetPassword: false
+  resetMail: [],
+  resetPassword: false,
+  confirmEmailOTP: false,
+  emailOTP: []
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -23,6 +24,19 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
     return response.data;
   } catch (error) {
     toast.error('User already exists');
+  }
+});
+
+export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
+  try {
+    const signupOTPResponse = await apiInstance({
+      method: 'post',
+      url: '/email/confirm',
+      data: body
+    });
+    return signupOTPResponse?.data?.message;
+  } catch (error) {
+    toast.error('OTP is incorrect');
   }
 });
 
@@ -70,13 +84,10 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    const response = await apiInstance({
-      method: 'delete',
-      url: '/admin/logout'
-    });
-    return response?.data?.message;
+    await apiInstance.delete('/admin/logout');
+    return;
   } catch (error) {
-    return error;
+    return error?.message;
   }
 });
 
@@ -84,6 +95,8 @@ export const resendVerification = createAsyncThunk('auth/resendVerification', as
   const response = await apiInstance.post('/email/verification/send', body);
   return response?.data;
 });
+
+export const purge = () => {};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -107,9 +120,8 @@ export const authSlice = createSlice({
       state.isAuthenticated = false;
       state.token = null;
     },
-    [logoutUser.fulfilled]: (state) => {
-      state.isAuthenticated = false;
-      state.token = null;
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;
@@ -127,9 +139,15 @@ export const authSlice = createSlice({
       state.resetMail = action.payload;
       state.resetPassword = true;
     },
-    [confirmforgotPassword.rejected]: (state, action) => {
-      state.resetMail = action.payload;
+    [confirmforgotPassword.rejected]: (state) => {
       state.resetPassword = false;
+    },
+    [signupOTP.fulfilled]: (state, action) => {
+      state.emailOTP = action.payload;
+      state.confirmEmailOTP = true;
+    },
+    [signupOTP.rejected]: (state) => {
+      state.confirmEmailOTP = false;
     }
   }
 });

@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import store from 'store';
+import store, { persistor } from 'store';
 import App from './App';
 import GlobalStyle from './GlobalStyles';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-
-let persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>

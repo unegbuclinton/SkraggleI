@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
-import { columns, data } from 'utilities/segmentsData';
-import Pagination from 'components/molecules/Pagination';
-import { TableWrapper } from './styles';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
-// import { useNavigate } from "react-router-dom";
 import SegmentsModal from 'components/molecules/Contacts/Modals/SegmentsModal/mainModal/index';
+import SegmentsEmptyState from 'components/molecules/EmptyState/Contacts/Segments';
+import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/segmentsData';
+import { TableWrapper } from './styles';
 
 function SegmentsTable() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,31 +19,33 @@ function SegmentsTable() {
 
   const currentList = data.slice(indexFirstList, indexLasttList);
 
-  // const navigate = useNavigate();
+  const segment = [];
 
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
   return (
-    <div>
-      <TableWrapper>
-        <TableHeader title="Create Segments" header="14 Segments" setOpen={setOpen} />
-        <Table
-          columns={columns}
-          data={currentList}
-          // onRowClicked={onRowClicked}
-        />
-        <SegmentsModal isShown={open} onClose={() => setOpen(false)} />
-      </TableWrapper>
+    <>
+      <SegmentsModal isShown={open} onClose={() => setOpen(false)} />
+      {!!segment.length ? (
+        <div>
+          <TableWrapper>
+            <TableHeader title="Create Segments" header="14 Segments" setOpen={setOpen} />
+            <Table
+              columns={columns}
+              data={currentList}
+              // onRowClicked={onRowClicked}
+            />
+          </TableWrapper>
 
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={data}
-        setCurrentPage={setCurrentPage}
-      />
-    </div>
+          <Pagination
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            data={data}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      ) : (
+        <SegmentsEmptyState setOpen={setOpen} />
+      )}
+    </>
   );
 }
 
