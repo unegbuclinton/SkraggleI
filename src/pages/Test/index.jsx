@@ -1,13 +1,11 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import EditContactInfoModal from 'components/molecules/Contacts/SubModals/EditContactInfo';
+import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
 import React from 'react';
-
-// import styled from 'styled-components';
 
 function Test() {
   return (
     <DashboardLayout>
-      <EditContactInfoModal />
+      <EditPersonalInfoModal />
     </DashboardLayout>
   );
 }
