@@ -2,14 +2,17 @@ import React from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 
-function SelectDropDown({ className, options, defaultValue, onChange, width, isMulti }) {
+function SelectDropDown({ className, options, myValue, onChange, width, isMulti }) {
+  const defaultValue = (options, myValue) => {
+    return options ? options.find((option) => option.value === myValue) : '';
+  };
   return (
     <Container className={className}>
       <CustomSelect
         className={className}
         classNamePrefix="react-select"
-        defaultValue={defaultValue}
-        onChange={onChange}
+        value={defaultValue(options, myValue)}
+        onChange={(value) => onChange(value)}
         options={options}
         width={width}
         isMulti={isMulti}
