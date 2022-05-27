@@ -3,6 +3,7 @@ import { DPIconLogout, DPIconMenuDrop, DPIconProfile, DPIconSetting } from 'icon
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { generateUUID } from 'utilities/helpers';
 import {
   Header,
   HeaderLeftContent,
@@ -71,7 +72,7 @@ function DashboardHeader({ pageLinks }) {
                 onClick={onClickFunc}
                 className="user-menu__links"
                 to={route}
-                key={Math.random()}>
+                key={generateUUID()}>
                 <span>{icon}</span>
                 <UserMenuLinkText>{text}</UserMenuLinkText>
               </Link>
