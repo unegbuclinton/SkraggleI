@@ -20,18 +20,21 @@ export const FormContainer = styled.form`
     width: 60.2rem;
     border-radius: 0.5rem;
     outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border: 0.1rem solid ${COLORS['gray-500']};
     padding-left: 2rem;
     background-color: ${COLORS.white};
     margin-bottom: 0;
   }
-  .email-dropdown {
-    width: 60.2rem;
-    height: 6.4rem;
-    border-radius: 0.5rem;
-    outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-    padding-top: 1rem;
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
 `;
 
@@ -54,10 +57,6 @@ export const DateContainer = styled.div`
   gap: 1.6rem;
   .date-dropdown {
     width: 17.842rem;
-    height: 6.4rem;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-    border-radius: 0.5rem;
-    padding-top: 0.8rem;
   }
 `;
 
