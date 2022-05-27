@@ -43,7 +43,7 @@ function ContactsTable() {
   return (
     <>
       <ContactsModal isShown={open} onClose={() => setOpen(false)} />
-      {!!contactData.length ? (
+      {!!contactData?.length ? (
         <div>
           <TableWrapper>
             <TableHeader
