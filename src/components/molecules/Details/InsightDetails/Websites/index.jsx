@@ -1,5 +1,5 @@
 import Button from 'components/atoms/Button/Button';
-import EdiWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
+import EditWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
 import React, { useState } from 'react';
 import { WebsiteContainer, WebsiteHeading, WebsiteWrapper } from './styles';
 
@@ -14,7 +14,7 @@ function Websites() {
           Edit
         </Button>
         {modalIsOpen && (
-          <EdiWebsiteModal
+          <EditWebsiteModal
             isShown={modalIsOpen}
             onClose={() => {
               setModalIsOpen(false);

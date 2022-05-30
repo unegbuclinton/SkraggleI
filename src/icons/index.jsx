@@ -32,6 +32,7 @@ export { ReactComponent as DPIconSkraggleEyeOpen } from 'icons/svgs/eyeopen.svg'
 export { ReactComponent as DPIconFacebook } from 'icons/svgs/facebook.svg';
 export { ReactComponent as DPIconForms } from 'icons/svgs/formsIcon.svg';
 export { ReactComponent as DPIconHouseHold } from 'icons/svgs/household.svg';
+export { ReactComponent as DPIconCloseBlack } from 'icons/svgs/iconCloseBlack.svg';
 export { ReactComponent as DPIconLandingPage } from 'icons/svgs/landingPageIcon.svg';
 export { ReactComponent as DPIconLeaderBoard } from 'icons/svgs/leaderboard.svg';
 export { ReactComponent as DPIconLinkedin } from 'icons/svgs/linkedin.svg';

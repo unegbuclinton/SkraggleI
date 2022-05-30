@@ -1,5 +1,6 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import EdiWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
+import EditAssociationModal from 'components/molecules/Contacts/SubModals/EditAssociationInfoModal/MainModal';
+// import EdiWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
@@ -158,7 +159,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <EdiWebsiteModal />
+    element: <EditAssociationModal />
   },
   {
     path: '/otp-verify',
