@@ -156,6 +156,10 @@ export const editAssociationModal = Yup.object({
   household: Yup.string().required('This field is required')
 });
 
+export const volunteerValidationSchema = Yup.object({
+  tShirtSize: Yup.string().required('This field is required')
+});
+
 export const AdminEditValidationSchema = Yup.object({
   originId: Yup.string().required('Origin ID is required'),
   priority: Yup.string().required('Priority is required'),
@@ -190,4 +194,16 @@ export const editContactProfileSchema = Yup.object({
   state: Yup.string().required('State is required'),
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
+});
+
+export const confirmNewPassword = Yup.object({
+  password: Yup.string()
+    .required('Password is required')
+    .matches(
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
+      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Passwords do not match')
 });

@@ -60,6 +60,7 @@ export { ReactComponent as DPIconSkraggleLogoLight } from 'icons/svgs/skraggle-l
 export { ReactComponent as DPIconSkraggleLogo } from 'icons/svgs/skraggle-logo.svg';
 export { ReactComponent as DPIconTag } from 'icons/svgs/tag.svg';
 export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
+export { ReactComponent as DPIconTodo } from 'icons/svgs/todo_list.svg';
 export { ReactComponent as DPIconTransaction } from 'icons/svgs/transaction-icon.svg';
 export { ReactComponent as DPIconTwitter } from 'icons/svgs/twitter.svg';
 export { ReactComponent as DPIconUploadFile } from 'icons/svgs/UploadIcon.svg';
