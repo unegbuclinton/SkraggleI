@@ -31,7 +31,7 @@ request.interceptors.request.use((config) => {
     ...config,
     headers: {
       ...config.headers,
-      Authorization: `Bearer ${token.access}`
+      Authorization: `Bearer ${token.access_token}`
     }
   };
   return newConfig;
