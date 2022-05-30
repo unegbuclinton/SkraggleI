@@ -18,18 +18,14 @@ export const FormContainer = styled.form`
   flex-direction: column;
   .dropdown {
     width: 60.2rem;
-    height: 6.4rem;
-    border-radius: 0.5rem;
-    outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-    /* padding: 0 2rem 0 2rem; */
+    padding-bottom: 1rem;
   }
+
   .form-input {
     width: 60.2rem;
-    height: 6.4rem;
     border-radius: 0.5rem;
     outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border: 0.1rem solid ${COLORS['gray-500']};
     padding: 0 2.83rem 0 2.83rem;
     margin-bottom: 1.606rem;
     background-color: ${COLORS.white};
@@ -37,8 +33,7 @@ export const FormContainer = styled.form`
 
   .address-input {
     width: 17.842rem !important;
-    height: 6.4rem;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     margin-bottom: 1.606rem;
     padding: 0 2.83rem 0 2.83rem;
@@ -48,7 +43,7 @@ export const FormContainer = styled.form`
 `;
 
 export const FormLabel = styled.label`
-  padding: 2.4rem 0 0.5rem 0;
+  padding: 0 0 0.5rem 0;
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-200']};
@@ -60,7 +55,7 @@ export const AddressContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  margin-top: 5.3rem;
+  margin-top: 4.5rem;
   display: flex;
   gap: 1.6rem;
   justify-content: flex-end;
@@ -86,7 +81,6 @@ export const ErrorMsg = styled.p`
   color: red;
   font-size: ${FONTSIZES.small};
   font-weight: ${FONTWEIGHTS.medium};
-  /* padding-top: 0.5rem; */
   position: relative;
   bottom: 1rem;
 `;
