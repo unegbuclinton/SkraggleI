@@ -1,13 +1,20 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
+import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
+import React, { useState } from 'react';
 import { PersonalInfoContainer, PersonalInfoHeading, PersonalInfoWrapper } from './styles';
 
 function PersonalInfo() {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(true);
+  };
   return (
     <PersonalInfoWrapper>
       <PersonalInfoHeading>
         <h1 className="heading">Persona Information</h1>
-        <Button className="info-btn">Edit</Button>
+        <Button className="info-btn" onClick={toggleModal}>
+          Edit
+        </Button>
       </PersonalInfoHeading>
       <PersonalInfoContainer>
         <h2 className="info">TITLE</h2>
@@ -55,6 +62,14 @@ function PersonalInfo() {
           6545 France Avenue South Edina, Minnesota, 55435 United States
         </div>
       </PersonalInfoContainer>
+      {showModal && (
+        <EditPersonalInfoModal
+          isShown={showModal}
+          onClose={() => {
+            setShowModal(false);
+          }}
+        />
+      )}
     </PersonalInfoWrapper>
   );
 }

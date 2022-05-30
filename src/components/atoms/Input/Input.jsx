@@ -11,9 +11,9 @@ const Input = ({
   id,
   onBlur,
   className,
+  autoWidth,
   containerClass,
-  value,
-  autoWidth
+  value
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);

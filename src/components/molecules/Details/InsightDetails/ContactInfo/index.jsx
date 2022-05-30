@@ -1,13 +1,21 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
+import EditContactInfoModal from 'components/molecules/Contacts/SubModals/EditContactInfo';
+import React, { useState } from 'react';
 import { ContactContainer, ContactHeading, ContactWrapper } from './styles';
 
 function ContactInfo() {
+  const [openModal, setOpenModal] = useState(false);
+
+  const toggleModal = () => {
+    setOpenModal(true);
+  };
   return (
     <ContactWrapper>
       <ContactHeading>
         <h1 className="heading">Contact Info</h1>
-        <Button className="heading-btn">Edit</Button>
+        <Button className="heading-btn" onClick={toggleModal}>
+          Edit
+        </Button>
       </ContactHeading>
       <ContactContainer>
         <h2 className="title">PRIMARY EMAIL</h2>
@@ -59,6 +67,14 @@ function ContactInfo() {
         <h2 className="title">OTHER ADDRESSES</h2>
         <p className="info other-address">-</p>
       </ContactContainer>
+      {openModal && (
+        <EditContactInfoModal
+          isShown={openModal}
+          onCloseModal={() => {
+            setOpenModal(false);
+          }}
+        />
+      )}
     </ContactWrapper>
   );
 }

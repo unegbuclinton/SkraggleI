@@ -1,27 +1,27 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
-import { generateUUID } from 'utilities/helpers';
 import { privateRoutes, publicRoutes } from './routePaths';
 
 const Routing = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
+  console.log({ isAuthenticated });
   function PrivateRoute() {
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
   }
   return (
     <Routes>
-      {privateRoutes.map((route) => {
+      {privateRoutes.map((route, index) => {
         if (route.children) {
           const Children = () => {
             return (
               <Routes>
                 {route?.children?.map((child, index) => {
                   return (
-                    <Route key={generateUUID} element={<PrivateRoute />}>
+                    <Route key={`${index}-xxx`} element={<PrivateRoute />}>
                       <Route
                         path={child.path}
-                        key={index}
+                        key={`${index}-sss`}
                         index={child.index}
                         element={child.element}
                       />
@@ -31,10 +31,15 @@ const Routing = () => {
               </Routes>
             );
           };
-          return <Route key={Math.random()} path={route.path} element={<Children />} />;
+
+          return <Route key={`${index}-yyy`} path={route.path} element={<Children />} />;
         }
 
-        return <Route key={Math.random()} path={route.path} element={route.element} />;
+        return (
+          <Route key={`${index}-xxx`} element={<PrivateRoute />}>
+            <Route key={Math.random()} path={route.path} element={route.element} />
+          </Route>
+        );
       })}
 
       {publicRoutes.map((publicRoute) => {
