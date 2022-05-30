@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 // import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 const persistConfig = {
   key: 'root',
   version: 1,

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCampaign, getCampaings } from 'api/campaign/campaigns';
+import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   campaigns: [],
@@ -38,6 +39,9 @@ export const campaignSlice = createSlice({
     [getAllCampaigns.pending]: (state) => {
       state.isLoading = true;
       state.isSuccess = false;
+    },
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });

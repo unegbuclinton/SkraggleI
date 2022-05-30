@@ -20,6 +20,7 @@ export const Form = styled.form`
   }
   .promp-text {
     display: flex;
+    gap: 0.8rem;
     justify-content: center;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
@@ -34,7 +35,7 @@ export const Form = styled.form`
   }
   .agreement-container {
     width: 34.2rem;
-    font-size: ${FONTSIZES.lg};
+    font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
     text-align: center;
     margin: auto;
