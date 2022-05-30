@@ -84,7 +84,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    await apiInstance.delete('/admin/logout');
+    await apiInstance.delete('/admin/access-token');
     return;
   } catch (error) {
     return error?.message;
