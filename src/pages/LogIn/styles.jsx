@@ -13,7 +13,6 @@ export const FormWrapper = styled.form`
 
     .login-input {
       width: 37.52rem;
-      height: 6.4rem;
     }
     &__heading {
       display: flex;
