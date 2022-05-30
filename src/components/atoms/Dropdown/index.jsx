@@ -46,7 +46,7 @@ export default DropdownComponent;
 export const DropdownWrapper = styled.div`
   width: 14.4rem;
   height: 4.8rem;
-  position: relative;
+  /* position: relative; */
   border: 1px solid ${COLORS['porcelain-white']};
   color: ${COLORS['grey-400']};
   padding-top: 1.6rem;
