@@ -117,7 +117,7 @@ function Registration() {
           </div>
 
           <div className="promp-text">
-            <p> Have any account? </p>
+            <p> Already have an account?</p>
 
             <span>
               <Link className="promp-text__path" to="/login">
