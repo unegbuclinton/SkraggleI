@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const ModalWrapper = styled(Card)`
-  padding-bottom: 2.42rem;
+  padding: 2.2rem 0 2.42rem 0;
 `;
 
 export const ModalContainer = styled.div`
@@ -16,20 +16,11 @@ export const ModalContainer = styled.div`
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  .email-dropdown {
-    width: 60.2rem;
-    height: 6.4rem;
-    border-radius: 0.5rem;
-    outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
-    padding: 0 2rem 0 2rem;
-  }
   .input-field {
     width: 60.2rem;
-    height: 6.4rem;
     border-radius: 0.5rem;
     outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border: 0.1rem solid ${COLORS['gray-500']};
     padding-left: 2rem;
     background-color: ${COLORS.white};
   }
@@ -47,7 +38,7 @@ export const FormContainer = styled.form`
 `;
 
 export const FormLabel = styled.label`
-  padding: 2.4rem 0 0.5rem 0;
+  padding: 1rem 0 0.5rem 0;
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-200']};
@@ -91,7 +82,7 @@ export const CheckBoxWrapper = styled.div`
 export const TagContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 2.4rem;
+  margin-top: 1.4rem;
 
   .title {
     color: ${COLORS['header-grey']};
