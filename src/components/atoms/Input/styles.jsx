@@ -22,7 +22,7 @@ export const InputField = styled.input`
 
 export const InputFieldIcon = styled.span`
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
   cursor: pointer;
 `;
