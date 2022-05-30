@@ -1,5 +1,6 @@
 export { ReactComponent as DPIconEventActive } from 'icons/svgs/active.svg';
 export { ReactComponent as DPIconAdd } from 'icons/svgs/add.svg';
+export { ReactComponent as DPIconAddam } from 'icons/svgs/addam.svg';
 export { ReactComponent as DPIconApproved } from 'icons/svgs/approved.svg';
 export { ReactComponent as DPIconsArrowLeft } from 'icons/svgs/arrow-left.svg';
 export { ReactComponent as DPIconsArrowRight } from 'icons/svgs/arrow-right.svg';
@@ -43,6 +44,7 @@ export { ReactComponent as DPIconMark } from 'icons/svgs/mark.svg';
 export { ReactComponent as DPIconMembership } from 'icons/svgs/membership.svg';
 export { ReactComponent as DPIconMenuDrop } from 'icons/svgs/menudropdown.svg';
 export { ReactComponent as DPIconMessage } from 'icons/svgs/message.svg';
+export { ReactComponent as DPIconOrganisationIcon } from 'icons/svgs/organ.svg';
 export { ReactComponent as DPIconP2P } from 'icons/svgs/P2PIcon.svg';
 export { ReactComponent as DPIconPageNavigation } from 'icons/svgs/pageNavigation.svg';
 export { ReactComponent as DPIconsPen } from 'icons/svgs/pen.svg';

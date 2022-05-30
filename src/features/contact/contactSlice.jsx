@@ -4,6 +4,7 @@ import { addContact, allContacts } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags } from 'api/contacts/tags';
+import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   companies: [],
@@ -55,7 +56,6 @@ export const contactSlice = createSlice({
     },
     [createNewCompany.rejected]: (state) => {
       state.isLoading = false;
-      state.createCompany = false;
     },
     [createNewCompany.pending]: (state) => {
       state.isLoading = true;
@@ -67,7 +67,6 @@ export const contactSlice = createSlice({
     },
     [getAllCompanies.rejected]: (state) => {
       state.isLoading = false;
-      state.createCompany = false;
     },
     [getAllCompanies.pending]: (state) => {
       state.isLoading = true;
@@ -113,6 +112,9 @@ export const contactSlice = createSlice({
     },
     [searchHouseHold.fulfilled]: (state, action) => {
       state.houseHolds = action.payload;
+    },
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });

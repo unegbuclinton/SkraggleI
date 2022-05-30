@@ -2,7 +2,7 @@ import Modal from 'components/layouts/Modal';
 import React from 'react';
 import EditWebsiteModalComponent from '../EditWebsiteModalComponent';
 
-function EditWebsiteModal({ isShown, onClose }) {
+function EdiWebsiteModal({ isShown, onClose }) {
   return (
     <Modal header="Edit Website" isShown={isShown} hide={onClose}>
       <EditWebsiteModalComponent onClose={onClose} />
@@ -10,4 +10,4 @@ function EditWebsiteModal({ isShown, onClose }) {
   );
 }
 
-export default EditWebsiteModal;
+export default EdiWebsiteModal;

@@ -2,13 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import apiInstance from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { persistor } from 'store';
 
 const initialState = {
   isAuthenticated: false,
   token: null,
   isLoading: false,
-  isSend: false,
   mail: '',
   resetMail: [],
   resetPassword: false,
@@ -20,7 +18,7 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   try {
     const response = await apiInstance({
       method: 'post',
-      url: '/admin/signup',
+      url: '/admin',
       data: body
     });
     return response.data;
@@ -33,7 +31,7 @@ export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
   try {
     const signupOTPResponse = await apiInstance({
       method: 'post',
-      url: '/email/confirm',
+      url: '/admin/verify-account',
       data: body
     });
     return signupOTPResponse?.data?.message;
@@ -46,7 +44,7 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
   try {
     const forgotResponse = await apiInstance({
       method: 'post',
-      url: '/admin/forgot-password',
+      url: '/admin/password',
       data: body
     });
     return forgotResponse?.data?.message;
@@ -86,21 +84,10 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    const response = await apiInstance({
-      method: 'delete',
-      url: '/admin/logout'
-    });
-    persistor
-      .purge()
-      .then(() => {
-        return persistor.flush();
-      })
-      .then(() => {
-        persistor.pause();
-      });
-    return response?.data?.message;
+    await apiInstance.delete('/admin/logout');
+    return;
   } catch (error) {
-    return error;
+    return error?.message;
   }
 });
 
@@ -108,6 +95,8 @@ export const resendVerification = createAsyncThunk('auth/resendVerification', as
   const response = await apiInstance.post('/email/verification/send', body);
   return response?.data;
 });
+
+export const purge = () => {};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -131,9 +120,8 @@ export const authSlice = createSlice({
       state.isAuthenticated = false;
       state.token = null;
     },
-    [logoutUser.fulfilled]: (state) => {
-      state.isAuthenticated = false;
-      state.token = null;
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;

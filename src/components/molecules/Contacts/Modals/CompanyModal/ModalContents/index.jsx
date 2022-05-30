@@ -4,7 +4,7 @@ import Switch from 'components/atoms/Switch/Switch';
 import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
@@ -21,6 +21,7 @@ import {
 
 function CreateCompany({ onClose }) {
   const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.contact);
   const formik = useFormik({
     initialValues: {
       companyName: '',
@@ -107,7 +108,7 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" loading={isLoading} className="continue">
               Save
             </Button>
           </ButtonContainer>
