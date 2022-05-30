@@ -67,6 +67,7 @@ export const HeaderRightContent = styled.div`
   align-self: stretch;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
 
   .user-info {
     padding-left: 8.8rem;
@@ -95,42 +96,74 @@ export const HeaderRightContent = styled.div`
   .user-menu {
     display: flex;
     position: absolute;
-    height: ${({ open }) => (open ? '' : '0')};
+    height: ${({ open }) => (open ? '26.5rem' : '0')};
     overflow: ${({ open }) => (open ? '' : 'hidden')};
     right: 0;
     top: 3rem;
     flex-direction: column;
     background: ${COLORS.white};
     justify-content: center;
-    width: 15rem;
-    align-items: center;
-    box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%),
-      0px 5px 5px -3px rgb(0 0 0 / 20%);
+    width: 20.9rem;
+    box-shadow: -5px 5px 5px -3px rgb(0 0 0 / 20%);
 
+    .organization-container {
+      border-bottom: 1px solid #6d696945;
+      margin-bottom: 1.4rem;
+      font-size: 9px;
+      color: rgba(0, 0, 0, 0.45);
+      padding-left: 1rem;
+
+      .organisation-header {
+        font-size: 0.9rem;
+        color: rgba(0, 0, 0, 0.45);
+        margin-bottom: 1rem;
+        padding-left: 1.2rem;
+      }
+    }
+    .profile-header {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.45);
+      margin-bottom: 1.6rem;
+    }
+    .img-profile__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 8.2rem;
+      border-bottom: 1px solid #6d696945;
+      margin-bottom: 0.6rem;
+
+      .profile-icon {
+        border-radius: 50%;
+      }
+    }
+
+    .link-container {
+      padding-left: 1.8rem;
+    }
     .user-menu__links {
       display: flex;
-      align-items: center;
       text-decoration: none;
       width: 100%;
       color: ${COLORS['grey-400']};
-      font-size: ${FONTSIZES.small};
-      line-height: 1.6rem;
-      padding: 1rem;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      padding: 0.7rem 0 0 0.7rem;
 
       span {
         width: 2rem;
         height: 2rem;
       }
       &:hover {
-        background: ${COLORS.pink};
-        color: ${COLORS.white};
+        background: #d9d9d94a;
+        color: #00000073;
       }
     }
   }
 `;
 export const UserMenuLinkText = styled.p`
-  display: block;
-  padding: 1rem;
+  font-weight: ${FONTWEIGHTS.bold};
 `;
 export const HeaderLinks = styled.div`
   display: flex;

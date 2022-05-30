@@ -41,10 +41,10 @@ export const createContactStepOneValidationSchema = Yup.object({
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
   primary_phone: Yup.string().required('Email is required'),
-  // emailSucription: Yup.string().required("Email Subscription is required"),
-  // date: Yup.string().required("Date is required"),
-  // month: Yup.string().required("Month is required"),
-  // year: Yup.string().required("Year is required"),
+  emailSubscription: Yup.string().required('Email Subscription is required'),
+  date: Yup.string().required('Date is required'),
+  month: Yup.string().required('Month is required'),
+  year: Yup.string().required('Year is required'),
   company: Yup.string().required('Company is required')
 });
 
@@ -54,7 +54,11 @@ export const createContactStepTwoValidationSchema = Yup.object({
   city: Yup.string().required('City is required'),
   state: Yup.string().required('State is required'),
   postalcode: Yup.string().required('postalcode is required'),
-  country: Yup.string().required('Country is required')
+  country: Yup.string().required('Country is required'),
+  household: Yup.string().required('Household is required'),
+  assignee: Yup.string().required('Assignee is required'),
+  priority: Yup.string().required('Priority is required'),
+  tags: Yup.string().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({
@@ -140,6 +144,16 @@ export const createCampaignSchema = Yup.object({
 
 export const volunteerValidationSchema = Yup.object({
   tShirtSize: Yup.string().required('This field is required')
+});
+
+export const AdminEditValidationSchema = Yup.object({
+  originId: Yup.string().required('Origin ID is required'),
+  priority: Yup.string().required('Priority is required'),
+  assignee: Yup.string().required('Assignee is required'),
+  tag: Yup.string().required('Tag is required'),
+  note: Yup.string().required('Note is required'),
+  solicitation: Yup.string().required('This field is required'),
+  emailSubscriptionStatus: Yup.string().required('This field is required')
 });
 
 export const EditContactSchema = Yup.object({
