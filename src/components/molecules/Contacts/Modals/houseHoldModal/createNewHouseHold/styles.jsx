@@ -18,10 +18,9 @@ export const FormContainer = styled.form`
   flex-direction: column;
   .input-field {
     width: 60.2rem;
-    height: 6.4rem;
     border-radius: 0.5rem;
     outline: none;
-    border: 0.1rem solid ${COLORS['tabel-btn-grey']};
+    border: 0.1rem solid ${COLORS['gray-500']};
     padding-left: 2rem;
     background-color: ${COLORS.white};
   }
