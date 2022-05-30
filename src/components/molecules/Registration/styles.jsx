@@ -35,6 +35,7 @@ export const Form = styled.form`
   }
   .agreement-container {
     width: 34.2rem;
+    gap: 0.8rem;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
     text-align: center;
@@ -43,6 +44,8 @@ export const Form = styled.form`
     &__terms {
       text-decoration: none;
       color: #3759a9;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
     }
   }
 `;

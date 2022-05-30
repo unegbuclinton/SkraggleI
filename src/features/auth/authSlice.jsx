@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   try {
     const response = await apiInstance({
       method: 'post',
-      url: '/admin/signup',
+      url: '/admin',
       data: body
     });
     return response.data;
@@ -31,7 +31,7 @@ export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
   try {
     const signupOTPResponse = await apiInstance({
       method: 'post',
-      url: '/email/confirm',
+      url: '/admin/verify-account',
       data: body
     });
     return signupOTPResponse?.data?.message;
@@ -44,7 +44,7 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
   try {
     const forgotResponse = await apiInstance({
       method: 'post',
-      url: '/admin/forgot-password',
+      url: '/admin/password',
       data: body
     });
     return forgotResponse?.data?.message;

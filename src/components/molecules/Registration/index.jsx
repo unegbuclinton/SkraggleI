@@ -30,9 +30,7 @@ function Registration() {
         first_name: values.firstName,
         last_name: values.lastName,
         email: values.email,
-        password: values.password,
-        type_of: 'user',
-        permission_level: 'administrator'
+        password: values.password
       };
       dispatch(registerUser(body))
         .then((data) => {
