@@ -142,6 +142,16 @@ export const createCampaignSchema = Yup.object({
   // followers: Yup.string().required('Select a Follower')
 });
 
+export const AdminEditValidationSchema = Yup.object({
+  originId: Yup.string().required('Origin ID is required'),
+  priority: Yup.string().required('Priority is required'),
+  assignee: Yup.string().required('Assignee is required'),
+  tag: Yup.string().required('Tag is required'),
+  note: Yup.string().required('Note is required'),
+  solicitation: Yup.string().required('This field is required'),
+  emailSubscriptionStatus: Yup.string().required('This field is required')
+});
+
 export const EditContactSchema = Yup.object({
   phone: Yup.string().required('Phone is required'),
   email: Yup.string().required('Email is required'),
