@@ -181,3 +181,15 @@ export const editContactProfileSchema = Yup.object({
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
 });
+
+export const confirmNewPassword = Yup.object({
+  password: Yup.string()
+    .required('Password is required')
+    .matches(
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
+      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Passwords do not match')
+});
