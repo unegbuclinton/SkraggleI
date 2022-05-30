@@ -17,6 +17,7 @@ import {
 
 function CreateteNewHouseHold({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
+  console.log(isLoading);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

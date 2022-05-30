@@ -1,12 +1,12 @@
 export { ReactComponent as DPIconEventActive } from 'icons/svgs/active.svg';
 export { ReactComponent as DPIconAdd } from 'icons/svgs/add.svg';
-export { ReactComponent as DPIconAddam } from 'icons/svgs/addam.svg';
 export { ReactComponent as DPIconApproved } from 'icons/svgs/approved.svg';
 export { ReactComponent as DPIconsArrowLeft } from 'icons/svgs/arrow-left.svg';
 export { ReactComponent as DPIconsArrowRight } from 'icons/svgs/arrow-right.svg';
 export { ReactComponent as DPIconAssignee } from 'icons/svgs/assignee.svg';
 export { ReactComponent as DPIconCampaign } from 'icons/svgs/campaignIcon.svg';
 export { ReactComponent as DPIconCancel } from 'icons/svgs/cancel.svg';
+export { ReactComponent as DPIconAddam } from 'icons/svgs/cap.svg';
 export { ReactComponent as DPIconCaretDown } from 'icons/svgs/caretdown.svg';
 export { ReactComponent as DPIconCarouselImage } from 'icons/svgs/carousel.svg';
 export { ReactComponent as DPIconSkraggleCheck } from 'icons/svgs/check.svg';
