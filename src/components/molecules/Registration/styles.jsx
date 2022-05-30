@@ -20,6 +20,7 @@ export const Form = styled.form`
   }
   .promp-text {
     display: flex;
+    gap: 0.8rem;
     justify-content: center;
     font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
@@ -34,7 +35,8 @@ export const Form = styled.form`
   }
   .agreement-container {
     width: 34.2rem;
-    font-size: ${FONTSIZES.lg};
+    gap: 0.8rem;
+    font-size: ${FONTSIZES.small};
     font-weight: ${FONTWEIGHTS.medium};
     text-align: center;
     margin: auto;
@@ -42,6 +44,8 @@ export const Form = styled.form`
     &__terms {
       text-decoration: none;
       color: #3759a9;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
     }
   }
 `;

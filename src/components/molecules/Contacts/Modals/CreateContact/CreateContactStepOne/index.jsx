@@ -1,8 +1,7 @@
 import Button from 'components/atoms/Button/Button';
-import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import React, { useState } from 'react';
-import { dateDate, monthData, subcription, yearsData } from 'utilities/modalData';
+import React from 'react';
 import {
   ButtonContainer,
   DateContainer,
@@ -14,10 +13,34 @@ import {
 } from './styles';
 
 function CreateContactStepOne({ onClose, formik }) {
-  const [selected, setSelected] = useState('select');
-  const [selectDate, setSelectDate] = useState('Date');
-  const [selectMonth, setSelectMonth] = useState('Month');
-  const [selectYear, setSelectYear] = useState('Year');
+  const emailSub = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
+
+  const dateOptions = [
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+    { value: '3', label: '3' },
+    { value: '4', label: '4' },
+    { value: '5', label: '5' }
+  ];
+
+  const monthOptions = [
+    { value: 'Jan', label: 'Jan' },
+    { value: 'Feb', label: 'Feb' },
+    { value: 'March', label: 'March' },
+    { value: 'April', label: 'April' },
+    { value: 'May', label: 'May' }
+  ];
+
+  const yearOptions = [
+    { value: '1991', label: '1991' },
+    { value: '1992', label: '1992' },
+    { value: '1993', label: '1993' },
+    { value: '1994', label: '1994' },
+    { value: '1995', label: '1995' }
+  ];
 
   return (
     <ModalWrapper>
@@ -84,69 +107,69 @@ function CreateContactStepOne({ onClose, formik }) {
             <ErrorMsg>{formik.errors.primary_phone}</ErrorMsg>
           ) : null}
           <FormLabel>EMAIL SUBSCRIPTION STATUS</FormLabel>
-          <DropdownComponent
+          <SelectDropDown
             className="email-dropdown"
-            id="emailSubcription"
-            name="emailSubcription"
-            selected={selected}
-            setSelected={setSelected}
-            data={subcription}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            // value={formik.values.emailSubcription}
+            placeholder={'Lorem Ipsum'}
+            id="emailSubscription"
+            name="emailSubscription"
+            type={'text'}
+            options={emailSub}
+            value={formik.values.emailSubscription}
+            onChange={(value) => formik.setFieldValue('emailSubscription', value.value)}
+            onBlur={formik.handleBlur}
           />
-          {/* {formik.touched.emailSubcription && formik.errors.emailSubcription ? (
-            <ErrorMsg>{formik.errors.emailSubcription}</ErrorMsg>
-          ) : null} */}
+          {formik.touched.emailSubscription && formik.errors.emailSubscription ? (
+            <ErrorMsg>{formik.errors.emailSubscription}</ErrorMsg>
+          ) : null}
           <FormLabel>BIRTH DATE</FormLabel>
           <DateContainer>
             <div>
-              <DropdownComponent
+              <SelectDropDown
                 className="date-dropdown"
+                placeholder={'Date'}
                 id="date"
                 name="date"
-                selected={selectDate}
-                setSelected={setSelectDate}
-                data={dateDate}
-                // onChange={(e) => setSelectDate(e.target.value)}
-                // onBlur={formik.handleBlur}
-                // value={formik.values.date}
+                type={'text'}
+                options={dateOptions}
+                value={formik.values.date}
+                onChange={(value) => formik.setFieldValue('date', value.value)}
+                onBlur={formik.handleBlur}
               />
-              {/* {formik.touched.date && formik.errors.date ? (
+              {formik.touched.date && formik.errors.date ? (
                 <ErrorMsg>{formik.errors.date}</ErrorMsg>
-              ) : null} */}
+              ) : null}
             </div>
             <div>
-              <DropdownComponent
+              <SelectDropDown
                 className="date-dropdown"
+                placeholder={'Month'}
                 id="month"
                 name="month"
-                selected={selectMonth}
-                setSelected={setSelectMonth}
-                data={monthData}
-                // onChange={formik.handleChange}
-                // onBlur={formik.handleBlur}
-                // value={formik.values.month}
+                type={'text'}
+                options={monthOptions}
+                value={formik.values.month}
+                onChange={(value) => formik.setFieldValue('month', value.value)}
+                onBlur={formik.handleBlur}
               />
-              {/* {formik.touched.month && formik.errors.month ? (
+              {formik.touched.month && formik.errors.month ? (
                 <ErrorMsg>{formik.errors.month}</ErrorMsg>
-              ) : null} */}
+              ) : null}
             </div>
             <div>
-              <DropdownComponent
+              <SelectDropDown
                 className="date-dropdown"
+                placeholder={'Year'}
                 id="year"
                 name="year"
-                selected={selectYear}
-                setSelected={setSelectYear}
-                data={yearsData}
-                // onChange={formik.handleChange}
-                // onBlur={formik.handleBlur}
-                // value={formik.values.year}
+                type={'text'}
+                options={yearOptions}
+                value={formik.values.year}
+                onChange={(value) => formik.setFieldValue('year', value.value)}
+                onBlur={formik.handleBlur}
               />
-              {/* {formik.touched.year && formik.errors.year ? (
+              {formik.touched.year && formik.errors.year ? (
                 <ErrorMsg>{formik.errors.year}</ErrorMsg>
-              ) : null} */}
+              ) : null}
             </div>
           </DateContainer>
           <FormLabel>COMPANY</FormLabel>
