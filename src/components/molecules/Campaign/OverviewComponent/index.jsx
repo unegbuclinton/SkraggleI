@@ -1,8 +1,10 @@
 import Button from 'components/atoms/Button/Button';
-import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
+import { useFormik } from 'formik';
 import { DPIconTransaction } from 'icons/index';
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { campaignOverview } from 'validation/Schema';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
@@ -12,26 +14,23 @@ import {
 } from './styles';
 
 const CampaignOverview = () => {
-  const data = [
-    {
-      id: '1',
-      name: 'Action'
+  const formik = useFormik({
+    initialValues: {
+      task: ''
     },
-    {
-      id: '2',
-      name: 'Add'
-    },
-    {
-      id: '3',
-      name: 'Delete'
-    },
-    {
-      id: '4',
-      name: 'Modify'
+    validationSchema: campaignOverview,
+    onSubmit: (values) => {
+      console.log(values);
     }
+  });
+
+  const data = [
+    { value: <div>Hello</div>, label: <div>Hello</div> },
+    { value: 'Archive', label: 'Archive' },
+    { value: 'Delete', label: 'Delete' }
   ];
 
-  const [selected, setSelected] = useState('Filters');
+  // const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const HandleButtonClick = () => {
@@ -41,13 +40,16 @@ const CampaignOverview = () => {
     <MainWrapper>
       <LeftSection>
         <ContainerDropdwon>
-          <DropdownComponent
-            data={data}
-            selected={selected}
-            setSelected={setSelected}
+          <SelectDropDown
             className="action-dropdown__container"
-            content
-            iconDropdown="dropdown-icon"
+            placeholder={'Lorem Ipsum'}
+            id="emailSubscription"
+            name="emailSubscription"
+            type={'text'}
+            options={data}
+            value={formik.values.emailSubscription}
+            onChange={(value) => formik.setFieldValue('emailSubscription', value.value)}
+            onBlur={formik.handleBlur}
           />
         </ContainerDropdwon>
 

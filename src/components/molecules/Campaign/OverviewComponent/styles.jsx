@@ -1,8 +1,7 @@
+import Card from 'components/atoms/Card/index';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-
 import styled from 'styled-components';
-import Card from 'components/atoms/Card/index';
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -19,14 +18,8 @@ export const LeftSection = styled(Card)`
   height: 74.6rem;
 
   .action-dropdown__container {
-    width: 8rem;
-    height: 3rem;
-    border-radius: 0.5rem;
-    border: 1px solid #1e003e;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
-    padding-left: 1.3rem;
-    padding-right: 0.8rem;
+    width: 12rem;
+    height: 4.8rem;
     font-size: ${FONTSIZES.xsmall};
   }
 `;

@@ -22,7 +22,6 @@ import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
-// import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 

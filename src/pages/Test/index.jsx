@@ -1,11 +1,12 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
-import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
+import CampaignOverview from 'components/molecules/Campaign/OverviewComponent';
+// import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
 import React from 'react';
 
 function Test() {
   return (
     <DashboardLayout>
-      <EditPersonalInfoModal />
+      <CampaignOverview></CampaignOverview>
     </DashboardLayout>
   );
 }

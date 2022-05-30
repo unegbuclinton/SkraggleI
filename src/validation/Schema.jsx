@@ -177,3 +177,7 @@ export const editContactProfileSchema = Yup.object({
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
 });
+
+export const campaignOverview = Yup.object({
+  task: Yup.string().required('Select an option')
+});
