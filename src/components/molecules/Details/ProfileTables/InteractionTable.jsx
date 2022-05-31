@@ -1,18 +1,46 @@
-import React from 'react';
 import Table from 'components/layouts/Table';
-import { columns, data } from 'utilities/interactionData';
-import { TableHeading, TableWrapper } from './styles';
+import InteractionModal from 'components/molecules/Contacts/SubModals/Interactions';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { formatDate } from 'utilities/helpers';
 import ProfileLayOut from '..';
+import { TableWrapper } from './styles';
 
 function InteractionTable() {
+  const { interactionData } = useSelector((state) => state.contact);
+
+  const [open, setOpen] = useState(false);
+  const columns = [
+    {
+      name: 'Subject',
+      selector: (row) => row.subject,
+      width: '36rem'
+    },
+
+    {
+      name: 'Type',
+      selector: (row) => row.type,
+      width: '12.7rem'
+    },
+    {
+      name: 'Date',
+      selector: (row) => formatDate(row.interacted_at)
+    }
+  ];
+
   return (
     <ProfileLayOut heading="Interactions">
       <TableWrapper>
-        <TableHeading>
-          <h2 className="heading">5 Interactions</h2>
-        </TableHeading>
-        <Table columns={columns} data={data} />
+        <TableHeader
+          subMenuTableHeader
+          header=" 5 Interactions"
+          title="Add Interaction"
+          setOpen={setOpen}
+        />
+        <Table columns={columns} data={interactionData} />
       </TableWrapper>
+      {open && <InteractionModal isShown={open} onClose={() => setOpen(false)} />}
     </ProfileLayOut>
   );
 }

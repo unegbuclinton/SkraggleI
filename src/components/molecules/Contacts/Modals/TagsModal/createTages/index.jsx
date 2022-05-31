@@ -23,7 +23,7 @@ function CreateTags({ onClose }) {
     },
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
-      const body = { tag_name: values.tag };
+      const body = { name: values.tag };
       dispatch(createTags(body)).then(() => {
         onClose();
         toast.success('Tag added Successfully');
