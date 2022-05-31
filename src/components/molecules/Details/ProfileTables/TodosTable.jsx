@@ -79,7 +79,7 @@ function TodosTable() {
             />
           </div>
         ) : (
-          <SubTodosEmptyState />
+          <SubTodosEmptyState setOpen={setOpen} />
         )}
       </ProfileLayOut>
     </>
