@@ -3,12 +3,11 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
-import { viewContact, viewTags } from 'features/contact/contactSlice';
+import { allHouseHold, viewContact, viewTags } from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useDispatch } from 'react-redux';
 import { datas1 } from 'utilities/overviewData';
 import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 
@@ -27,9 +26,9 @@ function Overview() {
   //   dispatch(getAllCompanies());
   // }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(allHouseHold());
-  // }, []);
+  useEffect(() => {
+    dispatch(allHouseHold());
+  }, []);
 
   useEffect(() => {
     dispatch(viewTags());
@@ -39,6 +38,9 @@ function Overview() {
     dispatch(viewContact());
   }, []);
 
+  useEffect(() => {
+    dispatch(viewContact());
+  }, []);
   return (
     <OverviewWrapper>
       <Card className="overview-card">
