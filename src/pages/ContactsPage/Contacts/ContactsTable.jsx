@@ -16,7 +16,6 @@ import { TableWrapper } from './styles';
 function ContactsTable() {
   // const [input, setInput] = useState('');
   const { contactData } = useSelector((state) => state.contact);
-
   const dispatch = useDispatch();
 
   // const getSearchDebounce = useCallback(
@@ -51,7 +50,7 @@ function ContactsTable() {
     },
     {
       name: 'FULL NAME',
-      selector: (row) => row.fullname,
+      selector: (row) => row.first_name + ' ' + row.last_name,
       width: '16.8rem'
     },
     {
