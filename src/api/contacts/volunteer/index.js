@@ -13,14 +13,14 @@ export const addVolunteer = async (body) => {
   }
 };
 
-// export const getTodos = async () => {
-//   try {
-//     const response = await request({
-//       method: 'get',
-//       url: '/contacts/todos?cursor=0&direction=after&limit=25'
-//     });
-//     return response?.data?.message?.rows;
-//   } catch (error) {
-//     toast.error(error);
-//   }
-// };
+export const getVolunteer = async () => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: '/contacts/volunteer-activity?cursor=0&limit=25&direction=after'
+    });
+    return response?.data?.message.rows;
+  } catch (error) {
+    toast.error(error);
+  }
+};

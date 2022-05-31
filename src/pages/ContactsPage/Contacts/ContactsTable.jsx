@@ -6,9 +6,9 @@ import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/Co
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { getAllInteractions, oneContact } from 'features/contact/contactSlice';
+import { getAllInteractions, getAllVolunteer, oneContact } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TableWrapper } from './styles';
@@ -18,6 +18,10 @@ function ContactsTable() {
   const { contactData } = useSelector((state) => state.contact);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllVolunteer());
+  }, [dispatch]);
 
   // const getSearchDebounce = useCallback(
   //   debounce(() => {

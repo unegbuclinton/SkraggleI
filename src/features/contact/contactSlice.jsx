@@ -7,7 +7,7 @@ import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags } from 'api/contacts/tags';
 import { addTodo, getTodos } from 'api/contacts/todo';
-import { addVolunteer } from 'api/contacts/volunteer';
+import { addVolunteer, getVolunteer } from 'api/contacts/volunteer';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -19,7 +19,8 @@ const initialState = {
   tagsData: [],
   todos: [],
   eachContact: [],
-  interactionData: []
+  interactionData: [],
+  volunteers: []
 };
 
 export const createContact = createAsyncThunk('contact/createContact', addContact);
@@ -35,9 +36,9 @@ export const getAllTodos = createAsyncThunk('contact/getAllTodos', getTodos);
 export const createVolunteer = createAsyncThunk('contact/createVolunteer', addVolunteer);
 export const oneContact = createAsyncThunk('contact/oneConact', eachContact);
 export const getInteraction = createAsyncThunk('contact/getInteraction', createInteractions);
-
 export const updateContact = createAsyncThunk('contact/updateContact', editContact);
 export const getAllInteractions = createAsyncThunk('getAllInteractions', allInteractions);
+export const getAllVolunteer = createAsyncThunk('contact/getAllVolunteer', getVolunteer);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -157,6 +158,16 @@ export const contactSlice = createSlice({
       state.isLoading = false;
     },
     [createVolunteer.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getAllVolunteer.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.volunteers = action.payload;
+    },
+    [getAllVolunteer.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getAllVolunteer.pending]: (state) => {
       state.isLoading = true;
     },
     [oneContact.fulfilled]: (state, action) => {

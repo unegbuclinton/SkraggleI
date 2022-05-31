@@ -1,9 +1,9 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { createVolunteer } from 'features/contact/contactSlice';
+import { createVolunteer, getAllVolunteer } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { VolunteerValidationSchema } from 'validation/Schema';
 import {
@@ -16,6 +16,8 @@ import {
 
 function CreateVolunteerModal({ onClose }) {
   const dispatch = useDispatch();
+  const { eachContact } = useSelector((state) => state.contact);
+  const volunteerId = eachContact.id;
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -27,11 +29,13 @@ function CreateVolunteerModal({ onClose }) {
       const body = {
         name: values.name,
         start_at: values.startDate,
-        end_at: values.endDate
+        end_at: values.endDate,
+        contact_id: volunteerId
       };
       dispatch(createVolunteer(body)).then(() => {
         onClose();
         toast.success('Volunteer created successfully');
+        dispatch(getAllVolunteer());
       });
     }
   });
