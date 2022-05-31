@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input/Input';
 import { createNewCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 // import data from 'utilities/filterData';
 import { createCampaignSchema } from 'validation/Schema';
@@ -16,10 +16,12 @@ import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles'
 const CampaignModalComponent = ({ onClose }) => {
   // const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
-  const followers = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
-  ];
+  const { contactData } = useSelector((state) => state.contact);
+
+  const followers = contactData.map((current) => ({
+    value: current?.id,
+    label: current?.first_name
+  }));
 
   const formik = useFormik({
     initialValues: {
@@ -92,12 +94,15 @@ const CampaignModalComponent = ({ onClose }) => {
         <SelectDropDown
           className="dropdown-followers"
           placeholder={'Lorem Ipsum'}
+          isMulti="true"
           id="followers"
           name="followers"
           type={'text'}
           options={followers}
           value={formik.values.followers}
-          onChange={(value) => formik.setFieldValue('followers', value.value)}
+          onChange={(value) => {
+            formik.setFieldValue('followers', [...formik.values.followers, value.value]);
+          }}
           onBlur={formik.handleBlur}
         />
         {formik.touched.emailSubscription && formik.errors.emailSubscription ? (
