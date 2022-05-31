@@ -1,7 +1,9 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
+import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
+import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
 import OTP from 'components/molecules/OTPScreen';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/ResendVerification';
@@ -158,14 +160,6 @@ export const privateRoutes = [
   {
     path: '/test',
     element: <Test />
-  },
-  {
-    path: '/otp-verify',
-    element: <OTP />
-  },
-  {
-    path: '/password-confirm',
-    element: <OTPConfirmation />
   }
 ];
 
@@ -197,5 +191,21 @@ export const publicRoutes = [
   {
     path: '/send-verification',
     element: <SendVerification />
+  },
+  {
+    path: '/otp-verify',
+    element: <OTP />
+  },
+  {
+    path: '/password-confirm',
+    element: <OTPConfirmation />
+  },
+  {
+    path: '/forgotPassword-confirm',
+    element: <OTPForgotPassword />
+  },
+  {
+    path: '/confirmPassword',
+    element: <ConfirmForgotPassword />
   }
 ];
