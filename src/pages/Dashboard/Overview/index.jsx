@@ -3,7 +3,7 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
-import { allHouseHold, viewContact } from 'features/contact/contactSlice';
+import { allHouseHold, viewContact, viewTags } from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
@@ -30,9 +30,13 @@ function Overview() {
     dispatch(allHouseHold());
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(viewTags());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(viewTags());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(viewContact());
+  }, []);
 
   useEffect(() => {
     dispatch(viewContact());

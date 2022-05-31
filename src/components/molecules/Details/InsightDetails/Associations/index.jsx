@@ -1,13 +1,26 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
+import EditAssociationModal from 'components/molecules/Contacts/SubModals/EditAssociationInfoModal/MainModal';
+import React, { useState } from 'react';
 import { AssociationContainer, AssociationHeading, AssociationWrapper } from './styles';
 
 function Association() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
     <AssociationWrapper>
       <AssociationHeading>
         <h1 className="heading">Association</h1>
-        <Button className="heading-btn">Edit</Button>
+        <Button className="heading-btn" onClick={() => setModalIsOpen(true)}>
+          Edit
+        </Button>
+        {modalIsOpen && (
+          <EditAssociationModal
+            isShown={modalIsOpen}
+            onClose={() => {
+              setModalIsOpen(false);
+            }}
+          />
+        )}
       </AssociationHeading>
       <AssociationContainer>
         <h2 className="title">COMPANIES</h2>

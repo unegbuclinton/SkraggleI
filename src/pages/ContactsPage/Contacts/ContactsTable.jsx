@@ -78,7 +78,7 @@ function ContactsTable() {
           <TableWrapper>
             <TableHeader
               title="Add Contacts"
-              header={`${contactData.length} Contacts`}
+              header={`${contactData?.length} Contacts`}
               setOpen={setOpen}
               // onChange={(e) => setInput(e.target.value)}
             />

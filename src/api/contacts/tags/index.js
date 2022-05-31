@@ -5,7 +5,7 @@ export const addTags = async (body) => {
   try {
     return await request({
       method: 'post',
-      url: '/tags/add',
+      url: '/contacts/tags',
       data: body
     });
   } catch (error) {
@@ -17,9 +17,9 @@ export const allTags = async () => {
   try {
     const tagsResponse = await request({
       method: 'get',
-      url: '/tags/details/1'
+      url: '/contacts/tags?cursor=0&limit=25&direction=after'
     });
-    return tagsResponse?.data.message;
+    return tagsResponse?.data?.message?.rows;
   } catch (error) {
     return error;
   }

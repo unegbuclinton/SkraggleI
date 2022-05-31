@@ -11,7 +11,6 @@ import { logoutUser } from 'features/auth/authSlice';
 const initialState = {
   companies: [],
   isLoading: false,
-  contactCreated: false,
   tagsCreated: false,
   houseHolds: [],
   contactData: [],
@@ -46,18 +45,19 @@ export const contactSlice = createSlice({
   extraReducers: {
     //CREATE CONTACT
     [createContact.fulfilled]: (state) => {
-      state.contactCreated = true;
+      state.isLoading = true;
     },
 
     [createContact.rejected]: (state) => {
-      state.contactCreated = false;
+      state.isLoading = false;
     },
     //VIEW CONTACTS
     [viewContact.fulfilled]: (state, action) => {
+      state.isLoading = false;
       state.contactData = action.payload;
     },
-    [viewContact.rejected]: (state, action) => {
-      state.contactData = action.payload;
+    [viewContact.rejected]: (state) => {
+      state.isLoading = false;
     },
 
     [createNewCompany.fulfilled]: (state) => {

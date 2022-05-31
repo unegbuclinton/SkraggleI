@@ -28,7 +28,7 @@ const ForgotPassword = () => {
 
       dispatch(forgotPassword(body)).then((data) => {
         if (data.payload) {
-          navigate('/otp-verify', { state: values.email });
+          navigate('/forgotPassword-confirm', { state: values.email });
         }
       });
     }

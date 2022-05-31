@@ -33,7 +33,8 @@ export const eachContact = async (id) => {
       method: 'get',
       url: `/contacts/users/${id}`
     });
-    return contactResponse.data.message;
+
+    return contactResponse?.data?.message;
   } catch (error) {
     console.log(error);
   }
