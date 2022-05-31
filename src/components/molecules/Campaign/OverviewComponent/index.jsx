@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import { useFormik } from 'formik';
+import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { campaignOverview } from 'validation/Schema';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
+  IconWrapper,
   LeftSection,
   MainWrapper,
   RightSection
@@ -25,9 +27,48 @@ const CampaignOverview = () => {
   });
 
   const data = [
-    { value: <div>Hello</div>, label: <div>Hello</div> },
-    { value: 'Archive', label: 'Archive' },
-    { value: 'Delete', label: 'Delete' }
+    {
+      value: (
+        <IconWrapper>
+          <DPIconGoodMark />
+          Hello
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconGoodMark />
+          Hello
+        </IconWrapper>
+      )
+    },
+    {
+      value: (
+        <IconWrapper>
+          <DPIconBin />
+          Archive
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconBin />
+          Archive
+        </IconWrapper>
+      )
+    },
+    {
+      value: (
+        <IconWrapper>
+          <DPIconDelete className="delete-icon" />
+          Delete
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconDelete className="delete-icon" />
+          Delete
+        </IconWrapper>
+      )
+    }
   ];
 
   // const [selected, setSelected] = useState('Filters');

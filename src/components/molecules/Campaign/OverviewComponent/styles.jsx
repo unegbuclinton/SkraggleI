@@ -8,6 +8,17 @@ export const MainWrapper = styled.div`
   margin-top: 1.6rem;
 `;
 
+export const IconWrapper = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  /* justify-content: center; */
+  .delete-icon {
+    fill: rgba(0, 0, 0, 0.73);
+    width: 1.1rem;
+    height: 1.2rem;
+  }
+`;
+
 export const LeftSection = styled(Card)`
   display: flex;
   flex-direction: column;
