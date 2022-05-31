@@ -40,11 +40,11 @@ export const createContactStepOneValidationSchema = Yup.object({
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
-  primary_phone: Yup.string().required('Email is required'),
-  // emailSucription: Yup.string().required("Email Subscription is required"),
-  // date: Yup.string().required("Date is required"),
-  // month: Yup.string().required("Month is required"),
-  // year: Yup.string().required("Year is required"),
+  primary_phone: Yup.string().required('Phone Number is required'),
+  emailSubscription: Yup.string().required('Email Subscription is required'),
+  date: Yup.string().required('Date is required'),
+  month: Yup.string().required('Month is required'),
+  year: Yup.string().required('Year is required'),
   company: Yup.string().required('Company is required')
 });
 
@@ -54,7 +54,11 @@ export const createContactStepTwoValidationSchema = Yup.object({
   city: Yup.string().required('City is required'),
   state: Yup.string().required('State is required'),
   postalcode: Yup.string().required('postalcode is required'),
-  country: Yup.string().required('Country is required')
+  country: Yup.string().required('Country is required'),
+  household: Yup.string().required('Household is required'),
+  assignee: Yup.string().required('Assignee is required'),
+  priority: Yup.string().required('Priority is required'),
+  tags: Yup.string().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({
@@ -136,4 +140,80 @@ export const createCampaignSchema = Yup.object({
   description: Yup.string().required('Description is required'),
   goals: Yup.string().required('Please enter Fundraiser Goals')
   // followers: Yup.string().required('Select a Follower')
+});
+
+export const editWebsiteSchema = Yup.object({
+  website: Yup.string().required('This field is required'),
+  twitter: Yup.string().required('This field is required'),
+  facebook: Yup.string().required('This field is required'),
+  instagram: Yup.string().required('This field is required'),
+  linkedin: Yup.string().required('This field is required'),
+  youtube: Yup.string().required('This field is required')
+});
+
+export const editAssociationModal = Yup.object({
+  companyName: Yup.array().required('This field is required'),
+  household: Yup.string().required('This field is required')
+});
+
+export const volunteerValidationSchema = Yup.object({
+  tShirtSize: Yup.string().required('This field is required')
+});
+
+export const AdminEditValidationSchema = Yup.object({
+  originId: Yup.string().required('Origin ID is required'),
+  priority: Yup.string().required('Priority is required'),
+  assignee: Yup.string().required('Assignee is required'),
+  tag: Yup.string().required('Tag is required'),
+  note: Yup.string().required('Note is required'),
+  solicitation: Yup.string().required('This field is required'),
+  emailSubscriptionStatus: Yup.string().required('This field is required')
+});
+
+export const EditContactSchema = Yup.object({
+  phone: Yup.string().required('Phone is required'),
+  email: Yup.string().required('Email is required'),
+  street: Yup.string().required('Street is required'),
+  unit: Yup.string().required('Unit is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postal: Yup.string().required('Postal Code is required'),
+  country: Yup.string().required('Country is required')
+});
+
+export const editContactProfileSchema = Yup.object({
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  preferredName: Yup.string().required('Preferred name is required'),
+  phone: Yup.string().required('Phone is required'),
+  dob: Yup.string().required('Date of birth is required'),
+  street: Yup.string().required('Street is required'),
+  unit: Yup.string().required('Unit is required'),
+  country: Yup.string().required('Country is required'),
+  city: Yup.string().required('City is required'),
+  state: Yup.string().required('State is required'),
+  postal: Yup.string().required('Postal/Zip code is required'),
+  email: Yup.string().required('Recipient is required')
+});
+
+export const contactInteractionSchema = Yup.object({
+  type: Yup.string().required('Type name is required'),
+  date: Yup.string().required('Date is required'),
+  description: Yup.string().required('Description is required'),
+  subject: Yup.string().required('Subject is required')
+});
+export const campaignOverview = Yup.object({
+  task: Yup.string().required('Select an option')
+});
+
+export const confirmNewPassword = Yup.object({
+  password: Yup.string()
+    .required('Password is required')
+    .matches(
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
+      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Passwords do not match')
 });

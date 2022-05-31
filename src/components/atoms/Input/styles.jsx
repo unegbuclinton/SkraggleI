@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components';
 export const InputField = styled.input`
   outline: none;
   border: none;
-  width: 37.52rem;
-  height: 6.4rem;
+  width: ${({ autoWidth }) => (autoWidth ? '100%' : '37.52rem')};
+  height: 4.4rem;
   border-radius: 5px;
   background-color: ${COLORS.offWhite};
   color: ${COLORS['grey-400']};
@@ -22,7 +22,7 @@ export const InputField = styled.input`
 
 export const InputFieldIcon = styled.span`
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
   cursor: pointer;
 `;

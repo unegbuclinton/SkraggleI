@@ -1,7 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import AuthLayout from 'components/layouts/AuthLayout';
-import { confirmforgotPassword, forgotPassword } from 'features/auth/authSlice';
+import { signupOTP } from 'features/auth/authSlice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -25,13 +25,23 @@ function OTP() {
     }
   };
 
+  function onPaste(event) {
+    event.preventDefault();
+    const pasted = event.clipboardData.getData('text/plain');
+    if (pasted.length < 6) {
+      return false;
+    } else {
+      setOtp(pasted.split('').slice(0, otp.length));
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
       email: email,
       token: otp.join('')
     };
-    dispatch(confirmforgotPassword(body)).then((data) => {
+    dispatch(signupOTP(body)).then((data) => {
       if (data.payload) {
         toast('OTP Successful.');
         navigate('/password-confirm');
@@ -40,7 +50,7 @@ function OTP() {
   };
 
   const handleClick = () => {
-    dispatch(forgotPassword(email));
+    // dispatch(forgotPassword(email));
   };
   return (
     <AuthLayout>
@@ -61,6 +71,7 @@ function OTP() {
                 value={data}
                 onChange={(e) => handleChange(e.target, index)}
                 onFocus={(e) => e.target.select()}
+                onPaste={onPaste}
               />
             ))}
           </OTPBoxWrapper>

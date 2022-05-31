@@ -19,7 +19,7 @@ export const addCompanies = async (body) => {
   try {
     return await request({
       method: 'post',
-      url: '/company/add',
+      url: '/contacts/companies',
       data: body
     });
   } catch (error) {

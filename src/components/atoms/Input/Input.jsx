@@ -11,6 +11,7 @@ const Input = ({
   id,
   onBlur,
   className,
+  autoWidth,
   containerClass,
   value
 }) => {
@@ -21,6 +22,7 @@ const Input = ({
     <Container className={containerClass}>
       <InputField
         className={className}
+        autoWidth={autoWidth}
         disabled={disabled}
         name={name}
         id={id}

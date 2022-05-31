@@ -7,17 +7,18 @@ const initialState = {
   isAuthenticated: false,
   token: null,
   isLoading: false,
-  isSend: false,
   mail: '',
-  resetData: '',
-  resetPassword: false
+  resetMail: [],
+  resetPassword: false,
+  confirmEmailOTP: false,
+  emailOTP: []
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
   try {
     const response = await apiInstance({
       method: 'post',
-      url: '/admin/signup',
+      url: '/admin',
       data: body
     });
     return response.data;
@@ -26,11 +27,24 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   }
 });
 
+export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
+  try {
+    const signupOTPResponse = await apiInstance({
+      method: 'post',
+      url: '/admin/verify-account',
+      data: body
+    });
+    return signupOTPResponse?.data?.message;
+  } catch (error) {
+    toast.error('OTP is incorrect');
+  }
+});
+
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (body) => {
   try {
     const forgotResponse = await apiInstance({
       method: 'post',
-      url: '/admin/forgot-password',
+      url: '/admin/password',
       data: body
     });
     return forgotResponse?.data?.message;
@@ -45,7 +59,7 @@ export const confirmforgotPassword = createAsyncThunk(
     try {
       const confirmforgotResponse = await apiInstance({
         method: 'post',
-        url: '/admin/reset-password',
+        url: '/admin/password/confirm',
         data: body
       });
       return confirmforgotResponse.data.message;
@@ -54,6 +68,19 @@ export const confirmforgotPassword = createAsyncThunk(
     }
   }
 );
+
+export const enterNewPassword = createAsyncThunk('auth/enterNewPassword', async (body) => {
+  try {
+    const confirmNewPassword = await apiInstance({
+      method: 'patch',
+      url: '/admin/password',
+      data: body
+    });
+    return confirmNewPassword?.data?.message;
+  } catch (error) {
+    toast.error('Enter Password Again');
+  }
+});
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
@@ -70,13 +97,10 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    const response = await apiInstance({
-      method: 'delete',
-      url: '/admin/logout'
-    });
-    return response?.data?.message;
+    await apiInstance.delete('/admin/access-token');
+    return;
   } catch (error) {
-    return error;
+    return error?.message;
   }
 });
 
@@ -84,6 +108,8 @@ export const resendVerification = createAsyncThunk('auth/resendVerification', as
   const response = await apiInstance.post('/email/verification/send', body);
   return response?.data;
 });
+
+export const purge = () => {};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -107,9 +133,8 @@ export const authSlice = createSlice({
       state.isAuthenticated = false;
       state.token = null;
     },
-    [logoutUser.fulfilled]: (state) => {
-      state.isAuthenticated = false;
-      state.token = null;
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     },
     [resendVerification.fulfilled]: (state, action) => {
       state.isSend = action.payload;
@@ -127,9 +152,15 @@ export const authSlice = createSlice({
       state.resetMail = action.payload;
       state.resetPassword = true;
     },
-    [confirmforgotPassword.rejected]: (state, action) => {
-      state.resetMail = action.payload;
+    [confirmforgotPassword.rejected]: (state) => {
       state.resetPassword = false;
+    },
+    [signupOTP.fulfilled]: (state, action) => {
+      state.emailOTP = action.payload;
+      state.confirmEmailOTP = true;
+    },
+    [signupOTP.rejected]: (state) => {
+      state.confirmEmailOTP = false;
     }
   }
 });

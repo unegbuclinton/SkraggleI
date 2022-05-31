@@ -30,14 +30,12 @@ function Registration() {
         first_name: values.firstName,
         last_name: values.lastName,
         email: values.email,
-        password: values.password,
-        type_of: 'user',
-        permission_level: 'administrator'
+        password: values.password
       };
       dispatch(registerUser(body))
         .then((data) => {
           if (data.payload.success) {
-            navigate('/send-verification', { state: values.email });
+            navigate('/otp-verify', { state: values.email });
           }
         })
         .catch((error) => error);
@@ -117,7 +115,7 @@ function Registration() {
           </div>
 
           <div className="promp-text">
-            <p> Have any account? </p>
+            <p> Already have an account?</p>
 
             <span>
               <Link className="promp-text__path" to="/login">

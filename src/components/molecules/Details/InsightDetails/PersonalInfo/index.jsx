@@ -1,13 +1,23 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
+import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PersonalInfoContainer, PersonalInfoHeading, PersonalInfoWrapper } from './styles';
 
 function PersonalInfo() {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(true);
+  };
+  const { eachContact } = useSelector((state) => state.contact);
+  const { first_name, last_name, primary_email, address, primary_phone } = eachContact;
   return (
     <PersonalInfoWrapper>
       <PersonalInfoHeading>
         <h1 className="heading">Persona Information</h1>
-        <Button className="info-btn">Edit</Button>
+        <Button className="info-btn" onClick={toggleModal}>
+          Edit
+        </Button>
       </PersonalInfoHeading>
       <PersonalInfoContainer>
         <h2 className="info">TITLE</h2>
@@ -15,7 +25,7 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">FIRST NAME </h2>
-        <h2 className="title first-name">Troy</h2>
+        <h2 className="title first-name">{first_name}</h2>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">MIDDLE NAME</h2>
@@ -23,7 +33,7 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">LAST NAME</h2>
-        <p className="title last-name">Barnes</p>
+        <p className="title last-name">{last_name}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">SUFFIX</h2>
@@ -43,18 +53,24 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">PRIMARY EMAIL</h2>
-        <p className="title email"> troybarnesthrowsfootballs@gmail.com</p>
+        <p className="title email"> {primary_email}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">PRIMARY PHONE</h2>
-        <p className="title phone"> (704) 808-1298</p>
+        <p className="title phone"> {primary_phone}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">ADDRESS</h2>
-        <div className="title address-container">
-          6545 France Avenue South Edina, Minnesota, 55435 United States
-        </div>
+        <div className="title address-container">{address}</div>
       </PersonalInfoContainer>
+      {showModal && (
+        <EditPersonalInfoModal
+          isShown={showModal}
+          onClose={() => {
+            setShowModal(false);
+          }}
+        />
+      )}
     </PersonalInfoWrapper>
   );
 }

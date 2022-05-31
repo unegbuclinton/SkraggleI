@@ -11,6 +11,9 @@ export const FormWrapper = styled.form`
     padding-top: 3.439rem;
     padding-bottom: 4rem;
 
+    .login-input {
+      width: 37.52rem;
+    }
     &__heading {
       display: flex;
       justify-content: center;

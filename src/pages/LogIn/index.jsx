@@ -28,7 +28,6 @@ const LogIn = () => {
 
       dispatch(loginUser(body)).then((data) => {
         if (data.payload) {
-          console.log(data.payload);
           navigate('/dashboard');
         }
       });
@@ -45,6 +44,7 @@ const LogIn = () => {
             placeholder="Email"
             id="email"
             name="email"
+            className="login-input"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -56,6 +56,7 @@ const LogIn = () => {
             type="password"
             id="password"
             name="password"
+            className="login-input"
             placeholder="Password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

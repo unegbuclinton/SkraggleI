@@ -2,8 +2,19 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authReducer from 'features/auth/authSlice';
 import campaignReducer from 'features/campaign/campaignSlice';
 import contactReducer from 'features/contact/contactSlice';
-import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE
+} from 'redux-persist';
+// import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 const persistConfig = {
   key: 'root',
   version: 1,
@@ -27,5 +38,5 @@ const store = configureStore({
       }
     })
 });
-
+export const persistor = persistStore(store);
 export default store;

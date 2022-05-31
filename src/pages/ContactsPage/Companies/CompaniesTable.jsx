@@ -7,30 +7,31 @@ import CompaniesEmptyState from 'components/molecules/EmptyState/Contacts/Compan
 import Pagination from 'components/molecules/Pagination';
 // import { useNavigate } from "react-router-dom";
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+// import { searchCompanies } from 'features/contact/contactSlice';
+// import debounce from 'lodash.debounce';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { data } from 'utilities/CompaniesData';
 import { TableWrapper } from './styles';
 
 function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
+  // const [input, setInput] = useState('');
+  // const dispatch = useDispatch();
 
   const { companies } = useSelector((state) => state.contact);
-  // const itemsPerPage = 5;
 
-  // const indexLasttList = currentPage * itemsPerPage;
+  // const getSearchDebounce = useCallback(
+  //   debounce(() => {
+  //     dispatch(searchCompanies({ search: input, page: 0 }));
+  //   }, 500),
+  //   [input]
+  // );
+  // useEffect(() => {
+  //   getSearchDebounce();
 
-  // const indexFirstList = indexLasttList - itemsPerPage;
-
-  // const currentList = data.slice(indexFirstList, indexLasttList);
-
-  // const navigate = useNavigate();
-
-  // const onRowClicked = () => {
-  //   let path = "/contact-profile";
-  //   navigate(path);
-  // };
+  //   return getSearchDebounce.cancel;
+  // }, [input]);
   const columns = [
     {
       name: '',
@@ -66,13 +67,14 @@ function CompaniesTable() {
           setOpen(false);
         }}
       />
-      {!!companies.length ? (
+      {!!companies?.length ? (
         <div>
           <TableWrapper>
             <TableHeader
               title="Add Company"
               header={`${companies.length} Companies`}
               setOpen={setOpen}
+              // onChange={(e) => setInput(e.target.value)}
             />
             <CompanyModal
               isShown={open}
@@ -80,19 +82,10 @@ function CompaniesTable() {
                 setOpen(false);
               }}
             />
-            <Table
-              columns={columns}
-              data={companies}
-              // onRowClicked={onRowClicked}
-            />
+            <Table columns={columns} data={companies} />
           </TableWrapper>
 
-          <Pagination
-            currentPage={currentPage}
-            // itemsPerPage={itemsPerPage}
-            data={companies}
-            setCurrentPage={setCurrentPage}
-          />
+          <Pagination currentPage={currentPage} data={companies} setCurrentPage={setCurrentPage} />
         </div>
       ) : (
         <CompaniesEmptyState setOpen={setOpen} />
