@@ -151,6 +151,11 @@ export const editWebsiteSchema = Yup.object({
   youtube: Yup.string().required('This field is required')
 });
 
+export const editAssociationModal = Yup.object({
+  companyName: Yup.array().required('This field is required'),
+  household: Yup.string().required('This field is required')
+});
+
 export const volunteerValidationSchema = Yup.object({
   tShirtSize: Yup.string().required('This field is required')
 });
