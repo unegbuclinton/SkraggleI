@@ -3,15 +3,16 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { allHouseHold, viewContact, viewTags } from 'features/contact/contactSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
-import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { datas1 } from 'utilities/overviewData';
 import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 
 function Overview() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState('Filters');
   const [openWidget, setOpenWidget] = useState(false);
 
@@ -25,17 +26,21 @@ function Overview() {
   //   dispatch(getAllCompanies());
   // }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(allHouseHold());
-  // }, []);
+  useEffect(() => {
+    dispatch(allHouseHold());
+  }, []);
 
-  // useEffect(() => {
-  //   dispatch(viewTags());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(viewTags());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(viewContact());
-  // }, []);
+  useEffect(() => {
+    dispatch(viewContact());
+  }, []);
+
+  useEffect(() => {
+    dispatch(viewContact());
+  }, []);
   return (
     <OverviewWrapper>
       <Card className="overview-card">

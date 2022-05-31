@@ -3,12 +3,17 @@ import Card from 'components/atoms/Card';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { CatchError } from 'components/molecules/Registration/styles';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { editContactProfileSchema } from 'validation/Schema';
 import { EditPersonalInfoForm, EditPersonalInfoRow, EditPersonalLabel } from './styles';
 
 function EditPersonalInfo({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const contactId = eachContact.id;
+  const dispatch = useDispatch();
   const titleOptions = [
     { value: 'Mr', label: 'Mr' },
     { value: 'Mrs', label: 'Mrs' }
@@ -38,7 +43,27 @@ function EditPersonalInfo({ onClose }) {
       country: ''
     },
     validationSchema: editContactProfileSchema,
-    onSubmit: () => {}
+    onSubmit: (values) => {
+      const body = {
+        title: values.title,
+        first_name: values.firstName,
+        last_name: values.lastName,
+        preferred_name: values.preferredName,
+        gender: values.gender,
+        primary_phone: values.phone,
+        birth_date: values.dob,
+        suffix: values.suffix,
+        primary_email: values.email,
+        address: values.street,
+        state: values.state,
+        unit: values.unit,
+        city: values.city,
+        postal: values.postal,
+        country: values.country
+      };
+      dispatch(updateContact({ body: body, id: contactId }));
+      onClose();
+    }
   });
 
   return (

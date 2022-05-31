@@ -6,13 +6,12 @@ export const getCampaings = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/campaigns/all/1'
+      url: '/campaigns?cursor=0&direction=after&limit=20'
     });
     console.log(response);
-    return response?.data.message;
+    return response?.data?.message?.rows;
   } catch (error) {
-    toast.error(error);
-    console.log(error);
+    return error;
   }
 };
 
@@ -20,7 +19,7 @@ export const addCampaign = async (body) => {
   try {
     const response = await request({
       method: 'post',
-      url: '/campaigns/create',
+      url: '/campaigns',
       data: body
     });
     return response.data;

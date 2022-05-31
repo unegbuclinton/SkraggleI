@@ -1,37 +1,77 @@
 import Button from 'components/atoms/Button/Button';
-import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
+import { useFormik } from 'formik';
+import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { campaignOverview } from 'validation/Schema';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
+  IconWrapper,
   LeftSection,
   MainWrapper,
   RightSection
 } from './styles';
 
 const CampaignOverview = () => {
+  const formik = useFormik({
+    initialValues: {
+      task: ''
+    },
+    validationSchema: campaignOverview,
+    onSubmit: (values) => {
+      console.log(values);
+    }
+  });
+
   const data = [
     {
-      id: '1',
-      name: 'Action'
+      value: (
+        <IconWrapper>
+          <DPIconGoodMark />
+          Hello
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconGoodMark />
+          Hello
+        </IconWrapper>
+      )
     },
     {
-      id: '2',
-      name: 'Add'
+      value: (
+        <IconWrapper>
+          <DPIconBin />
+          Archive
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconBin />
+          Archive
+        </IconWrapper>
+      )
     },
     {
-      id: '3',
-      name: 'Delete'
-    },
-    {
-      id: '4',
-      name: 'Modify'
+      value: (
+        <IconWrapper>
+          <DPIconDelete className="delete-icon" />
+          Delete
+        </IconWrapper>
+      ),
+      label: (
+        <IconWrapper className="good-mark">
+          <DPIconDelete className="delete-icon" />
+          Delete
+        </IconWrapper>
+      )
     }
   ];
 
-  const [selected, setSelected] = useState('Filters');
+  // const [selected, setSelected] = useState('Filters');
 
   let navigate = useNavigate();
   const HandleButtonClick = () => {
@@ -41,13 +81,16 @@ const CampaignOverview = () => {
     <MainWrapper>
       <LeftSection>
         <ContainerDropdwon>
-          <DropdownComponent
-            data={data}
-            selected={selected}
-            setSelected={setSelected}
+          <SelectDropDown
             className="action-dropdown__container"
-            content
-            iconDropdown="dropdown-icon"
+            placeholder={'Lorem Ipsum'}
+            id="emailSubscription"
+            name="emailSubscription"
+            type={'text'}
+            options={data}
+            value={formik.values.emailSubscription}
+            onChange={(value) => formik.setFieldValue('emailSubscription', value.value)}
+            onBlur={formik.handleBlur}
           />
         </ContainerDropdwon>
 

@@ -40,7 +40,7 @@ export const createContactStepOneValidationSchema = Yup.object({
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
-  primary_phone: Yup.string().required('Email is required'),
+  primary_phone: Yup.string().required('Phone Number is required'),
   emailSubscription: Yup.string().required('Email Subscription is required'),
   date: Yup.string().required('Date is required'),
   month: Yup.string().required('Month is required'),
@@ -194,6 +194,16 @@ export const editContactProfileSchema = Yup.object({
   state: Yup.string().required('State is required'),
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
+});
+
+export const contactInteractionSchema = Yup.object({
+  type: Yup.string().required('Type name is required'),
+  date: Yup.string().required('Date is required'),
+  description: Yup.string().required('Description is required'),
+  subject: Yup.string().required('Subject is required')
+});
+export const campaignOverview = Yup.object({
+  task: Yup.string().required('Select an option')
 });
 
 export const confirmNewPassword = Yup.object({
