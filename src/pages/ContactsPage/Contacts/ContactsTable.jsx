@@ -50,7 +50,7 @@ function ContactsTable() {
     },
     {
       name: 'FULL NAME',
-      selector: (row) => row.fullname,
+      selector: (row) => row.first_name + row.last_name,
       width: '16.8rem'
     },
     {
