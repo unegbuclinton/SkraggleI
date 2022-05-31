@@ -18,7 +18,7 @@ function TagsTable() {
   return (
     <>
       <TagsModal isShown={open} onClose={() => setOpen(false)} />
-      {!!tagsData.length ? (
+      {!!tagsData?.length ? (
         <div>
           <TableWrapper>
             <TableHeader title="Create Tag" header={`${tagsData.length} Tags`} setOpen={setOpen} />
