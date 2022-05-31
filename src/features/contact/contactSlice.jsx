@@ -5,6 +5,7 @@ import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags } from 'api/contacts/tags';
 import { addTodo, getTodos } from 'api/contacts/todo';
+import { addVolunteer } from 'api/contacts/volunteer';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -28,6 +29,7 @@ export const createTags = createAsyncThunk('contact/createTags', addTags);
 export const viewTags = createAsyncThunk('contact/viewTags', allTags);
 export const createTodo = createAsyncThunk('contact/createTodo', addTodo);
 export const getAllTodos = createAsyncThunk('contact/getAllTodos', getTodos);
+export const createVolunteer = createAsyncThunk('contact/createVolunteer', addVolunteer);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -137,6 +139,15 @@ export const contactSlice = createSlice({
       state.isLoading = false;
     },
     [getAllTodos.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [createVolunteer.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [createVolunteer.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [createVolunteer.pending]: (state) => {
       state.isLoading = true;
     }
   }

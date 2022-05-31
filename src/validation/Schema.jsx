@@ -203,6 +203,7 @@ export const CreateTodoValidationSchema = Yup.object({
   // assignees: Yup.string().required('Assignee is required'),
   // attachment: Yup.string().required('Attachment is required')
 });
+
 export const confirmNewPassword = Yup.object({
   password: Yup.string()
     .required('Password is required')
@@ -213,4 +214,10 @@ export const confirmNewPassword = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Passwords do not match')
+});
+
+export const VolunteerValidationSchema = Yup.object({
+  name: Yup.string().required('Activity name is required'),
+  startDate: Yup.string().required('Start date is required'),
+  endDate: Yup.string().required('End Date is required')
 });
