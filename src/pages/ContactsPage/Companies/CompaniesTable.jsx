@@ -67,7 +67,7 @@ function CompaniesTable() {
           setOpen(false);
         }}
       />
-      {!!companies.length ? (
+      {!!companies?.length ? (
         <div>
           <TableWrapper>
             <TableHeader

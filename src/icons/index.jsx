@@ -33,6 +33,7 @@ export { ReactComponent as DPIconSkraggleEyeOpen } from 'icons/svgs/eyeopen.svg'
 export { ReactComponent as DPIconFacebook } from 'icons/svgs/facebook.svg';
 export { ReactComponent as DPIconForms } from 'icons/svgs/formsIcon.svg';
 export { ReactComponent as DPIconHouseHold } from 'icons/svgs/household.svg';
+export { ReactComponent as DPIconCloseBlack } from 'icons/svgs/iconCloseBlack.svg';
 export { ReactComponent as DPIconLandingPage } from 'icons/svgs/landingPageIcon.svg';
 export { ReactComponent as DPIconLeaderBoard } from 'icons/svgs/leaderboard.svg';
 export { ReactComponent as DPIconLinkedin } from 'icons/svgs/linkedin.svg';
@@ -59,6 +60,7 @@ export { ReactComponent as DPIconSkraggleLogoLight } from 'icons/svgs/skraggle-l
 export { ReactComponent as DPIconSkraggleLogo } from 'icons/svgs/skraggle-logo.svg';
 export { ReactComponent as DPIconTag } from 'icons/svgs/tag.svg';
 export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
+export { ReactComponent as DPIconTodo } from 'icons/svgs/todo_list.svg';
 export { ReactComponent as DPIconTransaction } from 'icons/svgs/transaction-icon.svg';
 export { ReactComponent as DPIconTwitter } from 'icons/svgs/twitter.svg';
 export { ReactComponent as DPIconUploadFile } from 'icons/svgs/UploadIcon.svg';

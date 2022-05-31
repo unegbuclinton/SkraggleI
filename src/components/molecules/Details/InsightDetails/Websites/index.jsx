@@ -1,13 +1,26 @@
-import React from 'react';
 import Button from 'components/atoms/Button/Button';
+import EditWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
+import React, { useState } from 'react';
 import { WebsiteContainer, WebsiteHeading, WebsiteWrapper } from './styles';
 
 function Websites() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
     <WebsiteWrapper>
       <WebsiteHeading>
         <h1 className="heading">Websites</h1>
-        <Button className="heading-btn">Edit</Button>
+        <Button className="heading-btn" onClick={() => setModalIsOpen(true)}>
+          Edit
+        </Button>
+        {modalIsOpen && (
+          <EditWebsiteModal
+            isShown={modalIsOpen}
+            onClose={() => {
+              setModalIsOpen(false);
+            }}
+          />
+        )}
       </WebsiteHeading>
       <WebsiteContainer>
         <h2 className="title">WEBSITE</h2>

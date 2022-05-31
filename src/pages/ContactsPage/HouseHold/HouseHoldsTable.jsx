@@ -54,7 +54,7 @@ function HouseHoldsTable() {
   return (
     <>
       <HouseHoldModal isShown={open} onClose={() => setOpen(false)} />
-      {!!houseHolds.length ? (
+      {!!houseHolds?.length ? (
         <div>
           <TableWrapper>
             <TableHeader

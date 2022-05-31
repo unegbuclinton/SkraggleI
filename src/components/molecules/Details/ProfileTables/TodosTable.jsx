@@ -1,5 +1,7 @@
+/* eslint-disable no-extra-boolean-cast */
 import Table from 'components/layouts/Table';
 import TodoModal from 'components/molecules/Contacts/Modals/SubModals/CreateToDo/Modal';
+import SubTodosEmptyState from 'components/molecules/EmptyState/ContactSubTabs/Todos';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
@@ -58,21 +60,27 @@ function TodosTable() {
     <>
       <TodoModal isShown={open} onClose={() => setOpen(false)} />
       <ProfileLayOut heading="To-Do&#39;s">
-        <TableWrapper>
-          <TableHeader
-            subMenuTableHeader
-            title="Add To-do"
-            header={`${todos.length} To-Do`}
-            setOpen={setOpen}
-          />
-          <Table columns={columns} data={todos} />
-        </TableWrapper>
-        <Pagination
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          data={data}
-          setCurrentPage={setCurrentPage}
-        />
+        {!!todos.length ? (
+          <div>
+            <TableWrapper>
+              <TableHeader
+                subMenuTableHeader
+                title="Add To-do"
+                header={`${todos.length} To-Do`}
+                setOpen={setOpen}
+              />
+              <Table columns={columns} data={todos} />
+            </TableWrapper>
+            <Pagination
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              data={data}
+              setCurrentPage={setCurrentPage}
+            />
+          </div>
+        ) : (
+          <SubTodosEmptyState />
+        )}
       </ProfileLayOut>
     </>
   );

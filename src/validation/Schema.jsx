@@ -142,6 +142,24 @@ export const createCampaignSchema = Yup.object({
   // followers: Yup.string().required('Select a Follower')
 });
 
+export const editWebsiteSchema = Yup.object({
+  website: Yup.string().required('This field is required'),
+  twitter: Yup.string().required('This field is required'),
+  facebook: Yup.string().required('This field is required'),
+  instagram: Yup.string().required('This field is required'),
+  linkedin: Yup.string().required('This field is required'),
+  youtube: Yup.string().required('This field is required')
+});
+
+export const editAssociationModal = Yup.object({
+  companyName: Yup.array().required('This field is required'),
+  household: Yup.string().required('This field is required')
+});
+
+export const volunteerValidationSchema = Yup.object({
+  tShirtSize: Yup.string().required('This field is required')
+});
+
 export const AdminEditValidationSchema = Yup.object({
   originId: Yup.string().required('Origin ID is required'),
   priority: Yup.string().required('Priority is required'),
@@ -184,4 +202,15 @@ export const CreateTodoValidationSchema = Yup.object({
   dueDate: Yup.string().required('Due date is required')
   // assignees: Yup.string().required('Assignee is required'),
   // attachment: Yup.string().required('Attachment is required')
+});
+export const confirmNewPassword = Yup.object({
+  password: Yup.string()
+    .required('Password is required')
+    .matches(
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
+      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Passwords do not match')
 });
