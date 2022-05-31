@@ -161,6 +161,7 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>TAGS</FormLabel>
           <SelectDropDown
             className="dropdown"
+            isMulti="true"
             type={'text'}
             id="tags"
             name="tags"

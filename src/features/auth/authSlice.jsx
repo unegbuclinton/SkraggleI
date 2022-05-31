@@ -59,7 +59,7 @@ export const confirmforgotPassword = createAsyncThunk(
     try {
       const confirmforgotResponse = await apiInstance({
         method: 'post',
-        url: '/admin/reset-password',
+        url: '/admin/password/confirm',
         data: body
       });
       return confirmforgotResponse.data.message;
@@ -68,6 +68,19 @@ export const confirmforgotPassword = createAsyncThunk(
     }
   }
 );
+
+export const enterNewPassword = createAsyncThunk('auth/enterNewPassword', async (body) => {
+  try {
+    const confirmNewPassword = await apiInstance({
+      method: 'patch',
+      url: '/admin/password',
+      data: body
+    });
+    return confirmNewPassword?.data?.message;
+  } catch (error) {
+    toast.error('Enter Password Again');
+  }
+});
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
@@ -84,7 +97,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    await apiInstance.delete('/admin/logout');
+    await apiInstance.delete('/admin/access-token');
     return;
   } catch (error) {
     return error?.message;
