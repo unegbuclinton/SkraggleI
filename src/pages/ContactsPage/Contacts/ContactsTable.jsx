@@ -15,6 +15,7 @@ import { TableWrapper } from './styles';
 function ContactsTable() {
   const [input, setInput] = useState('');
   const { contactData } = useSelector((state) => state.contact);
+  console.log(contactData);
   const dispatch = useDispatch();
 
   const getSearchDebounce = useCallback(
