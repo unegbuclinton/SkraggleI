@@ -44,7 +44,7 @@ export const contactSlice = createSlice({
     },
     //VIEW CONTACTS
     [viewContact.fulfilled]: (state, action) => {
-      // state.isLoading = false;
+      state.isLoading = false;
       state.contactData = action.payload;
     },
     [viewContact.rejected]: (state) => {
