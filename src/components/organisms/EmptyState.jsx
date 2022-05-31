@@ -27,7 +27,6 @@ const EmptystateWrapper = styled(Card)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2.4rem;
   .empty-state-btn {
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.xsmall};
