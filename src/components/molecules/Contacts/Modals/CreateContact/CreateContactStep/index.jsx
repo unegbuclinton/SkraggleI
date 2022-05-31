@@ -29,7 +29,7 @@ const MultiStepForm = ({ onClose }) => {
       month: '',
       year: '',
       company: '',
-      tags: '',
+      tags: [],
       address: '',
       unit: '',
       city: '',
@@ -50,14 +50,12 @@ const MultiStepForm = ({ onClose }) => {
     }
   });
 
-  // const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
-
   const body = {
-    // fullname: fullname,
     primary_phone: formik.values.primary_phone,
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
+    // email_subscription_status: formik.values.emailSubscription,
     email_subscription_status: formik.values.emailSubscription,
     // birth_date: formik.values.date,
     // company: formik.values.company,
