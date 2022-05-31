@@ -8,7 +8,7 @@ const Table = ({ data, columns, handleRowSelect, onRowClicked, className }) => {
   const TableColumns = React.useMemo(() => columns, [columns]);
 
   return (
-    <TableWrapper className={className}>
+    <TableWrapper className={className} onRowClicked={onRowClicked}>
       <DataTable
         columns={TableColumns}
         data={TableData || []}
@@ -27,7 +27,7 @@ const TableWrapper = styled.div`
       height: 6.2rem;
       border: 0.0852273px solid ${COLORS['porcelain-white']};
       border-top: 0;
-      cursor: pointer;
+      cursor: ${({ onRowClicked }) => (onRowClicked ? 'pointer' : 'auto')};
 
       :first-of-type {
         border-top: 0.0852273px solid ${COLORS['porcelain-white']};
