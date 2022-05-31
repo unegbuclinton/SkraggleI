@@ -6,12 +6,11 @@ export const getCompanies = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/company/all/1'
+      url: '/contacts/companies?cursor=0&direction=after&limit=25'
     });
-    return response?.data.message;
+    return response?.data?.message?.row;
   } catch (error) {
     toast.error(error);
-    console.log(error);
   }
 };
 
@@ -19,11 +18,10 @@ export const addCompanies = async (body) => {
   try {
     return await request({
       method: 'post',
-      url: '/company/add',
+      url: '/contacts/companies',
       data: body
     });
   } catch (error) {
     toast.error();
-    console.log(error);
   }
 };

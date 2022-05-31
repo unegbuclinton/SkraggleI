@@ -177,3 +177,11 @@ export const editContactProfileSchema = Yup.object({
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
 });
+
+export const CreateTodoValidationSchema = Yup.object({
+  todo: Yup.string().required('Todo is required'),
+  details: Yup.string().required('Details is required'),
+  dueDate: Yup.string().required('Due date is required')
+  // assignees: Yup.string().required('Assignee is required'),
+  // attachment: Yup.string().required('Attachment is required')
+});
