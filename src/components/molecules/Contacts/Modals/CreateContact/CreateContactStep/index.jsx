@@ -50,27 +50,27 @@ const MultiStepForm = ({ onClose }) => {
     }
   });
 
-  const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
+  // const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
 
   const body = {
-    fullname: fullname,
+    // fullname: fullname,
     primary_phone: formik.values.primary_phone,
     primary_email: formik.values.primary_email,
-    firstName: formik.values.firstName,
-    lastName: formik.values.lastName,
-    emailSubscription: formik.values.emailSubscription,
-    date: formik.values.date,
-    company: formik.values.company,
-    tags: formik.values.tags,
-    address: formik.values.address,
-    unit: formik.values.unit,
-    city: formik.values.city,
-    state: formik.values.state,
-    postalCode: formik.values.postalCode,
-    country: formik.values.country,
-    household: formik.values.household,
-    priority: formik.values.priority,
-    assignee: formik.values.assignee
+    first_name: formik.values.firstName,
+    last_name: formik.values.lastName,
+    email_subscription_status: formik.values.emailSubscription,
+    // birth_date: formik.values.date,
+    // company: formik.values.company,
+    // tags: formik.values.tags,
+    address: formik.values.address
+    // unit: formik.values.unit,
+    // city: formik.values.city,
+    // state: formik.values.state,
+    // postalCode: formik.values.postalCode,
+    // country: formik.values.country,
+    // household: formik.values.household,
+    // priority: formik.values.priority,
+    // assignee: formik.values.assignee
   };
 
   const handleCreateContact = () => {
