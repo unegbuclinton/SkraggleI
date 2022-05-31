@@ -5,6 +5,7 @@ export { ReactComponent as DPIconApproved } from 'icons/svgs/approved.svg';
 export { ReactComponent as DPIconsArrowLeft } from 'icons/svgs/arrow-left.svg';
 export { ReactComponent as DPIconsArrowRight } from 'icons/svgs/arrow-right.svg';
 export { ReactComponent as DPIconAssignee } from 'icons/svgs/assignee.svg';
+export { ReactComponent as DPIconBin } from 'icons/svgs/bin.svg';
 export { ReactComponent as DPIconCampaign } from 'icons/svgs/campaignIcon.svg';
 export { ReactComponent as DPIconCancel } from 'icons/svgs/cancel.svg';
 export { ReactComponent as DPIconCaretDown } from 'icons/svgs/caretdown.svg';
@@ -32,6 +33,7 @@ export { ReactComponent as DPIconSkraggleEyeClose } from 'icons/svgs/eyeclosed.s
 export { ReactComponent as DPIconSkraggleEyeOpen } from 'icons/svgs/eyeopen.svg';
 export { ReactComponent as DPIconFacebook } from 'icons/svgs/facebook.svg';
 export { ReactComponent as DPIconForms } from 'icons/svgs/formsIcon.svg';
+export { ReactComponent as DPIconGoodMark } from 'icons/svgs/good-mark.svg';
 export { ReactComponent as DPIconHouseHold } from 'icons/svgs/household.svg';
 export { ReactComponent as DPIconCloseBlack } from 'icons/svgs/iconCloseBlack.svg';
 export { ReactComponent as DPIconLandingPage } from 'icons/svgs/landingPageIcon.svg';

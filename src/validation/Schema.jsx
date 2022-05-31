@@ -196,6 +196,10 @@ export const editContactProfileSchema = Yup.object({
   email: Yup.string().required('Recipient is required')
 });
 
+export const campaignOverview = Yup.object({
+  task: Yup.string().required('Select an option')
+});
+
 export const confirmNewPassword = Yup.object({
   password: Yup.string()
     .required('Password is required')
