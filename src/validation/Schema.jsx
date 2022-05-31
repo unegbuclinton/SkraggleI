@@ -196,6 +196,12 @@ export const editContactProfileSchema = Yup.object({
   email: Yup.string().required('Recipient is required')
 });
 
+export const contactInteractionSchema = Yup.object({
+  type: Yup.string().required('Type name is required'),
+  date: Yup.string().required('Date is required'),
+  description: Yup.string().required('Description is required'),
+  subject: Yup.string().required('Subject is required')
+});
 export const campaignOverview = Yup.object({
   task: Yup.string().required('Select an option')
 });
