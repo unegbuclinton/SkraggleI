@@ -14,6 +14,8 @@ import {
 
 function ContactStepTwo({ onClose, formik }) {
   const { tagsData } = useSelector((state) => state.contact);
+  const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
+  console.log(formik.errors);
   const houseOptions = [
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },
@@ -165,9 +167,11 @@ function ContactStepTwo({ onClose, formik }) {
             type={'text'}
             id="tags"
             name="tags"
-            options={tagsData}
+            options={tagz}
             value={formik.values.tags}
-            onChange={(value) => formik.setFieldValue('tags', value.value)}
+            onChange={(value) => {
+              formik.setFieldValue('tags', [...formik.values.tags, value.value]);
+            }}
             onBlur={formik.handleBlur}
           />
           {formik.touched.tags && formik.errors.tags ? (

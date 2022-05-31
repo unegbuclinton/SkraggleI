@@ -58,7 +58,7 @@ export const createContactStepTwoValidationSchema = Yup.object({
   household: Yup.string().required('Household is required'),
   assignee: Yup.string().required('Assignee is required'),
   priority: Yup.string().required('Priority is required'),
-  tags: Yup.string().required('Tags is required')
+  tags: Yup.array().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({
@@ -139,7 +139,7 @@ export const createCampaignSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   description: Yup.string().required('Description is required'),
   goals: Yup.string().required('Please enter Fundraiser Goals'),
-  followers: Yup.string().required('Select a Follower')
+  followers: Yup.array().required('Select a Follower')
 });
 
 export const editWebsiteSchema = Yup.object({

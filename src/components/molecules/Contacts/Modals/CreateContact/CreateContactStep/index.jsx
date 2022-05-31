@@ -29,7 +29,7 @@ const MultiStepForm = ({ onClose }) => {
       month: '',
       year: '',
       company: '',
-      tags: '',
+      tags: [],
       address: '',
       unit: '',
       city: '',
