@@ -56,6 +56,7 @@ const MultiStepForm = ({ onClose }) => {
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
     // email_subscription_status: formik.values.emailSubscription,
+    email_subscription_status: formik.values.emailSubscription,
     // birth_date: formik.values.date,
     // company: formik.values.company,
     // tags: formik.values.tags,

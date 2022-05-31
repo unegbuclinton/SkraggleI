@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
+import { useSelector } from 'react-redux';
 import {
   AddressContainer,
   ButtonContainer,
@@ -12,6 +13,7 @@ import {
 } from './styles';
 
 function ContactStepTwo({ onClose, formik }) {
+  const { tagsData } = useSelector((state) => state.contact);
   const houseOptions = [
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },
@@ -159,10 +161,11 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>TAGS</FormLabel>
           <SelectDropDown
             className="dropdown"
+            isMulti="true"
             type={'text'}
             id="tags"
             name="tags"
-            options={houseOptions}
+            options={tagsData}
             value={formik.values.tags}
             onChange={(value) => formik.setFieldValue('tags', value.value)}
             onBlur={formik.handleBlur}

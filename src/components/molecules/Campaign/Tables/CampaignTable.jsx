@@ -33,16 +33,16 @@ const CampaignTable = () => {
 
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.name
+      selector: (row) => row?.name
     },
     {
       name: 'STATUS',
-      selector: (row) => row.status,
+      selector: (row) => row?.status,
       cell: () => <Button className="table-button">Active</Button>
     },
     {
       name: 'FUNDRAISING GOALS',
-      selector: (row) => row.fundraising_goal.toLocaleString()
+      selector: (row) => row?.fundraising_goal.toLocaleString()
     }
   ];
 

@@ -64,7 +64,7 @@ export const createContactStepTwoValidationSchema = Yup.object({
 export const createCompanyValidatonSchema = Yup.object({
   companyName: Yup.string().required('Company name is required'),
   primaryPhone: Yup.string().required('Primary phone is required'),
-  tags: Yup.string().required('Tag is required')
+  email: Yup.string().required('Tag is required')
 });
 
 export const houseHoldValidationSchema = Yup.object({
@@ -138,8 +138,8 @@ export const generalSettingsValidationSchema = Yup.object({
 export const createCampaignSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   description: Yup.string().required('Description is required'),
-  goals: Yup.string().required('Please enter Fundraiser Goals')
-  // followers: Yup.string().required('Select a Follower')
+  goals: Yup.string().required('Please enter Fundraiser Goals'),
+  followers: Yup.string().required('Select a Follower')
 });
 
 export const editWebsiteSchema = Yup.object({
@@ -203,6 +203,7 @@ export const CreateTodoValidationSchema = Yup.object({
   // assignees: Yup.string().required('Assignee is required'),
   // attachment: Yup.string().required('Attachment is required')
 });
+
 export const contactInteractionSchema = Yup.object({
   type: Yup.string().required('Type name is required'),
   date: Yup.string().required('Date is required'),
@@ -223,4 +224,10 @@ export const confirmNewPassword = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Passwords do not match')
+});
+
+export const VolunteerValidationSchema = Yup.object({
+  name: Yup.string().required('Activity name is required'),
+  startDate: Yup.string().required('Start date is required'),
+  endDate: Yup.string().required('End Date is required')
 });

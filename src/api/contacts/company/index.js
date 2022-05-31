@@ -8,7 +8,7 @@ export const getCompanies = async () => {
       method: 'get',
       url: '/contacts/companies?cursor=0&direction=after&limit=25'
     });
-    return response?.data?.message?.row;
+    return response?.data?.message?.rows;
   } catch (error) {
     toast.error(error);
   }

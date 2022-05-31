@@ -5,9 +5,9 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function EmptyState({ svg, title, contactTitle, name, onClick }) {
+function EmptyState({ className, svg, title, contactTitle, name, onClick }) {
   return (
-    <EmptystateWrapper>
+    <EmptystateWrapper className={className}>
       <div>
         <SvgContainer>{svg}</SvgContainer>
         <StateTitle>{contactTitle}</StateTitle>
