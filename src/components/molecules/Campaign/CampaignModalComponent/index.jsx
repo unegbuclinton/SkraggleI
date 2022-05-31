@@ -1,33 +1,40 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
+// import DropdownComponent from 'components/atoms/Dropdown';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { createNewCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import data from 'utilities/filterData';
+// import data from 'utilities/filterData';
 import { createCampaignSchema } from 'validation/Schema';
 import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const CampaignModalComponent = ({ onClose }) => {
   // const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
+  const followers = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
 
   const formik = useFormik({
     initialValues: {
       name: '',
       description: '',
-      goals: ''
+      goals: '',
+      followers: []
     },
     validationSchema: createCampaignSchema,
     onSubmit: (values) => {
       const body = {
         name: values.name,
         fundraising_goal: values.goals,
-        description: values.description
+        description: values.description,
+        followers: values.followers
       };
       dispatch(createNewCampaign(body)).then(() => {
         onClose();
@@ -82,18 +89,20 @@ const CampaignModalComponent = ({ onClose }) => {
         ) : null}
 
         <h1>FOLLOWERS</h1>
-        <DropdownComponent
-          data={data}
+        <SelectDropDown
           className="dropdown-followers"
-          type=""
-          // selected={selected}
-          // setSelected={setSelected}
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
+          placeholder={'Lorem Ipsum'}
+          id="followers"
+          name="followers"
+          type={'text'}
+          options={followers}
+          value={formik.values.followers}
+          onChange={(value) => formik.setFieldValue('followers', value.value)}
+          onBlur={formik.handleBlur}
         />
-        {/* {formik.touched.followers && formik.errors.followers ? (
-          <ErrorMessage>{formik.errors.followers}</ErrorMessage>
-        ) : null} */}
+        {formik.touched.emailSubscription && formik.errors.emailSubscription ? (
+          <ErrorMessage>{formik.errors.emailSubscription}</ErrorMessage>
+        ) : null}
         <ButtonsContainer>
           <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel

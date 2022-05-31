@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -19,8 +19,6 @@ export const ModalWrapper = styled.form`
   .dropdown-followers {
     width: 100%;
     margin-bottom: 13.9rem;
-    border: 1px solid ${COLORS['gray-500']};
-    border-radius: 0.5rem;
   }
   .cancel-btn {
     width: 14rem;
