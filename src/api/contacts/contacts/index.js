@@ -19,9 +19,9 @@ export const allContacts = async () => {
   try {
     const contactResponse = await request({
       method: 'get',
-      url: '/contacts/all/1'
+      url: '/contacts/users?cursor=0&limit=20&direction=after'
     });
-    return contactResponse.data.message;
+    return contactResponse.data.message.rows;
   } catch (error) {
     console.log(error);
   }

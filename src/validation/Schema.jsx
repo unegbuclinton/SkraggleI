@@ -177,3 +177,10 @@ export const editContactProfileSchema = Yup.object({
   postal: Yup.string().required('Postal/Zip code is required'),
   email: Yup.string().required('Recipient is required')
 });
+
+export const contactInteractionSchema = Yup.object({
+  type: Yup.string().required('Type name is required'),
+  date: Yup.string().required('Date is required'),
+  description: Yup.string().required('Description is required'),
+  subject: Yup.string().required('Subject is required')
+});

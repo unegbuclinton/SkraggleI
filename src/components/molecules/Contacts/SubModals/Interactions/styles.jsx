@@ -22,6 +22,18 @@ export const InteractionWrapper = styled.form`
       height: 5.1rem;
     }
   }
+  .interaction-checkbox {
+    margin-bottom: 1.6rem;
+    color: ${COLORS['grey-200']};
+    font-size: ${FONTSIZES.small};
+    font-weight: ${FONTWEIGHTS.normal};
+    cursor: pointer;
+  }
+
+  .unshow-options {
+    height: 0;
+    overflow: hidden;
+  }
 `;
 
 export const InteractionInputWrapper = styled.div`
@@ -31,6 +43,7 @@ export const InteractionInputWrapper = styled.div`
 
   .interaction-select {
     width: 100%;
+    margin-bottom: 1rem;
   }
   .interaction-input {
     height: 4.4rem;
@@ -47,12 +60,6 @@ export const InteractionInputWrapper = styled.div`
     border-radius: 0.5rem;
     border: 1px solid ${COLORS['grey-500']};
   }
-  .interaction-checkbox {
-    margin-bottom: 1.6rem;
-    color: ${COLORS['grey-200']};
-    font-size: ${FONTSIZES.small};
-    font-weight: ${FONTWEIGHTS.normal};
-  }
 `;
 
 export const InteractionLabel = styled.label`
@@ -66,5 +73,9 @@ export const InteractionLabel = styled.label`
 export const InteractionTextarea = styled.textarea`
   resize: none;
   width: 60.2rem;
-  height: 16.4rem;
+  height: 15.4rem;
+  padding: 1.4rem;
+  margin-bottom: 1.6rem;
+  outline: none;
+  border: 1px solid #9a9aa9;
 `;

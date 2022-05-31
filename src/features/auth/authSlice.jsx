@@ -76,6 +76,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
       url: '/admin/login',
       data: body
     });
+    console.log(response?.data?.message);
     return response?.data?.message;
   } catch (error) {
     toast.error('username or password is incorrect');

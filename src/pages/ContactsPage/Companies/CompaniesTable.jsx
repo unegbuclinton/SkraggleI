@@ -7,31 +7,31 @@ import CompaniesEmptyState from 'components/molecules/EmptyState/Contacts/Compan
 import Pagination from 'components/molecules/Pagination';
 // import { useNavigate } from "react-router-dom";
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { searchCompanies } from 'features/contact/contactSlice';
-import debounce from 'lodash.debounce';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { searchCompanies } from 'features/contact/contactSlice';
+// import debounce from 'lodash.debounce';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
 
 function CompaniesTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
-  const [input, setInput] = useState('');
-  const dispatch = useDispatch();
+  // const [input, setInput] = useState('');
+  // const dispatch = useDispatch();
 
   const { companies } = useSelector((state) => state.contact);
 
-  const getSearchDebounce = useCallback(
-    debounce(() => {
-      dispatch(searchCompanies({ search: input, page: 0 }));
-    }, 500),
-    [input]
-  );
-  useEffect(() => {
-    getSearchDebounce();
+  // const getSearchDebounce = useCallback(
+  //   debounce(() => {
+  //     dispatch(searchCompanies({ search: input, page: 0 }));
+  //   }, 500),
+  //   [input]
+  // );
+  // useEffect(() => {
+  //   getSearchDebounce();
 
-    return getSearchDebounce.cancel;
-  }, [input]);
+  //   return getSearchDebounce.cancel;
+  // }, [input]);
   const columns = [
     {
       name: '',
@@ -74,7 +74,7 @@ function CompaniesTable() {
               title="Add Company"
               header={`${companies.length} Companies`}
               setOpen={setOpen}
-              onChange={(e) => setInput(e.target.value)}
+              // onChange={(e) => setInput(e.target.value)}
             />
             <CompanyModal
               isShown={open}
