@@ -21,7 +21,7 @@ export const allContacts = async () => {
       method: 'get',
       url: '/contacts/users?cursor=0&limit=20&direction=after'
     });
-    return contactResponse.data.message.rows;
+    return contactResponse?.data?.message?.rows;
   } catch (error) {
     console.log(error);
   }

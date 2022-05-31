@@ -58,7 +58,7 @@ const MultiStepForm = ({ onClose }) => {
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
-    // email_subscription_status: formik.values.emailSubscription,
+    email_subscription_status: formik.values.emailSubscription,
     // birth_date: formik.values.date,
     // company: formik.values.company,
     // tags: formik.values.tags,
@@ -76,7 +76,7 @@ const MultiStepForm = ({ onClose }) => {
   const handleCreateContact = () => {
     // console.log('Form Submitted', contactDatas);
     dispatch(createContact(body)).then(() => {
-      toast('Contact Created Successfully');
+      toast.success('Contact Created Successfully');
       onClose();
       dispatch(viewContact());
     });
