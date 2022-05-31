@@ -4,30 +4,31 @@ import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/Co
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { searchContact } from 'features/contact/contactSlice';
-import debounce from 'lodash.debounce';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { searchContact } from 'features/contact/contactSlice';
+// import debounce from 'lodash.debounce';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { columns } from 'utilities/contactsData';
 import { TableWrapper } from './styles';
 
 function ContactsTable() {
   const [input, setInput] = useState('');
-  const { contactData } = useSelector((state) => state.contact);
-  const dispatch = useDispatch();
+  const { contactData } = useSelector((state) => state?.contact);
+  console.log(input);
+  // const dispatch = useDispatch();
 
-  const getSearchDebounce = useCallback(
-    debounce(() => {
-      dispatch(searchContact({ search: input, page: 0 }));
-    }, 500),
-    [input]
-  );
-  useEffect(() => {
-    getSearchDebounce();
+  // const getSearchDebounce = useCallback(
+  //   debounce(() => {
+  //     dispatch(searchContact({ search: input, page: 0 }));
+  //   }, 500),
+  //   [input]
+  // );
+  // useEffect(() => {
+  //   getSearchDebounce();
 
-    return getSearchDebounce.cancel;
-  }, [input]);
+  //   return getSearchDebounce.cancel;
+  // }, [input]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
@@ -48,7 +49,7 @@ function ContactsTable() {
           <TableWrapper>
             <TableHeader
               title="Add Contacts"
-              header={`${contactData.length} Contacts`}
+              header={`${contactData?.length} Contacts`}
               setOpen={setOpen}
               onChange={(e) => setInput(e.target.value)}
             />
