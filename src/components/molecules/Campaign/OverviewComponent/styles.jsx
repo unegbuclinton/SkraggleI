@@ -11,7 +11,6 @@ export const MainWrapper = styled.div`
 export const IconWrapper = styled.div`
   display: flex;
   gap: 1.2rem;
-  /* justify-content: center; */
   .delete-icon {
     fill: rgba(0, 0, 0, 0.73);
     width: 1.1rem;
