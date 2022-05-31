@@ -40,7 +40,7 @@ export const createContactStepOneValidationSchema = Yup.object({
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
-  primary_phone: Yup.string().required('Email is required'),
+  primary_phone: Yup.string().required('Phone Number is required'),
   emailSubscription: Yup.string().required('Email Subscription is required'),
   date: Yup.string().required('Date is required'),
   month: Yup.string().required('Month is required'),

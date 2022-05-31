@@ -25,6 +25,16 @@ function OTP() {
     }
   };
 
+  function onPaste(event) {
+    event.preventDefault();
+    const pasted = event.clipboardData.getData('text/plain');
+    if (pasted.length < 6) {
+      return false;
+    } else {
+      setOtp(pasted.split('').slice(0, otp.length));
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
@@ -61,6 +71,7 @@ function OTP() {
                 value={data}
                 onChange={(e) => handleChange(e.target, index)}
                 onFocus={(e) => e.target.select()}
+                onPaste={onPaste}
               />
             ))}
           </OTPBoxWrapper>
