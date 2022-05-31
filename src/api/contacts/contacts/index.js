@@ -26,3 +26,16 @@ export const allContacts = async () => {
     console.log(error);
   }
 };
+
+export const eachContact = async (id) => {
+  try {
+    const contactResponse = await request({
+      method: 'get',
+      url: `/contacts/users/${id}`
+    });
+
+    return contactResponse?.data?.message;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -204,6 +204,16 @@ export const CreateTodoValidationSchema = Yup.object({
   // attachment: Yup.string().required('Attachment is required')
 });
 
+export const contactInteractionSchema = Yup.object({
+  type: Yup.string().required('Type name is required'),
+  date: Yup.string().required('Date is required'),
+  description: Yup.string().required('Description is required'),
+  subject: Yup.string().required('Subject is required')
+});
+export const campaignOverview = Yup.object({
+  task: Yup.string().required('Select an option')
+});
+
 export const confirmNewPassword = Yup.object({
   password: Yup.string()
     .required('Password is required')

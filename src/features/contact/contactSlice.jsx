@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, getCompanies } from 'api/contacts/company';
-import { addContact, allContacts } from 'api/contacts/contacts';
+import { allInteractions, createInteractions } from 'api/contacts/contact-subTab/interactions';
+import { editContact } from 'api/contacts/contact-subTab/profile';
+import { addContact, allContacts, eachContact } from 'api/contacts/contacts';
 import { addHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags } from 'api/contacts/tags';
@@ -11,12 +13,13 @@ import { logoutUser } from 'features/auth/authSlice';
 const initialState = {
   companies: [],
   isLoading: false,
-  contactCreated: false,
   tagsCreated: false,
   houseHolds: [],
   contactData: [],
   tagsData: [],
-  todos: []
+  todos: [],
+  eachContact: [],
+  interactionData: []
 };
 
 export const createContact = createAsyncThunk('contact/createContact', addContact);
@@ -30,6 +33,11 @@ export const viewTags = createAsyncThunk('contact/viewTags', allTags);
 export const createTodo = createAsyncThunk('contact/createTodo', addTodo);
 export const getAllTodos = createAsyncThunk('contact/getAllTodos', getTodos);
 export const createVolunteer = createAsyncThunk('contact/createVolunteer', addVolunteer);
+export const oneContact = createAsyncThunk('contact/oneConact', eachContact);
+export const getInteraction = createAsyncThunk('contact/getInteraction', createInteractions);
+
+export const updateContact = createAsyncThunk('contact/updateContact', editContact);
+export const getAllInteractions = createAsyncThunk('getAllInteractions', allInteractions);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -43,18 +51,19 @@ export const contactSlice = createSlice({
   extraReducers: {
     //CREATE CONTACT
     [createContact.fulfilled]: (state) => {
-      state.contactCreated = true;
+      state.isLoading = true;
     },
 
     [createContact.rejected]: (state) => {
-      state.contactCreated = false;
+      state.isLoading = false;
     },
     //VIEW CONTACTS
     [viewContact.fulfilled]: (state, action) => {
+      state.isLoading = false;
       state.contactData = action.payload;
     },
-    [viewContact.rejected]: (state, action) => {
-      state.contactData = action.payload;
+    [viewContact.rejected]: (state) => {
+      state.isLoading = false;
     },
 
     [createNewCompany.fulfilled]: (state) => {
@@ -149,6 +158,30 @@ export const contactSlice = createSlice({
     },
     [createVolunteer.pending]: (state) => {
       state.isLoading = true;
+    },
+    [oneContact.fulfilled]: (state, action) => {
+      state.eachContact = action.payload;
+    },
+    [updateContact.fulfilled]: (state, action) => {
+      state.eachContact = action.payload;
+    },
+    [getAllInteractions.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.interactionData = action.payload;
+    },
+    // [searchContact.fulfilled]: (state, action) => {
+    //   state.isLoading = false;
+    //   state.contactData = action.payload;
+    // },
+    // [searchCompanies.fulfilled]: (state, action) => {
+    //   state.isLoading = false;
+    //   state.companies = action.payload;
+    // },
+    // [searchHouseHold.fulfilled]: (state, action) => {
+    //   state.houseHolds = action.payload;
+    // },
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });
