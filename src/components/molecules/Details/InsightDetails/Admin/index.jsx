@@ -1,11 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import AdminModal from 'components/molecules/Contacts/Modals/SubModals/EditAdminModal/Modal';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
-  // const { eachContact } = useSelector((state) => state.contact);
-  // const { organization_id, priority, assignee } = eachContact;
+  const { eachContact } = useSelector((state) => state.contact);
+  const { organization_id, priority, assignee, email_subscription_status, tags, last_name } =
+    eachContact;
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -24,28 +26,28 @@ function Admin() {
         </AdminHeading>
         <AdminContainer>
           <h2 className="title">ID</h2>
-          <p className="info id">TRIAL_AQRpNrDp42rGPzdoy_usa_4CbBWuSFt8e2Srqi9.</p>
+          <p className="info id">{organization_id}</p>
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title">PRIORITY</h2>
-          <p className="info priority">High</p>
+          <p className="info priority">{priority}</p>
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title">ASSIGNEE</h2>
-          <p className="info assign">-</p>
+          <p className="info assign">{assignee}</p>
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title">LAST NAME</h2>
-          <p className="info last-name">Hanna Dandanell</p>
+          <p className="info last-name">{last_name}</p>
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title tag">TAGS</h2>
           <Button pill className="volunteer">
-            Volunteer
+            {tags}
           </Button>
         </AdminContainer>
 
@@ -61,7 +63,7 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title">EMAIL SUBSCRIPTION STATUS </h2>
-          <p className="info status">Opted In</p>
+          <p className="info status">{email_subscription_status}</p>
         </AdminContainer>
 
         <AdminContainer>

@@ -77,6 +77,7 @@ function EditContactInfo({ onCloseModal }) {
         work_address: values.workStreet
       };
       dispatch(updateContact({ body: body, id: contactInfoId }));
+      onCloseModal();
     }
   });
   return (
