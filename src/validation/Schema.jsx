@@ -58,13 +58,13 @@ export const createContactStepTwoValidationSchema = Yup.object({
   household: Yup.string().required('Household is required'),
   assignee: Yup.string().required('Assignee is required'),
   priority: Yup.string().required('Priority is required'),
-  tags: Yup.string().required('Tags is required')
+  tags: Yup.array().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({
   companyName: Yup.string().required('Company name is required'),
   primaryPhone: Yup.string().required('Primary phone is required'),
-  tags: Yup.string().required('Tag is required')
+  email: Yup.string().required('Tag is required')
 });
 
 export const houseHoldValidationSchema = Yup.object({
@@ -138,8 +138,8 @@ export const generalSettingsValidationSchema = Yup.object({
 export const createCampaignSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   description: Yup.string().required('Description is required'),
-  goals: Yup.string().required('Please enter Fundraiser Goals')
-  // followers: Yup.string().required('Select a Follower')
+  goals: Yup.string().required('Please enter Fundraiser Goals'),
+  followers: Yup.array().required('Select a Follower')
 });
 
 export const editWebsiteSchema = Yup.object({
@@ -196,6 +196,14 @@ export const editContactProfileSchema = Yup.object({
   email: Yup.string().required('Recipient is required')
 });
 
+export const CreateTodoValidationSchema = Yup.object({
+  todo: Yup.string().required('Todo is required'),
+  details: Yup.string().required('Details is required'),
+  dueDate: Yup.string().required('Due date is required')
+  // assignees: Yup.string().required('Assignee is required'),
+  // attachment: Yup.string().required('Attachment is required')
+});
+
 export const contactInteractionSchema = Yup.object({
   type: Yup.string().required('Type name is required'),
   date: Yup.string().required('Date is required'),
@@ -216,4 +224,25 @@ export const confirmNewPassword = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Passwords do not match')
+});
+
+export const VolunteerValidationSchema = Yup.object({
+  name: Yup.string().required('Activity name is required'),
+  startDate: Yup.string().required('Start date is required'),
+  endDate: Yup.string().required('End Date is required')
+});
+
+export const P2PValidationSchema = Yup.object({
+  campaignName: Yup.string().required('This Field is required'),
+  designation: Yup.string().required('This Field is required'),
+  fundraiserName: Yup.string().required('This Field is required'),
+  firstName: Yup.string().required('This Field is required'),
+  lastName: Yup.string().required('This Field is required'),
+  email: Yup.string().required('This Field is required'),
+  goalAmount: Yup.string().required('This Field is required'),
+  goalCurrency: Yup.string().required('This Field is required'),
+  offlineAmount: Yup.string().required('This Field is required'),
+  offlineDonation: Yup.string().required('This Field is required'),
+  goalDate: Yup.string().required('This Field is required'),
+  personalMessage: Yup.string()
 });

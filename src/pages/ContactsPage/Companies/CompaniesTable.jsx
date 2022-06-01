@@ -41,7 +41,7 @@ function CompaniesTable() {
     {
       name: 'COMPANY NAME',
       selector: (row) => {
-        return row.company_name;
+        return row.name;
       },
       width: '23.769rem'
     },
@@ -49,7 +49,7 @@ function CompaniesTable() {
     {
       name: 'PRIMARY PHONE',
       selector: (row) => {
-        return row.primary_phone;
+        return row.phone;
       },
       width: '30.027rem'
     },

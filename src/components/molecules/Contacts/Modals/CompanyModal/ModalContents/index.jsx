@@ -26,15 +26,15 @@ function CreateCompany({ onClose }) {
     initialValues: {
       companyName: '',
       primaryPhone: '',
-      tags: ''
+      email: ''
       // tag: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
       const body = {
-        company_name: values.companyName,
-        primary_phone: values.primaryPhone,
-        tags: values.tags
+        name: values.companyName,
+        phone: values.primaryPhone,
+        email: values.email
         // tag: values.tag
       };
       dispatch(createNewCompany(body)).then(() => {
@@ -81,19 +81,19 @@ function CreateCompany({ onClose }) {
           {formik.touched.primaryPhone && formik.errors.primaryPhone ? (
             <ErrorMsg>{formik.errors.primaryPhone}</ErrorMsg>
           ) : null}
-          <FormLabel>TAGS</FormLabel>
+          <FormLabel>Email</FormLabel>
           <Input
             className="input-field"
-            id="tags"
-            name="tags"
+            id="email"
+            name="email"
             type="text"
-            placeholder="Tags"
+            placeholder="Email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.tags}
+            value={formik.values.email}
           />
-          {formik.touched.tags && formik.errors.tags ? (
-            <ErrorMsg>{formik.errors.tags}</ErrorMsg>
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
           <TagContainer>
             <TagWrapper>

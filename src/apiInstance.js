@@ -21,7 +21,6 @@ request.interceptors.request.use((config) => {
   const {
     auth: { token }
   } = store.getState();
-
   const { noToken } = config.headers;
   delete config.headers.noToken;
 

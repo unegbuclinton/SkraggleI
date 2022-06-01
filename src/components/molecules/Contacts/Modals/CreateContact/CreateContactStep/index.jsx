@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import {
   createContactStepOneValidationSchema,
   createContactStepTwoValidationSchema
@@ -29,14 +30,14 @@ const MultiStepForm = ({ onClose }) => {
       month: '',
       year: '',
       company: '',
-      tags: '',
+      tags: [],
       address: '',
       unit: '',
       city: '',
       state: '',
       postalCode: '',
       country: '',
-      household: '',
+      household: [],
       priority: '',
       assignee: ''
     },
@@ -50,33 +51,30 @@ const MultiStepForm = ({ onClose }) => {
     }
   });
 
-  // const fullname = `${formik.values.firstName} ${formik.values.lastName}`;
-
   const body = {
-    // fullname: fullname,
     primary_phone: formik.values.primary_phone,
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
-    // email_subscription_status: formik.values.emailSubscription,
+    email_subscription_status: formik.values.emailSubscription,
     // birth_date: formik.values.date,
     // company: formik.values.company,
-    // tags: formik.values.tags,
-    address: formik.values.address
+    tags: formik.values.tags,
+    address: formik.values.address,
     // unit: formik.values.unit,
     // city: formik.values.city,
     // state: formik.values.state,
     // postalCode: formik.values.postalCode,
     // country: formik.values.country,
-    // household: formik.values.household,
+    household: formik.values.household
     // priority: formik.values.priority,
     // assignee: formik.values.assignee
   };
 
+  console.log(formik.values.tags);
   const handleCreateContact = () => {
-    // console.log('Form Submitted', contactDatas);
     dispatch(createContact(body)).then(() => {
-      toast('Contact Created Successfully');
+      toast.success('Contact Created Successfully');
       onClose();
       dispatch(viewContact());
     });
