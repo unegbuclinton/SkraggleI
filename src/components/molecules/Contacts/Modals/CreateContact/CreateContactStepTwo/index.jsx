@@ -172,9 +172,13 @@ function ContactStepTwo({ onClose, formik }) {
             id="tags"
             name="tags"
             options={tagz}
-            value={formik.values.tags}
+            // value={formik.values.tags}
             onChange={(value) => {
-              formik.setFieldValue('tags', [...formik.values.tags, value.value]);
+              console.log(value);
+              formik.setFieldValue(
+                'tags',
+                value.map((curr) => curr.value)
+              );
             }}
             onBlur={formik.handleBlur}
           />
