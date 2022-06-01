@@ -6,13 +6,18 @@ import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import datas from 'utilities/filterData.json';
-import { P2PTableData } from 'utilities/p2pData';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
 import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 function P2PTable() {
+  const { p2pData } = useSelector((state) => state.p2p);
+  // const { campaigns } = useSelector((state) => state.campaign);
+  // const campaignName = campaigns.map((current) => ({ value: current?.name }));
+  // console.log(campaignName);
+
   const columns = [
     {
       name: ' ',
@@ -22,38 +27,38 @@ function P2PTable() {
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign,
+      selector: (row) => row.name || row.campaign_id,
       width: '20rem'
     },
 
     {
       name: 'FUNDRAISER',
-      selector: (row) => row.fundraiser,
+      selector: (row) => row.fundraiser_display_name,
       width: '20rem'
     },
     {
       name: 'GOAL',
-      selector: (row) => row.goals,
+      selector: (row) => row.goal,
       width: '20rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row.raised,
+      selector: (row) => row.offline_amount,
       width: '20rem'
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created,
+      selector: (row) => row.created_at,
       width: '20rem'
     },
     {
       name: 'GOAL DATE',
-      selector: (row) => row.goaldate,
+      selector: (row) => row.goal_date,
       width: '20rem'
     },
     {
       name: '1M STATISTICS -_-_',
-      selector: (row) => row.statistics,
+      selector: (row) => row.sn,
       width: '15rem'
     }
   ];
@@ -61,24 +66,7 @@ function P2PTable() {
   const [selected, setSelected] = useState('Filters');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
-
-  const indexLasttList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLasttList - itemsPerPage;
-
-  const tableData = P2PTableData.map((P2PData, index) => ({
-    key: index,
-    campaign: P2PData.campaign,
-    fundraiser: P2PData.fundraiser,
-    goals: P2PData.goals,
-    raised: P2PData.raised,
-    created: P2PData.created,
-    goaldate: P2PData.goaldate,
-    statistics: P2PData.statistics
-  }));
-
-  const currentList = tableData.slice(indexFirstList, indexLasttList);
+  const itemsPerPage = 5;
 
   const navigate = useNavigate();
 
@@ -94,7 +82,7 @@ function P2PTable() {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>15 Campaigns</h1>
+              <h1>{`${p2pData?.length} P2P`}</h1>
             </div>
 
             <div className="table-header__right">
@@ -119,13 +107,13 @@ function P2PTable() {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table columns={columns} data={currentList} onRowClicked={onRowClicked} />
+          <Table columns={columns} data={p2pData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={P2PTableData}
+        data={p2pData}
         setCurrentPage={setCurrentPage}
       />
     </div>

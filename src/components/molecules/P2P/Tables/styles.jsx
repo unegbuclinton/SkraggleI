@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-
-import Card from 'components/atoms/Card';
+import styled from 'styled-components';
 
 export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
@@ -11,7 +10,10 @@ export const ContainerBody = styled(Card)`
   padding-bottom: 2.4rem;
 `;
 
-export const TableWrapper = styled.div``;
+export const TableWrapper = styled(Card)`
+  padding: 2.4rem;
+  margin-top: 1.6rem;
+`;
 
 export const TableHeaderWrapper = styled.div`
   display: flex;

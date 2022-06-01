@@ -231,3 +231,18 @@ export const VolunteerValidationSchema = Yup.object({
   startDate: Yup.string().required('Start date is required'),
   endDate: Yup.string().required('End Date is required')
 });
+
+export const P2PValidationSchema = Yup.object({
+  campaignName: Yup.string().required('This Field is required'),
+  designation: Yup.string().required('This Field is required'),
+  fundraiserName: Yup.string().required('This Field is required'),
+  firstName: Yup.string().required('This Field is required'),
+  lastName: Yup.string().required('This Field is required'),
+  email: Yup.string().required('This Field is required'),
+  goalAmount: Yup.string().required('This Field is required'),
+  goalCurrency: Yup.string().required('This Field is required'),
+  offlineAmount: Yup.string().required('This Field is required'),
+  offlineDonation: Yup.string().required('This Field is required'),
+  goalDate: Yup.string().required('This Field is required'),
+  personalMessage: Yup.string()
+});

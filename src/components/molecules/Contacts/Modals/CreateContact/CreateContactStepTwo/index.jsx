@@ -14,8 +14,11 @@ import {
 
 function ContactStepTwo({ onClose, formik }) {
   const { tagsData } = useSelector((state) => state.contact);
+  const { houseHolds } = useSelector((state) => state.contact);
+
   const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
-  console.log(formik.errors);
+  const household = houseHolds.map((current) => ({ value: current?.id, label: current?.name }));
+
   const houseOptions = [
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },
@@ -121,10 +124,11 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>HOUSEHOLD</FormLabel>
           <SelectDropDown
             className="dropdown"
+            // isMulti="true"
             type={'text'}
             id="household"
             name="household"
-            options={houseOptions}
+            options={household}
             value={formik.values.household}
             onChange={(value) => formik.setFieldValue('household', value.value)}
             onBlur={formik.handleBlur}

@@ -69,6 +69,7 @@ function ContactsTable() {
     },
     {
       name: 'TAGS',
+      // selector: (row) => row.tags
       cell: () => <TableBtn />
     }
   ];
