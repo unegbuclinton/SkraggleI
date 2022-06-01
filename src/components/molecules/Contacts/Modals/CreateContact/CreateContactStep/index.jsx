@@ -73,10 +73,13 @@ const MultiStepForm = ({ onClose }) => {
 
   console.log(formik.values.tags);
   const handleCreateContact = () => {
-    dispatch(createContact(body)).then(() => {
-      toast.success('Contact Created Successfully');
-      onClose();
-      dispatch(viewContact());
+    dispatch(createContact(body)).then((data) => {
+      console.log(data);
+      if (data.payload.status === 200) {
+        toast.success('Contact Created Successfully');
+        onClose();
+        dispatch(viewContact());
+      }
     });
   };
 
