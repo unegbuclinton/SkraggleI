@@ -34,7 +34,7 @@ const CampaignModalComponent = ({ onClose }) => {
     onSubmit: (values) => {
       const body = {
         name: values.name,
-        fundraising_goal: values.goals,
+        fundraising_goal: +values.goals,
         description: values.description,
         followers: values.followers
       };
@@ -79,10 +79,10 @@ const CampaignModalComponent = ({ onClose }) => {
         <h1>CAMPAIGN FUNDRAISING GOALS</h1>
         <Input
           className="campaign-modal"
-          type="text"
           placeholder="Lorem Ipsum"
           id="goals"
           name="goals"
+          type="number"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
@@ -99,9 +99,12 @@ const CampaignModalComponent = ({ onClose }) => {
           name="followers"
           type={'text'}
           options={followers}
-          value={formik.values.followers}
+          // value={formik.values.followers}
           onChange={(value) => {
-            formik.setFieldValue('followers', [...formik.values.followers, value.value]);
+            formik.setFieldValue(
+              'followers',
+              value.map((curr) => curr.value)
+            );
           }}
           onBlur={formik.handleBlur}
         />
