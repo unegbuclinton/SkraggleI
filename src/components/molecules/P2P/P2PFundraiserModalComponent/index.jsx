@@ -1,21 +1,25 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
-// import DropdownComponent from 'components/atoms/Dropdown';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
+import { createP2P, viewP2P } from 'features/p2p/p2pslice';
 import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import data from 'utilities/filterData.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { P2PValidationSchema } from 'validation/Schema';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
 
 function P2PModalComponent({ onClose, isShown }) {
+  const dispatch = useDispatch();
+  const { campaigns } = useSelector((state) => state.campaign);
+  const campaign = campaigns.map((current) => ({ value: current?.id, label: current?.name }));
+
   const formik = useFormik({
     initialValues: {
       campaignName: '',
@@ -33,7 +37,26 @@ function P2PModalComponent({ onClose, isShown }) {
     },
     validationSchema: P2PValidationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      const body = {
+        campaign_id: values.campaignName,
+        designation: values.designation,
+        fundraiser_display_name: values.fundraiserName,
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        goal: values.goalAmount,
+        goal_currency: values.goalCurrency,
+        offline_amount: values.offlineAmount,
+        offline_donation: values.offlineDonation,
+        goal_date: values.goalDate,
+        personal_message: values.personalMessage
+      };
+
+      dispatch(createP2P(body)).then(() => {
+        toast.success('Contact Created Successfully');
+        onClose();
+        dispatch(viewP2P());
+      });
     }
   });
 
@@ -58,25 +81,6 @@ function P2PModalComponent({ onClose, isShown }) {
     alert('Text Copied');
   }, []);
 
-  // const body = {
-  //   campaign_id: formik.values.campaignName,
-  //   designation: formik.values.designation,
-  //   fundraiser_display_name: formik.values.fundraiserName,
-  //   first_name: formik.values.firstName,
-  //   last_name: formik.values.lastName,
-  //   email: formik.values.email,
-  //   goal: formik.values.goalAmount,
-  //   goal_currency: formik.values.goalCurrency,
-  //   offline_amount: formik.values.offlineAmount,
-  //   offline_donation: formik.values.offlineDonation,
-  //   goal_date: formik.values.goalDate,
-  //   personal_message: formik.values.personalMessage
-  // };
-
-  const dispatch = useDispatch();
-
-  dispatch();
-
   return showFirstModal ? (
     <Modal
       header="Create P2P Fundraiser"
@@ -95,7 +99,7 @@ function P2PModalComponent({ onClose, isShown }) {
             id="campaignName"
             name="campaignName"
             type={'text'}
-            options={emailSub}
+            options={campaign}
             value={formik.values.campaignName}
             onChange={(value) => formik.setFieldValue('campaignName', value.value)}
             onBlur={formik.handleBlur}
