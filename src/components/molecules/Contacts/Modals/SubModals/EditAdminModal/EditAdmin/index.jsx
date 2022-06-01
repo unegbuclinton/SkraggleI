@@ -2,9 +2,11 @@ import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import TextArea from 'components/atoms/TextArea';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { AdminEditValidationSchema } from 'validation/Schema';
+import { useDispatch, useSelector } from 'react-redux';
+// import { AdminEditValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   ErrorMsg,
@@ -16,6 +18,9 @@ import {
 } from './styles';
 
 function EditAmin({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const adminId = eachContact.id;
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       originId: '',
@@ -26,9 +31,15 @@ function EditAmin({ onClose }) {
       solicitation: '',
       emailSubscriptionStatus: ''
     },
-    validationSchema: AdminEditValidationSchema,
+    // validationSchema: AdminEditValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        organization_id: values.originId,
+        tag: values.tag,
+        email_subscription_status: values.emailSubscriptionStatus
+      };
+      dispatch(updateContact({ body: body, id: adminId }));
+      onClose();
     }
   });
   const priorityOptions = [

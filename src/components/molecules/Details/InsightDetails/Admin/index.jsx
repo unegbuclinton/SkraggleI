@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
+  // const { eachContact } = useSelector((state) => state.contact);
+  // const { organization_id, priority, assignee } = eachContact;
   const [open, setOpen] = useState(false);
   return (
     <>

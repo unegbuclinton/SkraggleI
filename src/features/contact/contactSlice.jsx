@@ -80,8 +80,11 @@ export const contactSlice = createSlice({
     [getAllCompanies.pending]: (state) => {
       state.isLoading = true;
     },
+    [createHouseHold.pending]: (state) => {
+      state.isLoading = true;
+    },
     [createHouseHold.fulfilled]: (state) => {
-      state.isSuccess = true;
+      state.isLoading = false;
     },
     [createHouseHold.rejected]: (state) => {
       state.isSuccess = false;
