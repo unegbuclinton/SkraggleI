@@ -18,6 +18,10 @@ function ContactsTable() {
   const { contactData } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
 
+  const handleSelect = (row) => {
+    row.selectedRows.map(({ id }) => console.log(id));
+  };
+
   useEffect(() => {
     dispatch(getAllVolunteer());
   }, [dispatch]);
@@ -47,11 +51,6 @@ function ContactsTable() {
     navigate(path);
   };
   const columns = [
-    {
-      name: '',
-      cell: () => <CheckBox />,
-      width: '3rem'
-    },
     {
       name: 'FULL NAME',
       selector: (row) => row.first_name + ' ' + row.last_name,
@@ -86,7 +85,14 @@ function ContactsTable() {
               setOpen={setOpen}
               // onChange={(e) => setInput(e.target.value)}
             />
-            <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
+            <Table
+              columns={columns}
+              data={contactData}
+              onRowClicked={onRowClicked}
+              selectableRows
+              selectableRowsComponent={CheckBox}
+              handleRowSelect={handleSelect}
+            />
           </TableWrapper>
 
           <Pagination
