@@ -1,22 +1,22 @@
-import { React, useState } from 'react';
-
-import datas from 'utilities/filterData';
-import { PledgeData } from 'utilities/donationData';
-import { DPPlusIcon } from 'icons';
-
 import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import Checkbox from 'components/atoms/CheckBox';
-
-import DropdownComponent from 'components/atoms/Dropdown';
-import Card from 'components/atoms/Card';
-
-import styled from 'styled-components';
+import PledgeModal from 'components/molecules/DonationModals/PledgeModal';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import PledgeModal from 'components/molecules/DonationModals/PledgeModal';
+import { DPPlusIcon } from 'icons';
+import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+import datas from 'utilities/filterData';
+import { formatDate } from 'utilities/helpers';
+
 const Pledge = () => {
+  const { pledgeData } = useSelector((state) => state.donation);
+  console.log(pledgeData);
   const columns = [
     {
       name: ' ',
@@ -26,7 +26,7 @@ const Pledge = () => {
     },
     {
       name: 'CONTACT',
-      selector: (row) => row.contact,
+      selector: (row) => row.name,
       width: '20rem'
     },
 
@@ -36,11 +36,11 @@ const Pledge = () => {
     },
     {
       name: 'START DATE',
-      selector: (row) => row.startdate
+      selector: (row) => formatDate(row.start_date)
     },
     {
       name: 'DEADLINE',
-      selector: (row) => row.deadline
+      selector: (row) => formatDate(row.end_date)
     },
     {
       name: 'STATUS',
@@ -54,15 +54,15 @@ const Pledge = () => {
     }
   ];
 
-  const tableData = PledgeData.map((pledgeData, index) => ({
-    key: index,
-    contact: pledgeData.contact,
-    amount: pledgeData.amount,
-    startdate: pledgeData.startdate,
-    deadline: pledgeData.deadline,
-    status: pledgeData.status,
-    type: pledgeData.type
-  }));
+  // const tableData = PledgeData.map((pledgeData, index) => ({
+  //   key: index,
+  //   contact: pledgeData.contact,
+  //   amount: pledgeData.amount,
+  //   startdate: pledgeData.startdate,
+  //   deadline: pledgeData.deadline,
+  //   status: pledgeData.status,
+  //   type: pledgeData.type
+  // }));
 
   const onRowClicked = () => {};
 
@@ -101,7 +101,7 @@ const Pledge = () => {
               )}
             </div>
           </TableHeaderWrapper>
-          <Table columns={columns} data={tableData} onRowClicked={onRowClicked} />
+          <Table columns={columns} data={pledgeData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
     </div>
