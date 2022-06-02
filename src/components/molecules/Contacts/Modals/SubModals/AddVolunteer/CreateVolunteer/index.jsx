@@ -89,6 +89,7 @@ function CreateVolunteerModal({ onClose }) {
         <VolunteerLabel>Fee</VolunteerLabel>
         <Input
           className="input-field"
+          onWheel={() => document.activeElement.blur()}
           type="number"
           id="fee"
           name="fee"

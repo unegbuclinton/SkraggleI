@@ -50,7 +50,7 @@ function VolunteerTable() {
     {
       name: 'FEE',
       selector: (row) => {
-        return row.fee;
+        return `$ ${row.fee}`;
       },
       width: '15.1rem'
     },
