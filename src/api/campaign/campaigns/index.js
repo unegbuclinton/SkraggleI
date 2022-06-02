@@ -28,3 +28,16 @@ export const addCampaign = async (body) => {
     console.log(error);
   }
 };
+
+export const individualCampaign = async (id) => {
+  try {
+    const campaignResponse = await request({
+      method: 'get',
+      url: `/campaigns/${id}`
+    });
+
+    return campaignResponse?.data?.message;
+  } catch (error) {
+    console.log(error);
+  }
+};

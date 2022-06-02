@@ -8,7 +8,6 @@ export const addContact = async (body) => {
       url: '/contacts/users',
       data: body
     });
-    // toast.done('Contact created successfully');
     return createContactResponse;
   } catch (error) {
     toast.error('Contact did not created successfully');

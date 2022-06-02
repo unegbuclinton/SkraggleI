@@ -5,9 +5,10 @@ import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
 import dayjs from 'dayjs';
+import { getPeerToPeer, singleCampaign } from 'features/campaign/campaignSlice';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
@@ -49,9 +50,14 @@ const CampaignTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const onRowClicked = (row) => {
-    navigate(`/campaign/${row.key + 1}`, { state: row });
+  const onRowClicked = ({ id }) => {
+    dispatch(singleCampaign(id));
+    dispatch(getPeerToPeer(id));
+    let path = 'campaign-details';
+    navigate(path, { state: id });
+    // navigate(`/campaign/${row.key + 1}`, { state: row });
   };
 
   const [selected, setSelected] = useState('Filters');
