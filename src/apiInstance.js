@@ -21,7 +21,6 @@ request.interceptors.request.use((config) => {
   const {
     auth: { token }
   } = store.getState();
-
   const { noToken } = config.headers;
   delete config.headers.noToken;
 
@@ -31,7 +30,7 @@ request.interceptors.request.use((config) => {
     ...config,
     headers: {
       ...config.headers,
-      Authorization: `Bearer ${token.access}`
+      Authorization: `Bearer ${token.access_token}`
     }
   };
   return newConfig;

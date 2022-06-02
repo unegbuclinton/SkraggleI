@@ -6,16 +6,71 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 // import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
-import { createP2p, fetchP2p } from 'features/p2p/p2pSlice';
+import { createP2P, viewP2P } from 'features/p2p/p2pslice';
 import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { p2pFundraiserValidationSchema } from 'validation/Schema';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { P2PValidationSchema } from 'validation/Schema';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
 
 function P2PModalComponent({ onClose, isShown }) {
   const dispatch = useDispatch();
+  const { campaigns } = useSelector((state) => state.campaign);
+  const campaign = campaigns.map((current) => ({ value: current?.id, label: current?.name }));
+
+  const formik = useFormik({
+    initialValues: {
+      campaignName: '',
+      designation: '',
+      fundraiserName: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      goalAmount: '',
+      goalCurrency: '',
+      offlineAmount: '',
+      offlineDonation: '',
+      goalDate: '',
+      personalMessage: ''
+    },
+    validationSchema: P2PValidationSchema,
+    onSubmit: (values) => {
+      const body = {
+        campaign_id: values.campaignName,
+        designation: values.designation,
+        fundraiser_display_name: values.fundraiserName,
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        goal: values.goalAmount,
+        goal_currency: values.goalCurrency,
+        offline_amount: values.offlineAmount,
+        offline_donation: values.offlineDonation,
+        goal_date: values.goalDate,
+        personal_message: values.personalMessage
+      };
+
+      dispatch(createP2P(body)).then(() => {
+        toast.success('Contact Created Successfully');
+        onClose();
+        dispatch(viewP2P());
+      });
+    }
+  });
+
+  const emailSub = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
+
+  const currency = [
+    { value: 'USD', label: 'USD' },
+    { value: 'PKR', label: 'PKR' },
+    { value: 'CYN', label: 'CYN' }
+  ];
+
   const [showFirstModal, setShowFirstModal] = useState(true);
   const textAreaRef = useRef(null);
 
@@ -40,51 +95,6 @@ function P2PModalComponent({ onClose, isShown }) {
     { value: 'NGN', label: 'NGN' },
     { value: 'INR', label: 'INR' }
   ];
-  const formik = useFormik({
-    initialValues: {
-      campaign: 'Location',
-      designation: 'Infinite',
-      displayName: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      goalAmount: '',
-      offlineAmount: '',
-      currency: 'NGN',
-      offlineDonation: '',
-      goalDate: '',
-      personalMessage: ''
-    },
-    validationSchema: p2pFundraiserValidationSchema,
-
-    onSubmit: (values) => {
-      const body = {
-        designation: values.designation,
-        campaign: values.campaign,
-        displayName: values.displayName,
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        goalAmount: values.goalAmount,
-        offlineAmount: values.offlineAmount,
-        offlineDonation: values.offlineDonation,
-        goalDate: values.goalDate,
-        currency: values.currency,
-        personalMessage: values.personalMessage
-      };
-
-      dispatch(createP2p(body));
-      setShowFirstModal(false);
-      dispatch(fetchP2p());
-    }
-  });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setShowFirstModal(false);
-  //   dispatch(createP2p());
-  //   console.log('p2p created');
-  // };
 
   return showFirstModal ? (
     <Modal
@@ -92,47 +102,64 @@ function P2PModalComponent({ onClose, isShown }) {
       onClose={() => setShowFirstModal(false)}
       isShown={isShown}
       hide={onClose}>
-      <ModalWrapper onSubmit={formik.handleSubmit}>
+      <ModalWrapper
+        onSubmit={(e) => {
+          e.preventDefault();
+          formik.handleSubmit();
+        }}>
         <Card>
           <h1>CAMPAIGN</h1>
           <SelectDropDown
-            id="campaign"
+            placeholder={'Lorem Ipsum'}
+            id="campaignName"
+            name="campaignName"
             type={'text'}
-            options={campaignOptions}
-            value={formik.values.campaign}
-            onChange={(value) => formik.setFieldValue('campaign', value.value)}
+            options={campaign}
+            value={formik.values.campaignName}
+            onChange={(value) => formik.setFieldValue('campaignName', value.value)}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.campaignName && formik.errors.campaignName ? (
+            <ErrorMessage>{formik.errors.campaignName}</ErrorMessage>
+          ) : null}
+
           <h1>DESIGNATION</h1>
           <SelectDropDown
+            placeholder={'Lorem Ipsum'}
             id="designation"
+            name="designation"
             type={'text'}
-            options={designationOptions}
+            options={emailSub}
             value={formik.values.designation}
             onChange={(value) => formik.setFieldValue('designation', value.value)}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.designation && formik.errors.designation ? (
+            <ErrorMessage>{formik.errors.designation}</ErrorMessage>
+          ) : null}
+
           <h1>Fundraiser Display Name</h1>
           <Input
             className="modal-inputs"
-            id="displayName"
-            name="displayName"
             type="text"
             placeholder="Lorem Ipsum"
+            id="fundraiserName"
+            name="fundraiserName"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.displayName}
+            value={formik.values.fundraiserName}
           />
-          {formik.touched.displayName && formik.errors.displayName ? (
-            <ErrorMessage>{formik.errors.displayName}</ErrorMessage>
+          {formik.touched.fundraiserName && formik.errors.fundraiserName ? (
+            <ErrorMessage>{formik.errors.fundraiserName}</ErrorMessage>
           ) : null}
+
           <h1>First Name</h1>
           <Input
             className="modal-inputs"
-            id="firstName"
-            name="firstName"
             type="text"
             placeholder="Lorem Ipsum"
+            id="firstName"
+            name="firstName"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.firstName}
@@ -140,13 +167,14 @@ function P2PModalComponent({ onClose, isShown }) {
           {formik.touched.firstName && formik.errors.firstName ? (
             <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
           ) : null}
+
           <h1>Last Name</h1>
           <Input
             className="modal-inputs"
-            id="lastName"
-            name="lastName"
             type="text"
             placeholder="Lorem Ipsum"
+            id="lastName"
+            name="lastName"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.lastName}
@@ -154,13 +182,14 @@ function P2PModalComponent({ onClose, isShown }) {
           {formik.touched.lastName && formik.errors.lastName ? (
             <ErrorMessage>{formik.errors.lastName}</ErrorMessage>
           ) : null}
+
           <h1>Email</h1>
           <Input
             className="modal-inputs"
-            id="email"
-            name="email"
             type="text"
             placeholder="Enter Email Address"
+            id="email"
+            name="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -181,25 +210,33 @@ function P2PModalComponent({ onClose, isShown }) {
               onBlur={formik.handleBlur}
               value={formik.values.goalAmount}
             />
-            <SelectDropDown
-              id="currency"
-              type={'text'}
-              options={currencyOptions}
-              value={formik.values.currency}
-              onChange={(value) => formik.setFieldValue('currency', value.value)}
-              onBlur={formik.handleBlur}
-            />
             {formik.touched.goalAmount && formik.errors.goalAmount ? (
               <ErrorMessage>{formik.errors.goalAmount}</ErrorMessage>
             ) : null}
+
+            <SelectDropDown
+              className="dropdown__select-currency"
+              placeholder={'Select Currency'}
+              id="goalCurrency"
+              name="goalCurrency"
+              type={'text'}
+              options={currency}
+              value={formik.values.goalCurrency}
+              onChange={(value) => formik.setFieldValue('goalCurrency', value.value)}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.goalCurrency && formik.errors.goalCurrency ? (
+              <ErrorMessage>{formik.errors.goalCurrency}</ErrorMessage>
+            ) : null}
           </div>
+
           <h1>Offline Amount</h1>
           <Input
             className="modal-inputs"
-            id="offlineAmount"
-            name="offlineAmount"
             type="text"
             placeholder="Enter Amount"
+            id="offlineAmount"
+            name="offlineAmount"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.offlineAmount}
@@ -207,13 +244,14 @@ function P2PModalComponent({ onClose, isShown }) {
           {formik.touched.offlineAmount && formik.errors.offlineAmount ? (
             <ErrorMessage>{formik.errors.offlineAmount}</ErrorMessage>
           ) : null}
+
           <h1>Offline Donation</h1>
           <Input
             className="modal-inputs"
-            id="offlineDonation"
-            name="offlineDonation"
             type="text"
             placeholder="Enter Amount"
+            id="offlineDonation"
+            name="offlineDonation"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.offlineDonation}
@@ -221,16 +259,22 @@ function P2PModalComponent({ onClose, isShown }) {
           {formik.touched.offlineDonation && formik.errors.offlineDonation ? (
             <ErrorMessage>{formik.errors.offlineDonation}</ErrorMessage>
           ) : null}
+
           <h1>Goal Date</h1>
           <Input
             className="modal-inputs"
-            id="goalDate"
             type="date"
             placeholder="Enter Amount"
+            id="goalDate"
+            name="goalDate"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.goalDate}
           />
+          {formik.touched.goalDate && formik.errors.goalDate ? (
+            <ErrorMessage>{formik.errors.goalDate}</ErrorMessage>
+          ) : null}
+
           <h1>Personal Message</h1>
           {/* <TextArea
             id="personalMessage"
@@ -252,6 +296,7 @@ function P2PModalComponent({ onClose, isShown }) {
             <ErrorMessage>{formik.errors.personalMessage}</ErrorMessage>
           ) : null}
           <h1>Profile Photo</h1>
+
           <FileUploadButton imgPreview="img-preview__profile">
             <DPIconUploadFile />
           </FileUploadButton>
@@ -269,7 +314,7 @@ function P2PModalComponent({ onClose, isShown }) {
           </div>
           <ButtonsContainer>
             <Button type="submit" className="save-btn" auth>
-              + Create P2P Fundraiser
+              Create P2P Fundraiser
             </Button>
             <Button onClick={onClose} className="cancel-btn" auth invert>
               Cancel

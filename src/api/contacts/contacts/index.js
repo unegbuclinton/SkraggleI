@@ -5,7 +5,7 @@ export const addContact = async (body) => {
   try {
     const createContactResponse = await request({
       method: 'post',
-      url: '/contacts/create',
+      url: '/contacts/users',
       data: body
     });
     toast.done('Contact created successfully');
@@ -19,9 +19,22 @@ export const allContacts = async () => {
   try {
     const contactResponse = await request({
       method: 'get',
-      url: '/contacts/all/1'
+      url: '/contacts/users?cursor=0&limit=20&direction=after'
     });
-    return contactResponse.data.message;
+    return contactResponse?.data?.message?.rows;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eachContact = async (id) => {
+  try {
+    const contactResponse = await request({
+      method: 'get',
+      url: `/contacts/users/${id}`
+    });
+
+    return contactResponse?.data?.message;
   } catch (error) {
     console.log(error);
   }

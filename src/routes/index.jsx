@@ -5,7 +5,6 @@ import { privateRoutes, publicRoutes } from './routePaths';
 const Routing = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
-  console.log({ isAuthenticated });
   function PrivateRoute() {
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
   }

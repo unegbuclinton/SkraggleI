@@ -6,15 +6,21 @@ import React, { useState } from 'react';
 import { datas1 } from 'utilities/overviewData';
 import { HeaderWrapper } from './styles';
 
-function TableHeader({ title, header, setOpen, className, onChange }) {
+function TableHeader({ title, header, setOpen, className, onChange, subMenuTableHeader }) {
   const [selected, setSelected] = useState('Filters');
 
   return (
     <HeaderWrapper>
       <h2 className={className}>{header}</h2>
       <div className="header">
-        <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
-        <SearchBar onChange={onChange} />
+        {subMenuTableHeader ? (
+          ''
+        ) : (
+          <>
+            <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
+            <SearchBar onChange={onChange} />
+          </>
+        )}
         <Button className="header__header-btn" onClick={() => setOpen(true)}>
           <DPIconAdd className="header__header-btn--icon" />
           {title}

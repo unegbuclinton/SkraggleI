@@ -1,7 +1,7 @@
 import Button from 'components/atoms/Button/Button';
-import CustomDropdown from 'components/atoms/CustomDropdown/CustomDropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { subcription } from 'utilities/modalData';
+import { useSelector } from 'react-redux';
 import {
   AddressContainer,
   ButtonContainer,
@@ -13,6 +13,19 @@ import {
 } from './styles';
 
 function ContactStepTwo({ onClose, formik }) {
+  const { tagsData } = useSelector((state) => state.contact);
+  const { houseHolds } = useSelector((state) => state.contact);
+
+  const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
+  const household = houseHolds.map((current) => ({ value: current?.id, label: current?.name }));
+
+  const houseOptions = [
+    { value: 'Household', label: 'Household' },
+    { value: 'Household', label: 'Household' },
+    { value: 'Household', label: 'Household' },
+    { value: 'Household', label: 'Household' },
+    { value: 'Household', label: 'Household' }
+  ];
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -109,13 +122,69 @@ function ContactStepTwo({ onClose, formik }) {
             </div>
           </AddressContainer>
           <FormLabel>HOUSEHOLD</FormLabel>
-          <CustomDropdown className="dropdown" data={subcription} />
+          <SelectDropDown
+            className="dropdown"
+            // isMulti="true"
+            type={'text'}
+            id="household"
+            name="household"
+            options={household}
+            value={formik.values.household}
+            onChange={(value) => formik.setFieldValue('household', value.value)}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.household && formik.errors.household ? (
+            <ErrorMsg>{formik.errors.household}</ErrorMsg>
+          ) : null}
           <FormLabel>ASSIGNEE</FormLabel>
-          <CustomDropdown className="dropdown" data={subcription} />
+          <SelectDropDown
+            className="dropdown"
+            type={'text'}
+            id="assignee"
+            name="assignee"
+            options={houseOptions}
+            value={formik.values.assignee}
+            onChange={(value) => formik.setFieldValue('assignee', value.value)}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.assignee && formik.errors.assignee ? (
+            <ErrorMsg>{formik.errors.assignee}</ErrorMsg>
+          ) : null}
           <FormLabel>PRIORITY</FormLabel>
-          <CustomDropdown className="dropdown" data={subcription} />
+          <SelectDropDown
+            className="dropdown"
+            type={'text'}
+            id="priority"
+            name="priority"
+            options={houseOptions}
+            value={formik.values.priority}
+            onChange={(value) => formik.setFieldValue('priority', value.value)}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.priority && formik.errors.priority ? (
+            <ErrorMsg>{formik.errors.priority}</ErrorMsg>
+          ) : null}
           <FormLabel>TAGS</FormLabel>
-          <CustomDropdown className="dropdown" data={subcription} />
+          <SelectDropDown
+            className="dropdown"
+            isMulti="true"
+            type={'text'}
+            id="tags"
+            name="tags"
+            options={tagz}
+            // value={formik.values.tags}
+            onChange={(value) => {
+              console.log(value);
+              formik.setFieldValue(
+                'tags',
+                value.map((curr) => curr.value)
+              );
+            }}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.tags && formik.errors.tags ? (
+            <ErrorMsg>{formik.errors.tags}</ErrorMsg>
+          ) : null}
           <ButtonContainer>
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel

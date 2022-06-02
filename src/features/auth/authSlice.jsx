@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk('auth/register', async (body) => {
   try {
     const response = await apiInstance({
       method: 'post',
-      url: '/admin/signup',
+      url: '/admin',
       data: body
     });
     return response.data;
@@ -31,7 +31,7 @@ export const signupOTP = createAsyncThunk('auth/signupOTP', async (body) => {
   try {
     const signupOTPResponse = await apiInstance({
       method: 'post',
-      url: '/email/confirm',
+      url: '/admin/verify-account',
       data: body
     });
     return signupOTPResponse?.data?.message;
@@ -44,7 +44,7 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (bod
   try {
     const forgotResponse = await apiInstance({
       method: 'post',
-      url: '/admin/forgot-password',
+      url: '/admin/password',
       data: body
     });
     return forgotResponse?.data?.message;
@@ -59,7 +59,7 @@ export const confirmforgotPassword = createAsyncThunk(
     try {
       const confirmforgotResponse = await apiInstance({
         method: 'post',
-        url: '/admin/reset-password',
+        url: '/admin/password/confirm',
         data: body
       });
       return confirmforgotResponse.data.message;
@@ -68,6 +68,19 @@ export const confirmforgotPassword = createAsyncThunk(
     }
   }
 );
+
+export const enterNewPassword = createAsyncThunk('auth/enterNewPassword', async (body) => {
+  try {
+    const confirmNewPassword = await apiInstance({
+      method: 'patch',
+      url: '/admin/password',
+      data: body
+    });
+    return confirmNewPassword?.data?.message;
+  } catch (error) {
+    toast.error('Enter Password Again');
+  }
+});
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   try {
@@ -84,7 +97,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
 
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
-    await apiInstance.delete('/admin/logout');
+    await apiInstance.delete('/admin/access-token');
     return;
   } catch (error) {
     return error?.message;

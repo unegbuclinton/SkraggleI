@@ -4,7 +4,7 @@ import Switch from 'components/atoms/Switch/Switch';
 import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
@@ -21,19 +21,20 @@ import {
 
 function CreateCompany({ onClose }) {
   const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.contact);
   const formik = useFormik({
     initialValues: {
       companyName: '',
       primaryPhone: '',
-      tags: ''
+      email: ''
       // tag: ''
     },
     validationSchema: createCompanyValidatonSchema,
     onSubmit: (values) => {
       const body = {
-        company_name: values.companyName,
-        primary_phone: values.primaryPhone,
-        tags: values.tags
+        name: values.companyName,
+        phone: values.primaryPhone,
+        email: values.email
         // tag: values.tag
       };
       dispatch(createNewCompany(body)).then(() => {
@@ -80,19 +81,19 @@ function CreateCompany({ onClose }) {
           {formik.touched.primaryPhone && formik.errors.primaryPhone ? (
             <ErrorMsg>{formik.errors.primaryPhone}</ErrorMsg>
           ) : null}
-          <FormLabel>TAGS</FormLabel>
+          <FormLabel>Email</FormLabel>
           <Input
             className="input-field"
-            id="tags"
-            name="tags"
+            id="email"
+            name="email"
             type="text"
-            placeholder="Tags"
+            placeholder="Email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.tags}
+            value={formik.values.email}
           />
-          {formik.touched.tags && formik.errors.tags ? (
-            <ErrorMsg>{formik.errors.tags}</ErrorMsg>
+          {formik.touched.email && formik.errors.email ? (
+            <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
           <TagContainer>
             <TagWrapper>
@@ -107,7 +108,7 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" loading={isLoading} className="continue">
               Save
             </Button>
           </ButtonContainer>

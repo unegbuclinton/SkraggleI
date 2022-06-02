@@ -21,7 +21,6 @@ export const ModalWrapper = styled.form`
   .modal-inputs {
     background-color: white;
     padding-left: 2.083rem;
-    height: 6.4rem;
     width: 100%;
     border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
@@ -31,7 +30,6 @@ export const ModalWrapper = styled.form`
     background-color: white;
     padding-left: 2.083rem;
     width: 30.1rem;
-    height: 6.4rem;
     border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
   }
@@ -60,14 +58,14 @@ export const ModalWrapper = styled.form`
       color: ${COLORS['blue-black']};
     }
     &__select-currency {
-      padding-top: 2.3rem;
-      color: ${COLORS['moore-grey']};
+      /* padding-top: 2.3rem; */
+      /* color: ${COLORS['moore-grey']}; */
       width: 11.8rem;
       height: 6.4rem;
       margin-left: 2.4rem;
-      border-radius: 0.5rem;
+      /* border-radius: 0.5rem;
       border: 1px solid ${COLORS['moore-grey']};
-      align-items: center;
+      align-items: center; */
     }
   }
   .cancel-btn {

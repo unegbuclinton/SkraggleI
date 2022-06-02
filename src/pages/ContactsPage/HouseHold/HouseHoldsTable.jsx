@@ -5,28 +5,27 @@ import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/
 import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { searchHouseHold } from 'features/contact/contactSlice';
-import debounce from 'lodash.debounce';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { searchHouseHold } from 'features/contact/contactSlice';
+// import debounce from 'lodash.debounce';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
-
-  const dispatch = useDispatch();
-  const [input, setInput] = useState('');
-  const getSearchDebounce = useCallback(
-    debounce(() => {
-      dispatch(searchHouseHold({ search: input, page: 0 }));
-    }, 500),
-    [input]
-  );
-  useEffect(() => {
-    getSearchDebounce();
-    return getSearchDebounce.cancel;
-  }, [input]);
+  // const [input, setInput] = useState('');
+  // const dispatch = useDispatch();
+  // const getSearchDebounce = useCallback(
+  //   debounce(() => {
+  //     dispatch(searchHouseHold({ search: input, page: 0 }));
+  //   }, 500),
+  //   [input]
+  // );
+  // useEffect(() => {
+  //   getSearchDebounce();
+  //   return getSearchDebounce.cancel;
+  // }, [input]);
 
   const columns = [
     {
@@ -63,7 +62,7 @@ function HouseHoldsTable() {
               title="Add Household"
               header={`${houseHolds?.length} Households`}
               setOpen={setOpen}
-              onChange={(e) => setInput(e.target.value)}
+              // onChange={(e) => setInput(e.target.value)}
             />
             <Table columns={columns} data={houseHolds} />
           </TableWrapper>

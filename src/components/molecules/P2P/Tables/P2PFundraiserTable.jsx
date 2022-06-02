@@ -3,6 +3,7 @@ import Checkbox from 'components/atoms/CheckBox';
 import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
 // import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
@@ -14,6 +15,10 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 function P2PTable() {
   const { p2pData } = useSelector((state) => state.p2p);
+  // const { campaigns } = useSelector((state) => state.campaign);
+  // const campaignName = campaigns.map((current) => ({ value: current?.name }));
+  // console.log(campaignName);
+
   const columns = [
     {
       name: ' ',
@@ -23,13 +28,13 @@ function P2PTable() {
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign,
+      selector: (row) => row.name || row.campaign_id,
       width: '20rem'
     },
 
     {
       name: 'FUNDRAISER',
-      selector: (row) => row.display_name,
+      selector: (row) => row.fundraiser_display_name,
       width: '20rem'
     },
     {
@@ -44,7 +49,7 @@ function P2PTable() {
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created_on,
+      selector: (row) => row.created_at,
       width: '20rem'
     },
     {
@@ -54,14 +59,14 @@ function P2PTable() {
     },
     {
       name: '1M STATISTICS -_-_',
-      selector: (row) => row.statistics,
+      selector: (row) => row.sn,
       width: '15rem'
     }
   ];
 
   const [selected, setSelected] = useState('Filters');
 
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const navigate = useNavigate();
 
@@ -77,7 +82,7 @@ function P2PTable() {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>25 Campaigns</h1>
+              <h1>{`${p2pData?.length} P2P`}</h1>
             </div>
 
             <div className="table-header__right">
@@ -105,7 +110,7 @@ function P2PTable() {
           <Table columns={columns} data={p2pData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-      {/* <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} /> */}
+      <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

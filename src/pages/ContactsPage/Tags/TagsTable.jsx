@@ -21,7 +21,7 @@ function TagsTable() {
         <div>
           <TableWrapper>
             <TableHeader title="Create Tag" header={`${tagsData.length} Tags`} setOpen={setOpen} />
-            <Table columns={columns} data={tagsData} />
+            <Table columns={columns} data={tagsData} content />
           </TableWrapper>
           <Pagination currentPage={currentPage} data={tagsData} setCurrentPage={setCurrentPage} />
         </div>

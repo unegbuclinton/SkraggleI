@@ -22,8 +22,8 @@ const Input = ({
     <Container className={containerClass}>
       <InputField
         className={className}
-        disabled={disabled}
         autoWidth={autoWidth}
+        disabled={disabled}
         name={name}
         id={id}
         type={type === 'password' ? (show ? 'text' : 'password') : type}
