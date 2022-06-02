@@ -2,7 +2,7 @@ import request from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const getCampaings = async () => {
+export const getCampaigns = async () => {
   try {
     const response = await request({
       method: 'get',

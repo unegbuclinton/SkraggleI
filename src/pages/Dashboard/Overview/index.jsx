@@ -3,6 +3,7 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import { allHouseHold, getAllTodos, viewContact, viewTags } from 'features/contact/contactSlice';
 import { viewP2P } from 'features/p2p/p2pslice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
@@ -45,6 +46,10 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewP2P());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllCampaigns());
   }, []);
 
   return (

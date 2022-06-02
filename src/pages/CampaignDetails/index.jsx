@@ -47,8 +47,8 @@ const CampaignDetails = () => {
     }
   ];
 
-  const { eachCampaign } = useSelector((state) => state.campaign);
-  const { name } = eachCampaign;
+  const { campaignByID } = useSelector((state) => state.campaign);
+  const { name } = campaignByID;
 
   return (
     <DashboardLayout

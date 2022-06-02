@@ -17,6 +17,7 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
+  console.log(campaigns);
   const columns = [
     {
       name: ' ',
@@ -53,10 +54,10 @@ const CampaignTable = () => {
   const dispatch = useDispatch();
 
   const onRowClicked = ({ id }) => {
-    dispatch(singleCampaign(id));
     dispatch(getPeerToPeer(id));
+    dispatch(singleCampaign(id));
     let path = 'campaign-details';
-    navigate(path, { state: id });
+    navigate(path);
     // navigate(`/campaign/${row.key + 1}`, { state: row });
   };
 

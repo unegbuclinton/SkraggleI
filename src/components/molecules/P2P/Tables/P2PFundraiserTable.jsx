@@ -14,9 +14,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 function P2PTable() {
   const { p2pData } = useSelector((state) => state.p2p);
-  // const { campaigns } = useSelector((state) => state.campaign);
-  // const campaignName = campaigns.map((current) => ({ value: current?.name }));
-  // console.log(campaignName);
 
   const columns = [
     {

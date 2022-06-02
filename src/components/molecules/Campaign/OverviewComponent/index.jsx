@@ -17,8 +17,9 @@ import {
 } from './styles';
 
 const CampaignOverview = () => {
-  const { eachCampaign } = useSelector((state) => state.campaign);
-  const { name, description, status, fundraising_goal } = eachCampaign;
+  const { campaignByID } = useSelector((state) => state.campaign);
+  console.log(campaignByID);
+  const { name, description, status, fundraising_goal } = campaignByID;
   const statusToCap = status.toUpperCase();
 
   const formik = useFormik({
