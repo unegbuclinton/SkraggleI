@@ -26,3 +26,15 @@ export const allP2P = async () => {
     console.log(error);
   }
 };
+
+export const p2pById = async (id) => {
+  try {
+    const p2pResponse = await request({
+      method: 'get',
+      url: `/p2p/${id}`
+    });
+    return p2pResponse?.data?.message;
+  } catch (error) {
+    console.log(error);
+  }
+};
