@@ -2,9 +2,22 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconProfileImage } from 'icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 
 function Settings({ className }) {
+  const { eachP2p } = useSelector((state) => state.p2p);
+  const {
+    fundraiser_display_name,
+    designation,
+    goal,
+    goal_date,
+    offline_amount,
+    offline_donation,
+    personal_message,
+    goal_currency
+  } = eachP2p;
   return (
     <SettingsWrapper className={className} id="settings">
       <div className="fundraiser__top">
@@ -15,34 +28,31 @@ function Settings({ className }) {
       <div className="fundraiser__down">
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Display Name</h1>
-          <p className="fundraiser__p2">Leaf Inc</p>
+          <p className="fundraiser__p2">{fundraiser_display_name}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Designation</h1>
-          <p className="fundraiser__p2">Match checkout settings</p>
+          <p className="fundraiser__p2">{designation}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Goal</h1>
-          <p className="fundraiser__p2">$150,000.000 USD</p>
+          <p className="fundraiser__p2">{goal}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Offline amount</h1>
-          <p className="fundraiser__p2">$0.00 USD</p>
+          <p className="fundraiser__p2">{`${offline_amount} ${goal_currency}`}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Offline donations</h1>
-          <p className="fundraiser__p2">0</p>
+          <p className="fundraiser__p2">{`${offline_donation} ${goal_currency}`}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Goal date</h1>
-          <p className="fundraiser__p2">Dec 15, 2021</p>
+          <p className="fundraiser__p2">{formatDate(goal_date)}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Personal Message</h1>
-          <p className="fundraiser__p3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor dignissim enim erat
-            lacus sagittis metus. Habitant adipiscing aliquam.
-          </p>
+          <p className="fundraiser__p3">{personal_message}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Supporter Name</h1>
