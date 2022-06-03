@@ -1,18 +1,27 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { volunteerValidationSchema } from 'validation/Schema';
 import { ButtonContainer, ErrorMsg, Label, ModalForm, VolunteerEditWrapper } from './styles';
 
 function VolunteerEdit({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const volunteernId = eachContact.id;
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       tShirtSize: ''
     },
     validationSchema: volunteerValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        tShirtSize: values.tShirtSize
+      };
+      dispatch(updateContact({ body: body, id: volunteernId }));
+      onClose();
     }
   });
 

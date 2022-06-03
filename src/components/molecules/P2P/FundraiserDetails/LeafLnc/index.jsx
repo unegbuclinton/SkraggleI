@@ -4,9 +4,12 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
 import { React, useCallback, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function LeafLnc({ className }) {
+  const { eachP2p } = useSelector((state) => state.p2p);
+  const { fundraiser_display_name } = eachP2p;
   const textAreaRef = useRef(null);
 
   const copyToClipboard = useCallback(() => {
@@ -20,7 +23,7 @@ function LeafLnc({ className }) {
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <p className="fundraiser__paragraph">P2P fundraiser</p>
-          <h1 className="fundraiser__heading">Leaf Lnc</h1>
+          <h1 className="fundraiser__heading">{fundraiser_display_name}</h1>
         </div>
         <div>
           <div className="fundraiser__id">ID</div>

@@ -1,11 +1,5 @@
 import { logoutUser } from 'features/auth/authSlice';
-import {
-  DPIconAddam,
-  DPIconLogout,
-  DPIconMenuDrop,
-  DPIconOrganisationIcon,
-  DPIconProfile
-} from 'icons';
+import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -68,7 +62,7 @@ function DashboardHeader({ pageLinks }) {
           </div>
           <div className="user-menu">
             <div className="img-profile__container">
-              <DPIconAddam className="profile-icon" />
+              {/* <DPIconAddam className="profile-icon" /> */}
             </div>
             <div className="organization-container">
               <h2 className="organisation-header">BIGGORILLA SANDBOL</h2>

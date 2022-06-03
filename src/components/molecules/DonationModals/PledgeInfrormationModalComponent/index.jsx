@@ -2,15 +2,17 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import FileUploadButton from 'components/atoms/FileUploadButton';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { DPIconDelete, DPIconUploadFile } from 'icons';
 import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import data from 'utilities/filterData';
 import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
 const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
   console.log({ ...rest });
-  const [selectedContact, setSelectedContact] = useState('Start typing to search');
+
   const [selectedType, setSelectedType] = useState('Donation');
   const [showAddInstallment, setShowAddInstallment] = useState(false);
   const [btnAddInstallment, setBtnAddInstallment] = useState(true);
@@ -20,16 +22,26 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
     setBtnAddInstallment(false);
     setShowAddInstallment(true);
   }
+  const { contactData } = useSelector((state) => state.contact);
+  const contactOptions = contactData.map((current) => ({
+    value: current?.id,
+    label: current?.first_name
+  }));
   return (
     <ModalWrapper>
       <Card>
         <h1>Contact</h1>
-        <DropdownComponent
-          data={data}
-          className="dropdown-contact"
-          type=""
-          selected={selectedContact}
-          setSelected={setSelectedContact}
+        <SelectDropDown
+          options={contactOptions}
+          id="followers"
+          name="followers"
+          type={'text'}
+          // onChange={(value) => {
+          //   formik.setFieldValue(
+          //     'followers',
+          //     value.map((curr) => curr.value)
+          //   );
+          // }}
         />
 
         <h1>Pledge Name</h1>
