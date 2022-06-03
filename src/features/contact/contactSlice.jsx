@@ -66,15 +66,14 @@ export const contactSlice = createSlice({
     [viewContact.rejected]: (state) => {
       state.isLoading = false;
     },
-
+    [createNewCompany.pending]: (state) => {
+      state.isLoading = true;
+    },
     [createNewCompany.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [createNewCompany.rejected]: (state) => {
       state.isLoading = false;
-    },
-    [createNewCompany.pending]: (state) => {
-      state.isLoading = true;
     },
 
     [getAllCompanies.fulfilled]: (state, action) => {
@@ -105,11 +104,16 @@ export const contactSlice = createSlice({
     },
 
     //CREATE TAGS
+    [createTags.pending]: (state) => {
+      state.isLoading = true;
+    },
     [createTags.fulfilled]: (state) => {
+      state.isLoading = false;
       state.tagsCreated = true;
     },
 
     [createTags.rejected]: (state) => {
+      state.isLoading = false;
       state.tagsCreated = false;
     },
 
