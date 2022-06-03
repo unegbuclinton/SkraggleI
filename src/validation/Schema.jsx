@@ -4,12 +4,7 @@ export const registrationSchema = Yup.object({
   firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
   email: Yup.string().email('invalid Mail').required('Email is Required'),
-  password: Yup.string()
-    .required('Password is required')
-    .matches(
-      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
-      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
-    ),
+  password: Yup.string(),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Passwords do not match')
