@@ -24,3 +24,17 @@ export const getAllHouseHold = async () => {
     return error;
   }
 };
+
+export const deleteHousehold = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/contacts/households`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

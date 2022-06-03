@@ -1,17 +1,44 @@
 import Button from 'components/atoms/Button/Button';
 import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import { DPIconAdd } from 'icons';
+import { DPIconAdd, DPIconDropDown } from 'icons';
 import React, { useState } from 'react';
 import { datas1 } from 'utilities/overviewData';
-import { HeaderWrapper } from './styles';
+import { ActionWrapper, Delete, HeaderWrapper, HeadingAction } from './styles';
 
-function TableHeader({ title, header, setOpen, className, onChange, subMenuTableHeader }) {
+function TableHeader({
+  title,
+  header,
+  setOpen,
+  onChange,
+  selectRow,
+  subMenuTableHeader,
+  setOpenDeleteModal,
+  show
+}) {
   const [selected, setSelected] = useState('Filters');
-
+  const [dropDown, setDropDown] = useState(false);
+  const handleDelete = () => {
+    setOpenDeleteModal(true);
+    setDropDown(false);
+  };
   return (
     <HeaderWrapper>
-      <h2 className={className}>{header}</h2>
+      <HeadingAction>
+        {show ? <h2 className="heading">{selectRow}</h2> : <h2 className="heading">{header}</h2>}
+        <div className="container">
+          {show && (
+            <Button onClick={() => setDropDown(!dropDown)} className="dropdown-btn">
+              Action <DPIconDropDown className="icon-dropdown" />
+            </Button>
+          )}
+          {dropDown && (
+            <ActionWrapper>
+              <Delete onClick={handleDelete}>Delete</Delete>
+            </ActionWrapper>
+          )}
+        </div>
+      </HeadingAction>
       <div className="header">
         {subMenuTableHeader ? (
           ''

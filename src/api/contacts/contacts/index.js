@@ -39,3 +39,17 @@ export const eachContact = async (id) => {
     console.log(error);
   }
 };
+
+export const deleteContact = async (body) => {
+  try {
+    const contactResponse = await request({
+      method: 'delete',
+      url: `/contacts/users`,
+      data: body
+    });
+
+    return contactResponse;
+  } catch (error) {
+    console.log(error);
+  }
+};

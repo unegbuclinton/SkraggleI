@@ -24,3 +24,16 @@ export const allTags = async () => {
     return error;
   }
 };
+
+export const deleteTag = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/contacts/tags`,
+      data: body
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

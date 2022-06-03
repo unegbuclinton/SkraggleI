@@ -1,11 +1,6 @@
-import CheckBox from 'components/atoms/CheckBox';
+import { formatDate } from './helpers';
 
 export const columns = [
-  {
-    name: '',
-    cell: () => <CheckBox />,
-    width: '8rem'
-  },
   {
     name: 'NAME',
     selector: (row) => row?.name,
@@ -13,7 +8,7 @@ export const columns = [
   },
   {
     name: 'CREATED',
-    selector: (row) => row?.created_at,
+    selector: (row) => formatDate(row?.created_at),
     width: '54.9rem'
   }
 ];
