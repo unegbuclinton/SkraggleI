@@ -55,7 +55,7 @@ function CreateTags({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue" loading={isLoading}>
+            <Button type="submit" className="continue" disabled={isLoading}>
               Continue
             </Button>
           </ButtonContainer>

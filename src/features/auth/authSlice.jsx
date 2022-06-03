@@ -131,6 +131,7 @@ export const authSlice = createSlice({
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
       state.token = action.payload;
+      state.isLoading = false;
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;

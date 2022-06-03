@@ -3,7 +3,7 @@ import Input from 'components/atoms/Input/Input';
 import { allHouseHold, createHouseHold } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { houseHoldValidationSchema } from 'validation/Schema';
 import {
@@ -16,6 +16,7 @@ import {
 } from './styles';
 
 function CreateteNewHouseHold({ onClose }) {
+  const { isLoading } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -55,7 +56,7 @@ function CreateteNewHouseHold({ onClose }) {
               Cancel
             </Button>
 
-            <Button type="submit" className="continue" loading={isLoading}>
+            <Button type="submit" className="continue" disabled={isLoading}>
               Continue
             </Button>
           </ButtonContainer>

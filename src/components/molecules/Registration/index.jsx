@@ -110,7 +110,7 @@ function Registration() {
             <CatchError>{formik.errors.confirmPassword}</CatchError>
           ) : null}
           <div className="reg__btn">
-            <Button auth type="submit" loading={isLoading}>
+            <Button auth type="submit" disabled={isLoading}>
               {isLoading ? <Spinner /> : 'Sign up'}
             </Button>
           </div>
