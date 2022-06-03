@@ -37,7 +37,7 @@ export default Requirements;
 
 export const PasswordStrength = styled.div`
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-columns: 0.45fr 0.5fr;
   h2 {
     margin-bottom: 0.8rem;
   }
