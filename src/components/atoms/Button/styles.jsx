@@ -40,11 +40,21 @@ export const ButtonWrapper = styled.button`
       line-height: 1.6rem;
       color: ${COLORS.white};
     `};
-  ${({ invert, disabled }) => {
+  ${({ invert }) => {
     return (
-      (invert || disabled) &&
+      invert &&
       css`
         background-color: ${COLORS.white};
+        border: 1px solid ${COLORS['moore-grey']};
+        color: ${COLORS['moore-grey']};
+      `
+    );
+  }}
+  ${({ disabled }) => {
+    return (
+      disabled &&
+      css`
+        background-color: ${COLORS['dark-gray']};
         border: 1px solid ${COLORS['moore-grey']};
         color: ${COLORS['moore-grey']};
       `

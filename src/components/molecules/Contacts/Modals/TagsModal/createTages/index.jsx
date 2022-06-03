@@ -3,7 +3,7 @@ import Input from 'components/atoms/Input/Input';
 import { createTags, viewTags } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { tagValidationSchema } from 'validation/Schema';
 import {
@@ -16,6 +16,8 @@ import {
 } from './styles';
 
 function CreateTags({ onClose }) {
+  const { isLoading } = useSelector((state) => state.contact);
+  console.log;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -53,7 +55,7 @@ function CreateTags({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" className="continue" loading={isLoading}>
               Continue
             </Button>
           </ButtonContainer>

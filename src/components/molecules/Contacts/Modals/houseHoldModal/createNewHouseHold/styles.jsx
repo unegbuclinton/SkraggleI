@@ -59,7 +59,5 @@ export const ButtonContainer = styled.div`
     width: 14rem;
     height: 4.8rem;
     border-radius: 0.5rem;
-    background-color: ${COLORS.pink};
-    color: ${COLORS.white};
   }
 `;
