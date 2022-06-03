@@ -4,17 +4,20 @@ import ErrorMessage from 'components/atoms/ErrorMessage';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import { DPIconCloseBlack } from 'icons';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { editAssociationModal } from 'validation/Schema';
 
 function EditAssociationModalComponent({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const associationId = eachContact.id;
+  const dispatch = useDispatch();
   const [companyName, setCompanyName] = useState(['']);
   const [itemName, setItemName] = useState('');
-
-  console.log(companyName);
 
   const handleCompanyChange = (e) => {
     console.log(e.value);
@@ -47,7 +50,12 @@ function EditAssociationModalComponent({ onClose }) {
     },
     validationSchema: editAssociationModal,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 4));
+      const body = {
+        household: values.household,
+        companyName: values.companyName
+      };
+      dispatch(updateContact({ body: body, id: associationId }));
+      onClose();
     }
   });
 

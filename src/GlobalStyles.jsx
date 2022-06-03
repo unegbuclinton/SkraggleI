@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 20px;
     }
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 2px;
     }
     ::-webkit-scrollbar-track {
         background: ${COLORS['grey-600']};
