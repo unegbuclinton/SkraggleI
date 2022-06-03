@@ -6,12 +6,14 @@ import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { P2PForm } from 'utilities/campaigndata';
 import datas from 'utilities/filterData';
 import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const P2PTable = () => {
+  const { p2p } = useSelector((state) => state.campaign);
+  console.log(p2p);
   const columns = [
     {
       name: ' ',
@@ -21,7 +23,7 @@ const P2PTable = () => {
     },
     {
       name: 'P2P EVENTS NAME',
-      selector: (row) => row.name,
+      selector: (row) => row.fundraiser_display_name,
       width: '35rem'
     },
 
@@ -37,31 +39,18 @@ const P2PTable = () => {
     },
     {
       name: 'DONATIONS',
-      selector: (row) => row.donations,
+      selector: (row) => row.offline_donation,
       width: '35rem'
     },
     {
       name: 'STATUS',
-      selector: (row) => row.status,
+      // selector: (row) => row.status,
       cell: () => <Button className="table-button">Active</Button>
     }
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-  const indexLastList = currentPage * itemsPerPage;
-  const indexFirstList = indexLastList - itemsPerPage;
-
-  const tableData = P2PForm.map((p2pData, index) => ({
-    key: index,
-    name: p2pData.name,
-    type: p2pData.type,
-    raised: p2pData.raised,
-    donations: p2pData.donations,
-    status: p2pData.status
-  }));
-
-  const currentList = tableData.slice(indexFirstList, indexLastList);
 
   const [selected, setSelected] = useState('Filters');
 
@@ -76,7 +65,7 @@ const P2PTable = () => {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>88 Forms</h1>
+              <h1>{`${p2p.length} P2P`}</h1>
             </div>
 
             <div className="table-header__right">
@@ -93,13 +82,13 @@ const P2PTable = () => {
               </Button>
             </div>
           </TableHeaderWrapper>
-          <Table columns={columns} data={currentList} />
+          <Table columns={columns} data={p2p} />
         </TableWrapper>
       </ContainerBody>
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={P2PForm}
+        data={p2p}
         setCurrentPage={setCurrentPage}
       />
     </div>

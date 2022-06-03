@@ -1,33 +1,42 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
+// import DropdownComponent from 'components/atoms/Dropdown';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { createNewCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import data from 'utilities/filterData';
+// import data from 'utilities/filterData';
 import { createCampaignSchema } from 'validation/Schema';
 import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const CampaignModalComponent = ({ onClose }) => {
   // const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
+  const { contactData } = useSelector((state) => state.contact);
+
+  const followers = contactData?.map((current) => ({
+    value: current?.id,
+    label: current?.first_name
+  }));
 
   const formik = useFormik({
     initialValues: {
       name: '',
       description: '',
-      goals: ''
+      goals: '',
+      followers: []
     },
     validationSchema: createCampaignSchema,
     onSubmit: (values) => {
       const body = {
         name: values.name,
-        fundraising_goal: values.goals,
-        description: values.description
+        fundraising_goal: +values.goals,
+        description: values.description,
+        followers: values.followers
       };
       dispatch(createNewCampaign(body)).then(() => {
         onClose();
@@ -70,10 +79,10 @@ const CampaignModalComponent = ({ onClose }) => {
         <h1>CAMPAIGN FUNDRAISING GOALS</h1>
         <Input
           className="campaign-modal"
-          type="text"
           placeholder="Lorem Ipsum"
           id="goals"
           name="goals"
+          type="number"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
@@ -82,18 +91,26 @@ const CampaignModalComponent = ({ onClose }) => {
         ) : null}
 
         <h1>FOLLOWERS</h1>
-        <DropdownComponent
-          data={data}
+        <SelectDropDown
           className="dropdown-followers"
-          type=""
-          // selected={selected}
-          // setSelected={setSelected}
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
+          placeholder={'Lorem Ipsum'}
+          isMulti="true"
+          id="followers"
+          name="followers"
+          type={'text'}
+          options={followers}
+          // value={formik.values.followers}
+          onChange={(value) => {
+            formik.setFieldValue(
+              'followers',
+              value.map((curr) => curr.value)
+            );
+          }}
+          onBlur={formik.handleBlur}
         />
-        {/* {formik.touched.followers && formik.errors.followers ? (
-          <ErrorMessage>{formik.errors.followers}</ErrorMessage>
-        ) : null} */}
+        {formik.touched.emailSubscription && formik.errors.emailSubscription ? (
+          <ErrorMessage>{formik.errors.emailSubscription}</ErrorMessage>
+        ) : null}
         <ButtonsContainer>
           <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel

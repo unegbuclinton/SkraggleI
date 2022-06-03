@@ -3,7 +3,16 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
-import { allHouseHold, getAllTodos, viewContact, viewTags } from 'features/contact/contactSlice';
+import { getAllCampaigns } from 'features/campaign/campaignSlice';
+import {
+  allHouseHold,
+  getAllCompanies,
+  getAllTodos,
+  viewContact,
+  viewTags
+} from 'features/contact/contactSlice';
+import { getPledge } from 'features/donation/donationSlice';
+import { viewP2P } from 'features/p2p/p2pslice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
@@ -22,9 +31,13 @@ function Overview() {
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
-  // useEffect(() => {
-  //   dispatch(getAllCompanies());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllCompanies());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getPledge());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(allHouseHold());
@@ -41,6 +54,15 @@ function Overview() {
   useEffect(() => {
     dispatch(getAllTodos());
   }, []);
+
+  useEffect(() => {
+    dispatch(viewP2P());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllCampaigns());
+  }, []);
+
   return (
     <OverviewWrapper>
       <Card className="overview-card">

@@ -2,9 +2,11 @@ import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import TextArea from 'components/atoms/TextArea';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { AdminEditValidationSchema } from 'validation/Schema';
+import { useDispatch, useSelector } from 'react-redux';
+// import { AdminEditValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   ErrorMsg,
@@ -16,25 +18,48 @@ import {
 } from './styles';
 
 function EditAmin({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const { tagsData } = useSelector((state) => state.contact);
+  const adminId = eachContact.id;
+
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       originId: '',
       priority: '',
       assignee: '',
-      tag: '',
+      tag: [],
       note: '',
       solicitation: '',
       emailSubscriptionStatus: ''
     },
-    validationSchema: AdminEditValidationSchema,
+    // validationSchema: AdminEditValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        organization_id: values.originId,
+        tags: values.tag,
+        email_subscription_status: values.emailSubscriptionStatus,
+        priority: values.priority
+        // assignee: values.assignee
+      };
+      dispatch(updateContact({ body: body, id: adminId }));
+      onClose();
     }
   });
-  const priorityOptions = [
+  const tagOptions = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
+  const adminOptions = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
+  ];
+  const emailOptions = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
+  const priorityOptions = [
+    { value: 'High', label: 'High' },
+    { value: 'Medium', label: 'Medium' },
+    { value: 'Low', label: 'Low' }
   ];
   return (
     <ModalWrapper>
@@ -79,7 +104,7 @@ function EditAmin({ onClose }) {
             id="assignee"
             name="assignee"
             type={'text'}
-            options={priorityOptions}
+            options={adminOptions}
             value={formik.values.assignee}
             onChange={(value) => formik.setFieldValue('assignee', value.value)}
             onBlur={formik.handleBlur}
@@ -95,9 +120,14 @@ function EditAmin({ onClose }) {
             id="tag"
             name="tag"
             type={'text'}
-            options={priorityOptions}
-            value={formik.values.tag}
-            onChange={(value) => formik.setFieldValue('tag', value.value)}
+            options={tagOptions}
+            onChange={(value) => {
+              console.log(value);
+              formik.setFieldValue(
+                'tags',
+                value.map((curr) => curr.value)
+              );
+            }}
             onBlur={formik.handleBlur}
           />
           {formik.touched.tag && formik.errors.tag ? (
@@ -116,7 +146,7 @@ function EditAmin({ onClose }) {
               id="solicitation"
               name="solicitation"
               type={'text'}
-              options={priorityOptions}
+              options={adminOptions}
               value={formik.values.solicitation}
               onChange={(value) => formik.setFieldValue('solicitation', value.value)}
               onBlur={formik.handleBlur}
@@ -132,7 +162,7 @@ function EditAmin({ onClose }) {
               id="emailSubscriptionStatus"
               name="emailSubscriptionStatus"
               type={'text'}
-              options={priorityOptions}
+              options={emailOptions}
               value={formik.values.emailSubscriptionStatus}
               onChange={(value) => formik.setFieldValue('emailSubscriptionStatus', value.value)}
               onBlur={formik.handleBlur}

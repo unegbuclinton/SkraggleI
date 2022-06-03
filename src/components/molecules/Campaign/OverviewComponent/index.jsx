@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { campaignOverview } from 'validation/Schema';
 import {
@@ -16,6 +17,11 @@ import {
 } from './styles';
 
 const CampaignOverview = () => {
+  const { campaignByID } = useSelector((state) => state.campaign);
+  console.log(campaignByID);
+  const { name, description, status, fundraising_goal } = campaignByID;
+  const statusToCap = status.toUpperCase();
+
   const formik = useFormik({
     initialValues: {
       task: ''
@@ -96,19 +102,19 @@ const CampaignOverview = () => {
 
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Campaign Name</p>
-          <h1 className="campaign-name__description">African Orphan Kids</h1>
+          <h1 className="campaign-name__description">{`${name}`}</h1>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Description</p>
-          <h1 className="campaign-name__description">Lorem Ipsum</h1>
+          <h1 className="campaign-name__description">{`${description}`}</h1>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">Active</Button>
+          <Button className="campaign-name__button">{`${statusToCap}`}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
-          <h1 className="campaign-name__description">$15,000</h1>
+          <h1 className="campaign-name__description">{`${fundraising_goal}`}</h1>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Progress</p>

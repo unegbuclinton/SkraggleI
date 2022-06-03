@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
+import { useSelector } from 'react-redux';
 import {
   AddressContainer,
   ButtonContainer,
@@ -11,7 +12,14 @@ import {
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, formik }) {
+function ContactStepTwo({ onClose, formik, isLoading }) {
+  console.log(isLoading);
+  const { tagsData } = useSelector((state) => state.contact);
+  const { houseHolds } = useSelector((state) => state.contact);
+
+  const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
+  const household = houseHolds.map((current) => ({ value: current?.id, label: current?.name }));
+
   const houseOptions = [
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },
@@ -117,12 +125,16 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>HOUSEHOLD</FormLabel>
           <SelectDropDown
             className="dropdown"
+            // isMulti="true"
             type={'text'}
             id="household"
             name="household"
-            options={houseOptions}
+            options={household}
             value={formik.values.household}
-            onChange={(value) => formik.setFieldValue('household', value.value)}
+            onChange={(value) => {
+              // console.log(value);
+              formik.setFieldValue('household', value.value);
+            }}
             onBlur={formik.handleBlur}
           />
           {formik.touched.household && formik.errors.household ? (
@@ -159,12 +171,19 @@ function ContactStepTwo({ onClose, formik }) {
           <FormLabel>TAGS</FormLabel>
           <SelectDropDown
             className="dropdown"
+            isMulti="true"
             type={'text'}
             id="tags"
             name="tags"
-            options={houseOptions}
-            value={formik.values.tags}
-            onChange={(value) => formik.setFieldValue('tags', value.value)}
+            options={tagz}
+            // value={formik.values.tags}
+            onChange={(value) => {
+              console.log(value);
+              formik.setFieldValue(
+                'tags',
+                value.map((curr) => curr.value)
+              );
+            }}
             onBlur={formik.handleBlur}
           />
           {formik.touched.tags && formik.errors.tags ? (
@@ -174,7 +193,7 @@ function ContactStepTwo({ onClose, formik }) {
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" className="continue" loading={isLoading}>
               Save
             </Button>
           </ButtonContainer>

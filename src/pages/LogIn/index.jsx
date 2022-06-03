@@ -2,16 +2,18 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
 import Input from 'components/atoms/Input/Input';
+import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
 import { FormWrapper, LoginLink } from './styles';
 
 const LogIn = () => {
+  const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -70,8 +72,8 @@ const LogIn = () => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button type="submit" className="login-button">
-            LOG IN
+          <Button type="submit" className="login-button" disabled={isLoading}>
+            {isLoading ? <Spinner /> : 'LOG IN'}
           </Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>
