@@ -57,7 +57,7 @@ function CreateteNewHouseHold({ onClose }) {
               Cancel
             </Button>
 
-            <Button loading={isLoading} type="submit" className="continue">
+            <Button type="submit" className="continue" loading={isLoading}>
               Continue
             </Button>
           </ButtonContainer>

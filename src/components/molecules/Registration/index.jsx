@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
+import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { registerUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
@@ -109,8 +110,8 @@ function Registration() {
             <CatchError>{formik.errors.confirmPassword}</CatchError>
           ) : null}
           <div className="reg__btn">
-            <Button auth type="submit">
-              Sign up
+            <Button auth type="submit" loading={isLoading}>
+              {isLoading ? <Spinner /> : 'Sign up'}
             </Button>
           </div>
 

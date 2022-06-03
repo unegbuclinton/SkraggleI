@@ -106,6 +106,7 @@ export const contactSlice = createSlice({
 
     //CREATE TAGS
     [createTags.fulfilled]: (state) => {
+      state.isLoading = true;
       state.tagsCreated = true;
     },
 
