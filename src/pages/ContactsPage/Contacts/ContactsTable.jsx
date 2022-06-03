@@ -23,19 +23,20 @@ import { TableWrapper } from './styles';
 function ContactsTable() {
   // const [input, setInput] = useState('');
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-  const [active, setActive] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const { contactData } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
 
   const handleSelect = (row) => {
-    row.selectedRows.map(({ id }) => setGetId(id));
-    setActive(!active);
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
   };
 
   const handleDelete = () => {
     const body = {
-      contacts: [getId]
+      contacts: getId
     };
     dispatch(delContact(body));
     dispatch(viewContact());
@@ -110,8 +111,8 @@ function ContactsTable() {
               header={`${contactData?.length} Contacts`}
               setOpen={setOpen}
               setOpenDeleteModal={setOpenDeleteModal}
-              active={active}
-              setActive={setActive}
+              selectRow={`${rowCount} Selected`}
+              show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}
             />
             <Table

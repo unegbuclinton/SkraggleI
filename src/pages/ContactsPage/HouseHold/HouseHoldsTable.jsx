@@ -17,16 +17,17 @@ function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
   const [getId, setGetId] = useState('');
-  const [active, setActive] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const handleSelect = (row) => {
-    row.selectedRows.map(({ id }) => setGetId(id));
-    setActive(!active);
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
   };
   console.log(getId);
   const handleDelete = () => {
     const body = {
-      households: [getId]
+      households: getId
     };
     dispatch(delHouseHold(body));
     dispatch(allHouseHold());
@@ -81,10 +82,10 @@ function HouseHoldsTable() {
             <TableHeader
               title="Add Household"
               header={`${houseHolds.length} Households`}
+              selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
               setOpenDeleteModal={setOpenDeleteModal}
-              active={active}
-              setActive={setActive}
+              show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}
             />
             <Table

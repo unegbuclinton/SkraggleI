@@ -16,19 +16,20 @@ function TagsTable() {
   const { tagsData } = useSelector((state) => state.contact);
   const [open, setOpen] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-  const [active, setActive] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const dispatch = useDispatch();
   const handleSelect = (row) => {
-    row.selectedRows.map(({ id }) => setGetId(id));
-    setActive(!active);
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
   };
 
   const handleDelete = () => {
     const body = {
-      tags: [getId]
+      tags: getId
     };
     dispatch(delTag(body));
     dispatch(viewTags());
@@ -50,10 +51,10 @@ function TagsTable() {
             <TableHeader
               title="Create Tag"
               header={`${tagsData.length} Tags`}
+              selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
               setOpenDeleteModal={setOpenDeleteModal}
-              active={active}
-              setActive={setActive}
+              show={!!getId.length}
             />
             <Table
               columns={columns}
