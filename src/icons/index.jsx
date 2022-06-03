@@ -1,6 +1,5 @@
 export { ReactComponent as DPIconEventActive } from 'icons/svgs/active.svg';
 export { ReactComponent as DPIconAdd } from 'icons/svgs/add.svg';
-export { ReactComponent as DPIconAddam } from 'icons/svgs/addam.svg';
 export { ReactComponent as DPIconApproved } from 'icons/svgs/approved.svg';
 export { ReactComponent as DPIconsArrowLeft } from 'icons/svgs/arrow-left.svg';
 export { ReactComponent as DPIconsArrowRight } from 'icons/svgs/arrow-right.svg';
@@ -60,6 +59,7 @@ export { ReactComponent as DPIconSearch } from 'icons/svgs/search.svg';
 export { ReactComponent as DPIconSetting } from 'icons/svgs/setting.svg';
 export { ReactComponent as DPIconSkraggleLogoLight } from 'icons/svgs/skraggle-logo-light.svg';
 export { ReactComponent as DPIconSkraggleLogo } from 'icons/svgs/skraggle-logo.svg';
+export { ReactComponent as DPIconSpinner } from 'icons/svgs/spinner.svg';
 export { ReactComponent as DPIconTag } from 'icons/svgs/tag.svg';
 export { ReactComponent as DPIconThankYou } from 'icons/svgs/thankyouIcon.svg';
 export { ReactComponent as DPIconTodo } from 'icons/svgs/todo_list.svg';

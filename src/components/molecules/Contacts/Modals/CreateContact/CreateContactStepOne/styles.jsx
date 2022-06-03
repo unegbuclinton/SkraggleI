@@ -70,15 +70,11 @@ export const ButtonContainer = styled.div`
     height: 4.8rem;
     border: 0.1rem solid ${COLORS['tabel-btn-grey']};
     border-radius: 0.5rem;
-    background-color: ${COLORS.white};
-    color: ${COLORS['tabel-btn-grey']};
   }
 
   .continue {
     width: 14rem;
     height: 4.8rem;
     border-radius: 0.5rem;
-    background-color: ${COLORS.pink};
-    color: ${COLORS.white};
   }
 `;

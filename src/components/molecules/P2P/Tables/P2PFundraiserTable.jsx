@@ -4,9 +4,10 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
+import { getEachP2p } from 'features/p2p/p2pslice';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import datas from 'utilities/filterData.json';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
@@ -14,9 +15,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 function P2PTable() {
   const { p2pData } = useSelector((state) => state.p2p);
-  // const { campaigns } = useSelector((state) => state.campaign);
-  // const campaignName = campaigns.map((current) => ({ value: current?.name }));
-  // console.log(campaignName);
 
   const columns = [
     {
@@ -69,9 +67,11 @@ function P2PTable() {
   const itemsPerPage = 5;
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onRowClicked = (row) => {
     navigate(`/peer-to-peer/${row.key + 1}`, { state: row });
+    dispatch(getEachP2p(row.id));
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);

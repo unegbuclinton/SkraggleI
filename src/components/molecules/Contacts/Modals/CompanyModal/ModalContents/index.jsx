@@ -108,7 +108,7 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" loading={isLoading} className="continue">
+            <Button type="submit" disabled={isLoading} className="continue">
               Save
             </Button>
           </ButtonContainer>

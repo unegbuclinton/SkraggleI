@@ -12,7 +12,8 @@ import {
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, formik }) {
+function ContactStepTwo({ onClose, formik, isLoading }) {
+  console.log(isLoading);
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
@@ -130,7 +131,10 @@ function ContactStepTwo({ onClose, formik }) {
             name="household"
             options={household}
             value={formik.values.household}
-            onChange={(value) => formik.setFieldValue('household', value.value)}
+            onChange={(value) => {
+              // console.log(value);
+              formik.setFieldValue('household', value.value);
+            }}
             onBlur={formik.handleBlur}
           />
           {formik.touched.household && formik.errors.household ? (
@@ -189,7 +193,7 @@ function ContactStepTwo({ onClose, formik }) {
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" className="continue" loading={isLoading}>
               Save
             </Button>
           </ButtonContainer>

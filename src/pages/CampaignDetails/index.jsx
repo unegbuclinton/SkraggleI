@@ -8,8 +8,12 @@ import LandingPagesTable from 'components/molecules/Campaign/Tables/LandingPages
 import MailBlastTable from 'components/molecules/Campaign/Tables/MailBlastTable';
 import P2PTable from 'components/molecules/Campaign/Tables/P2PTables';
 import Tabs from 'components/molecules/Tabs';
+// import { singleCampaign } from 'features/campaign/campaignSlice';
 import { React } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+// import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const CampaignDetails = () => {
   const links = [
@@ -43,8 +47,8 @@ const CampaignDetails = () => {
     }
   ];
 
-  const location = useLocation();
-  const name = location.state.campaign;
+  const { campaignByID } = useSelector((state) => state.campaign);
+  const { name } = campaignByID;
 
   return (
     <DashboardLayout

@@ -19,10 +19,11 @@ const GlobalStyle = createGlobalStyle`
     }
     ::-webkit-scrollbar-thumb {
         background: ${COLORS['grey-200']};
-        border-radius: 20px;
+        border-radius: 5px;
     }
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 6px;
+        height: 6px;
     }
     ::-webkit-scrollbar-track {
         background: ${COLORS['grey-600']};
