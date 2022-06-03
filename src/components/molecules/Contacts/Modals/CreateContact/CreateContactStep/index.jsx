@@ -71,12 +71,17 @@ const MultiStepForm = ({ onClose }) => {
     // assignee: formik.values.assignee
   };
 
-  console.log(formik.values.tags);
   const handleCreateContact = () => {
-    dispatch(createContact(body)).then(() => {
-      toast.success('Contact Created Successfully');
-      onClose();
-      dispatch(viewContact());
+    dispatch(createContact(body)).then((data) => {
+      console.log(data);
+      if (data.payload) {
+        toast.success('Contact Created Successfully');
+        onClose();
+        dispatch(viewContact());
+      }
+      if (data.payload === undefined) {
+        onClose();
+      }
     });
   };
 

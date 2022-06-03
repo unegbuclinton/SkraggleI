@@ -188,7 +188,7 @@ function P2PModalComponent({ onClose, isShown }) {
             <Input
               className="modal-inputs__goals"
               containerClass="modal-inputs__container-input"
-              type="text"
+              type="number"
               placeholder="Enter Amount"
               id="goalAmount"
               name="goalAmount"
@@ -219,7 +219,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <h1>Offline Amount</h1>
           <Input
             className="modal-inputs"
-            type="text"
+            type="number"
             placeholder="Enter Amount"
             id="offlineAmount"
             name="offlineAmount"
@@ -234,7 +234,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <h1>Offline Donation</h1>
           <Input
             className="modal-inputs"
-            type="text"
+            type="number"
             placeholder="Enter Amount"
             id="offlineDonation"
             name="offlineDonation"

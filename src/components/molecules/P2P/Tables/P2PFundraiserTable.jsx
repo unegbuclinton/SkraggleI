@@ -15,7 +15,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 function P2PTable() {
   const { p2pData } = useSelector((state) => state.p2p);
-  console.log(p2pData);
 
   const columns = [
     {

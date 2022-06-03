@@ -3,6 +3,7 @@ import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import {
   allHouseHold,
   getAllCompanies,
@@ -56,6 +57,10 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewP2P());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllCampaigns());
   }, []);
 
   return (

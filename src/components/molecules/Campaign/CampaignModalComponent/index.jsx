@@ -18,7 +18,7 @@ const CampaignModalComponent = ({ onClose }) => {
   const dispatch = useDispatch();
   const { contactData } = useSelector((state) => state.contact);
 
-  const followers = contactData.map((current) => ({
+  const followers = contactData?.map((current) => ({
     value: current?.id,
     label: current?.first_name
   }));

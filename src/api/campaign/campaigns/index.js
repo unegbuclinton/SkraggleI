@@ -2,7 +2,7 @@ import request from 'apiInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const getCampaings = async () => {
+export const getCampaigns = async () => {
   try {
     const response = await request({
       method: 'get',
@@ -25,6 +25,19 @@ export const addCampaign = async (body) => {
     return response.data;
   } catch (error) {
     toast.error();
+    console.log(error);
+  }
+};
+
+export const individualCampaign = async (id) => {
+  try {
+    const campaignResponse = await request({
+      method: 'get',
+      url: `/campaigns/${id}`
+    });
+
+    return campaignResponse?.data?.message;
+  } catch (error) {
     console.log(error);
   }
 };
