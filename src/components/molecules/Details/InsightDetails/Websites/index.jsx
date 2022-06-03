@@ -1,9 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import EditWebsiteModal from 'components/molecules/Contacts/SubModals/EditWebsiteModal/MainModal';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { WebsiteContainer, WebsiteHeading, WebsiteWrapper } from './styles';
 
 function Websites() {
+  const { eachContact } = useSelector((state) => state.contact);
+
+  const { instagram, facebook, linkedin, youtube, twitter, website, other_websites } = eachContact;
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
@@ -24,31 +28,31 @@ function Websites() {
       </WebsiteHeading>
       <WebsiteContainer>
         <h2 className="title">WEBSITE</h2>
-        <p className="info web">-</p>
+        <p className="info web">{website}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">TWITTER</h2>
-        <p className="info twitter">-</p>
+        <p className="info twitter">{twitter}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">FACEBOOK</h2>
-        <p className="info facebook">-</p>
+        <p className="info facebook">{facebook}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">YOUTUBE</h2>
-        <p className="info youtube">-</p>
+        <p className="info youtube">{youtube}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">LINKEDIN</h2>
-        <p className="info linkdin">-</p>
+        <p className="info linkdin">{linkedin}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">INSTAGRAM</h2>
-        <p className="info instagram">-</p>
+        <p className="info instagram"> {instagram}</p>
       </WebsiteContainer>
       <WebsiteContainer>
         <h2 className="title">OTHER WEBSITES</h2>
-        <p className="info other-web">-</p>
+        <p className="info other-web">{other_websites}</p>
       </WebsiteContainer>
     </WebsiteWrapper>
   );
