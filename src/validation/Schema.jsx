@@ -4,12 +4,7 @@ export const registrationSchema = Yup.object({
   firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
   email: Yup.string().email('invalid Mail').required('Email is Required'),
-  password: Yup.string()
-    .required('Password is required')
-    .matches(
-      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/,
-      'Password must be at least 8 characters including a lowercase letter, an uppercase letter, and a number'
-    ),
+  password: Yup.string(),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Passwords do not match')
@@ -160,41 +155,41 @@ export const volunteerValidationSchema = Yup.object({
   tShirtSize: Yup.string().required('This field is required')
 });
 
-export const AdminEditValidationSchema = Yup.object({
-  originId: Yup.string().required('Origin ID is required'),
-  priority: Yup.string().required('Priority is required'),
-  assignee: Yup.string().required('Assignee is required'),
-  tag: Yup.string().required('Tag is required'),
-  note: Yup.string().required('Note is required'),
-  solicitation: Yup.string().required('This field is required'),
-  emailSubscriptionStatus: Yup.string().required('This field is required')
-});
+// export const AdminEditValidationSchema = Yup.object({
+//   originId: Yup.string().required('Origin ID is required'),
+//   priority: Yup.string().required('Priority is required'),
+//   assignee: Yup.string().required('Assignee is required'),
+//   // tag: Yup.string().required('Tag is required'),
+//   note: Yup.string().required('Note is required'),
+//   solicitation: Yup.string().required('This field is required'),
+//   emailSubscriptionStatus: Yup.string().required('This field is required')
+// });
 
-export const EditContactSchema = Yup.object({
-  phone: Yup.string().required('Phone is required'),
-  email: Yup.string().required('Email is required'),
-  street: Yup.string().required('Street is required'),
-  unit: Yup.string().required('Unit is required'),
-  city: Yup.string().required('City is required'),
-  state: Yup.string().required('State is required'),
-  postal: Yup.string().required('Postal Code is required'),
-  country: Yup.string().required('Country is required')
-});
+// export const EditContactSchema = Yup.object({
+//   phone: Yup.string().required('Phone is required'),
+//   email: Yup.string().required('Email is required'),
+//   street: Yup.string().required('Street is required'),
+//   unit: Yup.string().required('Unit is required'),
+//   city: Yup.string().required('City is required'),
+//   state: Yup.string().required('State is required'),
+//   postal: Yup.string().required('Postal Code is required'),
+//   country: Yup.string().required('Country is required')
+// });
 
-export const editContactProfileSchema = Yup.object({
-  firstName: Yup.string().required('First name is required'),
-  lastName: Yup.string().required('Last name is required'),
-  preferredName: Yup.string().required('Preferred name is required'),
-  phone: Yup.string().required('Phone is required'),
-  dob: Yup.string().required('Date of birth is required'),
-  street: Yup.string().required('Street is required'),
-  unit: Yup.string().required('Unit is required'),
-  country: Yup.string().required('Country is required'),
-  city: Yup.string().required('City is required'),
-  state: Yup.string().required('State is required'),
-  postal: Yup.string().required('Postal/Zip code is required'),
-  email: Yup.string().required('Recipient is required')
-});
+// export const editContactProfileSchema = Yup.object({
+//   firstName: Yup.string().required('First name is required'),
+//   lastName: Yup.string().required('Last name is required'),
+//   preferredName: Yup.string().required('Preferred name is required'),
+//   phone: Yup.string().required('Phone is required'),
+//   dob: Yup.string().required('Date of birth is required'),
+//   street: Yup.string().required('Street is required'),
+//   unit: Yup.string().required('Unit is required'),
+//   country: Yup.string().required('Country is required'),
+//   city: Yup.string().required('City is required'),
+//   state: Yup.string().required('State is required'),
+//   postal: Yup.string().required('Postal/Zip code is required'),
+//   email: Yup.string().required('Recipient is required')
+// });
 
 export const CreateTodoValidationSchema = Yup.object({
   todo: Yup.string().required('Todo is required'),

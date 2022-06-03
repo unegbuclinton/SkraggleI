@@ -7,11 +7,14 @@ import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editContactProfileSchema } from 'validation/Schema';
+// import { editContactProfileSchema } from 'validation/Schema';
 import { EditPersonalInfoForm, EditPersonalInfoRow, EditPersonalLabel } from './styles';
 
 function EditPersonalInfo({ onClose }) {
   const { eachContact } = useSelector((state) => state.contact);
+
+  const { first_name, last_name, gender, primary_phone, birth_date, primary_email, address } =
+    eachContact;
   const contactId = eachContact.id;
   const dispatch = useDispatch();
   const titleOptions = [
@@ -27,22 +30,22 @@ function EditPersonalInfo({ onClose }) {
   const formik = useFormik({
     initialValues: {
       title: '',
-      firstName: '',
-      lastName: '',
+      firstName: first_name,
+      lastName: last_name,
       preferredName: '',
-      gender: '',
-      phone: '',
-      dob: '',
+      gender: gender,
+      phone: primary_phone,
+      dob: birth_date,
       suffix: '',
-      email: '',
-      street: '',
+      email: primary_email,
+      street: address,
       state: '',
       unit: '',
       city: '',
       postal: '',
       country: ''
     },
-    validationSchema: editContactProfileSchema,
+    // validationSchema: editContactProfileSchema,
     onSubmit: (values) => {
       const body = {
         title: values.title,

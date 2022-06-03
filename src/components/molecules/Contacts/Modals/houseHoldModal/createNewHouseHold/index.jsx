@@ -17,6 +17,10 @@ import {
 
 function CreateteNewHouseHold({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 47c4248f2f8b181a59a415d45f395c9caeeeedaf
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -55,8 +59,12 @@ function CreateteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
+<<<<<<< HEAD
 
             <Button type="submit" className="continue" disabled={isLoading}>
+=======
+            <Button loading={isLoading} type="submit" className="continue">
+>>>>>>> 47c4248f2f8b181a59a415d45f395c9caeeeedaf
               Continue
             </Button>
           </ButtonContainer>

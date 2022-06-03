@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authReducer from 'features/auth/authSlice';
 import campaignReducer from 'features/campaign/campaignSlice';
 import contactReducer from 'features/contact/contactSlice';
+import donationReducer from 'features/donation/donationSlice';
 import p2pReducer from 'features/p2p/p2pslice';
 import {
   FLUSH,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
   auth: authReducer,
   contact: contactReducer,
   campaign: campaignReducer,
-  p2p: p2pReducer
+  p2p: p2pReducer,
+  donation: donationReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

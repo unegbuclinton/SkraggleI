@@ -1,7 +1,9 @@
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { editWebsiteSchema } from 'validation/Schema';
 import {
   AddAddressButton,
@@ -13,6 +15,9 @@ import {
 } from './styles';
 
 function EditWebsiteModalComponent({ onClose }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const websiteId = eachContact.id;
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       website: '',
@@ -20,11 +25,22 @@ function EditWebsiteModalComponent({ onClose }) {
       facebook: '',
       instagram: '',
       linkedin: '',
-      youtube: ''
+      youtube: '',
+      otherWebsite: ''
     },
     validationSchema: editWebsiteSchema,
     onSubmit: (values) => {
-      alert({ values });
+      const body = {
+        website: values.website,
+        twitter: values.twitter,
+        facebook: values.facebook,
+        instagram: values.instagram,
+        linkedin: values.linkedin,
+        youtube: values.youtube,
+        otherWebsite: values.otherWebsite
+      };
+      dispatch(updateContact({ body: body, id: websiteId }));
+      onClose();
     }
   });
   return (

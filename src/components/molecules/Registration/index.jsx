@@ -1,11 +1,12 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
+import Requirements from 'components/atoms/PasswordRequirements/requirements';
 import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { registerUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { registrationSchema } from 'validation/Schema';
@@ -15,6 +16,10 @@ import { CatchError, Form } from './styles';
 function Registration() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [long, longEnough] = useState(false);
+  const [number, hasNumber] = useState(false);
+  const [password, hasPassword] = useState(false);
+  const [lowerCase, isLowerCase] = useState(false);
   const { isLoading } = useSelector((state) => state.auth);
 
   const formik = useFormik({
@@ -25,21 +30,32 @@ function Registration() {
       password: '',
       confirmPassword: ''
     },
+    validate: (values) => {
+      !values.password ? hasPassword(false) : hasPassword(true);
+      values.password.length < 8 ? longEnough(false) : longEnough(true);
+      !/\d/.test(values.password) ? hasNumber(false) : hasNumber(true);
+      !/[a-z]/.test(values.password) ? isLowerCase(false) : isLowerCase(true);
+    },
     validationSchema: registrationSchema,
     onSubmit: (values) => {
-      const body = {
-        first_name: values.firstName,
-        last_name: values.lastName,
-        email: values.email,
-        password: values.password
-      };
-      dispatch(registerUser(body))
-        .then((data) => {
-          if (data.payload.success) {
-            navigate('/otp-verify', { state: values.email });
-          }
-        })
-        .catch((error) => error);
+      if (!long || !number || !password || !lowerCase) {
+        formik.errors.password = "Your password doesn't currently meet the requirements";
+        formik.setSubmitting(false);
+      } else {
+        const body = {
+          first_name: values.firstName,
+          last_name: values.lastName,
+          email: values.email,
+          password: values.password
+        };
+        dispatch(registerUser(body))
+          .then((data) => {
+            if (data.payload.success) {
+              navigate('/otp-verify', { state: values.email });
+            }
+          })
+          .catch((error) => error);
+      }
     }
   });
 
@@ -48,7 +64,7 @@ function Registration() {
       {isLoading === true && <LoadingScreen />}
       <Form onSubmit={formik.handleSubmit}>
         <Card className="signup-card">
-          <p className="signup-header"> Sign up</p>
+          <p className="signup-header">Sign up</p>
           <Input
             type="text"
             id="firstName"
@@ -88,6 +104,7 @@ function Registration() {
           <Input
             type="password"
             id="password"
+            required
             name="password"
             placeholder="Password"
             onChange={formik.handleChange}
@@ -97,6 +114,7 @@ function Registration() {
           {formik.touched.password && formik.errors.password ? (
             <CatchError>{formik.errors.password}</CatchError>
           ) : null}
+          <Requirements long={long} number={number} required={password} lowercase={lowerCase} />
           <Input
             type="password"
             id="confirmPassword"
