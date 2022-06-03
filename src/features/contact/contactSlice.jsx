@@ -66,15 +66,14 @@ export const contactSlice = createSlice({
     [viewContact.rejected]: (state) => {
       state.isLoading = false;
     },
-
+    [createNewCompany.pending]: (state) => {
+      state.isLoading = true;
+    },
     [createNewCompany.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [createNewCompany.rejected]: (state) => {
       state.isLoading = false;
-    },
-    [createNewCompany.pending]: (state) => {
-      state.isLoading = true;
     },
 
     [getAllCompanies.fulfilled]: (state, action) => {
@@ -91,7 +90,7 @@ export const contactSlice = createSlice({
       state.isLoading = true;
     },
     [createHouseHold.fulfilled]: (state) => {
-      state.isLoading = true;
+      state.isLoading = false;
     },
     [createHouseHold.rejected]: (state) => {
       state.isLoading = false;
@@ -105,12 +104,11 @@ export const contactSlice = createSlice({
     },
 
     //CREATE TAGS
-    [createTags.fulfilled]: (state) => {
+    [createTags.pending]: (state) => {
       state.isLoading = true;
-      state.tagsCreated = true;
     },
-
-    [createTags.rejected]: (state) => {
+    [createTags.fulfilled]: (state) => {
+      state.isLoading = false;
       state.tagsCreated = false;
     },
 

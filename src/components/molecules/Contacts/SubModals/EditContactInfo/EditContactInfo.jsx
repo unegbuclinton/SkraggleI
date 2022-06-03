@@ -2,24 +2,32 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 import { CatchError } from 'components/molecules/Registration/styles';
+import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { EditContactSchema } from 'validation/Schema';
+import { useDispatch, useSelector } from 'react-redux';
+// import { EditContactSchema } from 'validation/Schema';
 import { EditContactInfoForm, EditContactInfoRow, EditContactlLabel } from './styles';
 
 function EditContactInfo({ onCloseModal }) {
+  const { eachContact } = useSelector((state) => state.contact);
+  const contactInfoId = eachContact.id;
+
+  const dispatch = useDispatch();
   const [email, setEmail] = useState([
     { placeholder: 'Home Email', id: 'homeEmail', name: 'homeEmail' },
     { placeholder: 'Work Email', id: 'workEmail', name: 'workEmail' }
   ]);
 
+  // const [dynamicName, setDynamicName] = useState({});
+
   const [phone, setPhone] = useState([
     { placeholder: 'Home Phone', id: 'homePhone', name: 'homePhone' },
     { placeholder: 'Work Phone', id: 'workPhone', name: 'workPhone' }
   ]);
-  const newPhone = { placeholder: 'Other Phone', id: 'otherPhone', name: 'otherPhone' };
+  const newPhone = { placeholder: 'Other Phone', name: 'otherPhone' };
 
-  const newEmail = { placeholder: 'Other Email', id: 'otherEmail', name: 'otherEmail' };
+  const newEmail = { placeholder: 'Other Email', name: 'otherEmail' };
 
   const addEmail = () => {
     setEmail([...email, newEmail]);
@@ -31,9 +39,9 @@ function EditContactInfo({ onCloseModal }) {
   const formik = useFormik({
     initialValues: {
       email: '',
-      homeMail: '',
+      homeEmail: '',
       phone: '',
-      workMail: '',
+      workEmail: '',
       homePhone: '',
       workPhone: '',
       street: '',
@@ -54,9 +62,23 @@ function EditContactInfo({ onCloseModal }) {
       workState: '',
       workPostal: '',
       workCountry: ''
+      // ...dynamicName
     },
-    validationSchema: EditContactSchema,
-    onSubmit: () => {}
+    // validationSchema: EditContactSchema,
+    onSubmit: (values) => {
+      const body = {
+        primary_email: values.email,
+        home_email: values.homeEmail,
+        work_email: values.workEmail,
+        home_phone: values.homePhone,
+        work_phone: values.workPhone,
+        primary_phone: values.phone,
+        home_address: values.homeStreet,
+        work_address: values.workStreet
+      };
+      dispatch(updateContact({ body: body, id: contactInfoId }));
+      onCloseModal();
+    }
   });
   return (
     <EditContactInfoForm onSubmit={formik.handleSubmit}>
@@ -78,7 +100,25 @@ function EditContactInfo({ onCloseModal }) {
           ) : null}
 
           <EditContactInfoRow>
-            {email.map(({ placeholder, name, id, label }) => (
+            <Input
+              placeholder="Home Email"
+              id="homeEmail"
+              name="homeEmail"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="contact-edit__input"
+              value={formik.values.homeEmail}
+            />
+            <Input
+              placeholder="Work Email"
+              id="workEmail"
+              name="workEmail"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="contact-edit__input"
+              value={formik.values.workEmail}
+            />
+            {/* {email.map(({ placeholder, name, id, label }) => (
               <div key={Math.random()}>
                 <EditContactlLabel>{label}</EditContactlLabel>
                 <Input
@@ -90,7 +130,7 @@ function EditContactInfo({ onCloseModal }) {
                   className="contact-edit__input"
                 />
               </div>
-            ))}
+            ))} */}
           </EditContactInfoRow>
           <div className="add-input-btn">
             <Button type="button" className="contact-edit-btn" onClick={addEmail}>
@@ -115,19 +155,41 @@ function EditContactInfo({ onCloseModal }) {
             <CatchError>{formik.errors.phone}</CatchError>
           ) : null}
           <EditContactInfoRow>
-            {phone.map(({ placeholder, name, id, label }) => (
-              <div key={Math.random()}>
-                <EditContactlLabel>{label}</EditContactlLabel>
-                <Input
-                  placeholder={placeholder}
-                  id={id}
-                  name={name}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className="contact-edit__input"
-                />
-              </div>
-            ))}
+            <Input
+              placeholder="Home Phone"
+              id="homePhone"
+              name="homePhone"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="contact-edit__input"
+              value={formik.values.homePhone}
+            />
+            <Input
+              placeholder="Work Phone"
+              id="workPhone"
+              name="workPhone"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="contact-edit__input"
+              value={formik.values.workPhone}
+            />
+            {/* {phone.map(({ placeholder, name, id, label }, index) => {
+              let labelName = `${name}${index}`;
+              // setDynamicName({ ...dynamicName, labelName });
+              return (
+                <div key={Math.random()}>
+                  <EditContactlLabel>{label}</EditContactlLabel>
+                  <Input
+                    placeholder={placeholder}
+                    id={id}
+                    name={labelName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className="contact-edit__input"
+                  />
+                </div>
+              );
+            })} */}
           </EditContactInfoRow>
           <div className="add-input-btn">
             <Button type="button" className="contact-edit-btn" onClick={addPhone}>
@@ -165,8 +227,8 @@ function EditContactInfo({ onCloseModal }) {
             ) : null}
             <Input
               placeholder="Postal/Zip"
-              id="Postal"
-              name="Postal"
+              id="postal"
+              name="postal"
               className="contact-edit__input"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}

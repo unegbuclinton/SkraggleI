@@ -17,7 +17,6 @@ import {
 
 function CreateteNewHouseHold({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
-  console.log(isLoading);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -57,7 +56,7 @@ function CreateteNewHouseHold({ onClose }) {
               Cancel
             </Button>
 
-            <Button type="submit" className="continue" loading={isLoading}>
+            <Button disabled={isLoading} type="submit" className="continue">
               Continue
             </Button>
           </ButtonContainer>

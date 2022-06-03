@@ -72,7 +72,7 @@ const LogIn = () => {
               Forgot Password?
             </LoginLink>
           </div>
-          <Button type="submit" className="login-button" loading={isLoading}>
+          <Button type="submit" className="login-button" disabled={isLoading}>
             {isLoading ? <Spinner /> : 'LOG IN'}
           </Button>
           <p className="login-card__signup-link">
