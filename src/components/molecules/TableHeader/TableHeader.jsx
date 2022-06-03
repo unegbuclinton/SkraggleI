@@ -1,10 +1,15 @@
 import Button from 'components/atoms/Button/Button';
-import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import { DPIconAdd, DPIconDropDown } from 'icons';
-import React, { useState } from 'react';
-import { datas1 } from 'utilities/overviewData';
-import { ActionWrapper, Delete, HeaderWrapper, HeadingAction } from './styles';
+import { DPIconAdd, DPIconDelete, DPIconDropDown } from 'icons';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  ActionContentWrapper,
+  ActionWrapper,
+  Delete,
+  HeaderWrapper,
+  HeadingAction
+} from './styles';
 
 function TableHeader({
   title,
@@ -16,17 +21,30 @@ function TableHeader({
   setOpenDeleteModal,
   show
 }) {
-  const [selected, setSelected] = useState('Filters');
   const [dropDown, setDropDown] = useState(false);
   const handleDelete = () => {
     setOpenDeleteModal(true);
     setDropDown(false);
   };
+  const ref = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (dropDown && ref.current && !ref.current.contains(e.target)) {
+        setDropDown(false);
+      }
+    };
+
+    document.body.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.body.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [dropDown]);
   return (
     <HeaderWrapper>
       <HeadingAction>
         {show ? <h2 className="heading">{selectRow}</h2> : <h2 className="heading">{header}</h2>}
-        <div className="container">
+        <div className="container" ref={ref}>
           {show && (
             <Button onClick={() => setDropDown(!dropDown)} className="dropdown-btn">
               Action <DPIconDropDown className="icon-dropdown" />
@@ -34,7 +52,10 @@ function TableHeader({
           )}
           {dropDown && (
             <ActionWrapper>
-              <Delete onClick={handleDelete}>Delete</Delete>
+              <ActionContentWrapper>
+                <DPIconDelete className="delete-icon" />
+                <Delete onClick={handleDelete}>Delete</Delete>
+              </ActionContentWrapper>
             </ActionWrapper>
           )}
         </div>
@@ -44,7 +65,11 @@ function TableHeader({
           ''
         ) : (
           <>
-            <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
+            <SelectDropDown
+              className="select-dropdown"
+              classNamePrefix="react-select"
+              placeholder="Filter"
+            />
             <SearchBar onChange={onChange} />
           </>
         )}
