@@ -24,7 +24,7 @@ function HouseHoldsTable() {
     setGetId(checkedRows);
     setRowCount(row.selectedCount);
   };
-  console.log(getId);
+
   const handleDelete = () => {
     const body = {
       households: getId
