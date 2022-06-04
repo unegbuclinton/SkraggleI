@@ -52,9 +52,9 @@ function TableHeader({
           )}
           {dropDown && (
             <ActionWrapper>
-              <ActionContentWrapper onClick={handleDelete}>
+              <ActionContentWrapper>
                 <DPIconDelete className="delete-icon" />
-                <Delete>Delete</Delete>
+                <Delete onClick={handleDelete}>Delete</Delete>
               </ActionContentWrapper>
             </ActionWrapper>
           )}
