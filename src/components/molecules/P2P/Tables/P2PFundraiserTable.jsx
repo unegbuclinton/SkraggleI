@@ -4,7 +4,7 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import Pagination from 'components/molecules/Pagination';
-import { getEachP2p } from 'features/p2p/p2pslice';
+import { getEachP2p } from 'features/p2p/p2pSlice';
 import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
