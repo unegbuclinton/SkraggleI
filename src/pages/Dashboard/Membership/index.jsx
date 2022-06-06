@@ -1,9 +1,9 @@
-import React from 'react';
-import { MembershipBody, MembershipWrapper } from './styles';
 import Button from 'components/atoms/Button/Button';
-import { DPIconMembership } from 'icons';
 import Card from 'components/atoms/Card';
+import { DPIconMembership } from 'icons';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MembershipBody, MembershipWrapper } from './styles';
 
 function Membership() {
   const navigate = useNavigate();

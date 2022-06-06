@@ -4,7 +4,7 @@ import ErrorMessage from 'components/atoms/ErrorMessage';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import TextArea from 'components/atoms/TextArea';
+// import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
 import { createP2P, viewP2P } from 'features/p2p/p2pslice';
 import { useFormik } from 'formik';
@@ -20,6 +20,7 @@ function P2PModalComponent({ onClose, isShown }) {
   const { campaigns } = useSelector((state) => state.campaign);
   const campaign = campaigns.map((current) => ({ value: current?.id, label: current?.name }));
 
+  const { isLoading } = useSelector((state) => state.p2p);
   const formik = useFormik({
     initialValues: {
       campaignName: '',
@@ -80,6 +81,21 @@ function P2PModalComponent({ onClose, isShown }) {
     e.target.focus();
     alert('Text Copied');
   }, []);
+  // const campaignOptions = [
+  //   { value: 'Location', label: 'Location' },
+  //   { value: 'Renovation', label: 'Renovation' },
+  //   { value: 'Charity', label: 'Charity' }
+  // ];
+  // const designationOptions = [
+  //   { value: 'One-time', label: 'One-time' },
+  //   { value: 'Recurring', label: 'Recurring' },
+  //   { value: 'Infinite', label: 'Infinite' }
+  // ];
+  // const currencyOptions = [
+  //   { value: 'USD', label: 'USD' },
+  //   { value: 'NGN', label: 'NGN' },
+  //   { value: 'INR', label: 'INR' }
+  // ];
 
   return showFirstModal ? (
     <Modal
@@ -182,7 +198,6 @@ function P2PModalComponent({ onClose, isShown }) {
           {formik.touched.email && formik.errors.email ? (
             <ErrorMessage>{formik.errors.email}</ErrorMessage>
           ) : null}
-
           <h1>Goal</h1>
           <div className="select-goals">
             <Input
@@ -262,7 +277,25 @@ function P2PModalComponent({ onClose, isShown }) {
           ) : null}
 
           <h1>Personal Message</h1>
-          <TextArea maxLength={120} />
+          {/* <TextArea
+            id="personalMessage"
+            name="personalMessage"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.personalMessage}
+            maxLength={120}
+          /> */}
+          <textarea
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.personalMessage}
+            id="personalMessage"
+            name="personalMessage"
+          />
+          {formik.touched.personalMessage && formik.errors.personalMessage ? (
+            <ErrorMessage>{formik.errors.personalMessage}</ErrorMessage>
+          ) : null}
           <h1>Profile Photo</h1>
 
           <FileUploadButton imgPreview="img-preview__profile">
@@ -281,7 +314,7 @@ function P2PModalComponent({ onClose, isShown }) {
             </FileUploadButton>
           </div>
           <ButtonsContainer>
-            <Button type="submit" className="save-btn" auth>
+            <Button type="submit" className="save-btn" auth loading={isLoading}>
               Create P2P Fundraiser
             </Button>
             <Button onClick={onClose} className="cancel-btn" auth invert>

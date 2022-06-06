@@ -21,8 +21,12 @@ export const p2pSlice = createSlice({
   reducers: {},
   extraReducers: {
     //CREATE P2P
-    [createP2P.fulfilled]: (state) => {
+
+    [createP2P.pending]: (state) => {
       state.isLoading = true;
+    },
+    [createP2P.fulfilled]: (state) => {
+      state.isLoading = false;
     },
 
     [createP2P.rejected]: (state) => {

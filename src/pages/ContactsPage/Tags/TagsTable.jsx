@@ -19,7 +19,7 @@ function TagsTable() {
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+
   const dispatch = useDispatch();
   const handleSelect = (row) => {
     const checkedRows = row.selectedRows.map((cur) => cur.id);
@@ -66,12 +66,7 @@ function TagsTable() {
               handleRowSelect={handleSelect}
             />
           </TableWrapper>
-          <Pagination
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
-            data={tagsData}
-            setCurrentPage={setCurrentPage}
-          />
+          <Pagination currentPage={currentPage} data={tagsData} setCurrentPage={setCurrentPage} />
         </div>
       ) : (
         <TagsEmptyState setOpen={setOpen} />

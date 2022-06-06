@@ -18,7 +18,7 @@ import {
 
 const CampaignOverview = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
-  console.log(campaignByID);
+
   const { name, description, status, fundraising_goal } = campaignByID;
   const statusToCap = status?.toUpperCase();
 
@@ -27,9 +27,7 @@ const CampaignOverview = () => {
       task: ''
     },
     validationSchema: campaignOverview,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    }
+    onSubmit: () => {}
   });
 
   const data = [

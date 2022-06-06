@@ -8,7 +8,6 @@ export const getCampaigns = async () => {
       method: 'get',
       url: '/campaigns?cursor=0&direction=after&limit=20'
     });
-    console.log(response);
     return response?.data?.message?.rows;
   } catch (error) {
     return error;

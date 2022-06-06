@@ -97,7 +97,7 @@ export const contactSlice = createSlice({
       state.isLoading = false;
     },
     [createHouseHold.rejected]: (state) => {
-      state.isSuccess = false;
+      state.isLoading = false;
     },
     [allHouseHold.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -112,11 +112,6 @@ export const contactSlice = createSlice({
       state.isLoading = true;
     },
     [createTags.fulfilled]: (state) => {
-      state.isLoading = false;
-      state.tagsCreated = true;
-    },
-
-    [createTags.rejected]: (state) => {
       state.isLoading = false;
       state.tagsCreated = false;
     },

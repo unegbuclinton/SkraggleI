@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
+
 function HouseHoldsTable() {
   const { houseHolds } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
