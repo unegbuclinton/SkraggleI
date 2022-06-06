@@ -1,17 +1,23 @@
+import Button from 'components/atoms/Button/Button';
 import React from 'react';
 import { BtnWrapper } from './styles';
-import Button from 'components/atoms/Button/Button';
 
-function TableBtn() {
+function TableBtn({ active }) {
   return (
     <BtnWrapper>
-      <Button pill className="table-button">
-        {' '}
-        Muslim{' '}
-      </Button>
-      <Button pill className="table-button">
-        Volunteer
-      </Button>
+      {active ? (
+        <Button className="active-table-btn"> Active </Button>
+      ) : (
+        <>
+          {' '}
+          <Button pill className="table-button">
+            Muslim
+          </Button>
+          <Button pill className="table-button">
+            Volunteer
+          </Button>
+        </>
+      )}
     </BtnWrapper>
   );
 }

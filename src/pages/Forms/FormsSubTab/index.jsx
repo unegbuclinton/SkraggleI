@@ -5,7 +5,7 @@ import React from 'react';
 function FormsSubTab() {
   return (
     <DashboardLayout>
-      <Tabs />
+      <Tabs tabs title="Forms Name" heading="My awesome campaign" link="FUNYNYMGFTN" plainTab />
     </DashboardLayout>
   );
 }
