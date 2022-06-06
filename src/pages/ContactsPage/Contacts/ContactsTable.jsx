@@ -3,10 +3,17 @@ import CheckBox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import ContactsModal from 'components/molecules/Contacts/Modals/CreateContact/ContactsModal/index';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact';
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { getAllInteractions, getAllVolunteer, oneContact } from 'features/contact/contactSlice';
+import {
+  delContact,
+  getAllInteractions,
+  getAllVolunteer,
+  oneContact,
+  viewContact
+} from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,8 +22,25 @@ import { TableWrapper } from './styles';
 
 function ContactsTable() {
   // const [input, setInput] = useState('');
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
   const { contactData } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
+
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  const handleDelete = () => {
+    const body = {
+      contacts: getId
+    };
+    dispatch(delContact(body));
+    dispatch(viewContact());
+  };
 
   useEffect(() => {
     dispatch(getAllVolunteer());
@@ -48,11 +72,6 @@ function ContactsTable() {
   };
   const columns = [
     {
-      name: '',
-      cell: () => <CheckBox />,
-      width: '3rem'
-    },
-    {
       name: 'FULL NAME',
       selector: (row) => row.first_name + ' ' + row.last_name,
       width: '16.8rem'
@@ -77,6 +96,13 @@ function ContactsTable() {
   return (
     <>
       <ContactsModal isShown={open} onClose={() => setOpen(false)} />
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these contacts permanently from your Skraggle account. This
+        action cannot be undone"
+      />
       {!!contactData?.length ? (
         <div>
           <TableWrapper>
@@ -84,9 +110,19 @@ function ContactsTable() {
               title="Add Contacts"
               header={`${contactData?.length} Contacts`}
               setOpen={setOpen}
+              setOpenDeleteModal={setOpenDeleteModal}
+              selectRow={`${rowCount} Selected`}
+              show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}
             />
-            <Table columns={columns} data={contactData} onRowClicked={onRowClicked} />
+            <Table
+              columns={columns}
+              data={contactData}
+              onRowClicked={onRowClicked}
+              selectableRows
+              selectableRowsComponent={CheckBox}
+              handleRowSelect={handleSelect}
+            />
           </TableWrapper>
 
           <Pagination

@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addCompanies, getCompanies } from 'api/contacts/company';
+import { addCompanies, deleteCompany, getCompanies } from 'api/contacts/company';
 import { allInteractions, createInteractions } from 'api/contacts/contact-subTab/interactions';
 import { editContact } from 'api/contacts/contact-subTab/profile';
-import { addContact, allContacts, eachContact } from 'api/contacts/contacts';
-import { addHousehold, getAllHouseHold } from 'api/contacts/household';
+import { addContact, allContacts, deleteContact, eachContact } from 'api/contacts/contacts';
+import { addHousehold, deleteHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
-import { addTags, allTags } from 'api/contacts/tags';
+import { addTags, allTags, deleteTag } from 'api/contacts/tags';
 import { addTodo, getTodos } from 'api/contacts/todo';
 import { addVolunteer, getVolunteer } from 'api/contacts/volunteer';
 import { logoutUser } from 'features/auth/authSlice';
@@ -39,6 +39,10 @@ export const getInteraction = createAsyncThunk('contact/getInteraction', createI
 export const updateContact = createAsyncThunk('contact/updateContact', editContact);
 export const getAllInteractions = createAsyncThunk('getAllInteractions', allInteractions);
 export const getAllVolunteer = createAsyncThunk('contact/getAllVolunteer', getVolunteer);
+export const delContact = createAsyncThunk('contact/delContact', deleteContact);
+export const delHouseHold = createAsyncThunk('contact/delHouseHold', deleteHousehold);
+export const delCompany = createAsyncThunk('contact/delCompany', deleteCompany);
+export const delTag = createAsyncThunk('contact/delTag', deleteTag);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);

@@ -2,7 +2,16 @@ import React from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 
-function SelectDropDown({ placeholder, className, options, myValue, onChange, width, isMulti }) {
+function SelectDropDown({
+  placeholder,
+  className,
+  options,
+  myValue,
+  onChange,
+  width,
+  isMulti,
+  isSearchable
+}) {
   const defaultValue = (options, myValue) => {
     return options ? options.find((option) => option.value === myValue) : '';
   };
@@ -15,6 +24,7 @@ function SelectDropDown({ placeholder, className, options, myValue, onChange, wi
         onChange={(value) => onChange(value)}
         options={options}
         width={width}
+        isSearchable={isSearchable}
         isMulti={isMulti}
         components={{ IndicatorSeparator: () => null }}
         placeholder={placeholder}
