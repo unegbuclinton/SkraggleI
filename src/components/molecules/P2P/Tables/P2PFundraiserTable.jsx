@@ -64,7 +64,6 @@ function P2PTable() {
   const [selected, setSelected] = useState('Filters');
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -110,12 +109,7 @@ function P2PTable() {
           <Table columns={columns} data={p2pData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={p2pData}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

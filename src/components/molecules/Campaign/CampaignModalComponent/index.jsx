@@ -17,6 +17,7 @@ const CampaignModalComponent = ({ onClose }) => {
   // const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
   const { contactData } = useSelector((state) => state.contact);
+  const { isLoading } = useSelector((state) => state.campaign);
 
   const followers = contactData?.map((current) => ({
     value: current?.id,
@@ -115,7 +116,7 @@ const CampaignModalComponent = ({ onClose }) => {
           <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel
           </Button>
-          <Button type="submit" className="save-btn" auth>
+          <Button type="submit" className="save-btn" auth loading={isLoading}>
             Save
           </Button>
         </ButtonsContainer>

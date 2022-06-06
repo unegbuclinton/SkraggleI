@@ -6,7 +6,6 @@ export const allPledge = async () => {
       method: 'get',
       url: '/donations/pledges?cursor=0&direction=after&limit=20'
     });
-    console.log(response?.data?.message?.rows);
     return response?.data?.message?.rows;
   } catch (error) {
     console.log(error);

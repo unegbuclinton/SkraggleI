@@ -12,13 +12,13 @@ import {
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, formik, isLoading }) {
+function ContactStepTwo({ onClose, formik }) {
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
   const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
   const household = houseHolds.map((current) => ({ value: current?.id, label: current?.name }));
-
+  const { isLoading } = useSelector((state) => state.contact);
   const houseOptions = [
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },

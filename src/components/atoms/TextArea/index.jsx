@@ -3,11 +3,11 @@ import { FONTSIZES } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-const TextArea = ({ className, maxLength }) => {
-  const [textAreaCount, ChangeTextAreaCount] = React.useState(0);
-  const recalculate = (e) => {
-    ChangeTextAreaCount(e.target.value.length);
-  };
+const TextArea = ({ className, maxLength, onChange }) => {
+  // const [textAreaCount, ChangeTextAreaCount] = React.useState(0);
+  // const recalculate = (e) => {
+  //   ChangeTextAreaCount(e.target.value.length);
+  // };
 
   return (
     <TextContainer>
@@ -15,11 +15,11 @@ const TextArea = ({ className, maxLength }) => {
         type="text"
         rows={5}
         maxLength={maxLength}
-        onChange={recalculate}
+        onChange={onChange}
         className={className}
         placeholder="Write your message here"
       />
-      <p className="count_number">{textAreaCount}/120</p>
+      {/* <p className="count_number">{textAreaCount}/120</p> */}
     </TextContainer>
   );
 };

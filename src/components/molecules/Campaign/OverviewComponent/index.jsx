@@ -26,9 +26,7 @@ const CampaignOverview = () => {
       task: ''
     },
     validationSchema: campaignOverview,
-    onSubmit: (values) => {
-      console.log(values);
-    }
+    onSubmit: () => {}
   });
 
   const data = [
