@@ -98,12 +98,7 @@ const CampaignTable = () => {
           <Table columns={columns} data={campaigns} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-      <Pagination
-        currentPage={currentPage}
-        // itemsPerPage={itemsPerPage}
-        data={TableContacts}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} data={TableContacts} setCurrentPage={setCurrentPage} />
     </div>
   );
 };
