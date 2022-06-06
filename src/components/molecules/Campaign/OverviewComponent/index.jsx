@@ -20,7 +20,7 @@ const CampaignOverview = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
   console.log(campaignByID);
   const { name, description, status, fundraising_goal } = campaignByID;
-  const statusToCap = status.toUpperCase();
+  const statusToCap = status?.toUpperCase();
 
   const formik = useFormik({
     initialValues: {

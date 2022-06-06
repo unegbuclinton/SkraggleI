@@ -20,6 +20,7 @@ function P2PModalComponent({ onClose, isShown }) {
   const { campaigns } = useSelector((state) => state.campaign);
   const campaign = campaigns.map((current) => ({ value: current?.id, label: current?.name }));
 
+  const { isLoading } = useSelector((state) => state.p2p);
   const formik = useFormik({
     initialValues: {
       campaignName: '',
@@ -313,7 +314,7 @@ function P2PModalComponent({ onClose, isShown }) {
             </FileUploadButton>
           </div>
           <ButtonsContainer>
-            <Button type="submit" className="save-btn" auth>
+            <Button type="submit" className="save-btn" auth loading={isLoading}>
               Create P2P Fundraiser
             </Button>
             <Button onClick={onClose} className="cancel-btn" auth invert>
