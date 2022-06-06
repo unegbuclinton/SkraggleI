@@ -12,7 +12,7 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
-import { viewP2P } from 'features/p2p/p2pslice';
+import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';

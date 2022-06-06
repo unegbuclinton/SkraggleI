@@ -96,6 +96,7 @@ function CreateContactStepOne({ onClose, formik }) {
           <Input
             className="input-field"
             id="primary_phone"
+            onWheel={() => document.activeElement.blur()}
             name="primary_phone"
             type="number"
             placeholder="Phone"
@@ -127,6 +128,7 @@ function CreateContactStepOne({ onClose, formik }) {
               <SelectDropDown
                 className="date-dropdown"
                 placeholder={'Date'}
+                isSearchable={false}
                 id="date"
                 name="date"
                 type={'text'}
@@ -143,6 +145,7 @@ function CreateContactStepOne({ onClose, formik }) {
               <SelectDropDown
                 className="date-dropdown"
                 placeholder={'Month'}
+                isSearchable={false}
                 id="month"
                 name="month"
                 type={'text'}
@@ -159,6 +162,7 @@ function CreateContactStepOne({ onClose, formik }) {
               <SelectDropDown
                 className="date-dropdown"
                 placeholder={'Year'}
+                isSearchable={false}
                 id="year"
                 name="year"
                 type={'text'}

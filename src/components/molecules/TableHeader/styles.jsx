@@ -54,10 +54,9 @@ export const HeaderWrapper = styled.div`
     }
 
     &__header-btn {
-      padding: 0;
+      padding: 0 1.5rem 0 1.5rem;
       border-radius: 0;
       height: 4.8rem;
-      width: 14.4rem;
       display: flex;
       gap: 1rem;
       align-items: center;

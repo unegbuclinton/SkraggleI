@@ -18,7 +18,6 @@ import {
 
 const CampaignOverview = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
-
   const { name, description, status, fundraising_goal } = campaignByID;
   const statusToCap = status?.toUpperCase();
 
