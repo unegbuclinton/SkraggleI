@@ -38,7 +38,7 @@ const MultiStepForm = ({ onClose }) => {
       state: '',
       postalCode: '',
       country: '',
-      household: [],
+      household: '',
       priority: '',
       assignee: ''
     },
