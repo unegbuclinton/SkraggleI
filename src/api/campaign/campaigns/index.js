@@ -41,3 +41,17 @@ export const individualCampaign = async (id) => {
     console.log(error);
   }
 };
+
+export const deleteCampaign = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/campaigns`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

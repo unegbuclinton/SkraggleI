@@ -1,30 +1,48 @@
 import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
-import { getPeerToPeer, singleCampaign } from 'features/campaign/campaignSlice';
-import { DPPlusIcon } from 'icons';
+import {
+  delCampaign,
+  getAllCampaigns,
+  getPeerToPeer,
+  singleCampaign
+} from 'features/campaign/campaignSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TableContacts } from 'utilities/campaigndata';
-import datas from 'utilities/filterData';
 import CreateCampaignModal from '../CreateCampaignModal';
-import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  console.log(campaigns);
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  const handleDelete = () => {
+    const body = {
+      campaigns: getId
+    };
+    dispatch(delCampaign(body)).then(() => {
+      dispatch(getAllCampaigns());
+    });
+  };
   const columns = [
-    {
-      name: ' ',
-      cell: () => <Checkbox />,
-      ignoreRowClick: false,
-      width: '5rem'
-    },
+    // {
+    //   name: ' ',
+    //   cell: () => <Checkbox />,
+    //   ignoreRowClick: false,
+    //   width: '5rem'
+    // },
     {
       name: 'CREATED',
       selector: (row) => {
@@ -61,42 +79,43 @@ const CampaignTable = () => {
     // navigate(`/campaign/${row.key + 1}`, { state: row });
   };
 
-  const [selected, setSelected] = useState('Filters');
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   return (
     <div>
+      <CreateCampaignModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these campaign permanently from your Skraggle account. This
+        action cannot be undone"
+      />
       <ContainerBody>
         <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>{`${campaigns.length} Campaigns`}</h1>
-            </div>
-
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
-              <SearchBar className="search-icon" />
-              <Button className="campaign-button" onClick={() => setModalIsOpen(true)}>
-                <DPPlusIcon className="plus-icon" />
-                New Campaign
-              </Button>
-              {modalIsOpen && (
-                <CreateCampaignModal
-                  isShown={modalIsOpen}
-                  onClose={() => {
-                    setModalIsOpen(false);
-                  }}
-                />
-              )}
-            </div>
-          </TableHeaderWrapper>
-          <Table columns={columns} data={campaigns} onRowClicked={onRowClicked} />
+          <TableHeader
+            title="Add Contacts"
+            header={`${campaigns?.length} Campaign`}
+            setOpen={setOpen}
+            setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
+            // onChange={(e) => setInput(e.target.value)}
+          />
+          <Table
+            columns={columns}
+            data={campaigns}
+            onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
         </TableWrapper>
       </ContainerBody>
       <Pagination
