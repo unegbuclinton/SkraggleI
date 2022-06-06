@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -37,6 +37,11 @@ export const ModalWrapper = styled.form`
     border-radius: 0.5rem;
   }
 
+  .installments-amount-wrapper {
+    display: flex;
+    gap: 13rem;
+  }
+
   .installment-btn {
     &__add {
       background-color: ${COLORS.torquoise};
@@ -52,7 +57,7 @@ export const ModalWrapper = styled.form`
       border-radius: 0.5rem;
       margin-bottom: 0.8rem;
       width: 15.7rem;
-      height: 6.4rem;
+      height: 4.4rem;
     }
     &__pink {
       background-color: ${COLORS.pink};
@@ -72,8 +77,6 @@ export const ModalWrapper = styled.form`
 
   .dropdown-installment {
     width: 13.9rem;
-    height: 6.4rem;
-    padding: 2.2rem;
   }
 
   .installments {

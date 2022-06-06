@@ -21,15 +21,23 @@ function EditAssociationModalComponent({ onClose }) {
 
   const handleCompanyChange = (e) => {
     console.log(e.value);
-    setItemName(e.value);
-    formik.setFieldValue('companyName', [...formik.values.companyName, e.value]);
+    // const { name } = e.value;
+    // setItemName(e.value);
+    const list = [...companyName];
+    // list[index][name] = name;
+    setCompanyName(list);
+    // formik.setFieldValue('companyName', [...formik.values.companyName, companyName]);
   };
+  console.log(companyName);
 
   const handleRemove = (index) => {
     const list = [...companyName];
     list.splice(index, 1);
     setCompanyName(list);
+    setItemName(list);
+    formik.setFieldValue('companyName', list);
   };
+  // console.log(companyName);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -50,6 +58,8 @@ function EditAssociationModalComponent({ onClose }) {
     },
     validationSchema: editAssociationModal,
     onSubmit: (values) => {
+      console.log(values);
+      alert(JSON.stringify(values, null, 2));
       const body = {
         household: values.household,
         companyName: values.companyName
@@ -84,7 +94,7 @@ function EditAssociationModalComponent({ onClose }) {
                 type={'text'}
                 options={associationOptions}
                 value={formik.values.companyName.includes(name)}
-                onChange={handleCompanyChange}
+                onChange={(e) => handleCompanyChange(e, index)}
                 onBlur={formik.handleBlur}
               />
               {formik.touched.companyName && formik.errors.companyName ? (

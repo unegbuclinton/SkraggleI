@@ -12,3 +12,15 @@ export const allPledge = async () => {
     console.log(error);
   }
 };
+
+export const createPledge = async () => {
+  try {
+    const response = await request({
+      method: 'post',
+      url: '/donations/pledges'
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
