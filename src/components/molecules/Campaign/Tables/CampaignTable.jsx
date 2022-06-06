@@ -37,12 +37,6 @@ const CampaignTable = () => {
     });
   };
   const columns = [
-    // {
-    //   name: ' ',
-    //   cell: () => <Checkbox />,
-    //   ignoreRowClick: false,
-    //   width: '5rem'
-    // },
     {
       name: 'CREATED',
       selector: (row) => {
