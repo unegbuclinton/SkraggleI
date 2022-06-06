@@ -17,6 +17,8 @@ import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
+import Forms from 'pages/Forms';
+import FormsSubTab from 'pages/Forms/FormsSubTab';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
@@ -26,7 +28,6 @@ import P2PDetails from 'pages/P2PDetails';
 import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-
 export const privateRoutes = [
   {
     path: 'dashboard/*',
@@ -131,8 +132,18 @@ export const privateRoutes = [
     ]
   },
   {
-    path: '/forms',
-    element: <DashboardLayout>Forms yet to be added</DashboardLayout>
+    path: 'forms/*',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <Forms />
+      },
+      {
+        path: 'general-settings',
+        element: <FormsSubTab />
+      }
+    ]
   },
 
   {
