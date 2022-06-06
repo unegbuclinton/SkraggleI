@@ -56,6 +56,7 @@ function CreateteNewHouseHold({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
+
             <Button loading={isLoading} type="submit" className="continue">
               Continue
             </Button>

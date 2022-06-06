@@ -3,7 +3,15 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import styled from 'styled-components';
 
-const Table = ({ data, columns, handleRowSelect, onRowClicked, className }) => {
+const Table = ({
+  data,
+  columns,
+  handleRowSelect,
+  onRowClicked,
+  className,
+  selectableRowsComponent,
+  selectableRows
+}) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
 
@@ -14,6 +22,8 @@ const Table = ({ data, columns, handleRowSelect, onRowClicked, className }) => {
         data={TableData || []}
         onSelectedRowsChange={handleRowSelect}
         onRowClicked={onRowClicked}
+        selectableRows={selectableRows}
+        selectableRowsComponent={selectableRowsComponent}
       />
     </TableWrapper>
   );

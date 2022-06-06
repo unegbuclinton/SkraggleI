@@ -125,12 +125,17 @@ export const authSlice = createSlice({
     [registerUser.pending]: (state) => {
       state.isLoading = true;
     },
+    [loginUser.pending]: (state) => {
+      state.isLoading = true;
+    },
     [loginUser.fulfilled]: (state, action) => {
       state.isAuthenticated = true;
       state.token = action.payload;
+      state.isLoading = false;
     },
     [loginUser.rejected]: (state) => {
       state.isAuthenticated = false;
+      state.isLoading = false;
       state.token = null;
     },
     [logoutUser.fulfilled]: () => {

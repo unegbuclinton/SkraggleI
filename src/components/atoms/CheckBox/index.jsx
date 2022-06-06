@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { CheckboxContainer, CheckIcon, HiddenCheckbox, StyledCheckbox } from './styles';
 
-const Checkbox = ({ className, styledClass, label, radial, checked, inverted, pink, ...props }) => {
+const Checkbox = ({
+  className,
+  styledClass,
+  label,
+  radial,
+  checked,
+  inverted,
+  pink,
+  id,
+  ...props
+}) => {
   const [state, setState] = useState(false);
-
   const handleCheckboxChange = (event) => {
     setState(event?.target?.checked);
   };
   return (
-    <CheckboxContainer className={className} pink={pink} checked={checked || state}>
+    <CheckboxContainer className={className} pink={pink} checked={checked || state} id={id}>
       <HiddenCheckbox checked={checked || state} onChange={handleCheckboxChange} {...props} />
       <StyledCheckbox
         checked={checked || state}

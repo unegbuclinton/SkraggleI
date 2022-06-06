@@ -13,7 +13,8 @@ const Input = ({
   className,
   autoWidth,
   containerClass,
-  value
+  value,
+  onWheel
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
@@ -23,6 +24,7 @@ const Input = ({
       <InputField
         className={className}
         autoWidth={autoWidth}
+        onWheel={onWheel}
         disabled={disabled}
         name={name}
         id={id}

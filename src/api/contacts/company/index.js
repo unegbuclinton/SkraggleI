@@ -25,3 +25,16 @@ export const addCompanies = async (body) => {
     toast.error();
   }
 };
+
+export const deleteCompany = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/contacts/companies`,
+      data: body
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
