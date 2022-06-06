@@ -8,7 +8,7 @@ import CompaniesEmptyState from 'components/molecules/EmptyState/Contacts/Compan
 import Pagination from 'components/molecules/Pagination';
 // import { useNavigate } from "react-router-dom";
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { delCompany, getAllCompanies } from 'features/contact/contactSlice';
+import { getAllCompanies, removeCompany } from 'features/contact/contactSlice';
 // import { searchCompanies } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
 import React, { useState } from 'react';
@@ -34,8 +34,9 @@ function CompaniesTable() {
     const body = {
       companies: getId
     };
-    dispatch(delCompany(body)).then(() => {
+    dispatch(removeCompany(body)).then(() => {
       dispatch(getAllCompanies());
+      setGetId([]);
     });
   };
   // const getSearchDebounce = useCallback(
