@@ -19,16 +19,16 @@ const PledgeInfoModalComponent = ({ onClose }) => {
   const [installment, setInstallment] = useState(['']);
   const [amount, setAmount] = useState('');
 
-  const handleChange = (e) => {
-    console.log(e.value);
-    setAmount(e.value);
-    formik.setFieldValue('expected_date', [...formik.values.expected_date, e.value]);
+  // const handleChange = (e) => {
+  //   console.log(e.value);
+  //   setAmount(e.value);
+  //   formik.setFieldValue('expected_date', [...formik.values.expected_date, e.value]);
 
-    // const { name, value } = e.target;
-    // const list = [...installment];
-    // list[index][name] = value;
-    // setInstallment(list);
-  };
+  //   // const { name, value } = e.target;
+  //   // const list = [...installment];
+  //   // list[index][name] = value;
+  //   // setInstallment(list);
+  // };
 
   const handleRemove = (index) => {
     const list = [...installment];
@@ -210,10 +210,10 @@ const PledgeInfoModalComponent = ({ onClose }) => {
                   className="installments-date"
                   containerClass="input-container"
                   type="text"
-                  id={name}
-                  name={name}
+                  id="expected_date"
+                  name="expected_date"
                   placeholder="Expected Date"
-                  onChange={handleChange}
+                  onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.expected_date}
                 />
