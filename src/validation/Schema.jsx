@@ -224,7 +224,8 @@ export const confirmNewPassword = Yup.object({
 export const VolunteerValidationSchema = Yup.object({
   name: Yup.string().required('Activity name is required'),
   startDate: Yup.string().required('Start date is required'),
-  endDate: Yup.string().required('End Date is required')
+  endDate: Yup.string().required('End Date is required'),
+  fee: Yup.string().required('Fee is required')
 });
 
 export const P2PValidationSchema = Yup.object({

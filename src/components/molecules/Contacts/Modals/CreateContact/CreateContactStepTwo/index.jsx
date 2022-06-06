@@ -12,7 +12,8 @@ import {
   ModalWrapper
 } from './styles';
 
-function ContactStepTwo({ onClose, formik }) {
+function ContactStepTwo({ onClose, formik, isLoading }) {
+  console.log(isLoading);
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
@@ -192,7 +193,7 @@ function ContactStepTwo({ onClose, formik }) {
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="submit" className="continue" loading={isLoading}>
               Save
             </Button>
           </ButtonContainer>

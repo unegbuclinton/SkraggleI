@@ -50,7 +50,6 @@ export const ButtonWrapper = styled.button`
       `
     );
   }}
-
   ${({ disabled }) => {
     return (
       disabled &&

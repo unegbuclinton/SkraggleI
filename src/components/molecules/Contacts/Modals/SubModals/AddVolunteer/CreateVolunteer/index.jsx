@@ -22,7 +22,8 @@ function CreateVolunteerModal({ onClose }) {
     initialValues: {
       name: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
+      fee: ''
     },
     validationSchema: VolunteerValidationSchema,
     onSubmit: (values) => {
@@ -30,7 +31,8 @@ function CreateVolunteerModal({ onClose }) {
         name: values.name,
         start_at: values.startDate,
         end_at: values.endDate,
-        contact_id: volunteerId
+        contact_id: volunteerId,
+        fee: values.fee
       };
       dispatch(createVolunteer(body)).then(() => {
         onClose();
@@ -87,6 +89,7 @@ function CreateVolunteerModal({ onClose }) {
         <VolunteerLabel>Fee</VolunteerLabel>
         <Input
           className="input-field"
+          onWheel={() => document.activeElement.blur()}
           type="number"
           id="fee"
           name="fee"

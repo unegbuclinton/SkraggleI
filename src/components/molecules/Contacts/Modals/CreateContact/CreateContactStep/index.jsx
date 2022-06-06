@@ -1,7 +1,7 @@
 import { createContact, viewContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify';
 import {
@@ -13,6 +13,7 @@ import ContactStepTwo from '../CreateContactStepTwo';
 
 const MultiStepForm = ({ onClose }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const { isLoading } = useSelector((state) => state.contact);
 
   const dispatch = useDispatch();
 
@@ -107,6 +108,7 @@ const MultiStepForm = ({ onClose }) => {
       onSubmit={formik.handleSubmit}
       onChange={formik.handleChange}
       onClose={onClose}
+      isLoading={isLoading}
     />
   ];
 
