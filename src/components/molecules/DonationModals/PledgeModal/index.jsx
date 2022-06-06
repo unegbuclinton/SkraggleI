@@ -1,7 +1,7 @@
 import Modal from 'components/layouts/Modal';
-import PledgeInfoModalComponent from '../PledgeInfrormationModalComponent';
-import PledgeAssociateModalComponent from '../PledgeAssociationModalComponent';
 import MultiformTabs from 'components/molecules/MultiformTabs';
+import PledgeAssociateModalComponent from '../PledgeAssociationModalComponent';
+import PledgeInfoModalComponent from '../PledgeInfrormationModalComponent';
 
 function PledgeModal({ onClose }) {
   const tabs = [
@@ -16,7 +16,7 @@ function PledgeModal({ onClose }) {
   ];
   return (
     <Modal header="Pledge" isShown hide={onClose} showClose={onClose}>
-      <MultiformTabs tabs={tabs} />
+      <MultiformTabs tabs={tabs} onClose={onClose} />
     </Modal>
   );
 }

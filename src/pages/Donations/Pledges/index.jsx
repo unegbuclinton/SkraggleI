@@ -53,16 +53,6 @@ const Pledge = () => {
     }
   ];
 
-  // const tableData = PledgeData.map((pledgeData, index) => ({
-  //   key: index,
-  //   contact: pledgeData.contact,
-  //   amount: pledgeData.amount,
-  //   startdate: pledgeData.startdate,
-  //   deadline: pledgeData.deadline,
-  //   status: pledgeData.status,
-  //   type: pledgeData.type
-  // }));
-
   const onRowClicked = () => {};
 
   const [selected, setSelected] = useState('Filters');
@@ -75,7 +65,7 @@ const Pledge = () => {
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
-              <h1>344 Pledges</h1>
+              <h1>{`${pledgeData?.length} Pledges`}</h1>
             </div>
 
             <div className="table-header__right">
