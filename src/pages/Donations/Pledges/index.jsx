@@ -16,7 +16,6 @@ import { formatDate } from 'utilities/helpers';
 
 const Pledge = () => {
   const { pledgeData } = useSelector((state) => state.donation);
-  console.log(pledgeData);
   const columns = [
     {
       name: ' ',
