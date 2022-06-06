@@ -3,7 +3,7 @@ import authReducer from 'features/auth/authSlice';
 import campaignReducer from 'features/campaign/campaignSlice';
 import contactReducer from 'features/contact/contactSlice';
 import donationReducer from 'features/donation/donationSlice';
-import p2pReducer from 'features/p2p/p2pslice';
+import p2pReducer from 'features/p2p/p2pSlice';
 import {
   FLUSH,
   PAUSE,
