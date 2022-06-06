@@ -3,7 +3,7 @@ import Table from 'components/layouts/Table';
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { delP2p, getEachP2p, viewP2P } from 'features/p2p/p2pslice';
+import { delP2p, getEachP2p, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

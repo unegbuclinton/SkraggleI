@@ -6,7 +6,7 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 // import TextArea from 'components/atoms/TextArea';
 import Modal from 'components/layouts/Modal';
-import { createP2P, viewP2P } from 'features/p2p/p2pslice';
+import { createP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useRef, useState } from 'react';
