@@ -1,6 +1,6 @@
 import { logoutUser } from 'features/auth/authSlice';
 import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { generateUUID } from 'utilities/helpers';
@@ -14,7 +14,23 @@ import {
 
 function DashboardHeader({ pageLinks }) {
   const dispatch = useDispatch();
+  const ref = useRef();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (open && ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.body.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.body.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [open]);
+
   const toggleMenu = () => setOpen((prev) => !prev);
   const userLogout = () => {
     dispatch(logoutUser());
@@ -50,7 +66,7 @@ function DashboardHeader({ pageLinks }) {
             </Link>
           </HeaderLinks>
         </HeaderLeftContent>
-        <HeaderRightContent open={open} onClick={toggleMenu}>
+        <HeaderRightContent open={open} onClick={toggleMenu} ref={ref}>
           <div className="user-info">
             <p className="user-info__project-name">BigGorilla Sandbol</p>
             <p className="user-info__user-name">Mohammad Adaam</p>

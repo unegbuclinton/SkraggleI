@@ -17,7 +17,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  console.log(campaigns);
   const columns = [
     {
       name: ' ',
@@ -99,12 +98,7 @@ const CampaignTable = () => {
           <Table columns={columns} data={campaigns} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-      <Pagination
-        currentPage={currentPage}
-        // itemsPerPage={itemsPerPage}
-        data={TableContacts}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} data={TableContacts} setCurrentPage={setCurrentPage} />
     </div>
   );
 };
