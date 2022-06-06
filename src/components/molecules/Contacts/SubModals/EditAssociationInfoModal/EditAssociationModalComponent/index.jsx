@@ -13,22 +13,25 @@ import styled from 'styled-components';
 import { editAssociationModal } from 'validation/Schema';
 
 function EditAssociationModalComponent({ onClose }) {
-  const { eachContact } = useSelector((state) => state.contact);
+  const { eachContact } = useSelector((state) => state?.contact);
   const associationId = eachContact.id;
   const dispatch = useDispatch();
   const [companyName, setCompanyName] = useState(['']);
   const [itemName, setItemName] = useState('');
 
-  const handleCompanyChange = (e) => {
-    console.log(e.value);
-    setItemName(e.value);
-    formik.setFieldValue('companyName', [...formik.values.companyName, e.value]);
+  const handleCompanyChange = (e, index) => {
+    const list = [...companyName];
+    list[index] = e.value;
+    setCompanyName(list);
+    formik.setFieldValue('companyName', list);
   };
 
   const handleRemove = (index) => {
     const list = [...companyName];
     list.splice(index, 1);
     setCompanyName(list);
+    setItemName(list);
+    formik.setFieldValue('companyName', list);
   };
 
   const handleAdd = (e) => {
@@ -50,6 +53,7 @@ function EditAssociationModalComponent({ onClose }) {
     },
     validationSchema: editAssociationModal,
     onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
       const body = {
         household: values.household,
         companyName: values.companyName
@@ -64,6 +68,7 @@ function EditAssociationModalComponent({ onClose }) {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ];
+
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>
       <Card>
@@ -84,7 +89,7 @@ function EditAssociationModalComponent({ onClose }) {
                 type={'text'}
                 options={associationOptions}
                 value={formik.values.companyName.includes(name)}
-                onChange={handleCompanyChange}
+                onChange={(e) => handleCompanyChange(e, index)}
                 onBlur={formik.handleBlur}
               />
               {formik.touched.companyName && formik.errors.companyName ? (

@@ -1,168 +1,243 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
+import ErrorMessage from 'components/atoms/ErrorMessage';
+// import DropdownComponent from 'components/atoms/Dropdown';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { DPIconDelete, DPIconUploadFile } from 'icons';
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import data from 'utilities/filterData';
 import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
-const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
-  console.log({ ...rest });
+const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
+  const [installment, setInstallment] = useState(['']);
+  const [amount, setAmount] = useState('');
 
-  const [selectedType, setSelectedType] = useState('Donation');
-  const [showAddInstallment, setShowAddInstallment] = useState(false);
-  const [btnAddInstallment, setBtnAddInstallment] = useState(true);
+  const handleChange = (e, index) => {
+    const list = [...installment];
+    list[index] = e.target.value;
+    setInstallment(list);
+    formik.setFieldValue('expected_date', [...formik.values.expected_date, list]);
+  };
 
-  function showInstallment(e) {
+  const handleRemove = (index) => {
+    const list = [...installment];
+    list.splice(index, 1);
+    setInstallment(list);
+  };
+
+  const handleAdd = (e) => {
     e.preventDefault();
-    setBtnAddInstallment(false);
-    setShowAddInstallment(true);
-  }
+    setInstallment([
+      ...installment,
+      {
+        id: installment.length,
+        name: amount
+      }
+    ]);
+    setAmount('');
+  };
+
   const { contactData } = useSelector((state) => state.contact);
-  const contactOptions = contactData.map((current) => ({
+  const contactOptions = contactData?.map((current) => ({
     value: current?.id,
     label: current?.first_name
   }));
+
+  const pledgeType = [
+    { value: 'Donation', label: 'Donation' },
+    { value: 'Active', label: 'Active' }
+  ];
+
+  const currency = [
+    { value: 'USD', label: 'USD' },
+    { value: 'PKR', label: 'PKR' },
+    { value: 'CNY', label: 'CNY' }
+  ];
+
+  const paymentInterval = [
+    { value: 'Daily', label: 'Daily' },
+    { value: 'Weekly', label: 'Weekly' },
+    { value: 'Monthly', label: 'Monthly' },
+    { value: 'Yearly', label: 'Yearly' }
+  ];
+
   return (
-    <ModalWrapper>
+    <ModalWrapper
+      onSubmit={() => {
+        formik.handleSubmit;
+      }}>
       <Card>
         <h1>Contact</h1>
         <SelectDropDown
-          options={contactOptions}
-          id="followers"
-          name="followers"
+          className="add-household__dropdown"
+          id="contact_id"
+          name="contact_id"
           type={'text'}
-          // onChange={(value) => {
-          //   formik.setFieldValue(
-          //     'followers',
-          //     value.map((curr) => curr.value)
-          //   );
-          // }}
+          options={contactOptions}
+          value={formik.values.contact_id}
+          onChange={(value) => formik.setFieldValue('contact_id', value.value)}
+          onBlur={formik.handleBlur}
         />
+        {formik.touched.contact_id && formik.errors.contact_id ? (
+          <ErrorMessage>{formik.errors.contact_id}</ErrorMessage>
+        ) : null}
 
         <h1>Pledge Name</h1>
-        <Input className="pledge-modal" type="text" id="name" name="name" />
+        <Input
+          className="pledge-modal"
+          type="text"
+          id="pledge_name"
+          name="pledge_name"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.pledge_name}
+        />
+        {formik.touched.pledge_name && formik.errors.pledge_name ? (
+          <ErrorMessage>{formik.errors.pledge_name}</ErrorMessage>
+        ) : null}
 
         <h1>Full Value of Donation</h1>
-        <Input className="pledge-modal" type="text" id="name" name="name" />
+        <Input
+          className="pledge-modal"
+          type="number"
+          id="value_donation"
+          name="value_donation"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.value_donation}
+        />
+        {formik.touched.value_donation && formik.errors.value_donation ? (
+          <ErrorMessage>{formik.errors.value_donation}</ErrorMessage>
+        ) : null}
 
         <h1>Pledge Type</h1>
-        <DropdownComponent
-          data={data}
-          className="dropdown-contact"
-          type=""
-          selected={selectedType}
-          setSelected={setSelectedType}
+        <SelectDropDown
+          className="add-household__dropdown"
+          id="pledge_type"
+          name="pledge_type"
+          type={'text'}
+          options={pledgeType}
+          value={formik.values.pledge_type}
+          onChange={(value) => formik.setFieldValue('pledge_type', value.value)}
+          onBlur={formik.handleBlur}
         />
+        {formik.touched.pledge_type && formik.errors.pledge_type ? (
+          <ErrorMessage>{formik.errors.pledge_type}</ErrorMessage>
+        ) : null}
 
         <h1>Start Date</h1>
-        <Input className="modal-inputs" type="date" placeholder="Enter Amount" />
+        <Input
+          className="modal-inputs"
+          type="date"
+          placeholder="Enter Amount"
+          id="start_date"
+          name="start_date"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.start_date}
+        />
+        {formik.touched.start_date && formik.errors.start_date ? (
+          <ErrorMessage>{formik.errors.start_date}</ErrorMessage>
+        ) : null}
 
         <h1>End Date</h1>
-        <Input className="modal-inputs" type="date" placeholder="Enter Amount" />
+        <Input
+          className="modal-inputs"
+          type="date"
+          placeholder="Enter Amount"
+          id="end_date"
+          name="end_date"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.end_date}
+        />
+        {formik.touched.end_date && formik.errors.end_date ? (
+          <ErrorMessage>{formik.errors.end_date}</ErrorMessage>
+        ) : null}
+
         <h1>Attachments</h1>
         <FileUploadButton imgPreview="img-preview">
           <DPIconUploadFile />
         </FileUploadButton>
 
         <h1>Installments</h1>
-        {btnAddInstallment && (
-          <Button
-            type="submit"
-            className="installment-btn__add"
-            onClick={(e) => {
-              e.preventDefault();
-            }}>
-            Add Installment
-          </Button>
-        )}
+        {installment.map((name, index) => (
+          <>
+            <InstallmentWrapper>
+              <div className="installments">
+                <Input
+                  className="installments-date"
+                  containerClass="input-container"
+                  type="date"
+                  id={name}
+                  name={name}
+                  placeholder="Expected Date"
+                  onChange={(e) => handleChange(e, index)}
+                  onBlur={formik.handleBlur}
+                  // value={name}
+                />
+                <Input
+                  className="installments-amount"
+                  containerClass="input-container"
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="Amount"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.amount}
+                />
+                <SelectDropDown
+                  className="amount-currency"
+                  id="amount_currency"
+                  name="amount_currency"
+                  type={'text'}
+                  placeholder="Currency"
+                  options={currency}
+                  value={formik.values.amount_currency}
+                  onChange={(value) => formik.setFieldValue('amount_currency', value.value)}
+                  onBlur={formik.handleBlur}
+                />
+                <DPIconDelete className="icon-delete" onClick={() => handleRemove(index)} />
+              </div>
+            </InstallmentWrapper>
+            <div className="installments-amount-wrapper">
+              {formik.touched.expected_date && formik.errors.expected_date ? (
+                <ErrorMessage>{formik.errors.expected_date}</ErrorMessage>
+              ) : null}
+              {/* {formik.touched.amount && formik.errors.amount ? (
+                <ErrorMessage>{formik.errors.amount}</ErrorMessage>
+              ) : null} */}
+            </div>
+          </>
+        ))}
 
-        {showAddInstallment && (
-          <InstallmentWrapper>
-            <div className="installments">
-              <Input
-                className="installments-date"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Expected Date"
-              />
-              <Input
-                className="installments-amount"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Amount"
-              />
-              <DPIconDelete className="icon-delete" />
-            </div>
-            <div className="installments">
-              <Input
-                className="installments-date"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Expected Date"
-              />
-              <Input
-                className="installments-amount"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Amount"
-              />
-              <DPIconDelete className="icon-delete" />
-            </div>
-            <div className="installments">
-              <Input
-                className="installments-date"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Expected Date"
-              />
-              <Input
-                className="installments-amount"
-                containerClass="input-container"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Amount"
-              />
-              <DPIconDelete className="icon-delete" />
-            </div>
-            <Button
-              type="submit"
-              className="installment-btn__pink"
-              onClick={(e) => {
-                e.preventDefault();
-              }}>
-              Add Installment
-            </Button>
-          </InstallmentWrapper>
-        )}
+        <Button
+          type="button"
+          className="installment-btn__pink"
+          onClick={(e) => {
+            handleAdd(e);
+          }}>
+          Add Installment
+        </Button>
 
         <h1>OR</h1>
 
         <h1>Payment Interval</h1>
         <div className="calculate-installment">
-          <DropdownComponent
-            data={data}
+          <SelectDropDown
             className="dropdown-installment"
-            type=""
-            selected={selectedType}
-            setSelected={setSelectedType}
+            id="interval"
+            name="interval"
+            type={'text'}
+            options={paymentInterval}
+            value={formik.values.interval}
+            onChange={(value) => formik.setFieldValue('interval', value.value)}
+            onBlur={formik.handleBlur}
           />
-          <Button type="submit" className="installment-btn__calculate" onClick={showInstallment}>
+          <Button type="button" className="installment-btn__calculate">
             Calculate Installment
           </Button>
         </div>
@@ -171,7 +246,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, ...rest }) => {
           <Button onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
-          <Button type="button" className="save-btn" auth onClick={IncrementTab}>
+          <Button type="button" className="save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </ButtonsContainer>

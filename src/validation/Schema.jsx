@@ -242,3 +242,24 @@ export const P2PValidationSchema = Yup.object({
   goalDate: Yup.string().required('This Field is required'),
   personalMessage: Yup.string()
 });
+
+export const CreatePledgeSchema = Yup.object({
+  contact_id: Yup.string().required('This is required field'),
+  pledge_name: Yup.string().required('This is required field'),
+  value_donation: Yup.string().required('This is required field'),
+  pledge_type: Yup.string().required('This is required field'),
+  start_date: Yup.string().required('This is required field'),
+  end_date: Yup.string().required('This is required field'),
+  attachment: Yup.array(),
+  expected_date: Yup.array().required('This is required field'),
+  amount: Yup.string().required('This is required field'),
+  interval: Yup.string().required('This is required field'),
+  campaign_id: Yup.string().required('This is required field'),
+  impact_area: Yup.string().required('This is required field'),
+  soft_credit: Yup.string().required('This is required field'),
+  source: Yup.string().required('This is required field'),
+  keywords: Yup.string().required('This is required field'),
+  dedication: Yup.string().required('This is required field'),
+  notes: Yup.string().required('This is required field'),
+  amount_currency: Yup.string().required('This is required field')
+});

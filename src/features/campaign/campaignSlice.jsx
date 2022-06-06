@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { allPeerToPeer } from 'api/campaign/campaign-subtabs';
-import { addCampaign, getCampaigns, individualCampaign } from 'api/campaign/campaigns';
+import {
+  addCampaign,
+  deleteCampaign,
+  getCampaigns,
+  individualCampaign
+} from 'api/campaign/campaigns';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -14,6 +19,7 @@ export const createNewCampaign = createAsyncThunk('campaign/createCampaign', add
 export const getAllCampaigns = createAsyncThunk('campaign/getAllCampains', getCampaigns);
 export const singleCampaign = createAsyncThunk('campaign/singleCampaign', individualCampaign);
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
+export const delCampaign = createAsyncThunk('campaign/delCampaign', deleteCampaign);
 
 export const campaignSlice = createSlice({
   name: 'campaign',

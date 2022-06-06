@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -37,6 +37,11 @@ export const ModalWrapper = styled.form`
     border-radius: 0.5rem;
   }
 
+  .installments-amount-wrapper {
+    display: flex;
+    gap: 13rem;
+  }
+
   .installment-btn {
     &__add {
       background-color: ${COLORS.torquoise};
@@ -52,7 +57,7 @@ export const ModalWrapper = styled.form`
       border-radius: 0.5rem;
       margin-bottom: 0.8rem;
       width: 15.7rem;
-      height: 6.4rem;
+      height: 4.4rem;
     }
     &__pink {
       background-color: ${COLORS.pink};
@@ -72,8 +77,6 @@ export const ModalWrapper = styled.form`
 
   .dropdown-installment {
     width: 13.9rem;
-    height: 6.4rem;
-    padding: 2.2rem;
   }
 
   .installments {
@@ -92,7 +95,6 @@ export const ModalWrapper = styled.form`
       border: 1px solid ${COLORS['gray-500']};
       border-radius: 0.5rem;
       width: 23.9rem;
-      height: 6.4rem;
     }
     .installments-amount {
       background-color: ${COLORS.white};
@@ -102,7 +104,6 @@ export const ModalWrapper = styled.form`
       border: 1px solid ${COLORS['gray-500']};
       border-radius: 0.5rem;
       width: 13.3rem;
-      height: 6.4rem;
     }
     .icon-delete {
       width: 1.8rem;
@@ -115,7 +116,6 @@ export const ModalWrapper = styled.form`
     background-color: ${COLORS.white};
     padding-left: 2.083rem;
     margin-bottom: 0.8rem;
-    height: 6.4rem;
     width: 100%;
     border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
@@ -123,7 +123,6 @@ export const ModalWrapper = styled.form`
   .modal-inputs {
     background-color: white;
     padding-left: 2.083rem;
-    height: 6.4rem;
     width: 100%;
     border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
@@ -133,6 +132,10 @@ export const ModalWrapper = styled.form`
     width: 12.6rem;
     height: 6.4rem;
     border-radius: 0.5rem;
+  }
+  .amount-currency {
+    width: 12rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
