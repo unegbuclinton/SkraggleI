@@ -19,16 +19,12 @@ function EditAssociationModalComponent({ onClose }) {
   const [companyName, setCompanyName] = useState(['']);
   const [itemName, setItemName] = useState('');
 
-  const handleCompanyChange = (e) => {
-    console.log(e.value);
-    // const { name } = e.value;
-    // setItemName(e.value);
+  const handleCompanyChange = (e, index) => {
     const list = [...companyName];
-    // list[index][name] = name;
+    list[index] = e.value;
     setCompanyName(list);
-    // formik.setFieldValue('companyName', [...formik.values.companyName, companyName]);
+    formik.setFieldValue('companyName', list);
   };
-  console.log(companyName);
 
   const handleRemove = (index) => {
     const list = [...companyName];
@@ -37,7 +33,6 @@ function EditAssociationModalComponent({ onClose }) {
     setItemName(list);
     formik.setFieldValue('companyName', list);
   };
-  // console.log(companyName);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -58,7 +53,6 @@ function EditAssociationModalComponent({ onClose }) {
     },
     validationSchema: editAssociationModal,
     onSubmit: (values) => {
-      console.log(values);
       alert(JSON.stringify(values, null, 2));
       const body = {
         household: values.household,
@@ -74,6 +68,7 @@ function EditAssociationModalComponent({ onClose }) {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ];
+
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>
       <Card>

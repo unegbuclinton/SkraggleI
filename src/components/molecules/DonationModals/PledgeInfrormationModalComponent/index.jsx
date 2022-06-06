@@ -19,16 +19,13 @@ const PledgeInfoModalComponent = ({ onClose }) => {
   const [installment, setInstallment] = useState(['']);
   const [amount, setAmount] = useState('');
 
-  // const handleChange = (e) => {
-  //   console.log(e.value);
-  //   setAmount(e.value);
-  //   formik.setFieldValue('expected_date', [...formik.values.expected_date, e.value]);
-
-  //   // const { name, value } = e.target;
-  //   // const list = [...installment];
-  //   // list[index][name] = value;
-  //   // setInstallment(list);
-  // };
+  const handleChange = (e, index) => {
+    const list = [...installment];
+    list[index] = e.target.value;
+    setInstallment(list);
+    formik.setFieldValue('expected_date', [...formik.values.expected_date, list]);
+  };
+  console.log(installment);
 
   const handleRemove = (index) => {
     const list = [...installment];
@@ -78,6 +75,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
     validationSchema: CreatePledgeSchema,
 
     onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
       const body = {
         contact_id: values.contact_id,
         campaign_id: values.campaign_id,
@@ -210,17 +208,17 @@ const PledgeInfoModalComponent = ({ onClose }) => {
                   className="installments-date"
                   containerClass="input-container"
                   type="text"
-                  id="expected_date"
-                  name="expected_date"
+                  id={name}
+                  name={name}
                   placeholder="Expected Date"
-                  onChange={formik.handleChange}
+                  onChange={(e) => handleChange(e, index)}
                   onBlur={formik.handleBlur}
-                  value={formik.values.expected_date}
+                  // value={name}
                 />
                 <Input
                   className="installments-amount"
                   containerClass="input-container"
-                  type="text"
+                  type="number"
                   id="amount"
                   name="amount"
                   placeholder="Amount"
@@ -243,7 +241,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
         ))}
 
         <Button
-          type="submit"
+          type="button"
           className="installment-btn__pink"
           onClick={(e) => {
             handleAdd(e);
@@ -274,7 +272,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
           <Button onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
-          <Button type="submit" className="save-btn" auth>
+          <Button type="submit" className="save-btn">
             Next
           </Button>
         </ButtonsContainer>

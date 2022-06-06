@@ -250,7 +250,7 @@ export const CreatePledgeSchema = Yup.object({
   start_date: Yup.string().required('This is required field'),
   end_date: Yup.string().required('This is required field'),
   attachment: Yup.string(),
-  expected_date: Yup.string().required('This is required field'),
+  expected_date: Yup.array().required('This is required field'),
   amount: Yup.string().required('This is required field'),
   interval: Yup.string().required('This is required field'),
   campaign_id: Yup.string().required('This is required field'),
