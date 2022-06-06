@@ -10,7 +10,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { registrationSchema } from 'validation/Schema';
-import LoadingScreen from '../LoadingScreen';
 import { CatchError, Form } from './styles';
 
 function Registration() {
@@ -61,7 +60,6 @@ function Registration() {
 
   return (
     <AuthLayout>
-      {isLoading === true && <LoadingScreen />}
       <Form onSubmit={formik.handleSubmit}>
         <Card className="signup-card">
           <p className="signup-header">Sign up</p>

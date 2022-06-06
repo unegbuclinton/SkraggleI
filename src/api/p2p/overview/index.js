@@ -38,3 +38,17 @@ export const p2pById = async (id) => {
     console.log(error);
   }
 };
+
+export const deleteP2p = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/p2p`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

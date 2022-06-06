@@ -1,28 +1,43 @@
-import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import Pagination from 'components/molecules/Pagination';
-import { getEachP2p } from 'features/p2p/p2pslice';
-import { DPPlusIcon } from 'icons';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { delP2p, getEachP2p, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import datas from 'utilities/filterData.json';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
-import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+import { ContainerBody, TableWrapper } from './styles';
 
 function P2PTable() {
   const { p2pData } = useSelector((state) => state.p2p);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  const handleDelete = () => {
+    const body = {
+      ids: getId
+    };
+    dispatch(delP2p(body)).then(() => {
+      dispatch(viewP2P());
+    });
+  };
 
   const columns = [
-    {
-      name: ' ',
-      cell: () => <Checkbox />,
-      ignoreRowClick: false,
-      width: '5rem'
-    },
+    // {
+    //   name: ' ',
+    //   cell: () => <Checkbox />,
+    //   ignoreRowClick: false,
+    //   width: '5rem'
+    // },
     {
       name: 'CAMPAIGN',
       selector: (row) => row.name || row.campaign_id,
@@ -61,8 +76,6 @@ function P2PTable() {
     }
   ];
 
-  const [selected, setSelected] = useState('Filters');
-
   const [currentPage, setCurrentPage] = useState(1);
 
   const navigate = useNavigate();
@@ -73,40 +86,44 @@ function P2PTable() {
     dispatch(getEachP2p(row.id));
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
+      <P2PModalComponent
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these P2P permanently from your Skraggle account. This
+        action cannot be undone"
+      />
       <ContainerBody>
         <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>{`${p2pData?.length} P2P`}</h1>
-            </div>
+          <TableHeader
+            title="Add Contacts"
+            header={`${p2pData?.length} P2P`}
+            setOpen={setOpen}
+            setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
+            openDeleteModal={openDeleteModal}
+            // onChange={(e) => setInput(e.target.value)}
+          />
 
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                className="dropdown-filter"
-                data={datas}
-              />
-              <SearchBar className="search-icon" />
-              <Button className="p2p-button" onClick={() => setModalIsOpen(true)}>
-                <DPPlusIcon className="plus-icon" />
-                New P2P Fundraiser
-              </Button>
-              {modalIsOpen && (
-                <P2PModalComponent
-                  isShown={modalIsOpen}
-                  onClose={() => {
-                    setModalIsOpen(false);
-                  }}
-                />
-              )}
-            </div>
-          </TableHeaderWrapper>
-          <Table columns={columns} data={p2pData} onRowClicked={onRowClicked} />
+          <Table
+            columns={columns}
+            data={p2pData}
+            onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
         </TableWrapper>
       </ContainerBody>
       <Pagination currentPage={currentPage} data={p2pData} setCurrentPage={setCurrentPage} />
