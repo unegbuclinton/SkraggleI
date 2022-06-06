@@ -4,6 +4,7 @@ import { addPledge, getPledge } from 'features/donation/donationSlice';
 import { useFormik } from 'formik';
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import styled, { css } from 'styled-components';
 import { CreatePledgeSchema } from 'validation/Schema';
 
@@ -73,6 +74,7 @@ function MultiformTabs({ onClose, tabs, ...rest }) {
       dispatch(addPledge(body)).then(() => {
         onClose();
         dispatch(getPledge());
+        toast.success('Pledge added successfully');
       });
     }
   });
