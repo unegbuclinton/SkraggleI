@@ -17,7 +17,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  console.log(campaigns);
   const columns = [
     {
       name: ' ',
