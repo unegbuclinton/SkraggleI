@@ -31,8 +31,9 @@ function TagsTable() {
     const body = {
       tags: getId
     };
-    dispatch(delTag(body));
-    dispatch(viewTags());
+    dispatch(delTag(body)).then(() => {
+      dispatch(viewTags());
+    });
   };
 
   return (

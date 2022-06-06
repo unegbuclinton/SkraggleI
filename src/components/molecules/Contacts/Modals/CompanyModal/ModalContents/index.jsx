@@ -73,6 +73,7 @@ function CreateCompany({ onClose }) {
             id="primaryPhone"
             name="primaryPhone"
             type="number"
+            onWheel={() => document.activeElement.blur()}
             placeholder="Primary Phone"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

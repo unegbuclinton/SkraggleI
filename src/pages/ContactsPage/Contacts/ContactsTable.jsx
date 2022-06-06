@@ -38,8 +38,9 @@ function ContactsTable() {
     const body = {
       contacts: getId
     };
-    dispatch(delContact(body));
-    dispatch(viewContact());
+    dispatch(delContact(body)).then(() => {
+      dispatch(viewContact());
+    });
   };
 
   useEffect(() => {

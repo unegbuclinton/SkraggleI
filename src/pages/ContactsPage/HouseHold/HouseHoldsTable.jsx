@@ -24,13 +24,13 @@ function HouseHoldsTable() {
     setGetId(checkedRows);
     setRowCount(row.selectedCount);
   };
-
   const handleDelete = () => {
     const body = {
       households: getId
     };
-    dispatch(delHouseHold(body));
-    dispatch(allHouseHold());
+    dispatch(delHouseHold(body)).then(() => {
+      dispatch(allHouseHold());
+    });
   };
 
   // const [input, setInput] = useState('');

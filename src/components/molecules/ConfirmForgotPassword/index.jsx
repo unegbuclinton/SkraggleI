@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
+import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { enterNewPassword } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
@@ -8,7 +9,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { confirmNewPassword } from 'validation/Schema';
-import LoadingScreen from '../LoadingScreen';
 import { CatchError, Form } from './styles';
 
 function ConfirmForgotPassword() {
@@ -39,7 +39,6 @@ function ConfirmForgotPassword() {
 
   return (
     <AuthLayout>
-      {isLoading === true && <LoadingScreen />}
       <Form onSubmit={formik.handleSubmit}>
         <Card className="signup-card">
           <p className="signup-header">Reset Your Password</p>
@@ -69,7 +68,7 @@ function ConfirmForgotPassword() {
           ) : null}
           <div className="reg__btn">
             <Button auth type="submit">
-              Done
+              {isLoading ? <Spinner /> : 'Done'}
             </Button>
           </div>
         </Card>
