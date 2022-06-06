@@ -5,17 +5,12 @@ import ErrorMessage from 'components/atoms/ErrorMessage';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { useFormik } from 'formik';
 import { DPIconDelete, DPIconUploadFile } from 'icons';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import data from 'utilities/filterData';
-import { CreatePledgeSchema } from 'validation/Schema';
 import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
-const PledgeInfoModalComponent = ({ onClose }) => {
-  // console.log({ ...rest });
-
+const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
   const [installment, setInstallment] = useState(['']);
   const [amount, setAmount] = useState('');
 
@@ -25,7 +20,6 @@ const PledgeInfoModalComponent = ({ onClose }) => {
     setInstallment(list);
     formik.setFieldValue('expected_date', [...formik.values.expected_date, list]);
   };
-  console.log(installment);
 
   const handleRemove = (index) => {
     const list = [...installment];
@@ -43,68 +37,37 @@ const PledgeInfoModalComponent = ({ onClose }) => {
       }
     ]);
     setAmount('');
-    // setInputList([...inputList, { firstName: "", lastName: "" }]);
   };
 
   const { contactData } = useSelector((state) => state.contact);
-  const contactOptions = contactData.map((current) => ({
+  const contactOptions = contactData?.map((current) => ({
     value: current?.id,
     label: current?.first_name
   }));
-
-  const formik = useFormik({
-    initialValues: {
-      contact_id: '',
-      pledge_name: '',
-      value_donation: '',
-      pledge_type: '',
-      start_date: '',
-      end_date: '',
-      attachment: '',
-      expected_date: [],
-      amount: '',
-      interval: '',
-      campaign_id: '',
-      impact_area: '',
-      soft_credit: '',
-      source: '',
-      keywords: '',
-      dedication: '',
-      notes: ''
-    },
-    validationSchema: CreatePledgeSchema,
-
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      const body = {
-        contact_id: values.contact_id,
-        campaign_id: values.campaign_id,
-        name: values.pledge_name,
-        amount: values.value_donation,
-        // amount_currency: va,
-        start_date: values.start_date,
-        end_date: values.end_date,
-        type: values.pledge_type,
-        attachments: values.attachment,
-        payment_interval: values.interval,
-        impact_area: values.impact_area,
-        source: values.source,
-        keywords: values.keywords,
-        dedication: values.dedication,
-        notes: values.notes
-        // installments: values.,
-      };
-      console.log(body);
-    }
-  });
 
   const pledgeType = [
     { value: 'Donation', label: 'Donation' },
     { value: 'Active', label: 'Active' }
   ];
 
+  const currency = [
+    { value: 'USD', label: 'USD' },
+    { value: 'PKR', label: 'PKR' },
+    { value: 'CNY', label: 'CNY' }
+  ];
+
+  const paymentInterval = [
+    { value: 'Daily', label: 'Daily' },
+    { value: 'Weekly', label: 'Weekly' },
+    { value: 'Monthly', label: 'Monthly' },
+    { value: 'Yearly', label: 'Yearly' }
+  ];
+
   return (
-    <ModalWrapper onSubmit={formik.handleSubmit}>
+    <ModalWrapper
+      onSubmit={() => {
+        formik.handleSubmit;
+      }}>
       <Card>
         <h1>Contact</h1>
         <SelectDropDown
@@ -207,7 +170,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
                 <Input
                   className="installments-date"
                   containerClass="input-container"
-                  type="text"
+                  type="date"
                   id={name}
                   name={name}
                   placeholder="Expected Date"
@@ -225,6 +188,17 @@ const PledgeInfoModalComponent = ({ onClose }) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.amount}
+                />
+                <SelectDropDown
+                  className="amount-currency"
+                  id="amount_currency"
+                  name="amount_currency"
+                  type={'text'}
+                  placeholder="Currency"
+                  options={currency}
+                  value={formik.values.amount_currency}
+                  onChange={(value) => formik.setFieldValue('amount_currency', value.value)}
+                  onBlur={formik.handleBlur}
                 />
                 <DPIconDelete className="icon-delete" onClick={() => handleRemove(index)} />
               </div>
@@ -258,7 +232,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
             id="interval"
             name="interval"
             type={'text'}
-            options={contactOptions}
+            options={paymentInterval}
             value={formik.values.interval}
             onChange={(value) => formik.setFieldValue('interval', value.value)}
             onBlur={formik.handleBlur}
@@ -272,7 +246,7 @@ const PledgeInfoModalComponent = ({ onClose }) => {
           <Button onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
-          <Button type="submit" className="save-btn">
+          <Button type="button" className="save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </ButtonsContainer>

@@ -13,7 +13,6 @@ import {
 } from './styles';
 
 function ContactStepTwo({ onClose, formik, isLoading }) {
-  console.log(isLoading);
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 

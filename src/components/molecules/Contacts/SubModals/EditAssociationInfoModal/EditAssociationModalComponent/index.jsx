@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { editAssociationModal } from 'validation/Schema';
 
 function EditAssociationModalComponent({ onClose }) {
-  const { eachContact } = useSelector((state) => state.contact);
+  const { eachContact } = useSelector((state) => state?.contact);
   const associationId = eachContact.id;
   const dispatch = useDispatch();
   const [companyName, setCompanyName] = useState(['']);

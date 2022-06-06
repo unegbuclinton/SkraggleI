@@ -250,7 +250,7 @@ export const CreatePledgeSchema = Yup.object({
   pledge_type: Yup.string().required('This is required field'),
   start_date: Yup.string().required('This is required field'),
   end_date: Yup.string().required('This is required field'),
-  attachment: Yup.string(),
+  attachment: Yup.array(),
   expected_date: Yup.array().required('This is required field'),
   amount: Yup.string().required('This is required field'),
   interval: Yup.string().required('This is required field'),
@@ -260,5 +260,6 @@ export const CreatePledgeSchema = Yup.object({
   source: Yup.string().required('This is required field'),
   keywords: Yup.string().required('This is required field'),
   dedication: Yup.string().required('This is required field'),
-  notes: Yup.string().required('This is required field')
+  notes: Yup.string().required('This is required field'),
+  amount_currency: Yup.string().required('This is required field')
 });

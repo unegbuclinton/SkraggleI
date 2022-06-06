@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
 function Settings({ className }) {
-  const { eachP2p } = useSelector((state) => state.p2p);
+  const { eachP2p } = useSelector((state) => state?.p2p);
   const {
     fundraiser_display_name,
     designation,

@@ -13,13 +13,14 @@ export const allPledge = async () => {
   }
 };
 
-export const createPledge = async () => {
+export const createPledge = async (body) => {
   try {
     const response = await request({
       method: 'post',
-      url: '/donations/pledges'
+      url: '/donations/pledges',
+      data: body
     });
-    return response;
+    return response?.data;
   } catch (error) {
     console.log(error);
   }

@@ -1,12 +1,23 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { addPledge, getPledge } from 'features/donation/donationSlice';
+import { useFormik } from 'formik';
 import { React, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
+import { CreatePledgeSchema } from 'validation/Schema';
 
-function RenderComponent(Components, IncrementTab, DecrementTab) {
-  return <Components IncrementTab={IncrementTab} DecrementTab={DecrementTab} />;
+function RenderComponent(Components, IncrementTab, DecrementTab, formik) {
+  return (
+    <Components
+      IncrementTab={IncrementTab}
+      DecrementTab={DecrementTab}
+      formik={formik}
+      onSubmit={formik.handleSubmit}
+    />
+  );
 }
-function MultiformTabs({ tabs, ...rest }) {
+function MultiformTabs({ onClose, tabs, ...rest }) {
   const [activeTab, setActiveTab] = useState(0);
 
   function IncrementTab() {
@@ -16,6 +27,55 @@ function MultiformTabs({ tabs, ...rest }) {
   function DecrementTab() {
     setActiveTab((prev) => prev - 1);
   }
+
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      contact_id: '',
+      pledge_name: '',
+      value_donation: '',
+      pledge_type: '',
+      start_date: '',
+      end_date: '',
+      attachment: [],
+      expected_date: [],
+      amount: '',
+      interval: '',
+      campaign_id: '',
+      impact_area: '',
+      soft_credit: '',
+      source: '',
+      keywords: '',
+      dedication: '',
+      notes: '',
+      amount_currency: ''
+    },
+    validationSchema: CreatePledgeSchema,
+
+    onSubmit: (values) => {
+      console.log(values);
+      const body = {
+        contact_id: values.contact_id,
+        campaign_id: values.campaign_id,
+        name: values.pledge_name,
+        amount: values.value_donation,
+        start_date: values.start_date,
+        end_date: values.end_date,
+        type: values.pledge_type,
+        payment_interval: values.interval,
+        impact_area: values.impact_area,
+        source: values.source,
+        dedication: values.dedication,
+        notes: values.notes,
+        amount_currency: values.amount_currency
+      };
+      dispatch(addPledge(body)).then(() => {
+        onClose();
+        dispatch(getPledge());
+      });
+    }
+  });
 
   return (
     <>
@@ -33,7 +93,14 @@ function MultiformTabs({ tabs, ...rest }) {
         ))}
       </TabContainer>
       <TabContent>
-        {tabs && RenderComponent(tabs[activeTab]?.component, IncrementTab, DecrementTab)}
+        {tabs &&
+          RenderComponent(
+            tabs[activeTab]?.component,
+            IncrementTab,
+            DecrementTab,
+            formik,
+            formik.handleSubmit
+          )}
       </TabContent>
     </>
   );
