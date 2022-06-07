@@ -24,7 +24,7 @@ export const InputWrapper = styled.div`
   gap: 4.6rem;
   .normal-input {
     width: 50.2rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -37,7 +37,7 @@ export const Container = styled.div`
   gap: 2.4rem;
   .discount-input {
     width: 28.3rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -57,7 +57,7 @@ export const Container = styled.div`
 
   .maxuser-date-input {
     width: 24.3rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};

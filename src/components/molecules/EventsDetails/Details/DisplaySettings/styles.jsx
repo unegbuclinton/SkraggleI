@@ -23,7 +23,7 @@ export const EventWrapper = styled.div`
 
   .details-input {
     width: 61.4rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -72,7 +72,7 @@ export const InputWrapper = styled.div`
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     width: 34.9rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     margin: 0.8rem 0 2.4rem 0;
   }
 

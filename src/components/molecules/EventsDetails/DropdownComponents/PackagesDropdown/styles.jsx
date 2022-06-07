@@ -6,7 +6,7 @@ export const DropDownWrapper = styled.form`
   padding: 4.8rem 0 8rem 0;
   .name-input {
     width: 61.4rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -27,7 +27,7 @@ export const DropDownWrapper = styled.form`
 
   .money-input {
     width: 34.9rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -43,7 +43,7 @@ export const DropDownWrapper = styled.form`
 
   .discount-input {
     width: 28.3rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -52,7 +52,7 @@ export const DropDownWrapper = styled.form`
 
   .date-time-input {
     width: 24.3rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -65,7 +65,7 @@ export const DropDownWrapper = styled.form`
 
   .normal-input {
     width: 28.3rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
