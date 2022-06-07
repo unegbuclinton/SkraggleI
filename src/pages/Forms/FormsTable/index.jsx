@@ -7,7 +7,7 @@ import { TableWrapper } from './styles';
 function FormsTable() {
   const navigate = useNavigate();
   const onRowClicked = () => {
-    let path = 'general-settings';
+    let path = 'url';
     navigate(path);
   };
   return (
