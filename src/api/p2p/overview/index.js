@@ -39,7 +39,7 @@ export const p2pById = async (id) => {
   }
 };
 
-export const deleteP2p = async (body) => {
+export const deleteP2P = async (body) => {
   try {
     const response = await request({
       method: 'delete',

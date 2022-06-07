@@ -6,7 +6,7 @@ import HouseHoldModal from 'components/molecules/Contacts/Modals/houseHoldModal/
 import HouseHoldEmptyState from 'components/molecules/EmptyState/Contacts/HouseHolds';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { allHouseHold, delHouseHold } from 'features/contact/contactSlice';
+import { allHouseHold, removeHouseHold } from 'features/contact/contactSlice';
 // import { searchHouseHold } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
 import React, { useState } from 'react';
@@ -29,8 +29,9 @@ function HouseHoldsTable() {
     const body = {
       households: getId
     };
-    dispatch(delHouseHold(body)).then(() => {
+    dispatch(removeHouseHold(body)).then(() => {
       dispatch(allHouseHold());
+      setGetId([]);
     });
   };
 
