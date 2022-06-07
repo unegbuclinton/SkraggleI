@@ -2,6 +2,8 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
+import PaymentOption from 'components/molecules/Forms/ProcessingFee/paymentOption';
+// import ProcessingFeeForm from 'components/molecules/Forms/ProcessingFee/processingFeeForm';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
 import OTP from 'components/molecules/OTPScreen';
@@ -23,7 +25,7 @@ import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
-import Test from 'pages/Test';
+// import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -159,7 +161,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <Test />
+    element: <PaymentOption />
   }
 ];
 
