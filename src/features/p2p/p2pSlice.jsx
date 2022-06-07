@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addP2P, allP2P, deleteP2p, p2pById } from 'api/p2p/overview';
+import { addP2P, allP2P, deleteP2P, p2pById } from 'api/p2p/overview';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 export const createP2P = createAsyncThunk('p2p/createContact', addP2P);
 export const viewP2P = createAsyncThunk('p2p/viewContact', allP2P);
 export const getEachP2p = createAsyncThunk('getEachP2p', p2pById);
-export const delP2p = createAsyncThunk('p2p/delP2p', deleteP2p);
+export const removeP2P = createAsyncThunk('p2p/removeP2P', deleteP2P);
 
 //search will go here
 
@@ -47,6 +47,16 @@ export const p2pSlice = createSlice({
     },
     [logoutUser.fulfilled]: () => {
       return initialState;
+    },
+
+    [removeP2P.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeP2P.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeP2P.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });

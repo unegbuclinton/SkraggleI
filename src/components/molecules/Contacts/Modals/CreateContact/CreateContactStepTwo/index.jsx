@@ -177,7 +177,6 @@ function ContactStepTwo({ onClose, formik }) {
             options={tagz}
             // value={formik.values.tags}
             onChange={(value) => {
-              console.log(value);
               formik.setFieldValue(
                 'tags',
                 value.map((curr) => curr.value)

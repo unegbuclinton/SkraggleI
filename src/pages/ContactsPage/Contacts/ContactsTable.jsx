@@ -8,10 +8,10 @@ import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact'
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import {
-  delContact,
   getAllInteractions,
   getAllVolunteer,
   oneContact,
+  removeContact,
   viewContact
 } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
@@ -38,8 +38,9 @@ function ContactsTable() {
     const body = {
       contacts: getId
     };
-    dispatch(delContact(body)).then(() => {
+    dispatch(removeContact(body)).then(() => {
       dispatch(viewContact());
+      setGetId([]);
     });
   };
 

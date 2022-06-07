@@ -19,15 +19,12 @@ function TableHeader({
   selectRow,
   subMenuTableHeader,
   setOpenDeleteModal,
-  openDeleteModal,
   show
 }) {
   const [dropDown, setDropDown] = useState(false);
   const handleDelete = () => {
     setOpenDeleteModal(true);
-    if (openDeleteModal === true) {
-      setDropDown(false);
-    }
+    setDropDown(false);
   };
   const ref = useRef();
   useEffect(() => {
