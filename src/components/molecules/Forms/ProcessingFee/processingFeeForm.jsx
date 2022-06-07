@@ -9,7 +9,7 @@ import styled from 'styled-components';
 function ProcessingFeeForm() {
   return (
     <ProcessingFormWrapper>
-      <Card>
+      <ProcessingFormCard>
         <h1 className="transaction-header">Transaction Cost</h1>
         <p className="transaction-text">
           Give your donors the opportunity to cover the transaction costs for <br /> their donation.
@@ -44,7 +44,7 @@ function ProcessingFeeForm() {
           <Button className="back-button">Back</Button>
           <Button className="next-button">Next</Button>
         </ButtonsWrapper>
-      </Card>
+      </ProcessingFormCard>
     </ProcessingFormWrapper>
   );
 }
@@ -52,9 +52,9 @@ function ProcessingFeeForm() {
 export default ProcessingFeeForm;
 
 export const ProcessingFormWrapper = styled.form`
-  padding: 4rem 4.4rem 2.4rem 4.4rem;
   display: flex;
-  flex: 5;
+  margin-right: 1.7rem;
+  flex: 1;
 
   .transaction-header {
     color: ${COLORS.deepPurple};
@@ -72,6 +72,10 @@ export const ProcessingFormWrapper = styled.form`
   }
 `;
 
+export const ProcessingFormCard = styled(Card)`
+  padding: 4rem 4.4rem 2.4rem 4.4rem;
+`;
+
 export const UnsubscribeOption = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,6 +88,7 @@ export const ButtonsWrapper = styled.div`
   gap: 1.6rem;
   justify-content: right;
   margin-top: 26.9rem;
+  margin-bottom: 2.4rem;
 
   .back-button {
     width: 10.7rem;

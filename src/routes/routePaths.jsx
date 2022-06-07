@@ -2,7 +2,9 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
-import PaymentOption from 'components/molecules/Forms/ProcessingFee/paymentOption';
+// import PaymentOption from 'components/molecules/Forms/ProcessingFee/paymentOption';
+// import ProcessingFee from 'components/molecules/Forms/ProcessingFee/ProcessingFee';
+import ProcessingFeeMain from 'components/molecules/Forms/ProcessingFee';
 // import ProcessingFeeForm from 'components/molecules/Forms/ProcessingFee/processingFeeForm';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
@@ -161,7 +163,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <PaymentOption />
+    element: <ProcessingFeeMain />
   }
 ];
 
