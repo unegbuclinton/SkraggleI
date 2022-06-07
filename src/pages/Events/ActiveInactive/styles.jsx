@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const ActiveInactiveWrapper = styled(Card)`
-  padding: 3.1rem 2.4rem 63rem 2.4rem;
+  padding: 3.1rem 2.4rem 2.4rem;
   margin-top: 1.6rem;
 `;
 

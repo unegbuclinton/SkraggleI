@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import DropdownComponent from 'components/atoms/Dropdown';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
+import React, { useState } from 'react';
 import { state } from 'utilities/modalData';
-
 import {
   AddressWrapper,
   DetailLabel,
@@ -18,7 +17,7 @@ function EventLocation({ formik, ErrorMsg }) {
     <div>
       <DetailsSubHeading className="event-heading">Event location</DetailsSubHeading>
       <EventWrapper>
-        <DetailLabel>Vanue</DetailLabel>
+        <DetailLabel>Venue</DetailLabel>
         <Input
           className="details-input"
           type="text"
