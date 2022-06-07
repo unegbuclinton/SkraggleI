@@ -5,15 +5,15 @@ import Forms from 'components/molecules/WidgetComponents/Forms';
 import { COLORS } from 'constants/colors';
 import React from 'react';
 import styled from 'styled-components';
-import DonationAmountMain from '../DonationAmounts';
-import GeneralSettingsForm from '../GeneralSettings/generalSettingsForm';
-import ProcessingFee from './ProcessingFee';
+import DonationMain from './DonationAmounts/DonationMain';
+import GeneralSettingsMain from './GeneralSettings/generalSettings';
+import ProcessingFee from './ProcessingFee/ProcessingFee';
 
 function ProcessingFeeMain() {
   const components = [
-    { title: 'General Settings', component: GeneralSettingsForm },
+    { title: 'General Settings', component: GeneralSettingsMain },
     { title: 'Donation Setup', component: Contacts },
-    { title: 'Donation Amounts', component: DonationAmountMain },
+    { title: 'Donation Amounts', component: DonationMain },
     { title: 'Processing Fee', component: ProcessingFee },
     { title: 'Supporter', component: Forms }
   ];
