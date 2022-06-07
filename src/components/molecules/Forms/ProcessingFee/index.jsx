@@ -2,17 +2,16 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import VerticalTab from 'components/molecules/VerticalTabs';
 import Contacts from 'components/molecules/WidgetComponents/Contacts';
 import Forms from 'components/molecules/WidgetComponents/Forms';
-import SmartWidget from 'components/molecules/WidgetComponents/SmartWidget';
 import { COLORS } from 'constants/colors';
 import React from 'react';
 import styled from 'styled-components';
 import DonationAmountMain from '../DonationAmounts';
-// import DonationAmountFormMonthly from '../DonationAmounts/donationAmountFormMonthly';
+import GeneralSettingsForm from '../GeneralSettings/generalSettingsForm';
 import ProcessingFee from './ProcessingFee';
 
 function ProcessingFeeMain() {
   const components = [
-    { title: 'General Settings', component: SmartWidget },
+    { title: 'General Settings', component: GeneralSettingsForm },
     { title: 'Donation Setup', component: Contacts },
     { title: 'Donation Amounts', component: DonationAmountMain },
     { title: 'Processing Fee', component: ProcessingFee },
