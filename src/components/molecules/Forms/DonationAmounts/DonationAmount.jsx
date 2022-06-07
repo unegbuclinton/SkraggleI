@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import DonationAmountFormMonthly from './donationAmountFormMonthly';
 import DonationAmountFormOnce from './donationAmountFormOnce';
 
-function DonationAmountMain({ onClose }) {
+function DonationAmount({ onClose }) {
   const tabs = [
     {
       name: 'Give Once',
@@ -29,7 +29,7 @@ function DonationAmountMain({ onClose }) {
   );
 }
 
-export default DonationAmountMain;
+export default DonationAmount;
 
 export const DonationMainWrapper = styled(Card)`
   padding: 4rem 4.4rem 2.4rem 4.4rem;

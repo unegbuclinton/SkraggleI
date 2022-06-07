@@ -198,6 +198,7 @@ export const DonationAmountFormCard = styled(Card)`
     flex: 1;
   }
 `;
+
 export const ButtonsWrapper = styled.div`
   display: flex;
   gap: 1.6rem;

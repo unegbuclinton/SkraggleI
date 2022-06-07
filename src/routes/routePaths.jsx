@@ -2,13 +2,12 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
-import ProcessingFeeMain from 'components/molecules/Forms/ProcessingFee';
+import ProcessingFeeMain from 'components/molecules/Forms';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
 import OTP from 'components/molecules/OTPScreen';
 import Registration from 'components/molecules/Registration';
 import ResendVerification from 'components/molecules/ResendVerification';
-// import DonationAmountMain from 'components/molecules/Forms/DonationAmounts';
 import ResetPassword from 'components/molecules/ResetPassword';
 import SendVerification from 'components/molecules/SendVerification';
 import Campaign from 'pages/Campaign';
@@ -20,14 +19,14 @@ import Donations from 'pages/Donations';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
-import Url from 'pages/Forms/FormsSubTab/URL';
+// import Url from 'pages/Forms/FormsSubTab/URL';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
-// import Test from 'pages/Test';
+import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 export const privateRoutes = [
@@ -143,7 +142,7 @@ export const privateRoutes = [
       },
       {
         path: 'url',
-        element: <Url />
+        element: <ProcessingFeeMain />
       }
     ]
   },
@@ -172,7 +171,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <ProcessingFeeMain />
+    element: <Test />
   }
 ];
 
