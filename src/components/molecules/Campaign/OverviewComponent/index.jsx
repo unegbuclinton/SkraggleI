@@ -74,8 +74,6 @@ const CampaignOverview = () => {
     }
   ];
 
-  // const [selected, setSelected] = useState('Filters');
-
   let navigate = useNavigate();
   const HandleButtonClick = () => {
     navigate('/donations');

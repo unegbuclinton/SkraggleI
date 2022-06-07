@@ -6,9 +6,9 @@ import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
 import {
-  delCampaign,
   getAllCampaigns,
   getPeerToPeer,
+  removeCampaign,
   singleCampaign
 } from 'features/campaign/campaignSlice';
 import { React, useState } from 'react';
@@ -32,8 +32,9 @@ const CampaignTable = () => {
     const body = {
       campaigns: getId
     };
-    dispatch(delCampaign(body)).then(() => {
+    dispatch(removeCampaign(body)).then(() => {
       dispatch(getAllCampaigns());
+      setGetId([]);
     });
   };
   const columns = [

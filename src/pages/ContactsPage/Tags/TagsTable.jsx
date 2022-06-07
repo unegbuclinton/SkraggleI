@@ -6,7 +6,7 @@ import TagsModal from 'components/molecules/Contacts/Modals/TagsModal/mainmodal/
 import TagsEmptyState from 'components/molecules/EmptyState/Contacts/Tags';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { delTag, viewTags } from 'features/contact/contactSlice';
+import { removeTag, viewTags } from 'features/contact/contactSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { columns } from 'utilities/tagsData';
@@ -31,8 +31,9 @@ function TagsTable() {
     const body = {
       tags: getId
     };
-    dispatch(delTag(body)).then(() => {
+    dispatch(removeTag(body)).then(() => {
       dispatch(viewTags());
+      setGetId([]);
     });
   };
 
