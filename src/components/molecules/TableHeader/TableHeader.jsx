@@ -19,7 +19,8 @@ function TableHeader({
   selectRow,
   subMenuTableHeader,
   setOpenDeleteModal,
-  show
+  show,
+  eventHeader
 }) {
   const [dropDown, setDropDown] = useState(false);
   const handleDelete = () => {
@@ -65,11 +66,15 @@ function TableHeader({
           ''
         ) : (
           <>
-            <SelectDropDown
-              className="select-dropdown"
-              classNamePrefix="react-select"
-              placeholder="Filter"
-            />
+            {!eventHeader ? (
+              <SelectDropDown
+                className="select-dropdown"
+                classNamePrefix="react-select"
+                placeholder="Filter"
+              />
+            ) : (
+              ''
+            )}
             <SearchBar onChange={onChange} />
           </>
         )}
