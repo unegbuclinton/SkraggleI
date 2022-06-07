@@ -18,7 +18,7 @@ function RenderComponent(Components, IncrementTab, DecrementTab, formik) {
     />
   );
 }
-function MultiformTabs({ onClose, tabs, ...rest }) {
+function MultiformTabs({ onClose, disabled, tabs, ...rest }) {
   const [activeTab, setActiveTab] = useState(0);
 
   function IncrementTab() {
@@ -85,7 +85,7 @@ function MultiformTabs({ onClose, tabs, ...rest }) {
         {tabs?.map((tab, index) => (
           <TabButton
             key={index}
-            disabled
+            disabled={disabled}
             active={activeTab >= index}
             onClick={() => {
               setActiveTab(index);
