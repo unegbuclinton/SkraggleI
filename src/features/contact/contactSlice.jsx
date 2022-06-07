@@ -39,10 +39,10 @@ export const getInteraction = createAsyncThunk('contact/getInteraction', createI
 export const updateContact = createAsyncThunk('contact/updateContact', editContact);
 export const getAllInteractions = createAsyncThunk('getAllInteractions', allInteractions);
 export const getAllVolunteer = createAsyncThunk('contact/getAllVolunteer', getVolunteer);
-export const delContact = createAsyncThunk('contact/delContact', deleteContact);
-export const delHouseHold = createAsyncThunk('contact/delHouseHold', deleteHousehold);
-export const delCompany = createAsyncThunk('contact/delCompany', deleteCompany);
-export const delTag = createAsyncThunk('contact/delTag', deleteTag);
+export const removeContact = createAsyncThunk('contact/removeContact', deleteContact);
+export const removeHouseHold = createAsyncThunk('contact/removeHouseHold', deleteHousehold);
+export const removeCompany = createAsyncThunk('contact/removeCompany', deleteCompany);
+export const removeTag = createAsyncThunk('contact/removeTag', deleteTag);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -185,6 +185,42 @@ export const contactSlice = createSlice({
     [getAllInteractions.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.interactionData = action.payload;
+    },
+    [removeContact.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeContact.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeContact.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [removeHouseHold.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeHouseHold.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeHouseHold.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [removeCompany.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeCompany.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeCompany.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [removeTag.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeTag.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeTag.rejected]: (state) => {
+      state.isLoading = false;
     },
     // [searchContact.fulfilled]: (state, action) => {
     //   state.isLoading = false;

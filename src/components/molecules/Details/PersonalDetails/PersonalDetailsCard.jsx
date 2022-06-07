@@ -2,11 +2,14 @@ import Button from 'components/atoms/Button/Button';
 import { DPIconsPen } from 'icons';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { nameAbbr } from 'utilities/helpers';
 import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
   const { eachContact } = useSelector((state) => state.contact);
   const { first_name, last_name, primary_email, address, primary_phone } = eachContact;
+  const fullName = `${first_name} ${last_name}`;
+
   return (
     <CardWrapper>
       <ContentsWrapper>
@@ -15,7 +18,7 @@ function PersonalDetailsCard() {
         </div>
         <div className="container">
           <div className="container__circle">
-            <p className="container__circle--text">TB</p>
+            <p className="container__circle--text">{nameAbbr(fullName)}</p>
           </div>
           <p className="container__name"> {`${first_name} ${last_name}`}</p>
         </div>

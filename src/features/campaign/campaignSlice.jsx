@@ -19,7 +19,7 @@ export const createNewCampaign = createAsyncThunk('campaign/createCampaign', add
 export const getAllCampaigns = createAsyncThunk('campaign/getAllCampains', getCampaigns);
 export const singleCampaign = createAsyncThunk('campaign/singleCampaign', individualCampaign);
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
-export const delCampaign = createAsyncThunk('campaign/delCampaign', deleteCampaign);
+export const removeCampaign = createAsyncThunk('campaign/removeCampaign', deleteCampaign);
 
 export const campaignSlice = createSlice({
   name: 'campaign',
@@ -61,6 +61,15 @@ export const campaignSlice = createSlice({
     },
     [logoutUser.fulfilled]: () => {
       return initialState;
+    },
+    [removeCampaign.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeCampaign.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeCampaign.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });
