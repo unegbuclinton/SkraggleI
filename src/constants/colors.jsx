@@ -32,6 +32,7 @@ export const COLORS = {
   'text-pagination': '#061624',
   'black-shade': '#523535',
   'moore-grey': '#9A9AA9',
+  'gray-600': '#878FAD',
   'graph-label-grey': '#BBBBBB',
   'light-pink': '#FFE9EB',
   'orange-100': '#FF8C4B',
