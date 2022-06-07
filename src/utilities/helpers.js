@@ -20,3 +20,12 @@ export function generateUUID() {
 export function formatDate(date) {
   return dayjs(date).format('DD MMM YYYY');
 }
+
+export function nameAbbr(str) {
+  const firstLetter = str
+    .split(' ')
+    .map((word) => word[0])
+    .join('');
+
+  return firstLetter;
+}
