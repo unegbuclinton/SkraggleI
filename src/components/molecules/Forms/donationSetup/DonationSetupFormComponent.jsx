@@ -5,7 +5,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function FormComponent() {
+function DonationSetupFormComponent() {
   return (
     <FormComponentContainer>
       <FormHeaderText>Select Donation Amount</FormHeaderText>
@@ -44,7 +44,7 @@ function FormComponent() {
   );
 }
 
-export default FormComponent;
+export default DonationSetupFormComponent;
 
 const FormComponentContainer = styled.div`
   padding: 2.53rem 2.139rem 2.201rem 2.103rem;
