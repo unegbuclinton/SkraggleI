@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+/* eslint-disable no-extra-boolean-cast */
 import Switch from 'components/atoms/Switch/Switch';
+import Table from 'components/layouts/Table';
+import ActiveInactiveEmptyState from 'components/molecules/EmptyState/Events/active-inactive';
+import ArchiveModal from 'components/molecules/EventsModals/ArchiveModal/Modal';
+import CloneEventModal from 'components/molecules/EventsModals/CloneModal/Modal';
+import DeleteEventModal from 'components/molecules/EventsModals/DeleteModal/Modal';
+import { DPIconEventActive } from 'icons';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ActionWrapper,
   ActiveInactiveWrapper,
-  SwitchIconWrapper,
+  Container,
   DateWrapper,
-  ViewWrapper,
-  Container
+  SwitchIconWrapper,
+  ViewWrapper
 } from './styles';
-import { DPIconEventActive } from 'icons';
-import CloneEventModal from 'components/molecules/EventsModals/CloneModal/Modal';
-import DeleteEventModal from 'components/molecules/EventsModals/DeleteModal/Modal';
-import ArchiveModal from 'components/molecules/EventsModals/ArchiveModal/Modal';
-import { useNavigate } from 'react-router-dom';
-import Table from 'components/layouts/Table';
 
 function ActiveInactive() {
   const [openCloneEvent, setCloneEventOpen] = useState(false);
@@ -130,7 +132,16 @@ function ActiveInactive() {
         <DeleteEventModal isShown={open} onClose={() => setOpen(false)} />
         <ArchiveModal isShown={openArchiveModal} onClose={() => setOpenArchiveModal(false)} />
 
-        <Table className="events-table" columns={columns} onRowClicked={onRowClicked} data={data} />
+        {!!data?.length ? (
+          <Table
+            className="events-table"
+            columns={columns}
+            onRowClicked={onRowClicked}
+            data={data}
+          />
+        ) : (
+          <ActiveInactiveEmptyState />
+        )}
       </Container>
     </ActiveInactiveWrapper>
   );
