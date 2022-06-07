@@ -1,6 +1,8 @@
+export { ReactComponent as DPIconActiveInactive } from 'icons/svgs/active-inactive.svg';
 export { ReactComponent as DPIconEventActive } from 'icons/svgs/active.svg';
 export { ReactComponent as DPIconAdd } from 'icons/svgs/add.svg';
 export { ReactComponent as DPIconApproved } from 'icons/svgs/approved.svg';
+export { ReactComponent as DPIconArchived } from 'icons/svgs/archived.svg';
 export { ReactComponent as DPIconsArrowLeft } from 'icons/svgs/arrow-left.svg';
 export { ReactComponent as DPIconsArrowRight } from 'icons/svgs/arrow-right.svg';
 export { ReactComponent as DPIconAssignee } from 'icons/svgs/assignee.svg';
