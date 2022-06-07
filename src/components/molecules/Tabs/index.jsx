@@ -1,20 +1,39 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
-const Tabs = ({ tabs, stickyTab, ...rest }) => {
+const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
       <TabContainer className={stickyTab ? 'sticky-header' : ''} {...rest}>
-        <div className="container">
-          {tabs?.map((tab, index) => (
-            <TabButton key={index} active={activeTab === index} onClick={() => setActiveTab(index)}>
-              {tab.title}
-            </TabButton>
-          ))}
-        </div>
+        {plainTab ? (
+          <PlainTabContainer>
+            <TitleWrapper>
+              <div>
+                <PlainTabText>{title}</PlainTabText>
+                <PlainTabHeading>{heading}</PlainTabHeading>
+              </div>
+              <TabLinkWrapper>
+                <PlainTabLink>{link}</PlainTabLink>
+                <DPIconForm />
+              </TabLinkWrapper>
+            </TitleWrapper>
+          </PlainTabContainer>
+        ) : (
+          <div className="container">
+            {tabs?.map((tab, index) => (
+              <TabButton
+                key={index}
+                active={activeTab === index}
+                onClick={() => setActiveTab(index)}>
+                {tab.title}
+              </TabButton>
+            ))}
+          </div>
+        )}
         {tabs[activeTab]?.actionComponent && <span>{tabs[activeTab]?.actionComponent}</span>}
       </TabContainer>
       <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
@@ -82,6 +101,47 @@ const TabButton = styled.button`
         transition: 0.3s;
       }
     `};
+`;
+
+const PlainTabContainer = styled.div`
+  width: 100%;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const PlainTabText = styled.p`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.small};
+  line-height: 1.6rem;
+  color: ${COLORS['grey-400']};
+  padding-bottom: 1rem;
+`;
+
+const PlainTabHeading = styled.h1`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.xxlarge};
+  color: ${COLORS.deepPurple};
+  line-height: 2.8rem;
+  padding-bottom: 2rem;
+`;
+
+const PlainTabLink = styled.p`
+  font-weight: ${FONTWEIGHTS.bold};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS.pink};
+`;
+
+const TabLinkWrapper = styled.div`
+  background-color: ${COLORS['error-background']};
+  width: 21rem;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.2rem;
 `;
 
 const TabContent = styled.div`
