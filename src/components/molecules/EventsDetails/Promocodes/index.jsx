@@ -1,7 +1,8 @@
 import Switch from 'components/atoms/Switch/Switch';
 import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
 import React, { useState } from 'react';
-import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
+// import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
+import PromoCodeModal from '../PromocodeModal';
 import {
   ActionWrapper,
   Container,
@@ -14,8 +15,9 @@ import {
 } from './styles';
 
 function PromoCodes() {
-  const [dropdown, setDropdown] = useState(false);
+  // const [dropdown, setDropdown] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const OpenDeleteModal = (e) => {
     e.stopPropagation();
@@ -26,7 +28,7 @@ function PromoCodes() {
       <Container>
         <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
 
-        <ContentContainer onClick={() => setDropdown(true)}>
+        <ContentContainer onClick={() => setModalIsOpen(true)}>
           <ContentsWrapper>
             <h2 className="heading">Save15</h2>
             <p className="heading-text">test</p>
@@ -54,7 +56,15 @@ function PromoCodes() {
             </p>
           </ActionWrapper>
         </ContentContainer>
-        {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />}
+        {modalIsOpen && (
+          <PromoCodeModal
+            isShown={modalIsOpen}
+            onClose={() => {
+              setModalIsOpen(false);
+            }}
+          />
+        )}
+        {/* {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />} */}
       </Container>
     </PromoCodeWrapper>
   );
