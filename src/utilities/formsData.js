@@ -10,24 +10,24 @@ export const columns = [
 
   {
     name: 'FORM NAME',
-    selector: (row) => row.formName,
+    selector: (row) => row.name,
     width: '23.769rem'
   },
 
   {
     name: 'FORM TYPE',
-    selector: (row) => row.formType,
+    selector: (row) => row.type,
     width: '13.769rem'
   },
 
   {
     name: 'RAISED',
-    selector: (row) => row.raised
+    selector: (row) => row.amount_raised
   },
 
   {
     name: 'DONATIONS',
-    selector: (row) => row.donation,
+    selector: (row) => row.donation_amount,
     width: '25.027rem'
   },
 
