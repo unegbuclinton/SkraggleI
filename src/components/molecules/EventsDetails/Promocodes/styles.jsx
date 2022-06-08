@@ -8,19 +8,6 @@ export const PromoCodeWrapper = styled(Card)`
   margin-top: 1.6rem;
 `;
 
-export const Container = styled.div`
-  overflow-x: auto;
-`;
-
-export const ContentContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 1.2rem 2rem 1.2rem 3.1rem;
-  border: 0.08rem solid ${COLORS['porcelain-white']};
-  justify-content: space-between;
-  cursor: pointer;
-`;
-
 export const ContentsWrapper = styled.div`
   margin-right: 13.4rem;
   white-space: nowrap;
@@ -37,61 +24,18 @@ export const ContentsWrapper = styled.div`
   }
 `;
 
-export const SwitchIconWrapper = styled.div`
-  margin-right: 5.8rem;
-  padding-bottom: 1.4rem;
-`;
-
-export const RequiredWrapper = styled.div`
-  margin-right: 6.9rem;
-  text-align: justify;
-  .title {
-    font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
-    color: ${COLORS['gray-500']};
-  }
-
-  .discount {
-    font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
-    color: ${COLORS['grey-400']};
-    padding-top: 0.4rem;
-  }
-`;
-
-export const ViewWrapper = styled.div`
-  margin-right: 5.6rem;
-  text-align: justify;
-  white-space: nowrap;
-  .title {
-    font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
-    color: ${COLORS['gray-500']};
-  }
-
-  .view {
-    font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
-    color: ${COLORS['grey-400']};
-    white-space: nowrap;
-    padding-top: 0.4rem;
-  }
-`;
-
 export const ActionWrapper = styled.div`
   margin-left: 4.47rem;
   display: flex;
   gap: 1.6rem;
   .action {
     font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
     color: ${COLORS['grey-500']};
     cursor: pointer;
   }
 
   .delete {
     font-weight: ${FONTWEIGHTS.normal};
-    font-size: ${FONTSIZES.lg};
     color: ${COLORS.pink};
     cursor: pointer;
   }
