@@ -9,12 +9,10 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-// import data from 'utilities/filterData';
 import { createCampaignSchema } from 'validation/Schema';
 import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const CampaignModalComponent = ({ onClose }) => {
-  // const [selected, setSelected] = useState('Filters');
   const dispatch = useDispatch();
   const { contactData } = useSelector((state) => state.contact);
   const { isLoading } = useSelector((state) => state.campaign);
