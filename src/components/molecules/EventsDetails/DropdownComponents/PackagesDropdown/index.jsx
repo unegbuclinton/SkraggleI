@@ -1,5 +1,10 @@
-import React from 'react';
+import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
+import RadioGroup from 'components/atoms/RadioGroup';
+import Switch from 'components/atoms/Switch/Switch';
+import { useFormik } from 'formik';
+import React from 'react';
+import { packageValidatioSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DropDownWrapper,
@@ -11,13 +16,8 @@ import {
   SwitchLabel,
   SwitchWrapper
 } from './styles';
-import Switch from 'components/atoms/Switch/Switch';
-import Button from 'components/atoms/Button/Button';
-import { useFormik } from 'formik';
-import { packageValidatioSchema } from 'validation/Schema';
-import RadioGroup from 'components/atoms/RadioGroup';
 
-function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, openDropdown }) {
+function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -244,6 +244,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, openDropdown 
         </div>
       </InputWrapper>
       <InputWrapper>
+        s
         <div className="custom-container">
           <Label className="custom-label">Custom event fields</Label>
           <div className="email-container"></div>
@@ -255,13 +256,13 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, openDropdown 
             Cancel
           </Button>
         )}
-
-        {openDropdown && (
-          <Button type="button" onClick={() => setOpenDropdown(false)} className="cancel-btn">
-            Cancel
-          </Button>
-        )}
-
+        <Button
+          type="button"
+          onClick={(() => setOpenDropdown(false), onClose)}
+          className="cancel-btn"
+          invert>
+          Cancel
+        </Button>
         <Button className="save-btn">Save</Button>
       </ButtonContainer>
     </DropDownWrapper>

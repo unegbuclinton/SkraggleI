@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
 import Switch from 'components/atoms/Switch/Switch';
+import DeleteFieldModal from 'components/molecules/EventsModals/FieldsModal/DeleteModal/Modal';
+import React, { useState } from 'react';
+// import FieldDropdown from '../DropdownComponents/FieldsDropdown';
+import CreateNewFieldModals from '../EventModals/CreateNewFieldModals';
 import {
   ActionWrapper,
   Container,
@@ -10,8 +13,6 @@ import {
   SwitchIconWrapper,
   ViewWrapper
 } from './styles';
-import FieldDropdown from '../DropdownComponents/FieldsDropdown';
-import DeleteFieldModal from 'components/molecules/EventsModals/FieldsModal/DeleteModal/Modal';
 
 function Fields() {
   const [dropdown, setDropdown] = useState(false);
@@ -26,7 +27,6 @@ function Fields() {
     <FieldWrapper>
       <Container>
         <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
-
         <ContentContainer onClick={() => setDropdown(true)}>
           <ContentsWrapper>
             <h2 className="heading">Trial label</h2>
@@ -55,7 +55,7 @@ function Fields() {
             </p>
           </ActionWrapper>
         </ContentContainer>
-        {dropdown && <FieldDropdown setDropdown={setDropdown} />}
+        {dropdown && <CreateNewFieldModals isShown={dropdown} onClose={() => setDropdown(false)} />}
       </Container>
     </FieldWrapper>
   );

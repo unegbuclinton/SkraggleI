@@ -1,4 +1,9 @@
+import Switch from 'components/atoms/Switch/Switch';
+import EventPackageModal from 'components/molecules/EventsModals/EventPackageModal';
+import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
+import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
 import React, { useState } from 'react';
+// import PackageDropdown from '../DropdownComponents/PackagesDropdown';
 import {
   ActionWrapper,
   Container,
@@ -9,10 +14,6 @@ import {
   SwitchIconWrapper,
   ViewWrapper
 } from './styles';
-import Switch from 'components/atoms/Switch/Switch';
-import PackageDropdown from '../DropdownComponents/PackagesDropdown';
-import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
-import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 
 function Packages() {
   const [dropdown, setDropdown] = useState(false);
@@ -71,7 +72,7 @@ function Packages() {
             </p>
           </ActionWrapper>
         </ContentContainer>
-        {dropdown && <PackageDropdown dropdown={dropdown} setDropdown={setDropdown} />}
+        {dropdown && <EventPackageModal isShown={dropdown} onClose={() => setDropdown(false)} />}
         <ContentContainer onClick={() => setOpenDropdown(true)}>
           <ContentsWrapper>
             <h2 className="heading">Gift pack</h2>
@@ -108,7 +109,7 @@ function Packages() {
           </ActionWrapper>
         </ContentContainer>
         {openDropdown && (
-          <PackageDropdown openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
+          <EventPackageModal isShown={openDropdown} onClose={() => setOpenDropdown(false)} />
         )}
       </Container>
     </PackageWrapper>
