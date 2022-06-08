@@ -8,6 +8,7 @@ import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
 function PromoCodes() {
   // const [dropdown, setDropdown] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const OpenDeleteModal = (e) => {
     e.stopPropagation();

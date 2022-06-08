@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import DropdownComponent from 'components/atoms/Dropdown';
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-import DropdownComponent from 'components/atoms/Dropdown';
+import React, { useState } from 'react';
 import {
   DetailLabel,
   DetailsSubHeading,

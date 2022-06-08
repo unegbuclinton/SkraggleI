@@ -1,5 +1,10 @@
-import React from 'react';
+import Button from 'components/atoms/Button/Button';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
+import RadioGroup from 'components/atoms/RadioGroup';
+import { useFormik } from 'formik';
+import React from 'react';
+import { promoCodeValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   Container,
@@ -10,12 +15,8 @@ import {
   RadioWrapper,
   SelectContainer
 } from './styles';
-import Button from 'components/atoms/Button/Button';
-import { promoCodeValidationSchema } from 'validation/Schema';
-import { useFormik } from 'formik';
-import RadioGroup from 'components/atoms/RadioGroup';
 
-function PromoCodeDropdown({ setDropdown }) {
+function PromoCodeDropdown({ onClose }) {
   const formik = useFormik({
     initialValues: {
       promoCode: '',
@@ -23,13 +24,20 @@ function PromoCodeDropdown({ setDropdown }) {
       discount: '',
       maxUsers: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
+      promoCodeValues: []
     },
     validationSchema: promoCodeValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     }
   });
+
+  const promocode = [
+    { value: 'pk214', label: 'pk214' },
+    { value: 'CmK123', label: 'CmK123' },
+    { value: 'Uan2DE', label: 'CYN' }
+  ];
   return (
     <DropdownWrapper onSubmit={formik.handleSubmit}>
       <InputWrapper>
@@ -69,8 +77,6 @@ function PromoCodeDropdown({ setDropdown }) {
         </div>
       </InputWrapper>
       <RadioWrapper>
-        {/* <Radio value="any" name="radio-test" labelText="Amount" />
-        <Radio value="all" name="radio-test" labelText="Percentage" /> */}
         <RadioGroup
           radioData={[
             {
@@ -154,10 +160,26 @@ function PromoCodeDropdown({ setDropdown }) {
       </Container>
       <SelectContainer>
         <h2>This promo code will be applied to all packages or Select all</h2>
-        <Input className="select-box" placeholder="Select some Options " />
+        <SelectDropDown
+          className="select-box"
+          placeholder={'Select some Options'}
+          isMulti="true"
+          id="promoCodeValues"
+          name="promoCodeValues"
+          type={'text'}
+          options={promocode}
+          // value={formik.values.followers}
+          onChange={(value) => {
+            formik.setFieldValue(
+              'promoCodeValues',
+              value.map((curr) => curr.value)
+            );
+          }}
+          onBlur={formik.handleBlur}
+        />
       </SelectContainer>
       <ButtonContainer>
-        <Button type="button" onClick={() => setDropdown(false)} className="cancel-btn">
+        <Button type="button" onClick={onClose} className="cancel-btn">
           Cancel
         </Button>
         <Button className="save-btn">Save</Button>
