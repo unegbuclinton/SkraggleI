@@ -4,7 +4,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const ArchivedWrapper = styled(Card)`
-  padding: 3.2rem 2.4rem 62.9rem 2.4rem;
+  padding: 3.2rem 2.4rem 2.4rem;
   margin-top: 1.6rem;
 `;
 
