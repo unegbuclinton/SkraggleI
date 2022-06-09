@@ -24,6 +24,7 @@ function ProcessingFeeMain() {
           tabs={components}
           className="vertical-tab__container"
           verticalWrapper="vertical-tab-wrapper"
+          content="content-wrapper"
         />
       </ProcessingFeeWrapper>
     </DashboardLayout>
@@ -33,8 +34,11 @@ function ProcessingFeeMain() {
 export default ProcessingFeeMain;
 
 export const ProcessingFeeWrapper = styled.div`
+  height: 100%;
   .vertical-tab__container {
     gap: 1.6rem;
+    width: 100%;
+    height: 100%;
   }
 
   .vertical-tab-wrapper {
@@ -48,5 +52,10 @@ export const ProcessingFeeWrapper = styled.div`
     margin-left: 1.6rem;
     margin-top: 0rem;
     margin-right: 0rem;
+  }
+  .content-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
   }
 `;

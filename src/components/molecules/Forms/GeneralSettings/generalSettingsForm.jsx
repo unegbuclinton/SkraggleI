@@ -100,7 +100,11 @@ function GeneralSettingsForm() {
 
 export default GeneralSettingsForm;
 
-export const GeneralSettingsFormWrapper = styled.form``;
+export const GeneralSettingsFormWrapper = styled.form`
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+`;
 
 export const GeneralSettingsFormCard = styled(Card)`
   padding: 4rem 4.4rem 2.4rem 4.4rem;
@@ -111,7 +115,8 @@ export const GeneralSettingsFormCard = styled(Card)`
     background-color: transparent;
     border: 1px solid #9a9aa9;
     border-radius: 5px;
-    width: 44.2rem;
+    /* width: 44.2rem; */
+    width: 100%;
     color: ${COLORS.black};
   }
 
@@ -121,7 +126,7 @@ export const GeneralSettingsFormCard = styled(Card)`
   }
   .campaign-dropdown {
     margin-top: 0.816rem;
-    width: 44.2rem;
+    width: 100%;
   }
   .underline {
     border: 1px solid #e6eff1;

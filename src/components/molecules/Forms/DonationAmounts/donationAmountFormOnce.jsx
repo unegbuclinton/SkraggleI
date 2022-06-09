@@ -23,6 +23,7 @@ function DonationAmountFormOnce() {
           id="pledge_name"
           name="pledge_name"
           placeholder="$ 60.00"
+          autoWidth
           //   onChange={formik.handleChange}
           //   onBlur={formik.handleBlur}
           //   value={formik.values.pledge_name}
@@ -30,6 +31,7 @@ function DonationAmountFormOnce() {
         <label>Suggested donation amount presets</label>
         <div className="row">
           <Input
+            containerClass="input-container"
             className="modal-input__suggested"
             type="text"
             id="pledge_name"
@@ -40,6 +42,7 @@ function DonationAmountFormOnce() {
             //   value={formik.values.pledge_name}
           />
           <Input
+            containerClass="input-container"
             className="modal-input__suggested"
             type="text"
             id="pledge_name"
@@ -52,6 +55,7 @@ function DonationAmountFormOnce() {
         </div>
         <div className="row">
           <Input
+            containerClass="input-container"
             className="modal-input__suggested"
             type="text"
             id="pledge_name"
@@ -62,6 +66,7 @@ function DonationAmountFormOnce() {
             //   value={formik.values.pledge_name}
           />
           <Input
+            containerClass="input-container"
             className="modal-input__suggested"
             type="text"
             id="pledge_name"
@@ -87,6 +92,7 @@ function DonationAmountFormOnce() {
         </div>
         <SelectDropDown
           placeholder={'Designation List'}
+          className="designation-dropdown"
           id="designation"
           name="designation"
           type={'text'}
@@ -146,6 +152,9 @@ export const DonationAmountFormCard = styled(Card)`
     margin-bottom: 2.55rem;
   }
 
+  .designation-dropdown {
+    width: 100%;
+  }
   .modal-input {
     margin-top: 0.72rem;
     margin-bottom: 2.384rem;
@@ -160,7 +169,8 @@ export const DonationAmountFormCard = styled(Card)`
       border: 1px solid #9a9aa9;
       border-radius: 5px;
       color: ${COLORS.black};
-      width: 21.3rem;
+      max-width: 21.3rem;
+      width: 100%;
     }
   }
 
@@ -171,6 +181,9 @@ export const DonationAmountFormCard = styled(Card)`
   .row {
     display: flex;
     gap: 1.6rem;
+    .input-container {
+      max-width: 21.3rem;
+    }
   }
   .button-wrapper {
     display: flex;

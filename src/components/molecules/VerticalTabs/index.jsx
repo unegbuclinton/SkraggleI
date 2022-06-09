@@ -11,7 +11,8 @@ function VerticalTab({
   children,
   onClick,
   leftBottomClass,
-  setRef
+  setRef,
+  content
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
   const RenderFunction = (Components, props) => {
@@ -39,7 +40,7 @@ function VerticalTab({
             {children}
           </div>
         </div>
-        <div className="content-wrapper" activeWidget={activeWidget}>
+        <div className={content} activeWidget={activeWidget}>
           {tabs && RenderFunction(tabs[activeWidget]?.component)}
         </div>
       </VerticalTabWrapper>
@@ -55,6 +56,9 @@ const VerticalTabWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    height: fit-content;
+    position: sticky;
+    top: 0px;
   }
 `;
 const TabButton = styled.button`

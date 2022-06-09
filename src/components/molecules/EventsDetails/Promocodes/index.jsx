@@ -2,13 +2,14 @@ import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
 import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
 import React, { useState } from 'react';
+import PromoCodeModal from '../PromocodeModal';
 // import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
 import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
 
 function PromoCodes() {
   // const [dropdown, setDropdown] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const OpenDeleteModal = (e) => {
     e.stopPropagation();
@@ -69,11 +70,21 @@ function PromoCodes() {
     }
   ];
 
+  const onRowClicked = () => {
+    setModalIsOpen(true);
+  };
+
   return (
     <PromoCodeWrapper>
       <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
-      <Table columns={columns} data={data} />
-      {/* {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />} */}
+      <Table columns={columns} data={data} onRowClicked={onRowClicked} />
+      {modalIsOpen && (
+        <PromoCodeModal
+          onClose={() => {
+            setModalIsOpen(false);
+          }}
+        />
+      )}
     </PromoCodeWrapper>
   );
 }

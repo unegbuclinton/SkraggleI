@@ -15,5 +15,6 @@ function FormCardLayout({ children }) {
 export default FormCardLayout;
 
 const FormCardContainer = styled.div`
-  width: 37.954rem;
+  /* max-width: 37.954rem; */
+  width: 100%;
 `;
