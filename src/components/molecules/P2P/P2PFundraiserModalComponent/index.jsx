@@ -17,8 +17,9 @@ import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrappe
 
 function P2PModalComponent({ onClose, isShown }) {
   const dispatch = useDispatch();
-  const { campaigns } = useSelector((state) => state.campaign);
-  const campaign = campaigns.map((current) => ({ value: current?.id, label: current?.name }));
+  const { campaigns } = useSelector((state) => state?.campaign);
+  console.log(campaigns);
+  const campaign = campaigns?.map((current) => ({ value: current?.id, label: current?.name }));
 
   const { isLoading } = useSelector((state) => state.p2p);
   const formik = useFormik({
@@ -292,6 +293,7 @@ function P2PModalComponent({ onClose, isShown }) {
             value={formik.values.personalMessage}
             id="personalMessage"
             name="personalMessage"
+            className="text-area"
           />
           {formik.touched.personalMessage && formik.errors.personalMessage ? (
             <ErrorMessage>{formik.errors.personalMessage}</ErrorMessage>

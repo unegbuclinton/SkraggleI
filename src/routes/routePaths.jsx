@@ -2,6 +2,7 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
+import ProcessingFeeMain from 'components/molecules/Forms';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
 import OTP from 'components/molecules/OTPScreen';
@@ -18,7 +19,7 @@ import Donations from 'pages/Donations';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
-import Url from 'pages/Forms/FormsSubTab/URL';
+// import Url from 'pages/Forms/FormsSubTab/URL';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
@@ -141,7 +142,7 @@ export const privateRoutes = [
       },
       {
         path: 'url',
-        element: <Url />
+        element: <ProcessingFeeMain />
       }
     ]
   },

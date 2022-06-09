@@ -20,6 +20,7 @@ export { ReactComponent as DPIiconCompanies } from 'icons/svgs/companies.svg';
 export { ReactComponent as DPIconContacts } from 'icons/svgs/contactsIcon.svg';
 export { ReactComponent as DPIconCopy } from 'icons/svgs/CopyButton.svg';
 export { ReactComponent as DPIconCopyWhite } from 'icons/svgs/copyWhite.svg';
+export { ReactComponent as DPIconCoverTransaction } from 'icons/svgs/cover-transaction.svg';
 export { ReactComponent as DPIconDashboard } from 'icons/svgs/dashboardIcon.svg';
 export { ReactComponent as DPIconDateArrow } from 'icons/svgs/dateArrow.svg';
 export { ReactComponent as DPIconDelete } from 'icons/svgs/delete.svg';

@@ -83,8 +83,9 @@ function P2PTable() {
   const dispatch = useDispatch();
 
   const onRowClicked = (row) => {
-    navigate(`/peer-to-peer/${row.key + 1}`, { state: row });
-    dispatch(getEachP2p(row.id));
+    dispatch(getEachP2p(row?.id)).then(() => {
+      navigate(`/peer-to-peer/${row?.id}`, { state: row });
+    });
   };
 
   const [open, setOpen] = useState(false);

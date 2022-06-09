@@ -45,7 +45,7 @@ export const InputWrapper = styled.div`
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
     width: 54.5rem;
-    height: 6.4rem;
+    /* height: 6.4rem; */
     margin: 0.8rem 0 1.6rem 0;
   }
 

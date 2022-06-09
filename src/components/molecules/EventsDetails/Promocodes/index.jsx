@@ -1,61 +1,79 @@
 import Switch from 'components/atoms/Switch/Switch';
+import Table from 'components/layouts/Table';
 import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
 import React, { useState } from 'react';
-import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
-import {
-  ActionWrapper,
-  Container,
-  ContentContainer,
-  ContentsWrapper,
-  PromoCodeWrapper,
-  RequiredWrapper,
-  SwitchIconWrapper,
-  ViewWrapper
-} from './styles';
+// import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
+import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
 
 function PromoCodes() {
-  const [dropdown, setDropdown] = useState(false);
+  // const [dropdown, setDropdown] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const OpenDeleteModal = (e) => {
     e.stopPropagation();
     setOpenDelete(true);
   };
+  const columns = [
+    {
+      name: 'NAME',
+      cell: () => (
+        <ContentsWrapper>
+          <h2 className="heading">Save15</h2>
+          <p className="heading-text">test</p>
+        </ContentsWrapper>
+      ),
+      width: '20.8rem'
+    },
+    {
+      name: 'STATUS',
+      cell: () => <Switch />,
+      width: '16.8rem'
+    },
+    {
+      name: 'DISCOUNT',
+      selector: (row) => row.discount,
+      Width: '16.8rem'
+    },
+    {
+      name: 'MAXIMUM USES',
+      selector: (row) => row.uses,
+      Width: '16.8rem'
+    },
+    {
+      name: 'TIMES USED',
+      selector: (row) => row.timeused,
+      Width: '16.8rem'
+    },
+    {
+      name: '',
+      // selector: (row) => row.tags
+      cell: () => (
+        <ActionWrapper>
+          <p className="action">Edit</p>
+          <p className="delete" onClick={OpenDeleteModal}>
+            Delete
+          </p>
+        </ActionWrapper>
+      )
+    }
+  ];
+
+  const data = [
+    {
+      name: 'NAME',
+      status: '',
+      discount: '15%',
+      uses: '1',
+      timeused: '0'
+    }
+  ];
+
   return (
     <PromoCodeWrapper>
-      <Container>
-        <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
-
-        <ContentContainer onClick={() => setDropdown(true)}>
-          <ContentsWrapper>
-            <h2 className="heading">Save15</h2>
-            <p className="heading-text">test</p>
-          </ContentsWrapper>
-          <SwitchIconWrapper>
-            <Switch />
-          </SwitchIconWrapper>
-          <RequiredWrapper>
-            <p className="title">Discount</p>
-            <h2 className="discount">15%</h2>
-          </RequiredWrapper>
-          <ViewWrapper>
-            <p className="title">Maximum uses</p>
-            <h2 className="view">1</h2>
-          </ViewWrapper>
-          <ViewWrapper>
-            <p className="title">times used</p>
-            <h2 className="view">0</h2>
-          </ViewWrapper>
-
-          <ActionWrapper>
-            <p className="action">Edit</p>
-            <p className="delete" onClick={OpenDeleteModal}>
-              Delete
-            </p>
-          </ActionWrapper>
-        </ContentContainer>
-        {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />}
-      </Container>
+      <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
+      <Table columns={columns} data={data} />
+      {/* {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />} */}
     </PromoCodeWrapper>
   );
 }
