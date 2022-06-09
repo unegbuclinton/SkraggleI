@@ -71,7 +71,7 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
               name="category"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.category}
+              // value={formik.values.category}
             />
             <div className="error-container">
               {formik.touched.category && formik.errors.category ? (

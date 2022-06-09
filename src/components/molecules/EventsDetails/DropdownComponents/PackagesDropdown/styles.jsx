@@ -3,10 +3,9 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const DropDownWrapper = styled.form`
-  padding: 4.8rem 0 8rem 0;
+  padding: 4.8rem 2.4rem 2.4rem 2rem;
   .name-input {
     width: 61.4rem;
-    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -27,7 +26,6 @@ export const DropDownWrapper = styled.form`
 
   .money-input {
     width: 34.9rem;
-    /* height: 6.4rem; */
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -110,6 +108,7 @@ export const SwitchWrapper = styled.div`
 
 export const InputWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 2.4rem;
   .input-container {
     margin-top: 3rem;
@@ -120,6 +119,7 @@ export const InputWrapper = styled.div`
 
   .error-container {
     margin-top: 2.4rem;
+    width: 100%;
   }
 
   .price-error {
@@ -135,7 +135,6 @@ export const InputWrapper = styled.div`
     }
     .email-container {
       height: 6.4rem;
-      width: 99.1rem;
       border: 0.1rem solid ${COLORS['gray-500']};
       border-radius: 0.5rem;
       background-color: ${COLORS.white};
