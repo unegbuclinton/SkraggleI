@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
 import Table from 'components/layouts/Table';
-import { data, columns } from 'utilities/AttendeeData';
-import { AttendeeWrapper } from './styles';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import { columns, data } from 'utilities/AttendeeData';
 import RegistrationPackage from '../RegistrationPackage';
+import { AttendeeWrapper } from './styles';
 
 function Attendees() {
   const [click, setClick] = useState(false);
@@ -12,7 +13,10 @@ function Attendees() {
       {click ? (
         <RegistrationPackage setClick={setClick} />
       ) : (
-        <Table data={data} onRowClicked={() => setClick((prev) => !prev)} columns={columns} />
+        <>
+          <TableHeader header="Attendees" title="Actions" eventHeader attendeeButton />
+          <Table data={data} onRowClicked={() => setClick((prev) => !prev)} columns={columns} />
+        </>
       )}
     </AttendeeWrapper>
   );
