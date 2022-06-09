@@ -17,7 +17,8 @@ import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrappe
 
 function P2PModalComponent({ onClose, isShown }) {
   const dispatch = useDispatch();
-  const { campaigns } = useSelector((state) => state.campaign);
+  const { campaigns } = useSelector((state) => state?.campaign);
+  console.log(campaigns);
   const campaign = campaigns?.map((current) => ({ value: current?.id, label: current?.name }));
 
   const { isLoading } = useSelector((state) => state.p2p);
