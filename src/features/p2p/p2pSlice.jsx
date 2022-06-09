@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addP2P, allP2P, deleteP2P, p2pById } from 'api/p2p/overview';
-import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   p2pData: [],
@@ -44,9 +43,6 @@ export const p2pSlice = createSlice({
     [getEachP2p.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.eachP2p = action.payload;
-    },
-    [logoutUser.fulfilled]: () => {
-      return initialState;
     },
 
     [removeP2P.fulfilled]: (state) => {

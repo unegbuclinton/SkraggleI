@@ -37,6 +37,7 @@ export const campaignSlice = createSlice({
     },
     [getAllCampaigns.fulfilled]: (state, action) => {
       state.isLoading = false;
+
       state.campaigns = action.payload;
     },
     [getAllCampaigns.rejected]: (state) => {

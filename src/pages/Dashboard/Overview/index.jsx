@@ -12,6 +12,7 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
+import { getAllEvents } from 'features/events/eventSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
@@ -33,6 +34,10 @@ function Overview() {
   const toogleDateRange = () => setDatePick((prev) => !prev);
   useEffect(() => {
     dispatch(getAllCompanies());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllEvents());
   }, [dispatch]);
 
   useEffect(() => {
