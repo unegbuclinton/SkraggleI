@@ -1,6 +1,7 @@
 import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
 import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
 // import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
 import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
@@ -51,6 +52,14 @@ function PromoCodes() {
       cell: () => (
         <ActionWrapper>
           <p className="action">Edit</p>
+        </ActionWrapper>
+      )
+    },
+    {
+      name: '',
+      // selector: (row) => row.tags
+      cell: () => (
+        <ActionWrapper>
           <p className="delete" onClick={OpenDeleteModal}>
             Delete
           </p>
@@ -72,6 +81,7 @@ function PromoCodes() {
   return (
     <PromoCodeWrapper>
       <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
+      <TableHeader header="Promo Codes" title="Create New" eventHeader />
       <Table columns={columns} data={data} />
       {/* {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />} */}
     </PromoCodeWrapper>

@@ -20,6 +20,7 @@ function DisplaySettings({ formik, ErrorMsg }) {
           className="details-input"
           id="settins"
           name="settings"
+          onWheel={() => document.activeElement.blur()}
           type="number"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -50,9 +51,11 @@ function DisplaySettings({ formik, ErrorMsg }) {
               onBlur={formik.handleBlur}
               value={formik.values.eventStartDate}
             />
-            {formik.touched.eventStartDate && formik.errors.eventStartDate ? (
-              <ErrorMsg>{formik.errors.eventStartDate}</ErrorMsg>
-            ) : null}
+            <div className="error-date">
+              {formik.touched.eventStartDate && formik.errors.eventStartDate ? (
+                <ErrorMsg>{formik.errors.eventStartDate}</ErrorMsg>
+              ) : null}
+            </div>
           </div>
 
           <div>
@@ -77,32 +80,36 @@ function DisplaySettings({ formik, ErrorMsg }) {
             <DetailLabel>Event start date</DetailLabel>
             <Input
               className="date-time-input end-date"
-              id="endTime"
-              name="endTime"
+              id="eventStartDateTwo"
+              name="eventStartDateTwo"
               type="date"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.endTime}
+              value={formik.values.eventStartDateTwo}
             />
-            {formik.touched.endTime && formik.errors.endTime ? (
-              <ErrorMsg>{formik.errors.endTime}</ErrorMsg>
-            ) : null}
+            <div className="error-date">
+              {formik.touched.eventStartDateTwo && formik.errors.eventStartDateTwo ? (
+                <ErrorMsg>{formik.errors.eventStartDateTwo}</ErrorMsg>
+              ) : null}
+            </div>
           </div>
 
           <div className="input-container">
             <DetailLabel>End time</DetailLabel>
             <Input
               className="date-time-input end-date"
-              id="startTime"
-              name="startTime"
+              id="endTime"
+              name="endTime"
               type="time"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.startTime}
+              value={formik.values.endTime}
             />
-            {formik.touched.startTime && formik.errors.startTime ? (
-              <ErrorMsg>{formik.errors.startTime}</ErrorMsg>
-            ) : null}
+            <div className="error-time">
+              {formik.touched.endTime && formik.errors.endTime ? (
+                <ErrorMsg>{formik.errors.endTime}</ErrorMsg>
+              ) : null}
+            </div>
           </div>
         </InputWrapper>
       </EventWrapper>

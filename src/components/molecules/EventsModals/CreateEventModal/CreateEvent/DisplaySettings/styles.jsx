@@ -18,7 +18,6 @@ export const DetailLabel = styled.label`
 export const EventWrapper = styled.div`
   border-bottom: ${COLORS.torquoise} 0.1rem solid;
   width: 100%;
-
   .details-input {
     width: 100%;
     border: 0.1rem solid ${COLORS['gray-500']};
@@ -26,13 +25,11 @@ export const EventWrapper = styled.div`
     background-color: ${COLORS.white};
     margin: 0.8rem 0 2.4rem 0;
   }
-
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
   /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
@@ -82,6 +79,15 @@ export const InputWrapper = styled.div`
 
   .end-date {
     margin-bottom: 0.5rem;
+  }
+
+  .error-date {
+    position: relative;
+    top: 2.4rem;
+  }
+
+  .error-time {
+    margin-top: 2.4rem;
   }
 
   /* .input-container {

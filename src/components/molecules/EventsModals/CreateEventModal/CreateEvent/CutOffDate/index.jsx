@@ -33,15 +33,15 @@ function CutOffDate({ formik, ErrorMsg }) {
             <DetailLabel>End time</DetailLabel>
             <Input
               className="date-time-input end-date"
-              id="endTime"
-              name="endTime"
+              id="registrationEndTime"
+              name="registrationEndTime"
               type="time"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.endTime}
+              value={formik.values.registrationEndTime}
             />
-            {formik.touched.endTime && formik.errors.endTime ? (
-              <ErrorMsg>{formik.errors.endTime}</ErrorMsg>
+            {formik.touched.registrationEndTime && formik.errors.registrationEndTime ? (
+              <ErrorMsg>{formik.errors.registrationEndTime}</ErrorMsg>
             ) : null}
           </div>
         </InputWrapper>
