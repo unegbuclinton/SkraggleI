@@ -9,7 +9,7 @@ const initialState = {
 
 export const createP2P = createAsyncThunk('p2p/createContact', addP2P);
 export const viewP2P = createAsyncThunk('p2p/viewContact', allP2P);
-export const getEachP2p = createAsyncThunk('getEachP2p', p2pById);
+export const getEachP2p = createAsyncThunk('p2p/getEachP2p', p2pById);
 export const removeP2P = createAsyncThunk('p2p/removeP2P', deleteP2P);
 
 //search will go here

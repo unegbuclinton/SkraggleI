@@ -25,9 +25,6 @@ export const ContentsWrapper = styled.div`
 `;
 
 export const ActionWrapper = styled.div`
-  margin-left: 4.47rem;
-  display: flex;
-  gap: 1.6rem;
   .action {
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS['grey-500']};

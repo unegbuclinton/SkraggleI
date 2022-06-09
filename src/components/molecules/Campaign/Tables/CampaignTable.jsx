@@ -20,6 +20,7 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
+  console.log(campaigns);
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const handleSelect = (row) => {

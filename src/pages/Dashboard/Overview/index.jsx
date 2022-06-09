@@ -46,7 +46,7 @@ function Overview() {
 
   useEffect(() => {
     dispatch(allHouseHold());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewTags());
@@ -54,11 +54,11 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewContact());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllTodos());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewP2P());
@@ -66,7 +66,7 @@ function Overview() {
 
   useEffect(() => {
     dispatch(getAllCampaigns());
-  }, []);
+  }, [dispatch]);
 
   return (
     <OverviewWrapper>
