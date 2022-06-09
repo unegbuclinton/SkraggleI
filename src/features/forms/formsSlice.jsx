@@ -28,6 +28,7 @@ export const formsSlice = createSlice({
     },
     [getAllForm.fulfilled]: (state, action) => {
       state.isLoading = false;
+      console.log(action.payload);
       state.allForm = action.payload;
     },
     [getAllForm.rejected]: (state) => {
