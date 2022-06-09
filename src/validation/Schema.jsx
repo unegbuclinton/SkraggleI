@@ -84,7 +84,7 @@ export const detailsValidationSchema = Yup.object({
   zip: Yup.string().required('Zip is required'),
   settings: Yup.string().required('Settings is required'),
   eventStartDate: Yup.string().required('Events date required'),
-  eventStartDateTwo: Yup.string().required('Events date required'),
+  eventEndDate: Yup.string().required('Events date required'),
   startTime: Yup.string().required('Start time is required'),
   endTime: Yup.string().required('End time is required'),
   registrationEndTime: Yup.string().required('End time is required'),
@@ -95,8 +95,8 @@ export const detailsValidationSchema = Yup.object({
   receiptDescription: Yup.string().required('Receipt Description is required'),
   formName: Yup.string().required('Form name is required'),
   emailReply: Yup.string().required('Email reply is required'),
-  subject: Yup.string().required('Subject is required'),
-  email: Yup.string().required('Recipient is required')
+  subject: Yup.string().required('Subject is required')
+  // email: Yup.string().required('Recipient is required')
 });
 
 export const packageValidatioSchema = Yup.object({

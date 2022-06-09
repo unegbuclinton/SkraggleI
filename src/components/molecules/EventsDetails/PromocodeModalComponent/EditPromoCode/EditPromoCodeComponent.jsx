@@ -2,10 +2,10 @@ import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
-import { createPromoCode, getAllPromoCode } from 'features/events/eventSlice';
+import { getAllPromoCode, updatePromoCode } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { promoCodeValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -18,16 +18,19 @@ import {
   SelectContainer
 } from './styles';
 
-function PromoCodeDropdown({ onClose }) {
+function EditPromoCodeComponent({ onClose }) {
+  const { eachPromoCode } = useSelector((state) => state.events);
+  const { code, description, discount, max_user, start_date, end_date, id } = eachPromoCode;
   const dispatch = useDispatch();
+  const promoCodeId = id;
   const formik = useFormik({
     initialValues: {
-      promoCode: '',
-      description: '',
-      discount: '',
-      maxUsers: '',
-      startDate: '',
-      endDate: '',
+      promoCode: code,
+      description: description,
+      discount: discount,
+      maxUsers: max_user,
+      startDate: start_date,
+      endDate: end_date,
       promoCodeValues: []
     },
     validationSchema: promoCodeValidationSchema,
@@ -40,7 +43,7 @@ function PromoCodeDropdown({ onClose }) {
         start_date: values.startDate,
         end_date: values.endDate
       };
-      dispatch(createPromoCode(body)).then(() => {
+      dispatch(updatePromoCode({ body: body, id: promoCodeId })).then(() => {
         dispatch(getAllPromoCode());
         onClose();
       });
@@ -202,4 +205,4 @@ function PromoCodeDropdown({ onClose }) {
   );
 }
 
-export default PromoCodeDropdown;
+export default EditPromoCodeComponent;
