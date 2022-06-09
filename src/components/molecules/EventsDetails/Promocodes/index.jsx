@@ -3,17 +3,21 @@ import Table from 'components/layouts/Table';
 import DeletePromoCodeModal from 'components/molecules/EventsModals/PromocodeModal/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
-// import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
+import PromoCodeModal from '../PromocodeModal';
 import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
 
 function PromoCodes() {
-  // const [dropdown, setDropdown] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
   // const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const OpenDeleteModal = (e) => {
     e.stopPropagation();
     setOpenDelete(true);
+  };
+
+  const onRowClick = () => {
+    setDropdown(true);
   };
   const columns = [
     {
@@ -82,8 +86,8 @@ function PromoCodes() {
     <PromoCodeWrapper>
       <DeletePromoCodeModal isShown={openDelete} onClose={() => setOpenDelete(false)} />
       <TableHeader header="Promo Codes" title="Create New" eventHeader />
-      <Table columns={columns} data={data} />
-      {/* {dropdown && <PromoCodeDropdown setDropdown={setDropdown} />} */}
+      <Table columns={columns} data={data} onRowClicked={onRowClick} />
+      {dropdown && <PromoCodeModal setDropdown={setDropdown} />}
     </PromoCodeWrapper>
   );
 }

@@ -1,7 +1,6 @@
 import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
 import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
-// import PackageDropdown from '../DropdownComponents/PackagesDropdown';
 import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
 import React, { useState } from 'react';
 import { ActionWrapper, ContentsWrapper, PackageWrapper } from './styles';
@@ -110,9 +109,6 @@ function Packages() {
       <ClonePackageModal isShown={openCloneModal} onClose={() => setOpenCloneModal(false)} />
       <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
       <Table className="package-table" columns={columns} data={data} />
-      {/* {openDropdown && (
-          <PackageDropdown openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        )} */}
     </PackageWrapper>
   );
 }
