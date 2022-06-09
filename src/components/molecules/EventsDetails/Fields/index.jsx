@@ -86,7 +86,7 @@ function Fields() {
   return (
     <FieldWrapper>
       <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
-      <TableHeader header="Fields" title="Create New" />
+      <TableHeader header="Fields" title="Create New" eventHeader />
       <Table columns={columns} data={data} onRowClicked={onRowClick} />
       {dropdown && <CreateNewFieldModals isShown={dropdown} onClose={() => setDropdown(false)} />}
     </FieldWrapper>

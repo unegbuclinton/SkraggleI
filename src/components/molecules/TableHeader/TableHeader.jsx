@@ -6,7 +6,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   ActionContentWrapper,
   ActionWrapper,
+  BtnContainer,
   Delete,
+  DropdownContainer,
+  DropdownInfo,
   HeaderWrapper,
   HeadingAction
 } from './styles';
@@ -20,9 +23,11 @@ function TableHeader({
   subMenuTableHeader,
   setOpenDeleteModal,
   show,
-  eventHeader
+  eventHeader,
+  attendeeButton
 }) {
   const [dropDown, setDropDown] = useState(false);
+  const [attendeeDropdown, setAttendeeDropdown] = useState(false);
   const handleDelete = () => {
     setOpenDeleteModal(true);
     setDropDown(false);
@@ -33,6 +38,9 @@ function TableHeader({
       if (dropDown && ref.current && !ref.current.contains(e.target)) {
         setDropDown(false);
       }
+      if (attendeeDropdown && ref.current && !ref.current.contains(e.target)) {
+        setAttendeeDropdown(false);
+      }
     };
 
     document.body.addEventListener('mousedown', checkIfClickedOutside);
@@ -40,7 +48,7 @@ function TableHeader({
     return () => {
       document.body.removeEventListener('mousedown', checkIfClickedOutside);
     };
-  }, [dropDown]);
+  }, [dropDown, attendeeDropdown]);
   return (
     <HeaderWrapper>
       <HeadingAction>
@@ -78,10 +86,40 @@ function TableHeader({
             <SearchBar onChange={onChange} />
           </>
         )}
-        <Button className="header__header-btn" onClick={() => setOpen(true)}>
-          <DPIconAdd className="header__header-btn--icon" />
-          {title}
-        </Button>
+        {!attendeeButton ? (
+          <Button className="header__header-btn" onClick={() => setOpen(true)}>
+            <DPIconAdd className="header__header-btn--icon" />
+            {title}
+          </Button>
+        ) : (
+          <DropdownContainer ref={ref}>
+            <Button
+              className="header-button"
+              onClick={() => setAttendeeDropdown(!attendeeDropdown)}>
+              {title}
+              <DPIconDropDown className="dropdown-icon" />
+            </Button>
+            {attendeeDropdown && (
+              <ActionWrapper className="content-container">
+                <Button className="drop-button" auth invert>
+                  Print Event Report
+                </Button>
+                <Button className="drop-button" auth invert>
+                  Send Email to Attendees
+                </Button>
+                <DropdownInfo>Download Ticket Holder List</DropdownInfo>
+                <BtnContainer>
+                  <Button className="drop-button" auth invert>
+                    CSV
+                  </Button>
+                  <Button className="drop-button" auth invert>
+                    Excel
+                  </Button>
+                </BtnContainer>
+              </ActionWrapper>
+            )}
+          </DropdownContainer>
+        )}
       </div>
     </HeaderWrapper>
   );
