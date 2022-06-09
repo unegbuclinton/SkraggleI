@@ -25,3 +25,28 @@ export const getPromoCode = async () => {
     return error;
   }
 };
+export const getPromoCodeById = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/promocode/info/${id}`
+    });
+
+    return response?.data?.message;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updatePromoCodeById = async ({ body, id }) => {
+  try {
+    const response = await request({
+      method: 'patch',
+      url: `/promocode/${id}`,
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

@@ -1,19 +1,27 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addEvents, getEvents } from 'api/events/events';
 import { addPackages, getPackages } from 'api/events/packages';
-import { addPromoCode, getPromoCode } from 'api/events/promoCode';
+import {
+  addPromoCode,
+  getPromoCode,
+  getPromoCodeById,
+  updatePromoCodeById
+} from 'api/events/promoCode';
 
 const initialState = {
   isLoading: false,
   allEvents: [],
   allPromoCode: [],
-  allPackages: []
+  allPackages: [],
+  eachPromoCode: []
 };
 
 export const createEvents = createAsyncThunk('events/createEvents', addEvents);
 export const getAllEvents = createAsyncThunk('events/getAllEvents', getEvents);
 export const createPromoCode = createAsyncThunk('events/createPromoCode,', addPromoCode);
 export const getAllPromoCode = createAsyncThunk('events/getAllPromoCode', getPromoCode);
+export const getEachPromoCode = createAsyncThunk('events/getEachPromoCode', getPromoCodeById);
+export const updatePromoCode = createAsyncThunk('events/getEachPromoCode', updatePromoCodeById);
 export const createPackages = createAsyncThunk('events/createPackages,', addPackages);
 export const getAllPackages = createAsyncThunk('events/getAllPackages', getPackages);
 
@@ -78,6 +86,27 @@ export const eventSlice = createSlice({
       state.allPackages = action.payload;
     },
     [getAllPackages.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [getEachPromoCode.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getEachPromoCode.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.eachPromoCode = action.payload;
+    },
+    [getEachPromoCode.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [updatePromoCode.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updatePromoCode.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [updatePromoCode.rejected]: (state) => {
       state.isLoading = false;
     }
   }

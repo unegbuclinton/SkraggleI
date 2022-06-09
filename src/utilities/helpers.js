@@ -21,6 +21,10 @@ export function formatDate(date) {
   return dayjs(date).format('DD MMM YYYY');
 }
 
+export function formatNewDate(date) {
+  return dayjs(date).format('yyyy-MM-dd');
+}
+
 export function nameAbbr(str) {
   const firstLetter = str
     .split(' ')
