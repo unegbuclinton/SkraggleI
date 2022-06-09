@@ -1,5 +1,6 @@
 import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
+import EventPackageModal from 'components/molecules/EventsModals/EventPackageModal';
 import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
 import React, { useState } from 'react';
