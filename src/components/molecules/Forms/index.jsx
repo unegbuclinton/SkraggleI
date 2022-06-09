@@ -1,21 +1,21 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import VerticalTab from 'components/molecules/VerticalTabs';
-import Contacts from 'components/molecules/WidgetComponents/Contacts';
-import Forms from 'components/molecules/WidgetComponents/Forms';
 import { COLORS } from 'constants/colors';
 import React from 'react';
 import styled from 'styled-components';
 import DonationMain from './DonationAmounts/DonationMain';
+import DonationSetup from './donationSetup';
 import GeneralSettingsMain from './GeneralSettings/generalSettings';
 import ProcessingFee from './ProcessingFee/ProcessingFee';
+import SupportTab from './supportTabs';
 
 function ProcessingFeeMain() {
   const components = [
     { title: 'General Settings', component: GeneralSettingsMain },
-    { title: 'Donation Setup', component: Contacts },
+    { title: 'Donation Setup', component: DonationSetup },
     { title: 'Donation Amounts', component: DonationMain },
     { title: 'Processing Fee', component: ProcessingFee },
-    { title: 'Supporter', component: Forms }
+    { title: 'Supporter', component: SupportTab }
   ];
   return (
     <DashboardLayout>
