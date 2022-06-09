@@ -13,6 +13,12 @@ import {
 } from './styles';
 
 function RegistrationReceipt({ formik, ErrorMsg }) {
+  const shirtSizeOptions = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ];
+
   return (
     <div>
       <DetailsSubHeading className="notification-heading">
@@ -24,9 +30,10 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
           className="event-registration-dropdown"
           id="receipt"
           name="receipt"
-          onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          options={shirtSizeOptions}
           value={formik.values.receipt}
+          onChange={(value) => formik.setFieldValue('receipt', value.value)}
         />
         {formik.touched.receipt && formik.errors.receipt ? (
           <ErrorMsg>{formik.errors.receipt}</ErrorMsg>
@@ -58,10 +65,10 @@ function RegistrationReceipt({ formik, ErrorMsg }) {
             <DetailLabel>Category</DetailLabel>
             <Input
               className="event-registration-input"
-              type="Events"
+              type="text"
               placeholder="Events"
-              id="events"
-              name="events"
+              id="category"
+              name="category"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.category}
