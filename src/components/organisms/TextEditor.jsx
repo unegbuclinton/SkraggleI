@@ -66,67 +66,6 @@ class TextEditor extends React.Component {
   }
 
   render() {
-    // start
-
-    // const linkDecorator = () =>
-    //   new CompositeDecorator([
-    //     {
-    //       strategy: findLinkEntities,
-    //       component: Link
-    //     }
-    //   ]);
-
-    // function findLinkEntities(contentBlock, callback, contentState) {
-    //   contentBlock.findEntityRanges((character) => {
-    //     const entityKey = character.getEntity();
-    //     return entityKey !== null && contentState.getEntity(entityKey).getType() === 'LINK';
-    //   }, callback);
-    // }
-
-    // const Link = (props) => {
-    //   const { url, linkText } = props.contentState.getEntity(props.entityKey).getData();
-
-    //   return (
-    //     <a style={{ color: '#00cb7', textDecoration: 'underline' }} href={url}>
-    //       {linkText || props.children}
-    //     </a>
-    //   );
-    // };
-
-    // const generateLink = (hyperLink, linkDisplayText) => {
-    //   const decorator = linkDecorator();
-    //   let link = hyperLink;
-
-    //   if (!hyperLink.includes('http://')) {
-    //     if (!hyperLink.includes('https//')) {
-    //       link = `http://${hyperLink}`;
-    //     }
-    //   }
-
-    //   const currentContent = editorState.getCurrentContent();
-
-    //   currentContent.createEntity('LINK', 'MUTABLE', {
-    //     url: link,
-    //     target: '_blank'
-    //   });
-
-    //   const entityKey = currentContent.getLastCreatedEntityKey();
-
-    //   const selection = editorState.getSelection();
-
-    //   const textWithEntity = Modifier.replaceText(
-    //     currentContent,
-    //     selection,
-    //     linkDisplayText,
-    //     editorState.getCurrentInlineStyle(),
-    //     entityKey
-    //   );
-    //   const newState = EditorState.createWithContent(textWithEntity, decorator);
-    //   EditorState(newState);
-    // };
-
-    //end
-
     const { editorState } = this.state;
 
     // If the user changes block type before entering any text, we can
