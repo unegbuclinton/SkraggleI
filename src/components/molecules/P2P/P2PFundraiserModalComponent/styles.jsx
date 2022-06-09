@@ -18,6 +18,15 @@ export const ModalWrapper = styled.form`
     color: ${COLORS['grey-200']};
   }
 
+  .text-area {
+    resize: none;
+    width: 100%;
+    height: 14.4rem;
+    outline: none;
+    padding: 2.4rem;
+    border: 1px solid ${COLORS['gray-500']};
+  }
+
   .modal-inputs {
     background-color: white;
     padding-left: 2.083rem;

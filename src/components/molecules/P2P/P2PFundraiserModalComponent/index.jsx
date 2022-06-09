@@ -293,6 +293,7 @@ function P2PModalComponent({ onClose, isShown }) {
             value={formik.values.personalMessage}
             id="personalMessage"
             name="personalMessage"
+            className="text-area"
           />
           {formik.touched.personalMessage && formik.errors.personalMessage ? (
             <ErrorMessage>{formik.errors.personalMessage}</ErrorMessage>
