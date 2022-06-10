@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Label, Switched, SwitchInput } from './styles';
 
-function Switch({ className }) {
+function Switch({ className, onChange }) {
   const [toggle, setToogle] = useState(false);
   const toggleSwitch = () => {
     setToogle((prev) => !prev);
@@ -9,7 +9,7 @@ function Switch({ className }) {
   console.log(toggle);
   return (
     <Label className={className}>
-      <SwitchInput type="checkbox" onClick={toggleSwitch} />
+      <SwitchInput type="checkbox" onChange={onChange} onClick={toggleSwitch} />
       <Switched />
     </Label>
   );

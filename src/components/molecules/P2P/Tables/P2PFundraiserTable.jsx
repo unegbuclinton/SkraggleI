@@ -17,9 +17,9 @@ function P2PTable() {
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const handleSelect = (row) => {
-    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    const checkedRows = row?.selectedRows?.map((cur) => cur.id);
     setGetId(checkedRows);
-    setRowCount(row.selectedCount);
+    setRowCount(row?.selectedCount);
   };
 
   const handleDelete = () => {

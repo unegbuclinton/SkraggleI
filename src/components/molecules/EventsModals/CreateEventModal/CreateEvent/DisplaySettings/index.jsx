@@ -36,7 +36,18 @@ function DisplaySettings({ formik, ErrorMsg }) {
 
         <SwitchWrapper className="date">
           <SwitchLabel>Event has start/end date</SwitchLabel>
-          <Switch />
+          <div>
+            <Switch
+              id="eventDate"
+              name="eventDate"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.eventDate}
+            />
+            {formik.touched.eventDate && formik.errors.eventDate ? (
+              <ErrorMsg>{formik.errors.eventDate}</ErrorMsg>
+            ) : null}
+          </div>
         </SwitchWrapper>
 
         <InputWrapper>

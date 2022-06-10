@@ -36,7 +36,8 @@ function CreateEvent({ onClose }) {
       receiptDescription: '',
       formName: '',
       emailReply: '',
-      subject: ''
+      subject: '',
+      eventDate: ''
     },
     validationSchema: detailsValidationSchema,
     onSubmit: (values) => {

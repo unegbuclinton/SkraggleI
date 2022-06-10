@@ -92,6 +92,9 @@ export const detailsValidationSchema = Yup.object({
   receipt: Yup.string().required('Receipt is required'),
   receiptTitle: Yup.string().required('Receipt title is required'),
   category: Yup.string().required('Category is required'),
+  eventDate: Yup.boolean()
+    .required('This field is required')
+    .oneOf([true], 'This field is required'),
   receiptDescription: Yup.string().required('Receipt Description is required'),
   formName: Yup.string().required('Form name is required'),
   emailReply: Yup.string().required('Email reply is required'),
