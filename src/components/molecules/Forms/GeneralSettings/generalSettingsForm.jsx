@@ -6,13 +6,23 @@ import Switch from 'components/atoms/Switch/Switch';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function GeneralSettingsForm() {
-  const designation = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
-  ];
+  // const designation = [
+  //   { value: 'Yes', label: 'Yes' },
+  //   { value: 'No', label: 'No' }
+  // ];
+  const { campaigns } = useSelector((state) => state?.campaign);
+  const { formsByID } = useSelector((state) => state?.forms);
+  const { name } = formsByID;
+
+  const campaignoptions = campaigns?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
   return (
     <GeneralSettingsFormWrapper>
       <GeneralSettingsFormCard>
@@ -23,6 +33,7 @@ function GeneralSettingsForm() {
           id="pledge_name"
           name="pledge_name"
           placeholder="Lorem Ipsum"
+          defaultValue={`${name}`}
           //   onChange={formik.handleChange}
           //   onBlur={formik.handleBlur}
           //   value={formik.values.pledge_name}
@@ -34,7 +45,7 @@ function GeneralSettingsForm() {
           id="designation"
           name="designation"
           type={'text'}
-          options={designation}
+          options={campaignoptions}
           //   value={formik.values.designation}
           //   onChange={(value) => formik.setFieldValue('designation', value.value)}
           //   onBlur={formik.handleBlur}

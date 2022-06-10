@@ -2,13 +2,13 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import RadioGroup from 'components/atoms/RadioGroup';
 import Switch from 'components/atoms/Switch/Switch';
-import DashboardLayout from 'components/layouts/DashboardLayout';
+// import DashboardLayout from 'components/layouts/DashboardLayout';
 import FormCardLayout from 'components/layouts/FormCardLayout';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import FormsSubTab from '..';
+// import FormsSubTab from '..';
 
 function ThankYouComponent() {
   const radioButton = [
@@ -22,8 +22,8 @@ function ThankYouComponent() {
     }
   ];
   return (
-    <DashboardLayout>
-      <FormsSubTab />
+    // <DashboardLayout>
+    <>
       <ThankYouWrapper>
         <ThankYouContainer>
           <HeadingContainer>
@@ -49,7 +49,8 @@ function ThankYouComponent() {
         </ThankYouContainer>
         <FormCardLayout></FormCardLayout>
       </ThankYouWrapper>
-    </DashboardLayout>
+    </>
+    // </DashboardLayout>
   );
 }
 
@@ -58,7 +59,7 @@ export default ThankYouComponent;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
-  margin-top: 5.9rem;
+  /* margin-top: 5.9rem; */
 `;
 const RadioGroupContainer = styled.div``;
 

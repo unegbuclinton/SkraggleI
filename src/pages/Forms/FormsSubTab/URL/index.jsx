@@ -1,27 +1,28 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
-import DashboardLayout from 'components/layouts/DashboardLayout';
+// import DashboardLayout from 'components/layouts/DashboardLayout';
 import FormCardLayout from 'components/layouts/FormCardLayout';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import FormsSubTab from '..';
+// import FormsSubTab from '..';
 import UrlModalComponent from '../ModalComponent/modal';
 
 function Url() {
   const [open, setOpen] = useState(false);
 
   return (
-    <DashboardLayout>
+    // <DashboardLayout>
+    <>
       <UrlModalComponent
         isShown={open}
         onClose={() => {
           setOpen(false);
         }}
       />
-      <FormsSubTab />
+      {/* <FormsSubTab /> */}
       <ThankYouWrapper>
         <ThankYouContainer>
           <Heading>Checkout URL</Heading>
@@ -38,7 +39,8 @@ function Url() {
         </ThankYouContainer>
         <FormCardLayout></FormCardLayout>
       </ThankYouWrapper>
-    </DashboardLayout>
+    </>
+    // </DashboardLayout>
   );
 }
 
@@ -47,7 +49,7 @@ export default Url;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
-  margin-top: 5.9rem;
+  /* margin-top: 5.9rem; */
   .input-field {
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};

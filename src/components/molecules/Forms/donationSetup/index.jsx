@@ -8,16 +8,25 @@ function DonationSetup() {
   return (
     <DonationSetUpWrapper>
       <DonationSetupComponent />
-      <FormCardLayout>
-        <FormComponent />
-      </FormCardLayout>
+      <DonationOptionWrapper>
+        <FormCardLayout>
+          <FormComponent />
+        </FormCardLayout>
+      </DonationOptionWrapper>
     </DonationSetUpWrapper>
   );
 }
 
 export default DonationSetup;
 
-const DonationSetUpWrapper = styled.div`
+export const DonationSetUpWrapper = styled.div`
   display: flex;
-  gap: 1.73rem;
+  gap: 1.6rem;
+  width: 100%;
+  height: 100%;
+`;
+
+export const DonationOptionWrapper = styled.div`
+  display: flex;
+  flex: 1;
 `;

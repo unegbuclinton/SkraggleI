@@ -1,11 +1,14 @@
 import FormCardLayout from 'components/layouts/FormCardLayout';
 import React from 'react';
 import styled from 'styled-components';
+import DonationSetupFormComponent from '../donationSetup/DonationSetupFormComponent';
 
 function GeneralSettingDonate() {
   return (
     <PaymentOptionWrapper>
-      <FormCardLayout></FormCardLayout>
+      <FormCardLayout>
+        <DonationSetupFormComponent />
+      </FormCardLayout>
     </PaymentOptionWrapper>
   );
 }

@@ -12,6 +12,7 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
+import { getAllForm } from 'features/forms/formsSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
@@ -41,7 +42,7 @@ function Overview() {
 
   useEffect(() => {
     dispatch(allHouseHold());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewTags());
@@ -49,19 +50,23 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewContact());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllTodos());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewP2P());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllCampaigns());
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllForm());
+  }, [dispatch]);
 
   return (
     <OverviewWrapper>
