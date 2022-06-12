@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import DonationAmount from './DonationAmount';
 import DonationPayment from './DonationPayment';
 
-function DonationMain() {
+function DonationMain({ IncrementTab, DecrementTab }) {
   return (
     <DonationMainWrapper>
-      <DonationAmount />
+      <DonationAmount IncrementTab={IncrementTab} DecrementTab={DecrementTab} />
       <DonationPayment />
     </DonationMainWrapper>
   );

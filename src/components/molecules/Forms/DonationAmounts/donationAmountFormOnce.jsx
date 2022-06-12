@@ -123,10 +123,6 @@ function DonationAmountFormOnce() {
             <Switch />
           </div>
         </div>
-        <ButtonsWrapper>
-          <Button className="back-button">Back</Button>
-          <Button className="next-button">Next</Button>
-        </ButtonsWrapper>
       </DonationAmountFormCard>
     </DonationAmountFormWrapper>
   );
@@ -209,33 +205,5 @@ export const DonationAmountFormCard = styled(Card)`
     display: flex;
     justify-content: right;
     flex: 1;
-  }
-`;
-
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  gap: 1.6rem;
-  justify-content: right;
-  margin-top: 6.4rem;
-  margin-bottom: 2.4rem;
-
-  .back-button {
-    width: 10.7rem;
-    height: 5.1rem;
-    background-color: ${COLORS.white};
-    border: 1px solid ${COLORS['gray-500']};
-    border-radius: 0.340356rem;
-    color: ${COLORS['gray-500']};
-    font-size: ${FONTSIZES.base};
-    font-weight: ${FONTWEIGHTS.xbold};
-  }
-  .next-button {
-    width: 20.5rem;
-    height: 5.1rem;
-    background: ${COLORS.pink};
-    font-weight: ${FONTWEIGHTS.xbold};
-    font-size: ${FONTSIZES.base};
-    border-radius: 0.340356rem;
-    color: ${COLORS.white};
   }
 `;

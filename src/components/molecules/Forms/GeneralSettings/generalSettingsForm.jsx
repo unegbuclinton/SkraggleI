@@ -9,11 +9,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function GeneralSettingsForm() {
-  // const designation = [
-  //   { value: 'Yes', label: 'Yes' },
-  //   { value: 'No', label: 'No' }
-  // ];
+function GeneralSettingsForm({ IncrementTab }) {
   const { campaigns } = useSelector((state) => state?.campaign);
   const { formsByID } = useSelector((state) => state?.forms);
   const { name } = formsByID;
@@ -101,8 +97,9 @@ function GeneralSettingsForm() {
           </div>
         </div>
         <ButtonsWrapper>
-          <Button className="back-button">Back</Button>
-          <Button className="next-button">Next</Button>
+          <Button className="next-button" onClick={IncrementTab} type="button">
+            Next
+          </Button>
         </ButtonsWrapper>
       </GeneralSettingsFormCard>
     </GeneralSettingsFormWrapper>
@@ -115,6 +112,7 @@ export const GeneralSettingsFormWrapper = styled.form`
   width: 100%;
   overflow: auto;
   height: 100%;
+  max-width: 53rem;
 `;
 
 export const GeneralSettingsFormCard = styled(Card)`
@@ -126,7 +124,7 @@ export const GeneralSettingsFormCard = styled(Card)`
     background-color: transparent;
     border: 1px solid #9a9aa9;
     border-radius: 5px;
-    /* width: 44.2rem; */
+    max-width: 44.2rem;
     width: 100%;
     color: ${COLORS.black};
   }

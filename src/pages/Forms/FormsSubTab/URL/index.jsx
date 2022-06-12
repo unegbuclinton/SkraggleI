@@ -3,6 +3,7 @@ import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 // import DashboardLayout from 'components/layouts/DashboardLayout';
 import FormCardLayout from 'components/layouts/FormCardLayout';
+import DonationSetupFormComponent from 'components/molecules/Forms/donationSetup/DonationSetupFormComponent';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
@@ -14,7 +15,6 @@ function Url() {
   const [open, setOpen] = useState(false);
 
   return (
-    // <DashboardLayout>
     <>
       <UrlModalComponent
         isShown={open}
@@ -22,7 +22,6 @@ function Url() {
           setOpen(false);
         }}
       />
-      {/* <FormsSubTab /> */}
       <ThankYouWrapper>
         <ThankYouContainer>
           <Heading>Checkout URL</Heading>
@@ -37,10 +36,11 @@ function Url() {
             </Button>
           </ButtonContainer>
         </ThankYouContainer>
-        <FormCardLayout></FormCardLayout>
+        <FormCardLayout>
+          <DonationSetupFormComponent />
+        </FormCardLayout>
       </ThankYouWrapper>
     </>
-    // </DashboardLayout>
   );
 }
 
@@ -80,6 +80,8 @@ const UrlText = styled.p`
 `;
 
 const ThankYouContainer = styled(Card)`
+  max-width: 53rem;
+  width: 100%;
   padding: 4rem 2.4rem 2.4rem 4.4rem;
 `;
 

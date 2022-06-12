@@ -33,6 +33,7 @@ function ProcessingFeeMain() {
 
       <ProcessingFeeWrapper>
         <VerticalTab
+          disabled
           tabs={components}
           className="vertical-tab__container"
           verticalWrapper="vertical-tab-wrapper"

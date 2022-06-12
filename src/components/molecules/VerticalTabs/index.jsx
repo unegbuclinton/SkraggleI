@@ -3,6 +3,10 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
+function RenderFunction(Components, IncrementTab, DecrementTab, props) {
+  return <Components {...props} IncrementTab={IncrementTab} DecrementTab={DecrementTab} />;
+}
+
 function VerticalTab({
   tabs,
   setActiveState,
@@ -12,22 +16,33 @@ function VerticalTab({
   onClick,
   leftBottomClass,
   setRef,
-  content
+  content,
+  disabled,
+  ...rest
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
-  const RenderFunction = (Components, props) => {
-    return <Components {...props} />;
-  };
+  const [activeTab, setActiveTab] = useState(0);
+
+  function IncrementTab() {
+    setActiveTab((prev) => prev + 1);
+  }
+
+  function DecrementTab() {
+    setActiveTab((prev) => prev - 1);
+  }
+
   return (
     <>
-      <VerticalTabWrapper className={className}>
+      <VerticalTabWrapper className={className} {...rest}>
         <div className="left-tabs">
           <div className={verticalWrapper}>
             {tabs.map(({ title }, index) => (
               <TabButton
                 key={index}
-                active={activeWidget === index}
+                disabled={disabled}
+                active={activeTab === index}
                 onClick={() => {
+                  setActiveTab(index);
                   setActiveWidget(index);
                   setActiveState(index);
                   setRef(index);
@@ -41,7 +56,7 @@ function VerticalTab({
           </div>
         </div>
         <div className={content} activeWidget={activeWidget}>
-          {tabs && RenderFunction(tabs[activeWidget]?.component)}
+          {tabs && RenderFunction(tabs[activeTab]?.component, IncrementTab, DecrementTab)}
         </div>
       </VerticalTabWrapper>
     </>

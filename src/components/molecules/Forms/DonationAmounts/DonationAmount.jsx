@@ -1,3 +1,4 @@
+import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import MultiformTabs from 'components/molecules/MultiformTabs';
 import { COLORS } from 'constants/colors';
@@ -7,7 +8,7 @@ import styled from 'styled-components';
 import DonationAmountFormMonthly from './donationAmountFormMonthly';
 import DonationAmountFormOnce from './donationAmountFormOnce';
 
-function DonationAmount({ onClose }) {
+function DonationAmount({ onClose, DecrementTab, IncrementTab }) {
   const tabs = [
     {
       name: 'Give Once',
@@ -25,6 +26,14 @@ function DonationAmount({ onClose }) {
         Larger suggested amounts increase the amount each donor gives
       </p>
       <MultiformTabs tabs={tabs} onClose={onClose} className="multiform" />
+      <ButtonsWrapper>
+        <Button type="button" className="back-button" onClick={DecrementTab}>
+          Back
+        </Button>
+        <Button type="button" className="next-button" onClick={IncrementTab}>
+          Next
+        </Button>
+      </ButtonsWrapper>
     </DonationMainWrapper>
   );
 }
@@ -35,6 +44,7 @@ export const DonationMainWrapper = styled(Card)`
   width: 100%;
   height: 100%;
   overflow: auto;
+  max-width: 53rem;
   padding: 4rem 4.4rem 2.4rem 4.4rem;
 
   .transaction-header {
@@ -50,5 +60,33 @@ export const DonationMainWrapper = styled(Card)`
   }
   .multiform {
     background-color: ${COLORS['pink-200']};
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  justify-content: right;
+  margin-top: 6.4rem;
+  margin-bottom: 2.4rem;
+
+  .back-button {
+    width: 10.7rem;
+    height: 5.1rem;
+    background-color: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    border-radius: 0.340356rem;
+    color: ${COLORS['gray-500']};
+    font-size: ${FONTSIZES.base};
+    font-weight: ${FONTWEIGHTS.xbold};
+  }
+  .next-button {
+    width: 20.5rem;
+    height: 5.1rem;
+    background: ${COLORS.pink};
+    font-weight: ${FONTWEIGHTS.xbold};
+    font-size: ${FONTSIZES.base};
+    border-radius: 0.340356rem;
+    color: ${COLORS.white};
   }
 `;
