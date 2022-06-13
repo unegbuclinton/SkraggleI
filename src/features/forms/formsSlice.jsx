@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addForms, getForms } from 'api/forms/forms';
+import { addForms, deleteForm, getForms } from 'api/forms/forms';
 
 const initialState = {
   isLoading: false,
@@ -8,6 +8,7 @@ const initialState = {
 
 export const createForm = createAsyncThunk('form/createForm', addForms);
 export const getAllForm = createAsyncThunk('form/getAllForm', getForms);
+export const removeForm = createAsyncThunk('campaign/removeCampaign', deleteForm);
 
 export const formsSlice = createSlice({
   name: 'forms',
@@ -32,6 +33,15 @@ export const formsSlice = createSlice({
       state.allForm = action.payload;
     },
     [getAllForm.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [removeForm.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removeForm.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removeForm.rejected]: (state) => {
       state.isLoading = false;
     }
   }

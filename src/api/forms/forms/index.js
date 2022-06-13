@@ -25,3 +25,16 @@ export const getForms = async () => {
     return error;
   }
 };
+
+export const deleteForm = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: '/forms',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
