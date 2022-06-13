@@ -1,14 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addForms, deleteForm, getForms } from 'api/forms/forms';
+import { addForms, deleteForm, getForms, individualForm } from 'api/forms/forms';
 
 const initialState = {
   isLoading: false,
-  allForm: []
+  allForm: [],
+  formsByID: []
 };
 
 export const createForm = createAsyncThunk('form/createForm', addForms);
 export const getAllForm = createAsyncThunk('form/getAllForm', getForms);
-export const removeForm = createAsyncThunk('campaign/removeCampaign', deleteForm);
+export const removeForm = createAsyncThunk('form/removeForm', deleteForm);
+export const getSingleForm = createAsyncThunk('form/getSingleForm', individualForm);
 
 export const formsSlice = createSlice({
   name: 'forms',
@@ -29,7 +31,6 @@ export const formsSlice = createSlice({
     },
     [getAllForm.fulfilled]: (state, action) => {
       state.isLoading = false;
-      console.log(action.payload);
       state.allForm = action.payload;
     },
     [getAllForm.rejected]: (state) => {
@@ -42,6 +43,13 @@ export const formsSlice = createSlice({
       state.isLoading = true;
     },
     [removeForm.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getSingleForm.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.formsByID = action.payload;
+    },
+    [getSingleForm.rejected]: (state) => {
       state.isLoading = false;
     }
   }

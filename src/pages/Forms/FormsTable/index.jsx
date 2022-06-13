@@ -1,31 +1,52 @@
 import Checkbox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { getAllCampaigns } from 'features/campaign/campaignSlice';
+import { getAllForm, getSingleForm, removeForm } from 'features/forms/formsSlice';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import CreateFormModal from '../FormModal/CreateFormModal';
-import { TableWrapper } from './styles';
+import { ContainerBody, TableWrapper } from './styles';
 
 function FormsTable() {
   const { allForm } = useSelector((state) => state.forms);
 
-  const [openModal, setOpenModal] = useState(false);
-
   const navigate = useNavigate();
-  const onRowClicked = () => {
-    let path = 'url';
+  const dispatch = useDispatch();
+
+  const [openModal, setOpenModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  const handleDelete = () => {
+    const body = {
+      forms: getId
+    };
+    dispatch(removeForm(body)).then(() => {
+      dispatch(getAllForm());
+      setGetId([]);
+    });
+  };
+
+  const onRowClicked = ({ id }) => {
+    dispatch(getAllCampaigns(id));
+    dispatch(getSingleForm(id));
+    let path = 'forms-details';
     navigate(path);
   };
 
   const columns = [
-    {
-      name: '',
-      cell: () => <Checkbox />,
-      width: '8rem'
-    },
-
     {
       name: 'FORM NAME',
       selector: (row) => row.name,
@@ -56,11 +77,42 @@ function FormsTable() {
     }
   ];
   return (
-    <TableWrapper>
-      <TableHeader header={`${allForm.length} Form`} title="Create New" setOpen={setOpenModal} />
-      <Table columns={columns} onRowClicked={onRowClicked} data={allForm} />
-      {openModal && <CreateFormModal isShown={openModal} onClose={() => setOpenModal(false)} />}
-    </TableWrapper>
+    <div>
+      <CreateFormModal
+        isShown={openModal}
+        onClose={() => {
+          setOpenModal(false);
+        }}
+      />
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these campaign permanently from your Skraggle account. This
+        action cannot be undone"
+      />
+      <ContainerBody>
+        <TableWrapper>
+          <TableHeader
+            header={`${allForm?.length} Forms`}
+            title="Create New"
+            setOpen={setOpenModal}
+            setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
+          />
+          <Table
+            columns={columns}
+            onRowClicked={onRowClicked}
+            data={allForm}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
+          {/* {openModal && <CreateFormModal isShown={openModal} onClose={() => setOpenModal(false)} />} */}
+        </TableWrapper>
+      </ContainerBody>
+    </div>
   );
 }
 

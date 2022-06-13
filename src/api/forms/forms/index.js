@@ -26,6 +26,19 @@ export const getForms = async () => {
   }
 };
 
+export const individualForm = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/forms/${id}`
+    });
+
+    return response?.data?.message;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const deleteForm = async (body) => {
   try {
     const response = await request({
@@ -33,6 +46,7 @@ export const deleteForm = async (body) => {
       url: '/forms',
       data: body
     });
+
     return response;
   } catch (error) {
     return error;

@@ -9,7 +9,6 @@ import { removeForm } from 'features/forms/formsSlice';
 import CreateFormModal from 'pages/Forms/FormModal/CreateFormModal';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { CampaignForm } from 'utilities/campaigndata';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -18,7 +17,6 @@ const FormsTable = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
   const id = campaignByID.id;
   const dispatch = useDispatch();
-  // let navigate = useNavigate();
 
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
@@ -36,7 +34,6 @@ const FormsTable = () => {
       dispatch(getFormsByID(id));
       setGetId([]);
     });
-    // navigate('/forms');
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,22 +49,22 @@ const FormsTable = () => {
 
     {
       name: 'FORM TYPE',
-      selector: (row) => row.type,
+      selector: (row) => row?.type,
       width: '20rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row.raised,
+      selector: (row) => row?.raised,
       width: '20rem'
     },
     {
       name: 'DONATIONS',
-      selector: (row) => row.donations,
+      selector: (row) => row?.donations,
       width: '35rem'
     },
     {
       name: 'STATUS',
-      selector: (row) => row.status,
+      selector: (row) => row?.status,
       cell: () => <Button className="table-button">Active</Button>
     }
   ];

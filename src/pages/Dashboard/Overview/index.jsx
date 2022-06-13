@@ -63,7 +63,7 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewP2P());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllCampaigns());

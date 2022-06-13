@@ -19,7 +19,6 @@ import Donations from 'pages/Donations';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
-// import Url from 'pages/Forms/FormsSubTab/URL';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
@@ -141,7 +140,7 @@ export const privateRoutes = [
         element: <Forms />
       },
       {
-        path: 'url',
+        path: 'forms-details',
         element: <ProcessingFeeMain />
       }
     ]

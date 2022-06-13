@@ -6,7 +6,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function SupportTabComponent() {
+function SupportTabComponent({ IncrementTab, DecrementTab }) {
   return (
     <SupportTabWrapper>
       <Card className="support-card">
@@ -55,10 +55,10 @@ function SupportTabComponent() {
         </SupportTabContainer>
         <SupportTabDivider />
         <SupportTabFooter>
-          <Button className="support-back__btn" invert auth>
+          <Button className="support-back__btn" invert auth onClick={DecrementTab}>
             Back
           </Button>
-          <Button className="support-next__btn" auth>
+          <Button className="support-next__btn" auth onClick={IncrementTab} n>
             Next
           </Button>
         </SupportTabFooter>
@@ -70,7 +70,8 @@ function SupportTabComponent() {
 export default SupportTabComponent;
 
 const SupportTabWrapper = styled.div`
-  width: 53rem;
+  max-width: 53rem;
+  width: 100%;
   .support-card {
     padding: 4rem 6.246rem 2.4rem 4.4rem;
   }

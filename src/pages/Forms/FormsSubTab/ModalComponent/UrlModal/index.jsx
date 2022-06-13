@@ -3,23 +3,25 @@ import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopyWhite } from 'icons';
-import { React, useCallback, useRef } from 'react';
+import { React, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 function UrlModal({ onClose }) {
-  const textAreaRef = useRef(null);
+  const textArea = useState(null);
+
   const copyToClipboard = useCallback((e) => {
-    textAreaRef.current.select();
-    document.execCommand('copy');
+    const text = textArea.current.value;
+    navigator.clipboard.writeText(text);
     e.target.focus();
     alert('Text Copied');
   }, []);
+
   return (
     <SecondModalWrapper onClose={onClose}>
       <Card>
         <h1>Use this link to direct donors to your new fundraiser.</h1>
         <div className="copy__textarea">
-          <CopyText ref={textAreaRef} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
+          <CopyText ref={textArea} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
           <ButtonCopy className="preview__copy-button" onClick={copyToClipboard}>
             <DPIconCopyWhite className="preview__icon-copy" />
             Copy
