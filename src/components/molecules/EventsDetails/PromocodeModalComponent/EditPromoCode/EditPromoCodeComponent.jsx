@@ -20,6 +20,7 @@ import {
 
 function EditPromoCodeComponent({ onClose }) {
   const { eachPromoCode } = useSelector((state) => state.events);
+  console.log(eachPromoCode);
   const { code, description, discount, max_user, start_date, end_date, id } = eachPromoCode;
   const dispatch = useDispatch();
   const promoCodeId = id;

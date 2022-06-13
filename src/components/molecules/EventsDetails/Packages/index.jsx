@@ -3,14 +3,18 @@ import Table from 'components/layouts/Table';
 import EventPackageModal from 'components/molecules/EventsModals/EventPackageModal';
 import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
-import { ActionWrapper, ContentsWrapper, PackageWrapper } from './styles';
+import { useSelector } from 'react-redux';
+import { ActionWrapper, PackageWrapper } from './styles';
 
 function Packages() {
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
+  const { allPackages } = useSelector((state) => state.events);
+  console.log(allPackages);
   const onpenDelete = (e) => {
     e.stopPropagation();
     setOpen(true);
@@ -24,12 +28,7 @@ function Packages() {
   const columns = [
     {
       name: 'NAME & DETAILS',
-      cell: () => (
-        <ContentsWrapper>
-          <h2 className="heading">Gift pack</h2>
-          <p className="heading-text">5 participants per package</p>
-        </ContentsWrapper>
-      ),
+      selector: (row) => row.name,
       width: '20.8rem'
     },
     {
@@ -44,17 +43,17 @@ function Packages() {
     },
     {
       name: 'DIRECT COST',
-      selector: (row) => row.directcost,
+      selector: (row) => row.direct_cost,
       Width: '20rem'
     },
     {
       name: 'PACKAGES',
-      selector: (row) => row.packages,
+      selector: (row) => row.description,
       Width: '10.8rem'
     },
     {
       name: 'PRIVATE',
-      selector: (row) => row.private,
+      selector: (row) => row.private_package,
       Width: '10.8rem'
     },
     {
@@ -93,25 +92,21 @@ function Packages() {
     }
   ];
 
-  const data = [
-    {
-      name: '',
-      status: '',
-      price: '$20.00',
-      directcost: '$4.0',
-      packages: '(0 sold)',
-      private: 'No'
-    }
-  ];
   const onRowClick = () => {
     setOpenDropdown(true);
   };
 
   return (
     <PackageWrapper>
+      <TableHeader header=" Packages" title=" Create New" setOpen={setOpenDropdown} />
       <ClonePackageModal isShown={openCloneModal} onClose={() => setOpenCloneModal(false)} />
       <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
-      <Table className="package-table" columns={columns} data={data} onRowClicked={onRowClick} />
+      <Table
+        className="package-table"
+        columns={columns}
+        data={allPackages}
+        onRowClicked={onRowClick}
+      />
 
       {openDropdown && (
         <EventPackageModal isShown={openDropdown} onClose={() => setOpenDropdown(false)} />

@@ -1,45 +1,96 @@
-import React from 'react';
-import { Container, DetailsHeading, DetailsWrapper, ButtonWrapper, ErrorMsg } from './styles';
 import Button from 'components/atoms/Button/Button';
-import EventInformation from './Information';
-import EventLocation from './Location';
+import { updateEvent } from 'features/events/eventSlice';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { detailsValidationSchema } from 'validation/Schema';
+import AdminNotification from './AdminNotification';
+import CutOffDate from './CutOffDate';
 import DisplayOptions from './DisplayOptions';
 import DisplaySettings from './DisplaySettings';
-import CutOffDate from './CutOffDate';
-import AdminNotification from './AdminNotification';
-import RegistrationReceipt from './RegistrationReceipt';
+import EventInformation from './Information';
+import EventLocation from './Location';
 import RecipientBody from './RecipientBody';
-import { useFormik } from 'formik';
-import { detailsValidationSchema } from 'validation/Schema';
-import { useNavigate } from 'react-router-dom';
+import RegistrationReceipt from './RegistrationReceipt';
+import { ButtonWrapper, Container, DetailsHeading, DetailsWrapper, ErrorMsg } from './styles';
 
 function Details() {
+  const { eachEvent } = useSelector((state) => state.events);
+  console.log(eachEvent);
+  const dispatch = useDispatch();
+  const eventId = eachEvent.id;
+  const {
+    name,
+    event_sold_out_message,
+    venue,
+    address,
+    city,
+    state,
+    zip_country,
+    total_participant,
+    start_at,
+    end_at,
+    reciept_title,
+    reciept_category,
+    reciept_description,
+    from_name,
+    reply_email,
+    subject
+  } = eachEvent;
   const formik = useFormik({
     initialValues: {
-      name: '',
-      message: '',
-      venue: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
-      settings: '',
-      eventStartDate: '',
+      name: name,
+      message: event_sold_out_message,
+      venue: venue,
+      address: address,
+      city: city,
+      state: state,
+      zip: zip_country,
+      settings: total_participant,
+      eventStartDate: start_at,
       startTime: '',
-      endTime: '',
+      endTime: end_at,
       registrationDate: '',
-      receipt: '',
-      receiptTitle: '',
+      receipt: reciept_description,
+      receiptTitle: reciept_title,
       email: '',
-      category: '',
-      receiptDescription: '',
-      formName: '',
-      emailReply: '',
-      subject: ''
+      category: reciept_category,
+      receiptDescription: reciept_description,
+      formName: from_name,
+      emailReply: reply_email,
+      subject: subject
     },
     validationSchema: detailsValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        name: values.name,
+        description: values.textarea,
+        event_image: 'www.image.com',
+        event_sold_out_message: values.message,
+        venue: values.venue,
+        address: values.address,
+        city: values.city,
+        state: values.state,
+        zip_country: values.zip,
+        enable_map: true,
+        display_option: 'mobile',
+        total_participant: values.settings,
+        enable_one_time_donation: true,
+        start_at: values.eventStartDate,
+        end_at: values.eventEndDate,
+        event_has_reg_cutoff_date: true,
+        admin_notification: ['samson@gmail.com'],
+        reciept_type: values.receipt,
+        reciept_title: values.receiptTitle,
+        reciept_category: values.category,
+        reciept_description: values.receiptDescription,
+        sender_name: values.receiptDescription,
+        reply_email: values.emailReply,
+        subject: values.subject,
+        body: 'This is just Test'
+      };
+      dispatch(updateEvent({ body: body, id: eventId }));
     }
   });
 

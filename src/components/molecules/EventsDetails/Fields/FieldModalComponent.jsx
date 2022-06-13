@@ -6,31 +6,104 @@ import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { useFormik } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
+import { fieldValidationSchema } from 'validation/Schema';
+import { ErrorMsg } from '../Details/styles';
 
 function FieldModalComponent({ onClose }) {
+  const fieldTypeOptions = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
+
+  const packageAssOptions = [
+    { value: 'Yes', label: 'Yes' },
+    { value: 'No', label: 'No' }
+  ];
+  const formik = useFormik({
+    initialValues: {
+      fieldLabel: '',
+      reportLabel: '',
+      fieldType: ''
+    },
+    validationSchema: fieldValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    }
+  });
   return (
     <FieldModalWrapper>
       <Card className="field-modal__card">
         <FieldModalContainer>
           <FieldModalLabel>Field Label</FieldModalLabel>
-          <Input className="field-input" placeholder="Trial label" />
+          <Input
+            className="field-input"
+            placeholder="Trial label"
+            type="text"
+            id="fieldLabel"
+            name="fieldLabel"
+            disabled
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.fieldLabel}
+          />
+          {formik.touched.fieldLabel && formik.errors.fieldLabel ? (
+            <ErrorMsg>{formik.errors.fieldLabel}</ErrorMsg>
+          ) : null}
         </FieldModalContainer>
         <FieldModalContainer>
           <FieldModalLabel>Reporting Label</FieldModalLabel>
-          <Input className="field-input" placeholder="Display label " />
+          <Input
+            className="field-input"
+            placeholder="Display label "
+            type="text"
+            id="reportLabel"
+            name="reportLabel"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.reportLabel}
+          />
+          {formik.touched.reportLabel && formik.errors.reportLabel ? (
+            <ErrorMsg>{formik.errors.reportLabel}</ErrorMsg>
+          ) : null}
         </FieldModalContainer>
         <FieldModalContainer>
           <FieldModalLabel>Field Type</FieldModalLabel>
           <div className="select-container">
-            <SelectDropDown className="field-select" />
+            <SelectDropDown
+              className="field-select"
+              placeholder={'Lorem Ipsum'}
+              id="fieldType"
+              name="fieldType"
+              type={'text'}
+              options={fieldTypeOptions}
+              value={formik.values.fieldType}
+              onChange={(value) => formik.setFieldValue('fieldType', value.value)}
+              onBlur={formik.handleBlur}
+            />
             <Checkbox label="Required" styledClass="field-checkbox" pink />
           </div>
+          {formik.touched.fieldType && formik.errors.fieldType ? (
+            <ErrorMsg>{formik.errors.fieldType}</ErrorMsg>
+          ) : null}
         </FieldModalContainer>
         <FieldModalContainer>
           <FieldModalLabel>Maximum Characters</FieldModalLabel>
-          <Input className="field-input__disabled" placeholder="Unlimited" />
+          <Input
+            className="field-input__disabled"
+            placeholder="Unlimited"
+            type="text"
+            id="maxChara"
+            name="maxChara"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.maxChara}
+          />
+          {formik.touched.maxChara && formik.errors.maxChara ? (
+            <ErrorMsg>{formik.errors.maxChara}</ErrorMsg>
+          ) : null}
         </FieldModalContainer>
         <FieldModalHeaderContainer>
           <FieldModalHeader>Show this field on a separate line</FieldModalHeader>
@@ -43,7 +116,20 @@ function FieldModalComponent({ onClose }) {
         <FieldModalHeaderContainer>
           <FieldModalHeader>Associate Field With Specific Package(s)</FieldModalHeader>
         </FieldModalHeaderContainer>
-        <SelectDropDown isMulti={true} className="field-muti__select" />
+        <SelectDropDown
+          isMulti={true}
+          className="field-muti__select"
+          id="packageAss"
+          name="packageAss"
+          type={'text'}
+          options={packageAssOptions}
+          value={formik.values.packageAss}
+          onChange={(value) => formik.setFieldValue('packageAss', value.value)}
+          onBlur={formik.handleBlur}
+        />
+        {formik.touched.packageAss && formik.errors.packageAss ? (
+          <ErrorMsg>{formik.errors.packageAss}</ErrorMsg>
+        ) : null}
         <FieldModalFooter>
           <Button className="field-cancel__btn" auth invert onClick={onClose}>
             Cancel

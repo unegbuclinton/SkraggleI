@@ -106,7 +106,7 @@ export const packageValidatioSchema = Yup.object({
   discount: Yup.string().required('Discount percentage is required'),
   earlyBid: Yup.string().required('Early bid cutoff is required'),
   endTime: Yup.string().required('End time is required'),
-  partcipant: Yup.string().required('Participants is required'),
+  participant: Yup.string().required('Participants is required'),
   qty: Yup.string().required('Quantity is required'),
   packageQuantity: Yup.string().required('Package quantity is required')
 });

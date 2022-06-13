@@ -2,8 +2,10 @@ import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
 import Switch from 'components/atoms/Switch/Switch';
+import { createPackages, getAllPackages } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { packageValidatioSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -18,10 +20,12 @@ import {
 } from './styles';
 
 function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: '',
       price: '',
+      description: '',
       directCost: '',
       discount: '',
       earlyBid: '',
@@ -32,9 +36,28 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
     },
     validationSchema: packageValidatioSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        name: values.name,
+        description: values.description,
+        price: values.price,
+        direct_cost: values.directCost,
+        number_of_packages_for_sale: 10,
+        qty_purchase_limit: values.packageQuantity,
+        early_bird_discount_enabled: true,
+        early_bird_discount_amount: values.discount,
+        early_bird_discount_cutoff_time: values.earlyBid,
+        early_bird_discount_type: 'percentage',
+        participants: values.participant,
+        pre_select_qty: values.qty,
+        custom_event_field: ['samson@gmail.com']
+      };
+
+      dispatch(createPackages(body)).then(() => {
+        dispatch(getAllPackages());
+      });
     }
   });
+
   return (
     <DropDownWrapper onSubmit={formik.handleSubmit}>
       <Label>Name</Label>
@@ -50,7 +73,15 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
       />
       {formik.touched.name && formik.errors.name ? <ErrorMsg>{formik.errors.name}</ErrorMsg> : null}
       <Label>Description</Label>
-      <div className="text-editor"></div>
+      <textarea
+        id="description"
+        name="description"
+        className="description-input"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.description}
+      />
+
       <SwitchWrapper className="maplink-container">
         <SwitchLabel>Enable map link</SwitchLabel>
         <Switch />
@@ -200,7 +231,6 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
           <GenericText>How many of this package are available for purchase?</GenericText>
         </div>
       </InputWrapper>
-
       <InputWrapper>
         <div className="qty-container">
           <Label>Qty</Label>

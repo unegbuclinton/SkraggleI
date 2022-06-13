@@ -74,9 +74,9 @@ function PromoCodes() {
 
   const onRowClick = ({ id }) => {
     console.log(id);
-    dispatch(getEachPromoCode(id));
-
-    setEditModal(true);
+    dispatch(getEachPromoCode(id)).then(() => {
+      setEditModal(true);
+    });
   };
   return (
     <PromoCodeWrapper>
