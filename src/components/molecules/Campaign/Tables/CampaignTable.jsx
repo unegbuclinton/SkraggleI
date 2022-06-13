@@ -7,6 +7,7 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
 import {
   getAllCampaigns,
+  getCampaignElements,
   getFormsByID,
   getPeerToPeer,
   removeCampaign,
@@ -72,6 +73,7 @@ const CampaignTable = () => {
   const onRowClicked = ({ id }) => {
     dispatch(getPeerToPeer(id));
     dispatch(getFormsByID(id));
+    dispatch(getCampaignElements(id));
     dispatch(singleCampaign(id));
     let path = 'campaign-details';
     navigate(path);

@@ -1,49 +1,61 @@
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Table from 'components/layouts/Table';
-import Button from 'components/atoms/Button/Button';
-import Pagination from 'components/molecules/Pagination';
 import Checkbox from 'components/atoms/CheckBox';
-
-import { DPPlusIcon } from 'icons';
-import datas from 'utilities/filterData';
-
+// import { useNavigate } from 'react-router-dom';
+import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import CreateFormModal from 'pages/Forms/FormModal/CreateFormModal';
+import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { ElementsData } from 'utilities/campaigndata';
-
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
+import { ContainerBody, TableWrapper } from './styles';
 
 const ElementsTable = () => {
-  const [selected, setSelected] = useState('Filters');
+  const { elementsData } = useSelector((state) => state.campaign);
+  // const { campaignByID } = useSelector((state) => state.campaign);
+  // const id = campaignByID.id;
+  // const dispatch = useDispatch();
 
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  // const handleDelete = () => {
+  //   const body = {
+  //     forms: getId
+  //   };
+  //   dispatch(removeForm(body)).then(() => {
+  //     dispatch(getFormsByID(id));
+  //     setGetId([]);
+  //   });
+  // };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [open, setOpen] = useState(false);
+  // const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const columns = [
     {
-      name: ' ',
-      cell: () => <Checkbox />,
-      ignoreRowClick: false,
-      width: '5rem'
-    },
-    {
       name: 'ID',
-      selector: (row) => row.uid,
+      selector: (row) => row?.id,
       width: '15rem'
     },
 
     {
       name: 'NAME',
-      selector: (row) => row.name,
+      selector: (row) => row?.name,
       width: '30rem'
     },
     {
       name: 'TYPE',
-      selector: (row) => row.type,
+      selector: (row) => row?.type,
       width: '15rem'
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign,
+      selector: (row) => row?.campaign_id,
       width: '20rem'
     },
     {
@@ -53,37 +65,53 @@ const ElementsTable = () => {
     },
     {
       name: 'LAST SEEN',
-      selector: (row) => row.lastseen
+      selector: (row) => row?.updated_at
     }
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const indexLastList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLastList - itemsPerPage;
-
-  const tableData = ElementsData.map((elementsData, index) => ({
-    key: index,
-    uid: elementsData.uid,
-    name: elementsData.name,
-    type: elementsData.type,
-    campaign: elementsData.campaign,
-    statistics: elementsData.statistics,
-    lastseen: elementsData.lastseen
-  }));
-
-  const currentList = tableData.slice(indexFirstList, indexLastList);
-
-  let navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/elements');
-  };
+  // let navigate = useNavigate();
+  // const handleButtonClick = () => {
+  //   navigate('/elements');
+  // };
 
   return (
     <div>
+      <CreateFormModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
+      {/* <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these campaign permanently from your Skraggle account. This
+        action cannot be undone"
+      /> */}
       <ContainerBody>
+        <TableWrapper>
+          <TableHeader
+            title="Create Elements"
+            header={`${elementsData?.length} Elements`}
+            setOpen={setOpen}
+            // setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
+            // onChange={(e) => setInput(e.target.value)}
+          />
+          <Table
+            columns={columns}
+            data={elementsData}
+            // onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
+        </TableWrapper>
+      </ContainerBody>
+      <Pagination currentPage={currentPage} data={ElementsData} setCurrentPage={setCurrentPage} />
+      {/* <ContainerBody>
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
             <div className="table-header__left">
@@ -112,7 +140,7 @@ const ElementsTable = () => {
         itemsPerPage={itemsPerPage}
         data={ElementsData}
         setCurrentPage={setCurrentPage}
-      />
+      /> */}
     </div>
   );
 };
