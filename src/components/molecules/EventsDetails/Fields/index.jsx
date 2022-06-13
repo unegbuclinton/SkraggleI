@@ -1,18 +1,11 @@
 import Switch from 'components/atoms/Switch/Switch';
+import Table from 'components/layouts/Table';
 import DeleteFieldModal from 'components/molecules/EventsModals/FieldsModal/DeleteModal/Modal';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
 // import FieldDropdown from '../DropdownComponents/FieldsDropdown';
 import CreateNewFieldModals from '../EventModals/CreateNewFieldModals';
-import {
-  ActionWrapper,
-  Container,
-  ContentContainer,
-  ContentsWrapper,
-  FieldWrapper,
-  RequiredWrapper,
-  SwitchIconWrapper,
-  ViewWrapper
-} from './styles';
+import { ActionWrapper, ContentsWrapper, FieldWrapper } from './styles';
 
 function Fields() {
   const [dropdown, setDropdown] = useState(false);
@@ -23,40 +16,79 @@ function Fields() {
     setOpen(true);
   };
 
+  const columns = [
+    {
+      name: 'NAME',
+      cell: () => (
+        <ContentsWrapper>
+          <h2 className="heading">Trial label</h2>
+          <p className="heading-text">DisplayLabel</p>
+        </ContentsWrapper>
+      ),
+      width: '20.8rem'
+    },
+    {
+      name: 'STATUS',
+      cell: () => <Switch />,
+      width: '16.8rem'
+    },
+    {
+      name: 'REQUIRED',
+      selector: (row) => row.required,
+      Width: '16.8rem'
+    },
+    {
+      name: 'OWN LINE',
+      selector: (row) => row.ownLine,
+      Width: '16.8rem'
+    },
+    {
+      name: 'TYPE',
+      selector: (row) => row.type,
+      Width: '16.8rem'
+    },
+    {
+      name: '',
+      // selector: (row) => row.tags
+      cell: () => (
+        <ActionWrapper>
+          <p className="action">Edit</p>
+        </ActionWrapper>
+      )
+    },
+    {
+      name: '',
+      // selector: (row) => row.tags
+      cell: () => (
+        <ActionWrapper>
+          <p className="delete" onClick={openDelete}>
+            Delete
+          </p>
+        </ActionWrapper>
+      )
+    }
+  ];
+
+  const data = [
+    {
+      name: 'NAME',
+      status: '',
+      required: 'No',
+      ownLine: 'Yes',
+      type: 'Text box'
+    }
+  ];
+
+  const onRowClick = () => {
+    setDropdown(true);
+  };
+
   return (
     <FieldWrapper>
-      <Container>
-        <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
-        <ContentContainer onClick={() => setDropdown(true)}>
-          <ContentsWrapper>
-            <h2 className="heading">Trial label</h2>
-            <p className="heading-text">DisplayLabel</p>
-          </ContentsWrapper>
-          <SwitchIconWrapper>
-            <Switch />
-          </SwitchIconWrapper>
-          <RequiredWrapper>
-            <p className="title">Required</p>
-            <h2 className="price">No</h2>
-          </RequiredWrapper>
-          <ViewWrapper>
-            <p className="title">Own line</p>
-            <h2 className="view">Yes</h2>
-          </ViewWrapper>
-          <ViewWrapper>
-            <p className="title">Type</p>
-            <h2 className="view">Text box</h2>
-          </ViewWrapper>
-
-          <ActionWrapper>
-            <p className="action">Edit</p>
-            <p className="delete" onClick={openDelete}>
-              Delete
-            </p>
-          </ActionWrapper>
-        </ContentContainer>
-        {dropdown && <CreateNewFieldModals isShown={dropdown} onClose={() => setDropdown(false)} />}
-      </Container>
+      <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
+      <TableHeader header="Fields" title="Create New" eventHeader />
+      <Table columns={columns} data={data} onRowClicked={onRowClick} />
+      {dropdown && <CreateNewFieldModals isShown={dropdown} onClose={() => setDropdown(false)} />}
     </FieldWrapper>
   );
 }

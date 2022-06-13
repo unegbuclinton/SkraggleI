@@ -7,6 +7,7 @@ import DeleteEventModal from 'components/molecules/EventsModals/DeleteModal/Moda
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { DPIconEventActive } from 'icons';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ActionWrapper, ActiveInactiveWrapper, Container } from './styles';
 
@@ -15,6 +16,8 @@ function ActiveInactive() {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [openArchiveModal, setOpenArchiveModal] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const { allEvents } = useSelector((state) => state.events);
 
   const navigate = useNavigate();
 
@@ -58,7 +61,7 @@ function ActiveInactive() {
 
     {
       name: 'BEGGINS',
-      selector: (row) => row.beggin,
+      selector: (row) => row.created_at,
       width: '15rem'
     },
 
@@ -89,29 +92,29 @@ function ActiveInactive() {
     }
   ];
 
-  const data = [
-    {
-      name: 'A day with the orphans',
-      switch: '',
-      beggin: '09/15/2021',
-      attendee: '1(View all)',
-      action: ''
-    },
-    {
-      name: 'A day with the elderly',
-      switch: '',
-      beggin: '09/15/2021',
-      attendee: '1(View all)',
-      action: ''
-    },
-    {
-      name: 'A day with the orphans copy',
-      switch: '',
-      beggin: '09/15/2021',
-      attendee: '1(View all)',
-      action: ''
-    }
-  ];
+  // const data = [
+  //   {
+  //     name: 'A day with the orphans',
+  //     switch: '',
+  //     beggin: '09/15/2021',
+  //     attendee: '1(View all)',
+  //     action: ''
+  //   },
+  //   {
+  //     name: 'A day with the elderly',
+  //     switch: '',
+  //     beggin: '09/15/2021',
+  //     attendee: '1(View all)',
+  //     action: ''
+  //   },
+  //   {
+  //     name: 'A day with the orphans copy',
+  //     switch: '',
+  //     beggin: '09/15/2021',
+  //     attendee: '1(View all)',
+  //     action: ''
+  //   }
+  // ];
 
   return (
     <ActiveInactiveWrapper>
@@ -121,7 +124,12 @@ function ActiveInactive() {
         <DeleteEventModal isShown={openDeleteModal} onClose={() => setOpenDeleteModal(false)} />
         <ArchiveModal isShown={openArchiveModal} onClose={() => setOpenArchiveModal(false)} />
         <TableHeader header="92 Events" title="Create New" eventHeader setOpen={setOpen} />
-        <Table className="events-table" columns={columns} onRowClicked={onRowClicked} data={data} />
+        <Table
+          className="events-table"
+          columns={columns}
+          onRowClicked={onRowClicked}
+          data={allEvents}
+        />
       </Container>
     </ActiveInactiveWrapper>
   );
