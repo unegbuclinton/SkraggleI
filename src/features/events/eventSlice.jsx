@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addEvents, getEvents } from 'api/events/events';
+import { addEvents, getEventById, getEvents, updateEventById } from 'api/events/events';
+import { addField, deleteField, getField, updateFieldById } from 'api/events/fields';
 import { addPackages, getPackages } from 'api/events/packages';
 import {
   addPromoCode,
@@ -7,23 +8,33 @@ import {
   getPromoCodeById,
   updatePromoCodeById
 } from 'api/events/promoCode';
+import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   isLoading: false,
   allEvents: [],
   allPromoCode: [],
   allPackages: [],
-  eachPromoCode: []
+  eachPromoCode: [],
+  eachEvent: [],
+  allFields: []
 };
 
 export const createEvents = createAsyncThunk('events/createEvents', addEvents);
 export const getAllEvents = createAsyncThunk('events/getAllEvents', getEvents);
+export const getEachEvent = createAsyncThunk('events/getEachEvent', getEventById);
+export const updateEvent = createAsyncThunk('events/updateEvent', updateEventById);
 export const createPromoCode = createAsyncThunk('events/createPromoCode,', addPromoCode);
 export const getAllPromoCode = createAsyncThunk('events/getAllPromoCode', getPromoCode);
 export const getEachPromoCode = createAsyncThunk('events/getEachPromoCode', getPromoCodeById);
 export const updatePromoCode = createAsyncThunk('events/getEachPromoCode', updatePromoCodeById);
 export const createPackages = createAsyncThunk('events/createPackages,', addPackages);
 export const getAllPackages = createAsyncThunk('events/getAllPackages', getPackages);
+
+export const createField = createAsyncThunk('events/createField', addField);
+export const getAllFields = createAsyncThunk('events/getAllFields', getField);
+export const updateField = createAsyncThunk('events/updateField', updateFieldById);
+export const delField = createAsyncThunk('events/delField', deleteField);
 
 export const eventSlice = createSlice({
   name: 'events',
@@ -108,6 +119,72 @@ export const eventSlice = createSlice({
     },
     [updatePromoCode.rejected]: (state) => {
       state.isLoading = false;
+    },
+
+    [getEachEvent.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getEachEvent.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.eachEvent = action.payload;
+    },
+    [getEachEvent.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [updateEvent.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updateEvent.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [updateEvent.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [createField.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [createField.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [createField.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [getAllFields.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getAllFields.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.allFields = action.payload;
+    },
+    [getAllFields.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [updateField.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updateField.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [updateField.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [delField.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [delField.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [delField.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });

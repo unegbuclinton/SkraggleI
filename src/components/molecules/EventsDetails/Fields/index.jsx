@@ -2,30 +2,51 @@ import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
 import DeleteFieldModal from 'components/molecules/EventsModals/FieldsModal/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+// import { delField } from 'features/events/eventSlice';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 // import FieldDropdown from '../DropdownComponents/FieldsDropdown';
 import CreateNewFieldModals from '../EventModals/CreateNewFieldModals';
-import { ActionWrapper, ContentsWrapper, FieldWrapper } from './styles';
+import { ActionWrapper, FieldWrapper } from './styles';
+
+const Paragraph = ({ row }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h1 style={{ fontSize: '2.4rem', color: '#2e2e2e', fontWeight: '400' }}>{row.field_label}</h1>
+
+      <p
+        style={{
+          fontSize: '1.4rem',
+          color: '#585858',
+          fontWeight: '400'
+        }}>
+        {row.reporting_label}
+      </p>
+    </div>
+  );
+};
+
+const Delete = ({ onClick }) => {
+  return (
+    <div onClick={onClick}>
+      <ActionWrapper> Delete</ActionWrapper>
+    </div>
+  );
+};
 
 function Fields() {
+  const { allFields } = useSelector((state) => state.events);
+
+  // const dispatch = useDispatch();
+
   const [dropdown, setDropdown] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  const openDelete = (e) => {
-    e.stopPropagation();
-    setOpen(true);
-  };
-
+  const [openModal, setOpenModal] = useState(false);
   const columns = [
     {
       name: 'NAME',
-      cell: () => (
-        <ContentsWrapper>
-          <h2 className="heading">Trial label</h2>
-          <p className="heading-text">DisplayLabel</p>
-        </ContentsWrapper>
-      ),
-      width: '20.8rem'
+      // selector: (row) => row.field_label,
+      width: '20.8rem',
+      cell: (row) => <Paragraph row={row} />
     },
     {
       name: 'STATUS',
@@ -39,7 +60,7 @@ function Fields() {
     },
     {
       name: 'OWN LINE',
-      selector: (row) => row.ownLine,
+      selector: (row) => row.own_line,
       Width: '16.8rem'
     },
     {
@@ -49,7 +70,6 @@ function Fields() {
     },
     {
       name: '',
-      // selector: (row) => row.tags
       cell: () => (
         <ActionWrapper>
           <p className="action">Edit</p>
@@ -58,24 +78,7 @@ function Fields() {
     },
     {
       name: '',
-      // selector: (row) => row.tags
-      cell: () => (
-        <ActionWrapper>
-          <p className="delete" onClick={openDelete}>
-            Delete
-          </p>
-        </ActionWrapper>
-      )
-    }
-  ];
-
-  const data = [
-    {
-      name: 'NAME',
-      status: '',
-      required: 'No',
-      ownLine: 'Yes',
-      type: 'Text box'
+      cell: (row) => <Delete row={row.id} onClick={() => setOpenModal(true)} />
     }
   ];
 
@@ -85,9 +88,9 @@ function Fields() {
 
   return (
     <FieldWrapper>
-      <DeleteFieldModal isShown={open} onClose={() => setOpen(false)} />
-      <TableHeader header="Fields" title="Create New" eventHeader />
-      <Table columns={columns} data={data} onRowClicked={onRowClick} />
+      {<DeleteFieldModal isShown={openModal} onCloseModal={() => setOpenModal(false)} />}
+      <TableHeader header="Fields" title="Create New" setOpen={setDropdown} />
+      <Table columns={columns} data={allFields} onRowClicked={onRowClick} />
       {dropdown && <CreateNewFieldModals isShown={dropdown} onClose={() => setDropdown(false)} />}
     </FieldWrapper>
   );
