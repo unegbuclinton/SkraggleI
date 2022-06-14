@@ -30,7 +30,7 @@ const DashboardContentWrapper = styled.aside`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  /* overflow: auto; */
 `;
 
 const DashboardContent = styled.div`
