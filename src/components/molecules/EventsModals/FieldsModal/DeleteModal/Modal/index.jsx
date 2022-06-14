@@ -1,11 +1,11 @@
-import React from 'react';
 import Modal from 'components/layouts/Modal';
+import React from 'react';
 import DeleteField from '../DeleteField';
 
-function DeleteFieldModal({ isShown, onClose }) {
+function DeleteFieldModal({ isShown, onCloseModal }) {
   return (
-    <Modal header="Delete Field" isShown={isShown} hide={onClose}>
-      <DeleteField onClose={onClose} />
+    <Modal header="Delete Field" isShown={isShown} hide={onCloseModal}>
+      <DeleteField onCloseModal={onCloseModal} />
     </Modal>
   );
 }

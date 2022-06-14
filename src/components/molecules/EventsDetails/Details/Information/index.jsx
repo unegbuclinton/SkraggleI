@@ -1,8 +1,8 @@
-import React from 'react';
-import Input from 'components/atoms/Input/Input';
-import { DetailLabel, DetailsSubHeading, EventWrapper } from './styles';
 import FileUploadButton from 'components/atoms/FileUploadButton';
+import Input from 'components/atoms/Input/Input';
 import { DPIconUploadFile } from 'icons';
+import React from 'react';
+import { DetailLabel, DetailsSubHeading, EventWrapper } from './styles';
 
 function EventInformation({ formik, ErrorMsg }) {
   return (
