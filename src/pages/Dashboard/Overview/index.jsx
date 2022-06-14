@@ -12,6 +12,7 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
+import { getAllEvents } from 'features/events/eventSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
@@ -36,12 +37,16 @@ function Overview() {
   }, [dispatch]);
 
   useEffect(() => {
+    dispatch(getAllEvents());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(getPledge());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(allHouseHold());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewTags());
@@ -49,11 +54,11 @@ function Overview() {
 
   useEffect(() => {
     dispatch(viewContact());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getAllTodos());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(viewP2P());
@@ -61,7 +66,7 @@ function Overview() {
 
   useEffect(() => {
     dispatch(getAllCampaigns());
-  }, []);
+  }, [dispatch]);
 
   return (
     <OverviewWrapper>

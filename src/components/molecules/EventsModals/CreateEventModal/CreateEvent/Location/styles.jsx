@@ -63,6 +63,10 @@ export const AddressWrapper = styled.div`
       position: relative;
       bottom: 0.5rem;
     }
+    .state-error {
+      position: relative;
+      top: 2rem;
+    }
   }
 
   .zip {

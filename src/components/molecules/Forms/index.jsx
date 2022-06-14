@@ -34,6 +34,7 @@ export default ProcessingFeeMain;
 
 export const ProcessingFeeWrapper = styled.div`
   .vertical-tab__container {
+    overflow-y: auto;
     gap: 1.6rem;
   }
 

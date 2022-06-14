@@ -2,8 +2,10 @@ import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
+import { createPromoCode, getAllPromoCode } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { promoCodeValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -17,6 +19,8 @@ import {
 } from './styles';
 
 function PromoCodeDropdown({ onClose }) {
+  const { isLoading } = useSelector((state) => state.events);
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       promoCode: '',
@@ -29,7 +33,18 @@ function PromoCodeDropdown({ onClose }) {
     },
     validationSchema: promoCodeValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        code: values.promoCode,
+        description: values.description,
+        discount: values.discount,
+        max_user: values.maxUsers,
+        start_date: values.startDate,
+        end_date: values.endDate
+      };
+      dispatch(createPromoCode(body)).then(() => {
+        dispatch(getAllPromoCode());
+        onClose();
+      });
     }
   });
 
@@ -179,10 +194,12 @@ function PromoCodeDropdown({ onClose }) {
         />
       </SelectContainer>
       <ButtonContainer>
-        <Button type="button" onClick={onClose} className="cancel-btn">
+        <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
-        <Button className="save-btn">Save</Button>
+        <Button className="save-btn" disabled={isLoading}>
+          Save
+        </Button>
       </ButtonContainer>
     </DropdownWrapper>
   );

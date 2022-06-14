@@ -1,6 +1,13 @@
+import Button from 'components/atoms/Button/Button';
+import Input from 'components/atoms/Input/Input';
+import Switch from 'components/atoms/Switch/Switch';
+import { useFormik } from 'formik';
+import { DPIconCaretDown } from 'icons';
 import React, { useState } from 'react';
+import { generalSettingsValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
+  ErrorMsg,
   Label,
   LeftInputs,
   RightInputs,
@@ -8,15 +15,8 @@ import {
   SettingsHeader,
   SettingsMessage,
   SettingsWrapper,
-  SwitchHeaderWrapper,
-  ErrorMsg
+  SwitchHeaderWrapper
 } from './styles';
-import { DPIconCaretDown } from 'icons';
-import Switch from 'components/atoms/Switch/Switch';
-import Button from 'components/atoms/Button/Button';
-import { useFormik } from 'formik';
-import { generalSettingsValidationSchema } from 'validation/Schema';
-import Input from 'components/atoms/Input/Input';
 
 function Settings() {
   const [dropDown, setDropDown] = useState(false);
@@ -120,7 +120,12 @@ function Settings() {
           </div>
 
           <ButtonContainer>
-            <Button type="button" onClick={() => setDropDown(false)} className="cancel-btn">
+            <Button
+              type="button"
+              onClick={() => setDropDown(false)}
+              className="cancel-btn"
+              auth
+              invert>
               Cancel
             </Button>
             <Button className="save-btn">Save</Button>

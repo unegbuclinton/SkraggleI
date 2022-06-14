@@ -57,7 +57,7 @@ function FormsTable() {
   ];
   return (
     <TableWrapper>
-      <TableHeader header="88 Forms" title="Create New" setOpen={setOpenModal} />
+      <TableHeader header={`${allForm.length} Form`} title="Create New" setOpen={setOpenModal} />
       <Table columns={columns} onRowClicked={onRowClicked} data={allForm} />
       {openModal && <CreateFormModal isShown={openModal} onClose={() => setOpenModal(false)} />}
     </TableWrapper>

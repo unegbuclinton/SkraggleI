@@ -11,12 +11,18 @@ import {
   EventWrapper
 } from './styles';
 
+const shirtSizeOptions = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+];
+
 function EventLocation({ formik, ErrorMsg }) {
   return (
     <div>
       <DetailsSubHeading className="event-heading">Event location</DetailsSubHeading>
       <EventWrapper>
-        <DetailLabel>Vanue</DetailLabel>
+        <DetailLabel>Venue</DetailLabel>
         <Input
           className="details-input"
           type="text"
@@ -68,13 +74,16 @@ function EventLocation({ formik, ErrorMsg }) {
               id="state"
               name="state"
               data={state}
-              onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              options={shirtSizeOptions}
               value={formik.values.state}
+              onChange={(value) => formik.setFieldValue('state', value.value)}
             />
-            {formik.touched.state && formik.errors.state ? (
-              <ErrorMsg>{formik.errors.state}</ErrorMsg>
-            ) : null}
+            <div className="state-error">
+              {formik.touched.state && formik.errors.state ? (
+                <ErrorMsg>{formik.errors.state}</ErrorMsg>
+              ) : null}
+            </div>
           </div>
           <div>
             <DetailLabel>Zip</DetailLabel>
