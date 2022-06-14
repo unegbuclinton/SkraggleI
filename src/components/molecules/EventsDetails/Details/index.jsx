@@ -1,17 +1,17 @@
-import React from 'react';
-import { Container, DetailsHeading, DetailsWrapper, ButtonWrapper, ErrorMsg } from './styles';
 import Button from 'components/atoms/Button/Button';
-import EventInformation from './Information';
-import EventLocation from './Location';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { detailsValidationSchema } from 'validation/Schema';
+import AdminNotification from './AdminNotification';
+import CutOffDate from './CutOffDate';
 import DisplayOptions from './DisplayOptions';
 import DisplaySettings from './DisplaySettings';
-import CutOffDate from './CutOffDate';
-import AdminNotification from './AdminNotification';
-import RegistrationReceipt from './RegistrationReceipt';
+import EventInformation from './Information';
+import EventLocation from './Location';
 import RecipientBody from './RecipientBody';
-import { useFormik } from 'formik';
-import { detailsValidationSchema } from 'validation/Schema';
-import { useNavigate } from 'react-router-dom';
+import RegistrationReceipt from './RegistrationReceipt';
+import { ButtonWrapper, Container, DetailsHeading, DetailsWrapper, ErrorMsg } from './styles';
 
 function Details() {
   const formik = useFormik({
@@ -35,13 +35,16 @@ function Details() {
       receiptDescription: '',
       formName: '',
       emailReply: '',
-      subject: ''
+      subject: '',
+      eventTimeDonation: false
     },
     validationSchema: detailsValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     }
   });
+
+  console.log(formik.values.eventTimeDonation);
 
   const navigate = useNavigate();
 

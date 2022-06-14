@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Label, Switched, SwitchInput } from './styles';
 
-function Switch({ className, onChange }) {
-  const [toggle, setToogle] = useState(false);
-  const toggleSwitch = () => {
-    setToogle((prev) => !prev);
+function Switch({ className, checked, toggle, setToogle }) {
+  const toggleSwitch = (event) => {
+    setToogle(event?.target?.checked);
   };
-  console.log(toggle);
   return (
     <Label className={className}>
-      <SwitchInput type="checkbox" onChange={onChange} onClick={toggleSwitch} />
+      <SwitchInput type="checkbox" checked={checked || toggle} onChange={toggleSwitch} />
       <Switched />
     </Label>
   );

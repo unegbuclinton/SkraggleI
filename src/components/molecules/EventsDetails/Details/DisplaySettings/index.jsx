@@ -1,6 +1,6 @@
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   DetailLabel,
   DetailsSubHeading,
@@ -11,6 +11,9 @@ import {
 } from './styles';
 
 function DisplaySettings({ formik, ErrorMsg }) {
+  const [toggle, setToogle] = useState(false);
+  console.log(toggle);
+  // console.log(formik.values.eventTimeDonation);
   return (
     <div>
       <DetailsSubHeading className="event-heading">Display settings</DetailsSubHeading>
@@ -18,7 +21,7 @@ function DisplaySettings({ formik, ErrorMsg }) {
         <DetailLabel>Maximum number of total participants</DetailLabel>
         <Input
           className="details-input"
-          id="settins"
+          id="settings"
           name="settings"
           type="number"
           onChange={formik.handleChange}
@@ -30,7 +33,20 @@ function DisplaySettings({ formik, ErrorMsg }) {
         ) : null}
         <SwitchWrapper className="option-switch ">
           <SwitchLabel>Enable one time event donations</SwitchLabel>
-          <Switch />
+          <Switch
+            id="eventTimeDonation"
+            name="eventTimeDonation"
+            // type="checkbox"
+            toggle={toggle}
+            setToogle={setToogle}
+            checked={formik.values.eventTimeDonation}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            // value={formik.values.eventTimeDonation}
+          />
+          {formik.touched.eventTimeDonation && formik.errors.eventTimeDonation ? (
+            <ErrorMsg>{formik.errors.eventTimeDonation}</ErrorMsg>
+          ) : null}
         </SwitchWrapper>
 
         <SwitchWrapper className="date">
