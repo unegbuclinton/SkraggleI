@@ -1,9 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addEvents, getEventById, getEvents, updateEventById } from 'api/events/events';
+import {
+  addEvents,
+  deleteEvent,
+  getEventById,
+  getEvents,
+  updateEventById
+} from 'api/events/events';
 import { addField, deleteField, getField, updateFieldById } from 'api/events/fields';
-import { addPackages, getPackages } from 'api/events/packages';
+import { addPackages, deletePackages, getPackages } from 'api/events/packages';
 import {
   addPromoCode,
+  deletePromoCode,
   getPromoCode,
   getPromoCodeById,
   updatePromoCodeById
@@ -35,6 +42,9 @@ export const createField = createAsyncThunk('events/createField', addField);
 export const getAllFields = createAsyncThunk('events/getAllFields', getField);
 export const updateField = createAsyncThunk('events/updateField', updateFieldById);
 export const delField = createAsyncThunk('events/delField', deleteField);
+export const delEvent = createAsyncThunk('events/delEvent', deleteEvent);
+export const delPackage = createAsyncThunk('events/delPackage', deletePackages);
+export const delPromoCode = createAsyncThunk('events/delPromoCode', deletePromoCode);
 
 export const eventSlice = createSlice({
   name: 'events',

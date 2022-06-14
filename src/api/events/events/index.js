@@ -51,3 +51,15 @@ export const updateEventById = async ({ body, id }) => {
     return error;
   }
 };
+
+export const deleteEvent = async ({ id }) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/event/${id}`
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
