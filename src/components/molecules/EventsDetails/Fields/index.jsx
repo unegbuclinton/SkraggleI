@@ -70,7 +70,6 @@ function Fields() {
     },
     {
       name: '',
-      // selector: (row) => row.tags
       cell: () => (
         <ActionWrapper>
           <p className="action">Edit</p>
@@ -79,8 +78,7 @@ function Fields() {
     },
     {
       name: '',
-      // selector: (row) => row.tags
-      cell: (row) => <Delete row={row} onClick={() => setOpenModal(true)} />
+      cell: (row) => <Delete row={row.id} onClick={() => setOpenModal(true)} />
     }
   ];
 

@@ -10,6 +10,7 @@ import { createField, getAllFields } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 // import { fieldValidationSchema } from 'validation/Schema';
 import { ErrorMsg } from '../Details/styles';
@@ -47,11 +48,12 @@ function FieldModalComponent({ onClose }) {
         show_field_on_separate_line: true,
         associated_packages: [values.packageAss]
       };
-      // alert(JSON.stringify(values, null, 2));
-
-      dispatch(createField(body)).then(() => {
-        dispatch(getAllFields());
-        onClose();
+      dispatch(createField(body)).then((data) => {
+        if (data.success === true) {
+          toast.success('Field created sucessfully');
+          dispatch(getAllFields());
+          onClose();
+        }
       });
     }
   });
