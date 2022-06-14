@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { detailsValidationSchema } from 'validation/Schema';
 import AdminNotification from './AdminNotification';
 import CutOffDate from './CutOffDate';
 import DisplayOptions from './DisplayOptions';
@@ -61,7 +60,7 @@ function Details() {
       emailReply: reply_email,
       subject: subject
     },
-    validationSchema: detailsValidationSchema,
+
     onSubmit: (values) => {
       const body = {
         name: values.name,

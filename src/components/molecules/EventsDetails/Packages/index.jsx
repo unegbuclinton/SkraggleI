@@ -8,6 +8,20 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ActionWrapper, PackageWrapper } from './styles';
 
+const Paragraph = ({ row }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h1 style={{ fontSize: '2.4rem', color: '#2e2e2e', fontWeight: '400' }}>{row.name}</h1>
+
+      <p
+        style={{
+          fontSize: '1.4rem',
+          color: '#585858',
+          fontWeight: '400'
+        }}>{`${row.participants} per package`}</p>
+    </div>
+  );
+};
 function Packages() {
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
@@ -28,8 +42,8 @@ function Packages() {
   const columns = [
     {
       name: 'NAME & DETAILS',
-      selector: (row) => row.name,
-      width: '20.8rem'
+      cell: (row) => <Paragraph row={row} />,
+      width: '35.8rem'
     },
     {
       name: 'STATUS',
@@ -98,7 +112,11 @@ function Packages() {
 
   return (
     <PackageWrapper>
-      <TableHeader header=" Packages" title=" Create New" setOpen={setOpenDropdown} />
+      <TableHeader
+        header={`${allPackages.length} Packages`}
+        title=" Create New"
+        setOpen={setOpenDropdown}
+      />
       <ClonePackageModal isShown={openCloneModal} onClose={() => setOpenCloneModal(false)} />
       <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
       <Table

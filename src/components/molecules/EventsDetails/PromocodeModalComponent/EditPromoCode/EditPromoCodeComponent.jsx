@@ -19,8 +19,8 @@ import {
 } from './styles';
 
 function EditPromoCodeComponent({ onClose }) {
-  const { eachPromoCode } = useSelector((state) => state.events);
-  console.log(eachPromoCode);
+  const { eachPromoCode, isLoading } = useSelector((state) => state.events);
+
   const { code, description, discount, max_user, start_date, end_date, id } = eachPromoCode;
   const dispatch = useDispatch();
   const promoCodeId = id;
@@ -200,7 +200,9 @@ function EditPromoCodeComponent({ onClose }) {
         <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
-        <Button className="save-btn">Save</Button>
+        <Button className="save-btn" disabled={isLoading}>
+          Save
+        </Button>
       </ButtonContainer>
     </DropdownWrapper>
   );

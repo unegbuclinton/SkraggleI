@@ -2,7 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import { createEvents, getAllEvents } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { detailsValidationSchema } from 'validation/Schema';
 import AdminNotification from './AdminNotification';
 import CutOffDate from './CutOffDate';
@@ -15,6 +15,8 @@ import RegistrationReceipt from './RegistrationReceipt';
 import { ButtonWrapper, Container, DetailsWrapper, ErrorMsg } from './styles';
 
 function CreateEvent({ onClose }) {
+  const { isLoading } = useSelector((state) => state.events);
+
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -93,7 +95,7 @@ function CreateEvent({ onClose }) {
           <Button type="button" onClick={onClose} className="cancel-btn">
             Cancel
           </Button>
-          <Button type="submit" className="save-btn">
+          <Button type="submit" className="save-btn" disabled={isLoading}>
             Save
           </Button>
         </ButtonWrapper>

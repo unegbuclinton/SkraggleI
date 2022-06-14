@@ -6,35 +6,57 @@ import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { createField, getAllFields } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { fieldValidationSchema } from 'validation/Schema';
+// import { fieldValidationSchema } from 'validation/Schema';
 import { ErrorMsg } from '../Details/styles';
 
 function FieldModalComponent({ onClose }) {
+  const { allPackages, isLoading } = useSelector((state) => state.events);
+
+  const dispatch = useDispatch();
+
   const fieldTypeOptions = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
+    { value: 'CheckBox', label: 'CkeckBox' },
+    { value: 'Radio', label: 'Radio' }
   ];
 
-  const packageAssOptions = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
-  ];
+  const packageAssOptions = allPackages?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
   const formik = useFormik({
     initialValues: {
       fieldLabel: '',
       reportLabel: '',
-      fieldType: ''
+      fieldType: '',
+      maxChara: '',
+      packageAss: []
     },
-    validationSchema: fieldValidationSchema,
+    // validationSchema: fieldValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const body = {
+        field_label: values.fieldLabel,
+        reporting_label: values.reportLabel,
+        type: values.fieldType,
+        event_wide_field: true,
+        show_field_on_separate_line: true,
+        associated_packages: [values.packageAss]
+      };
+      // alert(JSON.stringify(values, null, 2));
+
+      dispatch(createField(body)).then(() => {
+        dispatch(getAllFields());
+        onClose();
+      });
     }
   });
   return (
-    <FieldModalWrapper>
+    <FieldModalWrapper onSubmit={formik.handleSubmit}>
       <Card className="field-modal__card">
         <FieldModalContainer>
           <FieldModalLabel>Field Label</FieldModalLabel>
@@ -44,7 +66,6 @@ function FieldModalComponent({ onClose }) {
             type="text"
             id="fieldLabel"
             name="fieldLabel"
-            disabled
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.fieldLabel}
@@ -117,7 +138,7 @@ function FieldModalComponent({ onClose }) {
           <FieldModalHeader>Associate Field With Specific Package(s)</FieldModalHeader>
         </FieldModalHeaderContainer>
         <SelectDropDown
-          isMulti={true}
+          // isMulti={true}
           className="field-muti__select"
           id="packageAss"
           name="packageAss"
@@ -134,7 +155,7 @@ function FieldModalComponent({ onClose }) {
           <Button className="field-cancel__btn" auth invert onClick={onClose}>
             Cancel
           </Button>
-          <Button className="field-save__btn" auth>
+          <Button className="field-save__btn" auth disabled={isLoading}>
             Save
           </Button>
         </FieldModalFooter>
@@ -145,7 +166,7 @@ function FieldModalComponent({ onClose }) {
 
 export default FieldModalComponent;
 
-const FieldModalWrapper = styled.div`
+const FieldModalWrapper = styled.form`
   .field-muti__select {
     width: 100%;
   }

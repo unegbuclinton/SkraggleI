@@ -5,7 +5,7 @@ import Switch from 'components/atoms/Switch/Switch';
 import { createPackages, getAllPackages } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { packageValidatioSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -20,6 +20,8 @@ import {
 } from './styles';
 
 function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
+  const { isLoading } = useSelector((state) => state.events);
+
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -293,7 +295,9 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
           invert>
           Cancel
         </Button>
-        <Button className="save-btn">Save</Button>
+        <Button className="save-btn" disabled={isLoading}>
+          Save
+        </Button>
       </ButtonContainer>
     </DropDownWrapper>
   );

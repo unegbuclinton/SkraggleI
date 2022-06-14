@@ -10,6 +10,22 @@ import EditPromoCodeModal from '../PromocodeModal/EditPromoCodeModal';
 // import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
 import { ActionWrapper, PromoCodeWrapper } from './styles';
 
+const Paragraph = ({ row }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h1 style={{ fontSize: '2.4rem', color: '#2e2e2e', fontWeight: '400' }}>{row.code}</h1>
+
+      <p
+        style={{
+          fontSize: '1.4rem',
+          color: '#585858',
+          fontWeight: '400'
+        }}>
+        {row.description}
+      </p>
+    </div>
+  );
+};
 function PromoCodes() {
   const [openDelete, setOpenDelete] = useState(false);
   const [createPromoCodeModal, setCreatePromoCodeModal] = useState(false);
@@ -27,7 +43,7 @@ function PromoCodes() {
   const columns = [
     {
       name: 'NAME',
-      selector: (row) => row.code,
+      cell: (row) => <Paragraph row={row} />,
       width: '20.8rem'
     },
     {

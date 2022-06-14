@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addEvents, getEventById, getEvents, updateEventById } from 'api/events/events';
-import { addField, getField, updateFieldById } from 'api/events/fields';
+import { addField, deleteField, getField, updateFieldById } from 'api/events/fields';
 import { addPackages, getPackages } from 'api/events/packages';
 import {
   addPromoCode,
@@ -34,6 +34,7 @@ export const getAllPackages = createAsyncThunk('events/getAllPackages', getPacka
 export const createField = createAsyncThunk('events/createField', addField);
 export const getAllFields = createAsyncThunk('events/getAllFields', getField);
 export const updateField = createAsyncThunk('events/updateField', updateFieldById);
+export const delField = createAsyncThunk('events/delField', deleteField);
 
 export const eventSlice = createSlice({
   name: 'events',
@@ -169,6 +170,16 @@ export const eventSlice = createSlice({
       state.isLoading = false;
     },
     [updateField.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [delField.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [delField.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [delField.rejected]: (state) => {
       state.isLoading = false;
     },
 

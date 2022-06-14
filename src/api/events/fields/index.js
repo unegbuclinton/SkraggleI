@@ -50,3 +50,15 @@ export const updateFieldById = async ({ body, id }) => {
     return error;
   }
 };
+
+export const deleteField = async ({ id }) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/field/${id}`
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

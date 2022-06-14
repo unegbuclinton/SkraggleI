@@ -112,9 +112,9 @@ export const packageValidatioSchema = Yup.object({
 });
 
 export const fieldValidationSchema = Yup.object({
-  fieldLabel: Yup.string().required('Field label is required'),
-  reportLabel: Yup.string().required('Report Label is required'),
-  fieldType: Yup.string().required('Field type is required')
+  // fieldLabel: Yup.string().required('Field label is required'),
+  // reportLabel: Yup.string().required('Report Label is required'),
+  // fieldType: Yup.string().required('Field type is required')
 });
 
 export const promoCodeValidationSchema = Yup.object({
