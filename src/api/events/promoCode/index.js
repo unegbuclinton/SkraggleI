@@ -31,7 +31,6 @@ export const getPromoCodeById = async (id) => {
       method: 'get',
       url: `/promocode/info/${id}`
     });
-    console.log(response);
     return response?.data?.message;
   } catch (error) {
     return error;

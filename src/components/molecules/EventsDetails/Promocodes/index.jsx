@@ -89,7 +89,6 @@ function PromoCodes() {
   ];
 
   const onRowClick = ({ id }) => {
-    console.log(id);
     dispatch(getEachPromoCode(id)).then(() => {
       setEditModal(true);
     });

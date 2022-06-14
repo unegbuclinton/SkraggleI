@@ -26,7 +26,7 @@ function RegistrationPackage({ setClick }) {
         <Switch />
       </SwitchWrapper>
       <ButtonContainer>
-        <Button type="button" onClick={() => setClick(false)} className="cancel-btn">
+        <Button type="button" onClick={() => setClick(false)} className="cancel-btn" auth invert>
           Cancel
         </Button>
         <Button className="save-btn">Save</Button>

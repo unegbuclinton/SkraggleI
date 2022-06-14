@@ -200,6 +200,7 @@ function EditPromoCodeComponent({ onClose }) {
         <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
+
         <Button className="save-btn" disabled={isLoading}>
           Save
         </Button>
