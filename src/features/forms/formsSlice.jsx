@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addForms, deleteForm, getForms, individualForm } from 'api/forms/forms';
+import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   isLoading: false,
@@ -51,6 +52,10 @@ export const formsSlice = createSlice({
     },
     [deleteSingleForm.rejected]: (state) => {
       state.isLoading = false;
+    },
+
+    [logoutUser.fulfilled]: () => {
+      return initialState;
     }
   }
 });
