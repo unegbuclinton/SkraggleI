@@ -3,7 +3,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  padding-top: 6.134rem;
+  padding-top: 5rem;
   .signup-card {
     max-width: 46.5rem;
     padding: 2.4rem 4.5rem 4rem 4.5rem;
