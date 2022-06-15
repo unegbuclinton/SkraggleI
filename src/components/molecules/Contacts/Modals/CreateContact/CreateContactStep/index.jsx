@@ -66,7 +66,7 @@ const MultiStepForm = ({ onClose }) => {
     // state: formik.values.state,
     // postalCode: formik.values.postalCode,
     // country: formik.values.country,
-    household: formik.values.household
+    households: [formik.values.household]
     // priority: formik.values.priority,
     // assignee: formik.values.assignee
   };

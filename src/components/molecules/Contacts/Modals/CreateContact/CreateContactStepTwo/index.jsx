@@ -16,8 +16,8 @@ function ContactStepTwo({ onClose, formik }) {
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
-  const tagz = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
-  const household = houseHolds.map((current) => ({ value: current?.id, label: current?.name }));
+  const tagz = tagsData?.map((current) => ({ value: current?.id, label: current?.name }));
+  const household = houseHolds?.map((current) => ({ value: current?.id, label: current?.name }));
   const { isLoading } = useSelector((state) => state.contact);
   const houseOptions = [
     { value: 'Household', label: 'Household' },
@@ -25,6 +25,12 @@ function ContactStepTwo({ onClose, formik }) {
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' },
     { value: 'Household', label: 'Household' }
+  ];
+
+  const priorityOptions = [
+    { value: 'High', label: 'High' },
+    { value: 'Medium', label: 'Medium' },
+    { value: 'Low', label: 'Low' }
   ];
   return (
     <ModalWrapper>
@@ -159,7 +165,7 @@ function ContactStepTwo({ onClose, formik }) {
             type={'text'}
             id="priority"
             name="priority"
-            options={houseOptions}
+            options={priorityOptions}
             value={formik.values.priority}
             onChange={(value) => formik.setFieldValue('priority', value.value)}
             onBlur={formik.handleBlur}

@@ -39,6 +39,7 @@ export { ReactComponent as DPIconFacebook } from 'icons/svgs/facebook.svg';
 export { ReactComponent as DPIconForm } from 'icons/svgs/forms.svg';
 export { ReactComponent as DPIconForms } from 'icons/svgs/formsIcon.svg';
 export { ReactComponent as DPIconGoodMark } from 'icons/svgs/good-mark.svg';
+export { ReactComponent as DPIconGoogleIcon } from 'icons/svgs/google.svg';
 export { ReactComponent as DPIconHouseHold } from 'icons/svgs/household.svg';
 export { ReactComponent as DPIconCloseBlack } from 'icons/svgs/iconCloseBlack.svg';
 export { ReactComponent as DPIconItalic } from 'icons/svgs/italic.svg';

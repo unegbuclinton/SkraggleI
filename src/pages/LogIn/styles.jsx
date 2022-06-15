@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
-  margin-top: 11.734rem;
+  margin-top: 5rem;
   .login-card {
     padding-left: 4.5rem;
     padding-right: 4.5rem;
@@ -44,12 +44,58 @@ export const FormWrapper = styled.form`
     font-size: ${FONTSIZES.small};
     line-height: 1.6rem;
     color: ${COLORS.white};
+    margin-bottom: 2.8rem;
+  }
+
+  .google-button {
+    border: 1px solid ${COLORS.offWhite};
+    border-radius: 0.5rem;
+    height: 6.4rem;
+    font-size: ${FONTSIZES.base};
+    font-weight: ${FONTWEIGHTS.normal};
+    color: ${COLORS['grey-400']};
+    background: ${COLORS.white};
+    line-height: 1.875rem;
     margin-bottom: 5.6rem;
   }
   .forgot-password__container {
     display: flex;
     justify-content: right;
   }
+
+  .divider-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 2.4rem;
+    margin-bottom: 2rem;
+
+    .divider-text {
+      position: absolute;
+      top: -0.8rem;
+      font-size: ${FONTSIZES.small};
+      color: ${COLORS.deepPurple};
+    }
+  }
+`;
+
+export const DividerLeft = styled.div`
+  border-top: 0.115px solid ${COLORS.torquoise};
+  flex: 1;
+  margin-right: 2.4rem;
+`;
+
+export const DividerRight = styled.div`
+  border-top: 0.115px solid ${COLORS.torquoise};
+  flex: 1;
+  margin-left: 2.4rem;
+`;
+
+export const GoogleLogin = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
 `;
 
 export const LoginLink = styled(Link)`
