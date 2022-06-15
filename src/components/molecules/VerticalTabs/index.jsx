@@ -18,6 +18,7 @@ function VerticalTab({
   setRef,
   content,
   disabled,
+  leftTabs,
   ...rest
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
@@ -33,7 +34,7 @@ function VerticalTab({
 
   return (
     <>
-      <VerticalTabWrapper className={className} {...rest}>
+      <VerticalTabWrapper leftTabs={leftTabs} className={className} {...rest}>
         <div className="left-tabs">
           <div className={verticalWrapper}>
             {tabs.map(({ title }, index) => (
@@ -70,8 +71,9 @@ const VerticalTabWrapper = styled.div`
   .left-tabs {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    height: fit-content;
+    /* gap: 1.6rem; */
+    gap: ${({ leftTabs }) => (leftTabs ? '0rem' : '1.6rem')};
+    height: 100%;
     position: sticky;
     top: 0px;
   }

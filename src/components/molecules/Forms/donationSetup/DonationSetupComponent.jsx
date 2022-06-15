@@ -125,8 +125,7 @@ function DonationSetupComponent({ DecrementTab, IncrementTab }) {
 export default DonationSetupComponent;
 
 const DonationSetUpWrapper = styled.div`
-  max-width: 53rem;
-  width: 100%;
+  flex: 0.65;
   height: 100%;
   overflow: hidden;
   .donation-setup__card {
@@ -135,7 +134,6 @@ const DonationSetUpWrapper = styled.div`
     padding: 4.5rem 4.4rem 2.778rem 4.4rem;
 
     .setup-select {
-      max-width: 42.2rem;
       width: 100%;
     }
   }
@@ -168,6 +166,9 @@ const DonationSetUpContainer = styled.div`
 
     .inner-container__switch {
       margin-top: 1rem;
+      display: flex;
+      flex: 1;
+      justify-content: right;
     }
   }
 `;
