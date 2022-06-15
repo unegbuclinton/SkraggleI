@@ -25,3 +25,29 @@ export const getEvents = async () => {
     return error;
   }
 };
+
+export const getEventById = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/event/info/${id}`
+    });
+
+    return response?.data?.message;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updateEventById = async ({ body, id }) => {
+  try {
+    const response = await request({
+      method: 'patch',
+      url: `/event/${id}`,
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

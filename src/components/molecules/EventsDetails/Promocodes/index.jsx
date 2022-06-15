@@ -8,8 +8,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import PromoCodeModal from '../PromocodeModal';
 import EditPromoCodeModal from '../PromocodeModal/EditPromoCodeModal';
 // import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
-import { ActionWrapper, ContentsWrapper, PromoCodeWrapper } from './styles';
+import { ActionWrapper, PromoCodeWrapper } from './styles';
 
+const Paragraph = ({ row }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h1 style={{ fontSize: '2.4rem', color: '#2e2e2e', fontWeight: '400' }}>{row.code}</h1>
+
+      <p
+        style={{
+          fontSize: '1.4rem',
+          color: '#585858',
+          fontWeight: '400'
+        }}>
+        {row.description}
+      </p>
+    </div>
+  );
+};
 function PromoCodes() {
   const [openDelete, setOpenDelete] = useState(false);
   const [createPromoCodeModal, setCreatePromoCodeModal] = useState(false);
@@ -27,12 +43,7 @@ function PromoCodes() {
   const columns = [
     {
       name: 'NAME',
-      cell: () => (
-        <ContentsWrapper>
-          <h2 className="heading">Save15</h2>
-          <p className="heading-text">test</p>
-        </ContentsWrapper>
-      ),
+      cell: (row) => <Paragraph row={row} />,
       width: '20.8rem'
     },
     {
@@ -78,10 +89,9 @@ function PromoCodes() {
   ];
 
   const onRowClick = ({ id }) => {
-    console.log(id);
-    dispatch(getEachPromoCode(id));
-
-    setEditModal(true);
+    dispatch(getEachPromoCode(id)).then(() => {
+      setEditModal(true);
+    });
   };
   return (
     <PromoCodeWrapper>
