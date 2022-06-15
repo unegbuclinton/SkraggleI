@@ -61,9 +61,13 @@ export default ThankYouComponent;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
+<<<<<<< HEAD
   height: 100%;
   overflow: hidden;
   padding-bottom: 12.5rem;
+=======
+  /* margin-top: 5.9rem; */
+>>>>>>> f349565b0209c87266bed6c20ead0652dd764fcd
 `;
 const RadioGroupContainer = styled.div``;
 

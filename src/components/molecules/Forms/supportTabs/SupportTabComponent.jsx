@@ -72,8 +72,11 @@ export default SupportTabComponent;
 const SupportTabWrapper = styled.div`
   max-width: 53rem;
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
   overflow: hidden;
+=======
+>>>>>>> f349565b0209c87266bed6c20ead0652dd764fcd
   .support-card {
     padding: 4rem 6.246rem 2.4rem 4.4rem;
   }
