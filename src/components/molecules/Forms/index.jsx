@@ -1,7 +1,12 @@
+import PageLinks from 'components/atoms/PageLinks';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import VerticalTab from 'components/molecules/VerticalTabs';
 import { COLORS } from 'constants/colors';
+import FormsSubTab from 'pages/Forms/FormsSubTab';
+import ThankYouComponent from 'pages/Forms/FormsSubTab/ThankYou';
+import Url from 'pages/Forms/FormsSubTab/URL';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import DonationMain from './DonationAmounts/DonationMain';
 import DonationSetup from './donationSetup';
@@ -15,15 +20,24 @@ function ProcessingFeeMain() {
     { title: 'Donation Setup', component: DonationSetup },
     { title: 'Donation Amounts', component: DonationMain },
     { title: 'Processing Fee', component: ProcessingFee },
-    { title: 'Supporter', component: SupportTab }
+    { title: 'Supporter', component: SupportTab },
+    { title: 'Thank You Page', component: ThankYouComponent },
+    { title: 'URL', component: Url }
   ];
+  const { formsByID } = useSelector((state) => state?.forms);
+  const { name } = formsByID;
+
   return (
-    <DashboardLayout>
+    <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Foms" to="/forms" names={name} />}>
+      <FormsSubTab />
+
       <ProcessingFeeWrapper>
         <VerticalTab
+          disabled
           tabs={components}
           className="vertical-tab__container"
           verticalWrapper="vertical-tab-wrapper"
+          content="content-wrapper"
         />
       </ProcessingFeeWrapper>
     </DashboardLayout>
@@ -33,9 +47,13 @@ function ProcessingFeeMain() {
 export default ProcessingFeeMain;
 
 export const ProcessingFeeWrapper = styled.div`
+  height: 100%;
+  margin-top: 2.4rem;
   .vertical-tab__container {
     overflow-y: auto;
     gap: 1.6rem;
+    width: 100%;
+    height: 100%;
   }
 
   .vertical-tab-wrapper {
@@ -46,8 +64,14 @@ export const ProcessingFeeWrapper = styled.div`
     width: 20.9rem;
     padding-left: 3.54rem;
     padding-top: 3.7rem;
-    margin-left: 1.6rem;
+    margin-left: 0rem;
     margin-top: 0rem;
     margin-right: 0rem;
+  }
+  .content-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    margin-left: 0;
   }
 `;

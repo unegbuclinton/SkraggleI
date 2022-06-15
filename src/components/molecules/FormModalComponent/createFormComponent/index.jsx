@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 function CreateFormComponent({ onClose }) {
-  const { campaigns } = useSelector((state) => state.campaign);
+  const { campaigns } = useSelector((state) => state?.campaign);
 
   const formTypeOptions = [
     { value: 'Donation', label: 'Donation' },

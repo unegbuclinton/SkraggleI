@@ -14,7 +14,8 @@ const Input = ({
   autoWidth,
   containerClass,
   value,
-  onWheel
+  onWheel,
+  defaultValue
 }) => {
   const [show, setShow] = useState(false);
   const toggleShowPassword = () => setShow((prev) => !prev);
@@ -33,6 +34,7 @@ const Input = ({
         onChange={onChange}
         onBlur={onBlur}
         value={value}
+        defaultValue={defaultValue}
       />
       {type === 'password' && (
         <InputFieldIcon onClick={toggleShowPassword}>

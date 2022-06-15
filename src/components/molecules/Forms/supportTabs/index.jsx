@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import SupportTabComponent from './SupportTabComponent';
 import SupportTabFormComponent from './SupportTabFormComponent';
 
-function SupportTab() {
+function SupportTab({ IncrementTab, DecrementTab }) {
   return (
     <SupportTabContainer>
-      <SupportTabComponent />
+      <SupportTabComponent IncrementTab={IncrementTab} DecrementTab={DecrementTab} />
       <FormCardLayout>
         <SupportTabFormComponent />
       </FormCardLayout>

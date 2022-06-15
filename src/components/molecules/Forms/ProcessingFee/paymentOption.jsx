@@ -38,10 +38,11 @@ function PaymentOption() {
 export default PaymentOption;
 
 export const PaymentOptionWrapper = styled.div`
-  display: flex;
-  flex: 1;
+  max-width: 37.954rem;
+  width: 100%;
   .donate-button {
-    width: 30.815rem;
+    max-width: 30.815rem;
+    width: 100%;
     height: 5.105rem;
     background: ${COLORS.pink};
     border-radius: 0.340356rem;
