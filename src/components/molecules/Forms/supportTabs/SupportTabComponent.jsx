@@ -9,7 +9,7 @@ import styled from 'styled-components';
 function SupportTabComponent({ IncrementTab, DecrementTab }) {
   return (
     <SupportTabWrapper>
-      <Card className="support-card">
+      <SupportCardWrapper className="support-card">
         <SupportTabContainer>
           <SupportHeaderWrapper>
             <SupportHeader>Ask for mailing address</SupportHeader>
@@ -62,7 +62,7 @@ function SupportTabComponent({ IncrementTab, DecrementTab }) {
             Next
           </Button>
         </SupportTabFooter>
-      </Card>
+      </SupportCardWrapper>
     </SupportTabWrapper>
   );
 }
@@ -72,13 +72,24 @@ export default SupportTabComponent;
 const SupportTabWrapper = styled.div`
   max-width: 53rem;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
   .support-card {
     padding: 4rem 6.246rem 2.4rem 4.4rem;
   }
 `;
+
+export const SupportCardWrapper = styled(Card)`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+`;
+
 const SupportTabContainer = styled.div``;
+
 const SupportTabDivider = styled.div`
-  width: 42.2rem;
+  max-width: 42.2rem;
+  width: 100%;
   border: 1px solid ${COLORS.torquoise};
   margin: 3.2rem 0;
 `;

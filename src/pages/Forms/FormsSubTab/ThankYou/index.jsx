@@ -61,7 +61,9 @@ export default ThankYouComponent;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
-  /* margin-top: 5.9rem; */
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 12.5rem;
 `;
 const RadioGroupContainer = styled.div``;
 
@@ -94,6 +96,8 @@ const ThankYouContainer = styled(Card)`
   max-width: 53rem;
   width: 100%;
   padding: 4rem 2.4rem 2.4rem 4.4rem;
+  height: 100%;
+  overflow: auto;
 `;
 
 export const ButtonContainer = styled.div`

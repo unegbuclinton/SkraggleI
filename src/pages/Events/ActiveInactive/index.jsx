@@ -5,10 +5,12 @@ import CloneEventModal from 'components/molecules/EventsModals/CloneModal/Modal'
 import CreateEventModal from 'components/molecules/EventsModals/CreateEventModal/Modal';
 import DeleteEventModal from 'components/molecules/EventsModals/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { getAllPackages, getEachEvent } from 'features/events/eventSlice';
 import { DPIconEventActive } from 'icons';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { formatDate } from 'utilities/helpers';
 import { ActionWrapper, ActiveInactiveWrapper, Container } from './styles';
 
 function ActiveInactive() {
@@ -18,10 +20,14 @@ function ActiveInactive() {
   const [open, setOpen] = useState(false);
 
   const { allEvents } = useSelector((state) => state.events);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    dispatch(getAllPackages());
+  }, []);
   const onRowClicked = (row) => {
+    dispatch(getEachEvent(row.id));
     navigate('events-details', { state: row });
   };
 
@@ -60,8 +66,8 @@ function ActiveInactive() {
     },
 
     {
-      name: 'BEGGINS',
-      selector: (row) => row.created_at,
+      name: 'BEGINS',
+      selector: (row) => formatDate(row.created_at),
       width: '15rem'
     },
 
@@ -92,30 +98,6 @@ function ActiveInactive() {
     }
   ];
 
-  // const data = [
-  //   {
-  //     name: 'A day with the orphans',
-  //     switch: '',
-  //     beggin: '09/15/2021',
-  //     attendee: '1(View all)',
-  //     action: ''
-  //   },
-  //   {
-  //     name: 'A day with the elderly',
-  //     switch: '',
-  //     beggin: '09/15/2021',
-  //     attendee: '1(View all)',
-  //     action: ''
-  //   },
-  //   {
-  //     name: 'A day with the orphans copy',
-  //     switch: '',
-  //     beggin: '09/15/2021',
-  //     attendee: '1(View all)',
-  //     action: ''
-  //   }
-  // ];
-
   return (
     <ActiveInactiveWrapper>
       <Container>
@@ -123,7 +105,12 @@ function ActiveInactive() {
         <CloneEventModal isShown={openCloneEvent} onClose={() => setCloneEventOpen(false)} />
         <DeleteEventModal isShown={openDeleteModal} onClose={() => setOpenDeleteModal(false)} />
         <ArchiveModal isShown={openArchiveModal} onClose={() => setOpenArchiveModal(false)} />
-        <TableHeader header="92 Events" title="Create New" eventHeader setOpen={setOpen} />
+        <TableHeader
+          header={`${allEvents.length} Events`}
+          title="Create New"
+          eventHeader
+          setOpen={setOpen}
+        />
         <Table
           className="events-table"
           columns={columns}

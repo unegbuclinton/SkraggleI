@@ -20,4 +20,7 @@ export default SupportTab;
 const SupportTabContainer = styled.div`
   display: flex;
   gap: 1.6rem;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 12.5rem;
 `;

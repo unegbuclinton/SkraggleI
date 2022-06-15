@@ -4,11 +4,12 @@ import Table from 'components/layouts/Table';
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { getFormsByID } from 'features/campaign/campaignSlice';
-import { removeForm } from 'features/forms/formsSlice';
+import { getAllCampaigns, getFormsByID } from 'features/campaign/campaignSlice';
+import { getSingleForm, removeForm } from 'features/forms/formsSlice';
 import CreateFormModal from 'pages/Forms/FormModal/CreateFormModal';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { CampaignForm } from 'utilities/campaigndata';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -17,9 +18,13 @@ const FormsTable = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
   const id = campaignByID.id;
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   const handleSelect = (row) => {
     const checkedRows = row.selectedRows.map((cur) => cur.id);
     setGetId(checkedRows);
@@ -36,31 +41,34 @@ const FormsTable = () => {
     });
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [open, setOpen] = useState(false);
-  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const onRowClicked = ({ id }) => {
+    dispatch(getAllCampaigns(id));
+    dispatch(getSingleForm(id));
+    let path = '/forms/forms-details';
+    navigate(path);
+  };
 
   const columns = [
     {
       name: 'FORM NAME',
-      selector: (row) => row?.name,
-      width: '35rem'
+      selector: (row) => row?.name
+      // width: '35rem'
     },
 
     {
       name: 'FORM TYPE',
-      selector: (row) => row?.type,
-      width: '20rem'
+      selector: (row) => row?.type
+      // width: '20rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row?.raised,
-      width: '20rem'
+      selector: (row) => row?.raised
+      // width: '20rem'
     },
     {
       name: 'DONATIONS',
-      selector: (row) => row?.donations,
-      width: '35rem'
+      selector: (row) => row?.donations
+      // width: '35rem'
     },
     {
       name: 'STATUS',
@@ -98,7 +106,7 @@ const FormsTable = () => {
           <Table
             columns={columns}
             data={formsData}
-            // onRowClicked={onRowClicked}
+            onRowClicked={onRowClicked}
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}

@@ -3,7 +3,7 @@ import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { getAllCampaigns } from 'features/campaign/campaignSlice';
+// import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import { getAllForm, getSingleForm, removeForm } from 'features/forms/formsSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,7 +40,7 @@ function FormsTable() {
   };
 
   const onRowClicked = ({ id }) => {
-    dispatch(getAllCampaigns(id));
+    // dispatch(getAllCampaigns(id));
     dispatch(getSingleForm(id));
     let path = 'forms-details';
     navigate(path);
@@ -49,31 +49,27 @@ function FormsTable() {
   const columns = [
     {
       name: 'FORM NAME',
-      selector: (row) => row.name,
-      width: '23.769rem'
+      selector: (row) => row?.name
     },
 
     {
       name: 'FORM TYPE',
-      selector: (row) => row.type,
-      width: '13.769rem'
+      selector: (row) => row?.type
     },
 
     {
       name: 'RAISED',
-      selector: (row) => row.amount_raised
+      selector: (row) => row?.amount_raised
     },
 
     {
       name: 'DONATIONS',
-      selector: (row) => row.donation_amount,
-      width: '25.027rem'
+      selector: (row) => row?.donation_amount
     },
 
     {
       name: 'STATUS',
-      cell: () => <TableBtn active />,
-      width: '30.8rem'
+      cell: () => <TableBtn active />
     }
   ];
   return (

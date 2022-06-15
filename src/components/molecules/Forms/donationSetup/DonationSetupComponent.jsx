@@ -127,8 +127,11 @@ export default DonationSetupComponent;
 const DonationSetUpWrapper = styled.div`
   max-width: 53rem;
   width: 100%;
-  overflow: auto;
+  height: 100%;
+  overflow: hidden;
   .donation-setup__card {
+    height: 100%;
+    overflow: auto;
     padding: 4.5rem 4.4rem 2.778rem 4.4rem;
 
     .setup-select {

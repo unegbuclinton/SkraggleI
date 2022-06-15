@@ -24,7 +24,15 @@ function EventInformation({ formik, ErrorMsg }) {
           <ErrorMsg>{formik.errors.name}</ErrorMsg>
         ) : null}
         <div className="editor-container">
-          <div className="text-editor">Text Editor</div>
+          <textarea
+            id="textarea"
+            name="textarea"
+            type="text"
+            placeholder="Lorem ipsam"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.textarea}
+          />
           <div className="editor-container__upload">
             <DetailLabel>Event image</DetailLabel>
             <FileUploadButton imgPreview="upload-button" className="image-upload">
