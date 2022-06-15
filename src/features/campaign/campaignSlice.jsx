@@ -15,6 +15,7 @@ const initialState = {
   campaignByID: [],
   p2p: [],
   formsData: [],
+  elementsData: [],
   isLoading: false
 };
 
@@ -42,7 +43,6 @@ export const campaignSlice = createSlice({
     },
     [getAllCampaigns.fulfilled]: (state, action) => {
       state.isLoading = false;
-
       state.campaigns = action.payload;
     },
     [getAllCampaigns.rejected]: (state) => {
@@ -88,7 +88,7 @@ export const campaignSlice = createSlice({
       state.isLoading = false;
     },
     [getCampaignElements.fulfilled]: (state, action) => {
-      state.formsData = action.payload;
+      state.elementsData = action.payload;
       state.isLoading = false;
     },
     [getCampaignElements.pending]: (state) => {

@@ -12,6 +12,7 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
+import { getAllElements } from 'features/elements/elementsSlice';
 import { getAllEvents } from 'features/events/eventSlice';
 import { getAllForm } from 'features/forms/formsSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
@@ -71,6 +72,10 @@ function Overview() {
 
   useEffect(() => {
     dispatch(getAllForm());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllElements());
   }, [dispatch]);
 
   return (
