@@ -2,7 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import React from 'react';
 import { ButtonContainer, DeleteWrapper, WarningText, WarningWrapper } from './styles';
 
-function Delete({ onClose, handleDelete, warning }) {
+function Delete({ onClose, handleDelete, warning, isLoading }) {
   const deleteContact = () => {
     handleDelete();
     onClose();
@@ -16,7 +16,7 @@ function Delete({ onClose, handleDelete, warning }) {
         <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
-        <Button type="submit" onClick={deleteContact} className="save-btn">
+        <Button type="submit" disabled={isLoading} onClick={deleteContact} className="save-btn">
           Delete
         </Button>
       </ButtonContainer>

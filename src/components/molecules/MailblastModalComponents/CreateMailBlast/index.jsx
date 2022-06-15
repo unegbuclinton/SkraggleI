@@ -2,16 +2,32 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { createNewMailBlast } from 'features/mailblast/mailBlastSlice';
+import { createNewMailBlast, listAllMailBlast } from 'features/mailblast/mailBlastSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { CreateMailBlastSchema } from 'validation/Schema';
 import { CreateLabel, CreateMailWrapper, ErrorMsg } from './styles';
 
 function CreateMailBlast({ onCloseModal }) {
   const dispatch = useDispatch();
+
+  const { isLoading } = useSelector((state) => state.mailBlast);
+
+  const { contactData } = useSelector((state) => state.contact);
+
+  const { campaigns } = useSelector((state) => state.campaign);
+
+  const assignee = contactData.map((current) => ({
+    value: current?.id,
+    label: current?.first_name
+  }));
+
+  const campaignData = campaigns.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
 
   const formik = useFormik({
     initialValues: {
@@ -26,12 +42,13 @@ function CreateMailBlast({ onCloseModal }) {
         name: values.name,
         category: values.category,
         assignee: values.assignee,
-        campaign: values.campaign_id
+        campaign_id: values.campaign
       };
       dispatch(createNewMailBlast(body)).then((data) => {
-        if (data.success === true) {
+        if (data.payload.status === 200) {
           onCloseModal();
           toast.success('Mail blast created successfully');
+          dispatch(listAllMailBlast());
         }
       });
     }
@@ -80,7 +97,7 @@ function CreateMailBlast({ onCloseModal }) {
             <SelectDropDown
               id="assignee"
               name="assignee"
-              options={categoryOptions}
+              options={assignee}
               value={formik.values.assignee}
               onChange={(value) => formik.setFieldValue('assignee', value.value)}
               onBlur={formik.handleBlur}
@@ -95,7 +112,7 @@ function CreateMailBlast({ onCloseModal }) {
             <SelectDropDown
               id="campaign"
               name="campaign"
-              options={categoryOptions}
+              options={campaignData}
               value={formik.values.campaign}
               onChange={(value) => formik.setFieldValue('campaign', value.value)}
               onBlur={formik.handleBlur}
@@ -109,7 +126,7 @@ function CreateMailBlast({ onCloseModal }) {
           <Button type="button" invert auth className="edit-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
-          <Button type="submit" auth className="edit-save-btn">
+          <Button type="submit" auth disabled={isLoading} className="edit-save-btn">
             Save
           </Button>
         </div>

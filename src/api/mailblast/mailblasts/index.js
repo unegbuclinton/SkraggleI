@@ -13,3 +13,29 @@ export const addMailBlast = async (body) => {
     toast.error('Mail-blast did not created successfully');
   }
 };
+
+export const listMailBlast = async () => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: '/mailblasts?cursor=0&direction=after&limit=20'
+    });
+    return response?.data?.message?.rows;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteMailBlast = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/mailblasts`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

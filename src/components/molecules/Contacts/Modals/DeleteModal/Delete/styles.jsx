@@ -41,10 +41,8 @@ export const ButtonContainer = styled.div`
   .save-btn {
     width: 20.5rem;
     height: 5.1rem;
-    background-color: ${COLORS.pink};
     border-radius: 0.3rem;
     font-weight: ${FONTWEIGHTS.xbold};
     font-size: ${FONTSIZES.small};
-    color: ${COLORS.white};
   }
 `;

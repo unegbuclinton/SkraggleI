@@ -13,6 +13,7 @@ import {
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
 import { getAllEvents } from 'features/events/eventSlice';
+import { listAllMailBlast } from 'features/mailblast/mailBlastSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
@@ -66,6 +67,10 @@ function Overview() {
 
   useEffect(() => {
     dispatch(getAllCampaigns());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(listAllMailBlast());
   }, [dispatch]);
 
   return (

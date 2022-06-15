@@ -34,7 +34,7 @@ const rootReducer = combineReducers({
   donation: donationReducer,
   forms: formsReducer,
   events: eventReducer,
-  mailblast: mailblastReducer
+  mailBlast: mailblastReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
