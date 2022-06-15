@@ -2,6 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   ButtonContainer,
   DateContainer,
@@ -13,6 +14,7 @@ import {
 } from './styles';
 
 function CreateContactStepOne({ onClose, formik }) {
+  const { companies } = useSelector((state) => state.contact);
   const emailSub = [
     { value: 'Yes', label: 'Yes' },
     { value: 'No', label: 'No' }
@@ -42,6 +44,7 @@ function CreateContactStepOne({ onClose, formik }) {
     { value: '1995', label: '1995' }
   ];
 
+  const companyOption = companies?.map((current) => ({ value: current?.id, label: current?.name }));
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -177,15 +180,17 @@ function CreateContactStepOne({ onClose, formik }) {
             </div>
           </DateContainer>
           <FormLabel>COMPANY</FormLabel>
-          <Input
-            className="input-field"
+          <SelectDropDown
+            className="date-dropdown"
+            placeholder={'Company'}
+            isSearchable={false}
             id="company"
             name="company"
-            type="text"
-            placeholder="Company"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            type={'text'}
+            options={companyOption}
             value={formik.values.company}
+            onChange={(value) => formik.setFieldValue('company', value.value)}
+            onBlur={formik.handleBlur}
           />
           {formik.touched.company && formik.errors.company ? (
             <ErrorMsg>{formik.errors.company}</ErrorMsg>
