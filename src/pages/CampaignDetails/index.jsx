@@ -49,7 +49,7 @@ const CampaignDetails = () => {
   return (
     <DashboardLayout
       pageLinks={<PageLinks pageLinkBefore="Campaign" to="/campaign" names={name} />}>
-      <Tabs tabs={links} />
+      <Tabs tabs={links} scroll />
     </DashboardLayout>
   );
 };
