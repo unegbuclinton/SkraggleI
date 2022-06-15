@@ -1,44 +1,48 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
-import DashboardLayout from 'components/layouts/DashboardLayout';
+// import DashboardLayout from 'components/layouts/DashboardLayout';
 import FormCardLayout from 'components/layouts/FormCardLayout';
+import DonationSetupFormComponent from 'components/molecules/Forms/donationSetup/DonationSetupFormComponent';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import FormsSubTab from '..';
+// import FormsSubTab from '..';
 import UrlModalComponent from '../ModalComponent/modal';
 
 function Url() {
   const [open, setOpen] = useState(false);
 
   return (
-    <DashboardLayout>
+    <>
       <UrlModalComponent
         isShown={open}
         onClose={() => {
           setOpen(false);
         }}
       />
-      <FormsSubTab />
       <ThankYouWrapper>
         <ThankYouContainer>
-          <Heading>Checkout URL</Heading>
-          <UrlText>Only letters, numbers, - and _ are allowed. Max 25 characters.</UrlText>
-          <Input type="text" className="input-field" />
-          <Link>
-            https://www.biggorillaapps.com?form=<span className="link">FUNDDKCUBQC</span>
-          </Link>
-          <ButtonContainer>
-            <Button type="submit" onClick={() => setOpen(true)} className="continue">
-              Done
-            </Button>
-          </ButtonContainer>
+          <ThankYouCardWrapper>
+            <Heading>Checkout URL</Heading>
+            <UrlText>Only letters, numbers, - and _ are allowed. Max 25 characters.</UrlText>
+            <Input type="text" className="input-field" />
+            <Link>
+              https://www.biggorillaapps.com?form=<span className="link">FUNDDKCUBQC</span>
+            </Link>
+            <ButtonContainer>
+              <Button type="submit" onClick={() => setOpen(true)} className="continue">
+                Done
+              </Button>
+            </ButtonContainer>
+          </ThankYouCardWrapper>
         </ThankYouContainer>
-        <FormCardLayout></FormCardLayout>
+        <FormCardLayout>
+          <DonationSetupFormComponent />
+        </FormCardLayout>
       </ThankYouWrapper>
-    </DashboardLayout>
+    </>
   );
 }
 
@@ -47,7 +51,13 @@ export default Url;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
-  margin-top: 5.9rem;
+<<<<<<< HEAD
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 12.5rem;
+=======
+  /* margin-top: 5.9rem; */
+>>>>>>> f349565b0209c87266bed6c20ead0652dd764fcd
   .input-field {
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
@@ -61,6 +71,11 @@ const Link = styled.p`
   .link {
     color: ${COLORS.pink};
   }
+`;
+
+const ThankYouCardWrapper = styled(Card)`
+  height: 100%;
+  overflow: auto;
 `;
 
 const Heading = styled.h1`
@@ -78,7 +93,11 @@ const UrlText = styled.p`
 `;
 
 const ThankYouContainer = styled(Card)`
+  max-width: 53rem;
+  width: 100%;
   padding: 4rem 2.4rem 2.4rem 4.4rem;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const ButtonContainer = styled.div`

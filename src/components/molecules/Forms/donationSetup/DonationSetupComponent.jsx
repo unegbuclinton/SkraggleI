@@ -8,7 +8,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function DonationSetupComponent() {
+function DonationSetupComponent({ DecrementTab, IncrementTab }) {
   const defaultCurrency = [
     {
       labelText: 'For one time and recurring donations',
@@ -110,10 +110,10 @@ function DonationSetupComponent() {
           <RadioGroup radioData={reCurring} />
         </DonationSetUpContainer>
         <DonationSetUpFooter>
-          <Button className="setup-back__btn" invert auth>
+          <Button type="button" className="setup-back__btn" invert auth onClick={DecrementTab}>
             Back
           </Button>
-          <Button className="setup-next__btn" auth>
+          <Button type="button" className="setup-next__btn" auth onClick={IncrementTab}>
             Next
           </Button>
         </DonationSetUpFooter>
@@ -125,12 +125,18 @@ function DonationSetupComponent() {
 export default DonationSetupComponent;
 
 const DonationSetUpWrapper = styled.div`
-  width: 53rem;
+  max-width: 53rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   .donation-setup__card {
+    height: 100%;
+    overflow: auto;
     padding: 4.5rem 4.4rem 2.778rem 4.4rem;
 
     .setup-select {
-      width: 42.2rem;
+      max-width: 42.2rem;
+      width: 100%;
     }
   }
 `;
@@ -142,7 +148,6 @@ const DonationSetUpLabel = styled.label`
 `;
 
 const DonationSetUpDivider = styled.div`
-  width: 42.2rem;
   border: 1px solid ${COLORS.torquoise};
   margin: 3.2rem 0;
 `;

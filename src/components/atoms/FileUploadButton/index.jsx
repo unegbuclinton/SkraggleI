@@ -1,11 +1,11 @@
 import { COLORS } from 'constants/colors';
-import { React, useEffect, useRef, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const FileUploadButton = ({ className, children, imgPreview }) => {
   const [image, setImage] = useState();
   const [preview, setPreview] = useState();
-  const hiddenFileInput = useRef(null);
+  const hiddenFileInput = useState(null);
 
   useEffect(() => {
     if (image) {

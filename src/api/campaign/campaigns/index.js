@@ -51,6 +51,6 @@ export const deleteCampaign = async (body) => {
 
     return response;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

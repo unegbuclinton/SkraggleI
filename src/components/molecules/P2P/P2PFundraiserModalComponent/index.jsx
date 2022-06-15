@@ -9,7 +9,7 @@ import Modal from 'components/layouts/Modal';
 import { createP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
-import { React, useCallback, useRef, useState } from 'react';
+import { React, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { P2PValidationSchema } from 'validation/Schema';
@@ -74,12 +74,11 @@ function P2PModalComponent({ onClose, isShown }) {
   ];
 
   const [showFirstModal, setShowFirstModal] = useState(true);
-  const textAreaRef = useRef(null);
+  const textArea = useState(null);
 
-  const copyToClipboard = useCallback((e) => {
-    textAreaRef.current.select();
-    document.execCommand('copy');
-    e.target.focus();
+  const copyToClipboard = useCallback(() => {
+    const text = textArea.current.value;
+    navigator.clipboard.writeText(text);
     alert('Text Copied');
   }, []);
   // const campaignOptions = [
@@ -336,10 +335,7 @@ function P2PModalComponent({ onClose, isShown }) {
         <Card>
           <h1>Use this link to direct donors to your new P2P fundraiser</h1>
           <div className="copy__textarea">
-            <CopyText
-              ref={textAreaRef}
-              value="Lorem ipsum dolor sit amet, consectetur adipisci..."
-            />
+            <CopyText ref={textArea} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
             <ButtonCopy className="preview__copy-button" onClick={copyToClipboard}>
               <DPIconCopyWhite className="preview__icon-copy" />
               Copy

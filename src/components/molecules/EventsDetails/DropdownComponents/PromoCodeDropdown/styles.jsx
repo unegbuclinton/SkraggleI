@@ -93,14 +93,13 @@ export const ButtonContainer = styled.div`
   .cancel-btn {
     width: 10.7rem;
     height: 5.1rem;
-    border: 0.1rem solid ${COLORS['gray-500']};
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
   }
 
   .save-btn {
     width: 20.3rem;
     height: 5.1rem;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
   }
 `;
 
