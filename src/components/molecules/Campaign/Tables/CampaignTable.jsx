@@ -7,6 +7,8 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import dayjs from 'dayjs';
 import {
   getAllCampaigns,
+  getCampaignElements,
+  getFormsByID,
   getPeerToPeer,
   removeCampaign,
   singleCampaign
@@ -20,7 +22,7 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  console.log(campaigns);
+
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const handleSelect = (row) => {
@@ -38,6 +40,7 @@ const CampaignTable = () => {
       setGetId([]);
     });
   };
+
   const columns = [
     {
       name: 'CREATED',
@@ -69,10 +72,11 @@ const CampaignTable = () => {
 
   const onRowClicked = ({ id }) => {
     dispatch(getPeerToPeer(id));
+    dispatch(getFormsByID(id));
+    dispatch(getCampaignElements(id));
     dispatch(singleCampaign(id));
     let path = 'campaign-details';
     navigate(path);
-    // navigate(`/campaign/${row.key + 1}`, { state: row });
   };
 
   const [open, setOpen] = useState(false);
@@ -96,7 +100,7 @@ const CampaignTable = () => {
       <ContainerBody>
         <TableWrapper>
           <TableHeader
-            title="Add Contacts"
+            title="Create New"
             header={`${campaigns?.length} Campaign`}
             setOpen={setOpen}
             setOpenDeleteModal={setOpenDeleteModal}

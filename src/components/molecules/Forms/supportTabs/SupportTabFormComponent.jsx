@@ -39,12 +39,16 @@ export default SupportTabFormComponent;
 
 const TabFormComponentWrapper = styled.div`
   .tab-form__card {
+    height: 100%;
+    overflow: auto;
     padding: 1.627rem 2.157rem 2.201rem 2.197rem;
 
     .tab-form__input {
       background: ${COLORS.white};
       border: 0.920602px solid ${COLORS.torquoise};
       padding-left: 2.4rem;
+      width: 100%;
+      max-width: 33.5rem;
     }
 
     .tab-form__check-box {

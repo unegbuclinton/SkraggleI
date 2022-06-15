@@ -12,7 +12,7 @@ import {
   DPIconProfileImage,
   DPIconTwitter
 } from 'icons';
-import { React, useCallback, useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import RecentDonation from '../Tables/RecentDonation';
 import { ButtonCopy, CopyText, Leaderboard, LinksWrapper, PreviewWrapper } from './styles';
 
@@ -54,11 +54,11 @@ function Preview() {
     setActive(event.target.id);
   };
 
-  const textAreaRef = useRef(null);
+  const textArea = useState(null);
 
   const copyToClipboard = useCallback((e) => {
-    textAreaRef.current.select();
-    navigator.clipboard.writeText(textAreaRef.current.select());
+    textArea.current.select();
+    navigator.clipboard.writeText(textArea.current.select());
     e.target.focus();
     alert('Text Copied');
   }, []);
@@ -125,7 +125,7 @@ function Preview() {
       <LinksWrapper>
         <h1 className="preview__link">Use this link to direct donors to your new P2P fundraiser</h1>
         <div className="preview__textarea">
-          <CopyText ref={textAreaRef} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
+          <CopyText ref={textArea} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
           <ButtonCopy className="preview__copy-button" onClick={copyToClipboard}>
             <DPIconCopyWhite className="preview__icon-copy" />
             Copy

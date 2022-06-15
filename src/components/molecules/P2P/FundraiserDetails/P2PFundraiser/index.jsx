@@ -2,14 +2,14 @@ import Button from 'components/atoms/Button/Button';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
-import { React, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const P2PFundraise = ({ className }) => {
-  const textAreaRef = useRef(null);
+  const textArea = useState(null);
 
   function copyToClipboard1() {
-    var text = textAreaRef.current.value;
+    var text = textArea.current.value;
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }
@@ -36,7 +36,7 @@ const P2PFundraise = ({ className }) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef}></textarea>
+              ref={textArea}></textarea>
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>
