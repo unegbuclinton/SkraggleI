@@ -31,20 +31,21 @@ function CreateEvent({ onClose }) {
       registrationEndTime: '',
       receipt: '',
       receiptTitle: '',
-      email: '',
+      // email: '',
       category: '',
       receiptDescription: '',
       formName: '',
       emailReply: '',
       subject: '',
-      eventDate: ''
+      eventDate: '',
+      eventTimeDonation: false
     },
     validationSchema: detailsValidationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     }
   });
-
+  console.log(formik.errors);
   return (
     <DetailsWrapper>
       <Container onSubmit={formik.handleSubmit}>

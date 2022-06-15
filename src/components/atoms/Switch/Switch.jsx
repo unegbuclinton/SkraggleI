@@ -1,13 +1,10 @@
 import React from 'react';
 import { Label, Switched, SwitchInput } from './styles';
 
-function Switch({ className, checked, toggle, setToogle }) {
-  const toggleSwitch = (event) => {
-    setToogle(event?.target?.checked);
-  };
+function Switch({ className, checked, onChange, type }) {
   return (
     <Label className={className}>
-      <SwitchInput type="checkbox" checked={checked || toggle} onChange={toggleSwitch} />
+      <SwitchInput type={type} checked={checked} onChange={(e) => onChange(e?.target?.checked)} />
       <Switched />
     </Label>
   );

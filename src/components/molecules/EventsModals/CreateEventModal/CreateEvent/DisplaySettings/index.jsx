@@ -1,6 +1,6 @@
 import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   DetailLabel,
   DetailsSubHeading,
@@ -11,6 +11,11 @@ import {
 } from './styles';
 
 function DisplaySettings({ formik, ErrorMsg }) {
+  const [toggle, setToogle] = useState(false);
+  const toggleSwitch = (checked) => {
+    setToogle(checked);
+  };
+  console.log(toggle);
   return (
     <div>
       <DetailsSubHeading className="event-heading">Display settings</DetailsSubHeading>
@@ -31,7 +36,18 @@ function DisplaySettings({ formik, ErrorMsg }) {
         ) : null}
         <SwitchWrapper className="option-switch ">
           <SwitchLabel>Enable one time event donations</SwitchLabel>
-          <Switch />
+          <Switch
+            id="eventTimeDonation"
+            type="checkbox"
+            name="eventTimeDonation"
+            checked={toggle}
+            onChange={toggleSwitch}
+            onBlur={formik.handleBlur}
+            value={formik.values.eventTimeDonation}
+          />
+          {formik.touched.eventTimeDonation && formik.errors.eventTimeDonation ? (
+            <ErrorMsg>{formik.errors.eventTimeDonation}</ErrorMsg>
+          ) : null}
         </SwitchWrapper>
 
         <SwitchWrapper className="date">

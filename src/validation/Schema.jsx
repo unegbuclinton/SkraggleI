@@ -92,12 +92,12 @@ export const detailsValidationSchema = Yup.object({
   receipt: Yup.string().required('Receipt is required'),
   receiptTitle: Yup.string().required('Receipt title is required'),
   category: Yup.string().required('Category is required'),
-  eventTimeDonation: Yup.boolean().oneOf([true], 'This field is required'),
+  // eventTimeDonation: Yup.boolean().oneOf([true], 'This field is required'),
   receiptDescription: Yup.string().required('Receipt Description is required'),
   formName: Yup.string().required('Form name is required'),
   emailReply: Yup.string().required('Email reply is required'),
-  subject: Yup.string().required('Subject is required'),
-  email: Yup.string().required('Recipient is required')
+  subject: Yup.string().required('Subject is required')
+  // email: Yup.string().required('Recipient is required')
 });
 
 export const packageValidatioSchema = Yup.object({
