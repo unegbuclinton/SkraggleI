@@ -77,19 +77,19 @@ function DisplaySettings({ formik, ErrorMsg }) {
 
         <InputWrapper>
           <div className="input-container">
-            <DetailLabel>Event start date</DetailLabel>
+            <DetailLabel>Event end date</DetailLabel>
             <Input
               className="date-time-input end-date"
-              id="eventStartDateTwo"
-              name="eventStartDateTwo"
+              id="eventEndDate"
+              name="eventEndDate"
               type="date"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.eventStartDateTwo}
+              value={formik.values.eventEndDate}
             />
             <div className="error-date">
-              {formik.touched.eventStartDateTwo && formik.errors.eventStartDateTwo ? (
-                <ErrorMsg>{formik.errors.eventStartDateTwo}</ErrorMsg>
+              {formik.touched.eventEndDate && formik.errors.eventEndDate ? (
+                <ErrorMsg>{formik.errors.eventEndDate}</ErrorMsg>
               ) : null}
             </div>
           </div>

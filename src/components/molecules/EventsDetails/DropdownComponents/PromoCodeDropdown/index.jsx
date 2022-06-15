@@ -5,7 +5,7 @@ import RadioGroup from 'components/atoms/RadioGroup';
 import { createPromoCode, getAllPromoCode } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { promoCodeValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -19,6 +19,7 @@ import {
 } from './styles';
 
 function PromoCodeDropdown({ onClose }) {
+  const { isLoading } = useSelector((state) => state.events);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -196,7 +197,9 @@ function PromoCodeDropdown({ onClose }) {
         <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
-        <Button className="save-btn">Save</Button>
+        <Button className="save-btn" disabled={isLoading}>
+          Save
+        </Button>
       </ButtonContainer>
     </DropdownWrapper>
   );
