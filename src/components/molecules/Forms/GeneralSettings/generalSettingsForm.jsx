@@ -13,6 +13,7 @@ function GeneralSettingsForm({ IncrementTab }) {
   const { campaigns } = useSelector((state) => state?.campaign);
   const { formsByID } = useSelector((state) => state?.forms);
   const { name } = formsByID;
+  console.log(formsByID);
 
   const campaignoptions = campaigns?.map((current) => ({
     value: current?.id,
@@ -110,12 +111,14 @@ export default GeneralSettingsForm;
 
 export const GeneralSettingsFormWrapper = styled.form`
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   height: 100%;
   max-width: 53rem;
 `;
 
 export const GeneralSettingsFormCard = styled(Card)`
+  overflow: auto;
+  height: 100%;
   padding: 4rem 4.4rem 2.4rem 4.4rem;
 
   .modal-input {

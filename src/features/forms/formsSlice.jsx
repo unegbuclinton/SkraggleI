@@ -7,10 +7,10 @@ const initialState = {
   formsByID: []
 };
 
-export const createForm = createAsyncThunk('form/createForm', addForms);
-export const getAllForm = createAsyncThunk('form/getAllForm', getForms);
-export const removeForm = createAsyncThunk('form/removeForm', deleteForm);
-export const getSingleForm = createAsyncThunk('form/getSingleForm', individualForm);
+export const createForm = createAsyncThunk('forms/createForm', addForms);
+export const getAllForm = createAsyncThunk('forms/getAllForm', getForms);
+export const removeForm = createAsyncThunk('forms/removeForm', deleteForm);
+export const getSingleForm = createAsyncThunk('forms/getSingleForm', individualForm);
 
 export const formsSlice = createSlice({
   name: 'forms',

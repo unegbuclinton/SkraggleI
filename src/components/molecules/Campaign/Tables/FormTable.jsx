@@ -51,24 +51,24 @@ const FormsTable = () => {
   const columns = [
     {
       name: 'FORM NAME',
-      selector: (row) => row?.name,
-      width: '35rem'
+      selector: (row) => row?.name
+      // width: '35rem'
     },
 
     {
       name: 'FORM TYPE',
-      selector: (row) => row?.type,
-      width: '20rem'
+      selector: (row) => row?.type
+      // width: '20rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row?.raised,
-      width: '20rem'
+      selector: (row) => row?.raised
+      // width: '20rem'
     },
     {
       name: 'DONATIONS',
-      selector: (row) => row?.donations,
-      width: '35rem'
+      selector: (row) => row?.donations
+      // width: '35rem'
     },
     {
       name: 'STATUS',

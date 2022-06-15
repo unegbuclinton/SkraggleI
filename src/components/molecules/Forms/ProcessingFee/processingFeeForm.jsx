@@ -60,6 +60,7 @@ export const ProcessingFormWrapper = styled.form`
   max-width: 53rem;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 
   .transaction-header {
     color: ${COLORS.deepPurple};
@@ -80,6 +81,8 @@ export const ProcessingFormWrapper = styled.form`
 export const ProcessingFormCard = styled(Card)`
   padding: 4rem 4.4rem 2.4rem 4.4rem;
   width: 100%;
+  height: 100%;
+  overflow: auto;
 `;
 
 export const UnsubscribeOption = styled.div`
