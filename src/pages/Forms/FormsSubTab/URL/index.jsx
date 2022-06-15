@@ -24,17 +24,19 @@ function Url() {
       />
       <ThankYouWrapper>
         <ThankYouContainer>
-          <Heading>Checkout URL</Heading>
-          <UrlText>Only letters, numbers, - and _ are allowed. Max 25 characters.</UrlText>
-          <Input type="text" className="input-field" />
-          <Link>
-            https://www.biggorillaapps.com?form=<span className="link">FUNDDKCUBQC</span>
-          </Link>
-          <ButtonContainer>
-            <Button type="submit" onClick={() => setOpen(true)} className="continue">
-              Done
-            </Button>
-          </ButtonContainer>
+          <ThankYouCardWrapper>
+            <Heading>Checkout URL</Heading>
+            <UrlText>Only letters, numbers, - and _ are allowed. Max 25 characters.</UrlText>
+            <Input type="text" className="input-field" />
+            <Link>
+              https://www.biggorillaapps.com?form=<span className="link">FUNDDKCUBQC</span>
+            </Link>
+            <ButtonContainer>
+              <Button type="submit" onClick={() => setOpen(true)} className="continue">
+                Done
+              </Button>
+            </ButtonContainer>
+          </ThankYouCardWrapper>
         </ThankYouContainer>
         <FormCardLayout>
           <DonationSetupFormComponent />
@@ -49,7 +51,13 @@ export default Url;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
+<<<<<<< HEAD
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 12.5rem;
+=======
   /* margin-top: 5.9rem; */
+>>>>>>> f349565b0209c87266bed6c20ead0652dd764fcd
   .input-field {
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
@@ -63,6 +71,11 @@ const Link = styled.p`
   .link {
     color: ${COLORS.pink};
   }
+`;
+
+const ThankYouCardWrapper = styled(Card)`
+  height: 100%;
+  overflow: auto;
 `;
 
 const Heading = styled.h1`
@@ -83,6 +96,8 @@ const ThankYouContainer = styled(Card)`
   max-width: 53rem;
   width: 100%;
   padding: 4rem 2.4rem 2.4rem 4.4rem;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const ButtonContainer = styled.div`

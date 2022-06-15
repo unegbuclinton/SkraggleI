@@ -29,28 +29,37 @@ function ProcessingFeeMain() {
 
   return (
     <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Foms" to="/forms" names={name} />}>
-      <FormsSubTab />
+      <FormsWrapper>
+        <FormsSubTab />
 
-      <ProcessingFeeWrapper>
-        <VerticalTab
-          disabled
-          tabs={components}
-          className="vertical-tab__container"
-          verticalWrapper="vertical-tab-wrapper"
-          content="content-wrapper"
-        />
-      </ProcessingFeeWrapper>
+        <ProcessingFeeWrapper>
+          <VerticalTab
+            disabled
+            tabs={components}
+            className="vertical-tab__container"
+            verticalWrapper="vertical-tab-wrapper"
+            content="content-wrapper"
+          />
+        </ProcessingFeeWrapper>
+      </FormsWrapper>
     </DashboardLayout>
   );
 }
 
 export default ProcessingFeeMain;
 
+export const FormsWrapper = styled.div`
+  height: 100%;
+  overflow: hidden;
+`;
+
 export const ProcessingFeeWrapper = styled.div`
+  display: flex;
   height: 100%;
   margin-top: 2.4rem;
+  overflow: hidden;
   .vertical-tab__container {
-    overflow-y: auto;
+    overflow: hidden;
     gap: 1.6rem;
     width: 100%;
     height: 100%;
@@ -71,7 +80,9 @@ export const ProcessingFeeWrapper = styled.div`
   .content-wrapper {
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin-left: 0;
+    display: flex;
+    flex: 1 auto;
   }
 `;

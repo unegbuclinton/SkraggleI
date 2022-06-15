@@ -35,7 +35,8 @@ const DashboardContentWrapper = styled.aside`
 
 const DashboardContent = styled.div`
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
+  height: 100%;
   padding: 1.6rem;
   .profile-tab {
     position: -webkit-sticky;

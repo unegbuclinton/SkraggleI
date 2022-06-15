@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { allPeerToPeer } from 'api/campaign/campaign-subtabs';
+import { allElements } from 'api/campaign/campaign-subtabs/elements';
+import { allForms } from 'api/campaign/campaign-subtabs/forms';
 import {
   addCampaign,
   deleteCampaign,
@@ -12,6 +14,7 @@ const initialState = {
   campaigns: [],
   campaignByID: [],
   p2p: [],
+  formsData: [],
   isLoading: false
 };
 
@@ -19,6 +22,8 @@ export const createNewCampaign = createAsyncThunk('campaign/createCampaign', add
 export const getAllCampaigns = createAsyncThunk('campaign/getAllCampains', getCampaigns);
 export const singleCampaign = createAsyncThunk('campaign/singleCampaign', individualCampaign);
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
+export const getFormsByID = createAsyncThunk('campaign/getFormsByID', allForms);
+export const getCampaignElements = createAsyncThunk('campaign/getCampaignElements', allElements);
 export const removeCampaign = createAsyncThunk('campaign/removeCampaign', deleteCampaign);
 
 export const campaignSlice = createSlice({
@@ -70,6 +75,26 @@ export const campaignSlice = createSlice({
       state.isLoading = true;
     },
     [removeCampaign.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getFormsByID.fulfilled]: (state, action) => {
+      state.formsData = action.payload;
+      state.isLoading = false;
+    },
+    [getFormsByID.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getFormsByID.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getCampaignElements.fulfilled]: (state, action) => {
+      state.formsData = action.payload;
+      state.isLoading = false;
+    },
+    [getCampaignElements.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getCampaignElements.rejected]: (state) => {
       state.isLoading = false;
     }
   }

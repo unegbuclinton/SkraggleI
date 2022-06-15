@@ -17,5 +17,5 @@ export default GeneralSettingDonate;
 
 export const PaymentOptionWrapper = styled.div`
   display: flex;
-  flex: 1;
+  flex: 0.35;
 `;
