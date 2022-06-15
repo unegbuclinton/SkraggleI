@@ -82,5 +82,7 @@ export const ProcessingFeeWrapper = styled.div`
     height: 100%;
     overflow: hidden;
     margin-left: 0;
+    display: flex;
+    flex: 1 auto;
   }
 `;
