@@ -6,11 +6,12 @@ import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { loginUser } from 'features/auth/authSlice';
 import { useFormik } from 'formik';
+import { DPIconGoogleIcon } from 'icons';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from 'validation/Schema';
-import { FormWrapper, LoginLink } from './styles';
+import { DividerLeft, DividerRight, FormWrapper, GoogleLogin, LoginLink } from './styles';
 
 const LogIn = () => {
   const { isLoading } = useSelector((state) => state.auth);
@@ -74,6 +75,17 @@ const LogIn = () => {
           </div>
           <Button type="submit" className="login-button" disabled={isLoading}>
             {isLoading ? <Spinner /> : 'LOG IN'}
+          </Button>
+          <div className="divider-container">
+            <DividerLeft />
+            <p className="divider-text"> Or</p>
+            <DividerRight />
+          </div>
+          <Button type="button" className="google-button ">
+            <GoogleLogin>
+              <DPIconGoogleIcon />
+              <p className="google-text">Log in with Google</p>
+            </GoogleLogin>
           </Button>
           <p className="login-card__signup-link">
             <span>Don’t have any account?</span>

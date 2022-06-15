@@ -50,6 +50,7 @@ const HeadingContainer = styled.div`
     color: ${COLORS['gray-500']};
     padding-bottom: 1.6rem;
     padding-top: 2.4rem;
+    padding-left: 0.5rem;
   }
 `;
 

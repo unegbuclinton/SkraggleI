@@ -8,11 +8,12 @@ import { createForm, getAllForm } from 'features/forms/formsSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 function CreateFormComponent({ onClose }) {
-  const { campaigns } = useSelector((state) => state.campaign);
+  const { campaigns } = useSelector((state) => state?.campaign);
 
   const formTypeOptions = [
     { value: 'Donation', label: 'Donation' },
@@ -28,6 +29,8 @@ function CreateFormComponent({ onClose }) {
   }));
 
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       type: '',
@@ -49,6 +52,7 @@ function CreateFormComponent({ onClose }) {
         toast.success('Created Form Successfully');
         onClose();
       });
+      navigate('/forms');
     }
   });
   return (

@@ -6,7 +6,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function ProcessingFeeForm() {
+function ProcessingFeeForm({ IncrementTab, DecrementTab }) {
   return (
     <ProcessingFormWrapper>
       <ProcessingFormCard>
@@ -41,8 +41,12 @@ function ProcessingFeeForm() {
         </UnsubscribeOption>
         <div className="underline" />
         <ButtonsWrapper>
-          <Button className="back-button">Back</Button>
-          <Button className="next-button">Next</Button>
+          <Button type="button" className="back-button" onClick={DecrementTab}>
+            Back
+          </Button>
+          <Button type="button" className="next-button" onClick={IncrementTab}>
+            Next
+          </Button>
         </ButtonsWrapper>
       </ProcessingFormCard>
     </ProcessingFormWrapper>
@@ -53,8 +57,10 @@ export default ProcessingFeeForm;
 
 export const ProcessingFormWrapper = styled.form`
   display: flex;
-  margin-right: 1.7rem;
-  flex: 1;
+  max-width: 53rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
   .transaction-header {
     color: ${COLORS.deepPurple};
@@ -74,6 +80,9 @@ export const ProcessingFormWrapper = styled.form`
 
 export const ProcessingFormCard = styled(Card)`
   padding: 4rem 4.4rem 2.4rem 4.4rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 `;
 
 export const UnsubscribeOption = styled.div`

@@ -49,3 +49,15 @@ export const updatePromoCodeById = async ({ body, id }) => {
     return error;
   }
 };
+
+export const deletePromoCode = async ({ id }) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/promocode/${id}`
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
