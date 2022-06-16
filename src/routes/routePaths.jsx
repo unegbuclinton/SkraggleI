@@ -148,7 +148,7 @@ export const privateRoutes = [
   },
 
   {
-    path: '/elements',
+    path: 'elements/*',
     element: <Outlet />,
     children: [
       {
