@@ -1,8 +1,8 @@
 import Card from 'components/atoms/Card';
 import Input from 'components/atoms/Input/Input';
 import React from 'react';
-import Appeearance from './Appeearance';
-// import Behavior from './Behavior';
+// import Appeearance from './Appeearance';
+import Behavior from './Behavior';
 import {
   GoalMeterFieldWrapper,
   GoalMeterHeaderText,
@@ -21,8 +21,8 @@ function GoalMeterModalComponent() {
           <GoalMeterLabel>Element name</GoalMeterLabel>
           <Input className="goal-meter__input" placeholder="Goal Meter #2" />
         </GoalMeterFieldWrapper>
-        <Appeearance />
-        {/* <Behavior /> */}
+        {/* <Appeearance /> */}
+        <Behavior />
       </Card>
     </GoalMeterWrapper>
   );
