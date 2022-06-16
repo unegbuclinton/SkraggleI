@@ -1,6 +1,7 @@
 import DashboardHeader from 'components/molecules/DashboardNavbar';
 import Sidebar from 'components/molecules/Sidebar';
 import { COLORS } from 'constants/colors';
+// import P2PDetails from 'pages/P2PDetails';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,6 +12,7 @@ function DashboardLayout({ children, pageLinks }) {
       <DashboardContentWrapper>
         <DashboardHeader pageLinks={pageLinks} />
         <DashboardContent>{children}</DashboardContent>
+        {/* <P2PDetails></P2PDetails> */}
       </DashboardContentWrapper>
     </DashboardContainer>
   );

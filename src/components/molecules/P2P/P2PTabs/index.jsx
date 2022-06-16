@@ -1,5 +1,6 @@
 import { COLORS } from 'constants/colors';
 import React, { useState } from 'react';
+import { Link } from 'react-scroll';
 import styled, { css } from 'styled-components';
 
 function Header({
@@ -46,7 +47,7 @@ export const VerticalTabWrapper = styled.div`
   flex-direction: column;
   gap: 1.6rem;
 `;
-export const TabButton = styled.button`
+export const TabButton = styled(Link)`
   position: relative;
   width: 10.3rem;
   height: 1.7rem;
