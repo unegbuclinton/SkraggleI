@@ -1,24 +1,14 @@
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import Table from 'components/layouts/Table';
 import Button from 'components/atoms/Button/Button';
-import Pagination from 'components/molecules/Pagination';
 import Checkbox from 'components/atoms/CheckBox';
-
-import { DPPlusIcon } from 'icons';
-
-import datas from 'utilities/filterData';
-
+import Table from 'components/layouts/Table';
+import Pagination from 'components/molecules/Pagination';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { React, useState } from 'react';
 import { EventsData } from 'utilities/campaigndata';
-
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
+import CreateCampaignModal from '../CreateCampaignModal';
+import { ContainerBody, TableWrapper, Wrapper } from './styles';
 
 const EventsTable = () => {
-  const [selected, setSelected] = useState('Filters');
-
   const columns = [
     {
       name: ' ',
@@ -28,19 +18,19 @@ const EventsTable = () => {
     },
     {
       name: 'ID',
-      selector: (row) => row.uid,
-      width: '20rem'
+      selector: (row) => row.uid
+      // width: '20rem'
     },
 
     {
       name: 'NAME',
-      selector: (row) => row.name,
-      width: '45rem'
+      selector: (row) => row.name
+      // width: '45rem'
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign,
-      width: '30rem'
+      selector: (row) => row.campaign
+      // width: '30rem'
     },
     {
       name: 'STATUS',
@@ -48,6 +38,15 @@ const EventsTable = () => {
       cell: () => <Button className="table-button">Active</Button>
     }
   ];
+  const [open, setOpen] = useState(false);
+  // const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -66,35 +65,38 @@ const EventsTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  let navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/events');
-  };
+  // let navigate = useNavigate();
+  // const handleButtonClick = () => {
+  //   navigate('/events');
+  // };
 
   return (
-    <div>
+    <Wrapper>
+      <CreateCampaignModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
       <ContainerBody>
         <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>34 Events</h1>
-            </div>
-
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
-              <SearchBar className="search-icon" />
-              <Button className="campaign-button" onClick={() => handleButtonClick()}>
-                <DPPlusIcon className="plus-icon" />
-                Create New
-              </Button>
-            </div>
-          </TableHeaderWrapper>
-          <Table columns={columns} data={currentList} />
+          <TableHeader
+            title="Create New"
+            header={`34 Events`}
+            setOpen={setOpen}
+            // setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
+            // onChange={(e) => setInput(e.target.value)}
+          />
+          <Table
+            columns={columns}
+            data={currentList}
+            // onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
         </TableWrapper>
       </ContainerBody>
       <Pagination
@@ -103,7 +105,7 @@ const EventsTable = () => {
         data={EventsData}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </Wrapper>
   );
 };
 

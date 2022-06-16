@@ -41,14 +41,13 @@ const TabFormComponentWrapper = styled.div`
   .tab-form__card {
     height: 100%;
     overflow: auto;
-    padding: 1.627rem 2.157rem 2.201rem 2.197rem;
+    padding: 1.627rem 2.157rem 7.201rem 2.197rem;
 
     .tab-form__input {
       background: ${COLORS.white};
       border: 0.920602px solid ${COLORS.torquoise};
       padding-left: 2.4rem;
       width: 100%;
-      max-width: 33.5rem;
     }
 
     .tab-form__check-box {
@@ -70,7 +69,7 @@ const TabFormComponentContainer = styled.div`
   margin-top: 5.895rem;
 
   .tab-btn {
-    width: 30.185rem;
+    max-width: 30.185rem;
     height: 5.105rem;
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.small};

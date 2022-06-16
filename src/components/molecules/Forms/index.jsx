@@ -39,6 +39,7 @@ function ProcessingFeeMain() {
             className="vertical-tab__container"
             verticalWrapper="vertical-tab-wrapper"
             content="content-wrapper"
+            leftTabs
           />
         </ProcessingFeeWrapper>
       </FormsWrapper>
@@ -55,7 +56,7 @@ export const FormsWrapper = styled.div`
 
 export const ProcessingFeeWrapper = styled.div`
   display: flex;
-  height: 100%;
+  height: 78%;
   margin-top: 2.4rem;
   overflow: hidden;
   .vertical-tab__container {
@@ -66,6 +67,7 @@ export const ProcessingFeeWrapper = styled.div`
   }
 
   .vertical-tab-wrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin: 4.004rem 0 0 5.4rem;

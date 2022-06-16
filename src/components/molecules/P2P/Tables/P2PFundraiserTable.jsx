@@ -33,34 +33,47 @@ function P2PTable() {
   };
 
   const columns = [
+    // {
+    //   name: ' ',
+    //   cell: () => <Checkbox />,
+    //   ignoreRowClick: false,
+    //   width: '5rem'
+    // },
     {
       name: 'CAMPAIGN',
       selector: (row) => row.name || row.campaign_id
+      // width: '20rem'
     },
 
     {
       name: 'FUNDRAISER',
       selector: (row) => row.fundraiser_display_name
+      // width: '20rem'
     },
     {
       name: 'GOAL',
-      selector: (row) => row.goal
+      selector: (row) => row.goal,
+      width: '10rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row.offline_amount
+      selector: (row) => row.offline_amount,
+      width: '10rem'
     },
     {
       name: 'CREATED',
       selector: (row) => row.created_at
+      // width: '20rem'
     },
     {
       name: 'GOAL DATE',
       selector: (row) => row.goal_date
+      // width: '20rem'
     },
     {
       name: '1M STATISTICS -_-_',
       selector: (row) => row.sn
+      // width: '10rem'
     }
   ];
 
