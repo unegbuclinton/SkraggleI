@@ -43,7 +43,7 @@ export const deleteForm = async (body) => {
   try {
     const response = await request({
       method: 'delete',
-      url: '/forms',
+      url: `/forms`,
       data: body
     });
 

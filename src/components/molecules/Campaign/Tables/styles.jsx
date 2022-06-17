@@ -3,6 +3,11 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  height: 100%;
+  overflow: auto;
+`;
+
 export const ContainerBody = styled(Card)`
   padding: 2.4rem;
   margin-top: 1.6rem;

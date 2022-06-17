@@ -23,5 +23,5 @@ export const DonationSetUpWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 12.5rem;
+  /* padding-bottom: 12.5rem; */
 `;

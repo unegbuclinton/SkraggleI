@@ -1,12 +1,11 @@
-import React from 'react';
-
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import React from 'react';
+import styled from 'styled-components';
 
 const Donations = ({ className }) => {
   return (
-    <DonationWrapper className={className}>
+    <DonationWrapper className={className} id="donations">
       <div className="fundraiser__top">
         <div className="fundraiser__title">
           <h1 className="fundraiser__heading">Donations</h1>
