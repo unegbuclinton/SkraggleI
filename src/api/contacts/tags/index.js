@@ -11,7 +11,9 @@ export const addTags = async (body) => {
     toast.done('Tag created successfully');
     return createTagsResponse;
   } catch (error) {
-    toast.error('Tag did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
