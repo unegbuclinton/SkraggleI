@@ -1,14 +1,12 @@
 import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const CardWrapper = styled(Card)`
-  padding: 0 0.8rem 2.488rem 0.8rem;
-  min-width: 34.628rem;
-  height: 80%;
-  overflow-y: auto;
+  padding: 0 0.8rem 2rem 0.8rem;
+  height: 100%;
+  overflow: auto;
 `;
 
 export const ContentsWrapper = styled.div`

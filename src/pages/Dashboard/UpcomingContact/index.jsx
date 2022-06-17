@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import styled from 'styled-components';
 
 function UpcomingContact() {
   const columns = [
@@ -15,18 +15,15 @@ function UpcomingContact() {
     },
     {
       name: 'Contact',
-      selector: (row) => row.contact,
-      width: '30.725rem'
+      selector: (row) => row.contact
     },
     {
       name: 'TO-DO',
-      selector: (row) => row.toDo,
-      width: '40.766rem'
+      selector: (row) => row.toDo
     },
     {
       name: 'Due Date',
-      selector: (row) => row.dueDate,
-      width: '35.494rem'
+      selector: (row) => row.dueDate
     },
     {
       name: 'Status',
