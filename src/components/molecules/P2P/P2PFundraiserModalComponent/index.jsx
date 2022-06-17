@@ -81,21 +81,6 @@ function P2PModalComponent({ onClose, isShown }) {
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }, []);
-  // const campaignOptions = [
-  //   { value: 'Location', label: 'Location' },
-  //   { value: 'Renovation', label: 'Renovation' },
-  //   { value: 'Charity', label: 'Charity' }
-  // ];
-  // const designationOptions = [
-  //   { value: 'One-time', label: 'One-time' },
-  //   { value: 'Recurring', label: 'Recurring' },
-  //   { value: 'Infinite', label: 'Infinite' }
-  // ];
-  // const currencyOptions = [
-  //   { value: 'USD', label: 'USD' },
-  //   { value: 'NGN', label: 'NGN' },
-  //   { value: 'INR', label: 'INR' }
-  // ];
 
   return showFirstModal ? (
     <Modal

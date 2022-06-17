@@ -4,7 +4,7 @@ import { createTags, viewTags } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { tagValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -26,9 +26,10 @@ function CreateTags({ onClose }) {
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
       const body = { name: values.tag };
-      dispatch(createTags(body)).then(() => {
+      dispatch(createTags(body)).then((data) => {
+        console.log(data);
         onClose();
-        toast.success('Tag added Successfully');
+        // toast.success('Tag added Successfully');
         dispatch(viewTags());
       });
     }
