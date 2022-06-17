@@ -22,7 +22,9 @@ export const addCompanies = async (body) => {
       data: body
     });
   } catch (error) {
-    toast.error();
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 

@@ -8,7 +8,6 @@ export const addTags = async (body) => {
       url: '/contacts/tags',
       data: body
     });
-    toast.done('Tag created successfully');
     return createTagsResponse;
   } catch (error) {
     const errorMesssage = error.response.data.message;

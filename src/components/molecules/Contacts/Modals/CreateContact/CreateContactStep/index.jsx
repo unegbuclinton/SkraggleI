@@ -73,13 +73,12 @@ const MultiStepForm = ({ onClose }) => {
 
   const handleCreateContact = () => {
     dispatch(createContact(body)).then((data) => {
-      if (data.payload) {
-        toast.success('Contact Created Successfully');
-        onClose();
-        dispatch(viewContact());
-      }
       if (data.payload === undefined) {
         onClose();
+      } else {
+        onClose();
+        toast.success('Contact Created Successfully');
+        dispatch(viewContact());
       }
     });
   };
