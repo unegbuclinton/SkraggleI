@@ -108,7 +108,7 @@ function P2PTable() {
       <ContainerBody>
         <TableWrapper>
           <TableHeader
-            title="Add Contacts"
+            title="Add P2P"
             header={`${p2pData?.length} P2P`}
             setOpen={setOpen}
             setOpenDeleteModal={setOpenDeleteModal}

@@ -9,7 +9,6 @@ function TableBtn({ active }) {
         <Button className="active-table-btn"> Active </Button>
       ) : (
         <>
-          {' '}
           <Button pill className="table-button">
             Muslim
           </Button>
