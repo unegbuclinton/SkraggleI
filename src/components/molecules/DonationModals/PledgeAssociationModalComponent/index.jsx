@@ -15,7 +15,7 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
     label: current?.name
   }));
 
-  const softCredits = [
+  const keyWord = [
     { value: 'Donation', label: 'Donation' },
     { value: 'Active', label: 'Active' }
   ];
@@ -49,20 +49,6 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
           <ErrorMessage>{formik.errors.impact_area}</ErrorMessage>
         ) : null}
 
-        <h1>Soft Credit</h1>
-        <SelectDropDown
-          id="soft_credit"
-          name="soft_credit"
-          type={'text'}
-          options={softCredits}
-          value={formik.values.soft_credit}
-          onChange={(value) => formik.setFieldValue('soft_credit', value.value)}
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.soft_credit && formik.errors.soft_credit ? (
-          <ErrorMessage>{formik.errors.soft_credit}</ErrorMessage>
-        ) : null}
-
         <h1>Source</h1>
         <Input
           className="pledge-modal"
@@ -79,15 +65,21 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
         ) : null}
 
         <h1>Keywords</h1>
-        <Input
-          className="pledge-modal"
-          type="text"
+        <SelectDropDown
           id="keywords"
           name="keywords"
           placeholder="Start typing to search"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          isMulti={true}
+          type={'text'}
+          options={keyWord}
           value={formik.values.keywords}
+          onChange={(value) =>
+            formik.setFieldValue(
+              'keywords',
+              value.map((curr) => curr.value)
+            )
+          }
+          onBlur={formik.handleBlur}
         />
         {formik.touched.keywords && formik.errors.keywords ? (
           <ErrorMessage>{formik.errors.keywords}</ErrorMessage>

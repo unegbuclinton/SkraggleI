@@ -45,9 +45,8 @@ function MultiformTabs({ onClose, disabled, tabs, ...rest }) {
       interval: '',
       campaign_id: '',
       impact_area: '',
-      soft_credit: '',
       source: '',
-      keywords: '',
+      keywords: [],
       dedication: '',
       notes: '',
       amount_currency: ''

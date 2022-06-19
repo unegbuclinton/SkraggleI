@@ -17,7 +17,7 @@ export const allTags = async () => {
   try {
     const tagsResponse = await request({
       method: 'get',
-      url: '/contacts/tags?cursor=0&limit=25&direction=after'
+      url: '/contacts/tags?cursor=-1&limit=25&direction=after'
     });
     return tagsResponse?.data?.message?.rows;
   } catch (error) {
