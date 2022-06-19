@@ -20,26 +20,30 @@ import {
 function EditAmin({ onClose }) {
   const { eachContact } = useSelector((state) => state.contact);
   const { tagsData } = useSelector((state) => state.contact);
+
+  const { priority, tags, is_subscribed_to_mailblasts, note, solicitation, organization_id } =
+    eachContact;
   const adminId = eachContact.id;
 
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      originId: '',
-      priority: '',
+      originId: organization_id || '',
+      priority: priority || '',
       assignee: '',
-      tag: [],
-      note: '',
-      solicitation: '',
-      emailSubscriptionStatus: ''
+      tag: tags,
+      note: note || '',
+      solicitation: solicitation || '',
+      emailSubscriptionStatus: is_subscribed_to_mailblasts
     },
     // validationSchema: AdminEditValidationSchema,
     onSubmit: (values) => {
       const body = {
         organization_id: values.originId,
         tags: values.tag,
-        email_subscription_status: values.emailSubscriptionStatus,
-        priority: values.priority
+        is_subscribed_to_mailblasts: values.emailSubscriptionStatus,
+        priority: values.priority,
+        note: values.note
         // assignee: values.assignee
       };
       dispatch(updateContact({ body: body, id: adminId }));
@@ -53,8 +57,9 @@ function EditAmin({ onClose }) {
     { value: 'vanilla', label: 'Vanilla' }
   ];
   const emailOptions = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
+    { value: true, label: 'Opted In' },
+    { value: false, label: 'Opted Out' },
+    { value: null, label: 'Unknown' }
   ];
   const priorityOptions = [
     { value: 'High', label: 'High' },
@@ -136,7 +141,14 @@ function EditAmin({ onClose }) {
         </SelectContainer>
         <SelectContainer>
           <Label>Notes</Label>
-          <TextArea />
+          <TextArea
+            id="note"
+            name="note"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.note}
+          />
         </SelectContainer>
         <InputContainer>
           <SelectContainer>

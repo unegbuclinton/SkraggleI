@@ -56,18 +56,18 @@ const MultiStepForm = ({ onClose }) => {
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
-    email_subscription_status: formik.values.emailSubscription,
+    is_subscribed_to_mailblasts: formik.values.emailSubscription,
     // birth_date: formik.values.date,
-    // company: formik.values.company,
+    company: formik.values.company,
     tags: formik.values.tags,
     address: formik.values.address,
-    // unit: formik.values.unit,
-    // city: formik.values.city,
-    // state: formik.values.state,
-    // postalCode: formik.values.postalCode,
-    // country: formik.values.country,
-    households: [formik.values.household]
-    // priority: formik.values.priority,
+    unit: formik.values.unit,
+    city: formik.values.city,
+    state: formik.values.state,
+    postal_code: formik.values.postalCode,
+    country: formik.values.country,
+    households: [formik.values.household],
+    priority: formik.values.priority
     // assignee: formik.values.assignee
   };
 

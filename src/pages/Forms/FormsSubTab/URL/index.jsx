@@ -51,13 +51,9 @@ export default Url;
 const ThankYouWrapper = styled.div`
   display: flex;
   gap: 1.692rem;
-<<<<<<< HEAD
   height: 100%;
   overflow: hidden;
-  padding-bottom: 12.5rem;
-=======
-  /* margin-top: 5.9rem; */
->>>>>>> f349565b0209c87266bed6c20ead0652dd764fcd
+  /* padding-bottom: 12.5rem; */
   .input-field {
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
@@ -76,6 +72,7 @@ const Link = styled.p`
 const ThankYouCardWrapper = styled(Card)`
   height: 100%;
   overflow: auto;
+  padding: 4rem 2.4rem 0rem 4.4rem;
 `;
 
 const Heading = styled.h1`
@@ -93,9 +90,8 @@ const UrlText = styled.p`
 `;
 
 const ThankYouContainer = styled(Card)`
-  max-width: 53rem;
+  flex: 0.65;
   width: 100%;
-  padding: 4rem 2.4rem 2.4rem 4.4rem;
   height: 100%;
   overflow: hidden;
 `;

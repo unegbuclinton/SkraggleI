@@ -37,7 +37,7 @@ function Profile() {
   ];
   return (
     <DashboardLayout>
-      <Tabs stickyTab tabs={links} />
+      <Tabs stickyTab tabs={links} scroll />
     </DashboardLayout>
   );
 }

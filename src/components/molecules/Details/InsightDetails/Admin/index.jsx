@@ -6,8 +6,15 @@ import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
   const { eachContact } = useSelector((state) => state.contact);
-  const { organization_id, priority, assignee, email_subscription_status, tags, last_name } =
-    eachContact;
+  const {
+    organization_id,
+    priority,
+    assignee,
+    is_subscribed_to_mailblasts,
+    note,
+    tags,
+    last_name
+  } = eachContact;
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -46,14 +53,16 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title tag">TAGS</h2>
-          <Button pill className="volunteer">
-            {tags}
-          </Button>
+          {tags.map((curr, idx) => (
+            <Button pill className="volunteer" key={idx}>
+              {curr}
+            </Button>
+          ))}
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title">NOTES</h2>
-          <p className="info note">Is a Raptors fan</p>
+          <p className="info note">{note}</p>
         </AdminContainer>
 
         <AdminContainer>
@@ -63,7 +72,7 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title">EMAIL SUBSCRIPTION STATUS </h2>
-          <p className="info status">{email_subscription_status}</p>
+          <p className="info status">{is_subscribed_to_mailblasts ? 'Opt-In' : 'Opt-Out'}</p>
         </AdminContainer>
 
         <AdminContainer>

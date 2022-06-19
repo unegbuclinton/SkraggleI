@@ -17,11 +17,6 @@ function TodosTable() {
   const [open, setOpen] = useState(false);
 
   const { todos } = useSelector((state) => state.contact);
-  // const indexLasttList = currentPage * itemsPerPage;
-
-  // const indexFirstList = indexLasttList - itemsPerPage;
-
-  // const currentList = data.slice(indexFirstList, indexLasttList);
 
   const columns = [
     {

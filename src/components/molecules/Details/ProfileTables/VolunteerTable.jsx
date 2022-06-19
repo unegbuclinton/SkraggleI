@@ -6,7 +6,7 @@ import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { formatDate } from 'utilities/helpers';
+import { formatDate, isInThePast } from 'utilities/helpers';
 import { data } from 'utilities/volunteerData';
 import ProfileLayOut from '..';
 import { TableWrapper } from './styles';
@@ -15,11 +15,8 @@ function VolunteerTable() {
   const [currentPage, setCurrentPage] = useState(1);
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
-  // const indexLasttList = currentPage * itemsPerPage;
 
-  // const indexFirstList = indexLasttList - itemsPerPage;
-
-  // const currentList = data.slice(indexFirstList, indexLasttList);
+  // const newDate = new Date();
 
   const { volunteers } = useSelector((state) => state.contact);
 
@@ -57,9 +54,7 @@ function VolunteerTable() {
 
     {
       name: 'STATUS',
-      selector: (row) => {
-        return row.status;
-      },
+      cell: (row) => <p>{isInThePast(row.end_at) ? 'EXPIRED' : 'ACTIVE'}</p>,
       width: '15.5rem'
     }
   ];

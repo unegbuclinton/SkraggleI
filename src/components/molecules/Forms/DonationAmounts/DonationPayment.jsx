@@ -5,11 +5,11 @@ import DonationSetupFormComponent from '../donationSetup/DonationSetupFormCompon
 
 function DonationPayment() {
   return (
-    <PaymentOptionWrapper>
+    <>
       <FormCardLayout>
         <DonationSetupFormComponent />
       </FormCardLayout>
-    </PaymentOptionWrapper>
+    </>
   );
 }
 

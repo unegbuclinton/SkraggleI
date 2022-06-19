@@ -13,11 +13,11 @@ export const createInteractions = async (body) => {
   }
 };
 
-export const allInteractions = async (id) => {
+export const allInteractions = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: `/contacts/users/${id}/interactions`
+      url: `/contacts/interactions?cursor=-1&direction=after&limit=25`
     });
     return response?.data?.message?.rows;
   } catch (error) {

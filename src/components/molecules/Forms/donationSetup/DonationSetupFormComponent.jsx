@@ -47,7 +47,7 @@ function DonationSetupFormComponent() {
 export default DonationSetupFormComponent;
 
 const FormComponentContainer = styled.div`
-  padding: 2.53rem 4.4rem 2.201rem 4.4rem;
+  padding: 2.53rem 4.4rem 4.201rem 4.4rem;
 
   .form-btns {
     display: flex;
@@ -119,7 +119,7 @@ const FormParagraph = styled.p`
 
 const FormButtonWrapper = styled.div`
   .form-footer__btn {
-    width: 30.815rem;
+    width: 100%;
     height: 5.105rem;
     font-size: ${FONTSIZES.small};
     margin-top: 4.633rem;

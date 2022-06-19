@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import styled from 'styled-components';
 
 function FormResponse() {
   const columns = [
@@ -19,8 +19,7 @@ function FormResponse() {
     },
     {
       name: 'FORM',
-      selector: (row) => row.form,
-      width: '30.33rem'
+      selector: (row) => row.form
     },
     {
       name: 'SUBMITTED',

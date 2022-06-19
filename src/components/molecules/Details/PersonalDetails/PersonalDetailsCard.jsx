@@ -7,9 +7,22 @@ import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
   const { eachContact } = useSelector((state) => state.contact);
-  const { first_name, last_name, primary_email, address, primary_phone } = eachContact;
+  const {
+    first_name,
+    last_name,
+    primary_email,
+    address,
+    primary_phone,
+    priority,
+    tags,
+    city,
+    state,
+    postal_code,
+    country,
+    unit
+  } = eachContact;
   const fullName = `${first_name} ${last_name}`;
-
+  const tag = tags;
   return (
     <CardWrapper>
       <ContentsWrapper>
@@ -35,7 +48,9 @@ function PersonalDetailsCard() {
         <Line />
         <div className="address">
           <h2 className="address__heading">ADDRESS</h2>
-          <div className="address__container">{address}</div>
+          <div className="address__container">
+            {address}, {unit},{city}, {state}, {country}, {postal_code}
+          </div>
         </div>
         <Line />
         <div className="assignee">
@@ -45,14 +60,16 @@ function PersonalDetailsCard() {
         <Line />
         <div className="priority">
           <h2 className="priority__heading">PRIORITY</h2>
-          <p className="priority__name">High</p>
+          <p className="priority__name">{priority}</p>
         </div>
         <Line />
         <div className="tags">
           <h2 className="tags__heading">TAGS</h2>
-          <Button pill className="tags__btn">
-            Volunteer
-          </Button>
+          {tag?.map((tag, idx) => (
+            <Button key={idx} pill className="tags__btn">
+              {tag}
+            </Button>
+          ))}
         </div>
       </ContentsWrapper>
     </CardWrapper>

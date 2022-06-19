@@ -18,7 +18,7 @@ export const allContacts = async () => {
   try {
     const contactResponse = await request({
       method: 'get',
-      url: '/contacts/users?cursor=0&limit=20&direction=after'
+      url: '/contacts/users?cursor=-1&limit=20'
     });
     return contactResponse?.data?.message?.rows;
   } catch (error) {

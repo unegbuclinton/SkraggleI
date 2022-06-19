@@ -56,6 +56,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
 
       dispatch(createPackages(body)).then(() => {
         dispatch(getAllPackages());
+        onClose();
       });
     }
   });

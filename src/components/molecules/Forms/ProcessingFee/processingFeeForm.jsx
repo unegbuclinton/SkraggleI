@@ -57,10 +57,11 @@ export default ProcessingFeeForm;
 
 export const ProcessingFormWrapper = styled.form`
   display: flex;
-  max-width: 53rem;
+  /* max-width: 53rem; */
   width: 100%;
   height: 100%;
   overflow: hidden;
+  flex: 0.65;
 
   .transaction-header {
     color: ${COLORS.deepPurple};
