@@ -17,7 +17,7 @@ export const getAllHouseHold = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/households?cursor=0&limit=25&direction=after'
+      url: '/contacts/households?cursor=-1&limit=25&direction=after'
     });
     return response?.data?.message?.rows;
   } catch (error) {

@@ -6,7 +6,7 @@ export const getCompanies = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/companies?cursor=0&direction=after&limit=25'
+      url: '/contacts/companies?cursor=-1&direction=after&limit=25'
     });
     return response?.data?.message?.rows;
   } catch (error) {

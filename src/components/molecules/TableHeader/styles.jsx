@@ -84,8 +84,7 @@ export const HeaderWrapper = styled.div`
 export const ActionWrapper = styled.div`
   text-align: center;
   position: absolute;
-  height: 20rem;
-  width: 20rem;
+  width: 15rem;
   background-color: ${COLORS.white};
   z-index: 1;
   top: 5rem;
