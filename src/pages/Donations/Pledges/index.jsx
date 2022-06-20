@@ -1,17 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import PledgeModal from 'components/molecules/DonationModals/PledgeModal';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import datas from 'utilities/filterData';
 import { formatDate } from 'utilities/helpers';
 
 const Pledge = () => {
@@ -55,41 +52,29 @@ const Pledge = () => {
 
   const onRowClicked = () => {};
 
-  const [selected, setSelected] = useState('Filters');
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <div>
+      {modalIsOpen && (
+        <PledgeModal
+          isShown={modalIsOpen}
+          onClose={() => {
+            setModalIsOpen(false);
+          }}
+        />
+      )}
       <ContainerBody>
         <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>{`${pledgeData?.length} Pledges`}</h1>
-            </div>
-
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-pledge"
-              />
-              <SearchBar className="search-icon" />
-              <Button className="pledge-button" onClick={() => setModalIsOpen(true)}>
-                <DPPlusIcon className="plus-icon" />
-                Create New
-              </Button>
-              {modalIsOpen && (
-                <PledgeModal
-                  isShown={modalIsOpen}
-                  onClose={() => {
-                    setModalIsOpen(false);
-                  }}
-                />
-              )}
-            </div>
-          </TableHeaderWrapper>
+          <TableHeader
+            title="Create New"
+            header={`${pledgeData?.length} Pledges`}
+            setOpen={modalIsOpen}
+            // setOpenDeleteModal={setOpenDeleteModal}
+            // selectRow={`${rowCount} Selected`}
+            // show={!!getId.length}
+            // onChange={(e) => setInput(e.target.value)}
+          />
           <Table columns={columns} data={pledgeData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
@@ -101,6 +86,7 @@ export default Pledge;
 
 export const ContainerBody = styled(Card)`
   margin-top: 1.6rem;
+  padding-top: 2.4rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
   padding-bottom: 2.4rem;

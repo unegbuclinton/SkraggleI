@@ -9,7 +9,6 @@ import Receipts from './Receipts';
 import DonationRecurring from './Recurring';
 import DonationsSummary from './Summary';
 import Transaction from './Transaction';
-
 const Donations = () => {
   const tabs = [
     { title: 'Summary', component: <DonationsSummary /> },
@@ -35,6 +34,6 @@ const DonationsContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-
+  width: 100%;
   /* gap: 1.6rem; */
 `;

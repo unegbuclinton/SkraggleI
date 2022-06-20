@@ -3,13 +3,16 @@ import { toast } from 'react-toastify';
 
 export const addTags = async (body) => {
   try {
-    return await request({
+    const createTagsResponse = await request({
       method: 'post',
       url: '/contacts/tags',
       data: body
     });
+    return createTagsResponse;
   } catch (error) {
-    toast.error('Tag did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
@@ -17,7 +20,7 @@ export const allTags = async () => {
   try {
     const tagsResponse = await request({
       method: 'get',
-      url: '/contacts/tags?cursor=0&limit=25&direction=after'
+      url: '/contacts/tags?cursor=-1&limit=25&direction=after'
     });
     return tagsResponse?.data?.message?.rows;
   } catch (error) {
