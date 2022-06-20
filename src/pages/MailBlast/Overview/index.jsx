@@ -1,10 +1,8 @@
-import React from 'react';
-import Card from 'components/atoms/Card';
-import { NewstellerWrapper } from './styles';
-import { NewstellerTop } from './styles';
 import Button from 'components/atoms/Button/Button';
-import { NewstellerBody } from './styles';
+import Card from 'components/atoms/Card';
 import StatisticsTracker from 'components/molecules/StatisticsTracker';
+import React from 'react';
+import { NewstellerBody, NewstellerTop, NewstellerWrapper } from './styles';
 
 function Overview() {
   return (
