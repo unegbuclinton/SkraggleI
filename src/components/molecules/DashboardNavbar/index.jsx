@@ -1,7 +1,8 @@
-import { logoutUser } from 'features/auth/authSlice';
+/* eslint-disable no-unused-vars */
+import { getAdminData, logoutUser } from 'features/auth/authSlice';
 import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { generateUUID } from 'utilities/helpers';
 import {
@@ -16,6 +17,10 @@ function DashboardHeader({ pageLinks }) {
   const dispatch = useDispatch();
   const ref = useRef();
   const [open, setOpen] = useState(false);
+  const { userData } = useSelector((state) => state?.auth);
+  useEffect(() => {
+    dispatch(getAdminData());
+  }, []);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -52,6 +57,8 @@ function DashboardHeader({ pageLinks }) {
     }
   ];
 
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
+  console.log(userName);
   return (
     <Header>
       <div className="header__first-row">
@@ -67,14 +74,16 @@ function DashboardHeader({ pageLinks }) {
           </HeaderLinks>
         </HeaderLeftContent>
         <HeaderRightContent open={open} onClick={toggleMenu} ref={ref}>
-          <div className="user-info">
-            <p className="user-info__project-name">BigGorilla Sandbol</p>
-            <p className="user-info__user-name">Mohammad Adaam</p>
-          </div>
-          <div className="user-dropdown">
-            <span>
-              <DPIconMenuDrop />
-            </span>
+          <div className="title">
+            <div className="user-info">
+              <p className="user-info__project-name">BigGorilla Sandbol</p>
+              <p className="user-info__user-name">{userName}</p>
+            </div>
+            <div className="user-dropdown">
+              <span>
+                <DPIconMenuDrop />
+              </span>
+            </div>
           </div>
           <div className="user-menu">
             <div className="img-profile__container">

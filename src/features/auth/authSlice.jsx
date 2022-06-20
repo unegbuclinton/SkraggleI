@@ -8,10 +8,9 @@ const initialState = {
   token: null,
   isLoading: false,
   mail: '',
-  resetMail: [],
   resetPassword: false,
   confirmEmailOTP: false,
-  emailOTP: []
+  userData: {}
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -95,6 +94,19 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (body) => {
   }
 });
 
+export const getAdminData = createAsyncThunk('auth/adminData', async () => {
+  try {
+    const response = await apiInstance({
+      method: 'get',
+      url: '/admin'
+    });
+    console.log(response?.data);
+    return response?.data?.message;
+  } catch (error) {
+    // toast.error('username or password is incorrect');
+  }
+});
+
 export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
   try {
     await apiInstance.delete('/admin/access-token');
@@ -153,15 +165,23 @@ export const authSlice = createSlice({
     [forgotPassword.rejected]: (state, action) => {
       state.mail = action.payload;
     },
-    [confirmforgotPassword.fulfilled]: (state, action) => {
-      state.resetMail = action.payload;
+    [confirmforgotPassword.fulfilled]: (state) => {
       state.resetPassword = true;
     },
     [confirmforgotPassword.rejected]: (state) => {
       state.resetPassword = false;
     },
-    [signupOTP.fulfilled]: (state, action) => {
-      state.emailOTP = action.payload;
+    [getAdminData.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getAdminData.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.userData = action.payload;
+    },
+    [getAdminData.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [signupOTP.fulfilled]: (state) => {
       state.confirmEmailOTP = true;
     },
     [signupOTP.rejected]: (state) => {
