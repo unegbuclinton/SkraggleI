@@ -25,4 +25,6 @@ const DonationsSummaryWrapper = styled.div`
   flex-direction: column;
   gap: 1.6rem;
   height: 100%;
+  margin-top: 1.6rem;
+  overflow: auto;
 `;

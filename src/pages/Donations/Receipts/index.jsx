@@ -66,7 +66,7 @@ function Receipts() {
   const [selected, setSelected] = useState('Filters');
 
   return (
-    <div>
+    <ContentWrapper>
       <ContainerBody>
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
@@ -87,13 +87,19 @@ function Receipts() {
           <Table columns={columns} data={tableData} />
         </TableWrapper>
       </ContainerBody>
-    </div>
+    </ContentWrapper>
   );
 }
 
 export default Receipts;
 
+export const ContentWrapper = styled.div`
+  height: 100%;
+`;
+
 export const ContainerBody = styled(Card)`
+  height: 100%;
+  overflow: auto;
   margin-top: 1.6rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;

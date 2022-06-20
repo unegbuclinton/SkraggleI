@@ -2,13 +2,13 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
 import styled from 'styled-components';
+import Admin from './Admin';
 import Forcasting from './Forecasting';
+import Pledge from './Pledges';
+import Receipts from './Receipts';
 import DonationRecurring from './Recurring';
 import DonationsSummary from './Summary';
 import Transaction from './Transaction';
-import Pledge from './Pledges';
-import Admin from './Admin';
-import Receipts from './Receipts';
 
 const Donations = () => {
   const tabs = [
@@ -23,7 +23,7 @@ const Donations = () => {
   return (
     <DashboardLayout>
       <DonationsContainer>
-        <Tabs tabs={tabs} />
+        <Tabs tabs={tabs} scroll />
       </DonationsContainer>
     </DashboardLayout>
   );
@@ -34,5 +34,7 @@ export default Donations;
 const DonationsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
+
   /* gap: 1.6rem; */
 `;
