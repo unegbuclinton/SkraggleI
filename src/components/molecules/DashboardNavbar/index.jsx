@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { getAdminData, logoutUser } from 'features/auth/authSlice';
+import apiInstance from 'apiInstance';
+import { addUserData, getAdminData, logoutUser } from 'features/auth/authSlice';
 import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import store from 'store';
 import { generateUUID } from 'utilities/helpers';
 import {
   Header,
@@ -17,9 +19,22 @@ function DashboardHeader({ pageLinks }) {
   const dispatch = useDispatch();
   const ref = useRef();
   const [open, setOpen] = useState(false);
-  const { userData } = useSelector((state) => state?.auth);
+  // const { userData } = useSelector((state) => state?.auth);
+  const [userData, setUserData] = useState({});
+
   useEffect(() => {
-    dispatch(getAdminData());
+    const getUser = async () => {
+      const response = await apiInstance({
+        method: 'get',
+        url: '/admin'
+      });
+      const data = response?.data?.message;
+      setUserData(data);
+      // store.set()
+      // dispatch(addUserData(data));
+    };
+
+    getUser();
   }, []);
 
   useEffect(() => {

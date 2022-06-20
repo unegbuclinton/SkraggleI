@@ -100,7 +100,6 @@ export const getAdminData = createAsyncThunk('auth/adminData', async () => {
       method: 'get',
       url: '/admin'
     });
-    console.log(response?.data);
     return response?.data?.message;
   } catch (error) {
     // toast.error('username or password is incorrect');
@@ -126,7 +125,11 @@ export const purge = () => {};
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    addUserData(state, action) {
+      state.userData = action.payload;
+    }
+  },
   extraReducers: {
     [registerUser.fulfilled]: (state) => {
       state.isLoading = false;
@@ -190,4 +193,5 @@ export const authSlice = createSlice({
   }
 });
 
+export const { addUserData } = authSlice.actions;
 export default authSlice.reducer;
