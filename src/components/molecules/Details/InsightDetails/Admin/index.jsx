@@ -53,7 +53,7 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title tag">TAGS</h2>
-          {tags.map((curr, idx) => (
+          {tags?.map((curr, idx) => (
             <Button pill className="volunteer" key={idx}>
               {curr}
             </Button>

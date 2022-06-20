@@ -18,6 +18,7 @@ export const allInteractions = async () => {
     const response = await request({
       method: 'get',
       url: `/contacts/interactions?cursor=-1&direction=after&limit=25`
+      // url: `/contacts/users/${id}/interactions`
     });
     return response?.data?.message?.rows;
   } catch (error) {
