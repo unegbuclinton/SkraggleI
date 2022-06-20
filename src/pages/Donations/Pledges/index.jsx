@@ -52,24 +52,22 @@ const Pledge = () => {
 
   const onRowClicked = () => {};
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
-      {modalIsOpen && (
-        <PledgeModal
-          isShown={modalIsOpen}
-          onClose={() => {
-            setModalIsOpen(false);
-          }}
-        />
-      )}
+      <PledgeModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
       <ContainerBody>
         <TableWrapper>
           <TableHeader
             title="Create New"
             header={`${pledgeData?.length} Pledges`}
-            setOpen={modalIsOpen}
+            setOpen={setOpen}
             // setOpenDeleteModal={setOpenDeleteModal}
             // selectRow={`${rowCount} Selected`}
             // show={!!getId.length}

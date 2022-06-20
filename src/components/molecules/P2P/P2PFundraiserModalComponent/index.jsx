@@ -55,7 +55,7 @@ function P2PModalComponent({ onClose, isShown }) {
       };
 
       dispatch(createP2P(body)).then(() => {
-        toast.success('Contact Created Successfully');
+        toast.success('P2P Created Successfully');
         onClose();
         dispatch(viewP2P());
       });

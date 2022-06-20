@@ -125,7 +125,6 @@ function ContactsTable() {
               selectableRowsComponent={CheckBox}
               handleRowSelect={handleSelect}
             />
-            <TableHeader />
           </TableWrapper>
 
           <Pagination

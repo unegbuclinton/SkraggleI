@@ -122,6 +122,8 @@ function Mail() {
 export default Mail;
 const MailWrapper = styled.div`
   margin-bottom: 1.6rem;
+  height: 100%;
+  overflow: auto;
   .mail-card {
     padding-top: 1.6rem;
     margin-top: 1.6rem;

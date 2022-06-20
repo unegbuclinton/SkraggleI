@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
+import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { datas1 } from 'utilities/overviewData';
 import MailButton from '../MailButtons';
-import Button from 'components/atoms/Button/Button';
-import DropdownComponent from 'components/atoms/Dropdown';
-import Checkbox from 'components/atoms/CheckBox';
 
 function Subscription() {
   const [selected, setSelected] = useState('Filters');

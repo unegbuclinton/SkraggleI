@@ -33,7 +33,7 @@ function MailBlast() {
   ];
   return (
     <DashboardLayout>
-      <Tabs tabs={mail} />
+      <Tabs tabs={mail} scroll />
     </DashboardLayout>
   );
 }
