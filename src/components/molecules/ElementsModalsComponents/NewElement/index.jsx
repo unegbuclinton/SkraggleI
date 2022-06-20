@@ -1,8 +1,8 @@
 import Input from 'components/atoms/Input/Input';
 import { DPIconSearch } from 'icons';
 import React, { useState } from 'react';
-import DonateModal from '../DonateButton/Modal';
-import DonateLinkModal from '../DonateLink/Modal';
+import DonateModal from '../../ElementModal/DonateButtonModal';
+import DonateLinkModal from '../../ElementModal/DonateLinkModal';
 import {
   ElementButton,
   ElementModalWrapper,

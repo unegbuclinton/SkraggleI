@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import React from 'react';
-import LinkModal from '../LinkModal';
+import LinkModal from '../../ElementsModalsComponents/DonateLink';
 
 function DonateLinkModal({ onClose, isShown }) {
   return (

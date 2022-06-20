@@ -1,6 +1,6 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 // import DonateModal from 'components/molecules/ElementsModal/DonateButton/Modal';
-import NewElementModal from 'components/molecules/ElementsModal/Modal';
+import NewElementModal from 'components/molecules/ElementModal/NewElementModal';
 // import DonationSetup from 'components/molecules/Forms/donationSetup';
 // import DonationSetupComponent from 'components/molecules/Forms/donationSetup/DonationSetupComponent';
 // import TableHeader from 'components/molecules/TableHeader/TableHeader';

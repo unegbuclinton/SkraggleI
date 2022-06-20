@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import React from 'react';
-import NewElement from '../NewElement';
+import NewElement from '../../ElementsModalsComponents/NewElement';
 
 function NewElementModal({ onClose, isShown }) {
   return (

@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import React from 'react';
-import DonateButton from '../DonateButtonModal';
+import DonateButton from '../../ElementsModalsComponents/DonateButton';
 
 function DonateModal({ onClose, isShown }) {
   return (
