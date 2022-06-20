@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { getAdminData } from 'features/auth/authSlice';
 import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import {
   allHouseHold,
@@ -34,49 +36,25 @@ function Overview() {
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
-  useEffect(() => {
-    dispatch(getAllCompanies());
-  }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllEvents());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllCompanies());
+  //   dispatch(getAllEvents());
+  //   dispatch(getPledge());
+  //   dispatch(allHouseHold());
+  //   dispatch(viewTags());
+  //   dispatch(viewContact());
+  //   dispatch(getAllTodos());
+  //   dispatch(viewP2P());
+  //   dispatch(getAllCampaigns());
+  //   dispatch(getAllForm());
+  //   dispatch(getAllElements());
+  //   dispatch(getAdminData());
+  //   dispatch(getAdminData());
+  // }, []);
 
-  useEffect(() => {
-    dispatch(getPledge());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(allHouseHold());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewTags());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewContact());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllTodos());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewP2P());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllCampaigns());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllForm());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllElements());
-  }, [dispatch]);
+  // useEffect(() => {
+  // }, []);
 
   return (
     <OverviewWrapper>
@@ -104,7 +82,6 @@ function Overview() {
               toggle={toogleDateRange}
               className="date-range-picker"
               onChangeRange={(ranges) => {
-                console.log(ranges);
                 setFilterRange(ranges);
               }}
             />

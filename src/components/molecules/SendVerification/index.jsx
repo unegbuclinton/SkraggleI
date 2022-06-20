@@ -9,7 +9,6 @@ function SendVerification() {
   const location = useLocation();
   const email = location.state;
   const dispatch = useDispatch();
-  console.log(email);
   return (
     <AuthLayout>
       <VerificationWrapper>
