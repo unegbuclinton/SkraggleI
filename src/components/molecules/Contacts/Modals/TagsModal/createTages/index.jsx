@@ -17,7 +17,6 @@ import {
 
 function CreateTags({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
-  console.log;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
