@@ -18,7 +18,7 @@ export const listMailBlast = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/mailblasts?cursor=0&direction=after&limit=20'
+      url: '/mailblasts'
     });
     return response?.data?.message?.rows;
   } catch (error) {
@@ -35,6 +35,19 @@ export const deleteMailBlast = async (body) => {
     });
 
     return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const mailBlastById = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/mailblasts/${id}`
+    });
+
+    return response?.data?.message;
   } catch (error) {
     console.log(error);
   }

@@ -1,150 +1,72 @@
+// import Button from 'components/atoms/Button/Button';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
+// import DropdownComponent from 'components/atoms/Dropdown';
+// import SelectDropDown from 'components/atoms/GenericDropdown';
+// import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
-import { COLORS } from 'constants/colors';
-import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+// import { COLORS } from 'constants/colors';
+// import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { datas1 } from 'utilities/overviewData';
-import MailButton from '../MailButtons';
+// import MailButton from '../MailButtons';
 
 function Subscription() {
-  const [selected, setSelected] = useState('Filters');
-  const subscription = [{ title: 'Anual Gala' }, { title: 'Volunteer' }];
+  const { subscriptionStatus } = useSelector((state) => state.mailBlast);
+
+  const [getId, setGetId] = useState([]);
+  const [rowCount, setRowCount] = useState(null);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
   const columns = [
     {
-      name: '',
-      selector: (row) => row.contact,
-      cell: () => <Checkbox />,
-      width: '3.069rem'
-    },
-    {
       name: 'FULL NAME',
-      selector: (row) => row.fullName,
+      selector: (row) => row.first_name + row.last_name,
       width: '20.9rem'
     },
     {
       name: 'PRIMARY EMAIL',
-      selector: (row) => row.primaryEmail
+      selector: (row) => row.primary_email
     },
     {
       name: 'EMAIL SUBSCRIPTION STATUS',
-      selector: (row) => row.emailSubscriptionStatus
+      cell: (row) => {
+        return row.is_subscribed_to_mailblasts ? (
+          <Button pill> OPT-IN</Button>
+        ) : (
+          <Button> OPT-OUT</Button>
+        );
+      }
     },
     {
       name: 'TAG',
-      selector: (row) => row.tag,
-      cell: () => <MailButton btn={subscription} />
-    }
-  ];
-
-  const data = [
-    {
-      action: '',
-      fullName: 'Monthly newsletter',
-      primaryEmail: 'partho.prothim@gmail.com',
-      emailSubscriptionStatus: (
-        <Button pill error>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'My awesome campaign...',
-      primaryEmail: 'partho.prothim@gmail.com',
-      emailSubscriptionStatus: (
-        <Button pill error>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'BGA demo',
-      primaryEmail: 'johny@gmail.com',
-      emailSubscriptionStatus: (
-        <Button pill error>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'Newsletter',
-      primaryEmail: 'hannah@yahoo.com',
-      emailSubscriptionStatus: (
-        <Button pill success>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'Monthly newsletter',
-      primaryEmail: 'partho.prothim@gmail.com',
-      emailSubscriptionStatus: (
-        <Button pill error>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'My awesome campaign...',
-      primaryEmail: 'Ppartho.prothim@gmail.com',
-      emailSubscriptionStatus: (
-        <Button pill success>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'BGA demo',
-      primaryEmail: 'hannah@yahoo.com',
-      emailSubscriptionStatus: (
-        <Button pill success>
-          Unknown
-        </Button>
-      ),
-      tag: ''
-    },
-    {
-      action: '',
-      fullName: 'Newsletter',
-      primaryEmail: 'hannah@yahoo.com',
-      emailSubscriptionStatus: (
-        <Button pill success>
-          Unknown
-        </Button>
-      ),
-      tag: ''
+      cell: (row) => <TableBtn tags={row.tags} />
     }
   ];
 
   return (
     <MailWrapper>
-      <Card>
-        <div className="mail-header">
-          <p className="mail__text">55 Contacts</p>
-          <div className="mail-header__right">
-            <DropdownComponent selected={selected} setSelected={setSelected} data={datas1} />
-            <SearchBar />
-          </div>
-        </div>
-        <div className="table-container">
-          <Table columns={columns} data={data} />
-        </div>
+      <Card className="mail-card">
+        <TableHeader
+          header={`${subscriptionStatus?.length} Subscription`}
+          selectRow={`${rowCount} Selected`}
+          show={!!getId.length}
+        />
+
+        <Table
+          columns={columns}
+          data={subscriptionStatus}
+          selectableRows
+          selectableRowsComponent={Checkbox}
+          handleRowSelect={handleSelect}
+        />
       </Card>
     </MailWrapper>
   );
@@ -153,46 +75,9 @@ function Subscription() {
 export default Subscription;
 
 const MailWrapper = styled.div`
-  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
 
-  .mail-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1.6rem 2.4rem 0 3.6rem;
-    padding-top: 1.6;
-
-    .mail-btn {
-      width: 18.3rem;
-      height: 4.8rem;
-      text-align: center;
-    }
-
-    &__right {
-      display: flex;
-      gap: 1.6rem;
-    }
-  }
-  .mail__text {
-    font-size: ${FONTSIZES.lg};
-    font-weight: ${FONTWEIGHTS.medium};
-    color: ${COLORS['header-grey']};
-
-    padding: 2.4rem 0rem 1.7rem 0rem;
-  }
-
-  .mail-btn {
-    width: 9.173rem;
-    height: 3rem;
-  }
-
-  .table-container {
-    padding: 1.6rem 2.4rem 4.2rem 2.4rem;
-
-    .rtd_ {
-      &TableCol {
-        padding-left: 3.4rem;
-      }
-    }
+  .mail-card {
+    padding: 2.4rem;
   }
 `;
