@@ -72,6 +72,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         <h1>Contact</h1>
         <SelectDropDown
           className="add-household__dropdown"
+          isSearchable={false}
           id="contact_id"
           name="contact_id"
           type={'text'}
@@ -101,6 +102,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         <h1>Full Value of Donation</h1>
         <Input
           className="pledge-modal"
+          onWheel={() => document.activeElement.blur()}
           type="number"
           id="value_donation"
           name="value_donation"
@@ -115,6 +117,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         <h1>Pledge Type</h1>
         <SelectDropDown
           className="add-household__dropdown"
+          isSearchable={false}
           id="pledge_type"
           name="pledge_type"
           type={'text'}
@@ -191,6 +194,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
                 />
                 <SelectDropDown
                   className="amount-currency"
+                  isSearchable={false}
                   id="amount_currency"
                   name="amount_currency"
                   type={'text'}
@@ -229,6 +233,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         <div className="calculate-installment">
           <SelectDropDown
             className="dropdown-installment"
+            isSearchable={false}
             id="interval"
             name="interval"
             type={'text'}

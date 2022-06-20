@@ -46,7 +46,7 @@ function ContactsTable() {
 
   useEffect(() => {
     dispatch(getAllVolunteer());
-  }, [dispatch]);
+  }, []);
 
   // const getSearchDebounce = useCallback(
   //   debounce(() => {

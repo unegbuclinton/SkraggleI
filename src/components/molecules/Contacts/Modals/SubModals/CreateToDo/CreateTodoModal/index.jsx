@@ -1,8 +1,10 @@
 import Button from 'components/atoms/Button/Button';
+import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { createTodo, getAllTodos } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
+import { DPIconUploadFile } from 'icons';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -104,21 +106,12 @@ function CreateTodoModal({ onClose }) {
           ) : null}
         </div>
         <DropdownWrapper>
-          <Label>Attachments</Label>
-          <SelectDropDown
-            id="attachment"
-            name="attachment"
-            type={'text'}
-            options={priorityOptions}
-            value={formik.values.attachment}
-            onChange={(value) => formik.setFieldValue('attachment', value.value)}
-            onBlur={formik.handleBlur}
-          />
-          <div className="error">
-            {formik.touched.attachment && formik.errors.attachment ? (
-              <ErrorMsg>{formik.errors.attachment}</ErrorMsg>
-            ) : null}
+          <div>
+            <Label>Attachments</Label>
           </div>
+          <FileUploadButton imgPreview="upload-button" className="image-upload">
+            <DPIconUploadFile />
+          </FileUploadButton>
         </DropdownWrapper>
         <ButtonContainer>
           <Button type="button" onClick={onClose} className="cancel-btn" auth invert>

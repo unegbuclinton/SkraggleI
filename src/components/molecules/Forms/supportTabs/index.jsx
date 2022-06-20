@@ -22,5 +22,6 @@ const SupportTabContainer = styled.div`
   gap: 1.6rem;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 12.5rem;
+  /* padding-bottom: 12.5rem; */
+  flex: 1 auto;
 `;

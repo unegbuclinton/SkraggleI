@@ -7,8 +7,9 @@ export const MainWrapper = styled.div`
   display: flex;
   margin-top: 2.4rem;
   width: 100%;
-  height: 50%;
+  height: 100%;
   gap: 1.6rem;
+  padding-bottom: 3rem;
   .p2p-tabs-wrapper {
     display: flex;
     height: 50.7rem;

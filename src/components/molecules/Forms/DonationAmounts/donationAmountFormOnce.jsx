@@ -165,7 +165,7 @@ export const DonationAmountFormCard = styled(Card)`
       border: 1px solid #9a9aa9;
       border-radius: 5px;
       color: ${COLORS.black};
-      max-width: 21.3rem;
+      /* max-width: 21.3rem; */
       width: 100%;
     }
   }
@@ -178,7 +178,7 @@ export const DonationAmountFormCard = styled(Card)`
     display: flex;
     gap: 1.6rem;
     .input-container {
-      max-width: 21.3rem;
+      /* max-width: 21.3rem; */
     }
   }
   .button-wrapper {

@@ -21,29 +21,43 @@ function CreateContactStepOne({ onClose, formik }) {
     { value: 'Unknown', label: 'Unknown' }
   ];
 
-  const dateOptions = [
-    { value: '1', label: '1' },
-    { value: '2', label: '2' },
-    { value: '3', label: '3' },
-    { value: '4', label: '4' },
-    { value: '5', label: '5' }
-  ];
+  const generateArrayOfDate = () => {
+    var days = [];
+    for (var i = 1; i <= 31; i++) {
+      days.push({ value: i, label: i });
+    }
 
-  const monthOptions = [
-    { value: 'Jan', label: 'Jan' },
-    { value: 'Feb', label: 'Feb' },
-    { value: 'March', label: 'March' },
-    { value: 'April', label: 'April' },
-    { value: 'May', label: 'May' }
-  ];
+    return days;
+  };
 
-  const yearOptions = [
-    { value: '1991', label: '1991' },
-    { value: '1992', label: '1992' },
-    { value: '1993', label: '1993' },
-    { value: '1994', label: '1994' },
-    { value: '1995', label: '1995' }
-  ];
+  const generateArrayOfYears = () => {
+    var max = new Date().getFullYear();
+    var min = max - 22;
+    var years = [];
+    for (var i = max; i >= min; i--) {
+      years.push({ value: i, label: i });
+    }
+
+    return years;
+  };
+
+  const generateArrayOfMonths = () => {
+    const monthss = [...Array(12).keys()].map((key) =>
+      new Date(0, key).toLocaleString('en', { month: 'long' })
+    );
+
+    var month = [];
+    for (var i = 0; i <= 11; i++) {
+      month.push({ value: monthss[i], label: monthss[i] });
+    }
+
+    return month;
+  };
+
+  var years = generateArrayOfYears();
+  var months = generateArrayOfMonths();
+  var date = generateArrayOfDate();
+  console.log(date);
 
   const companyOption = companies?.map((current) => ({ value: current?.id, label: current?.name }));
   return (
@@ -136,7 +150,7 @@ function CreateContactStepOne({ onClose, formik }) {
                 id="date"
                 name="date"
                 type={'text'}
-                options={dateOptions}
+                options={date}
                 value={formik.values.date}
                 onChange={(value) => formik.setFieldValue('date', value.value)}
                 onBlur={formik.handleBlur}
@@ -153,7 +167,7 @@ function CreateContactStepOne({ onClose, formik }) {
                 id="month"
                 name="month"
                 type={'text'}
-                options={monthOptions}
+                options={months}
                 value={formik.values.month}
                 onChange={(value) => formik.setFieldValue('month', value.value)}
                 onBlur={formik.handleBlur}
@@ -170,7 +184,7 @@ function CreateContactStepOne({ onClose, formik }) {
                 id="year"
                 name="year"
                 type={'text'}
-                options={yearOptions}
+                options={years}
                 value={formik.values.year}
                 onChange={(value) => formik.setFieldValue('year', value.value)}
                 onBlur={formik.handleBlur}

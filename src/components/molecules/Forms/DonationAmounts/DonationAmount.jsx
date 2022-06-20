@@ -44,7 +44,8 @@ export const DonationMainWrapper = styled(Card)`
   width: 100%;
   height: 100%;
   overflow: auto;
-  max-width: 53rem;
+  /* max-width: 53rem; */
+  flex: 0.65;
   padding: 4rem 4.4rem 2.4rem 4.4rem;
 
   .transaction-header {
