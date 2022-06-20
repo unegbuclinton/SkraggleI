@@ -1,4 +1,4 @@
-import Button from 'components/atoms/Button/Button';
+// import Button from 'components/atoms/Button/Button';
 // import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import SelectDropDown from 'components/atoms/GenericDropdown';
@@ -39,15 +39,6 @@ function Behavior() {
         <BehaviorLabel>Matching funds</BehaviorLabel>
         <Checkbox />
       </BehaviorFieldWrapper>
-
-      <BehaviorFooter>
-        <Button className="archive-btn" auth invert>
-          Archive
-        </Button>
-        <Button className="update-btn" auth>
-          Update Element
-        </Button>
-      </BehaviorFooter>
     </BehaviourWrapper>
   );
 }
@@ -95,20 +86,4 @@ export const BehaviorLabel = styled.label`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
-`;
-
-export const BehaviorFooter = styled.div`
-  display: flex;
-  gap: 1.6rem;
-  justify-content: flex-end;
-
-  .archive-btn {
-    width: 10.7rem;
-    height: 5.1rem;
-  }
-
-  .update-btn {
-    width: 20.5rem;
-    height: 5.1rem;
-  }
 `;
