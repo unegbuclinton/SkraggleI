@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconMessage } from 'icons';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import styled from 'styled-components';
 
 function RecurringTransaction() {
   const columns = [
@@ -29,8 +29,7 @@ function RecurringTransaction() {
     {
       name: 'ACTION',
       selector: (row) => row.action,
-      cell: () => <DPIconMessage />,
-      width: '25.494rem'
+      cell: () => <DPIconMessage />
     }
   ];
 

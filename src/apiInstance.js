@@ -88,6 +88,13 @@ request.interceptors.response.use(
       //   store.dispatch(logoutUser());
       //   return Promise.reject(error);
       // }
+    } else if (error?.response?.status === 401) {
+      try {
+        toast.error(error?.response?.data?.message);
+        store.dispatch(logoutUser());
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     return Promise.reject(error);

@@ -39,7 +39,7 @@ export const ButtonContainer = styled.div`
     color: ${COLORS['gray-500']};
   }
   .save-btn {
-    width: 20.5rem;
+    width: 10.7rem;
     height: 5.1rem;
     background-color: ${COLORS.pink};
     border-radius: 0.3rem;

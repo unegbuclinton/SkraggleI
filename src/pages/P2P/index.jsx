@@ -17,7 +17,7 @@ function P2P() {
   ];
   return (
     <DashboardLayout>
-      <Tabs tabs={tabs} />
+      <Tabs tabs={tabs} scroll />
     </DashboardLayout>
   );
 }

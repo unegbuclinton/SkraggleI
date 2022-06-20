@@ -38,8 +38,9 @@ function PaymentOption() {
 export default PaymentOption;
 
 export const PaymentOptionWrapper = styled.div`
-  max-width: 37.954rem;
+  flex: 0.35;
   width: 100%;
+  /* padding: 0 3.561rem 2.1rem 3.578rem; */
   .donate-button {
     max-width: 30.815rem;
     width: 100%;
@@ -78,6 +79,7 @@ export const PaymentOptionBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0rem 3.578rem 2.201rem 3.561rem;
   .payment {
     margin-top: 3.269rem;
     align-items: center;

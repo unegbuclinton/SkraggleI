@@ -1,4 +1,3 @@
-// import Spinner from 'components/atoms/Spinner/Spinner';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 // import DonateModal from 'components/molecules/ElementsModal/DonateButton/Modal';
 import NewElementModal from 'components/molecules/ElementsModal/Modal';

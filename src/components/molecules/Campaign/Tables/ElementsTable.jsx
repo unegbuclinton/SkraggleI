@@ -7,7 +7,7 @@ import CreateFormModal from 'pages/Forms/FormModal/CreateFormModal';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ElementsData } from 'utilities/campaigndata';
-import { ContainerBody, TableWrapper } from './styles';
+import { ContainerBody, TableWrapper, Wrapper } from './styles';
 
 const ElementsTable = () => {
   const { elementsData } = useSelector((state) => state.campaign);
@@ -75,7 +75,7 @@ const ElementsTable = () => {
   // };
 
   return (
-    <div>
+    <Wrapper>
       <CreateFormModal
         isShown={open}
         onClose={() => {
@@ -111,37 +111,7 @@ const ElementsTable = () => {
         </TableWrapper>
       </ContainerBody>
       <Pagination currentPage={currentPage} data={ElementsData} setCurrentPage={setCurrentPage} />
-      {/* <ContainerBody>
-        <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>15 Elements</h1>
-            </div>
-
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
-              <SearchBar className="search-icon" />
-              <Button className="campaign-button" onClick={() => handleButtonClick()}>
-                <DPPlusIcon className="plus-icon" />
-                Create New
-              </Button>
-            </div>
-          </TableHeaderWrapper>
-          <Table columns={columns} data={currentList} />
-        </TableWrapper>
-      </ContainerBody>
-      <Pagination
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        data={ElementsData}
-        setCurrentPage={setCurrentPage}
-      /> */}
-    </div>
+    </Wrapper>
   );
 };
 

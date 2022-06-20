@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
+import React from 'react';
+import styled from 'styled-components';
 
 function RecentTransaction() {
   const columns = [
@@ -15,18 +15,15 @@ function RecentTransaction() {
     },
     {
       name: 'Contact',
-      selector: (row) => row.contact,
-      width: '20.725rem'
+      selector: (row) => row.contact
     },
     {
       name: 'Amount',
-      selector: (row) => row.amount,
-      width: '20.766rem'
+      selector: (row) => row.amount
     },
     {
       name: 'Date',
-      selector: (row) => row.date,
-      width: '25.494rem'
+      selector: (row) => row.date
     },
     {
       name: 'Type',

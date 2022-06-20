@@ -137,6 +137,16 @@ export const ModalWrapper = styled.form`
     width: 12rem;
     margin-bottom: 0.5rem;
   }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 `;
 
 export const InstallmentWrapper = styled.div``;

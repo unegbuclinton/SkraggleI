@@ -16,6 +16,7 @@ import Contacts from 'pages/ContactsPage';
 import Profile from 'pages/ContactsPage/Profile';
 import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
+import Elements from 'pages/Elements';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
@@ -147,8 +148,14 @@ export const privateRoutes = [
   },
 
   {
-    path: '/elements',
-    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
+    path: 'elements/*',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <Elements />
+      }
+    ]
   },
 
   {
