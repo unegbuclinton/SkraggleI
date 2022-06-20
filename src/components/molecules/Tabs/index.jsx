@@ -4,10 +4,10 @@ import { DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
-const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
+const Tabs = ({ tabs, stickyTab, plainTab, title, heading, scroll, link, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <TabWrapper>
+    <TabWrapper scroll={scroll}>
       <TabContainer className={stickyTab ? 'sticky-header' : ''} {...rest}>
         {plainTab ? (
           <PlainTabContainer>
@@ -43,6 +43,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
+  height: ${({ scroll }) => (scroll ? '100%' : '')};
   .sticky-header {
     position: -webkit-sticky;
     position: sticky;
@@ -145,8 +146,8 @@ const TabLinkWrapper = styled.div`
 `;
 
 const TabContent = styled.div`
-  height: 100%;
-  height: 100%;
+  height: 90%;
+  overflow: hidden;
 `;
 
 export default Tabs;

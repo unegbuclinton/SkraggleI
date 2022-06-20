@@ -37,10 +37,14 @@ function CreateCompany({ onClose }) {
         email: values.email
         // tag: values.tag
       };
-      dispatch(createNewCompany(body)).then(() => {
-        onClose();
-        toast.success('new company created successfully');
-        dispatch(getAllCompanies());
+      dispatch(createNewCompany(body)).then((data) => {
+        if (data.payload === undefined) {
+          onClose();
+        } else {
+          onClose();
+          toast.success('new company created successfully');
+          dispatch(getAllCompanies());
+        }
       });
     }
   });
