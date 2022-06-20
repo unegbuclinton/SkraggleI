@@ -1,5 +1,7 @@
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import Input from 'components/atoms/Input/Input';
+import TextEditor from 'components/organisms/TextEditor';
+import { values } from 'draft-js/lib/DefaultDraftBlockRenderMap';
 import { DPIconUploadFile } from 'icons';
 import React from 'react';
 import { DetailLabel, DetailsSubHeading, EventWrapper } from './styles';
@@ -24,14 +26,14 @@ function EventInformation({ formik, ErrorMsg }) {
           <ErrorMsg>{formik.errors.name}</ErrorMsg>
         ) : null}
         <div className="editor-container">
-          <textarea
+          <TextEditor
             id="textarea"
             name="textarea"
             type="text"
-            placeholder="Lorem ipsam"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.textarea}
+            // value={formik.values.textarea}
+            editorState={values.editorState}
           />
           <div className="editor-container__upload">
             <DetailLabel>Event image</DetailLabel>

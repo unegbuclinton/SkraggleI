@@ -86,6 +86,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <Input
           className="campaign-modal"
           placeholder="Lorem Ipsum"
+          onWheel={() => document.activeElement.blur()}
           id="goals"
           name="goals"
           type="number"

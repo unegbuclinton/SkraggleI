@@ -92,6 +92,7 @@ export const detailsValidationSchema = Yup.object({
   receipt: Yup.string().required('Receipt is required'),
   receiptTitle: Yup.string().required('Receipt title is required'),
   category: Yup.string().required('Category is required'),
+  // eventTimeDonation: Yup.boolean().oneOf([true], 'This field is required'),
   receiptDescription: Yup.string().required('Receipt Description is required'),
   formName: Yup.string().required('Form name is required'),
   emailReply: Yup.string().required('Email reply is required'),
@@ -256,8 +257,14 @@ export const CreatePledgeSchema = Yup.object({
   pledge_name: Yup.string().required('This is required field'),
   value_donation: Yup.string().required('This is required field'),
   pledge_type: Yup.string().required('This is required field'),
-  start_date: Yup.string().required('This is required field'),
-  end_date: Yup.string().required('This is required field'),
+  start_date: Yup.date().required('This is required field'),
+  end_date: Yup.date()
+    .when(
+      'start_date',
+      (start_date, schema) =>
+        start_date && schema.min(start_date, 'End date cannot be before start date')
+    )
+    .required('This is required field'),
   attachment: Yup.array(),
   expected_date: Yup.array().required('This is required field'),
   amount: Yup.string().required('This is required field'),

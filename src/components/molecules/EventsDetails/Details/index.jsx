@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/atoms/Button/Button';
 import { updateEvent } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
@@ -53,11 +54,12 @@ function Details() {
       receipt: reciept_description,
       receiptTitle: reciept_title,
       email: '',
-      category: reciept_category,
-      receiptDescription: reciept_description,
-      formName: from_name,
-      emailReply: reply_email,
-      subject: subject
+      category: '',
+      receiptDescription: '',
+      formName: '',
+      emailReply: '',
+      subject: '',
+      eventTimeDonation: false
     },
 
     onSubmit: (values) => {
@@ -91,6 +93,8 @@ function Details() {
       dispatch(updateEvent({ body: body, id: eventId }));
     }
   });
+
+  console.log(formik.values.eventTimeDonation);
 
   const navigate = useNavigate();
 

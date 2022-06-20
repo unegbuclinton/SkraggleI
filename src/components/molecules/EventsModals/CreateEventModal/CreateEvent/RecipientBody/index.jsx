@@ -1,4 +1,5 @@
 import Switch from 'components/atoms/Switch/Switch';
+import TextEditor from 'components/organisms/TextEditor';
 import React from 'react';
 import { DetailLabel, DetailsText, SectionWrapper, SwitchLabel, SwitchWrapper } from './styles';
 
@@ -7,7 +8,7 @@ function RecipientBody() {
     <SectionWrapper>
       <div className="recipient-container">
         <DetailLabel>Receipt Body</DetailLabel>
-        <div className="recipient-body"></div>
+        <TextEditor />
       </div>
       <DetailsText className="recipient-text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan, massa ac
