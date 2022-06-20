@@ -16,9 +16,9 @@ import {
 function CreateContactStepOne({ onClose, formik }) {
   const { companies } = useSelector((state) => state.contact);
   const emailSub = [
-    { value: 'Opted In', label: 'Opted In' },
-    { value: 'Opted Out', label: 'Opted Out' },
-    { value: 'Unknown', label: 'Unknown' }
+    { value: true, label: 'Opted In' },
+    { value: false, label: 'Opted Out' },
+    { value: null, label: 'Unknown' }
   ];
 
   const generateArrayOfDate = () => {

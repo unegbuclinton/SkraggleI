@@ -6,6 +6,7 @@ import donationReducer from 'features/donation/donationSlice';
 import elementReducer from 'features/elements/elementsSlice';
 import eventReducer from 'features/events/eventSlice';
 import formsReducer from 'features/forms/formsSlice';
+import mailblastReducer from 'features/mailblast/mailBlastSlice';
 import p2pReducer from 'features/p2p/p2pSlice';
 import {
   FLUSH,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   donation: donationReducer,
   forms: formsReducer,
   events: eventReducer,
+  mailBlast: mailblastReducer,
   element: elementReducer
 });
 

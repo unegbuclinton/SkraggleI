@@ -60,7 +60,7 @@ function CreateteNewHouseHold({ onClose }) {
               Cancel
             </Button>
 
-            <Button disabled={isLoading} type="submit" className="continue">
+            <Button disabled={!formik.dirty && !isLoading} type="submit" className="continue">
               Continue
             </Button>
           </ButtonContainer>

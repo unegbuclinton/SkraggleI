@@ -270,3 +270,10 @@ export const CreatePledgeSchema = Yup.object({
   notes: Yup.string().required('This is required field'),
   amount_currency: Yup.string().required('This is required field')
 });
+
+export const CreateMailBlastSchema = Yup.object({
+  name: Yup.string().required('This field is required'),
+  category: Yup.string().required('This field is required'),
+  assignee: Yup.string().required('This field is required'),
+  campaign: Yup.string().required('This field is required')
+});

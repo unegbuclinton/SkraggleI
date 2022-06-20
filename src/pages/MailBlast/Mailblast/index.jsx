@@ -2,33 +2,59 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import NameLogo from 'components/molecules/NameLogo';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { listAllMailBlast, removeMailBlast } from 'features/mailblast/mailBlastSlice';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CreateMailModal from '../MailblasModals/CreateMail';
 
 function Mail() {
   const [show, setShow] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [rowCount, setRowCount] = useState(null);
+  const [getId, setGetId] = useState([]);
+  const dispatch = useDispatch();
   const itemsPerPage = 5;
 
   let navigate = useNavigate();
+
+  const { mailBlastDatas, isLoading } = useSelector((state) => state.mailBlast);
+
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+
+  const handleDelete = () => {
+    const body = {
+      mailblasts: getId
+    };
+    dispatch(removeMailBlast(body)).then(() => {
+      dispatch(listAllMailBlast());
+      setGetId([]);
+      setRowCount(null);
+    });
+  };
 
   const onRowClicked = (row) => {
     navigate(`/mail-blasts/${row?.id}`, { state: row });
   };
 
   const columns = [
-    {
-      name: '',
-      cell: () => <Checkbox />,
-      width: '3.069rem'
-    },
+    // {
+    //   name: '',
+    //   cell: () => <Checkbox />,
+    //   width: '3.069rem'
+    // },
     {
       name: 'NAME',
       selector: (row) => row.name
@@ -50,71 +76,57 @@ function Mail() {
       )
     }
   ];
-  const mailData = [
-    {
-      id: 1,
-      action: '',
-      name: 'Monthly newsletter',
-      assignee: 'Partho Datta',
-      scheduled: '',
-      status: ''
-    },
-    {
-      id: 2,
-      action: '',
-      name: 'Yearly newsletter',
-      assignee: 'Partho Datta',
-      scheduled: '',
-      status: ''
-    },
-    {
-      id: 3,
-      action: '',
-      name: 'Another newsletter',
-      scheduled: '',
-      status: ''
-    },
-    {
-      id: 4,
-      action: '',
-      name: 'Centuary newsletter',
-      scheduled: '',
-      status: ''
-    }
-  ];
 
-  const mail = mailData.map((data, index) => ({
-    key: index,
-    created: data.created,
-    campaign: data.campaign,
-    goals: data.goals,
-    status: data.status
-  }));
-  const indexLasttList = currentPage * itemsPerPage;
-  const indexFirstList = indexLasttList - itemsPerPage;
-  const currentList = mail.slice(indexFirstList, indexLasttList);
+  // const mail = mailData.map((data, index) => ({
+  //   key: index,
+  //   created: data.created,
+  //   campaign: data.campaign,
+  //   goals: data.goals,
+  //   status: data.status
+  // }));
+  // const indexLasttList = currentPage * itemsPerPage;
+  // const indexFirstList = indexLasttList - itemsPerPage;
+  // const currentList = 4;
 
   return (
     <MailWrapper>
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        isLoading={isLoading}
+        warning="Warning: This will delete these Mail blast permanently from your Skraggle account. This
+        action cannot be undone"
+      />
       <Card className="mail-card">
         <div className="mail-header">
           <TableHeader
             className="table-header"
-            header="4 Mail Blasts"
+            header={`${mailBlastDatas.length} Mail Blasts`}
             title="New Mail Blasts"
+            setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
             setOpen={setShow}
           />
           {show && <CreateMailModal isShown={show} onCloseModal={() => setShow(false)} />}
         </div>
         <div className="table-container">
-          <Table columns={columns} data={mailData} onRowClicked={onRowClicked} />
+          <Table
+            columns={columns}
+            data={mailBlastDatas}
+            onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
         </div>
       </Card>
       <Pagination
-        currentList={currentList}
-        data={mailData}
+        // currentList={currentList}
+        // data={mailData}
         itemsPerPage={itemsPerPage}
-        setCurrentPage={setCurrentPage}
+        // setCurrentPage={setCurrentPage}
       />
     </MailWrapper>
   );

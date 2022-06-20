@@ -9,6 +9,7 @@ import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import {
   getAllInteractions,
+  getAllTodos,
   getAllVolunteer,
   oneContact,
   removeContact,
@@ -46,7 +47,9 @@ function ContactsTable() {
 
   useEffect(() => {
     dispatch(getAllVolunteer());
-  }, []);
+    dispatch(getAllTodos());
+    dispatch(getAllInteractions());
+  }, [dispatch]);
 
   // const getSearchDebounce = useCallback(
   //   debounce(() => {
@@ -91,7 +94,7 @@ function ContactsTable() {
     {
       name: 'TAGS',
       // selector: (row) => row.tags
-      cell: () => <TableBtn />
+      cell: (row) => <TableBtn tags={row.tags} />
     }
   ];
 

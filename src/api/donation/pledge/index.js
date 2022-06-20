@@ -8,7 +8,7 @@ export const allPledge = async () => {
     });
     return response?.data?.message?.rows;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
