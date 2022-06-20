@@ -3,6 +3,7 @@ import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import NameLogo from 'components/molecules/NameLogo';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AttachmentModal from '../MailblasModals/Attachment';
 import MailFromModal from '../MailblasModals/MailFrom';
 import MailToModal from '../MailblasModals/Mailto';
@@ -15,6 +16,9 @@ function MailContent() {
   const [openSender, setOpenSender] = useState(false);
   const [openSubject, setOpenSubject] = useState(false);
   const [openAttach, setOpenAttach] = useState(false);
+
+  const { eachMailBlast } = useSelector((state) => state.mailBlast);
+  const { name, sent_at } = eachMailBlast;
   return (
     <ContentWrapper>
       <Card className="content-card">
@@ -25,7 +29,7 @@ function MailContent() {
               <p>Associated Campaign</p>
             </div>
             <div className="bottom">
-              <p className="left">Monthly newsletter</p>
+              <p className="left">{name}</p>
               <p className="right">Annual Fundraiser</p>
             </div>
           </div>
@@ -33,7 +37,7 @@ function MailContent() {
             <Button pill className="content-btn">
               Sent
             </Button>
-            <p>Send 20, 2020 - 06:20 PM</p>
+            <p>{sent_at}</p>
           </div>
         </ContentTop>
         <ContentBody>

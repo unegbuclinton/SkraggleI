@@ -7,6 +7,7 @@ import { getEachP2p, removeP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { formatDate } from 'utilities/helpers';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -17,9 +18,9 @@ function P2PTable() {
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const handleSelect = (row) => {
-    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    const checkedRows = row?.selectedRows?.map((cur) => cur.id);
     setGetId(checkedRows);
-    setRowCount(row.selectedCount);
+    setRowCount(row?.selectedCount);
   };
 
   const handleDelete = () => {
@@ -41,7 +42,7 @@ function P2PTable() {
     // },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.name || row.campaign_id
+      selector: (row) => row.name || row.campaign
       // width: '20rem'
     },
 
@@ -62,12 +63,12 @@ function P2PTable() {
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created_at
+      selector: (row) => formatDate(row.created_at)
       // width: '20rem'
     },
     {
       name: 'GOAL DATE',
-      selector: (row) => row.goal_date
+      selector: (row) => formatDate(row.goal_date)
       // width: '20rem'
     },
     {
@@ -108,7 +109,7 @@ function P2PTable() {
       <ContainerBody>
         <TableWrapper>
           <TableHeader
-            title="Add Contacts"
+            title="Create P2P"
             header={`${p2pData?.length} P2P`}
             setOpen={setOpen}
             setOpenDeleteModal={setOpenDeleteModal}

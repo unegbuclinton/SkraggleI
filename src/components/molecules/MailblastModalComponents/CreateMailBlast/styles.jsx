@@ -2,10 +2,9 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
-export const CreateMailWrapper = styled.div`
+export const CreateMailWrapper = styled.form`
   .edit-card {
     padding: 3.2rem 2.4rem 2.455rem 2.4rem;
-
     .edit-mail-body {
       margin-bottom: 15.045rem;
     }
@@ -26,12 +25,10 @@ export const CreateMailWrapper = styled.div`
       height: 5.1rem;
     }
   }
-
   .edit-input {
     width: 60.2rem;
-    height: 6.4rem;
     padding-left: 1.6rem;
-    background-color: transparent;
+    background-color: #fff;
     border: 1px solid ${COLORS['gray-500']};
     margin-bottom: 0.8rem;
   }
@@ -43,6 +40,9 @@ export const CreateMailWrapper = styled.div`
     border-radius: 0.5rem;
     margin-bottom: 0.8rem;
   }
+  .field-container {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const CreateLabel = styled.p`
@@ -50,4 +50,11 @@ export const CreateLabel = styled.p`
   font-weight: ${FONTWEIGHTS.normal};
   color: ${COLORS['black-shade']};
   margin-bottom: 0.8rem;
+`;
+
+export const ErrorMsg = styled.p`
+  color: red;
+  margin-bottom: 1rem;
+  font-size: ${FONTSIZES.small};
+  font-weight: ${FONTWEIGHTS.medium};
 `;

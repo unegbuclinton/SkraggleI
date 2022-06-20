@@ -2,24 +2,39 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import PledgeModal from 'components/molecules/DonationModals/PledgeModal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { getPledge, removePledge } from 'features/donation/donationSlice';
 import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
 const Pledge = () => {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [getId, setGetId] = useState([]);
+  const [rowCount, setRowCount] = useState(null);
+  const dispatch = useDispatch();
   const { pledgeData } = useSelector((state) => state.donation);
+  const handleSelect = (row) => {
+    const checkedRows = row.selectedRows.map((cur) => cur.id);
+    setGetId(checkedRows);
+    setRowCount(row.selectedCount);
+  };
+  const handleDelete = () => {
+    const body = {
+      ids: getId
+    };
+    dispatch(removePledge(body)).then(() => {
+      dispatch(getPledge());
+      setGetId([]);
+    });
+  };
   const columns = [
-    {
-      name: ' ',
-      cell: () => <Checkbox />,
-      ignoreRowClick: false,
-      width: '5rem'
-    },
     {
       name: 'CONTACT',
       selector: (row) => row.name,
@@ -52,30 +67,40 @@ const Pledge = () => {
 
   const onRowClicked = () => {};
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   return (
     <div>
-      {modalIsOpen && (
-        <PledgeModal
-          isShown={modalIsOpen}
-          onClose={() => {
-            setModalIsOpen(false);
-          }}
-        />
-      )}
+      <PledgeModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
+      <DeleteModal
+        isShown={openDeleteModal}
+        handleDelete={handleDelete}
+        onClose={() => setOpenDeleteModal(false)}
+        warning="Warning: This will delete these Pledge permanently from your Skraggle account. This
+        action cannot be undone"
+      />
       <ContainerBody>
         <TableWrapper>
           <TableHeader
             title="Create New"
             header={`${pledgeData?.length} Pledges`}
-            setOpen={modalIsOpen}
-            // setOpenDeleteModal={setOpenDeleteModal}
-            // selectRow={`${rowCount} Selected`}
-            // show={!!getId.length}
+            setOpen={setOpen}
+            setOpenDeleteModal={setOpenDeleteModal}
+            selectRow={`${rowCount} Selected`}
+            show={!!getId.length}
             // onChange={(e) => setInput(e.target.value)}
           />
-          <Table columns={columns} data={pledgeData} onRowClicked={onRowClicked} />
+          <Table
+            columns={columns}
+            data={pledgeData}
+            onRowClicked={onRowClicked}
+            selectableRows
+            selectableRowsComponent={Checkbox}
+            handleRowSelect={handleSelect}
+          />
         </TableWrapper>
       </ContainerBody>
     </div>

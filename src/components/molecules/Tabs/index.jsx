@@ -4,10 +4,10 @@ import { DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
-const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, ...rest }) => {
+const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <TabWrapper>
+    <TabWrapper scroll={scroll}>
       <TabContainer inline={inline} className={stickyTab ? 'sticky-header' : ''} {...rest}>
         {plainTab ? (
           <PlainTabContainer>

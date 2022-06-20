@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { allPledge, createPledge } from '../../api/donation/pledge';
+import { allPledge, createPledge, deletePledge } from '../../api/donation/pledge';
 
 const initialState = {
   isLoading: false,
@@ -7,6 +7,7 @@ const initialState = {
 };
 export const getPledge = createAsyncThunk('getPledge', allPledge);
 export const addPledge = createAsyncThunk('addPledge', createPledge);
+export const removePledge = createAsyncThunk('removePledge', deletePledge);
 
 export const donationSlice = createSlice({
   name: 'donation',
@@ -28,6 +29,15 @@ export const donationSlice = createSlice({
     [addPledge.rejected]: (state, action) => {
       state.isLoading = true;
       state.pledgeData = action.payload;
+    },
+    [removePledge.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [removePledge.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [removePledge.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });
