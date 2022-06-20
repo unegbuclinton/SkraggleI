@@ -19,12 +19,12 @@ function DonateButtonBehavior() {
   ];
   return (
     <DonateBehaviorWrapper>
-      <DonateBehaviorLabel>Open campaign</DonateBehaviorLabel>
-      <SelectDropDown placeholder="My awesome campaign #5" />
+      <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
+      <SelectDropDown className="dropdown" placeholder="My awesome campaign #5" />
       <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
-      <SelectDropDown placeholder="Match checkout setting" />
+      <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
       <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
-      <SelectDropDown placeholder="Match checkout setting" />
+      <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
       <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
       <CheckboxContainer>
         <Checkbox pink />
@@ -39,7 +39,19 @@ function DonateButtonBehavior() {
 
 export default DonateButtonBehavior;
 
-const DonateBehaviorWrapper = styled.div``;
+const DonateBehaviorWrapper = styled.div`
+  .dropdown {
+    width: 100%;
+  }
+`;
+
+const OpenCampaignLabel = styled.p`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-500']};
+  margin-bottom: 0.8rem;
+  cursor: default;
+`;
 
 const DonateBehaviorLabel = styled.p`
   font-weight: ${FONTWEIGHTS.normal};

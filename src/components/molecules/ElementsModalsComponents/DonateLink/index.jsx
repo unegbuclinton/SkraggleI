@@ -6,28 +6,28 @@ import styled from 'styled-components';
 
 function LinkModal() {
   return (
-    <DonateButtonWrapper>
+    <DonateLinkWrapper>
       <Heading>
         Get a link that sends visitors to your website and automatically opens donation checkout.
       </Heading>
-      <DonateButtonContainer>
-        <DonateButtonLabel>Element name</DonateButtonLabel>
-        <Input type="text" className="input-field" placeholder="Donate button #6" />
+      <DonateLinkContainer>
+        <DonateLinkLabel>Element name</DonateLinkLabel>
+        <Input type="text" className="input-field" placeholder="Donate link #6" />
         {/* <DonateButtonBehavior />
         <DonateAppearance />
         <CustomField /> */}
-      </DonateButtonContainer>
-    </DonateButtonWrapper>
+      </DonateLinkContainer>
+    </DonateLinkWrapper>
   );
 }
 
 export default LinkModal;
 
-const DonateButtonWrapper = styled.div`
+const DonateLinkWrapper = styled.div`
   padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 `;
 
-const DonateButtonContainer = styled.form`
+const DonateLinkContainer = styled.form`
   .input-field {
     width: 100%;
     background-color: ${COLORS.white};
@@ -44,7 +44,7 @@ const Heading = styled.h2`
   line-height: 2.7rem;
 `;
 
-const DonateButtonLabel = styled.label`
+const DonateLinkLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-500']};
