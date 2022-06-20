@@ -55,7 +55,6 @@ function MultiformTabs({ onClose, disabled, tabs, ...rest }) {
     validationSchema: CreatePledgeSchema,
 
     onSubmit: (values) => {
-      console.log(values);
       const body = {
         contact_id: values.contact_id,
         campaign_id: values.campaign_id,

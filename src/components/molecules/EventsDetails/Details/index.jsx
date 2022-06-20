@@ -16,7 +16,6 @@ import { ButtonWrapper, Container, DetailsHeading, DetailsWrapper, ErrorMsg } fr
 
 function Details() {
   const { eachEvent } = useSelector((state) => state.events);
-  console.log(eachEvent);
   const dispatch = useDispatch();
   const eventId = eachEvent.id;
   const {

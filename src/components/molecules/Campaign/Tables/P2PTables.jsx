@@ -13,7 +13,6 @@ import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const P2PTable = () => {
   const { p2p } = useSelector((state) => state?.campaign);
-  console.log(p2p);
   const columns = [
     {
       name: ' ',
