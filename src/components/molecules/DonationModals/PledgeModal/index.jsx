@@ -3,7 +3,7 @@ import MultiformTabs from 'components/molecules/MultiformTabs';
 import PledgeAssociateModalComponent from '../PledgeAssociationModalComponent';
 import PledgeInfoModalComponent from '../PledgeInfrormationModalComponent';
 
-function PledgeModal({ isShown, onClose }) {
+function PledgeModal({ onClose, isShown }) {
   const tabs = [
     {
       name: 'PLEDGE INFORMATION',

@@ -62,7 +62,6 @@ const Pledge = () => {
           setOpen(false);
         }}
       />
-
       <ContainerBody>
         <TableWrapper>
           <TableHeader

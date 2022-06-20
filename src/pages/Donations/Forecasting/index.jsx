@@ -14,4 +14,7 @@ function Forcasting() {
 
 export default Forcasting;
 
-export const ForecastWrapper = styled.div``;
+export const ForecastWrapper = styled.div`
+  height: 100%;
+  overflow: auto;
+`;
