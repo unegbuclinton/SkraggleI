@@ -137,7 +137,6 @@ function ContactStepTwo({ onClose, formik }) {
             options={household}
             value={formik.values.household}
             onChange={(value) => {
-              // console.log(value);
               formik.setFieldValue('household', value.value);
             }}
             onBlur={formik.handleBlur}

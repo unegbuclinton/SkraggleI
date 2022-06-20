@@ -6,7 +6,7 @@ export const getCompanies = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: 'contacts/companies?cursor=-1&direction=after&limit=25'
+      url: '/contacts/companies?cursor=-1&direction=after&limit=25'
     });
     return response?.data?.message?.rows;
   } catch (error) {
@@ -22,7 +22,9 @@ export const addCompanies = async (body) => {
       data: body
     });
   } catch (error) {
-    toast.error();
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 

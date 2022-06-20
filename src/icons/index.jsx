@@ -24,6 +24,9 @@ export { ReactComponent as DPIconCoverTransaction } from 'icons/svgs/cover-trans
 export { ReactComponent as DPIconDashboard } from 'icons/svgs/dashboardIcon.svg';
 export { ReactComponent as DPIconDateArrow } from 'icons/svgs/dateArrow.svg';
 export { ReactComponent as DPIconDelete } from 'icons/svgs/delete.svg';
+export { ReactComponent as DPIconDonationDash } from 'icons/svgs/donationDash.svg';
+export { ReactComponent as DPIconDonationEye } from 'icons/svgs/donationEye.svg';
+export { ReactComponent as DPIconDonationMore } from 'icons/svgs/donationMore.svg';
 export { ReactComponent as DPIconDonations } from 'icons/svgs/donationsIcon.svg';
 export { ReactComponent as DPIconDonor } from 'icons/svgs/donor.svg';
 export { ReactComponent as DPIconDropDown } from 'icons/svgs/DropdownArrow.svg';
@@ -63,6 +66,7 @@ export { ReactComponent as DPIconChart } from 'icons/svgs/pie-chart.svg';
 export { ReactComponent as DPPlusIcon } from 'icons/svgs/plus.svg';
 export { ReactComponent as DPIconProfile } from 'icons/svgs/profile.svg';
 export { ReactComponent as DPIconProfileImage } from 'icons/svgs/ProfileImage.svg';
+export { ReactComponent as DPIconQicon } from 'icons/svgs/qicon.svg';
 export { ReactComponent as DPIconRangeIcon } from 'icons/svgs/rangeIcon.svg';
 export { ReactComponent as DPIconReports } from 'icons/svgs/reportIcon.svg';
 export { ReactComponent as DPIconRight } from 'icons/svgs/right.svg';

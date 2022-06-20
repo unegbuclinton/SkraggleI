@@ -118,6 +118,9 @@ export const contactSlice = createSlice({
       state.isLoading = false;
       state.tagsCreated = false;
     },
+    [createTags.rejected]: (state) => {
+      state.isLoading = false;
+    },
 
     //VIEW TAGS
     [viewTags.fulfilled]: (state, action) => {

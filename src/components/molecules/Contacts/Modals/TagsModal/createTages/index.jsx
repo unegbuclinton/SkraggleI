@@ -17,7 +17,6 @@ import {
 
 function CreateTags({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
-  console.log;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -26,10 +25,14 @@ function CreateTags({ onClose }) {
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
       const body = { name: values.tag };
-      dispatch(createTags(body)).then(() => {
-        onClose();
-        toast.success('Tag added Successfully');
-        dispatch(viewTags());
+      dispatch(createTags(body)).then((data) => {
+        if (data.payload === undefined) {
+          onClose();
+        } else {
+          onClose();
+          toast.success('Tag added Successfully');
+          dispatch(viewTags());
+        }
       });
     }
   });

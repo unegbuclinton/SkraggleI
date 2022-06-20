@@ -127,7 +127,6 @@ function EditAmin({ onClose }) {
             type={'text'}
             options={tagOptions}
             onChange={(value) => {
-              console.log(value);
               formik.setFieldValue(
                 'tags',
                 value.map((curr) => curr.value)
@@ -171,16 +170,17 @@ function EditAmin({ onClose }) {
             <Label>Email Subscription Status</Label>
             <SelectDropDown
               className="select"
-              id="emailSubscriptionStatus"
-              name="emailSubscriptionStatus"
+              id="is_subscribed_to_mailblasts"
+              name="is_subscribed_to_mailblasts"
               type={'text'}
               options={emailOptions}
-              value={formik.values.emailSubscriptionStatus}
-              onChange={(value) => formik.setFieldValue('emailSubscriptionStatus', value.value)}
+              value={formik.values.is_subscribed_to_mailblasts}
+              onChange={(value) => formik.setFieldValue('is_subscribed_to_mailblasts', value.value)}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.emailSubscriptionStatus && formik.errors.emailSubscriptionStatus ? (
-              <ErrorMsg>{formik.errors.emailSubscriptionStatus}</ErrorMsg>
+            {formik.touched.is_subscribed_to_mailblasts &&
+            formik.errors.is_subscribed_to_mailblasts ? (
+              <ErrorMsg>{formik.errors.is_subscribed_to_mailblasts}</ErrorMsg>
             ) : null}
           </SelectContainer>
         </InputContainer>

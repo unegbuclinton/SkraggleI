@@ -79,7 +79,6 @@ function CreateEvent({ onClose }) {
       });
     }
   });
-  console.log(formik.errors);
   return (
     <DetailsWrapper>
       <Container onSubmit={formik.handleSubmit}>
