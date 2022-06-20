@@ -8,7 +8,11 @@ import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { listAllMailBlast, removeMailBlast } from 'features/mailblast/mailBlastSlice';
+import {
+  getMailblastById,
+  listAllMailBlast,
+  removeMailBlast
+} from 'features/mailblast/mailBlastSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -46,7 +50,9 @@ function Mail() {
   };
 
   const onRowClicked = (row) => {
-    navigate(`/mail-blasts/${row?.id}`, { state: row });
+    dispatch(getMailblastById(row.id)).then(() => {
+      navigate(`/mail-blasts/${row?.id}`, { state: row });
+    });
   };
 
   const columns = [

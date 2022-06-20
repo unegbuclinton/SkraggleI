@@ -2,9 +2,12 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import StatisticsTracker from 'components/molecules/StatisticsTracker';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NewstellerBody, NewstellerTop, NewstellerWrapper } from './styles';
 
 function Overview() {
+  const { eachMailBlast } = useSelector((state) => state.mailBlast);
+  const { name, sent_at, raised_amount } = eachMailBlast;
   return (
     <NewstellerWrapper>
       <Card className="overview-card">
@@ -15,7 +18,7 @@ function Overview() {
               <p>Associated Campaign</p>
             </div>
             <div className="bottom">
-              <p className="left">Monthly newsletter</p>
+              <p className="left">{name}</p>
               <p className="right">Annual Fundraiser</p>
             </div>
           </div>
@@ -23,7 +26,7 @@ function Overview() {
             <Button pill className="newsteller-btn">
               Sent
             </Button>
-            <p>Send 20, 2020 - 06:20 PM</p>
+            <p>{sent_at}</p>
           </div>
         </NewstellerTop>
         <NewstellerBody>
@@ -55,7 +58,7 @@ function Overview() {
             />
 
             <div className="sumed-value">
-              <p className="sumed-value__num">$123</p>
+              <p className="sumed-value__num">${raised_amount}</p>
               <p className="sumed-value__text">Raised</p>
             </div>
           </div>
