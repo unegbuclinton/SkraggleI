@@ -62,12 +62,15 @@ export const Header = styled.header`
 `;
 
 export const HeaderRightContent = styled.div`
-  display: flex;
   position: relative;
-  align-self: stretch;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
+
+  .title {
+    display: flex;
+    align-self: stretch;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+  }
 
   .user-info {
     padding-left: 8.8rem;
@@ -89,7 +92,6 @@ export const HeaderRightContent = styled.div`
     span {
       width: 4rem;
       height: 4rem;
-      cursor: pointer;
     }
   }
 
@@ -108,22 +110,23 @@ export const HeaderRightContent = styled.div`
 
     .organization-container {
       border-bottom: 1px solid #6d696945;
-      margin-bottom: 1.4rem;
-      font-size: 9px;
+      font-size: 1.2rem;
+      /* margin-bottom: 1.4rem; */
       color: rgba(0, 0, 0, 0.45);
-      padding-left: 1rem;
+      padding: 0.6rem 1rem;
 
       .organisation-header {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         color: rgba(0, 0, 0, 0.45);
+        margin-left: 0.7rem;
         margin-bottom: 1rem;
-        padding-left: 1.2rem;
       }
     }
     .profile-header {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: rgba(0, 0, 0, 0.45);
-      margin-bottom: 1.6rem;
+      margin-left: 0.7rem;
+      margin-bottom: 1rem;
     }
     .img-profile__container {
       display: flex;
@@ -132,7 +135,6 @@ export const HeaderRightContent = styled.div`
       width: 100%;
       height: 8.2rem;
       border-bottom: 1px solid #6d696945;
-      margin-bottom: 0.6rem;
 
       .profile-icon {
         border-radius: 50%;
@@ -140,7 +142,7 @@ export const HeaderRightContent = styled.div`
     }
 
     .link-container {
-      padding-left: 1.8rem;
+      padding: 0 1rem;
     }
     .user-menu__links {
       display: flex;
@@ -148,8 +150,9 @@ export const HeaderRightContent = styled.div`
       width: 100%;
       color: ${COLORS['grey-400']};
       font-size: 1rem;
-      margin-bottom: 0.7rem;
-      padding: 0.7rem 0 0 0.7rem;
+      padding: 0.7rem;
+      font-size: 1.4rem;
+      font-weight: 500;
 
       span {
         width: 2rem;
@@ -159,12 +162,19 @@ export const HeaderRightContent = styled.div`
         background: #d9d9d94a;
         color: #00000073;
       }
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
     }
   }
 `;
+
 export const UserMenuLinkText = styled.p`
   font-weight: ${FONTWEIGHTS.bold};
 `;
+
 export const HeaderLinks = styled.div`
   display: flex;
   align-items: center;
