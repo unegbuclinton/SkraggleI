@@ -3,9 +3,9 @@ import { COLORS } from 'constants/colors';
 import { FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopyWhite } from 'icons';
 import React, { useCallback, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-function CopyField() {
+function CopyField({ grey }) {
   const textArea = useState(null);
 
   const copyToClipboard = useCallback(() => {
@@ -16,18 +16,31 @@ function CopyField() {
 
   return (
     <CopyFieldWrapper>
-      <div className="copy__textarea">
+      <Wrapper grey={grey}>
         <CopyText ref={textArea} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
-        <ButtonCopy className="preview__copy-button" onClick={copyToClipboard}>
+        <ButtonCopy grey={grey} className="preview__copy-button" onClick={copyToClipboard}>
           <DPIconCopyWhite className="preview__icon-copy" />
           Copy
         </ButtonCopy>
-      </div>
+      </Wrapper>
     </CopyFieldWrapper>
   );
 }
 
 export default CopyField;
+
+const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  width: 46.6rem;
+  border: 1px solid ${COLORS.pink};
+  border-radius: 0.5rem;
+  ${({ grey }) =>
+    grey &&
+    css`
+      border: 1px solid ${COLORS['grey-400']};
+    `};
+`;
 
 export const CopyFieldWrapper = styled.div`
   display: flex;
@@ -85,4 +98,10 @@ export const ButtonCopy = styled(Button)`
   border-radius: 0px 5px 5px 0px;
   right: 0;
   bottom: 0;
+
+  ${({ grey }) =>
+    grey &&
+    css`
+      background-color: ${COLORS['grey-400']};
+    `};
 `;

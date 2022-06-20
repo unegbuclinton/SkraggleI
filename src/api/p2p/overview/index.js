@@ -21,7 +21,7 @@ export const allP2P = async () => {
   try {
     const p2pResponse = await request({
       method: 'get',
-      url: '/p2p?cursor=0&direction=after&limit=20'
+      url: '/p2p?cursor=-1&direction=after&limit=20'
     });
     return p2pResponse?.data?.message?.rows;
   } catch (error) {

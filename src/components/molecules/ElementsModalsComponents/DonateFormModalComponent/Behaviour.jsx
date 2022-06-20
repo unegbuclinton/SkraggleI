@@ -25,7 +25,7 @@ function Behaviour() {
         <SelectDropDown className="behavior-dropdown" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <CopyField></CopyField>
+        <CopyField grey></CopyField>
       </BehaviorFieldWrapper>
     </BehaviourWrapper>
   );
