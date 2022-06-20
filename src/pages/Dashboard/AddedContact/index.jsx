@@ -16,18 +16,15 @@ function AddedContact() {
     },
     {
       name: 'FULL NAME',
-      selector: (row) => row.fullName,
-      width: '20.725rem'
+      selector: (row) => row.fullName
     },
     {
       name: 'PRIMARY EMAIL',
-      selector: (row) => row.primaryEmail,
-      width: '20.766rem'
+      selector: (row) => row.primaryEmail
     },
     {
       name: 'ASSIGNEE',
-      selector: (row) => row.assignee,
-      width: '25.494rem'
+      selector: (row) => row.assignee
     },
     {
       name: 'CREATED',

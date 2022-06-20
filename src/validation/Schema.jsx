@@ -84,7 +84,7 @@ export const detailsValidationSchema = Yup.object({
   zip: Yup.string().required('Zip is required'),
   settings: Yup.string().required('Settings is required'),
   eventStartDate: Yup.string().required('Events date required'),
-  eventStartDateTwo: Yup.string().required('Events date required'),
+  eventEndDate: Yup.string().required('Events date required'),
   startTime: Yup.string().required('Start time is required'),
   endTime: Yup.string().required('End time is required'),
   registrationEndTime: Yup.string().required('End time is required'),
@@ -107,15 +107,15 @@ export const packageValidatioSchema = Yup.object({
   discount: Yup.string().required('Discount percentage is required'),
   earlyBid: Yup.string().required('Early bid cutoff is required'),
   endTime: Yup.string().required('End time is required'),
-  partcipant: Yup.string().required('Participants is required'),
+  participant: Yup.string().required('Participants is required'),
   qty: Yup.string().required('Quantity is required'),
   packageQuantity: Yup.string().required('Package quantity is required')
 });
 
 export const fieldValidationSchema = Yup.object({
-  fieldLabel: Yup.string().required('Field label is required'),
-  reportLabel: Yup.string().required('Report Label is required'),
-  fieldType: Yup.string().required('Field type is required')
+  // fieldLabel: Yup.string().required('Field label is required'),
+  // reportLabel: Yup.string().required('Report Label is required'),
+  // fieldType: Yup.string().required('Field type is required')
 });
 
 export const promoCodeValidationSchema = Yup.object({
@@ -226,8 +226,14 @@ export const confirmNewPassword = Yup.object({
 
 export const VolunteerValidationSchema = Yup.object({
   name: Yup.string().required('Activity name is required'),
-  startDate: Yup.string().required('Start date is required'),
-  endDate: Yup.string().required('End Date is required'),
+  startDate: Yup.date().required('Start date is required'),
+  endDate: Yup.date()
+    .when(
+      'startDate',
+      (startDate, schema) =>
+        startDate && schema.min(startDate, 'End date cannot be before start date')
+    )
+    .required('End Date is required'),
   fee: Yup.string().required('Fee is required')
 });
 
@@ -259,10 +265,16 @@ export const CreatePledgeSchema = Yup.object({
   interval: Yup.string().required('This is required field'),
   campaign_id: Yup.string().required('This is required field'),
   impact_area: Yup.string().required('This is required field'),
-  soft_credit: Yup.string().required('This is required field'),
   source: Yup.string().required('This is required field'),
-  keywords: Yup.string().required('This is required field'),
+  keywords: Yup.array().required('This is required field'),
   dedication: Yup.string().required('This is required field'),
   notes: Yup.string().required('This is required field'),
   amount_currency: Yup.string().required('This is required field')
+});
+
+export const CreateMailBlastSchema = Yup.object({
+  name: Yup.string().required('This field is required'),
+  category: Yup.string().required('This field is required'),
+  assignee: Yup.string().required('This field is required'),
+  campaign: Yup.string().required('This field is required')
 });

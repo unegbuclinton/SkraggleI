@@ -7,6 +7,7 @@ import { getEachP2p, removeP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { formatDate } from 'utilities/helpers';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -41,39 +42,39 @@ function P2PTable() {
     // },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.name || row.campaign_id,
-      width: '20rem'
+      selector: (row) => row.name || row.campaign
+      // width: '20rem'
     },
 
     {
       name: 'FUNDRAISER',
-      selector: (row) => row.fundraiser_display_name,
-      width: '20rem'
+      selector: (row) => row.fundraiser_display_name
+      // width: '20rem'
     },
     {
       name: 'GOAL',
       selector: (row) => row.goal,
-      width: '20rem'
+      width: '10rem'
     },
     {
       name: 'RAISED',
       selector: (row) => row.offline_amount,
-      width: '20rem'
+      width: '10rem'
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created_at,
-      width: '20rem'
+      selector: (row) => formatDate(row.created_at)
+      // width: '20rem'
     },
     {
       name: 'GOAL DATE',
-      selector: (row) => row.goal_date,
-      width: '20rem'
+      selector: (row) => formatDate(row.goal_date)
+      // width: '20rem'
     },
     {
       name: '1M STATISTICS -_-_',
-      selector: (row) => row.sn,
-      width: '15rem'
+      selector: (row) => row.sn
+      // width: '10rem'
     }
   ];
 
@@ -108,7 +109,7 @@ function P2PTable() {
       <ContainerBody>
         <TableWrapper>
           <TableHeader
-            title="Add Contacts"
+            title="Create P2P"
             header={`${p2pData?.length} P2P`}
             setOpen={setOpen}
             setOpenDeleteModal={setOpenDeleteModal}

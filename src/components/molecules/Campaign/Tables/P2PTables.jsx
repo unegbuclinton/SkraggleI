@@ -12,7 +12,7 @@ import datas from 'utilities/filterData';
 import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const P2PTable = () => {
-  const { p2p } = useSelector((state) => state.campaign);
+  const { p2p } = useSelector((state) => state?.campaign);
   const columns = [
     {
       name: ' ',
@@ -22,23 +22,23 @@ const P2PTable = () => {
     },
     {
       name: 'P2P EVENTS NAME',
-      selector: (row) => row.fundraiser_display_name,
+      selector: (row) => row?.fundraiser_display_name,
       width: '35rem'
     },
 
     {
       name: 'TYPE',
-      selector: (row) => row.type,
+      selector: (row) => row?.type,
       width: '20rem'
     },
     {
       name: 'RAISED',
-      selector: (row) => row.raised,
+      selector: (row) => row?.raised,
       width: '20rem'
     },
     {
       name: 'DONATIONS',
-      selector: (row) => row.offline_donation,
+      selector: (row) => row?.offline_donation,
       width: '35rem'
     },
     {

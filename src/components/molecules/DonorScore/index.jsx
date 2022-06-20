@@ -51,51 +51,51 @@ function DonorScore() {
   ];
 
   return (
-    <div className="duration-wrapper">
-      <DonorWrapper>
-        <BarchartWrapper>
-          <div className="duraton-chart">
-            <BorderBottom />
-            <BarChart
-              series={series}
-              legend={{
-                show: true,
-                showForSingleSeries: true,
-                customLegendItems: ['Highest', 'Medium', 'Lowest'],
-                position: 'top',
-                offsetY: -34,
-                horizontalAlign: 'right',
-                fontSize: '12px',
-                markers: {
-                  fillColors: ['#9FFF97', '#FFE768', '#FF576B'],
-                  width: '16px',
-                  height: '16px',
-                  offsetY: 3,
-                  offsetX: -2
-                },
-                itemMargin: {
-                  horizontal: 10
-                }
-              }}
-              title={{
-                text: 'Donor Score',
-                align: 'left',
-                style: {
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  color: '#1F2847',
-                  position: 'relative'
-                }
-              }}
-              categories={[' ', '30', ' ', '40', ' ', '60']}
-              width={650}
-              height={400}
-            />
-          </div>
-          <div className="donattion-title">Donors likely to donate each month</div>
-        </BarchartWrapper>
-      </DonorWrapper>
-    </div>
+    // <div className="duration-wrapper">
+    <DonorWrapper>
+      <BarchartWrapper>
+        <div className="duraton-chart">
+          <BorderBottom />
+          <BarChart
+            series={series}
+            legend={{
+              show: true,
+              showForSingleSeries: true,
+              customLegendItems: ['Highest', 'Medium', 'Lowest'],
+              position: 'top',
+              offsetY: -34,
+              horizontalAlign: 'right',
+              fontSize: '12px',
+              markers: {
+                fillColors: ['#9FFF97', '#FFE768', '#FF576B'],
+                width: '16px',
+                height: '16px',
+                offsetY: 3,
+                offsetX: -2
+              },
+              itemMargin: {
+                horizontal: 10
+              }
+            }}
+            title={{
+              text: 'Donor Score',
+              align: 'left',
+              style: {
+                fontSize: '14px',
+                fontWeight: 'bold',
+                color: '#1F2847',
+                position: 'relative'
+              }
+            }}
+            categories={[' ', '30', ' ', '40', ' ', '60']}
+            // width={650}
+            height={400}
+          />
+        </div>
+        <div className="donattion-title">Donors likely to donate each month</div>
+      </BarchartWrapper>
+    </DonorWrapper>
+    // </div>
   );
 }
 
@@ -115,6 +115,7 @@ const BarchartWrapper = styled(Card)`
 
 const DonorWrapper = styled.div`
   margin-bottom: 1.6rem;
+  width: 100%;
 
   .Donor-text,
   .duration-text {

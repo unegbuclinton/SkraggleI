@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
 import DateRange from 'components/molecules/DateRange';
 import dayjs from 'dayjs';
+import { getAdminData } from 'features/auth/authSlice';
 import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import {
   allHouseHold,
@@ -12,7 +14,10 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import { getPledge } from 'features/donation/donationSlice';
+import { getAllElements } from 'features/elements/elementsSlice';
 import { getAllEvents } from 'features/events/eventSlice';
+import { getAllForm } from 'features/forms/formsSlice';
+import { listAllMailBlast } from 'features/mailblast/mailBlastSlice';
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
@@ -32,40 +37,28 @@ function Overview() {
   });
   const [datePick, setDatePick] = useState(false);
   const toogleDateRange = () => setDatePick((prev) => !prev);
-  useEffect(() => {
-    dispatch(getAllCompanies());
-  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getAllCompanies());
+  //   dispatch(getAllEvents());
+  //   dispatch(getPledge());
+  //   dispatch(allHouseHold());
+  //   dispatch(viewTags());
+  //   dispatch(viewContact());
+  //   dispatch(getAllTodos());
+  //   dispatch(viewP2P());
+  //   dispatch(getAllCampaigns());
+  //   dispatch(getAllForm());
+  //   dispatch(getAllElements());
+  //   dispatch(getAdminData());
+  //   dispatch(getAdminData());
+  // }, []);
+
+  // useEffect(() => {
+  // }, []);
 
   useEffect(() => {
-    dispatch(getAllEvents());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getPledge());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(allHouseHold());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewTags());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewContact());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllTodos());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(viewP2P());
-  }, []);
-
-  useEffect(() => {
-    dispatch(getAllCampaigns());
+    dispatch(listAllMailBlast());
   }, [dispatch]);
 
   return (
@@ -94,7 +87,6 @@ function Overview() {
               toggle={toogleDateRange}
               className="date-range-picker"
               onChangeRange={(ranges) => {
-                console.log(ranges);
                 setFilterRange(ranges);
               }}
             />

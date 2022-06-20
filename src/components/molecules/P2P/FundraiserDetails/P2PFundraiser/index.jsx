@@ -2,14 +2,19 @@ import Button from 'components/atoms/Button/Button';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
-import { React, useRef } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 
 const P2PFundraise = ({ className }) => {
-  const textAreaRef = useRef(null);
+  const { eachP2p } = useSelector((state) => state.p2p);
+  const { campaign, created_at } = eachP2p;
+
+  const textArea = useState(null);
 
   function copyToClipboard1() {
-    var text = textAreaRef.current.value;
+    var text = textArea.current.value;
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }
@@ -24,7 +29,7 @@ const P2PFundraise = ({ className }) => {
       <div className="fundraiser__down">
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Campaign</h1>
-          <p className="fundraiser__p1">BGA awesome campaign demo #1</p>
+          <p className="fundraiser__p1">{campaign}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Supporter</h1>
@@ -36,7 +41,7 @@ const P2PFundraise = ({ className }) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textAreaRef}></textarea>
+              ref={textArea}></textarea>
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>
@@ -44,7 +49,7 @@ const P2PFundraise = ({ className }) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Start Date</h1>
-          <p className="fundraiser__p2">Dec 1, 2021</p>
+          <p className="fundraiser__p2"> {formatDate(created_at)}</p>
         </div>
       </div>
     </P2PFundraiser>

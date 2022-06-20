@@ -25,10 +25,14 @@ function CreateteNewHouseHold({ onClose }) {
     validationSchema: houseHoldValidationSchema,
     onSubmit: (values) => {
       const body = { name: values.name };
-      dispatch(createHouseHold(body)).then(() => {
-        onClose();
-        toast.success('Successfully Created a new HouseHold');
-        dispatch(allHouseHold());
+      dispatch(createHouseHold(body)).then((data) => {
+        if (data.payload === undefined) {
+          onClose();
+        } else {
+          onClose();
+          toast.success('Successfully Created a new HouseHold');
+          dispatch(allHouseHold());
+        }
       });
     }
   });
@@ -56,7 +60,7 @@ function CreateteNewHouseHold({ onClose }) {
               Cancel
             </Button>
 
-            <Button disabled={isLoading} type="submit" className="continue">
+            <Button disabled={!formik.dirty && !isLoading} type="submit" className="continue">
               Continue
             </Button>
           </ButtonContainer>

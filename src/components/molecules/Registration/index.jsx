@@ -19,6 +19,7 @@ function Registration() {
   const [number, hasNumber] = useState(false);
   const [password, hasPassword] = useState(false);
   const [lowerCase, isLowerCase] = useState(false);
+  const [special, hasSpecial] = useState(false);
   const { isLoading } = useSelector((state) => state.auth);
 
   const formik = useFormik({
@@ -29,11 +30,14 @@ function Registration() {
       password: '',
       confirmPassword: ''
     },
+
     validate: (values) => {
-      !values.password ? hasPassword(false) : hasPassword(true);
+      hasPassword(values.password);
       values.password.length < 8 ? longEnough(false) : longEnough(true);
-      !/\d/.test(values.password) ? hasNumber(false) : hasNumber(true);
-      !/[a-z]/.test(values.password) ? isLowerCase(false) : isLowerCase(true);
+      hasNumber(/\d/.test(values.password));
+      isLowerCase(/[a-z]/.test(values.password));
+      /* eslint-disable no-useless-escape */
+      hasSpecial(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(values.password));
     },
     validationSchema: registrationSchema,
     onSubmit: (values) => {
@@ -112,7 +116,13 @@ function Registration() {
           {formik.touched.password && formik.errors.password ? (
             <CatchError>{formik.errors.password}</CatchError>
           ) : null}
-          <Requirements long={long} number={number} required={password} lowercase={lowerCase} />
+          <Requirements
+            long={long}
+            number={number}
+            required={password}
+            lowercase={lowerCase}
+            special={special}
+          />
           <Input
             type="password"
             id="confirmPassword"

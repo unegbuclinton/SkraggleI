@@ -47,7 +47,7 @@ function DonationSetupFormComponent() {
 export default DonationSetupFormComponent;
 
 const FormComponentContainer = styled.div`
-  padding: 2.53rem 2.139rem 2.201rem 2.103rem;
+  padding: 2.53rem 4.4rem 4.201rem 4.4rem;
 
   .form-btns {
     display: flex;
@@ -55,7 +55,8 @@ const FormComponentContainer = styled.div`
     margin-bottom: 2.941rem;
 
     .form-btn {
-      width: 7.302rem;
+      width: 100%;
+      max-width: 7.302rem;
       height: 3.646rem;
       background: ${COLORS.white};
       border: 0.920602px solid ${COLORS.torquoise};
@@ -89,7 +90,8 @@ const FormComponentContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 4.907rem;
+      width: 100%;
+      max-width: 4.907rem;
       height: 4.3rem;
       font-size: 1.473rem;
       background: ${COLORS.torquoise};
@@ -117,7 +119,7 @@ const FormParagraph = styled.p`
 
 const FormButtonWrapper = styled.div`
   .form-footer__btn {
-    width: 30.815rem;
+    width: 100%;
     height: 5.105rem;
     font-size: ${FONTSIZES.small};
     margin-top: 4.633rem;

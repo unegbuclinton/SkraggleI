@@ -10,13 +10,15 @@ const Table = ({
   onRowClicked,
   className,
   selectableRowsComponent,
-  selectableRows
+  selectableRows,
+  progressComponent,
+  progressPending
 }) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
 
   return (
-    <TableWrapper className={className} onRowClicked={onRowClicked}>
+    <TableWrapper className={className}>
       <DataTable
         columns={TableColumns}
         data={TableData || []}
@@ -24,6 +26,8 @@ const Table = ({
         onRowClicked={onRowClicked}
         selectableRows={selectableRows}
         selectableRowsComponent={selectableRowsComponent}
+        progressPending={progressPending}
+        progressComponent={progressComponent}
       />
     </TableWrapper>
   );

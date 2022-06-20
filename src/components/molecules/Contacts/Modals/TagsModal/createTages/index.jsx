@@ -17,7 +17,6 @@ import {
 
 function CreateTags({ onClose }) {
   const { isLoading } = useSelector((state) => state.contact);
-  console.log;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -26,10 +25,14 @@ function CreateTags({ onClose }) {
     validationSchema: tagValidationSchema,
     onSubmit: (values) => {
       const body = { name: values.tag };
-      dispatch(createTags(body)).then(() => {
-        onClose();
-        toast.success('Tag added Successfully');
-        dispatch(viewTags());
+      dispatch(createTags(body)).then((data) => {
+        if (data.payload === undefined) {
+          onClose();
+        } else {
+          onClose();
+          toast.success('Tag added Successfully');
+          dispatch(viewTags());
+        }
       });
     }
   });
@@ -55,7 +58,7 @@ function CreateTags({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue" disabled={isLoading}>
+            <Button type="submit" className="continue" disabled={!formik.dirty && isLoading}>
               Continue
             </Button>
           </ButtonContainer>

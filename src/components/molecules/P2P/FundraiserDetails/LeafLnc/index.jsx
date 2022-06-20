@@ -3,17 +3,17 @@ import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopy } from 'icons';
-import { React, useCallback, useRef } from 'react';
+import { React, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function LeafLnc({ className }) {
   const { eachP2p } = useSelector((state) => state.p2p);
-  const { fundraiser_display_name } = eachP2p;
-  const textAreaRef = useRef(null);
+  const { fundraiser_display_name, donations_count, raised } = eachP2p;
+  const textArea = useState(null);
 
   const copyToClipboard = useCallback(() => {
-    const text = textAreaRef.current.value;
+    const text = textArea.current.value;
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }, []);
@@ -28,7 +28,7 @@ function LeafLnc({ className }) {
         <div>
           <div className="fundraiser__id">ID</div>
           <div className="fundraiser__no">
-            <textarea className="fundraiser__textArea" value="NRTFSTPL" ref={textAreaRef} />
+            <textarea className="fundraiser__textArea" value="NRTFSTPL" ref={textArea} />
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard}>
               <DPIconCopy />
             </Button>
@@ -46,11 +46,11 @@ function LeafLnc({ className }) {
         </div>
         <div className="fundraiser__info-2">
           <p className="fundraiser__paragraph">Total raised</p>
-          <div className="fundraiser__active__raised">$0.00 USD</div>
+          <div className="fundraiser__active__raised">{raised} USD</div>
         </div>
         <div className="fundraiser__info-3">
           <p className="fundraiser__paragraph">Donations</p>
-          <div className="fundraiser__active__donations">0</div>
+          <div className="fundraiser__active__donations">{donations_count}</div>
         </div>
       </div>
     </P2PFundraiserWrapper>

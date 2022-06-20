@@ -2,6 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { formatDate } from 'utilities/helpers';
 import { PersonalInfoContainer, PersonalInfoHeading, PersonalInfoWrapper } from './styles';
 
 function PersonalInfo() {
@@ -10,11 +11,11 @@ function PersonalInfo() {
     setShowModal(true);
   };
   const { eachContact } = useSelector((state) => state.contact);
-  const { first_name, last_name, primary_email, address, primary_phone } = eachContact;
+  const { first_name, last_name, primary_email, address, primary_phone, birth_date } = eachContact;
   return (
     <PersonalInfoWrapper>
       <PersonalInfoHeading>
-        <h1 className="heading">Persona Information</h1>
+        <h1 className="heading">Personal Information</h1>
         <Button className="info-btn" onClick={toggleModal}>
           Edit
         </Button>
@@ -49,7 +50,7 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">BIRTH DATE</h2>
-        <p className="title date">Dec 4, 1989</p>
+        <p className="title date">{formatDate(birth_date)}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">PRIMARY EMAIL</h2>

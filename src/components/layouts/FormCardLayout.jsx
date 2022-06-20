@@ -6,8 +6,10 @@ import styled from 'styled-components';
 function FormCardLayout({ children }) {
   return (
     <FormCardContainer>
-      <DPIconSkraggleHeader />
+      {/* <div className="wrapper-class"> */}
+      <DPIconSkraggleHeader className="header-logo" />
       <Card>{children}</Card>
+      {/* </div> */}
     </FormCardContainer>
   );
 }
@@ -15,5 +17,16 @@ function FormCardLayout({ children }) {
 export default FormCardLayout;
 
 const FormCardContainer = styled.div`
-  width: 37.954rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* padding-bottom: 2.5rem; */
+  flex: 0.35;
+  .wrapper-class {
+    height: 100%;
+  }
+
+  .header-logo {
+    width: 100%;
+  }
 `;

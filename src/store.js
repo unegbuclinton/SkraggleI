@@ -3,8 +3,10 @@ import authReducer from 'features/auth/authSlice';
 import campaignReducer from 'features/campaign/campaignSlice';
 import contactReducer from 'features/contact/contactSlice';
 import donationReducer from 'features/donation/donationSlice';
+import elementReducer from 'features/elements/elementsSlice';
 import eventReducer from 'features/events/eventSlice';
 import formsReducer from 'features/forms/formsSlice';
+import mailblastReducer from 'features/mailblast/mailBlastSlice';
 import p2pReducer from 'features/p2p/p2pSlice';
 import {
   FLUSH,
@@ -32,7 +34,9 @@ const rootReducer = combineReducers({
   p2p: p2pReducer,
   donation: donationReducer,
   forms: formsReducer,
-  events: eventReducer
+  events: eventReducer,
+  mailBlast: mailblastReducer,
+  element: elementReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

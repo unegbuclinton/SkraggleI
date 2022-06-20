@@ -6,10 +6,10 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function SupportTabComponent() {
+function SupportTabComponent({ IncrementTab, DecrementTab }) {
   return (
     <SupportTabWrapper>
-      <Card className="support-card">
+      <SupportCardWrapper className="support-card">
         <SupportTabContainer>
           <SupportHeaderWrapper>
             <SupportHeader>Ask for mailing address</SupportHeader>
@@ -55,14 +55,14 @@ function SupportTabComponent() {
         </SupportTabContainer>
         <SupportTabDivider />
         <SupportTabFooter>
-          <Button className="support-back__btn" invert auth>
+          <Button className="support-back__btn" invert auth onClick={DecrementTab}>
             Back
           </Button>
-          <Button className="support-next__btn" auth>
+          <Button className="support-next__btn" auth onClick={IncrementTab} n>
             Next
           </Button>
         </SupportTabFooter>
-      </Card>
+      </SupportCardWrapper>
     </SupportTabWrapper>
   );
 }
@@ -70,14 +70,25 @@ function SupportTabComponent() {
 export default SupportTabComponent;
 
 const SupportTabWrapper = styled.div`
-  width: 53rem;
+  width: 100%;
+  height: 100%;
+  flex: 0.65;
+  overflow: hidden;
   .support-card {
     padding: 4rem 6.246rem 2.4rem 4.4rem;
   }
 `;
+
+export const SupportCardWrapper = styled(Card)`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+`;
+
 const SupportTabContainer = styled.div``;
+
 const SupportTabDivider = styled.div`
-  width: 42.2rem;
+  width: 100%;
   border: 1px solid ${COLORS.torquoise};
   margin: 3.2rem 0;
 `;
@@ -101,6 +112,7 @@ const SupportTabFooter = styled.div`
   display: flex;
   gap: 1.6rem;
   justify-content: flex-end;
+  padding-bottom: 1.6rem;
 
   .support-back__btn {
     width: 10.7rem;

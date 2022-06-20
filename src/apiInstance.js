@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
+import { logoutUser } from 'features/auth/authSlice';
+import { toast } from 'react-toastify';
 import store from 'store';
 
 const request = axios.create({
@@ -42,38 +45,55 @@ request.interceptors.response.use(
     return response;
   },
   async function (error) {
-    const {
-      auth: { token },
-      user: { data: userData }
-    } = store.getState();
+    // const {
+    //   auth: { token },
+    //   user: { data: userData }
+    // } = store.getState();
+    const storeState = store.getState();
+    const { auth, user } = storeState;
+    const token = auth?.token;
+    const userData = user?.data;
 
-    if (error.response && error.response.status === 401 && token.access) {
-      if (userData?.id && userData?.email && token.refresh) {
-        try {
-          const { refresh } = token;
-          const refreshTokenResponse = await refreshUserToken({
-            refresh
-          });
-          const { access_token: newToken } = refreshTokenResponse.data;
+    if (error?.response?.status === 401 && token.access_token) {
+      try {
+        toast.error(error?.response?.data?.message);
+        store.dispatch(logoutUser());
+      } catch (error) {
+        console.log(error);
+      }
+      // if (userData?.id && userData?.email && token.refresh) {
+      //   try {
+      //     const { refresh } = token;
+      //     const refreshTokenResponse = await refreshUserToken({
+      //       refresh
+      //     });
+      //     const { access_token: newToken } = refreshTokenResponse.data;
 
-          const newConfig = {
-            ...error.config,
-            headers: {
-              ...error.config.headers,
-              Authorization: `Bearer ${newToken}`
-            }
-          };
-          const newResponse = await axios.request(newConfig);
-          // store.dispatch(fetchUser());
-          return newResponse;
-        } catch (err) {
-          // store.dispatch(logout());
+      //     const newConfig = {
+      //       ...error.config,
+      //       headers: {
+      //         ...error.config.headers,
+      //         Authorization: `Bearer ${newToken}`
+      //       }
+      //     };
+      //     const newResponse = await axios.request(newConfig);
+      //     // store.dispatch(fetchUser());
+      //     return newResponse;
+      //   } catch (err) {
+      //     // store.dispatch(logout());
 
-          return Promise.reject(error);
-        }
-      } else {
-        // store.dispatch(logout());
-        return Promise.reject(error);
+      //     return Promise.reject(error);
+      //   }
+      // } else {
+      //   store.dispatch(logoutUser());
+      //   return Promise.reject(error);
+      // }
+    } else if (error?.response?.status === 401) {
+      try {
+        toast.error(error?.response?.data?.message);
+        store.dispatch(logoutUser());
+      } catch (error) {
+        console.log(error);
       }
     }
 

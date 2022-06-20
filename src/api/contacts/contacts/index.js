@@ -10,7 +10,9 @@ export const addContact = async (body) => {
     });
     return createContactResponse;
   } catch (error) {
-    toast.error('Contact did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
@@ -18,7 +20,7 @@ export const allContacts = async () => {
   try {
     const contactResponse = await request({
       method: 'get',
-      url: '/contacts/users?cursor=0&limit=20&direction=after'
+      url: '/contacts/users?cursor=-1&limit=20'
     });
     return contactResponse?.data?.message?.rows;
   } catch (error) {

@@ -11,7 +11,9 @@ export const addP2P = async (body) => {
     toast.done('P2P created successfully');
     return createP2PResponse;
   } catch (error) {
-    toast.error('P2P did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
@@ -19,7 +21,7 @@ export const allP2P = async () => {
   try {
     const p2pResponse = await request({
       method: 'get',
-      url: '/p2p?cursor=0&direction=after&limit=20'
+      url: '/p2p?cursor=-1&direction=after&limit=20'
     });
     return p2pResponse?.data?.message?.rows;
   } catch (error) {

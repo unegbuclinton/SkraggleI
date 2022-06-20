@@ -2,22 +2,14 @@ import Button from 'components/atoms/Button/Button';
 import React from 'react';
 import { BtnWrapper } from './styles';
 
-function TableBtn({ active }) {
+function TableBtn({ tags }, idx) {
   return (
     <BtnWrapper>
-      {active ? (
-        <Button className="active-table-btn"> Active </Button>
-      ) : (
-        <>
-          {' '}
-          <Button pill className="table-button">
-            Muslim
-          </Button>
-          <Button pill className="table-button">
-            Volunteer
-          </Button>
-        </>
-      )}
+      {tags?.map((current) => (
+        <Button pill className="table-button" key={idx}>
+          {current}
+        </Button>
+      ))}
     </BtnWrapper>
   );
 }

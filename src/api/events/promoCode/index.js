@@ -31,7 +31,6 @@ export const getPromoCodeById = async (id) => {
       method: 'get',
       url: `/promocode/info/${id}`
     });
-
     return response?.data?.message;
   } catch (error) {
     return error;
@@ -44,6 +43,18 @@ export const updatePromoCodeById = async ({ body, id }) => {
       method: 'patch',
       url: `/promocode/${id}`,
       data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deletePromoCode = async ({ id }) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/promocode/${id}`
     });
     return response;
   } catch (error) {
