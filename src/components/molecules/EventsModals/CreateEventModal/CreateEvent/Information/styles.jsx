@@ -50,7 +50,7 @@ export const EventWrapper = styled.div`
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
-      margin-bottom: 2.4rem;
+      margin: 2.4rem 0 2.4rem 0;
     }
     .upload-button {
       width: 12.6rem;

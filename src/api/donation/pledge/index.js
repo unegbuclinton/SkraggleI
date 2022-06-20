@@ -24,3 +24,16 @@ export const createPledge = async (body) => {
     console.log(error);
   }
 };
+
+export const deletePledge = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/donations/pledges`,
+      data: body
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

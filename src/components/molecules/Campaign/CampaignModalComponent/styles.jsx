@@ -43,6 +43,18 @@ export const ModalWrapper = styled.form`
     border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
   }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 `;
 
 export const ModalInput = styled.input``;

@@ -79,7 +79,7 @@ class TextEditor extends React.Component {
     }
 
     return (
-      <div className="RichEditor-root">
+      <TextEditorWrapper className="RichEditor-root">
         <Header>
           <InlineStyleControls editorState={editorState} onToggle={this.toggleInlineStyle} />
           <BlockStyleControls editorState={editorState} onToggle={this.toggleBlockType} />
@@ -98,7 +98,7 @@ class TextEditor extends React.Component {
             spellCheck={true}
           />
         </div>
-      </div>
+      </TextEditorWrapper>
     );
   }
 }
@@ -204,6 +204,89 @@ const InlineStyleControls = (props) => {
 };
 
 export default TextEditor;
+
+const TextEditorWrapper = styled.div`
+  background: #fff;
+  border: 1px solid #9a9aa9;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  width: 61.4rem;
+  border-radius: 5px;
+  overflow-x: hidden;
+
+  .RichEditor-editor {
+    cursor: text;
+    font-size: 16px;
+    padding: 15px;
+    height: 20.9rem;
+    width: 61.4rem;
+    overflow-y: auto;
+  }
+
+  .RichEditor-editor .public-DraftEditorPlaceholder-root,
+  .RichEditor-editor .public-DraftEditor-content {
+    margin: 0 -15px -15px;
+    padding: 15px;
+  }
+
+  .RichEditor-editor .public-DraftEditor-content {
+    min-height: 100px;
+  }
+
+  .RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+    display: none;
+  }
+
+  .RichEditor-editor .RichEditor-blockquote {
+    border-left: 5px solid #eee;
+    color: #666;
+    font-family: 'Hoefler Text', 'Georgia', serif;
+    font-style: italic;
+    margin: 0px 0;
+    padding: 10px 20px;
+  }
+
+  .RichEditor-editor .alignRight {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .RichEditor-editor .alignLeft {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .RichEditor-editor .alignCenter {
+    display: flex;
+    justify-content: center;
+  }
+
+  .RichEditor-editor .public-DraftStyleDefault-pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  .RichEditor-controls {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    user-select: none;
+  }
+
+  .RichEditor-styleButton {
+    color: red;
+    cursor: pointer;
+    margin-right: 16px;
+    padding: 2px 0;
+    display: inline-block;
+  }
+
+  .RichEditor-activeButton {
+    color: #5890ff;
+  }
+`;
 
 const Header = styled.div`
   background-color: ${COLORS['gray-500']};
