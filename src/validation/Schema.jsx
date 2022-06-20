@@ -225,8 +225,14 @@ export const confirmNewPassword = Yup.object({
 
 export const VolunteerValidationSchema = Yup.object({
   name: Yup.string().required('Activity name is required'),
-  startDate: Yup.string().required('Start date is required'),
-  endDate: Yup.string().required('End Date is required'),
+  startDate: Yup.date().required('Start date is required'),
+  endDate: Yup.date()
+    .when(
+      'startDate',
+      (startDate, schema) =>
+        startDate && schema.min(startDate, 'End date cannot be before start date')
+    )
+    .required('End Date is required'),
   fee: Yup.string().required('Fee is required')
 });
 
@@ -258,9 +264,8 @@ export const CreatePledgeSchema = Yup.object({
   interval: Yup.string().required('This is required field'),
   campaign_id: Yup.string().required('This is required field'),
   impact_area: Yup.string().required('This is required field'),
-  soft_credit: Yup.string().required('This is required field'),
   source: Yup.string().required('This is required field'),
-  keywords: Yup.string().required('This is required field'),
+  keywords: Yup.array().required('This is required field'),
   dedication: Yup.string().required('This is required field'),
   notes: Yup.string().required('This is required field'),
   amount_currency: Yup.string().required('This is required field')

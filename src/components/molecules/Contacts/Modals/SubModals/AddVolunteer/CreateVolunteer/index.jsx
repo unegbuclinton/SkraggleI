@@ -87,18 +87,25 @@ function CreateVolunteerModal({ onClose }) {
           <ErrorMsg>{formik.errors.endDate}</ErrorMsg>
         ) : null}
         <VolunteerLabel>Fee</VolunteerLabel>
-        <Input
-          className="input-field"
-          onWheel={() => document.activeElement.blur()}
-          type="number"
-          id="fee"
-          name="fee"
-          placeholder="Fee"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.fee}
-        />
-        {formik.touched.fee && formik.errors.fee ? <ErrorMsg>{formik.errors.fee}</ErrorMsg> : null}
+        <div className="money-input">
+          $
+          <Input
+            className="money-input__figure"
+            onWheel={() => document.activeElement.blur()}
+            type="number"
+            id="fee"
+            name="fee"
+            placeholder="Fee"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.fee}
+          />
+        </div>
+        <div className="error">
+          {formik.touched.fee && formik.errors.fee ? (
+            <ErrorMsg>{formik.errors.fee}</ErrorMsg>
+          ) : null}
+        </div>
         <VolunteerLabel>Status</VolunteerLabel>
         <Input
           className="input-field"

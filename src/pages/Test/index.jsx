@@ -1,4 +1,3 @@
-// import Spinner from 'components/atoms/Spinner/Spinner';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import DonationSetup from 'components/molecules/Forms/donationSetup';
 // import DonationSetupComponent from 'components/molecules/Forms/donationSetup/DonationSetupComponent';
