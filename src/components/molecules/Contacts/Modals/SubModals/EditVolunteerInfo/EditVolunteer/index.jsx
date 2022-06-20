@@ -18,7 +18,7 @@ function VolunteerEdit({ onClose }) {
     validationSchema: volunteerValidationSchema,
     onSubmit: (values) => {
       const body = {
-        tShirtSize: values.tShirtSize
+        t_shirt_size: values.tShirtSize
       };
       dispatch(updateContact({ body: body, id: volunteernId }));
       onClose();
@@ -26,6 +26,8 @@ function VolunteerEdit({ onClose }) {
   });
 
   const shirtSizeOptions = [
+    { value: 'XS', label: 'XS' },
+    { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
     { value: 'L', label: 'L' },
     { value: 'XL', label: 'XL' }

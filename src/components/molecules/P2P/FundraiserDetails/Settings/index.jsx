@@ -56,7 +56,7 @@ function Settings({ className }) {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Supporter Name</h1>
-          <p className="fundraiser__p2">Dec 1, 2021</p>
+          <p className="fundraiser__p2">Name</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Fundraiser Photo</h1>
@@ -140,7 +140,6 @@ export const SettingsWrapper = styled.div`
       font-size: 16px;
       line-height: 19px;
       margin-bottom: 1.6rem;
-      margin-left: 2.7rem;
     }
   }
 `;

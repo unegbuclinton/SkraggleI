@@ -33,3 +33,9 @@ export function nameAbbr(str) {
 
   return firstLetter;
 }
+
+export function isInThePast(date) {
+  const today = new Date();
+
+  return date < today;
+}
