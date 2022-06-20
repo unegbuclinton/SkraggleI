@@ -34,7 +34,7 @@ function InteractionTable() {
       <TableWrapper>
         <TableHeader
           subMenuTableHeader
-          header=" 5 Interactions"
+          header={`${interactionData.length} Interactions`}
           title="Add Interaction"
           setOpen={setOpen}
         />

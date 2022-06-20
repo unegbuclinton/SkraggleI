@@ -11,7 +11,9 @@ export const addP2P = async (body) => {
     toast.done('P2P created successfully');
     return createP2PResponse;
   } catch (error) {
-    toast.error('P2P did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 

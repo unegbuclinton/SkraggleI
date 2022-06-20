@@ -27,6 +27,31 @@ export const VolunteerForm = styled.form`
   input[type='number'] {
     -moz-appearance: textfield;
   }
+
+  .money-input {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    height: 4.4rem;
+    background-color: ${COLORS.white};
+    font-size: ${FONTSIZES.small};
+    width: 60.2rem;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    color: ${COLORS['grey-400']};
+    outline: none;
+    border: 0.1rem solid ${COLORS['gray-500']};
+    &__figure {
+      background-color: transparent;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .error {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const VolunteerLabel = styled.label`

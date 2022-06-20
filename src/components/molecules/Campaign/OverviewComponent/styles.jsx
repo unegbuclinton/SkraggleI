@@ -6,6 +6,8 @@ import styled from 'styled-components';
 export const MainWrapper = styled.div`
   display: flex;
   margin-top: 1.6rem;
+  padding-bottom: 3rem;
+  height: 100%;
 `;
 
 export const IconWrapper = styled.div`
@@ -21,11 +23,14 @@ export const IconWrapper = styled.div`
 export const LeftSection = styled(Card)`
   display: flex;
   flex-direction: column;
-  width: 34.6rem;
+  max-width: 34.6rem;
+  width: 100%;
   margin-right: 1.6rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
-  height: 74.6rem;
+  /* height: 74.6rem; */
+  height: 100%;
+  overflow: auto;
 
   .action-dropdown__container {
     width: 12rem;
@@ -86,6 +91,8 @@ export const RightSection = styled(Card)`
   flex: 1;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
+  height: 100%;
+  overflow: auto;
 
   .campaign-name {
     &__top {
@@ -121,6 +128,7 @@ export const RightSection = styled(Card)`
       flex-direction: column;
       align-items: center;
       padding-top: 12rem;
+      padding-bottom: 12rem;
     }
     &__bottom-heading {
       font-size: ${FONTSIZES.lg};

@@ -56,7 +56,11 @@ export const DateContainer = styled.div`
   display: flex;
   gap: 1.6rem;
   .date-dropdown {
-    width: 17.842rem;
+    width: 100%;
+  }
+
+  & > * {
+    flex: 1;
   }
 `;
 

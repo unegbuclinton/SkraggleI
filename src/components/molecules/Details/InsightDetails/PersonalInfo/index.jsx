@@ -14,7 +14,7 @@ function PersonalInfo() {
   return (
     <PersonalInfoWrapper>
       <PersonalInfoHeading>
-        <h1 className="heading">Persona Information</h1>
+        <h1 className="heading">Personal Information</h1>
         <Button className="info-btn" onClick={toggleModal}>
           Edit
         </Button>

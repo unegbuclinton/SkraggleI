@@ -6,13 +6,19 @@ import Switch from 'components/atoms/Switch/Switch';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function GeneralSettingsForm() {
-  const designation = [
-    { value: 'Yes', label: 'Yes' },
-    { value: 'No', label: 'No' }
-  ];
+function GeneralSettingsForm({ IncrementTab }) {
+  const { campaigns } = useSelector((state) => state?.campaign);
+  const { formsByID } = useSelector((state) => state?.forms);
+  const { name } = formsByID;
+
+  const campaignoptions = campaigns?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
   return (
     <GeneralSettingsFormWrapper>
       <GeneralSettingsFormCard>
@@ -23,6 +29,7 @@ function GeneralSettingsForm() {
           id="pledge_name"
           name="pledge_name"
           placeholder="Lorem Ipsum"
+          defaultValue={`${name}`}
           //   onChange={formik.handleChange}
           //   onBlur={formik.handleBlur}
           //   value={formik.values.pledge_name}
@@ -34,7 +41,7 @@ function GeneralSettingsForm() {
           id="designation"
           name="designation"
           type={'text'}
-          options={designation}
+          options={campaignoptions}
           //   value={formik.values.designation}
           //   onChange={(value) => formik.setFieldValue('designation', value.value)}
           //   onBlur={formik.handleBlur}
@@ -90,8 +97,9 @@ function GeneralSettingsForm() {
           </div>
         </div>
         <ButtonsWrapper>
-          <Button className="back-button">Back</Button>
-          <Button className="next-button">Next</Button>
+          <Button className="next-button" onClick={IncrementTab} type="button">
+            Next
+          </Button>
         </ButtonsWrapper>
       </GeneralSettingsFormCard>
     </GeneralSettingsFormWrapper>
@@ -100,9 +108,18 @@ function GeneralSettingsForm() {
 
 export default GeneralSettingsForm;
 
-export const GeneralSettingsFormWrapper = styled.form``;
+export const GeneralSettingsFormWrapper = styled.form`
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex: 0.65;
+`;
 
 export const GeneralSettingsFormCard = styled(Card)`
+  overflow: auto;
+  height: 100%;
+  width: 100%;
   padding: 4rem 4.4rem 2.4rem 4.4rem;
 
   .modal-input {
@@ -111,7 +128,7 @@ export const GeneralSettingsFormCard = styled(Card)`
     background-color: transparent;
     border: 1px solid #9a9aa9;
     border-radius: 5px;
-    width: 44.2rem;
+    width: 100%;
     color: ${COLORS.black};
   }
 
@@ -121,7 +138,7 @@ export const GeneralSettingsFormCard = styled(Card)`
   }
   .campaign-dropdown {
     margin-top: 0.816rem;
-    width: 44.2rem;
+    width: 100%;
   }
   .underline {
     border: 1px solid #e6eff1;

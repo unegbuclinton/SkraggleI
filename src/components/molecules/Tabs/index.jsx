@@ -4,11 +4,11 @@ import { DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
-const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
+const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <TabWrapper>
-      <TabContainer className={stickyTab ? 'sticky-header' : ''} {...rest}>
+      <TabContainer inline={inline} className={stickyTab ? 'sticky-header' : ''} {...rest}>
         {plainTab ? (
           <PlainTabContainer>
             <TitleWrapper>
@@ -26,6 +26,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
           <div className="container">
             {tabs?.map((tab, index) => (
               <TabButton
+                inline={inline}
                 key={index}
                 active={activeTab === index}
                 onClick={() => setActiveTab(index)}>
@@ -43,6 +44,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, ...rest }) => {
 
 const TabWrapper = styled.div`
   width: 100%;
+  height: ${({ scroll }) => (scroll ? '100%' : '')};
   .sticky-header {
     position: -webkit-sticky;
     position: sticky;
@@ -66,6 +68,19 @@ const TabContainer = styled(Card)`
     display: flex;
     flex-wrap: nowrap;
   }
+
+  ${({ inline }) =>
+    inline &&
+    css`
+      padding: 0;
+      padding-bottom: 3.2rem;
+
+      .container {
+        padding-left: 2.9rem;
+        width: 100%;
+        border-bottom: 2px solid ${COLORS.torquoise};
+      }
+    `};
 `;
 const TabButton = styled.button`
   width: 14.4rem;
@@ -81,6 +96,15 @@ const TabButton = styled.button`
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
 
+  ${({ inline }) =>
+    inline &&
+    css`
+  width: fit-content;
+  margin-right: 1.6rem;
+  padding-bottom: .7rem;
+      }
+    `};
+
   &::after {
     position: absolute;
     content: '';
@@ -90,6 +114,14 @@ const TabButton = styled.button`
     bottom: 0px;
     z-index: 1;
     left: 0;
+
+    ${({ inline }) =>
+      inline &&
+      css`
+      height: 1px;
+      bottom: -2px;
+      }
+    `};
   }
   ${({ active }) =>
     active &&
@@ -145,8 +177,8 @@ const TabLinkWrapper = styled.div`
 `;
 
 const TabContent = styled.div`
-  height: 100%;
-  height: 100%;
+  height: 90%;
+  overflow: hidden;
 `;
 
 export default Tabs;

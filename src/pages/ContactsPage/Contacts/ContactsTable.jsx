@@ -46,7 +46,7 @@ function ContactsTable() {
 
   useEffect(() => {
     dispatch(getAllVolunteer());
-  }, [dispatch]);
+  }, []);
 
   // const getSearchDebounce = useCallback(
   //   debounce(() => {
@@ -125,6 +125,7 @@ function ContactsTable() {
               selectableRowsComponent={CheckBox}
               handleRowSelect={handleSelect}
             />
+            <TableHeader />
           </TableWrapper>
 
           <Pagination

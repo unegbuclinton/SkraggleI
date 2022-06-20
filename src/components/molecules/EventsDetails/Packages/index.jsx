@@ -28,7 +28,6 @@ function Packages() {
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const { allPackages } = useSelector((state) => state.events);
-  console.log(allPackages);
   const onpenDelete = (e) => {
     e.stopPropagation();
     setOpen(true);

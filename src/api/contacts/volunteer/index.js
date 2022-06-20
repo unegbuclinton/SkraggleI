@@ -17,7 +17,7 @@ export const getVolunteer = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/volunteer-activity?cursor=0&limit=25&direction=after'
+      url: '/contacts/volunteer-activity?cursor=-1&limit=25&direction=after'
     });
     return response?.data?.message.rows;
   } catch (error) {

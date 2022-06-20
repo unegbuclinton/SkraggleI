@@ -9,7 +9,9 @@ export const addHousehold = async (body) => {
       data: body
     });
   } catch (error) {
-    toast.error(error);
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
@@ -17,7 +19,7 @@ export const getAllHouseHold = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/households?cursor=0&limit=25&direction=after'
+      url: '/contacts/households?cursor=-1&limit=25&direction=after'
     });
     return response?.data?.message?.rows;
   } catch (error) {

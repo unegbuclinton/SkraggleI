@@ -25,3 +25,15 @@ export const getPackages = async () => {
     return error;
   }
 };
+
+export const deletePackages = async ({ id }) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/package/${id}`
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

@@ -3,6 +3,10 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
+function RenderFunction(Components, IncrementTab, DecrementTab, props) {
+  return <Components {...props} IncrementTab={IncrementTab} DecrementTab={DecrementTab} />;
+}
+
 function VerticalTab({
   tabs,
   setActiveState,
@@ -11,22 +15,35 @@ function VerticalTab({
   children,
   onClick,
   leftBottomClass,
-  setRef
+  setRef,
+  content,
+  disabled,
+  leftTabs,
+  ...rest
 }) {
   const [activeWidget, setActiveWidget] = useState(0);
-  const RenderFunction = (Components, props) => {
-    return <Components {...props} />;
-  };
+  const [activeTab, setActiveTab] = useState(0);
+
+  function IncrementTab() {
+    setActiveTab((prev) => prev + 1);
+  }
+
+  function DecrementTab() {
+    setActiveTab((prev) => prev - 1);
+  }
+
   return (
     <>
-      <VerticalTabWrapper className={className}>
+      <VerticalTabWrapper leftTabs={leftTabs} className={className} {...rest}>
         <div className="left-tabs">
           <div className={verticalWrapper}>
             {tabs.map(({ title }, index) => (
               <TabButton
                 key={index}
-                active={activeWidget === index}
+                disabled={disabled}
+                active={activeTab === index}
                 onClick={() => {
+                  setActiveTab(index);
                   setActiveWidget(index);
                   setActiveState(index);
                   setRef(index);
@@ -39,8 +56,8 @@ function VerticalTab({
             {children}
           </div>
         </div>
-        <div className="content-wrapper" activeWidget={activeWidget}>
-          {tabs && RenderFunction(tabs[activeWidget]?.component)}
+        <div className={content} activeWidget={activeWidget}>
+          {tabs && RenderFunction(tabs[activeTab]?.component, IncrementTab, DecrementTab)}
         </div>
       </VerticalTabWrapper>
     </>
@@ -54,7 +71,11 @@ const VerticalTabWrapper = styled.div`
   .left-tabs {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    /* gap: 1.6rem; */
+    gap: ${({ leftTabs }) => (leftTabs ? '0rem' : '1.6rem')};
+    height: 100%;
+    position: sticky;
+    top: 0px;
   }
 `;
 const TabButton = styled.button`

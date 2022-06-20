@@ -28,7 +28,7 @@ const P2PDetails = () => {
       pageLinks={
         <PageLinks pageLinkBefore="P2P" to="/peer-to-peer" names={fundraiser_display_name} />
       }>
-      <Tabs tabs={links} />
+      <Tabs tabs={links} scroll />
     </DashboardLayout>
   );
 };

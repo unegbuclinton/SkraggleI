@@ -2,15 +2,17 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import RadioGroup from 'components/atoms/RadioGroup';
 import Switch from 'components/atoms/Switch/Switch';
-import DashboardLayout from 'components/layouts/DashboardLayout';
+// import DashboardLayout from 'components/layouts/DashboardLayout';
 import FormCardLayout from 'components/layouts/FormCardLayout';
+import DonationSetupFormComponent from 'components/molecules/Forms/donationSetup/DonationSetupFormComponent';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import FormsSubTab from '..';
 
-function ThankYouComponent() {
+// import FormsSubTab from '..';
+
+function ThankYouComponent({ IncrementTab, DecrementTab }) {
   const radioButton = [
     {
       labelText: 'Redirect to URL',
@@ -22,8 +24,7 @@ function ThankYouComponent() {
     }
   ];
   return (
-    <DashboardLayout>
-      <FormsSubTab />
+    <>
       <ThankYouWrapper>
         <ThankYouContainer>
           <HeadingContainer>
@@ -39,17 +40,19 @@ function ThankYouComponent() {
           </RadioGroupContainer>
           <Line />
           <ButtonContainer>
-            <Button className="cancel" type="button" proute auth invert>
+            <Button className="cancel" type="button" proute auth invert onClick={DecrementTab}>
               Back
             </Button>
-            <Button type="submit" className="continue">
+            <Button type="button" className="continue" onClick={IncrementTab}>
               Next
             </Button>
           </ButtonContainer>
         </ThankYouContainer>
-        <FormCardLayout></FormCardLayout>
+        <FormCardLayout>
+          <DonationSetupFormComponent />
+        </FormCardLayout>
       </ThankYouWrapper>
-    </DashboardLayout>
+    </>
   );
 }
 
@@ -57,8 +60,11 @@ export default ThankYouComponent;
 
 const ThankYouWrapper = styled.div`
   display: flex;
+  flex: 1 auto;
   gap: 1.692rem;
-  margin-top: 5.9rem;
+  height: 100%;
+  overflow: hidden;
+  /* padding-bottom: 12.5rem; */
 `;
 const RadioGroupContainer = styled.div``;
 
@@ -88,7 +94,11 @@ const Line = styled.div`
 `;
 
 const ThankYouContainer = styled(Card)`
-  padding: 4rem 2.4rem 2.4rem 4.4rem;
+  flex: 0.65;
+  width: 100%;
+  padding: 4rem 2.4rem 0rem 4.4rem;
+  /* height: 100%; */
+  overflow: auto;
 `;
 
 export const ButtonContainer = styled.div`
@@ -96,6 +106,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   gap: 1.6rem;
   justify-content: flex-end;
+  padding-bottom: 4.6rem;
   .cancel {
     width: 14rem;
     height: 4.8rem;

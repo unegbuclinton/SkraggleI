@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import DonationSetupComponent from './DonationSetupComponent';
 import FormComponent from './DonationSetupFormComponent';
 
-function DonationSetup() {
+function DonationSetup({ IncrementTab, DecrementTab }) {
   return (
     <DonationSetUpWrapper>
-      <DonationSetupComponent />
+      <DonationSetupComponent IncrementTab={IncrementTab} DecrementTab={DecrementTab} />
       <FormCardLayout>
         <FormComponent />
       </FormCardLayout>
@@ -17,7 +17,11 @@ function DonationSetup() {
 
 export default DonationSetup;
 
-const DonationSetUpWrapper = styled.div`
+export const DonationSetUpWrapper = styled.div`
   display: flex;
-  gap: 1.73rem;
+  gap: 1.6rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* padding-bottom: 12.5rem; */
 `;

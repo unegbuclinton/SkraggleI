@@ -16,10 +16,10 @@ import Contacts from 'pages/ContactsPage';
 import Profile from 'pages/ContactsPage/Profile';
 import Dashboard from 'pages/Dashboard';
 import Donations from 'pages/Donations';
+import Elements from 'pages/Elements';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
-// import Url from 'pages/Forms/FormsSubTab/URL';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
@@ -141,15 +141,21 @@ export const privateRoutes = [
         element: <Forms />
       },
       {
-        path: 'url',
+        path: 'forms-details',
         element: <ProcessingFeeMain />
       }
     ]
   },
 
   {
-    path: '/elements',
-    element: <DashboardLayout>Elements yet to be added</DashboardLayout>
+    path: 'elements/*',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <Elements />
+      }
+    ]
   },
 
   {

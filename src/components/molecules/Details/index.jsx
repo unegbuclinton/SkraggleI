@@ -34,6 +34,9 @@ const ProfileContainer = styled.div`
 const ProfileWrapper = styled.div`
   display: flex;
   gap: 1.572rem;
+  height: 100%;
+  padding-bottom: 8rem;
+  overflow: hidden;
 `;
 
 const HeadingContainer = styled.div`
@@ -41,7 +44,7 @@ const HeadingContainer = styled.div`
   gap: 24.546rem;
   position: -webkit-sticky;
   position: sticky;
-  top: 4.8rem;
+  /* top: 4.8rem; */
   z-index: 1;
   background-color: ${COLORS['bg-light-blue']};
   .main-heading {
@@ -50,21 +53,23 @@ const HeadingContainer = styled.div`
     color: ${COLORS['gray-500']};
     padding-bottom: 1.6rem;
     padding-top: 2.4rem;
+    padding-left: 0.5rem;
   }
 `;
 
 const CardWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
 `;
 
 const ProfileContentWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
+  padding-bottom: 2rem;
 `;
 
 const ProfileContent = styled.div`
   flex: 1;
   /* width: 100%; */
-  overflow-y: auto;
+  overflow: auto;
 `;
