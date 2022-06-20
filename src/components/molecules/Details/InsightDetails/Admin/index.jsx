@@ -6,7 +6,7 @@ import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
   const { eachContact } = useSelector((state) => state.contact);
-  const { organization_id, priority, assignee, email_subscription_status, tags, last_name } =
+  const { organization_id, priority, assignee, is_subscribed_to_mailblasts, tags, last_name } =
     eachContact;
   const [open, setOpen] = useState(false);
   return (
@@ -63,7 +63,7 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title">EMAIL SUBSCRIPTION STATUS </h2>
-          <p className="info status">{email_subscription_status}</p>
+          <p className="info status">{is_subscribed_to_mailblasts}</p>
         </AdminContainer>
 
         <AdminContainer>

@@ -30,7 +30,6 @@ function AdminNotification({ formik, ErrorMsg }) {
 
   function Delete(e) {
     const id = e.currentTarget;
-    console.log(id);
     const data = mails.filter((mail) => {
       return mail.id !== Number(id);
     });

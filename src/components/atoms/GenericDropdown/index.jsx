@@ -15,6 +15,15 @@ function SelectDropDown({
   const defaultValue = (options, myValue) => {
     return options ? options.find((option) => option.value === myValue) : '';
   };
+  const customStyles = {
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: 'white',
+      fontSize: '1.4rem',
+      outline: 'none'
+    }),
+    option: (styles) => ({ ...styles, fontSize: '1rem' })
+  };
   return (
     <Container className={className}>
       <CustomSelect
@@ -28,6 +37,7 @@ function SelectDropDown({
         isMulti={isMulti}
         components={{ IndicatorSeparator: () => null }}
         placeholder={placeholder}
+        styles={customStyles}
       />
     </Container>
   );
@@ -37,15 +47,20 @@ export default SelectDropDown;
 
 const CustomSelect = styled(Select)`
   width: 60.2rem;
-  .react-select__control {
-    height: 4.4rem;
-    font-weight: 400;
-    font-size: 1.2rem;
-    border: 1px solid #9a9aa9;
-  }
+  .react-select {
+    &__control {
+      height: 4.4rem;
+      font-weight: 400;
+      border: 1px solid #9a9aa9;
+    }
 
-  .react-select__dropdown-indicator {
-    color: #9a9aa9;
+    &__option {
+      font-size: 1.4rem;
+    }
+
+    &__dropdown-indicator {
+      color: #9a9aa9;
+    }
   }
 `;
 
