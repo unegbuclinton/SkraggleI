@@ -227,7 +227,11 @@ export const VolunteerValidationSchema = Yup.object({
   name: Yup.string().required('Activity name is required'),
   startDate: Yup.date().required('Start date is required'),
   endDate: Yup.date()
-    .when('startDate', (startDate, schema) => startDate && schema.min(startDate))
+    .when(
+      'startDate',
+      (startDate, schema) =>
+        startDate && schema.min(startDate, 'End date cannot be before start date')
+    )
     .required('End Date is required'),
   fee: Yup.string().required('Fee is required')
 });
