@@ -16,7 +16,7 @@ const Table = ({
   const TableColumns = React.useMemo(() => columns, [columns]);
 
   return (
-    <TableWrapper className={className} onRowClicked={onRowClicked}>
+    <TableWrapper className={className}>
       <DataTable
         columns={TableColumns}
         data={TableData || []}

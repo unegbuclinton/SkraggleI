@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import Button from 'components/atoms/Button/Button';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import RecurringModal from '../DonationModals/RecurringModal';
-import Checkbox from 'components/atoms/CheckBox';
 
 function DonationRecurring() {
   const [showModal, setShowModal] = useState(false);
@@ -161,6 +161,8 @@ export default DonationRecurring;
 
 const RecurringWrapper = styled.div`
   margin-bottom: 1.6rem;
+  height: 100%;
+  overflow: auto;
   .recurring-card {
     padding-top: 1.6rem;
     margin-top: 1.6rem;

@@ -25,7 +25,7 @@ const MultiStepForm = ({ onClose }) => {
       lastName: '',
       primary_email: '',
       primary_phone: '',
-      emailSubscription: '',
+      is_subscribed_to_mailblasts: '',
       date: '',
       month: '',
       year: '',
@@ -56,7 +56,7 @@ const MultiStepForm = ({ onClose }) => {
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
-    email_subscription_status: formik.values.emailSubscription,
+    is_subscribed_to_mailblasts: formik.values.is_subscribed_to_mailblasts,
     // birth_date: formik.values.date,
     // company: formik.values.company,
     tags: formik.values.tags,
@@ -73,13 +73,12 @@ const MultiStepForm = ({ onClose }) => {
 
   const handleCreateContact = () => {
     dispatch(createContact(body)).then((data) => {
-      if (data.payload) {
-        toast.success('Contact Created Successfully');
-        onClose();
-        dispatch(viewContact());
-      }
       if (data.payload === undefined) {
         onClose();
+      } else {
+        onClose();
+        toast.success('Contact Created Successfully');
+        dispatch(viewContact());
       }
     });
   };

@@ -13,7 +13,6 @@ function GeneralSettingsForm({ IncrementTab }) {
   const { campaigns } = useSelector((state) => state?.campaign);
   const { formsByID } = useSelector((state) => state?.forms);
   const { name } = formsByID;
-  console.log(formsByID);
 
   const campaignoptions = campaigns?.map((current) => ({
     value: current?.id,

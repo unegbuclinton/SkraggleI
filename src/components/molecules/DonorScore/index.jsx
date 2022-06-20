@@ -88,8 +88,8 @@ function DonorScore() {
                 }
               }}
               categories={[' ', '30', ' ', '40', ' ', '60']}
-              width={650}
-              height={400}
+              // width={650}
+              // height={400}
             />
           </div>
           <div className="donattion-title">Donors likely to donate each month</div>

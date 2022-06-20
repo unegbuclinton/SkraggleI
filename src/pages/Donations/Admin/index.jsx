@@ -1,21 +1,17 @@
-import { React, useState } from 'react';
-
-import datas from 'utilities/filterData';
-import { AdminData } from 'utilities/donationData';
-import { DPIconAssignee, DPPlusIcon, DPIconDelete } from 'icons';
-
 import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import Checkbox from 'components/atoms/CheckBox';
-
-import DropdownComponent from 'components/atoms/Dropdown';
-import Card from 'components/atoms/Card';
-
-import styled from 'styled-components';
+import NewAdminModal from 'components/molecules/DonationModals/NewAdminModal';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import NewAdminModal from 'components/molecules/DonationModals/NewAdminModal';
+import { DPIconAssignee, DPIconDelete, DPPlusIcon } from 'icons';
+import { React, useState } from 'react';
+import styled from 'styled-components';
+import { AdminData } from 'utilities/donationData';
+import datas from 'utilities/filterData';
 
 const Admin = () => {
   const columns = [
@@ -74,7 +70,7 @@ const Admin = () => {
   const [selected, setSelected] = useState('Filters');
 
   return (
-    <div>
+    <ContentWrapper>
       <ContainerBody>
         <TableWrapper>
           <TableHeaderWrapper className="table-header">
@@ -107,13 +103,19 @@ const Admin = () => {
           <Table columns={columns} data={tableData} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
-    </div>
+    </ContentWrapper>
   );
 };
 
 export default Admin;
 
+export const ContentWrapper = styled.div`
+  height: 100%;
+`;
+
 export const ContainerBody = styled(Card)`
+  height: 100%;
+  overflow: auto;
   margin-top: 1.6rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
