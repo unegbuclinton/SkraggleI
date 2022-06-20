@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
-import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import CreateTransactionModal from '../DonationModals/CreateTransactionModal';
-import Checkbox from 'components/atoms/CheckBox';
 
 function Transaction() {
   const [showModal, setShowModal] = useState(false);
@@ -148,6 +148,8 @@ export default Transaction;
 
 const TransactionWrapper = styled.div`
   margin-bottom: 1.6rem;
+  height: 100%;
+  overflow: auto;
   .transaction-card {
     padding-top: 1.6rem;
     margin-top: 1.6rem;

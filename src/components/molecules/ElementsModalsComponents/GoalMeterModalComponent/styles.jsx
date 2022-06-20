@@ -36,3 +36,18 @@ export const GoalMeterLabel = styled.label`
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
 `;
+export const GoalMeterFooter = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  justify-content: flex-end;
+
+  .archive-btn {
+    width: 10.7rem;
+    height: 5.1rem;
+  }
+
+  .update-btn {
+    width: 20.5rem;
+    height: 5.1rem;
+  }
+`;

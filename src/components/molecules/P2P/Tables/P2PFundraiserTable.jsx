@@ -7,6 +7,7 @@ import { getEachP2p, removeP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { formatDate } from 'utilities/helpers';
 import P2PModalComponent from '../P2PFundraiserModalComponent';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -62,12 +63,12 @@ function P2PTable() {
     },
     {
       name: 'CREATED',
-      selector: (row) => row.created_at
+      selector: (row) => formatDate(row.created_at)
       // width: '20rem'
     },
     {
       name: 'GOAL DATE',
-      selector: (row) => row.goal_date
+      selector: (row) => formatDate(row.goal_date)
       // width: '20rem'
     },
     {
