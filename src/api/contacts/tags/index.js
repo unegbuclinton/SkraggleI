@@ -3,13 +3,17 @@ import { toast } from 'react-toastify';
 
 export const addTags = async (body) => {
   try {
-    return await request({
+    const createTagsResponse = await request({
       method: 'post',
       url: '/contacts/tags',
       data: body
     });
+    toast.done('Tag created successfully');
+    return createTagsResponse;
   } catch (error) {
-    toast.error('Tag did not created successfully');
+    const errorMesssage = error.response.data.message;
+    const res = errorMesssage.split('.', 1);
+    toast.error(`${res}`);
   }
 };
 
