@@ -3,11 +3,11 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function ColorComponents({ colorCode, style }) {
+function ColorComponents({ onChange, type, value }) {
   return (
     <ColorWrapper>
-      <Color style={style}></Color>
-      <ColorCode>{colorCode}</ColorCode>
+      <input className="color" type={type} value={value} onChange={onChange} />
+      <ColorCode>{value}</ColorCode>
     </ColorWrapper>
   );
 }
@@ -23,17 +23,30 @@ const ColorWrapper = styled.div`
   border: 0.1rem solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
   justify-content: center;
-`;
+  input[type='color'] {
+    width: 2.322rem;
+    height: 2.322rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.1rem solid ${COLORS.torquoise};
+  }
 
-const Color = styled.div`
-  width: 2.322rem;
-  height: 2.322rem;
-  border-radius: 100%;
-  border: 0.1rem solid ${COLORS.torquoise};
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  input[type='color']::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+  }
 `;
 
 const ColorCode = styled.p`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-400']};
+  text-transform: uppercase;
 `;

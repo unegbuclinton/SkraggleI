@@ -3,40 +3,31 @@ import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function DonateAppearance() {
-  const Colors = [
-    {
-      color: `${COLORS.white}`,
-      colorCode: '#FFFFFF'
-    },
-    {
-      color: `${COLORS['navy-blue']}`,
-      colorCode: '#477BE0'
-    },
-    {
-      color: `${COLORS.white}`,
-      colorCode: '#FFFFFF'
-    },
-    {
-      color: `${COLORS.black}`,
-      colorCode: '#000000'
-    }
-  ];
+  const [white, setWhite] = useState('#FFFFFF');
+  const [blue, setBlue] = useState('#477BE0');
+  const [whitez, setWhitez] = useState('#FFFFFF');
+  const [black, setBlack] = useState('#000000');
+
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
       <Input type="text" className="input-field" placeholder="Donate" />
       <ColorsWrapper>
-        {Colors.map((item, idx) => (
+        {/* {Colors.map((item, idx) => (
           <ColorComponents
             key={idx}
             style={{ backgroundColor: `${item.color}` }}
             colorCode={item.colorCode}
           />
-        ))}
+        ))} */}
+        <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+        <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+        <ColorComponents type="color" value={whitez} onChange={(e) => setWhitez(e.target.value)} />
+        <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
       </ColorsWrapper>
       <CheckboxContainer>
         <Checkbox />

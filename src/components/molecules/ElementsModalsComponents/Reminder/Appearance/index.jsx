@@ -2,56 +2,37 @@ import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Appearance() {
-  const Colors = [
-    {
-      label: 'Text color',
-      color: `${COLORS.white}`,
-      colorCode: '#FFFFFF'
-    },
-    {
-      label: 'background color',
-      color: `${COLORS['navy-blue']}`,
-      colorCode: '#477BE0'
-    }
-  ];
-
-  const Colorz = [
-    {
-      label: 'Border color',
-      color: `${COLORS.black}`,
-      colorCode: '#000000'
-    },
-    {
-      label: 'Icon color',
-      color: `${COLORS.white}`,
-      colorCode: '#FFFFFF'
-    }
-  ];
+  const [white, setWhite] = useState('#FFFFFF');
+  const [blue, setBlue] = useState('#477BE0');
+  const [whitez, setWhitez] = useState('#FFFFFF');
+  const [black, setBlack] = useState('#000000');
   return (
     <AppearanceWrapper>
       <ColorWrapper>
-        {Colors.map((item, idx) => (
-          <ColorContainer key={idx}>
-            <StickyButtonLabel className="color-label">{item.label}</StickyButtonLabel>
-            <ColorComponents
-              style={{ backgroundColor: `${item.color}` }}
-              colorCode={item.colorCode}
-            />
-          </ColorContainer>
-        ))}
-        {Colorz.map((item, idx) => (
-          <ColorContainer key={idx}>
-            <StickyButtonLabel className="color-label">{item.label}</StickyButtonLabel>
-            <ColorComponents
-              style={{ backgroundColor: `${item.color}` }}
-              colorCode={item.colorCode}
-            />
-          </ColorContainer>
-        ))}
+        <ColorContainer>
+          <StickyButtonLabel className="color-label">Label color</StickyButtonLabel>
+          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+        </ColorContainer>
+        <ColorContainer>
+          <StickyButtonLabel className="color-label">Button color</StickyButtonLabel>
+          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+        </ColorContainer>
+        <ColorContainer>
+          <StickyButtonLabel className="color-label">Border color</StickyButtonLabel>
+          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+        </ColorContainer>
+        <ColorContainer>
+          <StickyButtonLabel className="color-label">Icon color</StickyButtonLabel>
+          <ColorComponents
+            type="color"
+            value={whitez}
+            onChange={(e) => setWhitez(e.target.value)}
+          />
+        </ColorContainer>
       </ColorWrapper>
       <CheckBoxWrapper className="checkbox">
         <Checkbox pink />

@@ -9,6 +9,9 @@ import React, { useState } from 'react';
 function Test() {
   const [open, setOpen] = useState(false);
   // const [openDonateModal, setOpenDonateModal] = useState(false);
+
+  // const [color, setColor] = useState(null);
+
   return (
     <DashboardLayout>
       {/* <DonationSetup /> */}
