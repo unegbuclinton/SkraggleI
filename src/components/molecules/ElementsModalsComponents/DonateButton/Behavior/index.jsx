@@ -19,17 +19,19 @@ function DonateButtonBehavior() {
   ];
   return (
     <DonateBehaviorWrapper>
-      <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
-      <SelectDropDown className="dropdown" placeholder="My awesome campaign #5" />
-      <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
-      <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
-      <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
-      <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
-      <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
-      <CheckboxContainer>
-        <Checkbox pink />
-        <CheckboxLabel>Allow donor change designation</CheckboxLabel>
-      </CheckboxContainer>
+      <SelectWrapper>
+        <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
+        <SelectDropDown className="dropdown" placeholder="My awesome campaign #5" />
+        <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
+        <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
+        <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
+        <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
+        <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
+        <CheckboxContainer>
+          <Checkbox pink />
+          <CheckboxLabel>Allow donor change designation</CheckboxLabel>
+        </CheckboxContainer>
+      </SelectWrapper>
       <RadioButtonWrapper>
         <RadioGroup className="radio-btn" radioData={radioButton} />
       </RadioButtonWrapper>
@@ -43,6 +45,10 @@ const DonateBehaviorWrapper = styled.div`
   .dropdown {
     width: 100%;
   }
+`;
+
+const SelectWrapper = styled.div`
+  padding: 0 2.4rem 0 2.4rem;
 `;
 
 const OpenCampaignLabel = styled.p`
@@ -74,4 +80,6 @@ const CheckboxContainer = styled.div`
   margin: 0.2rem 0 1.3rem 0;
 `;
 
-const RadioButtonWrapper = styled.div``;
+const RadioButtonWrapper = styled.div`
+  padding-left: 1.7rem;
+`;

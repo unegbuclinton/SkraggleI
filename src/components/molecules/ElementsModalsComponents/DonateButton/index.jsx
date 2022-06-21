@@ -19,8 +19,10 @@ function DonateButton() {
     <DonateButtonWrapper>
       <Heading>Display an animated donation button anywhere on your website.</Heading>
       <DonateButtonContainer>
-        <DonateButtonLabel>Element name</DonateButtonLabel>
-        <Input type="text" className="input-field" placeholder="Donate button #6" />
+        <InputWrapper>
+          <DonateButtonLabel>Element name</DonateButtonLabel>
+          <Input type="text" className="input-field" placeholder="Donate button #6" />
+        </InputWrapper>
         <Tabs tabs={tabs} inline />
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
@@ -38,7 +40,7 @@ function DonateButton() {
 export default DonateButton;
 
 const DonateButtonWrapper = styled.div`
-  padding: 3.2rem 2.4rem 2.4rem 2.4rem;
+  padding: 3.2rem 0 2.4rem 0;
 `;
 
 const DonateButtonContainer = styled.div`
@@ -55,6 +57,7 @@ const Heading = styled.h2`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
+  padding: 0 2.4rem 0 2.4rem;
 `;
 
 const DonateButtonLabel = styled.label`
@@ -65,10 +68,14 @@ const DonateButtonLabel = styled.label`
   bottom: 0.8rem;
 `;
 
+const InputWrapper = styled.div`
+  padding: 0 2.4rem 0 2.4rem;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-top: 4rem;
+  padding: 4rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

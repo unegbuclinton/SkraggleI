@@ -3,7 +3,6 @@ import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconUrl } from 'icons';
 import React from 'react';
 import styled from 'styled-components';
 import DonateLinkBehavior from './Behavior';
@@ -23,33 +22,17 @@ function LinkModal() {
   //   }
   // };
 
-  const currentPath = window.location.pathname;
-
   return (
     <DonateLinkWrapper>
       <Heading>
         Get a link that sends visitors to your website and automatically opens donation checkout.
       </Heading>
       <DonateLinkContainer>
-        <DonateLinkLabel>Element name</DonateLinkLabel>
-        <Input type="text" className="input-field" placeholder="Donate link #6" />
+        <InputWrapper>
+          <DonateLinkLabel>Element name</DonateLinkLabel>
+          <Input type="text" className="input-field" placeholder="Donate link #6" />
+        </InputWrapper>
         <Tabs tabs={tabs} inline />
-
-        {!currentPath.includes('BEHAVIOUR') ? (
-          <>
-            <DPIconUrl className="icon" />
-            <Input
-              className="input-field"
-              type="text"
-              placeholder="https://Scelerisque gravida ornare eu/......"
-            />
-          </>
-        ) : (
-          <>
-            <h1>Hello</h1>
-          </>
-        )}
-
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
             Archive
@@ -66,7 +49,7 @@ function LinkModal() {
 export default LinkModal;
 
 const DonateLinkWrapper = styled.div`
-  padding: 3.2rem 2.4rem 2.4rem 2.4rem;
+  padding: 3.2rem 0 2.4rem 0;
 `;
 
 const DonateLinkContainer = styled.div`
@@ -77,7 +60,7 @@ const DonateLinkContainer = styled.div`
     margin-bottom: 3.2rem;
   }
   .icon {
-    margin-top: 2.4rem;
+    margin: 2.4rem 0 0.8rem 0;
   }
 `;
 
@@ -87,6 +70,7 @@ const Heading = styled.h2`
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
   line-height: 2.7rem;
+  padding: 0 2.4rem 0 2.4rem;
 `;
 
 const DonateLinkLabel = styled.label`
@@ -97,10 +81,14 @@ const DonateLinkLabel = styled.label`
   bottom: 0.8rem;
 `;
 
-export const ButtonContainer = styled.div`
+const InputWrapper = styled.div`
+  padding: 0 2.4rem 0 2.4rem;
+`;
+
+const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-top: 4rem;
+  padding: 4rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

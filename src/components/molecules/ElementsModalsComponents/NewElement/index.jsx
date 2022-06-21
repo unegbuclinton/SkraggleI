@@ -1,4 +1,6 @@
 import Input from 'components/atoms/Input/Input';
+import ReminderModal from 'components/molecules/ElementModal/ReminderModal';
+import StickyButtonModal from 'components/molecules/ElementModal/StickyButtonModal';
 import { DPIconSearch } from 'icons';
 import React, { useState } from 'react';
 import DonateModal from '../../ElementModal/DonateButtonModal';
@@ -15,6 +17,8 @@ import {
 function NewElement() {
   const [openDonateButton, setOpenDonateButton] = useState(false);
   const [openDonateLink, setOpenDonateLink] = useState(false);
+  const [openStckyButton, setOpenStickyButton] = useState(false);
+  const [openReminderModal, setOpenReminderModal] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const searchItems = (searchValue) => {
@@ -49,11 +53,17 @@ function NewElement() {
     },
     {
       name: 'Sticky Button',
-      title: 'Display an animated donation button that sticks to any side of your website.'
+      title: 'Display an animated donation button that sticks to any side of your website.',
+      click: function () {
+        return setOpenStickyButton(true);
+      }
     },
     {
       name: 'Reminder',
-      title: 'Show a pop-up reminder to donate when a supporter closes checkout.'
+      title: 'Show a pop-up reminder to donate when a supporter closes checkout.',
+      click: function () {
+        return setOpenReminderModal(true);
+      }
     },
     {
       name: 'Donation Form',
@@ -126,6 +136,8 @@ function NewElement() {
     <>
       <DonateModal isShown={openDonateButton} onClose={() => setOpenDonateButton(false)} />
       <DonateLinkModal isShown={openDonateLink} onClose={() => setOpenDonateLink(false)} />
+      <StickyButtonModal isShown={openStckyButton} onClose={() => setOpenStickyButton(false)} />
+      <ReminderModal isShown={openReminderModal} onClose={() => setOpenReminderModal(false)} />
       <ElementModalWrapper>
         <HeaderWrapper>
           <SearchWrapper>

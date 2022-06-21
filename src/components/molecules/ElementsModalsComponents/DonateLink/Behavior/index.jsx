@@ -1,8 +1,10 @@
 import Checkbox from 'components/atoms/CheckBox';
 import SelectDropDown from 'components/atoms/GenericDropdown';
+import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { DPIconUrl } from 'icons';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -19,20 +21,31 @@ function DonateLinkBehavior() {
   ];
   return (
     <DonateBehaviorWrapper>
-      <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
-      <SelectDropDown className="dropdown" placeholder="BGA Demo #2" />
-      <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
-      <SelectDropDown className="dropdown" placeholder="Default one time" />
-      <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
-      <SelectDropDown className="dropdown" placeholder="where needed most" />
-      <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
-      <CheckboxContainer>
-        <Checkbox pink />
-        <CheckboxLabel>Allow donor change designation</CheckboxLabel>
-      </CheckboxContainer>
+      <SelectWrapper>
+        <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
+        <SelectDropDown className="dropdown" placeholder="BGA Demo #2" />
+        <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
+        <SelectDropDown className="dropdown" placeholder="Default one time" />
+        <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
+        <SelectDropDown className="dropdown" placeholder="where needed most" />
+        <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
+        <CheckboxContainer>
+          <Checkbox pink />
+          <CheckboxLabel>Allow donor change designation</CheckboxLabel>
+        </CheckboxContainer>
+      </SelectWrapper>
       <RadioButtonWrapper>
         <RadioGroup className="radio-btn" radioData={radioButton} />
       </RadioButtonWrapper>
+
+      <SelectWrapper>
+        <DPIconUrl className="icon" />
+        <Input
+          className="input-field"
+          type="text"
+          placeholder="https://Scelerisque gravida ornare eu/......"
+        />
+      </SelectWrapper>
     </DonateBehaviorWrapper>
   );
 }
@@ -74,4 +87,10 @@ const CheckboxContainer = styled.div`
   margin: 0.2rem 0 1.3rem 0;
 `;
 
-const RadioButtonWrapper = styled.div``;
+const SelectWrapper = styled.div`
+  padding: 0 2.4rem 0 2.4rem;
+`;
+
+const RadioButtonWrapper = styled.div`
+  padding: 0 0 0 1.7rem;
+`;

@@ -3,11 +3,11 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function CustomField() {
+function CustomFields() {
   return <CustomFieldText>The selected campaign does not have custom fields.</CustomFieldText>;
 }
 
-export default CustomField;
+export default CustomFields;
 
 const CustomFieldText = styled.h2`
   font-weight: ${FONTWEIGHTS.normal};
