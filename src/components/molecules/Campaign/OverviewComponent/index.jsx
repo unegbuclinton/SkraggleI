@@ -1,10 +1,11 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
+import { getMailBlast } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { campaignOverview } from 'validation/Schema';
 import {
@@ -22,6 +23,12 @@ const CampaignOverview = () => {
   const statusToCap = status?.toUpperCase();
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMailBlast(campaignByID.id));
+  });
 
   const formik = useFormik({
     initialValues: {

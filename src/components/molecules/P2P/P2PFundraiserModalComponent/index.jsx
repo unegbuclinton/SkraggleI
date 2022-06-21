@@ -11,12 +11,14 @@ import { useFormik } from 'formik';
 import { DPIconCopyWhite, DPIconUploadFile } from 'icons';
 import { React, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { P2PValidationSchema } from 'validation/Schema';
 import { ButtonCopy, ButtonsContainer, CopyText, ModalWrapper, SecondModalWrapper } from './styles';
 
 function P2PModalComponent({ onClose, isShown }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { campaigns } = useSelector((state) => state.campaign);
 
   const campaign = campaigns?.map((current) => ({ value: current?.id, label: current?.name }));
@@ -59,6 +61,7 @@ function P2PModalComponent({ onClose, isShown }) {
         onClose();
         dispatch(viewP2P());
       });
+      navigate('/peer-to-peer');
     }
   });
 

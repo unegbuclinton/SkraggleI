@@ -1,18 +1,21 @@
 import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
-import SearchBar from 'components/atoms/SearchBar/SearchBar';
+// import DropdownComponent from 'components/atoms/Dropdown';
+// import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
+import P2PModalComponent from 'components/molecules/P2P/P2PFundraiserModalComponent';
 import Pagination from 'components/molecules/Pagination';
-import { DPPlusIcon } from 'icons';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
+// import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import datas from 'utilities/filterData';
-import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
+// import { useNavigate } from 'react-router-dom';
+// import datas from 'utilities/filterData';
+import { ContainerBody, TableWrapper } from './styles';
 
 const P2PTable = () => {
   const { p2p } = useSelector((state) => state?.campaign);
+  const [open, setOpen] = useState(false);
   const columns = [
     {
       name: ' ',
@@ -51,36 +54,24 @@ const P2PTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const [selected, setSelected] = useState('Filters');
+  // const [selected, setSelected] = useState('Filters');
 
-  let navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/peer-to-peer');
-  };
+  // let navigate = useNavigate();
+  // const handleButtonClick = () => {
+  //   navigate('/peer-to-peer');
+  // };
 
   return (
     <div>
       <ContainerBody>
+        <P2PModalComponent
+          isShown={open}
+          onClose={() => {
+            setOpen(false);
+          }}
+        />
         <TableWrapper>
-          <TableHeaderWrapper className="table-header">
-            <div className="table-header__left">
-              <h1>{`${p2p.length} P2P`}</h1>
-            </div>
-
-            <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
-              <SearchBar className="search-icon" />
-              <Button className="campaign-button" onClick={() => handleButtonClick()}>
-                <DPPlusIcon className="plus-icon" />
-                Create New
-              </Button>
-            </div>
-          </TableHeaderWrapper>
+          <TableHeader setOpen={setOpen} title="Create P2P" header={`${p2p?.length} P2P`} />
           <Table columns={columns} data={p2p} />
         </TableWrapper>
       </ContainerBody>
