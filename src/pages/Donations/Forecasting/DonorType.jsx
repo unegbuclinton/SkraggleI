@@ -20,7 +20,7 @@ function DonorType() {
   return (
     <TypeWrapper>
       <div className="transaction">
-        <Card>
+        <Card className="card-wrapper">
           <TypeHeader>
             <p className="transaction-text">2021 Transaction Types</p>
             <DropdownComponent selected={selected} setSelected={setSelected} data={data} />
@@ -44,7 +44,6 @@ function DonorType() {
       <div className="donor-score">
         <Card>
           <div className="bar-container">
-            <BorderBottom />
             <DonorScore />
           </div>
         </Card>
@@ -58,15 +57,22 @@ export default DonorType;
 const TypeWrapper = styled.div`
   margin: 1.6rem 0;
   width: 100%;
+  height: fit-content;
   display: flex;
   gap: 1.2rem;
 
+  .card-wrapper {
+    padding: 0rem 1.6rem 0rem 1.6rem;
+  }
+
   .transaction {
     width: 100%;
+    height: fit-content;
   }
 
   .donor-score {
     width: 100%;
+    height: fit-content;
   }
 
   .bar-container,
@@ -80,7 +86,7 @@ const TypeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 5.6rem 0 4rem;
+    /* padding: 0 5.6rem 0 4rem; */
     border-top: 1px solid ${COLORS.torquoise};
 
     .pie-legend {
@@ -165,13 +171,4 @@ const TypeHeader = styled.div`
       justify-content: baseline;
     }
   }
-`;
-
-const BorderBottom = styled.div`
-  width: 100%;
-  background-color: ${COLORS.torquoise};
-  height: 0.1rem;
-  position: relative;
-  margin-bottom: -3.5rem;
-  /* margin-left: 1rem; */
 `;

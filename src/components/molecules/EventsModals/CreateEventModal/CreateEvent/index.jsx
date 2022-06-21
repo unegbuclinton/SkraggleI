@@ -37,12 +37,14 @@ function CreateEvent({ onClose }) {
       registrationEndTime: '',
       receipt: '',
       receiptTitle: '',
-      email: '',
+      // email: '',
       category: '',
       receiptDescription: '',
       formName: '',
       emailReply: '',
-      subject: ''
+      subject: '',
+      eventDate: '',
+      eventTimeDonation: false
     },
     validationSchema: detailsValidationSchema,
     onSubmit: (values) => {

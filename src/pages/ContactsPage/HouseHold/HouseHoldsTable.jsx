@@ -15,7 +15,7 @@ import { formatDate } from 'utilities/helpers';
 import { TableWrapper } from './styles';
 
 function HouseHoldsTable() {
-  const { houseHolds } = useSelector((state) => state.contact);
+  const { houseHolds, isLoading } = useSelector((state) => state.contact);
   const dispatch = useDispatch();
   const [getId, setGetId] = useState('');
   const [rowCount, setRowCount] = useState(null);
@@ -96,6 +96,8 @@ function HouseHoldsTable() {
               selectableRows
               selectableRowsComponent={CheckBox}
               handleRowSelect={handleSelect}
+              progressComponent={<Spinner />}
+              progressPending={isLoading}
             />
           </TableWrapper>
           <Pagination currentPage={currentPage} data={houseHolds} setCurrentPage={setCurrentPage} />
@@ -106,5 +108,9 @@ function HouseHoldsTable() {
     </>
   );
 }
+
+const Spinner = () => {
+  return <div>Loading..... </div>;
+};
 
 export default HouseHoldsTable;

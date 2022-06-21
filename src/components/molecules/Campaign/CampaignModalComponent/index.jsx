@@ -14,13 +14,20 @@ import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles'
 
 const CampaignModalComponent = ({ onClose }) => {
   const dispatch = useDispatch();
-  const { contactData } = useSelector((state) => state.contact);
+  const { contactData, companies } = useSelector((state) => state.contact);
   const { isLoading } = useSelector((state) => state.campaign);
 
-  const followers = contactData?.map((current) => ({
+  const conatct = contactData?.map((current) => ({
     value: current?.id,
     label: current?.first_name
   }));
+
+  const company = companies?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
+  const followers = [...conatct, ...company];
 
   const formik = useFormik({
     initialValues: {
@@ -79,6 +86,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <Input
           className="campaign-modal"
           placeholder="Lorem Ipsum"
+          onWheel={() => document.activeElement.blur()}
           id="goals"
           name="goals"
           type="number"

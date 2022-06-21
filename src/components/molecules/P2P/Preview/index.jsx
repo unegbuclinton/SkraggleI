@@ -14,7 +14,14 @@ import {
 } from 'icons';
 import React, { useCallback, useState } from 'react';
 import RecentDonation from '../Tables/RecentDonation';
-import { ButtonCopy, CopyText, Leaderboard, LinksWrapper, PreviewWrapper } from './styles';
+import {
+  ButtonCopy,
+  CopyText,
+  Leaderboard,
+  LinksWrapper,
+  PreviewContainer,
+  PreviewWrapper
+} from './styles';
 
 function Preview() {
   const tabs = [
@@ -64,7 +71,7 @@ function Preview() {
   }, []);
 
   return (
-    <div>
+    <PreviewContainer>
       <PreviewWrapper>
         <Slideshow />
         <div className="preview__right">
@@ -150,7 +157,7 @@ function Preview() {
           </div>
         </div>
       </LinksWrapper>
-    </div>
+    </PreviewContainer>
   );
 }
 

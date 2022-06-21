@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 export const SettingWrapper = styled.div`
   margin-top: 1.6rem;
+  height: 100%;
+  overflow: auto;
 
   .setting-header {
     width: 100%;

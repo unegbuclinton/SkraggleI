@@ -19,8 +19,6 @@ function EditContactInfo({ onCloseModal }) {
     { placeholder: 'Work Email', id: 'workEmail', name: 'workEmail' }
   ]);
 
-  // const [dynamicName, setDynamicName] = useState({});
-
   const [phone, setPhone] = useState([
     { placeholder: 'Home Phone', id: 'homePhone', name: 'homePhone' },
     { placeholder: 'Work Phone', id: 'workPhone', name: 'workPhone' }
@@ -36,33 +34,48 @@ function EditContactInfo({ onCloseModal }) {
   const addPhone = () => {
     setPhone([...phone, newPhone]);
   };
+
+  const {
+    primary_email,
+    home_email,
+    work_email,
+    // other_emails,
+    primary_phone,
+    home_phone,
+    work_phone,
+    // other_phones,
+    address,
+    home_address,
+    work_address
+    // other_addresses
+  } = eachContact;
+
   const formik = useFormik({
     initialValues: {
-      email: '',
-      homeEmail: '',
-      phone: '',
-      workEmail: '',
-      homePhone: '',
-      workPhone: '',
-      street: '',
+      email: primary_email || '',
+      homeEmail: home_email || '',
+      phone: primary_phone || '',
+      workEmail: work_email || '',
+      homePhone: home_phone || '',
+      workPhone: work_phone || '',
+      street: address || '',
       city: '',
       unit: '',
       state: '',
       postal: '',
       country: '',
-      homeStreet: '',
+      homeStreet: home_address || '',
       homeCity: '',
       homeUnit: '',
       homeState: '',
       homePostal: '',
       homeCountry: '',
-      workStreet: '',
+      workStreet: work_address || '',
       workCity: '',
       workUnit: '',
       workState: '',
       workPostal: '',
       workCountry: ''
-      // ...dynamicName
     },
     // validationSchema: EditContactSchema,
     onSubmit: (values) => {

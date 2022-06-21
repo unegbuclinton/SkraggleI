@@ -18,8 +18,10 @@ import {
 
 const CampaignOverview = () => {
   const { campaignByID } = useSelector((state) => state.campaign);
-  const { name, description, status, fundraising_goal } = campaignByID;
+  const { name, description, status, fundraising_goal, amount_raised } = campaignByID;
   const statusToCap = status?.toUpperCase();
+
+  const progressPercentage = Math.floor(amount_raised / fundraising_goal);
 
   const formik = useFormik({
     initialValues: {
@@ -109,11 +111,13 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
-          <h1 className="campaign-name__description">{`${fundraising_goal}`}</h1>
+          <h1 className="campaign-name__description">{fundraising_goal}</h1>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Progress</p>
-          <h1 className="campaign-name__description">$0, (0%)</h1>
+          <h1 className="campaign-name__description">
+            ${amount_raised}, {progressPercentage}%
+          </h1>
         </CampaignNameWrapper>
       </LeftSection>
 
