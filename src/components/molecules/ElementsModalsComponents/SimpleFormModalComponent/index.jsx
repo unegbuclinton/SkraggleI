@@ -4,11 +4,11 @@ import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
-import Behaviour from './Behaviour';
+import Amount from './Amount';
+import Behavior from './Behavior';
 import Buttons from './Button';
-import Controls from './Control';
-import CustomField from './CustomField';
-import Form from './Forms';
+import CustomFields from './CustomFields';
+import Form from './Form';
 import {
   CopyWrapper,
   DonationFieldWrapper,
@@ -19,13 +19,13 @@ import {
   FormLabel
 } from './styles';
 
-function DonateFormModalComponent() {
+function SimpleFormModalComponent() {
   const tabs = [
-    { title: 'BEHAVIOUR', component: <Behaviour /> },
+    { title: 'BEHAVIOUR', component: <Behavior /> },
     { title: 'FORM', component: <Form /> },
-    { title: 'CONTROLS', component: <Controls /> },
+    { title: 'AMOUNT', component: <Amount /> },
     { title: 'BUTTONS', component: <Buttons /> },
-    { title: 'CUSTOM FIELDS', component: <CustomField /> }
+    { title: 'CUSTOM FIELDS', component: <CustomFields /> }
   ];
   return (
     <DonationFormWrapper>
@@ -58,4 +58,4 @@ function DonateFormModalComponent() {
   );
 }
 
-export default DonateFormModalComponent;
+export default SimpleFormModalComponent;

@@ -26,11 +26,13 @@ export const DonationFieldWrapper = styled.div`
     width: 30.6rem;
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
-    margin-left: 1rem;
+    margin-left: 1.7rem;
   }
 `;
 
 export const DonationLabel = styled.label`
+  display: flex;
+  justify-content: flex-end;
   width: 30%;
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};

@@ -1,4 +1,3 @@
-import Checkbox from 'components/atoms/CheckBox';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
@@ -6,96 +5,114 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function Form() {
+function Appearance() {
   return (
-    <FormWrapper>
-      <FormFieldWrapper>
-        <FormLabel>Title</FormLabel>
-        <Input className="form-input" placeholder="Your most generous donation" />
-      </FormFieldWrapper>
+    <AppearanceWrapper>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Title</AppearanceLabel>
+        <Input className="behavior-input" placeholder="Top Fundraiser" />
+      </AppearanceFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Text color</FormLabel>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Text color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#477BE0" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AppearanceFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Background color</FormLabel>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Accent text color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#FFFFFF" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AppearanceFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Icon color</FormLabel>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Background color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#FFFFFF" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AppearanceFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Border size</FormLabel>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Border Size</AppearanceLabel>
         <SliderWrapper>
           <Slider className="slider-border" />
         </SliderWrapper>
-      </FormFieldWrapper>
-
-      <FormFieldWrapper>
-        <FormLabel>Border radius</FormLabel>
+      </AppearanceFieldWrapper>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Border Radius</AppearanceLabel>
         <SliderWrapper>
           <Slider className="slider-border" />
         </SliderWrapper>
-      </FormFieldWrapper>
+      </AppearanceFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Border color</FormLabel>
+      <AppearanceFieldWrapper>
+        <AppearanceLabel>Border color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#1E003E" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
-      <FormFieldWrapper>
-        <FormLabel></FormLabel>
-        <Checkbox pink className="form-checkbox" />
-        Show shadow
-      </FormFieldWrapper>
-    </FormWrapper>
+      </AppearanceFieldWrapper>
+    </AppearanceWrapper>
   );
 }
 
-export default Form;
+export default Appearance;
 
-export const FormWrapper = styled.div`
+export const AppearanceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const FormFieldWrapper = styled.div`
+export const AppearanceFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
-  .form-checkbox {
+
+  .input-wrapper {
+    display: flex;
+  }
+  .behavior-dropdown {
+    max-width: 30.6rem;
+  }
+  .behavior-checkbox {
     margin-left: -2rem;
   }
 
-  .form-input {
+  .behavior-input {
     max-width: 30.6rem;
+    background: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    margin-left: 1rem;
+  }
+  .campaign-input {
+    max-width: 30.6rem;
+    background: ${COLORS.torquoise};
+    border: 1px solid ${COLORS['gray-500']};
+  }
+  .behavior-goal__input {
+    width: 21rem;
+    background: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    margin-left: 1rem;
+  }
+  .behavior-amount__input {
+    width: 16rem;
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
@@ -116,7 +133,7 @@ export const FormFieldWrapper = styled.div`
   }
 `;
 
-export const FormLabel = styled.label`
+export const AppearanceLabel = styled.label`
   width: 35%;
   display: flex;
   justify-content: flex-end;
@@ -125,20 +142,10 @@ export const FormLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
 `;
 
-export const FormFooter = styled.div`
+export const BehaviorCampaignInput = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 1.6rem;
-  justify-content: flex-end;
-
-  .archive-btn {
-    width: 10.7rem;
-    height: 5.1rem;
-  }
-
-  .update-btn {
-    width: 20.5rem;
-    height: 5.1rem;
-  }
 `;
 
 export const ColorContainerWrapper = styled.div`

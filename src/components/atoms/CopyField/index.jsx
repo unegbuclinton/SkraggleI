@@ -32,7 +32,8 @@ export default CopyField;
 const Wrapper = styled.div`
   display: flex;
   position: relative;
-  width: 46.6rem;
+  max-width: 46.6rem;
+  width: 100%;
   border: 1px solid ${COLORS.pink};
   border-radius: 0.5rem;
   ${({ grey }) =>
@@ -45,6 +46,7 @@ const Wrapper = styled.div`
 export const CopyFieldWrapper = styled.div`
   display: flex;
   gap: 3rem;
+  width: 100%;
   h1 {
     font-weight: ${FONTWEIGHTS.medium};
     line-height: 1.9rem;

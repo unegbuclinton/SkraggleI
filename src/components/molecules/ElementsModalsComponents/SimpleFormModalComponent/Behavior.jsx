@@ -1,16 +1,14 @@
-import Checkbox from 'components/atoms/CheckBox';
 import SelectDropDown from 'components/atoms/GenericDropdown';
-import RadioGroup from 'components/atoms/RadioGroup';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function Behaviour() {
+function Behavior() {
   return (
     <BehaviourWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Open Campaigns</BehaviorLabel>
+        <BehaviorLabel>Open campaign</BehaviorLabel>
         <SelectDropDown className="behavior-dropdown" placeholder="My awesome campaign #5" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
@@ -22,83 +20,19 @@ function Behaviour() {
         <SelectDropDown className="behavior-dropdown" placeholder="Match checkout settings" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel />
-        <Checkbox pink />
-        Allow donor change designation
-      </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper>
-        <BehaviorLabel />
-        <Checkbox pink />
-        Show suggested amounts
-      </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper className="radio-field">
         <BehaviorLabel>Default amount</BehaviorLabel>
-        <RadioGroup
-          radioData={[
-            {
-              labelText: 'Allow donor change designation',
-              value: 1
-            },
-            {
-              labelText: 'Customize',
-              value: 2
-            }
-          ]}
-        />
-      </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper className="radio-field">
-        <BehaviorLabel>Designation</BehaviorLabel>
-        <RadioGroup
-          radioData={[
-            {
-              labelText: 'Match checkout settings',
-              value: 1
-            },
-            {
-              labelText: 'Hide designation',
-              value: 2
-            }
-          ]}
-        />
-      </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper className="radio-field">
-        <BehaviorLabel>Tribute</BehaviorLabel>
-        <RadioGroup
-          radioData={[
-            {
-              labelText: 'Match checkout settings',
-              value: 1
-            },
-            {
-              labelText: 'Hide tribute',
-              value: 2
-            }
-          ]}
-        />
-      </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper className="radio-field">
-        <BehaviorLabel>Comment</BehaviorLabel>
-        <RadioGroup
-          radioData={[
-            {
-              labelText: 'Match checkout settings',
-              value: 1
-            },
-            {
-              labelText: 'Hide comments',
-              value: 2
-            }
-          ]}
-        />
+        <SelectDropDown className="behavior-dropdown" placeholder="Match checkout settings" />
       </BehaviorFieldWrapper>
     </BehaviourWrapper>
   );
 }
 
-export default Behaviour;
+export default Behavior;
 
 export const BehaviourWrapper = styled.div`
-  padding-right: 3.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .radio-field {
     align-items: baseline;
     display: flex;
@@ -110,13 +44,12 @@ export const BehaviourWrapper = styled.div`
 export const BehaviorFieldWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
 
   .behavior-dropdown {
     width: 30.6rem;
-    margin-left: -0.3rem;
+    margin-left: 1.7rem;
   }
   .behavior-checkbox {
     margin-left: -2rem;
@@ -143,7 +76,9 @@ export const BehaviorFieldWrapper = styled.div`
 `;
 
 export const BehaviorLabel = styled.label`
-  width: 35%;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};

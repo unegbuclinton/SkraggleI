@@ -3,13 +3,13 @@ import { FONTSIZES } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function CustomField() {
+function CustomFields() {
   return (
     <CustomFieldWrapper>The selected campaign does not have custom fields.</CustomFieldWrapper>
   );
 }
 
-export default CustomField;
+export default CustomFields;
 
 const CustomFieldWrapper = styled.div`
   font-size: ${FONTSIZES.small};

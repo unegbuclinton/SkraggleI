@@ -1,106 +1,94 @@
 import Checkbox from 'components/atoms/CheckBox';
-import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
+// import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function Form() {
+function Amount() {
   return (
-    <FormWrapper>
-      <FormFieldWrapper>
-        <FormLabel>Title</FormLabel>
-        <Input className="form-input" placeholder="Your most generous donation" />
-      </FormFieldWrapper>
-
-      <FormFieldWrapper>
-        <FormLabel>Text color</FormLabel>
+    <AmountWrapper>
+      <AmountFieldWrapper>
+        <AmountLabel>Text color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#477BE0" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AmountFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Background color</FormLabel>
+      <AmountFieldWrapper>
+        <AmountLabel>Background color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#FFFFFF" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AmountFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Icon color</FormLabel>
+      <AmountFieldWrapper>
+        <AmountLabel>Icon color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#FFFFFF" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
+      </AmountFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Border size</FormLabel>
+      <AmountFieldWrapper>
+        <AmountLabel>Border size</AmountLabel>
         <SliderWrapper>
           <Slider className="slider-border" />
         </SliderWrapper>
-      </FormFieldWrapper>
+      </AmountFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Border radius</FormLabel>
+      <AmountFieldWrapper>
+        <AmountLabel>Border radius</AmountLabel>
         <SliderWrapper>
           <Slider className="slider-border" />
         </SliderWrapper>
-      </FormFieldWrapper>
+      </AmountFieldWrapper>
 
-      <FormFieldWrapper>
-        <FormLabel>Border color</FormLabel>
+      <AmountFieldWrapper>
+        <AmountLabel>Border color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <input type="color" value="#1E003E" className="color-input" />
             #477BE0
           </ColorContainer>
         </ColorContainerWrapper>
-      </FormFieldWrapper>
-      <FormFieldWrapper>
-        <FormLabel></FormLabel>
-        <Checkbox pink className="form-checkbox" />
+      </AmountFieldWrapper>
+      <AmountFieldWrapper>
+        <AmountLabel></AmountLabel>
+        <Checkbox pink className="amount-checkbox" />
         Show shadow
-      </FormFieldWrapper>
-    </FormWrapper>
+      </AmountFieldWrapper>
+    </AmountWrapper>
   );
 }
 
-export default Form;
+export default Amount;
 
-export const FormWrapper = styled.div`
+export const AmountWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const FormFieldWrapper = styled.div`
+export const AmountFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
-  .form-checkbox {
-    margin-left: -2rem;
-  }
 
-  .form-input {
-    max-width: 30.6rem;
-    background: ${COLORS.white};
-    border: 1px solid ${COLORS['gray-500']};
-    margin-left: 1rem;
+  .amount-checkbox {
+    margin-left: -4rem;
   }
-
   .color-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -116,29 +104,13 @@ export const FormFieldWrapper = styled.div`
   }
 `;
 
-export const FormLabel = styled.label`
+export const AmountLabel = styled.label`
   width: 35%;
   display: flex;
   justify-content: flex-end;
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
-`;
-
-export const FormFooter = styled.div`
-  display: flex;
-  gap: 1.6rem;
-  justify-content: flex-end;
-
-  .archive-btn {
-    width: 10.7rem;
-    height: 5.1rem;
-  }
-
-  .update-btn {
-    width: 20.5rem;
-    height: 5.1rem;
-  }
 `;
 
 export const ColorContainerWrapper = styled.div`
