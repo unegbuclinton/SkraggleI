@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 function LeafLnc({ className }) {
   const { eachP2p } = useSelector((state) => state.p2p);
-  const { fundraiser_display_name } = eachP2p;
+  const { fundraiser_display_name, donations_count, raised } = eachP2p;
   const textArea = useState(null);
 
   const copyToClipboard = useCallback(() => {
@@ -46,11 +46,11 @@ function LeafLnc({ className }) {
         </div>
         <div className="fundraiser__info-2">
           <p className="fundraiser__paragraph">Total raised</p>
-          <div className="fundraiser__active__raised">$0.00 USD</div>
+          <div className="fundraiser__active__raised">{raised} USD</div>
         </div>
         <div className="fundraiser__info-3">
           <p className="fundraiser__paragraph">Donations</p>
-          <div className="fundraiser__active__donations">0</div>
+          <div className="fundraiser__active__donations">{donations_count}</div>
         </div>
       </div>
     </P2PFundraiserWrapper>

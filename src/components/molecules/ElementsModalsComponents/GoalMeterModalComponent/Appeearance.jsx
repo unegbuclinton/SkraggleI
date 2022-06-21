@@ -1,4 +1,4 @@
-import Button from 'components/atoms/Button/Button';
+// import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
@@ -52,15 +52,6 @@ function Appeearance() {
       <AppearanceCheckbox>
         <Checkbox label="Show animation" className="animation-checkbox" pink />
       </AppearanceCheckbox>
-      <AppearanceFooter>
-        <Button className="archive-btn" invert auth>
-          Archive
-        </Button>
-
-        <Button className="update-btn" auth>
-          Archive
-        </Button>
-      </AppearanceFooter>
     </AppearanceWrapper>
   );
 }
@@ -154,20 +145,5 @@ export const AppearanceCheckbox = styled.div`
 
   .label-checkbox {
     margin-bottom: 2.4rem;
-  }
-`;
-export const AppearanceFooter = styled.div`
-  display: flex;
-  gap: 1.6rem;
-  justify-content: flex-end;
-
-  .archive-btn {
-    width: 10.7rem;
-    height: 5.1rem;
-  }
-
-  .update-btn {
-    width: 20.5rem;
-    height: 5.1rem;
   }
 `;

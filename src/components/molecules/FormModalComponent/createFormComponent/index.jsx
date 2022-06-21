@@ -23,7 +23,7 @@ function CreateFormComponent({ onClose }) {
     { value: 'Custom', label: 'Custom' }
   ];
 
-  const campaignOptions = campaigns.map((current) => ({
+  const campaignOptions = campaigns?.map((current) => ({
     value: current?.id,
     label: current?.name
   }));

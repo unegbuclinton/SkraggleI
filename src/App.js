@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routing />
-      <ToastContainer />
+      <ToastContainer hideProgressBar autoClose={1000} draggable pauseOnHover={false} />
     </Router>
   );
 }

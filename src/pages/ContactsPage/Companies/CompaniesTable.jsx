@@ -68,7 +68,7 @@ function CompaniesTable() {
     },
     {
       name: 'TAGS',
-      cell: () => <TableBtn />,
+      cell: (row) => <TableBtn tags={row.tags} />,
       width: '20.8rem'
     }
   ];

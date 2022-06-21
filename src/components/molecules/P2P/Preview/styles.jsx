@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import Card from 'components/atoms/Card';
+import styled from 'styled-components';
 
-import Button from 'components/atoms/Button/Button';
+export const PreviewContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+`;
 
 export const PreviewWrapper = styled.div`
   display: flex;

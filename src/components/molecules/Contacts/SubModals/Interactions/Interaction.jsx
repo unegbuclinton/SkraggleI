@@ -9,6 +9,7 @@ import { DPIconUploadFile } from 'icons';
 import { ErrorMsg } from 'pages/LogIn/styles';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { contactInteractionSchema } from 'validation/Schema';
 import {
   InteractionInputWrapper,
@@ -59,6 +60,7 @@ function InteractionComponent({ onClose }) {
       dispatch(getInteraction(body));
       dispatch(getAllInteractions(interactionId));
       onClose();
+      toast.success('Interaction created successfully');
     }
   });
   return (

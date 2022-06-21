@@ -99,6 +99,9 @@ export const contactSlice = createSlice({
     [createHouseHold.rejected]: (state) => {
       state.isLoading = false;
     },
+    [allHouseHold.pending]: (state) => {
+      state.isLoading = true;
+    },
     [allHouseHold.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.houseHolds = action.payload;

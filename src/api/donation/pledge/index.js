@@ -4,11 +4,11 @@ export const allPledge = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/donations/pledges?cursor=0&direction=after&limit=20'
+      url: '/donations/pledges?cursor=-1&direction=after&limit=20'
     });
     return response?.data?.message?.rows;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -20,6 +20,19 @@ export const createPledge = async (body) => {
       data: body
     });
     return response?.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deletePledge = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: `/donations/pledges`,
+      data: body
+    });
+    return response;
   } catch (error) {
     console.log(error);
   }

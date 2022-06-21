@@ -24,6 +24,8 @@ function TableHeader({
   setOpenDeleteModal,
   show,
   eventHeader,
+  onClick,
+  add,
   attendeeButton
 }) {
   const [dropDown, setDropDown] = useState(false);
@@ -32,6 +34,7 @@ function TableHeader({
     setOpenDeleteModal(true);
     setDropDown(false);
   };
+
   const ref = useRef();
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -65,6 +68,13 @@ function TableHeader({
                 <DPIconDelete className="delete-icon" />
                 <Delete>Delete</Delete>
               </ActionContentWrapper>
+
+              {add && (
+                <ActionContentWrapper onClick={onClick}>
+                  <DPIconDelete className="delete-icon" />
+                  <Delete>Archive</Delete>
+                </ActionContentWrapper>
+              )}
             </ActionWrapper>
           )}
         </div>
