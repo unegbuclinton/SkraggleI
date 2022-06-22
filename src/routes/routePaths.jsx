@@ -1,6 +1,8 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
-import SimpleFormModal from 'components/molecules/ElementModal/SimpleFormModal';
+import RecentDonationModal from 'components/molecules/ElementModal/RecentDonation';
+// import P2PLinkModal from 'components/molecules/ElementModal/P2PLinkModal';
+// import TopSupportersModal from 'components/molecules/ElementModal/TopSupporters';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import ProcessingFeeMain from 'components/molecules/Forms';
@@ -178,7 +180,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <SimpleFormModal />
+    element: <RecentDonationModal />
   }
 ];
 

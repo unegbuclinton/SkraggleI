@@ -135,20 +135,6 @@ export const AppearanceFieldWrapper = styled.div`
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
   }
-
-  .color-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-  }
-  .color-input::-webkit-color-swatch {
-    border-radius: 50%;
-    border: 1px solid #e6eff1;
-  }
 `;
 
 export const AppearanceLabel = styled.label`
