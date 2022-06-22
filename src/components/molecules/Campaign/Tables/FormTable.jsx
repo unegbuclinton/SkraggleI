@@ -72,9 +72,7 @@ const FormsTable = () => {
     },
     {
       name: 'STATUS',
-      // selector: (row) => row?.status,
       cell: (row) => {
-        console.log(row);
         return <Button className="table-button">{row?.status}</Button>;
       }
     }
