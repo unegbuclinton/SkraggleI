@@ -35,14 +35,18 @@ function BenchMark() {
   const [checkedData, setCheckedData] = useState([]);
   //  eslint-disable-next-line
   const isChecked = (e) => {
-    console.log(e.target);
     let checked = e.target.checked;
-    console.log(checked, Array.isArray(checkedData));
+    console.log(checked);
+    // console.log(checked, Array.isArray(checkedData), typeof checkedData);
     if (checked) {
-      const filtered = checkedData?.filter((data) => data !== e?.target?.idx + 1);
+      console.log(e.target.id);
+      const filtered = checkedData?.filter((id) => id !== +e?.target?.id);
+      console.log(filtered);
       setCheckedData(filtered);
     } else {
-      setCheckedData([...checkedData, e.target.idx + 1]);
+      console.log(typeof e.target.id);
+
+      setCheckedData([...checkedData, +e?.target?.id]);
     }
   };
   console.log(checkedData);
@@ -67,10 +71,10 @@ function BenchMark() {
               </div>
               <div className="action-btn">
                 <Checkbox
-                  id={idx + 1}
+                  id={+idx + 1}
                   pink
                   onClick={(e) => {
-                    setCheckedData(idx);
+                    // setCheckedData(idx);
                     isChecked(e);
                   }}
                 />
