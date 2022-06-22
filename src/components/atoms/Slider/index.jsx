@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { InputContainer, InputSlider, SelectValue } from './styles';
+import { InputContainer, Range, SelectValue } from './styles';
 
-function Slider() {
+function Slider({ className }) {
   const [value, setValue] = useState(10);
   const sortValue = value * 2.8;
 
   return (
-    <InputContainer>
-      <SelectValue value={sortValue}>{value}%</SelectValue>
+    <InputContainer className={className}>
+      <SelectValue value={sortValue}>{value}px</SelectValue>
 
-      <InputSlider
+      <Range
+        type="range"
         value={value}
         min="1"
         max="100"
