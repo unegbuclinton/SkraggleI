@@ -2,7 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, deleteCompany, getCompanies } from 'api/contacts/company';
 import { allInteractions, createInteractions } from 'api/contacts/contact-subTab/interactions';
 import { editContact } from 'api/contacts/contact-subTab/profile';
-import { addContact, allContacts, deleteContact, eachContact } from 'api/contacts/contacts';
+import {
+  addContact,
+  allContacts,
+  deleteContact,
+  eachContact,
+  smartRecommendation
+} from 'api/contacts/contacts';
 import { addHousehold, deleteHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags, deleteTag } from 'api/contacts/tags';
@@ -20,6 +26,7 @@ const initialState = {
   todos: [],
   eachContact: [],
   interactionData: [],
+  recommendation: [],
   volunteers: []
 };
 
@@ -43,6 +50,7 @@ export const removeContact = createAsyncThunk('contact/removeContact', deleteCon
 export const removeHouseHold = createAsyncThunk('contact/removeHouseHold', deleteHousehold);
 export const removeCompany = createAsyncThunk('contact/removeCompany', deleteCompany);
 export const removeTag = createAsyncThunk('contact/removeTag', deleteTag);
+export const smartAsk = createAsyncThunk('contact/smartAsk', smartRecommendation);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -226,6 +234,16 @@ export const contactSlice = createSlice({
       state.isLoading = true;
     },
     [removeTag.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [smartAsk.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [smartAsk.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.recommendation = action.payload;
+    },
+    [smartAsk.rejected]: (state) => {
       state.isLoading = false;
     },
     // [searchContact.fulfilled]: (state, action) => {

@@ -13,6 +13,7 @@ import {
   getAllVolunteer,
   oneContact,
   removeContact,
+  smartAsk,
   viewContact
 } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
@@ -72,6 +73,7 @@ function ContactsTable() {
   const onRowClicked = ({ id }) => {
     dispatch(oneContact(id));
     dispatch(getAllInteractions(id));
+    dispatch(smartAsk(id));
     let path = 'contact-profile';
     navigate(path);
   };
