@@ -47,14 +47,14 @@ function Buttons() {
       <ButtonFieldWrapper>
         <ButtonLabel>Border size</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
         <ButtonLabel>Border radius</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ButtonFieldWrapper>
 

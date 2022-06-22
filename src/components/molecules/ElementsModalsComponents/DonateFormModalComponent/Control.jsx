@@ -12,14 +12,14 @@ function Controls() {
       <ControlsFieldWrapper>
         <ControlsLabel>Border size</ControlsLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ControlsFieldWrapper>
 
       <ControlsFieldWrapper>
         <ControlsLabel>Border radius</ControlsLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ControlsFieldWrapper>
 

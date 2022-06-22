@@ -61,13 +61,13 @@ function Appearance() {
       <AppearanceFieldWrapper>
         <AppearanceLabel>Border Size</AppearanceLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AppearanceFieldWrapper>
       <AppearanceFieldWrapper>
         <AppearanceLabel>Border Radius</AppearanceLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AppearanceFieldWrapper>
 

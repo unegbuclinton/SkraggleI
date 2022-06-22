@@ -57,14 +57,14 @@ function Amount() {
       <AmountFieldWrapper>
         <AmountLabel>Border size</AmountLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AmountFieldWrapper>
 
       <AmountFieldWrapper>
         <AmountLabel>Border radius</AmountLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AmountFieldWrapper>
 

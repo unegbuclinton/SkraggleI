@@ -57,14 +57,14 @@ function Form() {
       <FormFieldWrapper>
         <FormLabel>Border size</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </FormFieldWrapper>
 
       <FormFieldWrapper>
         <FormLabel>Border radius</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </FormFieldWrapper>
 
