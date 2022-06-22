@@ -1,20 +1,29 @@
 import Checkbox from 'components/atoms/CheckBox';
+import ColorComponents from 'components/atoms/ColorComponent';
 import Slider from 'components/atoms/Slider';
 // import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Amount() {
+  const [textColor, setTextColor] = useState('#477BE0');
+  const [iconColor, setIconColor] = useState('#FFFFFF');
+  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+  const [borderColor, setBorderColor] = useState('#1E003E');
+
   return (
     <AmountWrapper>
       <AmountFieldWrapper>
         <AmountLabel>Text color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#477BE0" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={textColor}
+              onChange={(e) => setTextColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
@@ -23,8 +32,11 @@ function Amount() {
         <AmountLabel>Background color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={backgroundColor}
+              onChange={(e) => setBackgroundColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
@@ -33,8 +45,11 @@ function Amount() {
         <AmountLabel>Icon color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={iconColor}
+              onChange={(e) => setIconColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
@@ -57,8 +72,11 @@ function Amount() {
         <AmountLabel>Border color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#1E003E" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={borderColor}
+              onChange={(e) => setBorderColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>

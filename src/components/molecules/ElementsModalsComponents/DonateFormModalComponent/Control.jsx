@@ -1,10 +1,12 @@
+import ColorComponents from 'components/atoms/ColorComponent';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Controls() {
+  const [borderColor, setBorderColor] = useState('#1E003E');
   return (
     <ControlsWrapper>
       <ControlsFieldWrapper>
@@ -25,8 +27,11 @@ function Controls() {
         <ControlsLabel>Border color</ControlsLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#1E003E" className="border-color" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={borderColor}
+              onChange={(e) => setBorderColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ControlsFieldWrapper>
