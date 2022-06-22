@@ -83,3 +83,4 @@ export { ReactComponent as DPIconTransaction } from 'icons/svgs/transaction-icon
 export { ReactComponent as DPIconTwitter } from 'icons/svgs/twitter.svg';
 export { ReactComponent as DPIconUnderline } from 'icons/svgs/underline.svg';
 export { ReactComponent as DPIconUploadFile } from 'icons/svgs/UploadIcon.svg';
+export { ReactComponent as DPIconUrl } from 'icons/svgs/url.svg';
