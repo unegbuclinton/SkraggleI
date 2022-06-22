@@ -53,6 +53,7 @@ export { ReactComponent as DPIconLink } from 'icons/svgs/link.svg';
 export { ReactComponent as DPIconLinkedin } from 'icons/svgs/linkedin.svg';
 export { ReactComponent as DPIconLoading } from 'icons/svgs/loading.svg';
 export { ReactComponent as DPIconLogout } from 'icons/svgs/logout.svg';
+export { ReactComponent as DPIconBenchMail } from 'icons/svgs/mail.svg';
 export { ReactComponent as DPIconMailBlasts } from 'icons/svgs/mailIcon.svg';
 export { ReactComponent as DPIconMark } from 'icons/svgs/mark.svg';
 export { ReactComponent as DPIconMembership } from 'icons/svgs/membership.svg';

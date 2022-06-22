@@ -73,7 +73,7 @@ const TabContainer = styled(Card)`
     inline &&
     css`
       padding: 0;
-      padding-bottom: 3.2rem;
+      padding-top: 3.2rem;
 
       .container {
         padding-left: 2.9rem;
@@ -119,7 +119,7 @@ const TabButton = styled.button`
       inline &&
       css`
       height: 1px;
-      bottom: -2px;
+      bottom: 0px;
       }
     `};
   }
