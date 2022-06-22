@@ -1,5 +1,5 @@
 import Button from 'components/atoms/Button/Button';
-import RadioGroup from 'components/atoms/RadioGroup';
+import Checkbox from 'components/atoms/CheckBox';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconBenchMail } from 'icons';
@@ -8,6 +8,7 @@ import styled, { css } from 'styled-components';
 
 function BenchMark() {
   const [activeTab, setActiveTab] = useState(0);
+
   const fundRaiseData = [
     {
       header: 'Smart Benchmark',
@@ -30,6 +31,21 @@ function BenchMark() {
       text: 'Fundraising Effectiveness Project (FEP) Benchmarks uses data taken from the most recent FEP report. FEP'
     }
   ];
+  //  eslint-disable-next-line
+  const [checkedData, setCheckedData] = useState([]);
+  //  eslint-disable-next-line
+  const isChecked = (e) => {
+    console.log(e.target);
+    let checked = e.target.checked;
+    console.log(checked, Array.isArray(checkedData));
+    if (checked) {
+      const filtered = checkedData?.filter((data) => data !== e?.target?.idx + 1);
+      setCheckedData(filtered);
+    } else {
+      setCheckedData([...checkedData, e.target.idx + 1]);
+    }
+  };
+  console.log(checkedData);
   return (
     <div>
       <BenchMarkBox>
@@ -50,14 +66,13 @@ function BenchMark() {
                 <BenchMarkText>{text}</BenchMarkText>
               </div>
               <div className="action-btn">
-                <RadioGroup
+                <Checkbox
+                  id={idx + 1}
                   pink
-                  radioData={[
-                    {
-                      labelText: '',
-                      value: text
-                    }
-                  ]}
+                  onClick={(e) => {
+                    setCheckedData(idx);
+                    isChecked(e);
+                  }}
                 />
               </div>
             </BenchMarkContainer>

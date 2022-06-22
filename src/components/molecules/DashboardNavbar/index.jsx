@@ -73,7 +73,7 @@ function DashboardHeader({ pageLinks }) {
   ];
 
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
-  console.log(userName);
+
   return (
     <Header>
       <div className="header__first-row">

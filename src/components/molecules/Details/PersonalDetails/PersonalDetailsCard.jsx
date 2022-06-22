@@ -1,11 +1,12 @@
 import Button from 'components/atoms/Button/Button';
 import { DPIconsPen } from 'icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { nameAbbr } from 'utilities/helpers';
 import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
+  const [userData, setUserData] = useState('');
   const { eachContact } = useSelector((state) => state.contact);
   const {
     first_name,
@@ -23,6 +24,15 @@ function PersonalDetailsCard() {
   } = eachContact;
   const fullName = `${first_name} ${last_name}`;
   const tag = tags;
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('userData'));
+    console.log(items);
+    if (items) {
+      setUserData(userData);
+    }
+  }, []);
+
   return (
     <CardWrapper>
       <ContentsWrapper>
@@ -55,7 +65,7 @@ function PersonalDetailsCard() {
         <Line />
         <div className="assignee">
           <h2 className="assignee__heading">ASSIGNEE</h2>
-          <p className="assignee__name">Hanna Dandanell</p>
+          <p className="assignee__name">{userData}</p>
         </div>
         <Line />
         <div className="priority">

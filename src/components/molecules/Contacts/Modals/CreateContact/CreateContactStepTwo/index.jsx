@@ -1,6 +1,8 @@
+import apiInstance from 'apiInstance';
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   AddressContainer,
@@ -13,25 +15,37 @@ import {
 } from './styles';
 
 function ContactStepTwo({ onClose, formik }) {
+  const [userData, setUserData] = useState({});
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
   const tagz = tagsData?.map((current) => ({ value: current?.id, label: current?.name }));
   const household = houseHolds?.map((current) => ({ value: current?.id, label: current?.name }));
   const { isLoading } = useSelector((state) => state.contact);
-  const houseOptions = [
-    { value: 'Household', label: 'Household' },
-    { value: 'Household', label: 'Household' },
-    { value: 'Household', label: 'Household' },
-    { value: 'Household', label: 'Household' },
-    { value: 'Household', label: 'Household' }
-  ];
 
   const priorityOptions = [
     { value: 'High', label: 'High' },
     { value: 'Medium', label: 'Medium' },
     { value: 'Low', label: 'Low' }
   ];
+
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await apiInstance({
+        method: 'get',
+        url: '/admin'
+      });
+      const data = response?.data?.message;
+      localStorage.setItem('userData', JSON.stringify(data));
+      setUserData(data);
+    };
+
+    getUser();
+  }, []);
+
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
+
+  const assigneeOptions = [{ value: userData?.id, label: userName }];
   return (
     <ModalWrapper>
       <ModalContainer>
@@ -150,7 +164,7 @@ function ContactStepTwo({ onClose, formik }) {
             type={'text'}
             id="assignee"
             name="assignee"
-            options={houseOptions}
+            options={assigneeOptions}
             value={formik.values.assignee}
             onChange={(value) => formik.setFieldValue('assignee', value.value)}
             onBlur={formik.handleBlur}
