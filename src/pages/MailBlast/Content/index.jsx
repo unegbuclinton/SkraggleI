@@ -19,6 +19,7 @@ function MailContent() {
 
   const { eachMailBlast } = useSelector((state) => state.mailBlast);
   const { name, sent_at } = eachMailBlast;
+
   return (
     <ContentWrapper>
       <Card className="content-card">

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { allPeerToPeer } from 'api/campaign/campaign-subtabs';
 import { allElements } from 'api/campaign/campaign-subtabs/elements';
 import { allForms } from 'api/campaign/campaign-subtabs/forms';
+import { allMailBlasts } from 'api/campaign/campaign-subtabs/mailBlast';
 import {
   addCampaign,
   deleteCampaign,
@@ -16,6 +17,7 @@ const initialState = {
   p2p: [],
   formsData: [],
   elementsData: [],
+  mailBlast: [],
   isLoading: false
 };
 
@@ -24,6 +26,7 @@ export const getAllCampaigns = createAsyncThunk('campaign/getAllCampains', getCa
 export const singleCampaign = createAsyncThunk('campaign/singleCampaign', individualCampaign);
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
 export const getFormsByID = createAsyncThunk('campaign/getFormsByID', allForms);
+export const getMailBlast = createAsyncThunk('campaign/getMailBlast', allMailBlasts);
 export const getCampaignElements = createAsyncThunk('campaign/getCampaignElements', allElements);
 export const removeCampaign = createAsyncThunk('campaign/removeCampaign', deleteCampaign);
 
@@ -85,6 +88,16 @@ export const campaignSlice = createSlice({
       state.isLoading = true;
     },
     [getFormsByID.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getMailBlast.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getMailBlast.fulfilled]: (state, action) => {
+      state.mailBlast = action.payload;
+      state.isLoading = false;
+    },
+    [getMailBlast.rejected]: (state) => {
       state.isLoading = false;
     },
     [getCampaignElements.fulfilled]: (state, action) => {
