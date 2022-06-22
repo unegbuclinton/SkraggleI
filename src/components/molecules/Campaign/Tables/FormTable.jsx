@@ -62,7 +62,7 @@ const FormsTable = () => {
     },
     {
       name: 'RAISED',
-      selector: (row) => row?.amount_raised || '0'
+      selector: (row) => row?.amount_raised || 0
       // width: '20rem'
     },
     {

@@ -7,7 +7,7 @@ import { React, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function LeafLnc({ className }) {
+function LeafLnc({ className, supporter }) {
   const { eachP2p } = useSelector((state) => state.p2p);
   const { fundraiser_display_name, donations_count, raised } = eachP2p;
   const textArea = useState(null);
@@ -42,7 +42,7 @@ function LeafLnc({ className }) {
         </div>
         <div className="fundraiser__info-1">
           <p className="fundraiser__paragraph">Supporter</p>
-          <div className="fundraiser__active__supporter">Partho Prothim</div>
+          <div className="fundraiser__active__supporter">{supporter}</div>
         </div>
         <div className="fundraiser__info-2">
           <p className="fundraiser__paragraph">Total raised</p>

@@ -26,17 +26,17 @@ function Subscription() {
     },
     {
       name: 'PRIMARY EMAIL',
-      selector: (row) => row.primary_email
+      selector: (row) => row.primary_email || row.email
     },
     {
       name: 'EMAIL SUBSCRIPTION STATUS',
       cell: (row) => {
         return row.is_subscribed_to_mailblasts ? (
-          <Button className="opt-in" pill>
+          <Button success pill>
             OPT-IN
           </Button>
         ) : (
-          <Button className="opt-out" pill>
+          <Button error pill>
             OPT-OUT
           </Button>
         );

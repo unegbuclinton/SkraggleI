@@ -9,6 +9,7 @@ import {
   getAllCampaigns,
   getCampaignElements,
   getFormsByID,
+  getMailBlast,
   getPeerToPeer,
   removeCampaign,
   singleCampaign
@@ -22,6 +23,7 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
+  const { campaignByID } = useSelector((state) => state.campaign);
 
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
@@ -73,6 +75,7 @@ const CampaignTable = () => {
   const onRowClicked = ({ id }) => {
     dispatch(getPeerToPeer(id));
     dispatch(getFormsByID(id));
+    dispatch(getMailBlast(campaignByID.id));
     dispatch(getCampaignElements(id));
     dispatch(singleCampaign(id));
     let path = 'campaign-details';

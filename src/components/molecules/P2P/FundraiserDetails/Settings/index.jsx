@@ -1,12 +1,30 @@
+import apiInstance from 'apiInstance';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconProfileImage } from 'icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
 function Settings({ className }) {
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await apiInstance({
+        method: 'get',
+        url: '/admin'
+      });
+      const data = response?.data?.message;
+      setUserData(data);
+      // store.set()
+      // dispatch(addUserData(data));
+    };
+
+    getUser();
+  }, []);
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
+
   const { eachP2p } = useSelector((state) => state?.p2p);
   const {
     fundraiser_display_name,
@@ -55,8 +73,8 @@ function Settings({ className }) {
           <p className="fundraiser__p3">{personal_message}</p>
         </div>
         <div className="fundraiser__row">
-          <h1 className="fundraiser__titles">Supporter Name</h1>
-          <p className="fundraiser__p2">Name</p>
+          <h1 className="fundraiser__titles">Supporter name</h1>
+          <p className="fundraiser__p2">{userName}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Fundraiser Photo</h1>

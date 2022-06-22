@@ -6,7 +6,7 @@ export const getCampaigns = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/campaigns?cursor=-1&direction=after&limit=20'
+      url: '/campaigns'
     });
     return response?.data?.message?.rows;
   } catch (error) {
