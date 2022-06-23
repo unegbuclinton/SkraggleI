@@ -1,4 +1,6 @@
 // import Spinner from 'components/atoms/Spinner/Spinner';
+// import PageLinks from 'components/atoms/PageLinks';
+import CopyField from 'components/atoms/CopyField';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 // import DonateModal from 'components/molecules/ElementsModal/DonateButton/Modal';
 import NewElementModal from 'components/molecules/ElementModal/NewElementModal';
@@ -25,6 +27,7 @@ function Test() {
           }}
         />
       )}
+      <CopyField grey />
       {/* {openDonateModal && (
         <DonateModal
           isShown={openDonateModal}

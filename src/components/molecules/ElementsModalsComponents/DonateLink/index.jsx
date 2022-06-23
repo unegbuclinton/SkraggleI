@@ -13,15 +13,6 @@ function LinkModal() {
     { title: 'BEHAVIOUR', component: <DonateLinkBehavior /> },
     { title: 'CUSTOM FIELDS', component: <DonateLinkField /> }
   ];
-  // const linkInput = tabs.map((curr) => curr.title);
-  // const result = () => {
-  //   if (linkInput[0] == 'BEHAVIOUR') {
-  //     console.log('red');
-  //   } else {
-  //     console.log('yellow');
-  //   }
-  // };
-
   return (
     <DonateLinkWrapper>
       <Heading>
@@ -60,7 +51,7 @@ const DonateLinkContainer = styled.div`
     margin-bottom: 3.2rem;
   }
   .icon {
-    margin: 2.4rem 0 0.8rem 0;
+    margin: 0rem 0 0.8rem 0;
   }
 `;
 
@@ -88,7 +79,7 @@ const InputWrapper = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 4rem 2.4rem 0 0;
+  padding: 0 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

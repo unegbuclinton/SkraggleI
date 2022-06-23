@@ -1,4 +1,5 @@
 import Input from 'components/atoms/Input/Input';
+import MessageBarModal from 'components/molecules/ElementModal/MessageBarModal';
 import ReminderModal from 'components/molecules/ElementModal/ReminderModal';
 import StickyButtonModal from 'components/molecules/ElementModal/StickyButtonModal';
 import { DPIconSearch } from 'icons';
@@ -19,6 +20,7 @@ function NewElement() {
   const [openDonateLink, setOpenDonateLink] = useState(false);
   const [openStckyButton, setOpenStickyButton] = useState(false);
   const [openReminderModal, setOpenReminderModal] = useState(false);
+  const [openMessageBarModal, setOpenMessageBarModal] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const searchItems = (searchValue) => {
@@ -100,7 +102,10 @@ function NewElement() {
     },
     {
       name: 'Message Bar',
-      title: 'Display a full-width message and button at the top or bottom of your website.'
+      title: 'Display a full-width message and button at the top or bottom of your website.',
+      click: function () {
+        return setOpenMessageBarModal(true);
+      }
     },
     {
       name: 'Top Supporter',
@@ -138,6 +143,10 @@ function NewElement() {
       <DonateLinkModal isShown={openDonateLink} onClose={() => setOpenDonateLink(false)} />
       <StickyButtonModal isShown={openStckyButton} onClose={() => setOpenStickyButton(false)} />
       <ReminderModal isShown={openReminderModal} onClose={() => setOpenReminderModal(false)} />
+      <MessageBarModal
+        isShown={openMessageBarModal}
+        onClose={() => setOpenMessageBarModal(false)}
+      />
       <ElementModalWrapper>
         <HeaderWrapper>
           <SearchWrapper>

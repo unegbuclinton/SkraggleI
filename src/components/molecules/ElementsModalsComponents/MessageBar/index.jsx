@@ -1,30 +1,36 @@
 import Button from 'components/atoms/Button/Button';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
-import Tabs from 'components/molecules/Tabs';
+// import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import DonateAppearance from './Appearance';
-import DonateButtonBehavior from './Behavior';
-import CustomField from './CustomFields';
+import Apperance from './Appearance';
+// import Behavior from './Behavior';
+// import DonateAppearance from './Appearance';
+// import DonateButtonBehavior from './Behavior';
+// import CustomField from './CustomFields';
 
-function DonateButton() {
-  const tabs = [
-    { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
-    { title: 'APPEARANCE', component: <DonateAppearance /> },
-    { title: 'CUSTOM FIELDS', component: <CustomField /> }
-  ];
+function MessageBar() {
+  //   const tabs = [
+  //     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
+  //     { title: 'APPEARANCE', component: <DonateAppearance /> },
+  //     { title: 'CUSTOM FIELDS', component: <CustomField /> }
+  //   ];
   return (
     <DonateButtonWrapper>
-      <Heading>Display an animated donation button anywhere on your website.</Heading>
+      <Heading>
+        Display a full-width message and button at the top or bottom of your website.
+      </Heading>
       <DonateButtonContainer>
         <InputWrapper>
           <DonateButtonLabel>Element name</DonateButtonLabel>
-          <Input type="text" className="input-field" placeholder="Donate button #6" />
+          <Input type="text" className="input-field" placeholder="Message Bar #2" />
         </InputWrapper>
-        <Tabs tabs={tabs} inline />
+        {/* <Tabs tabs={tabs} inline /> */}
+        {/* <Behavior /> */}
+        <Apperance />
         <CopyContainer>
           <CopyLabel>HTML CODE</CopyLabel>
           <CopyField grey />
@@ -42,7 +48,7 @@ function DonateButton() {
   );
 }
 
-export default DonateButton;
+export default MessageBar;
 
 const DonateButtonWrapper = styled.div`
   padding: 3.2rem 0 2.4rem 0;
@@ -63,6 +69,7 @@ const Heading = styled.h2`
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
   padding: 0 2.4rem 0 2.4rem;
+  line-height: 2.8rem;
 `;
 
 const DonateButtonLabel = styled.label`
