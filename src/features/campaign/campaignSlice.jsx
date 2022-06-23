@@ -7,7 +7,8 @@ import {
   addCampaign,
   deleteCampaign,
   getCampaigns,
-  individualCampaign
+  individualCampaign,
+  updateCampaign
 } from 'api/campaign/campaigns';
 import { logoutUser } from 'features/auth/authSlice';
 
@@ -29,6 +30,8 @@ export const getFormsByID = createAsyncThunk('campaign/getFormsByID', allForms);
 export const getMailBlast = createAsyncThunk('campaign/getMailBlast', allMailBlasts);
 export const getCampaignElements = createAsyncThunk('campaign/getCampaignElements', allElements);
 export const removeCampaign = createAsyncThunk('campaign/removeCampaign', deleteCampaign);
+
+export const editCampaign = createAsyncThunk('campaign/editCampaign', updateCampaign);
 
 export const campaignSlice = createSlice({
   name: 'campaign',
@@ -108,6 +111,14 @@ export const campaignSlice = createSlice({
       state.isLoading = true;
     },
     [getCampaignElements.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [editCampaign.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.campaignByID = action.payload;
+    },
+    [editCampaign.rejected]: (state) => {
       state.isLoading = false;
     }
   }

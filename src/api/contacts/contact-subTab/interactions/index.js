@@ -25,3 +25,15 @@ export const allInteractions = async () => {
     return error;
   }
 };
+
+export const interactionsByID = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/contacts/users/${id}/interactions`
+    });
+    return response?.data?.message?.rows;
+  } catch (error) {
+    return error;
+  }
+};

@@ -54,3 +54,17 @@ export const deleteCampaign = async (body) => {
     return error;
   }
 };
+
+export const updateCampaign = async ({ body, id }) => {
+  try {
+    const response = await request({
+      method: 'patch',
+      url: `/campaigns/${id}`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

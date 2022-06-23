@@ -8,16 +8,16 @@ import ContactEmptyState from 'components/molecules/EmptyState/Contacts/Contact'
 import Pagination from 'components/molecules/Pagination/index';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import {
-  getAllInteractions,
-  getAllTodos,
-  getAllVolunteer,
+  eachInteraction,
+  eachTodo,
+  getEachVolunteer,
   oneContact,
   removeContact,
   smartAsk,
   viewContact
 } from 'features/contact/contactSlice';
 // import debounce from 'lodash.debounce';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { TableWrapper } from './styles';
@@ -46,15 +46,9 @@ function ContactsTable() {
     });
   };
 
-  useEffect(() => {
-    dispatch(getAllVolunteer());
-    dispatch(getAllTodos());
-    dispatch(getAllInteractions());
-  }, [dispatch]);
-
   // const getSearchDebounce = useCallback(
   //   debounce(() => {
-  //     dispatch(searchContact({ search: input, page: 0 }));
+  //     dispatch(searchContact({ search: input, pdispatchage: 0 }));
   //   }, 500),
   //   [input]
   // );
@@ -72,9 +66,11 @@ function ContactsTable() {
 
   const onRowClicked = ({ id }) => {
     dispatch(oneContact(id));
-    dispatch(getAllInteractions(id));
+    dispatch(eachTodo(id));
+    dispatch(getEachVolunteer(id));
+    dispatch(eachInteraction(id));
     dispatch(smartAsk(id));
-    let path = 'contact-profile';
+    let path = `/contacts/${id}`;
     navigate(path);
   };
   const columns = [

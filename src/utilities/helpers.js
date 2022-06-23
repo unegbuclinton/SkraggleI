@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 
+const today = new Date();
 /* eslint-disable no-bitwise */
 export function generateUUID() {
   let d = new Date().getTime();
@@ -35,7 +36,5 @@ export function nameAbbr(str) {
 }
 
 export function isInThePast(date) {
-  const today = new Date();
-
   return date < today;
 }

@@ -6,7 +6,6 @@ export const allMailBlasts = async (id) => {
       method: 'get',
       url: `/campaigns/${id}/mailblasts`
     });
-    console.log(response);
     return response?.data?.message?.rows;
   } catch (error) {
     return error;

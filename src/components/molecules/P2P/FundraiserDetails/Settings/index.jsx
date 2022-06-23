@@ -1,28 +1,29 @@
-import apiInstance from 'apiInstance';
+// import apiInstance from 'apiInstance';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconProfileImage } from 'icons';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
 function Settings({ className }) {
-  const [userData, setUserData] = useState({});
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await apiInstance({
-        method: 'get',
-        url: '/admin'
-      });
-      const data = response?.data?.message;
-      setUserData(data);
-      // store.set()
-      // dispatch(addUserData(data));
-    };
+  const { userData } = useSelector((state) => state.contact);
+  // const [userData, setUserData] = useState({});
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     const response = await apiInstance({
+  //       method: 'get',
+  //       url: '/admin'
+  //     });
+  //     const data = response?.data?.message;
+  //     setUserData(data);
+  //     // store.set()
+  //     // dispatch(addUserData(data));
+  //   };
 
-    getUser();
-  }, []);
+  //   getUser();
+  // }, []);
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   const { eachP2p } = useSelector((state) => state?.p2p);

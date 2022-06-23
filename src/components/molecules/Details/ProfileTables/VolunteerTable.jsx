@@ -6,7 +6,7 @@ import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { formatDate, isInThePast } from 'utilities/helpers';
+import { formatDate } from 'utilities/helpers';
 import { data } from 'utilities/volunteerData';
 import ProfileLayOut from '..';
 import { TableWrapper } from './styles';
@@ -16,9 +16,9 @@ function VolunteerTable() {
   const [open, setOpen] = useState(false);
   const itemsPerPage = 5;
 
-  // const newDate = new Date();
+  const newDate = new Date();
 
-  const { volunteers } = useSelector((state) => state.contact);
+  const { eachVolunteerData } = useSelector((state) => state.contact);
 
   const columns = [
     {
@@ -54,7 +54,7 @@ function VolunteerTable() {
 
     {
       name: 'STATUS',
-      cell: (row) => <p>{isInThePast(row.end_at) ? 'EXPIRED' : 'ACTIVE'}</p>,
+      cell: (row) => <p>{newDate < row.end_at ? 'EXPIRED' : 'ACTIVE'}</p>,
       width: '15.5rem'
     }
   ];
@@ -62,7 +62,7 @@ function VolunteerTable() {
     <>
       <VolunteerModal isShown={open} onClose={() => setOpen(false)} />
       <ProfileLayOut heading="Volunteering">
-        {!!volunteers.length ? (
+        {!!eachVolunteerData?.length ? (
           <div>
             <TableWrapper>
               <TableHeader
@@ -72,7 +72,7 @@ function VolunteerTable() {
                 // header={`${todos.length} To-Do`}
                 setOpen={setOpen}
               />
-              <Table columns={columns} data={volunteers} />
+              <Table columns={columns} data={eachVolunteerData} />
             </TableWrapper>
             <Pagination
               currentPage={currentPage}

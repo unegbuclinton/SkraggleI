@@ -3,7 +3,7 @@ import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { getAllInteractions, getInteraction } from 'features/contact/contactSlice';
+import { eachInteraction, getInteraction } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import { DPIconUploadFile } from 'icons';
 import { ErrorMsg } from 'pages/LogIn/styles';
@@ -57,10 +57,11 @@ function InteractionComponent({ onClose }) {
         // details: values.details,
         // contact: values.contact
       };
-      dispatch(getInteraction(body));
-      dispatch(getAllInteractions(interactionId));
-      onClose();
-      toast.success('Interaction created successfully');
+      dispatch(getInteraction(body)).then(() => {
+        dispatch(eachInteraction(interactionId));
+        onClose();
+        toast.success('Interaction created successfully');
+      });
     }
   });
   return (
