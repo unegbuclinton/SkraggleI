@@ -1,122 +1,113 @@
 import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
-import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Buttons() {
-  const [labelColor, setLabelColor] = useState('#477BE0');
-  const [buttonColor, setButtonColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#1E003E');
-
+function Form() {
+  const [white, setWhite] = useState('#FFFFFF');
+  const [blue, setBlue] = useState('#477BE0');
+  const [whitez, setWhitez] = useState('#FFFFFF');
+  const [black, setBlack] = useState('#000000');
   return (
-    <ButtonWrapper>
-      <ButtonFieldWrapper>
-        <ButtonLabel>Label</ButtonLabel>
-        <Input className="button-input" placeholder="Doante and support" />
-      </ButtonFieldWrapper>
+    <FormWrapper>
+      <FormFieldWrapper>
+        <FormLabel>Text color</FormLabel>
+        <ColorContainerWrapper>
+          <ColorContainer>
+            <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          </ColorContainer>
+        </ColorContainerWrapper>
+      </FormFieldWrapper>
 
-      <ButtonFieldWrapper>
-        <ButtonLabel>Label color</ButtonLabel>
+      <FormFieldWrapper>
+        <FormLabel>Background color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={labelColor}
-              onChange={(e) => setLabelColor(e.target.value)}
+              value={white}
+              onChange={(e) => setWhite(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </ButtonFieldWrapper>
+      </FormFieldWrapper>
 
-      <ButtonFieldWrapper>
-        <ButtonLabel>Button color</ButtonLabel>
+      <FormFieldWrapper>
+        <FormLabel>Icon color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={buttonColor}
-              onChange={(e) => setButtonColor(e.target.value)}
+              value={whitez}
+              onChange={(e) => setWhitez(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </ButtonFieldWrapper>
+      </FormFieldWrapper>
 
-      <ButtonFieldWrapper>
-        <ButtonLabel>Border size</ButtonLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border size</FormLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </ButtonFieldWrapper>
+      </FormFieldWrapper>
 
-      <ButtonFieldWrapper>
-        <ButtonLabel>Border radius</ButtonLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border radius</FormLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </ButtonFieldWrapper>
+      </FormFieldWrapper>
 
-      <ButtonFieldWrapper>
-        <ButtonLabel>Border color</ButtonLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={borderColor}
-              onChange={(e) => setBorderColor(e.target.value)}
+              value={black}
+              onChange={(e) => setBlack(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </ButtonFieldWrapper>
-      <ButtonFieldWrapper>
-        <ButtonLabel></ButtonLabel>
-        <Checkbox pink className="button-checkbox" label="Show Shadow" />
-      </ButtonFieldWrapper>
-    </ButtonWrapper>
+      </FormFieldWrapper>
+      <FormFieldWrapper>
+        <FormLabel></FormLabel>
+        <Checkbox pink className="form-checkbox" />
+        Show shadow
+      </FormFieldWrapper>
+    </FormWrapper>
   );
 }
 
-export default Buttons;
+export default Form;
 
-export const ButtonWrapper = styled.div`
+export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const ButtonFieldWrapper = styled.div`
+export const FormFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
-
-  .button-checkbox {
-    margin-left: -2rem;
+  .form-checkbox {
+    margin-left: -4rem;
   }
 
-  .button-input {
+  .form-input {
     max-width: 30.6rem;
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
   }
-`;
 
-export const ButtonLabel = styled.label`
-  width: 35%;
-  display: flex;
-  justify-content: flex-end;
-  font-size: ${FONTSIZES.lg};
-  color: ${COLORS['grey-500']};
-  font-weight: ${FONTWEIGHTS.normal};
-`;
-
-export const ColorContainerWrapper = styled.div`
-  width: 100%;
   .color-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -130,6 +121,35 @@ export const ColorContainerWrapper = styled.div`
     border-radius: 50%;
     border: 1px solid #e6eff1;
   }
+`;
+
+export const FormLabel = styled.label`
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-500']};
+  font-weight: ${FONTWEIGHTS.normal};
+`;
+
+export const FormFooter = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  justify-content: flex-end;
+
+  .archive-btn {
+    width: 10.7rem;
+    height: 5.1rem;
+  }
+
+  .update-btn {
+    width: 20.5rem;
+    height: 5.1rem;
+  }
+`;
+
+export const ColorContainerWrapper = styled.div`
+  width: 100%;
 `;
 
 export const ColorContainer = styled.div`
@@ -146,13 +166,6 @@ export const ColorContainer = styled.div`
   color: ${COLORS['grey-400']};
 `;
 
-export const ColorCircle = styled.div`
-  width: 23.22px;
-  height: 23.22px;
-  border-radius: 50%;
-  background-color: #477be0;
-  border: 1px solid #e6eff1;
-`;
 export const SliderWrapper = styled.div`
   width: 100%;
   margin-left: 1.7rem;

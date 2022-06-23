@@ -1,6 +1,9 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
-import RecentDonationModal from 'components/molecules/ElementModal/RecentDonation';
+import P2PButtonsModal from 'components/molecules/ElementModal/P2PButtons';
+// import ImageCardModal from 'components/molecules/ElementModal/ImageCardModal';
+// import ImpactSliderModal from 'components/molecules/ElementModal/ImpactSliderModal';
+// import RecentDonationModal from 'components/molecules/ElementModal/RecentDonation';
 // import P2PLinkModal from 'components/molecules/ElementModal/P2PLinkModal';
 // import TopSupportersModal from 'components/molecules/ElementModal/TopSupporters';
 import EventsDetails from 'components/molecules/EventsDetails';
@@ -180,7 +183,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <RecentDonationModal />
+    element: <P2PButtonsModal />
   }
 ];
 

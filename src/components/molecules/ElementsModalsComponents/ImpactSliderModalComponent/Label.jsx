@@ -7,13 +7,13 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Buttons() {
+function Label() {
   const [labelColor, setLabelColor] = useState('#477BE0');
   const [buttonColor, setButtonColor] = useState('#FFFFFF');
   const [borderColor, setBorderColor] = useState('#1E003E');
 
   return (
-    <ButtonWrapper>
+    <LabelWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel>Label</ButtonLabel>
         <Input className="button-input" placeholder="Doante and support" />
@@ -73,15 +73,16 @@ function Buttons() {
       </ButtonFieldWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel></ButtonLabel>
-        <Checkbox pink className="button-checkbox" label="Show Shadow" />
+        <Checkbox pink className="button-checkbox" />
+        Show Shadow
       </ButtonFieldWrapper>
-    </ButtonWrapper>
+    </LabelWrapper>
   );
 }
 
-export default Buttons;
+export default Label;
 
-export const ButtonWrapper = styled.div`
+export const LabelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
