@@ -1,4 +1,6 @@
 import Input from 'components/atoms/Input/Input';
+import ButtonGroupModal from 'components/molecules/ElementModal/ButtonGroupModal';
+import DonationLevelModal from 'components/molecules/ElementModal/DonationLevelModal';
 import MessageBarModal from 'components/molecules/ElementModal/MessageBarModal';
 import QrCodeModal from 'components/molecules/ElementModal/QrCodeModal';
 import ReminderModal from 'components/molecules/ElementModal/ReminderModal';
@@ -25,6 +27,8 @@ function NewElement() {
   const [openMessageBarModal, setOpenMessageBarModal] = useState(false);
   const [openSocialProofModal, setOpenSocialProofModal] = useState(false);
   const [openQrCodeModal, setOpenQrCodeModal] = useState(false);
+  const [openDonationLevels, setOpenDonationLevels] = useState(false);
+  const [openButtonGroup, setOpenButtonGroup] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const searchItems = (searchValue) => {
@@ -98,11 +102,17 @@ function NewElement() {
     },
     {
       name: 'Donation Levels',
-      title: 'Display one or more cards with customizable text, donation amounts, and buttons.'
+      title: 'Display one or more cards with customizable text, donation amounts, and buttons.',
+      click: function () {
+        return setOpenDonationLevels(true);
+      }
     },
     {
       name: 'Button Group',
-      title: 'Display a set of buttons with customizable donation amounts'
+      title: 'Display a set of buttons with customizable donation amounts',
+      click: function () {
+        return setOpenButtonGroup(true);
+      }
     },
     {
       name: 'Message Bar',
@@ -162,6 +172,11 @@ function NewElement() {
         onClose={() => setOpenMessageBarModal(false)}
       />
       <QrCodeModal isShown={openQrCodeModal} onClose={() => setOpenQrCodeModal(false)} />
+      <DonationLevelModal
+        isShown={openDonationLevels}
+        onClose={() => setOpenDonationLevels(false)}
+      />
+      <ButtonGroupModal isShown={openButtonGroup} onClose={() => setOpenButtonGroup(false)} />
       <ElementModalWrapper>
         <HeaderWrapper>
           <SearchWrapper>
