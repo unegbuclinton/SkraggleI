@@ -1,11 +1,5 @@
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
-import P2PButtonsModal from 'components/molecules/ElementModal/P2PButtons';
-// import ImageCardModal from 'components/molecules/ElementModal/ImageCardModal';
-// import ImpactSliderModal from 'components/molecules/ElementModal/ImpactSliderModal';
-// import RecentDonationModal from 'components/molecules/ElementModal/RecentDonation';
-// import P2PLinkModal from 'components/molecules/ElementModal/P2PLinkModal';
-// import TopSupportersModal from 'components/molecules/ElementModal/TopSupporters';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import ProcessingFeeMain from 'components/molecules/Forms';
@@ -32,7 +26,7 @@ import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
-// import Test from 'pages/Test';
+import Test from 'pages/Test';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 export const privateRoutes = [
@@ -183,7 +177,7 @@ export const privateRoutes = [
 
   {
     path: '/test',
-    element: <P2PButtonsModal />
+    element: <Test />
   }
 ];
 
