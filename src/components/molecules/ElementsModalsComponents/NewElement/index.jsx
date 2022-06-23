@@ -1,5 +1,6 @@
 import Input from 'components/atoms/Input/Input';
 import MessageBarModal from 'components/molecules/ElementModal/MessageBarModal';
+import QrCodeModal from 'components/molecules/ElementModal/QrCodeModal';
 import ReminderModal from 'components/molecules/ElementModal/ReminderModal';
 import SocialProofModal from 'components/molecules/ElementModal/SocialProofModal';
 import StickyButtonModal from 'components/molecules/ElementModal/StickyButtonModal';
@@ -23,6 +24,7 @@ function NewElement() {
   const [openReminderModal, setOpenReminderModal] = useState(false);
   const [openMessageBarModal, setOpenMessageBarModal] = useState(false);
   const [openSocialProofModal, setOpenSocialProofModal] = useState(false);
+  const [openQrCodeModal, setOpenQrCodeModal] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const searchItems = (searchValue) => {
@@ -123,7 +125,10 @@ function NewElement() {
     {
       name: 'QR Code',
       title:
-        'Generate a scannable code that when scanned, directs supporters to a campaign’s checkout.'
+        'Generate a scannable code that when scanned, directs supporters to a campaign’s checkout.',
+      click: function () {
+        return setOpenQrCodeModal(true);
+      }
     },
     {
       name: 'Recent Donations',
@@ -156,6 +161,7 @@ function NewElement() {
         isShown={openMessageBarModal}
         onClose={() => setOpenMessageBarModal(false)}
       />
+      <QrCodeModal isShown={openQrCodeModal} onClose={() => setOpenQrCodeModal(false)} />
       <ElementModalWrapper>
         <HeaderWrapper>
           <SearchWrapper>
