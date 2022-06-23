@@ -45,7 +45,6 @@ function Overview() {
   //   dispatch(allHouseHold());
   //   dispatch(viewTags());
   //   dispatch(viewContact());
-  //   dispatch(getAllTodos());
   //   dispatch(viewP2P());
   //   dispatch(getAllCampaigns());
   //   dispatch(getAllForm());

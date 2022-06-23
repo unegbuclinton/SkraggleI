@@ -1,13 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
-import { getMailBlast } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { campaignOverview } from 'validation/Schema';
+import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
@@ -18,17 +18,13 @@ import {
 } from './styles';
 
 const CampaignOverview = () => {
+  const [open, setOpen] = useState(false);
   const { campaignByID } = useSelector((state) => state.campaign);
+
   const { name, description, status, fundraising_goal, amount_raised } = campaignByID;
-  const statusToCap = status?.toUpperCase();
+  // const statusToCap = status?.toUpperCase();
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMailBlast(campaignByID.id));
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -43,13 +39,13 @@ const CampaignOverview = () => {
       value: (
         <IconWrapper>
           <DPIconGoodMark />
-          Hello
+          Edit Info
         </IconWrapper>
       ),
       label: (
-        <IconWrapper className="good-mark">
+        <IconWrapper className="good-mark" onClick={() => setOpen(true)}>
           <DPIconGoodMark />
-          Hello
+          Edit Info
         </IconWrapper>
       )
     },
@@ -89,11 +85,17 @@ const CampaignOverview = () => {
   };
   return (
     <MainWrapper>
+      <EditCampaignModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
       <LeftSection>
         <ContainerDropdwon>
           <SelectDropDown
             className="action-dropdown__container"
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Action'}
             id="emailSubscription"
             name="emailSubscription"
             type={'text'}
@@ -114,7 +116,7 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{`${statusToCap}`}</Button>
+          <Button className="campaign-name__button">{status}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>

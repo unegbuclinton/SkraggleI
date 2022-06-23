@@ -62,7 +62,7 @@ const FormsTable = () => {
     },
     {
       name: 'RAISED',
-      selector: (row) => row?.amount_raised || '0'
+      selector: (row) => row?.amount_raised || 0
       // width: '20rem'
     },
     {
@@ -72,9 +72,7 @@ const FormsTable = () => {
     },
     {
       name: 'STATUS',
-      // selector: (row) => row?.status,
       cell: (row) => {
-        console.log(row);
         return <Button className="table-button">{row?.status}</Button>;
       }
     }
