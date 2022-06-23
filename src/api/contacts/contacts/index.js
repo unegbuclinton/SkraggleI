@@ -54,3 +54,15 @@ export const deleteContact = async (body) => {
     console.log(error);
   }
 };
+
+export const smartRecommendation = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/contacts/users/${id}/smart-recommendations`
+    });
+    return response?.data?.message;
+  } catch (error) {
+    console.log(error);
+  }
+};

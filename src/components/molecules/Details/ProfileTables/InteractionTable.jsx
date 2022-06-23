@@ -8,7 +8,7 @@ import ProfileLayOut from '..';
 import { TableWrapper } from './styles';
 
 function InteractionTable() {
-  const { interactionData } = useSelector((state) => state.contact);
+  const { eachInteractionData } = useSelector((state) => state.contact);
 
   const [open, setOpen] = useState(false);
   const columns = [
@@ -34,11 +34,11 @@ function InteractionTable() {
       <TableWrapper>
         <TableHeader
           subMenuTableHeader
-          header={`${interactionData.length} Interactions`}
+          header={`${eachInteractionData?.length} Interactions`}
           title="Add Interaction"
           setOpen={setOpen}
         />
-        <Table columns={columns} data={interactionData} />
+        <Table columns={columns} data={eachInteractionData} />
       </TableWrapper>
       {open && <InteractionModal isShown={open} onClose={() => setOpen(false)} />}
     </ProfileLayOut>

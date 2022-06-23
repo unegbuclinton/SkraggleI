@@ -25,7 +25,7 @@ const MultiStepForm = ({ onClose }) => {
       lastName: '',
       primary_email: '',
       primary_phone: '',
-      is_subscribed_to_mailblasts: '',
+      emailSubscription: '',
       date: '',
       month: '',
       year: '',

@@ -64,7 +64,7 @@ export const privateRoutes = [
         element: <Contacts />
       },
       {
-        path: 'contact-profile',
+        path: ':id',
         element: <Profile />
       }
     ]
@@ -101,7 +101,7 @@ export const privateRoutes = [
         element: <Campaign />
       },
       {
-        path: 'campaign-details',
+        path: ':id',
         element: <CampaignDetails />
       }
     ]

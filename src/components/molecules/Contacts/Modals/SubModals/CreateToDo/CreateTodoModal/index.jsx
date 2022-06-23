@@ -2,11 +2,11 @@ import Button from 'components/atoms/Button/Button';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { createTodo, getAllTodos } from 'features/contact/contactSlice';
+import { createTodo, eachTodo } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import { DPIconUploadFile } from 'icons';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { CreateTodoValidationSchema } from 'validation/Schema';
 import {
@@ -19,6 +19,8 @@ import {
 } from './styles';
 
 function CreateTodoModal({ onClose }) {
+  const { eachContact } = useSelector((state) => state);
+  const id = eachContact.id;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -34,9 +36,9 @@ function CreateTodoModal({ onClose }) {
         due_at: values.dueDate
       };
       dispatch(createTodo(body)).then(() => {
+        dispatch(eachTodo(id));
         onClose();
         toast.success('Todo created successfully');
-        dispatch(getAllTodos());
       });
     }
   });
