@@ -13,11 +13,23 @@ export const addTodo = async (body) => {
   }
 };
 
-export const getTodos = async () => {
+// export const getTodos = async () => {
+//   try {
+//     const response = await request({
+//       method: 'get',
+//       url: '/contacts/todos?cursor=-1&direction=after&limit=25'
+//     });
+//     return response?.data?.message?.rows;
+//   } catch (error) {
+//     toast.error(error);
+//   }
+// };
+
+export const getEachTodo = async (id) => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/todos?cursor=-1&direction=after&limit=25'
+      url: `contacts/users/${id}/todos`
     });
     return response?.data?.message?.rows;
   } catch (error) {

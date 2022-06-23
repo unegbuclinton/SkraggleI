@@ -13,11 +13,23 @@ export const addVolunteer = async (body) => {
   }
 };
 
-export const getVolunteer = async () => {
+// export const getVolunteer = async () => {
+//   try {
+//     const response = await request({
+//       method: 'get',
+//       url: '/contacts/volunteer-activity?cursor=-1&limit=25&direction=after'
+//     });
+//     return response?.data?.message.rows;
+//   } catch (error) {
+//     toast.error(error);
+//   }
+// };
+
+export const eachVolunteer = async (id) => {
   try {
     const response = await request({
       method: 'get',
-      url: '/contacts/volunteer-activity?cursor=-1&limit=25&direction=after'
+      url: `/contacts/users/${id}/volunteer-activity`
     });
     return response?.data?.message.rows;
   } catch (error) {

@@ -1,5 +1,6 @@
 import { DPIconThankYou } from 'icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   ContentsWrapper,
   InfoContainer,
@@ -9,6 +10,14 @@ import {
 } from './styles';
 
 function SmartRecomendation() {
+  const { eachContact, recommendation } = useSelector((state) => state.contact);
+
+  const { first_name, last_name } = eachContact;
+
+  const { maximum, minimum, recommended, time_of_year } = recommendation.smart_ask;
+
+  const fullName = `${first_name} ${last_name}`;
+
   return (
     <ReconmendationWrapper>
       <RecomendationHeading>
@@ -21,9 +30,9 @@ function SmartRecomendation() {
           <InfoContainer>
             <h2 className="content-heading">SMART ASK</h2>
             <p className="content-info">
-              Troy is most likely to donate between{' '}
-              <span className="content-info__digit">$400 - $550</span>. We recommend asking them for{' '}
-              <span className="content-info__digit">$470</span>{' '}
+              {` ${fullName} is most likely to donate between `}{' '}
+              <span className="content-info__digit">{`$${maximum} - $${minimum}`}</span>. We
+              recommend asking them for <span className="content-info__digit">${recommended}</span>{' '}
             </p>
           </InfoContainer>
         </InfoWrapper>
@@ -32,9 +41,7 @@ function SmartRecomendation() {
           <DPIconThankYou />
           <InfoContainer>
             <h2 className="content-heading">TIME OF YEAR</h2>
-            <p className="content-info">
-              We don’t have enough data just yet to provide a recommendation for this.{' '}
-            </p>
+            <p className="content-info">{time_of_year}</p>
           </InfoContainer>
         </InfoWrapper>
 
@@ -42,9 +49,7 @@ function SmartRecomendation() {
           <DPIconThankYou />
           <InfoContainer>
             <h2 className="content-heading">BEST WAY TO REACH OUT</h2>
-            <p className="content-info">
-              Based on previous interactions, we recommend reaching out to Troy by Mail
-            </p>
+            <p className="content-info">{recommendation.best_way_to_reach_out}</p>
           </InfoContainer>
         </InfoWrapper>
 
