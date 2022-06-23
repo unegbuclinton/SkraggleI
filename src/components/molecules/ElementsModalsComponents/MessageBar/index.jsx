@@ -1,23 +1,23 @@
 import Button from 'components/atoms/Button/Button';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
-// import Tabs from 'components/molecules/Tabs';
+import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 import Apperance from './Appearance';
-// import Behavior from './Behavior';
-// import DonateAppearance from './Appearance';
-// import DonateButtonBehavior from './Behavior';
-// import CustomField from './CustomFields';
+import Behavior from './Behavior';
+import MessageBarButton from './Button';
+import VisibilityTab from './Visibility';
 
 function MessageBar() {
-  //   const tabs = [
-  //     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
-  //     { title: 'APPEARANCE', component: <DonateAppearance /> },
-  //     { title: 'CUSTOM FIELDS', component: <CustomField /> }
-  //   ];
+  const tabs = [
+    { title: 'BEHAVIOUR', component: <Behavior /> },
+    { title: 'APPEARANCE', component: <Apperance /> },
+    { title: 'BUTTON', component: <MessageBarButton /> },
+    { title: 'VISIBILITY', component: <VisibilityTab /> }
+  ];
   return (
     <DonateButtonWrapper>
       <Heading>
@@ -28,9 +28,7 @@ function MessageBar() {
           <DonateButtonLabel>Element name</DonateButtonLabel>
           <Input type="text" className="input-field" placeholder="Message Bar #2" />
         </InputWrapper>
-        {/* <Tabs tabs={tabs} inline /> */}
-        {/* <Behavior /> */}
-        <Apperance />
+        <Tabs tabs={tabs} inline />
         <CopyContainer>
           <CopyLabel>HTML CODE</CopyLabel>
           <CopyField grey />
