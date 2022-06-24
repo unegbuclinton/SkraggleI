@@ -3,10 +3,11 @@ import CompleteTransaction from 'components/molecules/DonationModals/CreateTrans
 import DonationAssociation from 'components/molecules/DonationModals/CreateTransaction/DonationAssociation';
 import DonationInformation from 'components/molecules/DonationModals/CreateTransaction/DonationInfomation';
 import MultiformTabs from 'components/molecules/MultiformTabs';
-import { getOneTimeTransaction } from 'features/donation/donationSlice';
+import { addOneTimeTransaction, getOneTimeTransaction } from 'features/donation/donationSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 function CreateTransactionModal({ onCloseModal }) {
   const dispatch = useDispatch();
@@ -38,10 +39,13 @@ function CreateTransactionModal({ onCloseModal }) {
         pledge_id: values.pledge,
         campaign_id: values.campaign,
         contact_id: values.contact,
-        card_id: 'pm_1LDL1QBc6qDGkh4adQBSoc0T',
         is_revenue: false
       };
-      dispatch(getOneTimeTransaction(body));
+      dispatch(addOneTimeTransaction(body)).then(() => {
+        dispatch(getOneTimeTransaction());
+        toast('Transactuion Created Successfully');
+        onCloseModal();
+      });
     }
   });
   const tabs = [
