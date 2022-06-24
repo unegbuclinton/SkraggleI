@@ -29,6 +29,7 @@ export { ReactComponent as DPIconDonationEye } from 'icons/svgs/donationEye.svg'
 export { ReactComponent as DPIconDonationMore } from 'icons/svgs/donationMore.svg';
 export { ReactComponent as DPIconDonations } from 'icons/svgs/donationsIcon.svg';
 export { ReactComponent as DPIconDonor } from 'icons/svgs/donor.svg';
+export { ReactComponent as DPIconDrag } from 'icons/svgs/drag.svg';
 export { ReactComponent as DPIconDropDown } from 'icons/svgs/DropdownArrow.svg';
 export { ReactComponent as DPIconElements } from 'icons/svgs/elementsIcon.svg';
 export { ReactComponent as DPIconEmail } from 'icons/svgs/email.svg';

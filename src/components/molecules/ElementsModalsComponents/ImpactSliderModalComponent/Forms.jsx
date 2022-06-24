@@ -1,112 +1,113 @@
 import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import Slider from 'components/atoms/Slider';
-// import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Amount() {
-  const [textColor, setTextColor] = useState('#477BE0');
-  const [iconColor, setIconColor] = useState('#FFFFFF');
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#1E003E');
-
+function Form() {
+  const [white, setWhite] = useState('#FFFFFF');
+  const [blue, setBlue] = useState('#477BE0');
+  const [whitez, setWhitez] = useState('#FFFFFF');
+  const [black, setBlack] = useState('#000000');
   return (
-    <AmountWrapper>
-      <AmountFieldWrapper>
-        <AmountLabel>Text color</AmountLabel>
+    <FormWrapper>
+      <FormFieldWrapper>
+        <FormLabel>Text color</FormLabel>
+        <ColorContainerWrapper>
+          <ColorContainer>
+            <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          </ColorContainer>
+        </ColorContainerWrapper>
+      </FormFieldWrapper>
+
+      <FormFieldWrapper>
+        <FormLabel>Background color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={textColor}
-              onChange={(e) => setTextColor(e.target.value)}
+              value={white}
+              onChange={(e) => setWhite(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
+      </FormFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Background color</AmountLabel>
+      <FormFieldWrapper>
+        <FormLabel>Icon color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={backgroundColor}
-              onChange={(e) => setBackgroundColor(e.target.value)}
+              value={whitez}
+              onChange={(e) => setWhitez(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
+      </FormFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Icon color</AmountLabel>
-        <ColorContainerWrapper>
-          <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={iconColor}
-              onChange={(e) => setIconColor(e.target.value)}
-            />
-          </ColorContainer>
-        </ColorContainerWrapper>
-      </AmountFieldWrapper>
-
-      <AmountFieldWrapper>
-        <AmountLabel>Border size</AmountLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border size</FormLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </AmountFieldWrapper>
+      </FormFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Border radius</AmountLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border radius</FormLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </AmountFieldWrapper>
+      </FormFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Border color</AmountLabel>
+      <FormFieldWrapper>
+        <FormLabel>Border color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={borderColor}
-              onChange={(e) => setBorderColor(e.target.value)}
+              value={black}
+              onChange={(e) => setBlack(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
-      <AmountFieldWrapper>
-        <AmountLabel></AmountLabel>
-        <Checkbox pink className="amount-checkbox" />
+      </FormFieldWrapper>
+      <FormFieldWrapper>
+        <FormLabel></FormLabel>
+        <Checkbox pink className="form-checkbox" />
         Show shadow
-      </AmountFieldWrapper>
-    </AmountWrapper>
+      </FormFieldWrapper>
+    </FormWrapper>
   );
 }
 
-export default Amount;
+export default Form;
 
-export const AmountWrapper = styled.div`
+export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const AmountFieldWrapper = styled.div`
+export const FormFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
-
-  .amount-checkbox {
+  .form-checkbox {
     margin-left: -4rem;
   }
+
+  .form-input {
+    max-width: 30.6rem;
+    background: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    margin-left: 1rem;
+  }
+
   .color-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -122,13 +123,29 @@ export const AmountFieldWrapper = styled.div`
   }
 `;
 
-export const AmountLabel = styled.label`
+export const FormLabel = styled.label`
   width: 35%;
   display: flex;
   justify-content: flex-end;
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
+`;
+
+export const FormFooter = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  justify-content: flex-end;
+
+  .archive-btn {
+    width: 10.7rem;
+    height: 5.1rem;
+  }
+
+  .update-btn {
+    width: 20.5rem;
+    height: 5.1rem;
+  }
 `;
 
 export const ColorContainerWrapper = styled.div`

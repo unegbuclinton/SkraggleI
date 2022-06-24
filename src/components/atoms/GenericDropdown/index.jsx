@@ -10,7 +10,8 @@ function SelectDropDown({
   onChange,
   width,
   isMulti,
-  isSearchable
+  isSearchable,
+  torquoise
 }) {
   const defaultValue = (options, myValue) => {
     return options ? options.find((option) => option.value === myValue) : '';
@@ -18,7 +19,7 @@ function SelectDropDown({
   const customStyles = {
     control: (styles) => ({
       ...styles,
-      backgroundColor: 'white',
+      backgroundColor: torquoise ? '#E6EFF1' : 'white',
       fontSize: '1.4rem',
       outline: 'none'
     }),

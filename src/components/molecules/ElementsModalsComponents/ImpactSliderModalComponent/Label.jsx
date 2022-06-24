@@ -1,75 +1,66 @@
 import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
+import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
-// import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Amount() {
-  const [textColor, setTextColor] = useState('#477BE0');
-  const [iconColor, setIconColor] = useState('#FFFFFF');
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+function Label() {
+  const [labelColor, setLabelColor] = useState('#477BE0');
+  const [buttonColor, setButtonColor] = useState('#FFFFFF');
   const [borderColor, setBorderColor] = useState('#1E003E');
 
   return (
-    <AmountWrapper>
-      <AmountFieldWrapper>
-        <AmountLabel>Text color</AmountLabel>
+    <LabelWrapper>
+      <ButtonFieldWrapper>
+        <ButtonLabel>Label</ButtonLabel>
+        <Input className="button-input" placeholder="Doante and support" />
+      </ButtonFieldWrapper>
+
+      <ButtonFieldWrapper>
+        <ButtonLabel>Label color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={textColor}
-              onChange={(e) => setTextColor(e.target.value)}
+              value={labelColor}
+              onChange={(e) => setLabelColor(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
+      </ButtonFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Background color</AmountLabel>
+      <ButtonFieldWrapper>
+        <ButtonLabel>Button color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={backgroundColor}
-              onChange={(e) => setBackgroundColor(e.target.value)}
+              value={buttonColor}
+              onChange={(e) => setButtonColor(e.target.value)}
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
+      </ButtonFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Icon color</AmountLabel>
-        <ColorContainerWrapper>
-          <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={iconColor}
-              onChange={(e) => setIconColor(e.target.value)}
-            />
-          </ColorContainer>
-        </ColorContainerWrapper>
-      </AmountFieldWrapper>
-
-      <AmountFieldWrapper>
-        <AmountLabel>Border size</AmountLabel>
+      <ButtonFieldWrapper>
+        <ButtonLabel>Border size</ButtonLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </AmountFieldWrapper>
+      </ButtonFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Border radius</AmountLabel>
+      <ButtonFieldWrapper>
+        <ButtonLabel>Border radius</ButtonLabel>
         <SliderWrapper>
           <Slider className="slider-border" text="px" />
         </SliderWrapper>
-      </AmountFieldWrapper>
+      </ButtonFieldWrapper>
 
-      <AmountFieldWrapper>
-        <AmountLabel>Border color</AmountLabel>
+      <ButtonFieldWrapper>
+        <ButtonLabel>Border color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
             <ColorComponents
@@ -79,34 +70,54 @@ function Amount() {
             />
           </ColorContainer>
         </ColorContainerWrapper>
-      </AmountFieldWrapper>
-      <AmountFieldWrapper>
-        <AmountLabel></AmountLabel>
-        <Checkbox pink className="amount-checkbox" />
-        Show shadow
-      </AmountFieldWrapper>
-    </AmountWrapper>
+      </ButtonFieldWrapper>
+      <ButtonFieldWrapper>
+        <ButtonLabel></ButtonLabel>
+        <Checkbox pink className="button-checkbox" />
+        Show Shadow
+      </ButtonFieldWrapper>
+    </LabelWrapper>
   );
 }
 
-export default Amount;
+export default Label;
 
-export const AmountWrapper = styled.div`
+export const LabelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const AmountFieldWrapper = styled.div`
+export const ButtonFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 6.4rem;
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
 
-  .amount-checkbox {
-    margin-left: -4rem;
+  .button-checkbox {
+    margin-left: -2rem;
   }
+
+  .button-input {
+    max-width: 30.6rem;
+    background: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    margin-left: 1rem;
+  }
+`;
+
+export const ButtonLabel = styled.label`
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-500']};
+  font-weight: ${FONTWEIGHTS.normal};
+`;
+
+export const ColorContainerWrapper = styled.div`
+  width: 100%;
   .color-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -120,19 +131,6 @@ export const AmountFieldWrapper = styled.div`
     border-radius: 50%;
     border: 1px solid #e6eff1;
   }
-`;
-
-export const AmountLabel = styled.label`
-  width: 35%;
-  display: flex;
-  justify-content: flex-end;
-  font-size: ${FONTSIZES.lg};
-  color: ${COLORS['grey-500']};
-  font-weight: ${FONTWEIGHTS.normal};
-`;
-
-export const ColorContainerWrapper = styled.div`
-  width: 100%;
 `;
 
 export const ColorContainer = styled.div`
@@ -149,6 +147,13 @@ export const ColorContainer = styled.div`
   color: ${COLORS['grey-400']};
 `;
 
+export const ColorCircle = styled.div`
+  width: 23.22px;
+  height: 23.22px;
+  border-radius: 50%;
+  background-color: #477be0;
+  border: 1px solid #e6eff1;
+`;
 export const SliderWrapper = styled.div`
   width: 100%;
   margin-left: 1.7rem;
