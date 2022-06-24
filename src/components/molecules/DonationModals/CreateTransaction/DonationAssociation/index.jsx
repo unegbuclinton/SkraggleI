@@ -1,56 +1,111 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import data from 'utilities/filterData.json';
 
-function DonationAssociation({ IncrementTab, DecrementTab }) {
+function DonationAssociation({ IncrementTab, DecrementTab, formik }) {
+  const { pledgeData } = useSelector((state) => state.donation);
+
+  const { campaigns } = useSelector((state) => state.campaign);
+
+  const pledgeOptions = pledgeData?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
+  const campaignOptions = campaigns?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
   return (
     <AssociationWrapper>
       <Card className="association-card">
         <AssociationLabel>
           <p className="association-label">Pledge</p>
-          <DropdownComponent className="association-dropdown" data={data} />
+          <SelectDropDown
+            className="association-field "
+            options={pledgeOptions}
+            id="pledge"
+            name="pledge"
+            type={'text'}
+            placeholder="Currency"
+            value={formik.values.pledge}
+            onChange={(value) => formik.setFieldValue('pledge', value.value)}
+            onBlur={formik.handleBlur}
+          />
         </AssociationLabel>
         <AssociationLabel>
           <p className="association-label">Campaign</p>
-          <DropdownComponent className="association-dropdown" data={data} />
+          <SelectDropDown
+            className="association-field "
+            options={campaignOptions}
+            id="campaign"
+            name="campaign"
+            type={'text'}
+            placeholder="Currency"
+            value={formik.values.campaign}
+            onChange={(value) => formik.setFieldValue('campaign', value.value)}
+            onBlur={formik.handleBlur}
+          />
         </AssociationLabel>
         <AssociationLabel>
           <p className="association-label">Impact Area</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Soft Credit</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Source</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Keywords</p>
-          <DropdownComponent className="association-dropdown" data={data} />
+          <SelectDropDown
+            className="association-field "
+            options={pledgeOptions}
+            id="impactArea"
+            name="impactArea"
+            type={'text'}
+            placeholder="Currency"
+            value={formik.values.impactArea}
+            onChange={(value) => formik.setFieldValue('impactArea', value.value)}
+            onBlur={formik.handleBlur}
+          />
         </AssociationLabel>
 
         <AssociationInput>
           <p className="association-label">Dedication</p>
-          <Input className="association-input" />
+          <Input
+            className="association-input"
+            autoWidth
+            id="dedication"
+            name="dedication"
+            placeholder="Dedication"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.dedication}
+          />
         </AssociationInput>
         <AssociationInput>
           <p className="association-label">Notes</p>
-          <Input className="association-input" />
+          <Input
+            className="association-input"
+            autoWidth
+            id="note"
+            name="note"
+            placeholder="Notes"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.note}
+          />
         </AssociationInput>
 
         <div className="association-footer">
-          <Button invert auth className="association-cancel-btn" onClick={DecrementTab}>
+          <Button
+            invert
+            auth
+            className="association-cancel-btn"
+            onClick={DecrementTab}
+            type="button">
             Back
           </Button>
-          <Button auth className="association-save-btn" onClick={IncrementTab}>
+          <Button type="button" auth className="association-save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </div>
@@ -61,7 +116,7 @@ function DonationAssociation({ IncrementTab, DecrementTab }) {
 
 export default DonationAssociation;
 
-const AssociationWrapper = styled.div`
+const AssociationWrapper = styled.form`
   .association-card {
     padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 
@@ -89,11 +144,7 @@ const AssociationLabel = styled.div`
     font-weight: ${FONTWEIGHTS.normal};
     color: ${COLORS['grey-500']};
   }
-  .association-dropdown {
-    width: 60.2rem;
-    height: 6.4rem;
-    border: 1px solid ${COLORS['moore-grey']};
-    border-radius: 0.5rem;
+  .association-field {
     margin-bottom: 2.4rem;
   }
 `;
@@ -106,8 +157,6 @@ const AssociationInput = styled.div`
     color: ${COLORS['grey-500']};
   }
   .association-input {
-    width: 60.2rem;
-    height: 6.4rem;
     border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;

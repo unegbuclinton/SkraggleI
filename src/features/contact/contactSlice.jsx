@@ -1,13 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { addCompanies, deleteCompany, getCompanies } from 'api/contacts/company';
-import { allInteractions, createInteractions } from 'api/contacts/contact-subTab/interactions';
+import {
+  allInteractions,
+  createInteractions,
+  interactionsByID
+} from 'api/contacts/contact-subTab/interactions';
 import { editContact } from 'api/contacts/contact-subTab/profile';
-import { addContact, allContacts, deleteContact, eachContact } from 'api/contacts/contacts';
+import {
+  addContact,
+  allContacts,
+  deleteContact,
+  eachContact,
+  smartRecommendation
+} from 'api/contacts/contacts';
 import { addHousehold, deleteHousehold, getAllHouseHold } from 'api/contacts/household';
 import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/search';
 import { addTags, allTags, deleteTag } from 'api/contacts/tags';
-import { addTodo, getTodos } from 'api/contacts/todo';
-import { addVolunteer, getVolunteer } from 'api/contacts/volunteer';
+import { addTodo, getEachTodo } from 'api/contacts/todo';
+import { addVolunteer, eachVolunteer } from 'api/contacts/volunteer';
+import { getUser } from 'api/userData';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -18,9 +29,14 @@ const initialState = {
   contactData: [],
   tagsData: [],
   todos: [],
+  eachTodoData: [],
   eachContact: [],
+  eachInteractionData: [],
   interactionData: [],
-  volunteers: []
+  recommendation: [],
+  eachVolunteerData: [],
+  volunteers: [],
+  userData: {}
 };
 
 export const createContact = createAsyncThunk('contact/createContact', addContact);
@@ -32,17 +48,22 @@ export const createHouseHold = createAsyncThunk('contact/houseHold', addHousehol
 export const createTags = createAsyncThunk('contact/createTags', addTags);
 export const viewTags = createAsyncThunk('contact/viewTags', allTags);
 export const createTodo = createAsyncThunk('contact/createTodo', addTodo);
-export const getAllTodos = createAsyncThunk('contact/getAllTodos', getTodos);
+export const eachTodo = createAsyncThunk('contact/eachTodo', getEachTodo);
 export const createVolunteer = createAsyncThunk('contact/createVolunteer', addVolunteer);
 export const oneContact = createAsyncThunk('contact/oneConact', eachContact);
 export const getInteraction = createAsyncThunk('contact/getInteraction', createInteractions);
 export const updateContact = createAsyncThunk('contact/updateContact', editContact);
-export const getAllInteractions = createAsyncThunk('getAllInteractions', allInteractions);
-export const getAllVolunteer = createAsyncThunk('contact/getAllVolunteer', getVolunteer);
+export const getAllInteractions = createAsyncThunk('contact/getAllInteractions', allInteractions);
+// export const getAllVolunteer = createAsyncThunk('contact/getAllVolunteer', getVolunteer);
+export const getEachVolunteer = createAsyncThunk('getEachVolunteer', eachVolunteer);
 export const removeContact = createAsyncThunk('contact/removeContact', deleteContact);
 export const removeHouseHold = createAsyncThunk('contact/removeHouseHold', deleteHousehold);
 export const removeCompany = createAsyncThunk('contact/removeCompany', deleteCompany);
 export const removeTag = createAsyncThunk('contact/removeTag', deleteTag);
+export const smartAsk = createAsyncThunk('contact/smartAsk', smartRecommendation);
+export const eachInteraction = createAsyncThunk('contact/eachInteraction', interactionsByID);
+
+export const userInfo = createAsyncThunk('contact/userInfo', getUser);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -140,7 +161,7 @@ export const contactSlice = createSlice({
     // },
     // [searchHouseHold.fulfilled]: (state, action) => {
     //   state.houseHolds = action.payload;
-    // },
+    // },`
     [logoutUser.fulfilled]: () => {
       return initialState;
     },
@@ -153,14 +174,24 @@ export const contactSlice = createSlice({
     [createTodo.pending]: (state) => {
       state.isLoading = true;
     },
-    [getAllTodos.fulfilled]: (state, action) => {
+    [eachTodo.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.todos = action.payload;
+      state.eachTodoData = action.payload;
     },
-    [getAllTodos.rejected]: (state) => {
+    [eachTodo.rejected]: (state) => {
       state.isLoading = false;
     },
-    [getAllTodos.pending]: (state) => {
+    [eachTodo.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getEachVolunteer.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.eachVolunteerData = action.payload;
+    },
+    [getEachVolunteer.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getEachVolunteer.pending]: (state) => {
       state.isLoading = true;
     },
     [createVolunteer.fulfilled]: (state) => {
@@ -172,16 +203,7 @@ export const contactSlice = createSlice({
     [createVolunteer.pending]: (state) => {
       state.isLoading = true;
     },
-    [getAllVolunteer.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.volunteers = action.payload;
-    },
-    [getAllVolunteer.rejected]: (state) => {
-      state.isLoading = false;
-    },
-    [getAllVolunteer.pending]: (state) => {
-      state.isLoading = true;
-    },
+
     [oneContact.fulfilled]: (state, action) => {
       state.eachContact = action.payload;
     },
@@ -228,6 +250,27 @@ export const contactSlice = createSlice({
     [removeTag.rejected]: (state) => {
       state.isLoading = false;
     },
+    [smartAsk.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [smartAsk.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.recommendation = action.payload;
+    },
+    [smartAsk.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [userInfo.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [userInfo.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.userData = action.payload;
+    },
+    [userInfo.rejected]: (state) => {
+      state.isLoading = false;
+    },
     // [searchContact.fulfilled]: (state, action) => {
     //   state.isLoading = false;
     //   state.contactData = action.payload;
@@ -239,6 +282,10 @@ export const contactSlice = createSlice({
     // [searchHouseHold.fulfilled]: (state, action) => {
     //   state.houseHolds = action.payload;
     // },
+
+    [eachInteraction.fulfilled]: (state, action) => {
+      state.eachInteractionData = action.payload;
+    },
     [logoutUser.fulfilled]: () => {
       return initialState;
     }

@@ -4,7 +4,7 @@ import { Fill, Input, Root, Wrapper } from './styles';
 
 const Radio = (props) => {
   const { onChange, value, labelText, checked, name } = props;
-
+  console.log(checked);
   return (
     <Wrapper>
       <Root {...props}>

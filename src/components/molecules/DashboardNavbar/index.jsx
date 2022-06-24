@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import apiInstance from 'apiInstance';
 import { addUserData, getAdminData, logoutUser } from 'features/auth/authSlice';
+import { userInfo } from 'features/contact/contactSlice';
 import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,26 +17,13 @@ import {
 } from './styles';
 
 function DashboardHeader({ pageLinks }) {
+  const { userData } = useSelector((state) => state.contact);
+
   const dispatch = useDispatch();
   const ref = useRef();
   const [open, setOpen] = useState(false);
-  // const { userData } = useSelector((state) => state?.auth);
-  const [userData, setUserData] = useState({});
 
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await apiInstance({
-        method: 'get',
-        url: '/admin'
-      });
-      const data = response?.data?.message;
-      setUserData(data);
-      // store.set()
-      // dispatch(addUserData(data));
-    };
-
-    getUser();
-  }, []);
+  const id = userData?.id;
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -51,10 +39,6 @@ function DashboardHeader({ pageLinks }) {
     };
   }, [open]);
 
-  const toggleMenu = () => setOpen((prev) => !prev);
-  const userLogout = () => {
-    dispatch(logoutUser());
-  };
   const menuContent = [
     {
       route: '/contacts',
@@ -71,9 +55,13 @@ function DashboardHeader({ pageLinks }) {
       }
     }
   ];
+  const toggleMenu = () => setOpen((prev) => !prev);
+  const userLogout = () => {
+    dispatch(logoutUser());
+  };
 
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
-  console.log(userName);
+
   return (
     <Header>
       <div className="header__first-row">

@@ -34,7 +34,6 @@ export const CreateMailWrapper = styled.form`
   }
   .edit-dropdown {
     width: 60.2rem;
-    height: 6.4rem;
     padding: 0 1.6rem;
     border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;

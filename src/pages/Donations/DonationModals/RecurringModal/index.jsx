@@ -1,18 +1,22 @@
-import React from 'react';
 import Modal from 'components/layouts/Modal';
 import RecurringAssociation from 'components/molecules/DonationModals/Recurring/RecurringAssociation';
 import RecurringInformation from 'components/molecules/DonationModals/Recurring/RecurringInfomation';
 import MultiformTabs from 'components/molecules/MultiformTabs';
+import { useFormik } from 'formik';
+import React from 'react';
 
 function RecurringModal({ onCloseModal }) {
+  const formik = useFormik({});
   const tabs = [
     {
       name: 'DONATION INFORMATION',
-      component: RecurringInformation
+      component: RecurringInformation,
+      props: { formik }
     },
     {
       name: 'ASSOCIATIONS ',
-      component: RecurringAssociation
+      component: RecurringAssociation,
+      props: { formik }
     }
   ];
 

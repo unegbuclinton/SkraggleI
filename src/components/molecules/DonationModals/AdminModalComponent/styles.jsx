@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ModalWrapper = styled.form`
   padding-left: 2rem;
@@ -25,8 +25,6 @@ export const ModalWrapper = styled.form`
     background-color: ${COLORS.white};
     padding-left: 2.083rem;
     margin-bottom: 0.8rem;
-    height: 6.4rem;
-    width: 100%;
     border: 1px solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
   }

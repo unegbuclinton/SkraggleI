@@ -6,12 +6,14 @@ import { createNewMailBlast, listAllMailBlast } from 'features/mailblast/mailBla
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CreateMailBlastSchema } from 'validation/Schema';
 import { CreateLabel, CreateMailWrapper, ErrorMsg } from './styles';
 
 function CreateMailBlast({ onCloseModal }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isLoading } = useSelector((state) => state.mailBlast);
 
@@ -51,6 +53,7 @@ function CreateMailBlast({ onCloseModal }) {
           dispatch(listAllMailBlast());
         }
       });
+      navigate('/mail-blasts');
     }
   });
   const categoryOptions = [

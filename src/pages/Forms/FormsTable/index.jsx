@@ -1,5 +1,5 @@
+import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
-import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
@@ -59,17 +59,21 @@ function FormsTable() {
 
     {
       name: 'RAISED',
-      selector: (row) => row?.amount_raised
+      selector: (row) => row?.amount_raised || '0'
     },
 
     {
       name: 'DONATIONS',
-      selector: (row) => row?.donation_amount
+      selector: (row) => row?.donation_amount || '0'
     },
 
     {
       name: 'STATUS',
-      cell: () => <TableBtn active />
+      cell: (row) => (
+        <Button success pill>
+          {row?.status.toUpperCase()}
+        </Button>
+      )
     }
   ];
   return (

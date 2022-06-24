@@ -1,12 +1,15 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
+import { editCampaign, getAllCampaigns, singleCampaign } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { campaignOverview } from 'validation/Schema';
+import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 import {
   CampaignNameWrapper,
   ContainerDropdwon,
@@ -17,12 +20,25 @@ import {
 } from './styles';
 
 const CampaignOverview = () => {
+  const [open, setOpen] = useState(false);
   const { campaignByID } = useSelector((state) => state.campaign);
-  const { name, description, status, fundraising_goal, amount_raised } = campaignByID;
-  const statusToCap = status?.toUpperCase();
+  const dispatch = useDispatch();
+
+  const { name, description, status, fundraising_goal, amount_raised, id } = campaignByID;
+  // const statusToCap = status?.toUpperCase();
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
 
+  const ArchiveCampaign = () => {
+    const body = {
+      archived: true
+    };
+    dispatch(editCampaign({ body, id })).then(() => {
+      toast.success('Campaign archived successfully');
+      dispatch(getAllCampaigns());
+      dispatch(singleCampaign(id));
+    });
+  };
   const formik = useFormik({
     initialValues: {
       task: ''
@@ -36,13 +52,13 @@ const CampaignOverview = () => {
       value: (
         <IconWrapper>
           <DPIconGoodMark />
-          Hello
+          Edit Info
         </IconWrapper>
       ),
       label: (
-        <IconWrapper className="good-mark">
+        <IconWrapper className="good-mark" onClick={() => setOpen(true)}>
           <DPIconGoodMark />
-          Hello
+          Edit Info
         </IconWrapper>
       )
     },
@@ -54,7 +70,7 @@ const CampaignOverview = () => {
         </IconWrapper>
       ),
       label: (
-        <IconWrapper className="good-mark">
+        <IconWrapper className="good-mark" onClick={ArchiveCampaign}>
           <DPIconBin />
           Archive
         </IconWrapper>
@@ -82,11 +98,17 @@ const CampaignOverview = () => {
   };
   return (
     <MainWrapper>
+      <EditCampaignModal
+        isShown={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      />
       <LeftSection>
         <ContainerDropdwon>
           <SelectDropDown
             className="action-dropdown__container"
-            placeholder={'Lorem Ipsum'}
+            placeholder={'Action'}
             id="emailSubscription"
             name="emailSubscription"
             type={'text'}
@@ -107,7 +129,7 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{`${statusToCap}`}</Button>
+          <Button className="campaign-name__button">{status}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>

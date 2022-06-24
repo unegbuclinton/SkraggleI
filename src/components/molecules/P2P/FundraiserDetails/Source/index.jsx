@@ -1,9 +1,13 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-const Source = ({ className }) => {
+const Source = ({ className, supporter }) => {
+  const { eachP2p } = useSelector((state) => state.p2p);
+
+  const { fundraiser_display_name } = eachP2p;
   return (
     <SourceWrapper id="source" className={className}>
       <div className="fundraiser__top">
@@ -14,11 +18,11 @@ const Source = ({ className }) => {
       <div className="fundraiser__down">
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Source</h1>
-          <p className="fundraiser__p2">Leaf Inc</p>
+          <p className="fundraiser__p2">{fundraiser_display_name}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Dashboard</h1>
-          <p className="fundraiser__p2">Mohammad Adam</p>
+          <p className="fundraiser__p2">{supporter}</p>
         </div>
       </div>
     </SourceWrapper>

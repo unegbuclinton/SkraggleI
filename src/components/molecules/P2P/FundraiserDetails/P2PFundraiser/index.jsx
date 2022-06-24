@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
-const P2PFundraise = ({ className }) => {
+const P2PFundraise = ({ className, supporter }) => {
   const { eachP2p } = useSelector((state) => state.p2p);
   const { campaign, created_at } = eachP2p;
 
@@ -33,7 +33,7 @@ const P2PFundraise = ({ className }) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Supporter</h1>
-          <p className="fundraiser__p1">Partho Prothim</p>
+          <p className="fundraiser__p1">{supporter}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Share link</h1>
