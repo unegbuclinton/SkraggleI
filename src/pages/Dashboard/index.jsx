@@ -4,7 +4,7 @@ import { getAllCampaigns } from 'features/campaign/campaignSlice';
 import {
   allHouseHold,
   getAllCompanies,
-  getAllTodos,
+  // getAllTodos,
   viewContact,
   viewTags
 } from 'features/contact/contactSlice';
@@ -37,7 +37,6 @@ function Dashboard() {
     dispatch(allHouseHold());
     dispatch(viewTags());
     dispatch(viewContact());
-    dispatch(getAllTodos());
     dispatch(viewP2P());
     dispatch(getAllCampaigns());
     dispatch(getAllForm());

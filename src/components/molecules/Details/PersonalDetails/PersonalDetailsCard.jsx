@@ -1,3 +1,4 @@
+import apiInstance from 'apiInstance';
 import Button from 'components/atoms/Button/Button';
 import { DPIconsPen } from 'icons';
 import React, { useEffect, useState } from 'react';
@@ -6,7 +7,19 @@ import { nameAbbr } from 'utilities/helpers';
 import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
-  const [userData, setUserData] = useState('');
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await apiInstance({
+        method: 'get',
+        url: '/admin'
+      });
+      const data = response?.data?.message;
+      setUserData(data);
+    };
+
+    getUser();
+  }, []);
   const { eachContact } = useSelector((state) => state.contact);
   const {
     first_name,
@@ -24,15 +37,7 @@ function PersonalDetailsCard() {
   } = eachContact;
   const fullName = `${first_name} ${last_name}`;
   const tag = tags;
-
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('userData'));
-    console.log(items);
-    if (items) {
-      setUserData(userData);
-    }
-  }, []);
-
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
   return (
     <CardWrapper>
       <ContentsWrapper>
@@ -65,7 +70,7 @@ function PersonalDetailsCard() {
         <Line />
         <div className="assignee">
           <h2 className="assignee__heading">ASSIGNEE</h2>
-          <p className="assignee__name">{userData}</p>
+          <p className="assignee__name">{userName}</p>
         </div>
         <Line />
         <div className="priority">

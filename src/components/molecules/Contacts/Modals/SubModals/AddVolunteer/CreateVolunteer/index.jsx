@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import { createVolunteer, getAllVolunteer } from 'features/contact/contactSlice';
+import { createVolunteer, getEachVolunteer } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +37,7 @@ function CreateVolunteerModal({ onClose }) {
       dispatch(createVolunteer(body)).then(() => {
         onClose();
         toast.success('Volunteer created successfully');
-        dispatch(getAllVolunteer());
+        dispatch(getEachVolunteer(volunteerId));
       });
     }
   });
@@ -106,20 +106,7 @@ function CreateVolunteerModal({ onClose }) {
             <ErrorMsg>{formik.errors.fee}</ErrorMsg>
           ) : null}
         </div>
-        <VolunteerLabel>Status</VolunteerLabel>
-        <Input
-          className="input-field"
-          type="text"
-          id="status"
-          name="status"
-          placeholder="Status"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.status}
-        />
-        {formik.touched.status && formik.errors.status ? (
-          <ErrorMsg>{formik.errors.status}</ErrorMsg>
-        ) : null}
+
         <ButtonContainer>
           <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
             Cancel

@@ -42,7 +42,6 @@ function ContactStepTwo({ onClose, formik }) {
 
     getUser();
   }, []);
-
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   const assigneeOptions = [{ value: userData?.id, label: userName }];

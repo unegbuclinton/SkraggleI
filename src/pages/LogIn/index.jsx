@@ -5,6 +5,7 @@ import Input from 'components/atoms/Input/Input';
 import Spinner from 'components/atoms/Spinner/Spinner';
 import AuthLayout from 'components/layouts/AuthLayout';
 import { loginUser } from 'features/auth/authSlice';
+import { userInfo } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import { DPIconGoogleIcon } from 'icons';
 import React from 'react';
@@ -31,6 +32,7 @@ const LogIn = () => {
 
       dispatch(loginUser(body)).then((data) => {
         if (data.payload) {
+          dispatch(userInfo());
           navigate('/dashboard');
         }
       });

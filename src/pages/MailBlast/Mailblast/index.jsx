@@ -9,11 +9,12 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import {
+  allSubscriptionStatus,
   getMailblastById,
   listAllMailBlast,
   removeMailBlast
 } from 'features/mailblast/mailBlastSlice';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -31,6 +32,10 @@ function Mail() {
   let navigate = useNavigate();
 
   const { mailBlastDatas, isLoading } = useSelector((state) => state.mailBlast);
+
+  useEffect(() => {
+    dispatch(allSubscriptionStatus());
+  }, [mailBlastDatas]);
 
   const handleSelect = (row) => {
     const checkedRows = row.selectedRows.map((cur) => cur.id);
@@ -56,18 +61,13 @@ function Mail() {
   };
 
   const columns = [
-    // {
-    //   name: '',
-    //   cell: () => <Checkbox />,
-    //   width: '3.069rem'
-    // },
     {
       name: 'NAME',
       selector: (row) => row.name
     },
     {
       name: 'ASSIGNEE',
-      cell: () => <NameLogo text="John Doe" />
+      cell: (row) => <NameLogo text={row.name} />
     },
     {
       name: 'SCHEDULED'
@@ -83,22 +83,21 @@ function Mail() {
     }
   ];
 
-  // const mail = mailData.map((data, index) => ({
-  //   key: index,
-  //   created: data.created,
-  //   campaign: data.campaign,
-  //   goals: data.goals,
-  //   status: data.status
-  // }));
-  // const indexLasttList = currentPage * itemsPerPage;
-  // const indexFirstList = indexLasttList - itemsPerPage;
-  // const currentList = 4;
-
   return (
     <MailWrapper>
       <DeleteModal
         isShown={openDeleteModal}
         handleDelete={handleDelete}
+        // const mail = mailData.map((data, index) => ({
+        //   key: index,
+        //   created: data.created,
+        //   campaign: data.campaign,
+        //   goals: data.goals,
+        //   status: data.status
+        // }));
+        // const indexLasttList = currentPage * itemsPerPage;
+        // const indexFirstList = indexLasttList - itemsPerPage;
+        // const currentList = 4;
         onClose={() => setOpenDeleteModal(false)}
         isLoading={isLoading}
         warning="Warning: This will delete these Mail blast permanently from your Skraggle account. This

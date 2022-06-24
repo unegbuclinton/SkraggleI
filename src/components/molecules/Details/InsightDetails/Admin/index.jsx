@@ -5,17 +5,12 @@ import { useSelector } from 'react-redux';
 import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
+  const { userData } = useSelector((state) => state.contact);
   const { eachContact } = useSelector((state) => state.contact);
-  const {
-    organization_id,
-    priority,
-    assignee,
-    is_subscribed_to_mailblasts,
-    note,
-    tags,
-    last_name
-  } = eachContact;
+  const { organization_id, priority, is_subscribed_to_mailblasts, note, tags } = eachContact;
   const [open, setOpen] = useState(false);
+
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
   return (
     <>
       <AdminModal
@@ -43,12 +38,12 @@ function Admin() {
 
         <AdminContainer>
           <h2 className="title">ASSIGNEE</h2>
-          <p className="info assign">{assignee}</p>
+          <p className="info assign">{userName}</p>
         </AdminContainer>
 
         <AdminContainer>
           <h2 className="title">LAST NAME</h2>
-          <p className="info last-name">{last_name}</p>
+          <p className="info last-name"></p>
         </AdminContainer>
 
         <AdminContainer>

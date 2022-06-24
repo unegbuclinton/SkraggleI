@@ -16,7 +16,7 @@ function TodosTable() {
   const itemsPerPage = 5;
   const [open, setOpen] = useState(false);
 
-  const { todos } = useSelector((state) => state.contact);
+  const { eachTodoData } = useSelector((state) => state.contact);
 
   const columns = [
     {
@@ -55,16 +55,16 @@ function TodosTable() {
     <>
       <TodoModal isShown={open} onClose={() => setOpen(false)} />
       <ProfileLayOut heading="To-Do&#39;s">
-        {!!todos.length ? (
+        {!!eachTodoData.length ? (
           <div>
             <TableWrapper>
               <TableHeader
                 subMenuTableHeader
                 title="Add To-do"
-                header={`${todos.length} To-Do`}
+                header={`${eachTodoData.length} To-Do`}
                 setOpen={setOpen}
               />
-              <Table columns={columns} data={todos} />
+              <Table columns={columns} data={eachTodoData} />
             </TableWrapper>
             <Pagination
               currentPage={currentPage}

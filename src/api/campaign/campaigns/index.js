@@ -6,7 +6,7 @@ export const getCampaigns = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/campaigns?cursor=-1&direction=after&limit=20'
+      url: '/campaigns'
     });
     return response?.data?.message?.rows;
   } catch (error) {
@@ -46,6 +46,20 @@ export const deleteCampaign = async (body) => {
     const response = await request({
       method: 'delete',
       url: `/campaigns`,
+      data: body
+    });
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updateCampaign = async ({ body, id }) => {
+  try {
+    const response = await request({
+      method: 'patch',
+      url: `/campaigns/${id}`,
       data: body
     });
 

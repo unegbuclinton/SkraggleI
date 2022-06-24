@@ -57,7 +57,6 @@ function CreateContactStepOne({ onClose, formik }) {
   var years = generateArrayOfYears();
   var months = generateArrayOfMonths();
   var date = generateArrayOfDate();
-  console.log(date);
 
   const companyOption = companies?.map((current) => ({ value: current?.id, label: current?.name }));
   return (
