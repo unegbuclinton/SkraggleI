@@ -18,7 +18,12 @@ const Checkbox = ({
   };
   return (
     <CheckboxContainer className={className} pink={pink} checked={checked || state} id={id}>
-      <HiddenCheckbox checked={checked || state} onChange={handleCheckboxChange} {...props} />
+      <HiddenCheckbox
+        checked={checked || state}
+        onChange={handleCheckboxChange}
+        id={id}
+        {...props}
+      />
       <StyledCheckbox
         checked={checked || state}
         radial={radial}
