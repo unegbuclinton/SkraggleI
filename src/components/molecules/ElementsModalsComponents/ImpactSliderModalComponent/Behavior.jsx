@@ -56,7 +56,7 @@ function Behavior() {
         />
       </BehaviorFieldWrapper>
       <ValuesFieldWrapper>
-        <BehaviorLabel>Values</BehaviorLabel>
+        <BehaviorLabel className="value-label">Values</BehaviorLabel>
 
         <ValueFieldsWrapper>
           {installment.map((name, index) => (
@@ -219,4 +219,7 @@ export const ValuesFieldWrapper = styled.div`
   margin-bottom: 2.4rem;
   margin-left: 6.4rem;
   gap: 0.8rem;
+  .value-label {
+    margin-top: 2rem;
+  }
 `;

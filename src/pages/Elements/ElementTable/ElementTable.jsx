@@ -1,10 +1,12 @@
 import Table from 'components/layouts/Table';
+import NewElementModal from 'components/molecules/ElementModal/NewElementModal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { DPIconDonationDash, DPIconDonationEye, DPIconDonationMore } from 'icons';
 import React, { useState } from 'react';
 import { ElementsWrapper } from './styles';
 
 function ElementTable() {
+  const [open, setOpen] = useState(false);
   const columns = [
     {
       name: 'ID',
@@ -68,7 +70,8 @@ function ElementTable() {
   ];
   return (
     <ElementsWrapper>
-      <TableHeader header="12 Elements" />
+      <NewElementModal isShown={open} onClose={() => setOpen(false)} />
+      <TableHeader header="12 Elements" title="New element" setOpen={setOpen} />
       <Table columns={columns} data={data} />
     </ElementsWrapper>
   );

@@ -32,7 +32,7 @@ function Behavior() {
       </BehaviorFieldWrapper>
 
       <RadioFieldWrapper>
-        <BehaviorLabel>Default amount</BehaviorLabel>
+        <BehaviorLabel className="default-amount">Default amount</BehaviorLabel>
         <RadioGroup
           radioData={[
             {
@@ -121,4 +121,7 @@ export const RadioFieldWrapper = styled.div`
   margin-bottom: 2.4rem;
   margin-left: 6.4rem;
   gap: 0.8rem;
+  .default-amount {
+    margin-top: 0.6rem;
+  }
 `;
