@@ -1,44 +1,79 @@
-import React from 'react';
-import DropdownComponent from 'components/atoms/Dropdown';
-import styled from 'styled-components';
+import Button from 'components/atoms/Button/Button';
+import Card from 'components/atoms/Card';
+import SelectDropDown from 'components/atoms/GenericDropdown';
+import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import data from 'utilities/filterData.json';
-import Card from 'components/atoms/Card';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
+import { useFormik } from 'formik';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 function RecurringAssociation({ DecrementTab }) {
+  const { campaigns } = useSelector((state) => state.campaign);
+
+  const campaignOptions = campaigns?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
+  const formik = useFormik({
+    initialValues: {},
+    onSubmit: {}
+  });
   return (
-    <AssociationWrapper>
+    <AssociationWrapper onSubmit={formik.handleSubmit}>
       <Card className="association-card">
         <AssociationLabel>
           <p className="association-label">Impact Area</p>
-          <DropdownComponent className="association-dropdown" data={data} />
+          <SelectDropDown
+            className="association-dropdown "
+            id="impactArea"
+            name="impactArea"
+            type={'text'}
+            placeholder="Area"
+            value={formik.values.impactArea}
+            onChange={(value) => formik.setFieldValue('impactArea', value.value)}
+            onBlur={formik.handleBlur}
+          />{' '}
         </AssociationLabel>
         <AssociationLabel>
           <p className="association-label">Campaign</p>
-          <DropdownComponent className="association-dropdown" data={data} />
+          <SelectDropDown
+            className="association-dropdown "
+            options={campaignOptions}
+            id="campaign"
+            name="campaign"
+            type={'text'}
+            placeholder="Campaign"
+            value={formik.values.campaign}
+            onChange={(value) => formik.setFieldValue('campaign', value.value)}
+            onBlur={formik.handleBlur}
+          />
         </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Soft Credit</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Source</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
-        <AssociationLabel>
-          <p className="association-label">Keywords</p>
-          <DropdownComponent className="association-dropdown" data={data} />
-        </AssociationLabel>
+
         <AssociationLabel>
           <p className="association-label">Dedication</p>
-          <Input className="association-input" />
+          <Input
+            className="association-input"
+            id="dedication"
+            name="dedication"
+            placeholder="Dedication"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.dedication}
+          />
         </AssociationLabel>
         <AssociationLabel>
           <p className="association-label">Notes</p>
-          <TextArea />
+          <TextArea
+            id="note"
+            name="note"
+            placeholder="Note"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.note}
+          />
         </AssociationLabel>
 
         <div className="association-footer">
@@ -56,7 +91,7 @@ function RecurringAssociation({ DecrementTab }) {
 
 export default RecurringAssociation;
 
-const AssociationWrapper = styled.div`
+const AssociationWrapper = styled.form`
   .association-card {
     padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 
@@ -86,15 +121,11 @@ const AssociationLabel = styled.div`
     color: ${COLORS['grey-500']};
   }
   .association-dropdown {
-    width: 60.2rem;
-    height: 6.4rem;
-    border: 1px solid ${COLORS['moore-grey']};
-    border-radius: 0.5rem;
     margin-bottom: 2.4rem;
   }
   .association-input {
     width: 60.2rem;
-    height: 6.4rem;
+
     border: 1px solid ${COLORS['moore-grey']};
     border-radius: 0.5rem;
     margin-bottom: 2.4rem;
