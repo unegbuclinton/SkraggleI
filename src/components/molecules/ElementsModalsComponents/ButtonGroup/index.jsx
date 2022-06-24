@@ -1,34 +1,39 @@
 import Button from 'components/atoms/Button/Button';
-import Checkbox from 'components/atoms/CheckBox';
+import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import Appearance from './Appearance';
-import UrlControl from './UrlControl';
-function Reminder() {
+import Behavior from './Behavior';
+import GroupButton from './Buttons';
+import CustomFields from './CustomFields';
+import Title from './Title';
+
+function ButtonGroup() {
   const tabs = [
-    { title: 'APPEARANCE', component: <Appearance /> },
-    { title: 'URL CONTROL', component: <UrlControl /> }
+    { title: 'BEHAVIOUR', component: <Behavior /> },
+    { title: 'TITLE', component: <Title /> },
+    { title: 'BUTTONS', component: <GroupButton /> },
+    { title: 'CUSTOMER FILEDS', component: <CustomFields /> }
   ];
   return (
-    <ReminderWrapper>
-      <Heading>Show a pop-up reminder to donate when a supporter closes checkout.</Heading>
+    <StickyButtonWrapper>
+      <Heading>Display a set of buttons with customizable donation amounts.</Heading>
       <InputWrapper>
         <Wrapper>
-          <ReminderLabel>Element name</ReminderLabel>
+          <StickyButtonLabel>Element name</StickyButtonLabel>
         </Wrapper>
         <Wrapper>
-          <Input className="input-field" type="text" placeholder="Reminder #1" />
-          <CheckBoxWrapper>
-            <Checkbox pink />
-            <CheckBoxLabel>Element is enabled</CheckBoxLabel>
-          </CheckBoxWrapper>
+          <Input className="input-field" type="text" placeholder="Buttons Group #1" />
         </Wrapper>
       </InputWrapper>
       <Tabs tabs={tabs} inline />
+      <CopyContainer>
+        <CopyLabel>HTML CODE</CopyLabel>
+        <CopyField grey />
+      </CopyContainer>
       <ButtonContainer>
         <Button type="button" className="cancel-btn" auth invert>
           Archive
@@ -37,13 +42,13 @@ function Reminder() {
           Update Element
         </Button>
       </ButtonContainer>
-    </ReminderWrapper>
+    </StickyButtonWrapper>
   );
 }
 
-export default Reminder;
+export default ButtonGroup;
 
-const ReminderWrapper = styled.div`
+const StickyButtonWrapper = styled.div`
   padding: 3.2rem 0 3.2rem 0;
   .input-field {
     width: 30.6rem;
@@ -53,12 +58,21 @@ const ReminderWrapper = styled.div`
   }
 `;
 
-const Heading = styled.div`
+const Heading = styled.h2`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
   padding: 0 2.4rem 0 2.4rem;
+`;
+
+const StickyButtonLabel = styled.label`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-500']};
+  display: flex;
+  align-items: center;
+  height: 4.4rem;
 `;
 
 const InputWrapper = styled.div`
@@ -69,30 +83,10 @@ const InputWrapper = styled.div`
 
 const Wrapper = styled.div``;
 
-const CheckBoxWrapper = styled.div`
-  display: flex;
-  margin-bottom: 3.3rem;
-`;
-
-const CheckBoxLabel = styled.label`
-  font-weight: ${FONTWEIGHTS.normal};
-  font-size: ${FONTSIZES.small};
-  color: ${COLORS.black};
-`;
-
-const ReminderLabel = styled.label`
-  font-weight: ${FONTWEIGHTS.normal};
-  font-size: ${FONTSIZES.lg};
-  color: ${COLORS['grey-500']};
-  display: flex;
-  align-items: center;
-  height: 4.4rem;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 3.3rem 2.4rem 0 0;
+  padding: 4rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;
@@ -109,4 +103,19 @@ const ButtonContainer = styled.div`
     font-weight: ${FONTWEIGHTS.xbold};
     font-size: ${FONTSIZES.small};
   }
+`;
+
+const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
 `;

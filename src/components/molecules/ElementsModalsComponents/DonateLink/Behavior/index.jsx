@@ -1,4 +1,5 @@
 import Checkbox from 'components/atoms/CheckBox';
+import CopyField from 'components/atoms/CopyField';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
@@ -37,7 +38,10 @@ function DonateLinkBehavior() {
       <RadioButtonWrapper>
         <RadioGroup className="radio-btn" radioData={radioButton} />
       </RadioButtonWrapper>
-
+      <CopyContainer>
+        <CopyLabel>HTML CODE</CopyLabel>
+        <CopyField grey />
+      </CopyContainer>
       <SelectWrapper>
         <DPIconUrl className="icon" />
         <Input
@@ -92,5 +96,20 @@ const SelectWrapper = styled.div`
 `;
 
 const RadioButtonWrapper = styled.div`
-  padding: 0 0 0 1.7rem;
+  padding: 0 0 2.6rem 1.7rem;
+`;
+const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+  margin-bottom: 3.8rem;
+`;
+
+const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
 `;

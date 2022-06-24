@@ -1,4 +1,5 @@
 import Button from 'components/atoms/Button/Button';
+import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
@@ -24,6 +25,10 @@ function DonateButton() {
           <Input type="text" className="input-field" placeholder="Donate button #6" />
         </InputWrapper>
         <Tabs tabs={tabs} inline />
+        <CopyContainer>
+          <CopyLabel>HTML CODE</CopyLabel>
+          <CopyField grey />
+        </CopyContainer>
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
             Archive
@@ -72,10 +77,25 @@ const InputWrapper = styled.div`
   padding: 0 2.4rem 0 2.4rem;
 `;
 
+const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 4rem 2.4rem 0 0;
+  padding: 10rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

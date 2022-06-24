@@ -5,23 +5,25 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import DonateLinkBehavior from './Behavior';
-import DonateLinkField from './CustomFields';
+import Apperance from './Appearance';
+import Behavior from './Behavior';
+import CustomField from './CustomFields';
 
-function LinkModal() {
+function QrCode() {
   const tabs = [
-    { title: 'BEHAVIOUR', component: <DonateLinkBehavior /> },
-    { title: 'CUSTOM FIELDS', component: <DonateLinkField /> }
+    { title: 'BEHAVIOUR', component: <Behavior /> },
+    { title: 'APPEARANCE', component: <Apperance /> },
+    { title: 'CUSTOM FIELDS', component: <CustomField /> }
   ];
   return (
-    <DonateLinkWrapper>
+    <DonateButtonWrapper>
       <Heading>
-        Get a link that sends visitors to your website and automatically opens donation checkout.
+        Generate a scannable code that when scanned, directes supporters to a campaign’s checkout.
       </Heading>
-      <DonateLinkContainer>
+      <DonateButtonContainer>
         <InputWrapper>
-          <DonateLinkLabel>Element name</DonateLinkLabel>
-          <Input type="text" className="input-field" placeholder="Donate link #6" />
+          <DonateButtonLabel>Element name</DonateButtonLabel>
+          <Input type="text" className="input-field" placeholder="QR Code #2" />
         </InputWrapper>
         <Tabs tabs={tabs} inline />
         <ButtonContainer>
@@ -32,26 +34,23 @@ function LinkModal() {
             Update Element
           </Button>
         </ButtonContainer>
-      </DonateLinkContainer>
-    </DonateLinkWrapper>
+      </DonateButtonContainer>
+    </DonateButtonWrapper>
   );
 }
 
-export default LinkModal;
+export default QrCode;
 
-const DonateLinkWrapper = styled.div`
+const DonateButtonWrapper = styled.div`
   padding: 3.2rem 0 2.4rem 0;
 `;
 
-const DonateLinkContainer = styled.div`
+const DonateButtonContainer = styled.div`
   .input-field {
-    width: 100%;
+    width: 30.06;
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
     margin-bottom: 3.2rem;
-  }
-  .icon {
-    margin: 0rem 0 0.8rem 0;
   }
 `;
 
@@ -60,11 +59,11 @@ const Heading = styled.h2`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
-  line-height: 2.7rem;
   padding: 0 2.4rem 0 2.4rem;
+  line-height: 2.8rem;
 `;
 
-const DonateLinkLabel = styled.label`
+const DonateButtonLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-500']};
@@ -76,7 +75,7 @@ const InputWrapper = styled.div`
   padding: 0 2.4rem 0 2.4rem;
 `;
 
-const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0 2.4rem 0 0;

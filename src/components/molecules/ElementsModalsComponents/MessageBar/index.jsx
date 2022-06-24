@@ -1,29 +1,38 @@
 import Button from 'components/atoms/Button/Button';
+import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
-import DonateLinkBehavior from './Behavior';
-import DonateLinkField from './CustomFields';
+import Apperance from './Appearance';
+import Behavior from './Behavior';
+import MessageBarButton from './Button';
+import VisibilityTab from './Visibility';
 
-function LinkModal() {
+function MessageBar() {
   const tabs = [
-    { title: 'BEHAVIOUR', component: <DonateLinkBehavior /> },
-    { title: 'CUSTOM FIELDS', component: <DonateLinkField /> }
+    { title: 'BEHAVIOUR', component: <Behavior /> },
+    { title: 'APPEARANCE', component: <Apperance /> },
+    { title: 'BUTTON', component: <MessageBarButton /> },
+    { title: 'VISIBILITY', component: <VisibilityTab /> }
   ];
   return (
-    <DonateLinkWrapper>
+    <DonateButtonWrapper>
       <Heading>
-        Get a link that sends visitors to your website and automatically opens donation checkout.
+        Display a full-width message and button at the top or bottom of your website.
       </Heading>
-      <DonateLinkContainer>
+      <DonateButtonContainer>
         <InputWrapper>
-          <DonateLinkLabel>Element name</DonateLinkLabel>
-          <Input type="text" className="input-field" placeholder="Donate link #6" />
+          <DonateButtonLabel>Element name</DonateButtonLabel>
+          <Input type="text" className="input-field" placeholder="Message Bar #2" />
         </InputWrapper>
         <Tabs tabs={tabs} inline />
+        <CopyContainer>
+          <CopyLabel>HTML CODE</CopyLabel>
+          <CopyField grey />
+        </CopyContainer>
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
             Archive
@@ -32,26 +41,23 @@ function LinkModal() {
             Update Element
           </Button>
         </ButtonContainer>
-      </DonateLinkContainer>
-    </DonateLinkWrapper>
+      </DonateButtonContainer>
+    </DonateButtonWrapper>
   );
 }
 
-export default LinkModal;
+export default MessageBar;
 
-const DonateLinkWrapper = styled.div`
+const DonateButtonWrapper = styled.div`
   padding: 3.2rem 0 2.4rem 0;
 `;
 
-const DonateLinkContainer = styled.div`
+const DonateButtonContainer = styled.div`
   .input-field {
     width: 100%;
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
     margin-bottom: 3.2rem;
-  }
-  .icon {
-    margin: 0rem 0 0.8rem 0;
   }
 `;
 
@@ -60,11 +66,11 @@ const Heading = styled.h2`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-400']};
   margin-bottom: 3.2rem;
-  line-height: 2.7rem;
   padding: 0 2.4rem 0 2.4rem;
+  line-height: 2.8rem;
 `;
 
-const DonateLinkLabel = styled.label`
+const DonateButtonLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS['grey-500']};
@@ -76,10 +82,25 @@ const InputWrapper = styled.div`
   padding: 0 2.4rem 0 2.4rem;
 `;
 
-const ButtonContainer = styled.div`
+const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
+`;
+
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 0 2.4rem 0 0;
+  padding: 10rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

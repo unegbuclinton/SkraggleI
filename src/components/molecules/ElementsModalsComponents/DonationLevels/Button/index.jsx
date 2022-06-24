@@ -1,25 +1,36 @@
 import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
+import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Appearance() {
-  const [white, setWhite] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#477BE0');
+function DonationBtn() {
   const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+  const [blue, setBlue] = useState('#2797FF');
+  const [blu, setBlu] = useState('#2797FF');
+
   return (
     <AppearanceWrapper>
+      <InputWrapper className="title">
+        <MessageLabel>Open Campaigns</MessageLabel>
+        <Wrapper>
+          <Input className="input-field" type="text" placeholder="BGA Demo #2" />
+        </Wrapper>
+      </InputWrapper>
       <ColorWrapper>
         <ColorContainer>
-          <StickyButtonLabel className="color-label">Label color</StickyButtonLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+          <MessageLabel className="background-label">Label color</MessageLabel>
+          <ColorComponents
+            type="color"
+            value={whitez}
+            onChange={(e) => setWhitez(e.target.value)}
+          />
         </ColorContainer>
         <ColorContainer>
-          <StickyButtonLabel className="color-label">Button color</StickyButtonLabel>
+          <MessageLabel className="color-label">Button color</MessageLabel>
           <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
         </ColorContainer>
       </ColorWrapper>
@@ -37,16 +48,8 @@ function Appearance() {
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
-          <StickyButtonLabel className="color-label">Border color</StickyButtonLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
-        </ColorContainer>
-        <ColorContainer>
-          <StickyButtonLabel className="color-label">Icon color</StickyButtonLabel>
-          <ColorComponents
-            type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
-          />
+          <MessageLabel className="border-color">Border color</MessageLabel>
+          <ColorComponents type="color" value={blu} onChange={(e) => setBlu(e.target.value)} />
         </ColorContainer>
       </ColorWrapper>
       <CheckBoxWrapper className="checkbox">
@@ -57,57 +60,80 @@ function Appearance() {
   );
 }
 
-export default Appearance;
+export default DonationBtn;
 
 const AppearanceWrapper = styled.div`
   .input-field {
     width: 30.6rem;
-    background-color: ${COLORS.white};
+    background-color: ${COLORS.torquoise};
     border: 0.1rem solid ${COLORS['gray-500']};
-    margin-bottom: 2.7rem;
+    margin-bottom: 2.4rem;
+  }
+  .checkbox {
+    margin: 0 0 3.9rem 22.5rem;
+  }
+
+  .title {
+    padding-left: 7.2rem;
   }
   .border-radius {
-    margin-left: 10.3rem;
+    margin-left: 11rem;
   }
   .border-label {
     width: 15rem;
   }
+  .border-color {
+    width: 9.9rem;
+    margin-left: 11rem;
+  }
 `;
 
-const StickyButtonLabel = styled.label`
+const InputWrapper = styled.div`
+  display: flex;
+  gap: 1.7rem;
+`;
+
+const MessageLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   display: flex;
   align-items: center;
   height: 4.4rem;
+  white-space: nowrap;
 `;
+
+const Wrapper = styled.div``;
 
 const ColorContainer = styled.div`
   display: flex;
   gap: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
   .color-label {
     padding-top: 1rem;
-    width: 14rem;
-    display: flex;
-    justify-content: flex-end;
+    width: 9.8rem;
+    margin-left: 11.2rem;
+  }
+  .background-label {
+    width: 8.9rem;
+    margin-left: 12.1rem;
   }
 `;
 
-const ColorWrapper = styled.div`
-  padding-left: 7rem;
-`;
+const ColorWrapper = styled.div``;
 
 const CheckBoxWrapper = styled.div`
   display: flex;
-  margin: 1.8rem 0 0 22.8rem;
+  margin: 0 0 2rem 8.5rem;
+  .default-amount {
+    margin-right: 1.6rem;
+  }
 `;
 
 const CheckBoxLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
-  font-size: ${FONTSIZES.small};
-  color: ${COLORS.black};
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-500']};
 `;
 
 export const SliderLabel = styled.label`
@@ -135,6 +161,6 @@ export const SliderWrapper = styled.div`
 
 export const SliderContainer = styled.div`
   display: flex;
-  margin: 0 0 1.6rem 12rem;
+  margin: 0 0 1.6rem 13rem;
   font-size: ${FONTSIZES.small};
 `;

@@ -1,4 +1,3 @@
-import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
@@ -8,11 +7,10 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function DonateAppearance() {
+function SocialProofButton() {
   const [white, setWhite] = useState('#FFFFFF');
   const [blue, setBlue] = useState('#477BE0');
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+  const [blu, setBlu] = useState('#477BE0');
 
   return (
     <DonateAppearanceWrapper>
@@ -20,32 +18,18 @@ function DonateAppearance() {
       <Input type="text" className="input-field" placeholder="Donate" />
       <ColorsWrapper>
         <WrapperColor>
-          <ColorLabel>Label color</ColorLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
-        </WrapperColor>
-        <WrapperColor>
-          <ColorLabel>Button color</ColorLabel>
+          <ColorLabel>Text color</ColorLabel>
           <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
         </WrapperColor>
         <WrapperColor>
-          <ColorLabel>Icon color</ColorLabel>
-          <ColorComponents
-            type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
-          />
+          <ColorLabel>Background color</ColorLabel>
+          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Border color</ColorLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents type="color" value={blu} onChange={(e) => setBlu(e.target.value)} />
         </WrapperColor>
       </ColorsWrapper>
-      <SliderContainer>
-        <SliderLabel>Button Size</SliderLabel>
-        <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
-        </SliderWrapper>
-      </SliderContainer>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
@@ -58,15 +42,11 @@ function DonateAppearance() {
           <Slider className="slider-border" sliderText="slider-text" text="px" />
         </SliderWrapper>
       </SliderContainer>
-      <CheckboxContainer>
-        <Checkbox />
-        <CheckboxLabel>Show shadow</CheckboxLabel>
-      </CheckboxContainer>
     </DonateAppearanceWrapper>
   );
 }
 
-export default DonateAppearance;
+export default SocialProofButton;
 
 const DonateAppearanceWrapper = styled.div`
   padding: 0 2.4rem 0 2.4rem;
@@ -88,7 +68,7 @@ const DonateAppearanceLabel = styled.p`
 
 const ColorsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 2.4rem;
   margin-bottom: 2.4rem;
 `;
 
@@ -98,18 +78,6 @@ const ColorLabel = styled.p`
   font-weight: ${FONTWEIGHTS.normal};
   cursor: default;
   padding-bottom: 0.8rem;
-`;
-
-const CheckboxLabel = styled.label`
-  font-weight: ${FONTWEIGHTS.normal};
-  font-size: ${FONTSIZES.small};
-  color: ${COLORS.black};
-`;
-
-const CheckboxContainer = styled.div`
-  display: flex;
-  gap: 1.1rem;
-  margin: 0.2rem 0 2.6rem 0;
 `;
 
 export const SliderLabel = styled.label`

@@ -1,49 +1,42 @@
 import Checkbox from 'components/atoms/CheckBox';
 import SelectDropDown from 'components/atoms/GenericDropdown';
-import RadioGroup from 'components/atoms/RadioGroup';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function DonateButtonBehavior() {
-  const radioButton = [
-    {
-      labelText: 'Allow donor change designation',
-      value: 1
-    },
-    {
-      labelText: 'Customize',
-      value: 2
-    }
-  ];
+function Behavior() {
   return (
     <DonateBehaviorWrapper>
       <SelectWrapper>
-        <OpenCampaignLabel>Open campaign</OpenCampaignLabel>
-        <SelectDropDown className="dropdown" placeholder="My awesome campaign #5" />
-        <DonateBehaviorLabel>Frequency</DonateBehaviorLabel>
-        <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
-        <DonateBehaviorLabel>Designation</DonateBehaviorLabel>
-        <SelectDropDown className="dropdown" placeholder="Match checkout setting" />
-        <DonateBehaviorLabel>Default amount</DonateBehaviorLabel>
-        <CheckboxContainer>
+        <OpenCampaignLabel>Show donations to</OpenCampaignLabel>
+        <SelectDropDown className="dropdown" placeholder="All campaigns" />
+        <DonateBehaviorLabel>Donor’s name</DonateBehaviorLabel>
+        <SelectDropDown className="dropdown" placeholder="Shorted full name" />
+        <CheckboxContainer className="checkbox-wrapper">
           <Checkbox pink />
-          <CheckboxLabel>Allow donor change designation</CheckboxLabel>
+          <CheckboxLabel>Donation amount</CheckboxLabel>
+        </CheckboxContainer>
+        <CheckboxContainer className="checkbox-container">
+          <Checkbox pink />
+          <CheckboxLabel>Donor’s location</CheckboxLabel>
         </CheckboxContainer>
       </SelectWrapper>
-      <RadioButtonWrapper>
-        <RadioGroup className="radio-btn" radioData={radioButton} />
-      </RadioButtonWrapper>
     </DonateBehaviorWrapper>
   );
 }
 
-export default DonateButtonBehavior;
+export default Behavior;
 
 const DonateBehaviorWrapper = styled.div`
   .dropdown {
     width: 100%;
+  }
+  .checkbox-container {
+    margin-bottom: 2.5rem;
+  }
+  .checkbox-wrapper {
+    margin-top: 2.5rem;
   }
 `;
 
@@ -78,9 +71,4 @@ const CheckboxContainer = styled.div`
   display: flex;
   gap: 1.1rem;
   margin: 0.2rem 0 1.3rem 0;
-`;
-
-const RadioButtonWrapper = styled.div`
-  padding-left: 1.7rem;
-  margin-bottom: 1rem;
 `;

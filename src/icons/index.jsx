@@ -32,6 +32,7 @@ export { ReactComponent as DPIconDonor } from 'icons/svgs/donor.svg';
 export { ReactComponent as DPIconDrag } from 'icons/svgs/drag.svg';
 export { ReactComponent as DPIconDropDown } from 'icons/svgs/DropdownArrow.svg';
 export { ReactComponent as DPIconElements } from 'icons/svgs/elementsIcon.svg';
+export { ReactComponent as DPIconEllipse } from 'icons/svgs/Ellipse.svg';
 export { ReactComponent as DPIconEmail } from 'icons/svgs/email.svg';
 export { ReactComponent as DPIconEmailShare } from 'icons/svgs/emailShare.svg';
 export { ReactComponent as DPIconSubDonation } from 'icons/svgs/EmptySubDonation.svg';
@@ -65,6 +66,7 @@ export { ReactComponent as DPIconPageNavigation } from 'icons/svgs/pageNavigatio
 export { ReactComponent as DPIconsPen } from 'icons/svgs/pen.svg';
 export { ReactComponent as DPIconChart } from 'icons/svgs/pie-chart.svg';
 export { ReactComponent as DPPlusIcon } from 'icons/svgs/plus.svg';
+export { ReactComponent as DPIconPlusPink } from 'icons/svgs/PlusIconPink.svg';
 export { ReactComponent as DPIconProfile } from 'icons/svgs/profile.svg';
 export { ReactComponent as DPIconProfileImage } from 'icons/svgs/ProfileImage.svg';
 export { ReactComponent as DPIconQicon } from 'icons/svgs/qicon.svg';

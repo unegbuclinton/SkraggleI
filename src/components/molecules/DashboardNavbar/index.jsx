@@ -19,7 +19,6 @@ import {
 function DashboardHeader({ pageLinks }) {
   const { userData } = useSelector((state) => state.contact);
 
-  const { first_name, last_name } = userData;
   const dispatch = useDispatch();
   const ref = useRef();
   const [open, setOpen] = useState(false);
