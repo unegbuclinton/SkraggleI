@@ -1,11 +1,17 @@
+import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Appearance() {
+  const [textColor, setTextColor] = useState('#477BE0');
+  const [accentTextColor, setAccentTextColor] = useState('#FFFFFF');
+  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+  const [borderColor, setBorderColor] = useState('#1E003E');
+
   return (
     <AppearanceWrapper>
       <AppearanceFieldWrapper>
@@ -17,8 +23,11 @@ function Appearance() {
         <AppearanceLabel>Text color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#477BE0" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={textColor}
+              onChange={(e) => setTextColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AppearanceFieldWrapper>
@@ -27,8 +36,11 @@ function Appearance() {
         <AppearanceLabel>Accent text color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={accentTextColor}
+              onChange={(e) => setAccentTextColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AppearanceFieldWrapper>
@@ -37,8 +49,11 @@ function Appearance() {
         <AppearanceLabel>Background color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={backgroundColor}
+              onChange={(e) => setBackgroundColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AppearanceFieldWrapper>
@@ -46,13 +61,13 @@ function Appearance() {
       <AppearanceFieldWrapper>
         <AppearanceLabel>Border Size</AppearanceLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AppearanceFieldWrapper>
       <AppearanceFieldWrapper>
         <AppearanceLabel>Border Radius</AppearanceLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </AppearanceFieldWrapper>
 
@@ -60,8 +75,11 @@ function Appearance() {
         <AppearanceLabel>Border color</AppearanceLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#1E003E" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={borderColor}
+              onChange={(e) => setBorderColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AppearanceFieldWrapper>
@@ -116,20 +134,6 @@ export const AppearanceFieldWrapper = styled.div`
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
-  }
-
-  .color-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-  }
-  .color-input::-webkit-color-swatch {
-    border-radius: 50%;
-    border: 1px solid #e6eff1;
   }
 `;
 

@@ -1,12 +1,17 @@
 import Checkbox from 'components/atoms/CheckBox';
+import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Form() {
+  const [white, setWhite] = useState('#FFFFFF');
+  const [blue, setBlue] = useState('#477BE0');
+  const [whitez, setWhitez] = useState('#FFFFFF');
+  const [black, setBlack] = useState('#000000');
   return (
     <FormWrapper>
       <FormFieldWrapper>
@@ -18,8 +23,7 @@ function Form() {
         <FormLabel>Text color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#477BE0" className="color-input" />
-            #477BE0
+            <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
           </ColorContainer>
         </ColorContainerWrapper>
       </FormFieldWrapper>
@@ -28,8 +32,11 @@ function Form() {
         <FormLabel>Background color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={white}
+              onChange={(e) => setWhite(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </FormFieldWrapper>
@@ -38,8 +45,11 @@ function Form() {
         <FormLabel>Icon color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={whitez}
+              onChange={(e) => setWhitez(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </FormFieldWrapper>
@@ -47,14 +57,14 @@ function Form() {
       <FormFieldWrapper>
         <FormLabel>Border size</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </FormFieldWrapper>
 
       <FormFieldWrapper>
         <FormLabel>Border radius</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </FormFieldWrapper>
 
@@ -62,8 +72,11 @@ function Form() {
         <FormLabel>Border color</FormLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#1E003E" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={black}
+              onChange={(e) => setBlack(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </FormFieldWrapper>
@@ -91,7 +104,7 @@ export const FormFieldWrapper = styled.div`
   margin-bottom: 2.4rem;
   font-size: ${FONTSIZES.small};
   .form-checkbox {
-    margin-left: -2rem;
+    margin-left: -4rem;
   }
 
   .form-input {
