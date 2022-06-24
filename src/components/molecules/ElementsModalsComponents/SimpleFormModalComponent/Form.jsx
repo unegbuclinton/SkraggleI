@@ -10,7 +10,7 @@ function Form() {
       <FormFieldWrapper>
         <FormLabel>Form size</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </FormFieldWrapper>
     </FormWrapper>

@@ -19,7 +19,7 @@ const ColorWrapper = styled.div`
   gap: 0.8rem;
   align-items: center;
   width: 13.4rem;
-  height: 6.4rem;
+  height: 4.4rem;
   border: 0.1rem solid ${COLORS['gray-500']};
   border-radius: 0.5rem;
   justify-content: center;

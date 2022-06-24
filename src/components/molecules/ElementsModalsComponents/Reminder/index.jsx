@@ -92,7 +92,7 @@ const ReminderLabel = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 4rem 2.4rem 0 0;
+  padding: 3.3rem 2.4rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;

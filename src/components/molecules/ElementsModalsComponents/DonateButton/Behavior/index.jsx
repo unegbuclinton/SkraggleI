@@ -82,4 +82,5 @@ const CheckboxContainer = styled.div`
 
 const RadioButtonWrapper = styled.div`
   padding-left: 1.7rem;
+  margin-bottom: 1rem;
 `;

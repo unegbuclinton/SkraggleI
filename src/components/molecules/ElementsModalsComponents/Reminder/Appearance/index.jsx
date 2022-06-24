@@ -1,5 +1,6 @@
 import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
+import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
@@ -21,6 +22,20 @@ function Appearance() {
           <StickyButtonLabel className="color-label">Button color</StickyButtonLabel>
           <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
         </ColorContainer>
+      </ColorWrapper>
+      <SliderContainer>
+        <SliderLabel>Border size</SliderLabel>
+        <SliderWrapper>
+          <Slider className="slider-border" sliderText="slider-text" text="px" />
+        </SliderWrapper>
+      </SliderContainer>
+      <SliderContainer className="border-radius">
+        <SliderLabel className="border-label">Border radius</SliderLabel>
+        <SliderWrapper>
+          <Slider className="slider-border" sliderText="slider-text" text="px" />
+        </SliderWrapper>
+      </SliderContainer>
+      <ColorWrapper>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Border color</StickyButtonLabel>
           <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
@@ -50,6 +65,12 @@ const AppearanceWrapper = styled.div`
     background-color: ${COLORS.white};
     border: 0.1rem solid ${COLORS['gray-500']};
     margin-bottom: 2.7rem;
+  }
+  .border-radius {
+    margin-left: 10.3rem;
+  }
+  .border-label {
+    width: 15rem;
   }
 `;
 
@@ -87,4 +108,33 @@ const CheckBoxLabel = styled.label`
   font-weight: ${FONTWEIGHTS.normal};
   font-size: ${FONTSIZES.small};
   color: ${COLORS.black};
+`;
+
+export const SliderLabel = styled.label`
+  width: 12rem;
+  position: relative;
+  top: 0.2rem;
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-500']};
+  font-weight: ${FONTWEIGHTS.normal};
+`;
+
+export const SliderWrapper = styled.div`
+  width: 100%;
+  position: relative;
+
+  .slider-border {
+    padding: 0;
+  }
+  .slider-text {
+    font-weight: ${FONTWEIGHTS.normal};
+    font-size: ${FONTSIZES.base};
+    color: ${COLORS['grey-500']};
+  }
+`;
+
+export const SliderContainer = styled.div`
+  display: flex;
+  margin: 0 0 1.6rem 12rem;
+  font-size: ${FONTSIZES.small};
 `;

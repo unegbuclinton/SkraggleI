@@ -14,4 +14,5 @@ const CustomFieldText = styled.h2`
   font-size: ${FONTSIZES.small};
   color: ${COLORS.black};
   padding-left: 2.4rem;
+  margin-bottom: 2.4rem;
 `;

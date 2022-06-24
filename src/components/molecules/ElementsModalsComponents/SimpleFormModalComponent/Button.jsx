@@ -1,12 +1,16 @@
 import Checkbox from 'components/atoms/CheckBox';
+import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Buttons() {
+  const [labelColor, setLabelColor] = useState('#477BE0');
+  const [buttonColor, setButtonColor] = useState('#FFFFFF');
+  const [borderColor, setBorderColor] = useState('#1E003E');
   return (
     <ButtonWrapper>
       <ButtonFieldWrapper>
@@ -18,8 +22,11 @@ function Buttons() {
         <ButtonLabel>Label color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#477BE0" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={labelColor}
+              onChange={(e) => setLabelColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -28,8 +35,11 @@ function Buttons() {
         <ButtonLabel>Button color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#FFFFFF" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={buttonColor}
+              onChange={(e) => setButtonColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -37,14 +47,14 @@ function Buttons() {
       <ButtonFieldWrapper>
         <ButtonLabel>Border size</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
         <ButtonLabel>Border radius</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" />
+          <Slider className="slider-border" text="px" />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
@@ -52,8 +62,11 @@ function Buttons() {
         <ButtonLabel>Border color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <input type="color" value="#1E003E" className="color-input" />
-            #477BE0
+            <ColorComponents
+              type="color"
+              value={borderColor}
+              onChange={(e) => setBorderColor(e.target.value)}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>

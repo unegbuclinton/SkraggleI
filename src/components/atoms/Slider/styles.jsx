@@ -40,11 +40,11 @@ export const SelectValue = styled.div`
   top: -2px;
   left: 220px;
   background: transparent;
-  color: ${COLORS['black-300']};
+  color: ${COLORS['grey-500']};
   text-align: center;
   padding-left: 0.6rem;
-  font-size: ${FONTSIZES.small};
-  font-weight: ${FONTWEIGHTS.bold};
+  font-size: ${FONTSIZES.base};
+  font-weight: ${FONTWEIGHTS.normal};
 
   &::after {
     content: '';
