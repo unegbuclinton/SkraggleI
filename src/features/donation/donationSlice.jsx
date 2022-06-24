@@ -1,13 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createOneTimeTransaction } from 'api/donation/OneTimeTransaction';
 import { allPledge, createPledge, deletePledge } from '../../api/donation/pledge';
 
 const initialState = {
   isLoading: false,
-  pledgeData: []
+  pledgeData: [],
+  oneTimeData: []
 };
 export const getPledge = createAsyncThunk('getPledge', allPledge);
 export const addPledge = createAsyncThunk('addPledge', createPledge);
 export const removePledge = createAsyncThunk('removePledge', deletePledge);
+
+export const getOneTimeTransaction = createAsyncThunk(
+  'getOneTimeTransaction',
+  createOneTimeTransaction
+);
 
 export const donationSlice = createSlice({
   name: 'donation',
@@ -37,6 +44,16 @@ export const donationSlice = createSlice({
       state.isLoading = false;
     },
     [removePledge.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getOneTimeTransaction.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getOneTimeTransaction.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.oneTimeData = action.payload;
+    },
+    [getOneTimeTransaction.rejected]: (state) => {
       state.isLoading = false;
     }
   }
