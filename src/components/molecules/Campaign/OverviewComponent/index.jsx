@@ -1,11 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
+import { editCampaign, getAllCampaigns, singleCampaign } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { campaignOverview } from 'validation/Schema';
 import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 import {
@@ -20,12 +22,23 @@ import {
 const CampaignOverview = () => {
   const [open, setOpen] = useState(false);
   const { campaignByID } = useSelector((state) => state.campaign);
+  const dispatch = useDispatch();
 
-  const { name, description, status, fundraising_goal, amount_raised } = campaignByID;
+  const { name, description, status, fundraising_goal, amount_raised, id } = campaignByID;
   // const statusToCap = status?.toUpperCase();
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
 
+  const ArchiveCampaign = () => {
+    const body = {
+      archived: true
+    };
+    dispatch(editCampaign({ body, id })).then(() => {
+      toast.success('Campaign archived successfully');
+      dispatch(getAllCampaigns());
+      dispatch(singleCampaign(id));
+    });
+  };
   const formik = useFormik({
     initialValues: {
       task: ''
@@ -57,7 +70,7 @@ const CampaignOverview = () => {
         </IconWrapper>
       ),
       label: (
-        <IconWrapper className="good-mark">
+        <IconWrapper className="good-mark" onClick={ArchiveCampaign}>
           <DPIconBin />
           Archive
         </IconWrapper>

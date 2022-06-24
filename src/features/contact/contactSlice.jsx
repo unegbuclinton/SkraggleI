@@ -161,7 +161,7 @@ export const contactSlice = createSlice({
     // },
     // [searchHouseHold.fulfilled]: (state, action) => {
     //   state.houseHolds = action.payload;
-    // },
+    // },`
     [logoutUser.fulfilled]: () => {
       return initialState;
     },

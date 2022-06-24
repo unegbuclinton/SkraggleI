@@ -15,10 +15,6 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
     label: current?.name
   }));
 
-  const keyWord = [
-    { value: 'Donation', label: 'Donation' },
-    { value: 'Active', label: 'Active' }
-  ];
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>
       <Card>
@@ -47,42 +43,6 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
         />
         {formik.touched.impact_area && formik.errors.impact_area ? (
           <ErrorMessage>{formik.errors.impact_area}</ErrorMessage>
-        ) : null}
-
-        <h1>Source</h1>
-        <Input
-          className="pledge-modal"
-          type="text"
-          id="source"
-          name="source"
-          placeholder="Start typing to search"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.source}
-        />
-        {formik.touched.source && formik.errors.source ? (
-          <ErrorMessage>{formik.errors.source}</ErrorMessage>
-        ) : null}
-
-        <h1>Keywords</h1>
-        <SelectDropDown
-          id="keywords"
-          name="keywords"
-          placeholder="Start typing to search"
-          isMulti={true}
-          type={'text'}
-          options={keyWord}
-          value={formik.values.keywords}
-          onChange={(value) =>
-            formik.setFieldValue(
-              'keywords',
-              value.map((curr) => curr.value)
-            )
-          }
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.keywords && formik.errors.keywords ? (
-          <ErrorMessage>{formik.errors.keywords}</ErrorMessage>
         ) : null}
 
         <h1>Dedication</h1>

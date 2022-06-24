@@ -5,31 +5,28 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function CompleteTransaction({ DecrementTab }) {
+function CompleteTransaction({ DecrementTab, formik }) {
   return (
-    <CompleteWrapper>
+    <CompleteWrapper onSubmit={formik.handleSubmit}>
       <Card className="payment-card">
         <p className="radio-label">Payment Option</p>
         <div className="detail-wrapper">
           <RadioGroup
+            groupName="payment"
             radioData={[
               {
                 labelText: 'Log transaction without paymnt or receipt',
-                value: 1
-              },
-              {
-                labelText: 'Make an online payment & generate receipt',
-                value: 2
+                value: 'Log transaction without paymnt or receipt'
               }
             ]}
           />
         </div>
 
         <div className="payment-footer">
-          <Button invert auth className="payment-cancel-btn" onClick={DecrementTab}>
+          <Button invert auth className="payment-cancel-btn" onClick={DecrementTab} type="button">
             Back
           </Button>
-          <Button auth className="payment-save-btn">
+          <Button auth className="payment-save-btn" type="submit">
             Save
           </Button>
         </div>
@@ -40,7 +37,7 @@ function CompleteTransaction({ DecrementTab }) {
 
 export default CompleteTransaction;
 
-const CompleteWrapper = styled.div`
+const CompleteWrapper = styled.form`
   .payment-card {
     padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 

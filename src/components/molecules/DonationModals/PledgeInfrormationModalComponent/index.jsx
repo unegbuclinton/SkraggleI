@@ -1,7 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
-// import DropdownComponent from 'components/atoms/Dropdown';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
@@ -11,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
 const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
+  console.log(formik.values);
   const [installment, setInstallment] = useState(['']);
   const [amount, setAmount] = useState('');
 

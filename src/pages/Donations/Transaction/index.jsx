@@ -1,6 +1,7 @@
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import TransactionType from 'components/molecules/DonationModals/TransactionType';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
@@ -10,6 +11,8 @@ import CreateTransactionModal from '../DonationModals/CreateTransactionModal';
 
 function Transaction() {
   const [showModal, setShowModal] = useState(false);
+
+  const [show, setShow] = useState(false);
   const columns = [
     {
       name: '',
@@ -121,21 +124,22 @@ function Transaction() {
 
   return (
     <TransactionWrapper>
-      <Card className="transaction-card">
+      <Card className="transaction-crard">
         <div className="transaction-header">
           <TableHeader
             className="table-header"
             header="1,014 Transactions"
             title="Create New"
-            setOpen={setShowModal}
+            setOpen={() => setShowModal((prev) => !prev)}
           />
-          {showModal && (
+          {show && (
             <CreateTransactionModal
               onCloseModal={() => {
-                setShowModal(false);
+                setShow(false);
               }}
             />
           )}
+          {showModal && <TransactionType onClick={() => setShow(true)} />}
         </div>
         <div className="table-container">
           <Table columns={columns} data={mail} />
@@ -147,6 +151,7 @@ function Transaction() {
 export default Transaction;
 
 const TransactionWrapper = styled.div`
+  /* position: relative; */
   margin-bottom: 1.6rem;
   height: 100%;
   overflow: auto;

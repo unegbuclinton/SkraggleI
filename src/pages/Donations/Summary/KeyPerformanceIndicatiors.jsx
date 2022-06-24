@@ -36,7 +36,16 @@ const KeyPerformanceIndicatiors = () => {
   ];
   return (
     <KPIWrapper>
-      <KPIHeader>Key Performance Indicators (KPIs)</KPIHeader>
+      <KPIContainer>
+        <KPIHeader>
+          <p>Key Performance Indicators (KPIs)</p>
+
+          <div className="kpi-button__container">
+            <div className="benchmark-btn">Benchmark: Smart Benchmark</div>
+            <div className="kpi-btn">Add KPIs</div>
+          </div>
+        </KPIHeader>
+      </KPIContainer>
       <KPIContentWrapper>
         <KPIContentCard>
           <KPIContentCardHeader>Donor Retention Rate</KPIContentCardHeader>
@@ -196,6 +205,31 @@ const KPIHeader = styled.div`
   font-weight: ${FONTWEIGHTS.medium};
   color: ${COLORS['header-grey']};
 
+  .kpi-button__container {
+    display: flex;
+    gap: 1rem;
+
+    .benchmark-btn {
+      padding: 1.3rem 2.1rem 1.4rem 2rem;
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.normal};
+      color: ${COLORS.deepBlue};
+      background: transparent;
+      cursor: pointer;
+      border: 1px solid ${COLORS.deepBlue};
+    }
+
+    .kpi-btn {
+      padding: 1.3rem 1.8rem 1.4rem 1.7rem;
+      font-size: ${FONTSIZES.small};
+      font-weight: ${FONTWEIGHTS.normal};
+      background: transparent;
+      color: ${COLORS['primary-blue']};
+      cursor: pointer;
+      border: 1px solid ${COLORS['primary-blue']};
+    }
+  }
+
   &:after {
     content: '';
     position: absolute;
@@ -227,6 +261,8 @@ const KPIContentCardHeader = styled.p`
   font-weight: ${FONTWEIGHTS.normal};
   margin-bottom: 0.8rem;
 `;
+
+const KPIContainer = styled.div``;
 
 const KPIContentCardBody = styled.div`
   display: flex;

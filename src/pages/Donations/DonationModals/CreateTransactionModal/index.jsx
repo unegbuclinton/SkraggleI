@@ -3,23 +3,45 @@ import CompleteTransaction from 'components/molecules/DonationModals/CreateTrans
 import DonationAssociation from 'components/molecules/DonationModals/CreateTransaction/DonationAssociation';
 import DonationInformation from 'components/molecules/DonationModals/CreateTransaction/DonationInfomation';
 import MultiformTabs from 'components/molecules/MultiformTabs';
+import { useFormik } from 'formik';
 import React from 'react';
 
 function CreateTransactionModal({ onCloseModal }) {
+  const formik = useFormik({
+    initialValues: {
+      contact: '',
+      giftType: '',
+      totalAmount: '',
+      paymentMethod: '',
+      date: '',
+      pledge: '',
+      campaign: '',
+      impactArea: '',
+      dedication: '',
+      note: ''
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    }
+  });
   const tabs = [
     {
       name: 'DONATION INFORMATION',
-      component: DonationInformation
+      component: DonationInformation,
+      props: { formik }
     },
     {
       name: 'ASSOCIATIONS ',
-      component: DonationAssociation
+      component: DonationAssociation,
+      props: { formik }
     },
     {
       name: 'COMPLETE TRANSACTION ',
-      component: CompleteTransaction
+      component: CompleteTransaction,
+      props: { formik }
     }
   ];
+
   return (
     <Modal
       header="Create a Transaction - Donation"
