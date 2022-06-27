@@ -9,8 +9,7 @@ const initialState = {
   isLoading: false,
   mail: '',
   resetPassword: false,
-  confirmEmailOTP: false,
-  userData: {}
+  confirmEmailOTP: false
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {
@@ -184,8 +183,9 @@ export const authSlice = createSlice({
     [getAdminData.rejected]: (state) => {
       state.isLoading = false;
     },
-    [signupOTP.fulfilled]: (state) => {
+    [signupOTP.fulfilled]: (state, action) => {
       state.confirmEmailOTP = true;
+      state.token = action.payload;
     },
     [signupOTP.rejected]: (state) => {
       state.confirmEmailOTP = false;

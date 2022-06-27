@@ -38,3 +38,7 @@ export function nameAbbr(str) {
 export function isInThePast(date) {
   return date < today;
 }
+
+export const capitalizeFirstLowercaseRest = (str) => {
+  return str?.charAt(0)?.toUpperCase() + str?.slice(1)?.toLowerCase();
+};

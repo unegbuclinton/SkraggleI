@@ -26,7 +26,7 @@ const P2PTable = () => {
     {
       name: 'P2P EVENTS NAME',
       selector: (row) => row?.fundraiser_display_name,
-      width: '35rem'
+      width: '25rem'
     },
 
     {
@@ -42,7 +42,7 @@ const P2PTable = () => {
     {
       name: 'DONATIONS',
       selector: (row) => row?.offline_donation,
-      width: '35rem'
+      width: '25rem'
     },
     {
       name: 'STATUS',

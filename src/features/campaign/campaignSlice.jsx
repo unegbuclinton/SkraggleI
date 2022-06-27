@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { allPeerToPeer } from 'api/campaign/campaign-subtabs';
 import { allElements } from 'api/campaign/campaign-subtabs/elements';
+import { campaignEvents } from 'api/campaign/campaign-subtabs/events';
 import { allForms } from 'api/campaign/campaign-subtabs/forms';
 import { allMailBlasts } from 'api/campaign/campaign-subtabs/mailBlast';
 import {
@@ -16,6 +17,7 @@ const initialState = {
   campaigns: [],
   campaignByID: [],
   p2p: [],
+  eventsData: [],
   formsData: [],
   elementsData: [],
   mailBlast: [],
@@ -28,6 +30,7 @@ export const singleCampaign = createAsyncThunk('campaign/singleCampaign', indivi
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
 export const getFormsByID = createAsyncThunk('campaign/getFormsByID', allForms);
 export const getMailBlast = createAsyncThunk('campaign/getMailBlast', allMailBlasts);
+export const getCampaignEvent = createAsyncThunk('campaign/getCampaignEvent', campaignEvents);
 export const getCampaignElements = createAsyncThunk('campaign/getCampaignElements', allElements);
 export const removeCampaign = createAsyncThunk('campaign/removeCampaign', deleteCampaign);
 
@@ -119,6 +122,13 @@ export const campaignSlice = createSlice({
       state.campaignByID = action.payload;
     },
     [editCampaign.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [getCampaignEvent.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.eventsData = action.payload;
+    },
+    [getCampaignEvent.rejected]: (state) => {
       state.isLoading = false;
     }
   }

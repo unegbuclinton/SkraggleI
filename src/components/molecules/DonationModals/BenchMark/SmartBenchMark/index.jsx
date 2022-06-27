@@ -31,25 +31,7 @@ function BenchMark({ onClose }) {
       text: 'Fundraising Effectiveness Project (FEP) Benchmarks uses data taken from the most recent FEP report. FEP'
     }
   ];
-  //  eslint-disable-next-line
-  const [checkedData, setCheckedData] = useState([]);
-  //  eslint-disable-next-line
-  const isChecked = (e) => {
-    let checked = e.target.checked;
-    console.log(checked);
-    // console.log(checked, Array.isArray(checkedData), typeof checkedData);
-    if (checked) {
-      console.log(e.target.id);
-      const filtered = checkedData?.filter((id) => id !== +e?.target?.id);
-      console.log(filtered);
-      setCheckedData(filtered);
-    } else {
-      console.log(typeof e.target.id);
 
-      setCheckedData([...checkedData, +e?.target?.id]);
-    }
-  };
-  console.log(checkedData);
   return (
     <div>
       <BenchMarkBox>

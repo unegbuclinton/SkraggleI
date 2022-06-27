@@ -1,4 +1,6 @@
-import React from 'react';
+import { getDonationByContact } from 'features/report/reportSlice';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import CampaignPerformance from './CampaignPerformance';
 import Contacts from './Contacts';
@@ -8,6 +10,12 @@ import P2PFundraiser from './P2PFundraiser';
 import Transaction from './Transactions/Transaction';
 
 function ReportsData() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDonationByContact());
+    // dispatch(getP2PLeaderBoard());
+  });
   return (
     <ReportsDataMain>
       <Transaction />

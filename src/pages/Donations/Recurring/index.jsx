@@ -13,7 +13,6 @@ import RecurringModal from '../DonationModals/RecurringModal';
 function DonationRecurring() {
   const { recurringData } = useSelector((state) => state.donation);
 
-  console.log(recurringData);
   const [showModal, setShowModal] = useState(false);
   const columns = [
     {

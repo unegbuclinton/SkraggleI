@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getKpiOptions } from 'api/donation/kpiList';
 import {
   createOneTimeTransaction,
   getAllOneTimeTransaction
@@ -13,11 +14,13 @@ const initialState = {
   isLoading: false,
   pledgeData: [],
   oneTimeData: [],
-  recurringData: []
+  recurringData: [],
+  kpiData: []
 };
 export const getPledge = createAsyncThunk('getPledge', allPledge);
 export const addPledge = createAsyncThunk('addPledge', createPledge);
 export const removePledge = createAsyncThunk('removePledge', deletePledge);
+export const kpiOptions = createAsyncThunk('kpiOptions', getKpiOptions);
 
 export const addOneTimeTransaction = createAsyncThunk(
   'addOneTimeTransaction',
@@ -105,6 +108,17 @@ export const donationSlice = createSlice({
       state.recurringData = action.payload;
     },
     [getRecurringTransaction.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [kpiOptions.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [kpiOptions.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.kpiData = action.payload;
+    },
+    [kpiOptions.rejected]: (state) => {
       state.isLoading = false;
     }
   }
