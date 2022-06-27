@@ -9,8 +9,7 @@ const initialState = {
   isLoading: false,
   mail: '',
   resetPassword: false,
-  confirmEmailOTP: false,
-  userData: {}
+  confirmEmailOTP: false
 };
 
 export const registerUser = createAsyncThunk('auth/register', async (body) => {

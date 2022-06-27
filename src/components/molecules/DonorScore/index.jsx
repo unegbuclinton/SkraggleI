@@ -5,7 +5,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function DonorScore() {
+function DonorScore({ text }) {
   const series = [
     {
       name: 'Data',
@@ -92,7 +92,7 @@ function DonorScore() {
             height={400}
           />
         </div>
-        <div className="donattion-title">Donors likely to donate each month</div>
+        <div className="donattion-title">{text}</div>
       </BarchartWrapper>
     </DonorWrapper>
     // </div>

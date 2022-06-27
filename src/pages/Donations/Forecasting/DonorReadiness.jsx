@@ -47,7 +47,6 @@ function DonorReadiness() {
       <div className="duration-wrapper">
         <DonorWrapper>
           <BarchartWrapper>
-            {/* <p className="duration-text">Time of year</p> */}
             <div className="duraton-chart">
               <BorderBottom />
               <BarChart
