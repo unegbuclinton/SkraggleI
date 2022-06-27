@@ -10,13 +10,6 @@ import data from 'utilities/filterData.json';
 
 function DonorType() {
   const [selected, setSelected] = useState('Filters');
-  // const series = [
-  //   {
-  //     name: 'Skraggle',
-  //     data: [39, 30, 35, 25, 40, 15]
-  //   }
-  // ];
-
   return (
     <TypeWrapper>
       <div className="transaction">
@@ -44,7 +37,7 @@ function DonorType() {
       <div className="donor-score">
         <Card>
           <div className="bar-container">
-            <DonorScore />
+            <DonorScore text="Donors likely to donate each month" />
           </div>
         </Card>
       </div>

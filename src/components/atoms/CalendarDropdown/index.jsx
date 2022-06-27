@@ -26,7 +26,8 @@ export default CalendarDropdown;
 const CalendarDropdownContainer = styled.div`
   position: relative;
   cursor: pointer;
-  width: 14.4rem;
+  max-width: 14.4rem;
+  width: 100%;
   .range-picker {
     position: absolute;
     right: 0;
