@@ -1,5 +1,8 @@
+import Button from 'components/atoms/Button/Button';
+import CalendarDropdown from 'components/atoms/CalendarDropdown';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import DonorScore from 'components/molecules/DonorScore';
 import AreaChart from 'components/organisms/AreaChart';
 import PieChart from 'components/organisms/PieChart';
@@ -12,6 +15,16 @@ import data from 'utilities/filterData.json';
 function Transaction() {
   const [selected, setSelected] = useState('Filters');
 
+  const campaign = [
+    { value: 'Fateh', label: 'Fateh' },
+    { value: 'Agboola', label: 'Agboola' }
+  ];
+
+  const donationType = [
+    { value: 'Fateh', label: 'Fateh' },
+    { value: 'Agboola', label: 'Agboola' }
+  ];
+
   const series = [
     {
       name: 'Skraggle',
@@ -19,10 +32,46 @@ function Transaction() {
       color: '#2FC18D'
     }
   ];
+
+  const [openRange, setOpenRange] = useState(false);
+  const toggleRange = () => setOpenRange((prev) => !prev);
+  const [filterRange, setFilterRange] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    label: 'Today'
+  });
+  const handleSetRange = (range) => setFilterRange(range);
   return (
     <TransactionWrapper>
       <TransactionHeader>
         <h1>Transaction</h1>
+        <MenuItems>
+          <Button className="export-button">Export</Button>
+          <SelectDropDown
+            placeholder={'Campaign'}
+            id="campaignName"
+            name="campaignName"
+            type={'text'}
+            className="dropdown"
+            options={campaign}
+            onChange={(value) => value.value}
+          />
+          <SelectDropDown
+            placeholder={'Donation Type'}
+            id="campaignName"
+            name="campaignName"
+            type={'text'}
+            options={donationType}
+            className="dropdown"
+            onChange={(value) => value.value}
+          />
+          <CalendarDropdown
+            label={filterRange?.label}
+            toggleRange={toggleRange}
+            setRange={handleSetRange}
+            open={openRange}
+          />
+        </MenuItems>
       </TransactionHeader>
       <DonationTrackerWrapper>
         <DonationTrackerHeaderWrapper>
@@ -246,5 +295,30 @@ const TypeHeader = styled.div`
       background-color: #ff576b;
       justify-content: baseline;
     }
+  }
+`;
+
+export const MenuItems = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  flex: 0.6;
+  justify-content: right;
+
+  .export-button {
+    max-width: 14.4rem;
+    width: 100%;
+    height: 4.8rem;
+    font-size: ${FONTSIZES.small};
+    line-height: 16px;
+    color: ${COLORS['grey-400']};
+    background-color: ${COLORS.white};
+    border: 1px solid ${COLORS.pink};
+    padding: 1.2rem 1.2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown {
+    max-width: 14.4rem;
   }
 `;
