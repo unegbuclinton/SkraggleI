@@ -4,9 +4,12 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconChevronDown } from 'icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 
 function DonationByContacts() {
+  const { contactDonation } = useSelector((state) => state.report);
   const columns = [
     {
       name: '',
@@ -20,11 +23,13 @@ function DonationByContacts() {
     },
     {
       name: 'NAME',
-      selector: (row) => row.name
+      cell: (row) => {
+        row?.contact?.first_name;
+      }
     },
     {
       name: 'DATE',
-      selector: (row) => row.date
+      selector: (row) => formatDate(row.created_at)
     },
     {
       name: 'STATUS',
@@ -44,78 +49,13 @@ function DonationByContacts() {
     }
   ];
 
-  const recurringData = [
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    },
-    {
-      id: 'XCSEWGXK',
-      name: 'Lorem Ipsam',
-      date: 'Lorem Ipsam',
-      status: 'Lorem Ipsam',
-      method: 'Lorem Ipsam',
-      amount: 'Lorem Ipsam',
-      source: 'Lorem Ipsam'
-    }
-  ];
   return (
     <TableWrapper>
       <TableHeader>
         <h1>DONATIONS BY Contacts</h1>
         <DPIconChevronDown />
       </TableHeader>
-      <Table columns={columns} data={recurringData} />
+      <Table columns={columns} data={contactDonation} />
     </TableWrapper>
   );
 }

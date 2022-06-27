@@ -35,6 +35,9 @@ export const EventWrapper = styled.div`
     background-color: ${COLORS.white};
     margin: 0.8rem 0 2.4rem 0;
   }
+  .details-dropdown {
+    margin: 0.8rem 0 2.4rem 0;
+  }
 
   .message-input {
     height: 10.9rem;

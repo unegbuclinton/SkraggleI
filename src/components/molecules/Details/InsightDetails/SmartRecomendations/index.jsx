@@ -10,11 +10,11 @@ import {
 } from './styles';
 
 function SmartRecomendation() {
-  const { eachContact, recommendation } = useSelector((state) => state.contact);
+  const { eachContact } = useSelector((state) => state.contact);
 
   const { first_name, last_name } = eachContact;
 
-  const { maximum, minimum, recommended, time_of_year } = recommendation.smart_ask;
+  // const { maximum, minimum, recommended, time_of_year } = recommendation.smart_ask;
 
   const fullName = `${first_name} ${last_name}`;
 
@@ -30,9 +30,9 @@ function SmartRecomendation() {
           <InfoContainer>
             <h2 className="content-heading">SMART ASK</h2>
             <p className="content-info">
-              {` ${fullName} is most likely to donate between `}{' '}
-              <span className="content-info__digit">{`$${maximum} - $${minimum}`}</span>. We
-              recommend asking them for <span className="content-info__digit">${recommended}</span>{' '}
+              {` ${fullName} is most likely to donate between `}
+              {/* <span className="content-info__digit">{`$${maximum} - $${minimum}`}</span>. We */}
+              {/* recommend asking them for <span className="content-info__digit">${recommended}</span> */}
             </p>
           </InfoContainer>
         </InfoWrapper>
@@ -41,7 +41,7 @@ function SmartRecomendation() {
           <DPIconThankYou />
           <InfoContainer>
             <h2 className="content-heading">TIME OF YEAR</h2>
-            <p className="content-info">{time_of_year}</p>
+            {/* <p className="content-info">{time_of_year}</p> */}
           </InfoContainer>
         </InfoWrapper>
 
@@ -49,7 +49,7 @@ function SmartRecomendation() {
           <DPIconThankYou />
           <InfoContainer>
             <h2 className="content-heading">BEST WAY TO REACH OUT</h2>
-            <p className="content-info">{recommendation.best_way_to_reach_out}</p>
+            {/* <p className="content-info">{recommendation.best_way_to_reach_out}</p> */}
           </InfoContainer>
         </InfoWrapper>
 

@@ -17,7 +17,7 @@ export const getField = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/field?cursor=0&direction=after&limit=20'
+      url: '/field'
     });
 
     return response?.data?.message?.rows;

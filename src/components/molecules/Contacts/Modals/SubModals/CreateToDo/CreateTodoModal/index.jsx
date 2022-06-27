@@ -19,8 +19,8 @@ import {
 } from './styles';
 
 function CreateTodoModal({ onClose }) {
-  const { eachContact } = useSelector((state) => state);
-  const id = eachContact.id;
+  const { eachContact } = useSelector((state) => state.contact);
+  const id = eachContact?.id;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

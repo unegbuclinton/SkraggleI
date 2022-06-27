@@ -8,6 +8,7 @@ import eventReducer from 'features/events/eventSlice';
 import formsReducer from 'features/forms/formsSlice';
 import mailblastReducer from 'features/mailblast/mailBlastSlice';
 import p2pReducer from 'features/p2p/p2pSlice';
+import reportReducer from 'features/report/reportSlice';
 import {
   FLUSH,
   PAUSE,
@@ -36,7 +37,8 @@ const rootReducer = combineReducers({
   forms: formsReducer,
   events: eventReducer,
   mailBlast: mailblastReducer,
-  element: elementReducer
+  element: elementReducer,
+  report: reportReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

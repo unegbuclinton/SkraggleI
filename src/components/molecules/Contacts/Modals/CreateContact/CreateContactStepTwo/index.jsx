@@ -161,6 +161,7 @@ function ContactStepTwo({ onClose, formik }) {
           <SelectDropDown
             className="dropdown"
             type={'text'}
+            placeholder={'Assignee'}
             id="assignee"
             name="assignee"
             options={assigneeOptions}

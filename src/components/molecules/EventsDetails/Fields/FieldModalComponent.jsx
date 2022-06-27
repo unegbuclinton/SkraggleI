@@ -48,12 +48,10 @@ function FieldModalComponent({ onClose }) {
         show_field_on_separate_line: true,
         associated_packages: [values.packageAss]
       };
-      dispatch(createField(body)).then((data) => {
-        if (data.success === true) {
-          toast.success('Field created sucessfully');
-          dispatch(getAllFields());
-          onClose();
-        }
+      dispatch(createField(body)).then(() => {
+        toast.success('Field created sucessfully');
+        dispatch(getAllFields());
+        onClose();
       });
     }
   });

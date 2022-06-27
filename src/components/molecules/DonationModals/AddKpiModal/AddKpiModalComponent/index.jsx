@@ -1,6 +1,8 @@
 import Button from 'components/atoms/Button/Button';
 import Tabs from 'components/molecules/Tabs';
-import React from 'react';
+import { kpiOptions } from 'features/donation/donationSlice';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import DonorKpi from '../Donor';
 import Emarketing from '../Emarketing';
@@ -12,6 +14,11 @@ function AddKpiModalComponent({ onClose }) {
     { title: 'FUNDRAISING', component: <Fundraising /> },
     { title: 'EMAIL MARKETING', component: <Emarketing /> }
   ];
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(kpiOptions());
+  });
   return (
     <AddKpiModalWrapper>
       <Tabs tabs={tabs} inline />

@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 import { campaignOverview } from 'validation/Schema';
 import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 import {
@@ -25,7 +26,6 @@ const CampaignOverview = () => {
   const dispatch = useDispatch();
 
   const { name, description, status, fundraising_goal, amount_raised, id } = campaignByID;
-  // const statusToCap = status?.toUpperCase();
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
 
@@ -129,7 +129,7 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{status}</Button>
+          <Button className="campaign-name__button">{capitalizeFirstLowercaseRest(status)}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>

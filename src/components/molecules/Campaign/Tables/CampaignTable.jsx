@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import {
   getAllCampaigns,
   getCampaignElements,
+  getCampaignEvent,
   getFormsByID,
   getMailBlast,
   getPeerToPeer,
@@ -76,6 +77,7 @@ const CampaignTable = () => {
     dispatch(getPeerToPeer(id));
     dispatch(getFormsByID(id));
     dispatch(getMailBlast(id));
+    dispatch(getCampaignEvent(id));
     dispatch(getCampaignElements(id));
     dispatch(singleCampaign(id));
     let path = `/campaign/${id}`;

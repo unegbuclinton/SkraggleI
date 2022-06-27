@@ -1,12 +1,20 @@
 import FileUploadButton from 'components/atoms/FileUploadButton';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import TextEditor from 'components/organisms/TextEditor';
 import { values } from 'draft-js/lib/DefaultDraftBlockRenderMap';
 import { DPIconUploadFile } from 'icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { DetailLabel, DetailsSubHeading, EventWrapper } from './styles';
 
 function EventInformation({ formik, ErrorMsg }) {
+  const { campaigns } = useSelector((state) => state?.campaign);
+
+  const campaignOptions = campaigns?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
   return (
     <div>
       <DetailsSubHeading>Event information</DetailsSubHeading>
@@ -22,6 +30,7 @@ function EventInformation({ formik, ErrorMsg }) {
           onBlur={formik.handleBlur}
           value={formik.values.name}
         />
+
         {formik.touched.name && formik.errors.name ? (
           <ErrorMsg>{formik.errors.name}</ErrorMsg>
         ) : null}
@@ -42,6 +51,19 @@ function EventInformation({ formik, ErrorMsg }) {
             </FileUploadButton>
           </div>
         </div>
+        <DetailLabel>Campaigns</DetailLabel>
+
+        <SelectDropDown
+          className="details-dropdown"
+          placeholder={'Campaign'}
+          id="eventCampign"
+          name="eventCampign"
+          type={'text'}
+          options={campaignOptions}
+          value={formik.values.eventCampign}
+          onChange={(value) => formik.setFieldValue('eventCampign', value.value)}
+          onBlur={formik.handleBlur}
+        />
         <DetailLabel>Event sold out message</DetailLabel>
         <Input
           className="details-input message-input"

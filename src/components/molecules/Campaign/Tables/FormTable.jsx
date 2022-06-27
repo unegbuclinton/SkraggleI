@@ -11,6 +11,7 @@ import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { CampaignForm } from 'utilities/campaigndata';
+import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 import { ContainerBody, TableWrapper } from './styles';
 
 const FormsTable = () => {
@@ -73,7 +74,9 @@ const FormsTable = () => {
     {
       name: 'STATUS',
       cell: (row) => {
-        return <Button className="table-button">{row?.status}</Button>;
+        return (
+          <Button className="table-button">{capitalizeFirstLowercaseRest(row?.status)}</Button>
+        );
       }
     }
   ];

@@ -12,7 +12,6 @@ import CreateTransactionModal from '../DonationModals/CreateTransactionModal';
 
 function Transaction() {
   const { oneTimeData } = useSelector((state) => state.donation);
-  console.log(oneTimeData);
   const [showModal, setShowModal] = useState(false);
 
   const columns = [
