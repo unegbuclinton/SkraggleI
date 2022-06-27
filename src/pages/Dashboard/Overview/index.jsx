@@ -13,7 +13,11 @@ import {
   viewContact,
   viewTags
 } from 'features/contact/contactSlice';
-import { getPledge } from 'features/donation/donationSlice';
+import {
+  getOneTimeTransaction,
+  getPledge,
+  getRecurringTransaction
+} from 'features/donation/donationSlice';
 import { getAllElements } from 'features/elements/elementsSlice';
 import { getAllEvents } from 'features/events/eventSlice';
 import { getAllForm } from 'features/forms/formsSlice';
@@ -59,6 +63,8 @@ function Overview() {
   useEffect(() => {
     dispatch(listAllMailBlast());
     dispatch(allSubscriptionStatus());
+    dispatch(getOneTimeTransaction());
+    dispatch(getRecurringTransaction());
   }, []);
 
   return (

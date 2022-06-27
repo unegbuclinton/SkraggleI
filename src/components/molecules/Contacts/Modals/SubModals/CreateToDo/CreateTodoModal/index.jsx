@@ -19,8 +19,8 @@ import {
 } from './styles';
 
 function CreateTodoModal({ onClose }) {
-  const { eachContact } = useSelector((state) => state);
-  const id = eachContact.id;
+  const { eachContact } = useSelector((state) => state.contact);
+  const id = eachContact?.id;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -37,6 +37,7 @@ function CreateTodoModal({ onClose }) {
       };
       dispatch(createTodo(body)).then(() => {
         dispatch(eachTodo(id));
+
         onClose();
         toast.success('Todo created successfully');
       });

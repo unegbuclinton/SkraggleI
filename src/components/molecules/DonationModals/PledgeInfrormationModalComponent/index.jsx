@@ -1,7 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
-// import DropdownComponent from 'components/atoms/Dropdown';
 import FileUploadButton from 'components/atoms/FileUploadButton';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
@@ -64,10 +63,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
   ];
 
   return (
-    <ModalWrapper
-      onSubmit={() => {
-        formik.handleSubmit;
-      }}>
+    <ModalWrapper>
       <Card>
         <h1>Contact</h1>
         <SelectDropDown
@@ -248,7 +244,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         </div>
 
         <ButtonsContainer>
-          <Button onClick={onClose} className="back-btn" auth invert>
+          <Button type="button" onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
           <Button type="button" className="save-btn" onClick={IncrementTab}>

@@ -20,6 +20,7 @@ const Pledge = () => {
   const [rowCount, setRowCount] = useState(null);
   const dispatch = useDispatch();
   const { pledgeData } = useSelector((state) => state.donation);
+
   const handleSelect = (row) => {
     const checkedRows = row.selectedRows.map((cur) => cur.id);
     setGetId(checkedRows);

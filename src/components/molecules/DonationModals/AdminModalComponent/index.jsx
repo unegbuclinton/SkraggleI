@@ -1,31 +1,29 @@
-import React from 'react';
-
-import Card from 'components/atoms/Card';
 import Button from 'components/atoms/Button/Button';
-import Input from 'components/atoms/Input/Input';
-
-import { useFormik } from 'formik';
-import { createCampaignSchema } from 'validation/Schema';
-
-import { ModalWrapper, ModalInputDescription, ButtonsContainer } from './styles';
+import Card from 'components/atoms/Card';
 import ErrorMessage from 'components/atoms/ErrorMessage';
+import Input from 'components/atoms/Input/Input';
+import { useFormik } from 'formik';
+import React from 'react';
+import { createCampaignSchema } from 'validation/Schema';
+import { ButtonsContainer, ModalInputDescription, ModalWrapper } from './styles';
 
 const AdminModalComponent = () => {
   const formik = useFormik({
     initialValues: {
-      name: ''
+      name: '',
+      description: ''
     },
     validationSchema: createCampaignSchema,
 
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 4));
-    }
+    onSubmit: () => {}
   });
+
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>
       <Card>
         <h1>NAME</h1>
         <Input
+          autoWidth
           className="campaign-modal"
           type="text"
           placeholder="Lorem Ipsum"
@@ -47,11 +45,12 @@ const AdminModalComponent = () => {
           name="description"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.description}
         />
         {formik.touched.description && formik.errors.description ? (
           <ErrorMessage>{formik.errors.description}</ErrorMessage>
         ) : null}
-
+        {console.log(formik.values.description)}
         <ButtonsContainer>
           <Button type="submit" className="save-btn" auth>
             Save

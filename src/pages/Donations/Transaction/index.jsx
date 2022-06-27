@@ -5,21 +5,25 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 import CreateTransactionModal from '../DonationModals/CreateTransactionModal';
 
 function Transaction() {
+  const { oneTimeData } = useSelector((state) => state.donation);
+  console.log(oneTimeData);
   const [showModal, setShowModal] = useState(false);
+
   const columns = [
     {
       name: '',
-      selector: (row) => row.contact,
       cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {
       name: 'Contact',
-      selector: (row) => row.contact,
+      selector: (row) => row.contact_id,
       width: '30.725rem'
     },
     {
@@ -29,7 +33,7 @@ function Transaction() {
     },
     {
       name: 'DATE',
-      selector: (row) => row.date,
+      selector: (row) => formatDate(row.created_at),
       width: '35.494rem'
     },
     {
@@ -38,94 +42,20 @@ function Transaction() {
     }
   ];
 
-  const transactionData = [
-    {
-      id: 1,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 2,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 3,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 4,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 5,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 6,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 7,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 8,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 9,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    },
-    {
-      id: 10,
-      contact: 'Mohammed Adam',
-      amount: 'Details',
-      date: '24th Aug',
-      type: 'Incomplete'
-    }
-  ];
-
-  const mail = transactionData.map((data, index) => ({
-    key: index,
-    contact: data.contact,
-    amount: data.amount,
-    date: data.date,
-    type: data.type
-  }));
-
+  // const data = [
+  //   {
+  //     contact_id: 1,
+  //     amount: 'Beetlejuice',
+  //     type: '1988'
+  //   }
+  // ];
   return (
     <TransactionWrapper>
-      <Card className="transaction-card">
+      <Card className="transaction-crard">
         <div className="transaction-header">
           <TableHeader
             className="table-header"
-            header="1,014 Transactions"
+            header={`${oneTimeData?.length} Transactions`}
             title="Create New"
             setOpen={setShowModal}
           />
@@ -138,7 +68,7 @@ function Transaction() {
           )}
         </div>
         <div className="table-container">
-          <Table columns={columns} data={mail} />
+          <Table columns={columns} data={oneTimeData} />
         </div>
       </Card>
     </TransactionWrapper>
@@ -147,6 +77,7 @@ function Transaction() {
 export default Transaction;
 
 const TransactionWrapper = styled.div`
+  /* position: relative; */
   margin-bottom: 1.6rem;
   height: 100%;
   overflow: auto;
