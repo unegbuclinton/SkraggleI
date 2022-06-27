@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-extra-boolean-cast */
 import CheckBox from 'components/atoms/CheckBox';
 import TableBtn from 'components/atoms/TableButton/TableBtn';
@@ -69,7 +70,7 @@ function ContactsTable() {
     dispatch(eachTodo(id));
     dispatch(getEachVolunteer(id));
     dispatch(eachInteraction(id));
-    dispatch(smartAsk(id));
+    // dispatch(smartAsk(id));
     let path = `/contacts/${id}`;
     navigate(path);
   };
