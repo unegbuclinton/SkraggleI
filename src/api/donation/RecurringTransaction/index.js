@@ -7,7 +7,6 @@ export const createRecurringTransaction = async (body) => {
       url: '/donations/recurring-transactions',
       data: body
     });
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
