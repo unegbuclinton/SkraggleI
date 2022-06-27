@@ -73,7 +73,7 @@ function ContactsOrganizationTable() {
   return (
     <TableWrapper>
       <TableHeader>
-        <h1>Contacts by Organization</h1>
+        <h1>CONTACTS BY ORGANIZATION</h1>
         <DPIconChevronDown />
       </TableHeader>
       <Table columns={columns} data={recurringData} />

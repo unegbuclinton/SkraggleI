@@ -52,7 +52,7 @@ function DonationByContacts() {
   return (
     <TableWrapper>
       <TableHeader>
-        <h1>DONATIONS BY Contacts</h1>
+        <h1>DONATIONS BY CONTACTS</h1>
         <DPIconChevronDown />
       </TableHeader>
       <Table columns={columns} data={contactDonation} />
