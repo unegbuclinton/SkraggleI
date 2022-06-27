@@ -17,7 +17,7 @@ export const getPromoCode = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/promocode?cursor=0&direction=after&limit=20'
+      url: '/promocode'
     });
 
     return response?.data?.message?.rows;
