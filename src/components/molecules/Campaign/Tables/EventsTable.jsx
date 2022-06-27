@@ -1,14 +1,15 @@
 import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
 import Table from 'components/layouts/Table';
+import CreateEventModal from 'components/molecules/EventsModals/CreateEventModal/Modal';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { React, useState } from 'react';
-import { EventsData } from 'utilities/campaigndata';
-import CreateCampaignModal from '../CreateCampaignModal';
+import { useSelector } from 'react-redux';
 import { ContainerBody, TableWrapper, Wrapper } from './styles';
 
 const EventsTable = () => {
+  const { eventsData } = useSelector((state) => state.campaign);
   const columns = [
     {
       name: ' ',
@@ -18,7 +19,7 @@ const EventsTable = () => {
     },
     {
       name: 'ID',
-      selector: (row) => row.uid
+      selector: (row) => row.campaign_id
       // width: '20rem'
     },
 
@@ -29,17 +30,15 @@ const EventsTable = () => {
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign
+      selector: (row) => row.campaign_id
       // width: '30rem'
     },
     {
       name: 'STATUS',
-      selector: (row) => row.status,
       cell: () => <Button className="table-button">Active</Button>
     }
   ];
   const [open, setOpen] = useState(false);
-  // const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
   const handleSelect = (row) => {
@@ -51,28 +50,9 @@ const EventsTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const indexLastList = currentPage * itemsPerPage;
-
-  const indexFirstList = indexLastList - itemsPerPage;
-
-  const tableData = EventsData.map((eventsData, index) => ({
-    key: index,
-    uid: eventsData.uid,
-    name: eventsData.name,
-    campaign: eventsData.campaign,
-    status: eventsData.status
-  }));
-
-  const currentList = tableData.slice(indexFirstList, indexLastList);
-
-  // let navigate = useNavigate();
-  // const handleButtonClick = () => {
-  //   navigate('/events');
-  // };
-
   return (
     <Wrapper>
-      <CreateCampaignModal
+      <CreateEventModal
         isShown={open}
         onClose={() => {
           setOpen(false);
@@ -82,7 +62,7 @@ const EventsTable = () => {
         <TableWrapper>
           <TableHeader
             title="Create New"
-            header={`34 Events`}
+            header={`${eventsData.length} Events`}
             setOpen={setOpen}
             // setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
@@ -91,7 +71,7 @@ const EventsTable = () => {
           />
           <Table
             columns={columns}
-            data={currentList}
+            data={eventsData}
             // onRowClicked={onRowClicked}
             selectableRows
             selectableRowsComponent={Checkbox}
@@ -102,7 +82,6 @@ const EventsTable = () => {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        data={EventsData}
         setCurrentPage={setCurrentPage}
       />
     </Wrapper>

@@ -3,6 +3,7 @@ import { createEvents, getAllEvents } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { detailsValidationSchema } from 'validation/Schema';
 import AdminNotification from './AdminNotification';
 import CutOffDate from './CutOffDate';
@@ -17,6 +18,7 @@ import { ButtonWrapper, Container, DetailsWrapper, ErrorMsg } from './styles';
 function CreateEvent({ onClose }) {
   const { isLoading } = useSelector((state) => state.events);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -33,6 +35,7 @@ function CreateEvent({ onClose }) {
       eventEndDate: '',
       startTime: '',
       endTime: '',
+      eventCampign: '',
       registrationDate: '',
       registrationEndTime: '',
       receipt: '',
@@ -52,6 +55,7 @@ function CreateEvent({ onClose }) {
         name: values.name,
         description: values.textarea,
         event_image: 'www.image.com',
+        campaign_id: values.eventCampign,
         event_sold_out_message: values.message,
         venue: values.venue,
         address: values.address,
@@ -78,6 +82,7 @@ function CreateEvent({ onClose }) {
       dispatch(createEvents(body)).then(() => {
         dispatch(getAllEvents());
         onClose();
+        navigate('/events');
       });
     }
   });

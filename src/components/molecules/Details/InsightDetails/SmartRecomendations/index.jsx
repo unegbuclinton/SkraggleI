@@ -11,7 +11,7 @@ import {
 
 function SmartRecomendation() {
   const { eachContact, recommendation } = useSelector((state) => state.contact);
-
+  console.log(recommendation);
   const { first_name, last_name } = eachContact;
 
   const { maximum, minimum, recommended, time_of_year } = recommendation.smart_ask;
