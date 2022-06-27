@@ -20,7 +20,7 @@ import {
 
 function CreateTodoModal({ onClose }) {
   const { eachContact } = useSelector((state) => state);
-  const id = eachContact.id;
+  const id = eachContact?.id;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

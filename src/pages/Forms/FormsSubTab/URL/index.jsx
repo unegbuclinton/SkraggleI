@@ -11,7 +11,7 @@ import styled from 'styled-components';
 // import FormsSubTab from '..';
 import UrlModalComponent from '../ModalComponent/modal';
 
-function Url() {
+function Url({ DecrementTab }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -32,6 +32,9 @@ function Url() {
               https://www.biggorillaapps.com?form=<span className="link">FUNDDKCUBQC</span>
             </Link>
             <ButtonContainer>
+              <Button type="button" className="back-button" invert auth onClick={DecrementTab}>
+                Back
+              </Button>
               <Button type="submit" onClick={() => setOpen(true)} className="continue">
                 Done
               </Button>
@@ -100,7 +103,19 @@ export const ButtonContainer = styled.div`
   margin-top: 35.5rem;
   display: flex;
   justify-content: flex-end;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
 
+  .back-button {
+    width: 10.7rem;
+    height: 5.1rem;
+    background-color: ${COLORS.white};
+    border: 1px solid ${COLORS['gray-500']};
+    border-radius: 0.340356rem;
+    color: ${COLORS['gray-500']};
+    font-size: ${FONTSIZES.base};
+    font-weight: ${FONTWEIGHTS.xbold};
+  }
   .continue {
     width: 14rem;
     height: 4.8rem;

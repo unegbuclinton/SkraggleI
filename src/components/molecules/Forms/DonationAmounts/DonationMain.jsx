@@ -21,5 +21,4 @@ export const DonationMainWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* padding-bottom: 12.5rem; */
 `;

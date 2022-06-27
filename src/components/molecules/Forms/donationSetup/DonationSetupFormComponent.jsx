@@ -2,32 +2,58 @@ import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function DonationSetupFormComponent() {
+  const buttonsGroup = [
+    {
+      id: '1',
+      title: '$10'
+    },
+    {
+      id: '2',
+      title: '$100'
+    },
+    {
+      id: '3',
+      title: '$500'
+    },
+    {
+      id: '4',
+      title: '$1000'
+    }
+  ];
+
+  const [active, setActive] = useState(1);
+  const [amount, setAmount] = useState('');
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setActive(event.target.id);
+    setAmount(event.target.title);
+  };
+
   return (
     <FormComponentContainer>
       <FormHeaderText>Select Donation Amount</FormHeaderText>
       <div className="form-btns">
-        <Button className="form-btn colored-btn" auth>
-          $10
-        </Button>
-        <Button className="form-btn" auth>
-          $100
-        </Button>
-        <Button className="form-btn" auth>
-          $500
-        </Button>
-        <Button className="form-btn" auth>
-          $1000
-        </Button>
+        {buttonsGroup.map((btn) => (
+          <Button
+            key={btn.id}
+            className={active === btn.id ? 'preview__button' : 'preview__notActive'}
+            id={btn.id}
+            title={btn.title}
+            onClick={handleClick}>
+            {btn.title}
+          </Button>
+        ))}
       </div>
 
       <div className="form-input__container">
         <span className="form-input__kit">$</span>
         <FormHeaderText>Enter Custom Amount</FormHeaderText>
-        <Input autoWidth className="form-input" placeholder="$2000" />
+        <Input autoWidth className="form-input" placeholder="$2000" value={amount} />
       </div>
 
       <FormParagraph>
@@ -47,7 +73,25 @@ function DonationSetupFormComponent() {
 export default DonationSetupFormComponent;
 
 const FormComponentContainer = styled.div`
-  padding: 2.53rem 4.4rem 4.201rem 4.4rem;
+  padding: 2.53rem 2.2rem 4.201rem 2.2rem;
+
+  .preview {
+    &__button {
+      background: ${COLORS['blue-black']};
+      color: white;
+      max-width: 7.3rem;
+      height: 3.646rem;
+      border-radius: 0.5rem;
+    }
+    &__notActive {
+      background: transparent;
+      color: ${COLORS['dark-gray']};
+      width: 7.3rem;
+      height: 3.646rem;
+      border-radius: 0.5rem;
+      margin-right: 1.47rem;
+    }
+  }
 
   .form-btns {
     display: flex;
@@ -77,7 +121,7 @@ const FormComponentContainer = styled.div`
     .form-input {
       background: ${COLORS.white};
       border: 0.920602px solid ${COLORS.torquoise};
-      padding-left: 6rem;
+      text-align: right;
 
       &::placeholder {
         text-align: right;
