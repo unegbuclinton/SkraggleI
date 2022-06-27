@@ -5,17 +5,34 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { useFormik } from 'formik';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ChequeInfo from '../../paymentInfoComponent/ChequeInfo';
 import StripeInfo from '../../paymentInfoComponent/StripeInfo';
 
-function RecurringInformation({ IncrementTab, onCloseModal }) {
+function RecurringInformation({ IncrementTab, onCloseModal, formik }) {
   const { contactData } = useSelector((state) => state.contact);
 
   const giftOption = [{ value: 'Cash', label: 'Cash' }];
+
+  const billOption = [
+    { value: 'Day', label: 'Day' },
+    { value: 'Week', label: 'Week' },
+    { value: 'Month', label: 'Month' },
+    { value: 'Yearly', label: 'Yearly' }
+  ];
+
+  const recieptOptions = [
+    {
+      value: 'Log transaction without paymnt or receipt',
+      label: 'Log transaction without paymnt or receipt'
+    },
+    {
+      value: 'Log transaction without paymnt or receipt',
+      label: 'Make an online payment & generate receipt'
+    }
+  ];
 
   const paymentOptions = [
     { value: 'Cash', label: 'Cash' },
@@ -29,10 +46,7 @@ function RecurringInformation({ IncrementTab, onCloseModal }) {
     value: current?.id,
     label: current?.first_name
   }));
-  const formik = useFormik({
-    initialValues: {},
-    onSubmit: {}
-  });
+
   return (
     <InformationWrapper onSubmit={formik.handleSubmit}>
       <Card className="donation-card">
@@ -100,43 +114,56 @@ function RecurringInformation({ IncrementTab, onCloseModal }) {
           />
         </DonationLabel>
 
-        <DonationLabel>
-          <p className="donation-label">Billing Cycle Every</p>
-          <div className="billing">
-            <Input className="billing-input" placeholder="$" />
+        <div className="billing">
+          <DonationLabel>
+            <p className="donation-label">Billing Interval</p>
+            <div className="billing">
+              <Input
+                className="billing-input"
+                id="billInterval"
+                name="billInterval"
+                type={'text'}
+                value={formik.values.billInterval}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+            </div>
+          </DonationLabel>
+          <DonationLabel>
+            <p className="donation-label">Billing Cycle Every</p>
             <SelectDropDown
-              options={giftOption}
+              options={billOption}
               className="billing-dropdown"
               id="bill"
               name="bill"
               type={'text'}
-              placeholder="Currency"
+              placeholder="Interval"
               value={formik.values.bill}
               onChange={(value) => formik.setFieldValue('bill', value.value)}
               onBlur={formik.handleBlur}
             />
-          </div>
-        </DonationLabel>
-
+          </DonationLabel>
+        </div>
         <DonationLabel>
           <p className="donation-label">Recept Setting</p>
           <SelectDropDown
             className="donation-dropdown"
             id="reciept"
+            options={recieptOptions}
             name="reciept"
             type={'text'}
-            placeholder="Currency"
+            placeholder="Reciept"
             value={formik.values.reciept}
             onChange={(value) => formik.setFieldValue('reciept', value.value)}
             onBlur={formik.handleBlur}
-          />{' '}
+          />
         </DonationLabel>
 
         <div className="donation-footer">
           <Button invert auth className="donation-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
-          <Button auth className="donation-save-btn" onClick={IncrementTab}>
+          <Button type="button" auth className="donation-save-btn" onClick={IncrementTab}>
             Next
           </Button>
         </div>
@@ -151,6 +178,10 @@ const InformationWrapper = styled.form`
   .donation-card {
     padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 
+    .billing {
+      display: flex;
+      gap: 3rem;
+    }
     .donation-footer {
       display: flex;
       justify-content: flex-end;

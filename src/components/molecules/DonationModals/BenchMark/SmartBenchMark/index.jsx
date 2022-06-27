@@ -1,12 +1,12 @@
 import Button from 'components/atoms/Button/Button';
-import Checkbox from 'components/atoms/CheckBox';
+import Radio from 'components/atoms/Radio';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconBenchMail } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-function BenchMark() {
+function BenchMark({ onClose }) {
   const [activeTab, setActiveTab] = useState(0);
 
   const fundRaiseData = [
@@ -70,20 +70,13 @@ function BenchMark() {
                 <BenchMarkText>{text}</BenchMarkText>
               </div>
               <div className="action-btn">
-                <Checkbox
-                  id={+idx + 1}
-                  pink
-                  onClick={(e) => {
-                    // setCheckedData(idx);
-                    isChecked(e);
-                  }}
-                />
+                <Radio />
               </div>
             </BenchMarkContainer>
           </BenchMarkWrapper>
         ))}
         <BenchMarkFooter>
-          <Button className="cancel-btn" auth invert>
+          <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel
           </Button>
           <Button className="save-btn" auth>

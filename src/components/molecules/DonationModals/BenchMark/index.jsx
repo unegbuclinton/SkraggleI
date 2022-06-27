@@ -1,13 +1,12 @@
 import Modal from 'components/layouts/Modal';
 import React from 'react';
-// import AddKpiModal from '../AddKpiModal';
+
 import BenchMark from './SmartBenchMark';
 
-function BenchMarkModal() {
+function BenchMarkModal({ isShown, onClose }) {
   return (
-    <Modal header="BenchMark: Smart BenchMark" isShown>
-      <BenchMark />
-      {/* <AddKpiModal /> */}
+    <Modal header="BenchMark: Smart BenchMark" isShown={isShown} hide={onClose}>
+      <BenchMark onClose={onClose} />
     </Modal>
   );
 }
