@@ -18,7 +18,7 @@ export const getAllRecurringTransaction = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/donations/recurring-transactions?cursor=-1&direction=after&limit=20'
+      url: '/donations/recurring-transactions'
     });
     return response?.data?.message?.rows;
   } catch (error) {
