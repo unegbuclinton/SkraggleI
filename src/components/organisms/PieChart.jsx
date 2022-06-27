@@ -17,8 +17,7 @@ const PieChart = ({ width, height }) => {
             show: false
           },
           chart: {
-            width: '100%',
-            redrawOnParentResize: true
+            width: '100%'
           },
           xaxis: {},
           colors: ['#BEE0FF', '#578EC1']

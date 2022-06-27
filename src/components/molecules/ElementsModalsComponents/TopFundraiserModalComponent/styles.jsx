@@ -35,6 +35,8 @@ export const TopFundraiserLabel = styled.label`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
+  height: 4.4rem;
+  padding-top: 0.4rem;
 `;
 
 export const TopFundraiserFooter = styled.div`

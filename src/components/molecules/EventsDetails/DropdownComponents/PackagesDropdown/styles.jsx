@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export const DropDownWrapper = styled.form`
   padding: 4.8rem 2.4rem 2.4rem 2rem;
   .name-input {
-    width: 61.4rem;
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     background-color: ${COLORS.white};
@@ -18,6 +17,14 @@ export const DropDownWrapper = styled.form`
     border: 0.1rem solid ${COLORS['gray-500']};
     border-radius: 0.5rem;
     margin-top: 0.8rem;
+  }
+
+  .description-input {
+    width: 100%;
+    height: 15rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid ${COLORS['gray-500']};
+    resize: none;
   }
 
   .maplink-container {

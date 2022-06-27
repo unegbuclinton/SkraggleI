@@ -17,7 +17,6 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const MailBlast = () => {
   const { mailBlast } = useSelector((state) => state.campaign);
-  console.log(mailBlast);
   const [show, setShow] = useState(false);
   const columns = [
     {

@@ -17,7 +17,7 @@ export const getEvents = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/event?cursor=-1&direction=after&limit=20'
+      url: '/event'
     });
 
     return response?.data?.message?.rows;

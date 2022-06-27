@@ -121,6 +121,7 @@ function Behavior() {
 export default Behavior;
 
 const BehaviorWrapper = styled.div`
+  margin-top: 3.2rem;
   .amount {
     width: 14.3rem !important;
     background-color: ${COLORS.white};

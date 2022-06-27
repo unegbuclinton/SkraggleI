@@ -86,7 +86,7 @@ const Wrapper = styled.div``;
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 4rem 2.4rem 0 0;
+  padding: 4rem 4.3rem 0 0;
   gap: 1.6rem;
   .cancel-btn {
     width: 10.7rem;
@@ -108,7 +108,7 @@ const ButtonContainer = styled.div`
 const CopyContainer = styled.div`
   display: flex;
   gap: 1.6rem;
-  padding-left: 2.4rem;
+  padding-left: 3.6rem;
 `;
 
 const CopyLabel = styled.label`

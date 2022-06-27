@@ -39,6 +39,7 @@ function Position() {
 export default Position;
 
 const PositionWrapper = styled.div`
+  margin-top: 3.2rem;
   .dropdown {
     width: 30.6rem;
   }

@@ -12,6 +12,28 @@ export const StartCounterWrapper = styled.div`
   .counter-card__secondlayer {
     padding: 3.2rem 3.8rem 3.2rem 2.9rem;
   }
+  .set-date {
+    margin-left: 19.4rem;
+  }
+  .amount {
+    margin: 0 0 1.5rem 3.6rem;
+  }
+  .multi {
+    margin-left: 8.9rem;
+  }
+  .add-amount {
+    width: 10rem;
+    margin-right: 1.5rem;
+  }
+  .marchin-funds {
+    margin-right: -3rem;
+    position: relative;
+    right: 2rem;
+  }
+  .element-label {
+    height: 4.4rem;
+    margin-top: 0.4rem;
+  }
 `;
 
 export const StartCounterContainer = styled.div``;
@@ -70,6 +92,8 @@ export const StartCounterFooter = styled.div`
   gap: 1.6rem;
   justify-content: flex-end;
 
+  margin-top: 3.2rem;
+
   .archive-btn {
     width: 10.7rem;
     height: 5.1rem;
@@ -79,4 +103,35 @@ export const StartCounterFooter = styled.div`
     width: 20.5rem;
     height: 5.1rem;
   }
+`;
+
+export const UrlLabel = styled.span`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-400']};
+  display: flex;
+  height: 1.4rem;
+  width: 1.4rem;
+  border: 0.1rem solid ${COLORS['grey-400']};
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  margin: 0.3rem 0 0 18.8rem;
+`;
+
+export const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+export const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
 `;

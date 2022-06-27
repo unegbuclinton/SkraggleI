@@ -1,11 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
+import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
 import Appeearance from './Appeearance';
 import Behavior from './Behavior';
 import {
+  CopyContainer,
+  CopyLabel,
   GoalMeterFieldWrapper,
   GoalMeterFooter,
   GoalMeterHeaderText,
@@ -30,6 +33,10 @@ function GoalMeterModalComponent() {
         </GoalMeterFieldWrapper>
       </Card>
       <Tabs tabs={tabs} inline />
+      <CopyContainer>
+        <CopyLabel>HTML CODE</CopyLabel>
+        <CopyField grey />
+      </CopyContainer>
       <Card className="goalmeter-card">
         <GoalMeterFooter>
           <Button className="archive-btn" invert auth>
