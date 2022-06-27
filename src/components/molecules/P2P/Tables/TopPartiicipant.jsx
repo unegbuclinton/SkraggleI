@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import { ContainerBody, TableWrapper } from './styles';
 
-const RecentDonation = () => {
-  const { p2pDonationData } = useSelector((state) => state.p2p);
+const TopParticipant = () => {
+  const { rankedP2pData } = useSelector((state) => state.p2p);
   const columns = [
     {
       name: 'RANK',
@@ -50,11 +50,11 @@ const RecentDonation = () => {
     <div>
       <ContainerBody>
         <TableWrapper className="donations">
-          <Table columns={columns} data={p2pDonationData} />
+          <Table columns={columns} data={rankedP2pData} />
         </TableWrapper>
       </ContainerBody>
     </div>
   );
 };
 
-export default RecentDonation;
+export default TopParticipant;

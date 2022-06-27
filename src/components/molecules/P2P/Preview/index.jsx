@@ -14,6 +14,7 @@ import {
 } from 'icons';
 import React, { useCallback, useState } from 'react';
 import RecentDonation from '../Tables/RecentDonation';
+import TopParticipant from '../Tables/TopPartiicipant';
 import {
   ButtonCopy,
   CopyText,
@@ -31,7 +32,7 @@ function Preview() {
     },
     {
       title: 'Top Participants',
-      component: <RecentDonation />
+      component: <TopParticipant />
     }
   ];
 
