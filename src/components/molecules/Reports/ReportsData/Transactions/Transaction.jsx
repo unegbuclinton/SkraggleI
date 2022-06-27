@@ -95,6 +95,7 @@ function Transaction() {
             'Dec'
           ]}
           stroke={{ colors: ['#2FC18D'] }}
+          height={'338px'}
         />
       </DonationTrackerWrapper>
       <TypeWrapper>
