@@ -37,6 +37,7 @@ function CreateTodoModal({ onClose }) {
       };
       dispatch(createTodo(body)).then(() => {
         dispatch(eachTodo(id));
+
         onClose();
         toast.success('Todo created successfully');
       });

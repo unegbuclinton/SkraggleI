@@ -95,6 +95,7 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3.2rem;
 `;
 
 export const FormFieldWrapper = styled.div`
@@ -112,20 +113,6 @@ export const FormFieldWrapper = styled.div`
     background: ${COLORS.white};
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
-  }
-
-  .color-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-  }
-  .color-input::-webkit-color-swatch {
-    border-radius: 50%;
-    border: 1px solid #e6eff1;
   }
 `;
 
@@ -163,13 +150,6 @@ export const ColorContainer = styled.div`
   align-items: center;
   gap: 0.8rem;
   margin-left: 1rem;
-  justify-content: center;
-  width: 13.4rem;
-  height: 6.4rem;
-  border: 1px solid ${COLORS['gray-500']};
-  border-radius: 5px;
-  font-size: ${FONTSIZES.small};
-  color: ${COLORS['grey-400']};
 `;
 
 export const SliderWrapper = styled.div`

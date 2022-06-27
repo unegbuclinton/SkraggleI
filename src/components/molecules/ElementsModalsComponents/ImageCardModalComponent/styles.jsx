@@ -35,6 +35,7 @@ export const ImageCardLabel = styled.label`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
+  height: 4.4rem;
 `;
 
 export const ImageCardFooter = styled.div`

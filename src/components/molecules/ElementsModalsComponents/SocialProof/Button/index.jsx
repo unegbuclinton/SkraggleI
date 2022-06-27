@@ -49,7 +49,7 @@ function SocialProofButton() {
 export default SocialProofButton;
 
 const DonateAppearanceWrapper = styled.div`
-  padding: 0 2.4rem 0 2.4rem;
+  padding: 3.2rem 2.4rem 0 2.4rem;
   .input-field {
     width: 100%;
     background-color: ${COLORS.white};

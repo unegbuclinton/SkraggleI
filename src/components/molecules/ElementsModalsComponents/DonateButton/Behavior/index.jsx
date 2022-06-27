@@ -42,6 +42,7 @@ function DonateButtonBehavior() {
 export default DonateButtonBehavior;
 
 const DonateBehaviorWrapper = styled.div`
+  padding-top: 3.2rem;
   .dropdown {
     width: 100%;
   }

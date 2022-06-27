@@ -67,6 +67,7 @@ function Appearance() {
 export default Appearance;
 
 const AppearanceWrapper = styled.div`
+  margin-top: 3.2rem;
   .input-field {
     width: 31.2rem;
     background-color: ${COLORS.white};

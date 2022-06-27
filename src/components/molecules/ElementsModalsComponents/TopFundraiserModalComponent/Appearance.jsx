@@ -93,6 +93,7 @@ export const AppearanceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3.2rem;
 `;
 
 export const AppearanceFieldWrapper = styled.div`
@@ -161,13 +162,6 @@ export const ColorContainer = styled.div`
   align-items: center;
   gap: 0.8rem;
   margin-left: 1rem;
-  justify-content: center;
-  width: 13.4rem;
-  height: 6.4rem;
-  border: 1px solid ${COLORS['gray-500']};
-  border-radius: 5px;
-  font-size: ${FONTSIZES.small};
-  color: ${COLORS['grey-400']};
 `;
 
 export const SliderWrapper = styled.div`

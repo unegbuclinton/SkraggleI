@@ -230,8 +230,7 @@ export const VolunteerValidationSchema = Yup.object({
   endDate: Yup.date()
     .when(
       'startDate',
-      (startDate, schema) =>
-        startDate && schema.min(startDate, 'End date cannot be before start date')
+      (startDate, schema) => startDate && schema.min(startDate, 'End date must be after start date')
     )
     .required('End Date is required'),
   fee: Yup.string().required('Fee is required')
@@ -262,7 +261,7 @@ export const CreatePledgeSchema = Yup.object({
     .when(
       'start_date',
       (start_date, schema) =>
-        start_date && schema.min(start_date, 'End date cannot be before start date')
+        start_date && schema.min(start_date, 'End date must be after start date')
     )
     .required('This is required field'),
   attachment: Yup.array(),

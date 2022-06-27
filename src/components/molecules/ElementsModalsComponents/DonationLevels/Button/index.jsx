@@ -63,6 +63,7 @@ function DonationBtn() {
 export default DonationBtn;
 
 const AppearanceWrapper = styled.div`
+  margin-top: 3.2rem;
   .input-field {
     width: 30.6rem;
     background-color: ${COLORS.torquoise};

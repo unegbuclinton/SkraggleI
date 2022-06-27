@@ -19,7 +19,7 @@ export default Questions;
 export const QuestionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0rem 2.4rem 2.4rem 2.4rem;
+  padding: 3.2rem 2.4rem 2.4rem 2.4rem;
 
   .radio-field {
     align-items: baseline;

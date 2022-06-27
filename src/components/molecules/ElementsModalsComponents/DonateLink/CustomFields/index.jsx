@@ -18,7 +18,9 @@ function DonateLinkField() {
 
 export default DonateLinkField;
 
-const CustomFieldWrapper = styled.div``;
+const CustomFieldWrapper = styled.div`
+  margin-top: 3.2rem;
+`;
 
 const CustomFieldText = styled.h2`
   font-weight: ${FONTWEIGHTS.normal};
