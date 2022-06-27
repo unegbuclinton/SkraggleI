@@ -4,7 +4,7 @@ import React from 'react';
 
 function SimpleFormModal({ isShown, onClose }) {
   return (
-    <Modal header="Top Fundraiser" isShown={isShown} hide={onClose}>
+    <Modal header="Simple Form" isShown={isShown} hide={onClose}>
       <SimpleFormModalComponent />
     </Modal>
   );

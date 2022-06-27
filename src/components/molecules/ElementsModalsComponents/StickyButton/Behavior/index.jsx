@@ -71,6 +71,7 @@ function Behavior() {
 export default Behavior;
 
 const BehaviorWrapper = styled.div`
+  margin-top: 3.2rem;
   .dropdown {
     width: 30.6rem;
   }

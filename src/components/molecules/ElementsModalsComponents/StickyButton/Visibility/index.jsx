@@ -43,6 +43,7 @@ function VisibilityTab() {
 export default VisibilityTab;
 
 const VisibilityWrapper = styled.div`
+  margin-top: 3.2rem;
   .dropdown {
     width: 30.6rem;
   }

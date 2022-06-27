@@ -32,6 +32,7 @@ function UrlControl() {
 export default UrlControl;
 
 const UrlControlWrapper = styled.div`
+  margin-top: 3.2rem;
   .visibility-input {
     width: 100%;
     height: 11.6rem;

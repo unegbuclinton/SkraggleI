@@ -50,9 +50,7 @@ function NewElement({
       setFilteredResults(ElementContents);
     }
   };
-  // const handleDonateButton = () => {
 
-  // };
   const ElementContents = [
     {
       name: 'Donate Button',

@@ -89,6 +89,7 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3.2rem;
 `;
 
 export const FormFieldWrapper = styled.div`

@@ -59,7 +59,7 @@ const BehaviourWrapper = styled.div``;
 export const BehaviorFieldWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 2.4rem;
+  margin: 3.2rem 0 2.4rem 0;
 
   .checkbox-wrapper {
     margin-bottom: 3.2rem;

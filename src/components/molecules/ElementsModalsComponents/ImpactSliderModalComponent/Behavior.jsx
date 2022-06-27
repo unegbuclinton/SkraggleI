@@ -99,6 +99,7 @@ export const BehaviourWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-right: 3.3rem;
+  margin-top: 3.2rem;
 `;
 
 export const BehaviorFieldWrapper = styled.div`

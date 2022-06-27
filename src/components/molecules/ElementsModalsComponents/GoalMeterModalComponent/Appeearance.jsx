@@ -64,6 +64,7 @@ function Appeearance() {
 export default Appeearance;
 
 export const AppearanceWrapper = styled.div`
+  margin-top: 3.2rem;
   .content-align {
     display: flex;
     flex-direction: column;
