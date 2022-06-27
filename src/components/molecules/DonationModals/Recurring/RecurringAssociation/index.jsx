@@ -4,12 +4,11 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { useFormik } from 'formik';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function RecurringAssociation({ DecrementTab }) {
+function RecurringAssociation({ DecrementTab, formik }) {
   const { campaigns } = useSelector((state) => state.campaign);
 
   const campaignOptions = campaigns?.map((current) => ({
@@ -17,10 +16,6 @@ function RecurringAssociation({ DecrementTab }) {
     label: current?.name
   }));
 
-  const formik = useFormik({
-    initialValues: {},
-    onSubmit: {}
-  });
   return (
     <AssociationWrapper onSubmit={formik.handleSubmit}>
       <Card className="association-card">
@@ -77,10 +72,15 @@ function RecurringAssociation({ DecrementTab }) {
         </AssociationLabel>
 
         <div className="association-footer">
-          <Button invert auth className="association-cancel-btn" onClick={DecrementTab}>
+          <Button
+            type="button"
+            invert
+            auth
+            className="association-cancel-btn"
+            onClick={DecrementTab}>
             Back
           </Button>
-          <Button auth className="association-save-btn">
+          <Button auth className="association-save-btn" type="submit">
             Save
           </Button>
         </div>

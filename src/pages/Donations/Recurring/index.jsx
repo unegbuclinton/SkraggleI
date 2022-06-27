@@ -6,131 +6,50 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import RecurringModal from '../DonationModals/RecurringModal';
 
 function DonationRecurring() {
+  const { recurringData } = useSelector((state) => state.donation);
+
+  console.log(recurringData);
   const [showModal, setShowModal] = useState(false);
   const columns = [
     {
       name: '',
-      selector: (row) => row.contact,
       cell: () => <Checkbox />,
       width: '3.069rem'
     },
     {
       name: 'Contact',
-      selector: (row) => row.contact,
+      selector: (row) => row?.contact_id,
       width: '30.725rem'
     },
     {
       name: 'AMOUNT',
-      selector: (row) => row.amount,
+      selector: (row) => row?.amount,
       width: '30.766rem'
     },
     {
       name: 'BILLING CYCLE',
-      selector: (row) => row.billingCycle,
-      width: '35.494rem'
+      selector: (row) => row?.billing_cycle,
+      width: '20.494rem'
     },
     {
       name: 'STATUS',
-      cell: () => (
-        <Button pill success className="mail-btn">
-          Active
+      cell: (row) => (
+        <Button pill success>
+          {row?.status}
         </Button>
       ),
-      width: '35.494rem'
+      width: '20.494rem'
     },
     {
       name: 'TYPE',
-      selector: (row) => row.type
+      selector: (row) => row?.type
     }
   ];
-
-  const recurringData = [
-    {
-      id: 1,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      status: '',
-      type: 'Gift'
-    },
-    {
-      id: 2,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-
-      type: 'Gift'
-    },
-    {
-      id: 3,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 4,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 5,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 6,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 7,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 8,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 9,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    },
-    {
-      id: 10,
-      contact: 'Mohammed Adam',
-      amount: '$500.00',
-      billingCycle: 'Monthly',
-      type: 'Gift'
-    }
-  ];
-
-  const mail = recurringData.map((data, index) => ({
-    key: index,
-    contact: data.contact,
-    amount: data.amount,
-    date: data.date,
-    billingCycle: data.billingCycle,
-    type: data.type
-  }));
 
   return (
     <RecurringWrapper>
@@ -138,7 +57,7 @@ function DonationRecurring() {
         <div className="recurring-header">
           <TableHeader
             className="table-header"
-            header="1,014 recurrings"
+            header={`${recurringData?.length} Recurrings`}
             title="Create New"
             setOpen={setShowModal}
           />
@@ -151,7 +70,7 @@ function DonationRecurring() {
           )}
         </div>
         <div className="table-container">
-          <Table columns={columns} data={mail} />
+          <Table columns={columns} data={recurringData} />
         </div>
       </Card>
     </RecurringWrapper>

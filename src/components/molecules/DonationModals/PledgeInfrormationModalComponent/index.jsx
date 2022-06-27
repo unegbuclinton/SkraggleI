@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 import { ButtonsContainer, InstallmentWrapper, ModalWrapper } from './styles';
 
 const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
-  console.log(formik.values);
   const [installment, setInstallment] = useState(['']);
   const [amount, setAmount] = useState('');
 
@@ -64,10 +63,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
   ];
 
   return (
-    <ModalWrapper
-      onSubmit={() => {
-        formik.handleSubmit;
-      }}>
+    <ModalWrapper>
       <Card>
         <h1>Contact</h1>
         <SelectDropDown
@@ -248,7 +244,7 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
         </div>
 
         <ButtonsContainer>
-          <Button onClick={onClose} className="back-btn" auth invert>
+          <Button type="button" onClick={onClose} className="back-btn" auth invert>
             Back
           </Button>
           <Button type="button" className="save-btn" onClick={IncrementTab}>

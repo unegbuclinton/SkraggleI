@@ -1,11 +1,16 @@
 import Card from 'components/atoms/Card';
+import AddKpiModal from 'components/molecules/DonationModals/AddKpiModal';
+import BenchMarkModal from 'components/molecules/DonationModals/BenchMark';
 import AreaChart from 'components/organisms/AreaChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const KeyPerformanceIndicatiors = () => {
+  const [showBench, setShowBench] = useState(false);
+
+  const [showKpi, setShowKpi] = useState(false);
   const series1 = [
     {
       name: 'Skraggle',
@@ -36,13 +41,19 @@ const KeyPerformanceIndicatiors = () => {
   ];
   return (
     <KPIWrapper>
+      {<BenchMarkModal isShown={showBench} onClose={() => setShowBench(false)} />}
+      {<AddKpiModal isShown={showKpi} onClose={() => setShowKpi(false)} />}
       <KPIContainer>
         <KPIHeader>
           <p>Key Performance Indicators (KPIs)</p>
 
           <div className="kpi-button__container">
-            <div className="benchmark-btn">Benchmark: Smart Benchmark</div>
-            <div className="kpi-btn">Add KPIs</div>
+            <div className="benchmark-btn" onClick={() => setShowBench(true)}>
+              Benchmark: Smart Benchmark
+            </div>
+            <div onClick={() => setShowKpi(true)} className="kpi-btn">
+              Add KPIs
+            </div>
           </div>
         </KPIHeader>
       </KPIContainer>

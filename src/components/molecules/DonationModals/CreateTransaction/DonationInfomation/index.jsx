@@ -40,7 +40,7 @@ function DonationInformation({ onCloseModal, IncrementTab, formik }) {
             id="contact"
             name="contact"
             type={'text'}
-            placeholder="Currency"
+            placeholder="Contact"
             value={formik.values.contact}
             onChange={(value) => formik.setFieldValue('contact', value.value)}
             onBlur={formik.handleBlur}

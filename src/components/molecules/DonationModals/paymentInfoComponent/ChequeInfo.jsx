@@ -33,8 +33,7 @@ const ChequeWrapper = styled.div`
 `;
 const ChequeContainer = styled.div`
   .cheque-input {
-    background: transparent;
-    border: 1px solid ${COLORS['grey-500']};
+    background: ${COLORS.white};
     margin: 1.6rem 0;
   }
 

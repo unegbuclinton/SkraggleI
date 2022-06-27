@@ -6,7 +6,7 @@ import DonorKpi from '../Donor';
 import Emarketing from '../Emarketing';
 import Fundraising from '../Fundraising';
 
-function AddKpiModalComponent() {
+function AddKpiModalComponent({ onClose }) {
   const tabs = [
     { title: 'DONORS', component: <DonorKpi /> },
     { title: 'FUNDRAISING', component: <Fundraising /> },
@@ -16,7 +16,7 @@ function AddKpiModalComponent() {
     <AddKpiModalWrapper>
       <Tabs tabs={tabs} inline />
       <AddKpiModalFooter>
-        <Button className="cancel-btn" auth invert>
+        <Button onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
         <Button className="save-btn" auth>
