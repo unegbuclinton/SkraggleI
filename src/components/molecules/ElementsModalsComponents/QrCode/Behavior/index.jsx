@@ -30,6 +30,7 @@ function Behavior() {
 export default Behavior;
 
 const DonateBehaviorWrapper = styled.div`
+  margin-top: 3.2rem;
   .dropdown {
     width: 100%;
   }

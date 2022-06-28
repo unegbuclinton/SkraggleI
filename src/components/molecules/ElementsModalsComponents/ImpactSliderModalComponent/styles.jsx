@@ -35,6 +35,8 @@ export const ImpactSliderLabel = styled.label`
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
+  height: 4.4rem;
+  padding-top: 0.3rem;
 `;
 
 export const ImpactSliderFooter = styled.div`

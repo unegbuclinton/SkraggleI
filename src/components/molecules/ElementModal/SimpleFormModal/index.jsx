@@ -2,9 +2,9 @@ import Modal from 'components/layouts/Modal';
 import SimpleFormModalComponent from 'components/molecules/ElementsModalsComponents/SimpleFormModalComponent';
 import React from 'react';
 
-function SimpleFormModal() {
+function SimpleFormModal({ isShown, onClose }) {
   return (
-    <Modal header="Top Fundraiser" isShown>
+    <Modal header="Simple Form" isShown={isShown} hide={onClose}>
       <SimpleFormModalComponent />
     </Modal>
   );

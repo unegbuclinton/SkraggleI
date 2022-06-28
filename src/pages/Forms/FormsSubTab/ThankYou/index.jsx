@@ -64,9 +64,6 @@ const ThankYouWrapper = styled.div`
   gap: 1.692rem;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 12.5rem;
-  /* margin-top: 5.9rem; */
-  /* padding-bottom: 12.5rem; */
 `;
 const RadioGroupContainer = styled.div``;
 

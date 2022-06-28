@@ -24,9 +24,6 @@ function DonationAmountFormOnce() {
           name="pledge_name"
           placeholder="$ 60.00"
           autoWidth
-          //   onChange={formik.handleChange}
-          //   onBlur={formik.handleBlur}
-          //   value={formik.values.pledge_name}
         />
         <label>Suggested donation amount presets</label>
         <div className="row">
@@ -37,9 +34,6 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
-            //   onChange={formik.handleChange}
-            //   onBlur={formik.handleBlur}
-            //   value={formik.values.pledge_name}
           />
           <Input
             containerClass="input-container"
@@ -48,9 +42,6 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
-            //   onChange={formik.handleChange}
-            //   onBlur={formik.handleBlur}
-            //   value={formik.values.pledge_name}
           />
         </div>
         <div className="row">
@@ -61,9 +52,6 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
-            //   onChange={formik.handleChange}
-            //   onBlur={formik.handleBlur}
-            //   value={formik.values.pledge_name}
           />
           <Input
             containerClass="input-container"
@@ -72,9 +60,6 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
-            //   onChange={formik.handleChange}
-            //   onBlur={formik.handleBlur}
-            //   value={formik.values.pledge_name}
           />
         </div>
         <div className="button-wrapper">
@@ -97,9 +82,6 @@ function DonationAmountFormOnce() {
           name="designation"
           type={'text'}
           options={designation}
-          //   value={formik.values.designation}
-          //   onChange={(value) => formik.setFieldValue('designation', value.value)}
-          //   onBlur={formik.handleBlur}
         />
         <div className="underline"></div>
         <div className="designate-donation">

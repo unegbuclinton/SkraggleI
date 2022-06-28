@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { donationByContact, p2pLeaderBoard } from 'api/reports';
-
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {

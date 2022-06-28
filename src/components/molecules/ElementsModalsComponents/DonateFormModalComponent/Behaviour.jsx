@@ -98,7 +98,7 @@ function Behaviour() {
 export default Behaviour;
 
 export const BehaviourWrapper = styled.div`
-  padding-right: 3.8rem;
+  padding: 3.2rem 3.8rem 0 0;
   .radio-field {
     align-items: baseline;
     display: flex;

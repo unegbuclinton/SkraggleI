@@ -55,13 +55,13 @@ function TodosTable() {
     <>
       <TodoModal isShown={open} onClose={() => setOpen(false)} />
       <ProfileLayOut heading="To-Do&#39;s">
-        {!!eachTodoData.length ? (
+        {!!eachTodoData?.length ? (
           <div>
             <TableWrapper>
               <TableHeader
                 subMenuTableHeader
                 title="Add To-do"
-                header={`${eachTodoData.length} To-Do`}
+                header={`${eachTodoData?.length} To-Do`}
                 setOpen={setOpen}
               />
               <Table columns={columns} data={eachTodoData} />

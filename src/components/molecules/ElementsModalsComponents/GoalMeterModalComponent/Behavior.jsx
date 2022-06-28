@@ -12,32 +12,41 @@ function Behavior() {
   return (
     <BehaviourWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Open Campaigns</BehaviorLabel>
-        <SelectDropDown className="behavior-dropdown" />
+        <BehaviorLabel className="open-campaign">Open Campaigns</BehaviorLabel>
+        <SelectDropDown className="behavior-dropdown" placeholder="BGA Demo #2" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Start Date</BehaviorLabel>
+        <BehaviorLabel className="start-date">Start Date</BehaviorLabel>
         <Checkbox className="behavior-checkbox" />
+        <CheckboxLabel>Set start date</CheckboxLabel>
+        <UrlLabel>?</UrlLabel>
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>End Date</BehaviorLabel>
+        <BehaviorLabel className="end-date">End Date</BehaviorLabel>
         <Checkbox className="behavior-checkbox" />
+        <CheckboxLabel>Set end date</CheckboxLabel>
+        <UrlLabel className="end-label">?</UrlLabel>
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Currency</BehaviorLabel>
-        <Input className="behavior-input" />
+        <BehaviorLabel className="currency">Currency</BehaviorLabel>
+        <Input className="behavior-input" placeholder="USD  |  US Dollar" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Goal</BehaviorLabel>
-        <Input className="behavior-goal__input" />
+        <BehaviorLabel className="goal">Goal</BehaviorLabel>
+        <Input className="behavior-goal__input" placeholder="$10,000" />
       </BehaviorFieldWrapper>
       <BehaviorFieldWrapper>
-        <BehaviorLabel>Amount</BehaviorLabel>
-        <Input className="behavior-amount__input" />
+        <BehaviorLabel className="add-amount">Amount</BehaviorLabel>
+        <div>
+          <Input className="behavior-amount__input" placeholder="$0.00" />
+        </div>
+        <UrlLabel className="amount-label">?</UrlLabel>
       </BehaviorFieldWrapper>
-      <BehaviorFieldWrapper>
-        <BehaviorLabel>Matching funds</BehaviorLabel>
+      <BehaviorFieldWrapper className="checkbox-wrapper">
+        <BehaviorLabel className="fund">Matching funds</BehaviorLabel>
         <Checkbox />
+        <CheckboxLabel>Set multiplier</CheckboxLabel>
+        <UrlLabel className="set-label">?</UrlLabel>
       </BehaviorFieldWrapper>
     </BehaviourWrapper>
   );
@@ -50,12 +59,20 @@ const BehaviourWrapper = styled.div``;
 export const BehaviorFieldWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 6.4rem;
-  margin-bottom: 2.4rem;
+  margin: 3.2rem 0 2.4rem 0;
+
+  .checkbox-wrapper {
+    margin-bottom: 3.2rem;
+  }
 
   .behavior-dropdown {
     width: 30.6rem;
     margin-left: -0.3rem;
+    .react-select {
+      &__control {
+        background-color: ${COLORS.torquoise};
+      }
+    }
   }
   .behavior-checkbox {
     margin-left: -2rem;
@@ -79,11 +96,81 @@ export const BehaviorFieldWrapper = styled.div`
     border: 1px solid ${COLORS['gray-500']};
     margin-left: 1rem;
   }
+  .start-date {
+    width: 11rem;
+    white-space: nowrap;
+    margin-left: 13.5rem;
+  }
+  .open-campaign {
+    margin-left: 7.6rem;
+  }
+  .end-date {
+    width: 10.3rem;
+    white-space: nowrap;
+    margin-left: 14.3rem;
+  }
+  .currency {
+    width: 10.3rem;
+    margin-left: 14.6rem;
+    white-space: nowrap;
+    height: 4.4rem;
+    padding-top: 0.4rem;
+  }
+  .goal {
+    width: 5rem;
+    white-space: nowrap;
+    margin-left: 18rem;
+    height: 4.4rem;
+    padding-top: 0.4rem;
+  }
+  .add-amount {
+    width: 5rem;
+    margin-left: 16.5rem;
+    height: 4.4rem;
+    padding-top: 0.4rem;
+  }
+  .fund {
+    width: 13rem;
+    margin-left: 10rem;
+  }
+  .end-label {
+    margin-left: 19.4rem;
+  }
+  .amount-label {
+    margin-left: 3.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .set-label {
+    margin-left: 8.7rem;
+  }
 `;
 
 export const BehaviorLabel = styled.label`
-  width: 30%;
+  width: 15.8rem;
   font-size: ${FONTSIZES.lg};
   color: ${COLORS['grey-500']};
   font-weight: ${FONTWEIGHTS.normal};
+  margin-right: 1.6rem;
+`;
+
+const CheckboxLabel = styled.label`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['gray-500']};
+`;
+
+const UrlLabel = styled.span`
+  font-weight: ${FONTWEIGHTS.normal};
+  font-size: ${FONTSIZES.lg};
+  color: ${COLORS['grey-400']};
+  display: flex;
+  height: 1.4rem;
+  width: 1.4rem;
+  border: 0.1rem solid ${COLORS['grey-400']};
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  margin: 0.3rem 0 0 18.8rem;
 `;

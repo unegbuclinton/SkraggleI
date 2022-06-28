@@ -29,6 +29,7 @@ function Title() {
 export default Title;
 
 const AppearanceWrapper = styled.div`
+  margin-top: 3.2rem;
   .input-field {
     width: 30.6rem;
     background-color: ${COLORS.white};

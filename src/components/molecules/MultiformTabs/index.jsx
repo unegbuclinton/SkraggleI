@@ -38,7 +38,7 @@ function MultiformTabs({ disabled, tabs, ...rest }) {
             tabs[activeTab]?.component,
             IncrementTab,
             DecrementTab,
-            tabs[activeTab]?.props.formik
+            tabs[activeTab]?.props?.formik
           )}
       </TabContent>
     </>

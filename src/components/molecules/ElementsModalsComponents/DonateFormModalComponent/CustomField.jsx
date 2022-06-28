@@ -15,5 +15,5 @@ const CustomFieldWrapper = styled.div`
   font-size: ${FONTSIZES.small};
   line-height: 152.69%;
   color: ${COLORS.black};
-  margin-left: 2.9rem;
+  margin: 3.2rem 0 0 2.9rem;
 `;

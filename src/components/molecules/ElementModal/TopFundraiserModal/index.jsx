@@ -2,9 +2,9 @@ import Modal from 'components/layouts/Modal';
 import TopFundraiserModalComponent from 'components/molecules/ElementsModalsComponents/TopFundraiserModalComponent';
 import React from 'react';
 
-function TopFundraiserModal() {
+function TopFundraiserModal({ isShown, onClose }) {
   return (
-    <Modal header="Top Fundraiser" isShown>
+    <Modal header="Top Fundraiser" isShown={isShown} hide={onClose}>
       <TopFundraiserModalComponent />
     </Modal>
   );
