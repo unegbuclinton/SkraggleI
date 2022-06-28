@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux';
 import { AdminContainer, AdminHeading, AdminWrapper } from './styles';
 
 function Admin() {
-  const { userData } = useSelector((state) => state.contact);
+  const { token } = useSelector((state) => state.auth);
   const { eachContact } = useSelector((state) => state.contact);
   const { organization_id, priority, is_subscribed_to_mailblasts, note, tags } = eachContact;
   const [open, setOpen] = useState(false);
+
+  const userData = token?.profile;
 
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
   return (

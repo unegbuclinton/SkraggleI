@@ -5,9 +5,13 @@ import AreaChart from 'components/organisms/AreaChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 
 const RevenueMetrics = () => {
+  const { revenueData } = useSelector((state) => state.donation);
+  const revenue = revenueData?.revenue;
   const [openRange, setOpenRange] = useState(false);
   const toggleRange = () => setOpenRange((prev) => !prev);
   const [filterRange, setFilterRange] = useState({
@@ -29,9 +33,14 @@ const RevenueMetrics = () => {
       <RevenueGoalsWrapper>
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
-          <GoalProgressTracker value={19540.23} target={93825} heading="Monthly Goal" />
-          <GoalProgressTracker value={38540.23} target={93825} heading="Quarterly Goal" />
-          <GoalProgressTracker value={29540.23} target={93825} heading="Yearly Goal" />
+          {revenue?.map(({ goal, type, raised }, idx) => (
+            <GoalProgressTracker
+              value={raised}
+              target={goal}
+              heading={`${capitalizeFirstLowercaseRest(type)} Goal`}
+              key={idx + 1}
+            />
+          ))}
         </RevenueGoalsContentWrapper>
       </RevenueGoalsWrapper>
 

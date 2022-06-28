@@ -5,9 +5,14 @@ import AreaChart from 'components/organisms/AreaChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 
 const DonationMetrics = () => {
+  const { revenueData } = useSelector((state) => state.donation);
+  const donations = revenueData?.donations;
+
   const [openRange, setOpenRange] = useState(false);
   const toggleRange = () => setOpenRange((prev) => !prev);
   const [filterRange, setFilterRange] = useState({
@@ -20,7 +25,7 @@ const DonationMetrics = () => {
   const series = [
     {
       name: 'Skraggle',
-      data: [39, 30, 35, 25, 40, 15, 52, 44, 25, 35, 44, 55],
+      data: [0, 0, 0, 0, 0, 39],
       color: '#2FC18D'
     }
   ];
@@ -30,7 +35,14 @@ const DonationMetrics = () => {
       <DonationGoalsWrapper>
         <DonationGoalsHeader>Donation Goals</DonationGoalsHeader>
         <DonationGoalsContentWrapper>
-          <GoalProgressTracker value={19540.23} target={93825} heading="Yearly Goal" />
+          {donations?.map(({ goal, type, raised }, idx) => (
+            <GoalProgressTracker
+              value={raised}
+              target={goal}
+              key={idx + 1}
+              heading={`${capitalizeFirstLowercaseRest(type)} Goal`}
+            />
+          ))}
         </DonationGoalsContentWrapper>
       </DonationGoalsWrapper>
 
@@ -101,7 +113,10 @@ const DonationGoalsHeader = styled.div`
 `;
 
 const DonationGoalsContentWrapper = styled.div`
-  padding: 8.7rem 0 15.5rem;
+  padding: 2.4rem 0 5.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.9rem;
 `;
 
 const DonationTrackerWrapper = styled(Card)`

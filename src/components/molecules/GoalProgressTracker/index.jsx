@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const GoalProgressTracker = ({ heading, value, target }) => {
   const percentage = Math.round((value / target) * 100);
+
   return (
     <GPTWrapper>
       <GPTHeading>{heading}</GPTHeading>
@@ -21,7 +22,7 @@ const GoalProgressTracker = ({ heading, value, target }) => {
 
         <div className="metric-wrapper__content ">
           <span className="metric-text">Target</span>
-          <span className="metric-count">${target.toLocaleString()}</span>
+          <span className="metric-count">${target}</span>
         </div>
       </GPTMetricsWrapper>
     </GPTWrapper>

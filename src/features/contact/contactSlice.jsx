@@ -18,7 +18,6 @@ import { companiesSearch, contactSearch, houseHoldSearch } from 'api/contacts/se
 import { addTags, allTags, deleteTag } from 'api/contacts/tags';
 import { addTodo, getEachTodo } from 'api/contacts/todo';
 import { addVolunteer, eachVolunteer } from 'api/contacts/volunteer';
-import { getUser } from 'api/userData';
 import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
@@ -35,8 +34,7 @@ const initialState = {
   interactionData: [],
   recommendation: [],
   eachVolunteerData: [],
-  volunteers: [],
-  userData: {}
+  volunteers: []
 };
 
 export const createContact = createAsyncThunk('contact/createContact', addContact);
@@ -62,8 +60,6 @@ export const removeCompany = createAsyncThunk('contact/removeCompany', deleteCom
 export const removeTag = createAsyncThunk('contact/removeTag', deleteTag);
 export const smartAsk = createAsyncThunk('contact/smartAsk', smartRecommendation);
 export const eachInteraction = createAsyncThunk('contact/eachInteraction', interactionsByID);
-
-export const userInfo = createAsyncThunk('contact/userInfo', getUser);
 
 //search
 export const searchContact = createAsyncThunk('contact/searchContact', contactSearch);
@@ -261,16 +257,6 @@ export const contactSlice = createSlice({
       state.isLoading = false;
     },
 
-    [userInfo.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [userInfo.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.userData = action.payload;
-    },
-    [userInfo.rejected]: (state) => {
-      state.isLoading = false;
-    },
     // [searchContact.fulfilled]: (state, action) => {
     //   state.isLoading = false;
     //   state.contactData = action.payload;

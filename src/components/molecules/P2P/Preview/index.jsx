@@ -13,6 +13,7 @@ import {
   DPIconTwitter
 } from 'icons';
 import React, { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 import RecentDonation from '../Tables/RecentDonation';
 import TopParticipant from '../Tables/TopPartiicipant';
 import {
@@ -25,6 +26,8 @@ import {
 } from './styles';
 
 function Preview() {
+  const { token } = useSelector((state) => state.auth);
+
   const tabs = [
     {
       title: 'Recent Donation',
@@ -70,6 +73,8 @@ function Preview() {
     e.target.focus();
     alert('Text Copied');
   }, []);
+  const userData = token?.profile;
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   return (
     <PreviewContainer>
@@ -80,7 +85,7 @@ function Preview() {
             <DPIconProfileImage />
             <div className="preview__profile-data">
               <div className="preview__profile">Supporter</div>
-              <div className="preview__profile-name">Partho Prothim</div>
+              <div className="preview__profile-name">{userName}</div>
             </div>
           </div>
           <div className="preview__heading">BGA awesome campaign demo #1</div>

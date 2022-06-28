@@ -1,8 +1,6 @@
-import apiInstance from 'apiInstance';
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   AddressContainer,
@@ -15,7 +13,8 @@ import {
 } from './styles';
 
 function ContactStepTwo({ onClose, formik }) {
-  const [userData, setUserData] = useState({});
+  const { token } = useSelector((state) => state.auth);
+
   const { tagsData } = useSelector((state) => state.contact);
   const { houseHolds } = useSelector((state) => state.contact);
 
@@ -29,19 +28,8 @@ function ContactStepTwo({ onClose, formik }) {
     { value: 'Low', label: 'Low' }
   ];
 
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await apiInstance({
-        method: 'get',
-        url: '/admin'
-      });
-      const data = response?.data?.message;
-      localStorage.setItem('userData', JSON.stringify(data));
-      setUserData(data);
-    };
+  const userData = token?.profile;
 
-    getUser();
-  }, []);
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   const assigneeOptions = [{ value: userData?.id, label: userName }];
