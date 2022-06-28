@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import apiInstance from 'apiInstance';
-import { addUserData, getAdminData, logoutUser } from 'features/auth/authSlice';
+import { logoutUser } from 'features/auth/authSlice';
 import { userInfo } from 'features/contact/contactSlice';
 import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
@@ -17,13 +17,11 @@ import {
 } from './styles';
 
 function DashboardHeader({ pageLinks }) {
-  const { userData } = useSelector((state) => state.contact);
+  const { token } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const ref = useRef();
   const [open, setOpen] = useState(false);
-
-  const id = userData?.id;
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -59,7 +57,8 @@ function DashboardHeader({ pageLinks }) {
   const userLogout = () => {
     dispatch(logoutUser());
   };
-
+  const userData = token?.profile;
+  const id = userData?.id;
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   return (

@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
-const P2PFundraise = ({ className, supporter }) => {
+const P2PFundraise = ({ className }) => {
+  const { token } = useSelector((state) => state.auth);
+
   const { eachP2p } = useSelector((state) => state.p2p);
   const { campaign, created_at } = eachP2p;
 
@@ -18,6 +20,10 @@ const P2PFundraise = ({ className, supporter }) => {
     navigator.clipboard.writeText(text);
     alert('Text Copied');
   }
+
+  const userData = token?.profile;
+
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   return (
     <P2PFundraiser id="p2pfund" className={className}>
@@ -33,7 +39,7 @@ const P2PFundraise = ({ className, supporter }) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Supporter</h1>
-          <p className="fundraiser__p1">{supporter}</p>
+          <p className="fundraiser__p1">{userName}</p>
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Share link</h1>

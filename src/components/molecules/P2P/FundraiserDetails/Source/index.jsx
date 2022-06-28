@@ -4,10 +4,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-const Source = ({ className, supporter }) => {
+const Source = ({ className }) => {
   const { eachP2p } = useSelector((state) => state.p2p);
+  const { token } = useSelector((state) => state.auth);
 
   const { fundraiser_display_name } = eachP2p;
+  const userData = token?.profile;
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
+
   return (
     <SourceWrapper id="source" className={className}>
       <div className="fundraiser__top">
@@ -22,7 +26,7 @@ const Source = ({ className, supporter }) => {
         </div>
         <div className="fundraiser__row">
           <h1 className="fundraiser__titles">Dashboard</h1>
-          <p className="fundraiser__p2">{supporter}</p>
+          <p className="fundraiser__p2">{userName}</p>
         </div>
       </div>
     </SourceWrapper>
