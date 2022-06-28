@@ -14,7 +14,9 @@ function SmartRecomendation() {
 
   const { first_name, last_name } = eachContact;
 
-  // const { maximum, minimum, recommended, time_of_year } = recommendation.smart_ask;
+  // const recommendedData = recommendation?.smart_ask;
+
+  // const { maximum, minimum, recommended, time_of_year } = recommendedData;
 
   const fullName = `${first_name} ${last_name}`;
 

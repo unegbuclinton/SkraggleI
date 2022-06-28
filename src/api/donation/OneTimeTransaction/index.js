@@ -25,3 +25,16 @@ export const getAllOneTimeTransaction = async () => {
     console.log(error);
   }
 };
+
+export const deleteOneTimeTransaction = async (body) => {
+  try {
+    const response = await request({
+      method: 'delete',
+      url: '/donations/one-time-transactions',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

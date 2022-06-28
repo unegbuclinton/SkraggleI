@@ -2,10 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getKpiOptions } from 'api/donation/kpiList';
 import {
   createOneTimeTransaction,
+  deleteOneTimeTransaction,
   getAllOneTimeTransaction
 } from 'api/donation/OneTimeTransaction';
 import {
   createRecurringTransaction,
+  deleteRecurringTransaction,
   getAllRecurringTransaction
 } from 'api/donation/RecurringTransaction';
 import { allPledge, createPledge, deletePledge } from '../../api/donation/pledge';
@@ -22,6 +24,10 @@ export const addPledge = createAsyncThunk('addPledge', createPledge);
 export const removePledge = createAsyncThunk('removePledge', deletePledge);
 export const kpiOptions = createAsyncThunk('kpiOptions', getKpiOptions);
 
+export const removeTransaction = createAsyncThunk(
+  'donation/removeTransaction',
+  deleteOneTimeTransaction
+);
 export const addOneTimeTransaction = createAsyncThunk(
   'addOneTimeTransaction',
   createOneTimeTransaction
@@ -40,6 +46,10 @@ export const addRecurringTransaction = createAsyncThunk(
 export const getRecurringTransaction = createAsyncThunk(
   'getRecurringTransaction',
   getAllRecurringTransaction
+);
+export const removeRecurring = createAsyncThunk(
+  'donation/removeRecurring',
+  deleteRecurringTransaction
 );
 export const donationSlice = createSlice({
   name: 'donation',
@@ -80,6 +90,9 @@ export const donationSlice = createSlice({
     [addOneTimeTransaction.rejected]: (state) => {
       state.isLoading = false;
     },
+    [removeTransaction.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
     [getOneTimeTransaction.pending]: (state) => {
       state.isLoading = true;
     },
@@ -98,6 +111,9 @@ export const donationSlice = createSlice({
       state.isLoading = false;
     },
     [addRecurringTransaction.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [removeRecurring.fulfilled]: (state) => {
       state.isLoading = false;
     },
     [getRecurringTransaction.pending]: (state) => {
