@@ -13,6 +13,9 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 function CreateFormComponent({ onClose }) {
+  const { token } = useSelector((state) => state?.auth);
+  const { contactData, companies } = useSelector((state) => state.contact);
+
   const { campaigns } = useSelector((state) => state?.campaign);
 
   const formTypeOptions = [
@@ -23,10 +26,26 @@ function CreateFormComponent({ onClose }) {
     { value: 'Custom', label: 'Custom' }
   ];
 
+  const userData = token?.profile;
+
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
+
+  const assigneeOptions = [{ value: userData?.id, label: userName }];
   const campaignOptions = campaigns?.map((current) => ({
     value: current?.id,
     label: current?.name
   }));
+  const conatct = contactData?.map((current) => ({
+    value: current?.id,
+    label: current?.first_name
+  }));
+
+  const company = companies?.map((current) => ({
+    value: current?.id,
+    label: current?.name
+  }));
+
+  const followers = [...conatct, ...company];
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -55,6 +74,7 @@ function CreateFormComponent({ onClose }) {
       navigate('/forms');
     }
   });
+
   return (
     <CreateFormWrapper onSubmit={formik.handleSubmit}>
       <Card className="form-card">
@@ -108,7 +128,7 @@ function CreateFormComponent({ onClose }) {
           <SelectDropDown
             id="assignee"
             name="assignee"
-            options={formTypeOptions}
+            options={assigneeOptions}
             value={formik.values.assignee}
             onChange={(value) => formik.setFieldValue('assignee', value.value)}
             onBlur={formik.handleBlur}
@@ -119,7 +139,7 @@ function CreateFormComponent({ onClose }) {
           <SelectDropDown
             id="followers"
             name="followers"
-            options={formTypeOptions}
+            options={followers}
             value={formik.values.followers}
             onChange={(value) => formik.setFieldValue('followers', value.value)}
             onBlur={formik.handleBlur}

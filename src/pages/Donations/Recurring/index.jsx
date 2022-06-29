@@ -40,11 +40,6 @@ function DonationRecurring() {
   };
   const columns = [
     {
-      name: '',
-      cell: () => <Checkbox />,
-      width: '3.069rem'
-    },
-    {
       name: 'Contact',
       selector: (row) => row?.contact_id,
       width: '30.725rem'

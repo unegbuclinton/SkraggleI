@@ -41,7 +41,7 @@ const FundraisingActivity = () => {
         </div>
         <div className="data-wrapper">
           <h3>{contacts}</h3>
-          <p>NEW DONATIONS</p>
+          <p>NEW CONTACTS</p>
         </div>
       </FRAContentWrapper>
     </FRAContainer>

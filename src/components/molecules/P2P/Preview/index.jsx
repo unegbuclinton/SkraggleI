@@ -27,6 +27,8 @@ import {
 
 function Preview() {
   const { token } = useSelector((state) => state.auth);
+  const { eachP2p } = useSelector((state) => state.p2p);
+  const { campaign } = eachP2p;
 
   const tabs = [
     {
@@ -88,7 +90,7 @@ function Preview() {
               <div className="preview__profile-name">{userName}</div>
             </div>
           </div>
-          <div className="preview__heading">BGA awesome campaign demo #1</div>
+          <div className="preview__heading">{campaign}</div>
 
           <ProgressBar value={195400} target={500000} />
           <div className="preview__bar-values">

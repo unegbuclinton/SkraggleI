@@ -18,7 +18,7 @@ export const getAllOneTimeTransaction = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/donations/one-time-transactions?cursor=-1&direction=after&limit=5'
+      url: '/donations/one-time-transactions'
     });
     return response?.data?.message?.rows;
   } catch (error) {

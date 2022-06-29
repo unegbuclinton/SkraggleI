@@ -10,7 +10,8 @@ import styled from 'styled-components';
 import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 
 const RevenueMetrics = () => {
-  const { revenueData } = useSelector((state) => state.donation);
+  const { revenueData, RevenueHistory } = useSelector((state) => state.donation);
+
   const revenue = revenueData?.revenue;
   const [openRange, setOpenRange] = useState(false);
   const toggleRange = () => setOpenRange((prev) => !prev);
@@ -21,10 +22,12 @@ const RevenueMetrics = () => {
   });
   const handleSetRange = (range) => setFilterRange(range);
 
+  const revenueRecord = Object.values(RevenueHistory);
+
   const series = [
     {
       name: 'Skraggle',
-      data: [300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179],
+      data: revenueRecord,
       color: '#2FC18D'
     }
   ];
@@ -54,24 +57,7 @@ const RevenueMetrics = () => {
             open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
-        <AreaChart
-          series={series}
-          categories={[
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-          ]}
-          stroke={{ colors: ['#2FC18D'] }}
-        />
+        <AreaChart series={series} categories={[]} stroke={{ colors: ['#2FC18D'] }} />
       </RevenueTrackerWrapper>
     </RevenueMetricsContainer>
   );

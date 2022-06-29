@@ -8,22 +8,10 @@ import styled from 'styled-components';
 import { formatDate } from 'utilities/helpers';
 
 function Settings({ className }) {
-  const { userData } = useSelector((state) => state.contact);
-  // const [userData, setUserData] = useState({});
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     const response = await apiInstance({
-  //       method: 'get',
-  //       url: '/admin'
-  //     });
-  //     const data = response?.data?.message;
-  //     setUserData(data);
-  //     // store.set()
-  //     // dispatch(addUserData(data));
-  //   };
+  const { token } = useSelector((state) => state.auth);
 
-  //   getUser();
-  // }, []);
+  const userData = token?.profile;
+
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   const { eachP2p } = useSelector((state) => state?.p2p);

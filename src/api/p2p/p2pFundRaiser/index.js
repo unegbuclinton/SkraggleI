@@ -16,7 +16,7 @@ export const getPeerToPeer = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: 'peertopeer/all/1'
+      url: 'p2p'
     });
     return response?.data?.message;
   } catch (error) {

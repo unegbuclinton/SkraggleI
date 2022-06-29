@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 
 const DonationMetrics = () => {
-  const { revenueData } = useSelector((state) => state.donation);
+  const { revenueData, donationHistory } = useSelector((state) => state.donation);
   const donations = revenueData?.donations;
 
   const [openRange, setOpenRange] = useState(false);
@@ -22,10 +22,12 @@ const DonationMetrics = () => {
   });
   const handleSetRange = (range) => setFilterRange(range);
 
+  const donationRecord = Object.values(donationHistory);
+
   const series = [
     {
       name: 'Skraggle',
-      data: [0, 0, 0, 0, 0, 39],
+      data: donationRecord,
       color: '#2FC18D'
     }
   ];
@@ -57,24 +59,7 @@ const DonationMetrics = () => {
           />
         </DonationTrackerHeaderWrapper>
 
-        <AreaChart
-          series={series}
-          categories={[
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-          ]}
-          stroke={{ colors: ['#2FC18D'] }}
-        />
+        <AreaChart series={series} categories={[]} stroke={{ colors: ['#2FC18D'] }} />
       </DonationTrackerWrapper>
     </DonationMetricsContainer>
   );
