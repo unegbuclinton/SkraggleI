@@ -24,7 +24,7 @@ function ProcessingFeeMain() {
     { title: 'Thank You Page', component: ThankYouComponent },
     { title: 'URL', component: Url }
   ];
-  const { formsByID } = useSelector((state) => state?.forms);
+  const { formsByID } = useSelector((state) => state.forms);
   const { name } = formsByID;
 
   return (
