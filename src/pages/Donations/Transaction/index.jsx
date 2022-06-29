@@ -58,13 +58,6 @@ function Transaction() {
     }
   ];
 
-  // const data = [
-  //   {
-  //     contact_id: 1,
-  //     amount: 'Beetlejuice',
-  //     type: '1988'
-  //   }
-  // ];
   return (
     <TransactionWrapper>
       <DeleteModal
