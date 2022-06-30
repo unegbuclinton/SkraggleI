@@ -15,7 +15,7 @@ const RecentDonation = () => {
     },
     {
       name: 'CAMPAIGN',
-      selector: (row) => row.campaign_id,
+      selector: (row) => row.campaign,
       width: '20rem'
     },
 

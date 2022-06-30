@@ -19,7 +19,7 @@ function MailContent() {
 
   const { eachMailBlast } = useSelector((state) => state.mailBlast);
   const { name, sent_at } = eachMailBlast;
-
+  const mailBlastData = eachMailBlast?.campaign;
   return (
     <ContentWrapper>
       <Card className="content-card">
@@ -31,7 +31,7 @@ function MailContent() {
             </div>
             <div className="bottom">
               <p className="left">{name}</p>
-              <p className="right">Annual Fundraiser</p>
+              <p className="right">{mailBlastData?.description}</p>
             </div>
           </div>
           <div className="content-right">

@@ -41,7 +41,7 @@ function DonationRecurring() {
   const columns = [
     {
       name: 'Contact',
-      selector: (row) => row?.contact_id,
+      selector: (row) => row?.contact?.first_name,
       width: '30.725rem'
     },
     {

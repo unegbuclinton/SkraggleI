@@ -14,7 +14,7 @@ const GoalProgressTracker = ({ heading, value, target }) => {
       <GPTMetricsWrapper>
         <div className="metric-wrapper__content">
           <span className="metric-wrapper__content-value metric-count">
-            ${value.toLocaleString()}
+            ${value?.toLocaleString()}
           </span>
           <span className="metric-text">raised</span>
           <span className="metric-wrapper__content-percentage">({percentage}%)</span>
@@ -22,7 +22,7 @@ const GoalProgressTracker = ({ heading, value, target }) => {
 
         <div className="metric-wrapper__content ">
           <span className="metric-text">Target</span>
-          <span className="metric-count">${target}</span>
+          <span className="metric-count">${target?.toLocaleString()}</span>
         </div>
       </GPTMetricsWrapper>
     </GPTWrapper>

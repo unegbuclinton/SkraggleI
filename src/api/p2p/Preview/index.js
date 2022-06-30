@@ -18,7 +18,6 @@ export const getP2PRankedParticipant = async (id) => {
       method: 'get',
       url: `/p2p/${id}/ranked-participants`
     });
-    console.log(response);
 
     return response?.data?.message?.rows;
   } catch (error) {

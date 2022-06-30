@@ -25,7 +25,7 @@ function PersonalDetailsCard() {
     unit
   } = eachContact;
   const fullName = `${first_name} ${last_name}`;
-  const tag = tags;
+  // const tag = tags;
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
   return (
     <CardWrapper>
@@ -69,9 +69,9 @@ function PersonalDetailsCard() {
         <Line />
         <div className="tags">
           <h2 className="tags__heading">TAGS</h2>
-          {tag?.map((tag, idx) => (
+          {tags?.map(({ name }, idx) => (
             <Button key={idx} pill className="tags__btn">
-              {tag}
+              {name}
             </Button>
           ))}
         </div>

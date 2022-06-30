@@ -7,7 +7,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
+import { capitalizeFirstLowercaseRest, getDatesBetweenDates } from 'utilities/helpers';
 
 const RevenueMetrics = () => {
   const { revenueData, RevenueHistory } = useSelector((state) => state.donation);
@@ -20,6 +20,12 @@ const RevenueMetrics = () => {
     endDate: new Date(),
     label: 'Today'
   });
+
+  console.log(filterRange);
+  const startDate = new Date(' 06/29/2022');
+  const endDate = new Date('07/01/2022');
+
+  console.log(getDatesBetweenDates(startDate, endDate));
   const handleSetRange = (range) => setFilterRange(range);
 
   const revenueRecord = Object.values(RevenueHistory);
@@ -34,6 +40,7 @@ const RevenueMetrics = () => {
   return (
     <RevenueMetricsContainer>
       <RevenueGoalsWrapper>
+        filterRange
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
           {revenue?.map(({ goal, type, raised }, idx) => (
