@@ -2,12 +2,14 @@ import Button from 'components/atoms/Button/Button';
 import React from 'react';
 import { ButtonWrapper, ModalContainer, ModalWrapper } from './styles';
 
-function ClonePackage({ onClose }) {
+function ClonePackage({ onClose, onClick }) {
   return (
     <ModalWrapper>
       <ModalContainer>
         <ButtonWrapper>
-          <Button className="btn-yes">Yes</Button>
+          <Button className="btn-yes" onClick={onClick}>
+            Yes
+          </Button>
           <Button onClick={onClose} className="btn-no">
             No
           </Button>

@@ -6,7 +6,6 @@ export const getRevenueGoal = async () => {
       method: 'get',
       url: '/donations/summary/goal'
     });
-    console.log(response?.data?.message);
     return response?.data?.message;
   } catch (error) {
     return error;

@@ -6,6 +6,7 @@ import { createPackages, getAllPackages } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { packageValidatioSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -56,6 +57,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
 
       dispatch(createPackages(body)).then(() => {
         dispatch(getAllPackages());
+        toast.success('Package created successfully');
         onClose();
       });
     }
@@ -97,7 +99,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             id="price"
             name="price"
             type="text"
-            placeholder="$  15.00"
+            placeholder="$"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.price}
@@ -115,7 +117,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             id="directCost"
             name="directCost"
             type="text"
-            placeholder="$ 10.00"
+            placeholder="$ "
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.directCost}
@@ -153,7 +155,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             id="discount"
             name="discount"
             type="number"
-            placeholder="10"
+            placeholder="%"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.discount}
@@ -213,7 +215,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             name="participant"
             id="participant"
             type="number"
-            placeholder="5"
+            placeholder=""
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.participant}
@@ -242,7 +244,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             name="qty"
             id="qty"
             type="number"
-            placeholder="5"
+            placeholder="Qty"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.qty}
@@ -263,7 +265,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
             id="packageQuantity"
             name="packageQuantity"
             type="text"
-            placeholder="5"
+            placeholder=""
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.packageQuantity}
@@ -277,7 +279,6 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
         </div>
       </InputWrapper>
       <InputWrapper>
-        s
         <div className="custom-container">
           <Label className="custom-label">Custom event fields</Label>
           <div className="email-container"></div>

@@ -50,11 +50,12 @@ export const updatePromoCodeById = async ({ body, id }) => {
   }
 };
 
-export const deletePromoCode = async ({ id }) => {
+export const deletePromoCode = async (body) => {
   try {
     const response = await request({
       method: 'delete',
-      url: `/promocode/${id}`
+      url: '/promocode',
+      data: body
     });
     return response;
   } catch (error) {

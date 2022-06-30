@@ -12,6 +12,18 @@ export const addEvents = async (body) => {
     return error;
   }
 };
+export const addCloneEvents = async (body) => {
+  try {
+    const response = await request({
+      method: 'post',
+      url: '/event/clone',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const getEvents = async () => {
   try {
@@ -52,11 +64,12 @@ export const updateEventById = async ({ body, id }) => {
   }
 };
 
-export const deleteEvent = async ({ id }) => {
+export const deleteEvent = async (body) => {
   try {
     const response = await request({
       method: 'delete',
-      url: `/event/${id}`
+      url: '/event',
+      data: body
     });
     return response;
   } catch (error) {
