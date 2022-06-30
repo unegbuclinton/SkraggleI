@@ -1,6 +1,5 @@
 import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
-// import DropdownComponent from 'components/atoms/Dropdown';
 // import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import P2PModalComponent from 'components/molecules/P2P/P2PFundraiserModalComponent';
@@ -9,7 +8,7 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 // import { DPPlusIcon } from 'icons';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import datas from 'utilities/filterData';
 import { ContainerBody, TableWrapper } from './styles';
 
@@ -56,23 +55,27 @@ const P2PTable = () => {
 
   // const [selected, setSelected] = useState('Filters');
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
   // const handleButtonClick = () => {
   //   navigate('/peer-to-peer');
   // };
+  const onRowClicked = (row) => {
+    navigate(`/peer-to-peer/${row?.id}`, { state: row });
+  };
 
   return (
     <div>
       <ContainerBody>
         <P2PModalComponent
           isShown={open}
+          row
           onClose={() => {
             setOpen(false);
           }}
         />
         <TableWrapper>
           <TableHeader setOpen={setOpen} title="Create P2P" header={`${p2p?.length} P2P`} />
-          <Table columns={columns} data={p2p} />
+          <Table columns={columns} data={p2p} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>
       <Pagination

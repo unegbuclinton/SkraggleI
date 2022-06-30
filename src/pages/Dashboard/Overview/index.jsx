@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { getActivities } from 'api/donation/fundraisingActivities';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
@@ -14,9 +15,13 @@ import {
   viewTags
 } from 'features/contact/contactSlice';
 import {
+  donationHistory,
+  fundActivities,
   getOneTimeTransaction,
   getPledge,
-  getRecurringTransaction
+  getRecurringTransaction,
+  revenueGoal,
+  revenueHistory
 } from 'features/donation/donationSlice';
 import { getAllElements } from 'features/elements/elementsSlice';
 import { getAllEvents } from 'features/events/eventSlice';
@@ -65,6 +70,10 @@ function Overview() {
     dispatch(allSubscriptionStatus());
     dispatch(getOneTimeTransaction());
     dispatch(getRecurringTransaction());
+    dispatch(fundActivities());
+    dispatch(revenueGoal());
+    dispatch(donationHistory());
+    dispatch(revenueHistory());
   }, []);
 
   return (

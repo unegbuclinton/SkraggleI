@@ -10,6 +10,7 @@ import { formatDate } from 'utilities/helpers';
 
 function DonationByContacts() {
   const { contactDonation } = useSelector((state) => state.report);
+
   const columns = [
     {
       name: '',
@@ -21,11 +22,10 @@ function DonationByContacts() {
       name: 'ID',
       selector: (row) => row.id
     },
+
     {
       name: 'NAME',
-      cell: (row) => {
-        row?.contact?.first_name;
-      }
+      selector: (row) => row.contact.first_name
     },
     {
       name: 'DATE',

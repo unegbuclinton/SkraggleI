@@ -8,6 +8,7 @@ import { NewstellerBody, NewstellerTop, NewstellerWrapper } from './styles';
 function Overview() {
   const { eachMailBlast } = useSelector((state) => state.mailBlast);
   const { name, sent_at, raised_amount } = eachMailBlast;
+  const mailBlastData = eachMailBlast?.campaign;
   return (
     <NewstellerWrapper>
       <Card className="overview-card">
@@ -19,7 +20,7 @@ function Overview() {
             </div>
             <div className="bottom">
               <p className="left">{name}</p>
-              <p className="right">Annual Fundraiser</p>
+              <p className="right">{mailBlastData?.description}</p>
             </div>
           </div>
           <div className="newsteller-right">

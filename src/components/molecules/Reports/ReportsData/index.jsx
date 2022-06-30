@@ -1,4 +1,4 @@
-import { getDonationByContact } from 'features/report/reportSlice';
+import { getDonationByContact, getP2PLeaderBoard } from 'features/report/reportSlice';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -14,7 +14,7 @@ function ReportsData() {
 
   useEffect(() => {
     dispatch(getDonationByContact());
-    // dispatch(getP2PLeaderBoard());
+    dispatch(getP2PLeaderBoard());
   });
   return (
     <ReportsDataMain>

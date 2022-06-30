@@ -3,7 +3,7 @@ import Table from 'components/layouts/Table';
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { getEachP2p, removeP2P, viewP2P } from 'features/p2p/p2pSlice';
+import { getEachP2p, p2pDonation, rankedP2p, removeP2P, viewP2P } from 'features/p2p/p2pSlice';
 import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -87,6 +87,8 @@ function P2PTable() {
     dispatch(getEachP2p(row?.id)).then(() => {
       navigate(`/peer-to-peer/${row?.id}`, { state: row });
     });
+    dispatch(p2pDonation(row.id));
+    dispatch(rankedP2p(row.id));
   };
 
   const [open, setOpen] = useState(false);

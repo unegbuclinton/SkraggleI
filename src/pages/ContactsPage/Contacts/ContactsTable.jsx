@@ -71,7 +71,7 @@ function ContactsTable() {
     dispatch(eachTodo(id));
     dispatch(getEachVolunteer(id));
     dispatch(eachInteraction(id));
-    // dispatch(smartAsk(id));
+    dispatch(smartAsk(id));
     let path = `/contacts/${id}`;
     navigate(path);
   };

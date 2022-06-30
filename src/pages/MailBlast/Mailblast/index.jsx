@@ -18,6 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 import CreateMailModal from '../MailblasModals/CreateMail';
 
 function Mail() {
@@ -70,13 +71,14 @@ function Mail() {
       cell: (row) => <NameLogo text={row.name} />
     },
     {
-      name: 'SCHEDULED'
+      name: 'SCHEDULED',
+      selector: (row) => formatDate(row.created_at)
     },
     {
       name: 'STATUS',
 
-      cell: () => (
-        <Button pill error className="mail-btn">
+      cell: (row) => (
+        <Button pill={row.send_to_all_contacts} error={row.is_draft} success className="mail-btn">
           Sent
         </Button>
       )
