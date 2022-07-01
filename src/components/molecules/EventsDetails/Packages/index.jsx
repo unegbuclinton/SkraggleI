@@ -1,10 +1,11 @@
 import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
 import EventPackageModal from 'components/molecules/EventsModals/EventPackageModal';
+import EditPackageModal from 'components/molecules/EventsModals/EventPackageModal/EditPackageModal';
 import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
-import { clonePackage, delPackage, getAllPackages } from 'features/events/eventSlice';
+import { clonePackage, delPackage, getAllPackages, packageInfo } from 'features/events/eventSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActionText, NameContainer, PackageWrapper } from './styles';
@@ -23,7 +24,8 @@ function Packages() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openPackageModal, setOpenPackageModal] = useState(false);
+  const [openEditPackageModal, setOpenEditPackageModal] = useState(false);
 
   const { allPackages } = useSelector((state) => state.events);
 
@@ -31,6 +33,7 @@ function Packages() {
     setOpen(true);
     setGetRowId(id);
   };
+
   const deletePackage = (id) => {
     const body = {
       packages: [id]
@@ -40,6 +43,7 @@ function Packages() {
       dispatch(getAllPackages());
     });
   };
+
   const cloneModal = (id) => {
     setOpenCloneModal(true);
     setGetRowId(id);
@@ -54,6 +58,13 @@ function Packages() {
       dispatch(getAllPackages());
     });
   };
+
+  const EditPackage = (id) => {
+    setGetRowId(id);
+    setOpenEditPackageModal(true);
+    dispatch(packageInfo(getRowId));
+  };
+
   const columns = [
     {
       name: 'NAME & DETAILS',
@@ -86,7 +97,7 @@ function Packages() {
       width: '10.8rem'
     },
     {
-      cell: () => <ActionText>Edit</ActionText>,
+      cell: (row) => <ActionText onClick={() => EditPackage(row.id)}>Edit</ActionText>,
       width: '8rem'
     },
     {
@@ -102,16 +113,14 @@ function Packages() {
     }
   ];
 
-  const onRowClick = () => {
-    setOpenDropdown(true);
-  };
+  const onRowClick = () => {};
 
   return (
     <PackageWrapper>
       <TableHeader
         header={`${allPackages.length} Packages`}
         title=" Create New"
-        setOpen={setOpenDropdown}
+        setOpen={setOpenPackageModal}
       />
       <ClonePackageModal
         isShown={openCloneModal}
@@ -129,9 +138,13 @@ function Packages() {
         data={allPackages}
         onRowClicked={onRowClick}
       />
+      <EditPackageModal
+        isShown={openEditPackageModal}
+        onClose={() => setOpenEditPackageModal(false)}
+      />
 
-      {openDropdown && (
-        <EventPackageModal isShown={openDropdown} onClose={() => setOpenDropdown(false)} />
+      {openPackageModal && (
+        <EventPackageModal isShown={openPackageModal} onClose={() => setOpenPackageModal(false)} />
       )}
     </PackageWrapper>
   );
