@@ -38,6 +38,19 @@ export const getField = async () => {
 //   }
 // };
 
+export const addCloneField = async (body) => {
+  try {
+    const response = await request({
+      method: 'post',
+      url: '/event/clone',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const updateFieldById = async ({ body, id }) => {
   try {
     const response = await request({
@@ -51,11 +64,12 @@ export const updateFieldById = async ({ body, id }) => {
   }
 };
 
-export const deleteField = async ({ id }) => {
+export const deleteField = async (body) => {
   try {
     const response = await request({
       method: 'delete',
-      url: `/field/${id}`
+      url: '/field',
+      data: body
     });
     return response;
   } catch (error) {

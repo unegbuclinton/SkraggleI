@@ -63,7 +63,7 @@ function PromoCodeDropdown({ onClose }) {
             type="text"
             id="promoCode"
             name="promoCode"
-            placeholder="Save15"
+            placeholder=""
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.promoCode}
@@ -81,7 +81,7 @@ function PromoCodeDropdown({ onClose }) {
             id="description"
             name="description"
             type="text"
-            placeholder="test"
+            placeholder="Description"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.description}
@@ -111,7 +111,7 @@ function PromoCodeDropdown({ onClose }) {
           <Input
             className="discount-input"
             type="number"
-            placeholder="15"
+            placeholder=""
             name="discount"
             id="discount"
             onChange={formik.handleChange}
@@ -129,7 +129,7 @@ function PromoCodeDropdown({ onClose }) {
             type="number"
             id="maxUsers"
             name="maxUsers"
-            placeholder="1"
+            placeholder=""
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.maxUsers}
