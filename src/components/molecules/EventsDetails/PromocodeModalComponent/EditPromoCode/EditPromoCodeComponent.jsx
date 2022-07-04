@@ -23,7 +23,7 @@ function EditPromoCodeComponent({ onClose }) {
 
   const { code, description, discount, max_user, start_date, end_date, id } = eachPromoCode;
   const dispatch = useDispatch();
-  const promoCodeId = id;
+  console.log(eachPromoCode);
   const formik = useFormik({
     initialValues: {
       promoCode: code,
@@ -44,7 +44,7 @@ function EditPromoCodeComponent({ onClose }) {
         start_date: values.startDate,
         end_date: values.endDate
       };
-      dispatch(updatePromoCode({ body: body, id: promoCodeId })).then(() => {
+      dispatch(updatePromoCode({ body, id })).then(() => {
         dispatch(getAllPromoCode());
         onClose();
       });
@@ -66,7 +66,7 @@ function EditPromoCodeComponent({ onClose }) {
             type="text"
             id="promoCode"
             name="promoCode"
-            placeholder="Save15"
+            placeholder=""
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.promoCode}
@@ -114,7 +114,7 @@ function EditPromoCodeComponent({ onClose }) {
           <Input
             className="discount-input"
             type="number"
-            placeholder="15"
+            placeholder="%"
             name="discount"
             id="discount"
             onChange={formik.handleChange}
@@ -132,7 +132,7 @@ function EditPromoCodeComponent({ onClose }) {
             type="number"
             id="maxUsers"
             name="maxUsers"
-            placeholder="1"
+            placeholder="Users"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.maxUsers}

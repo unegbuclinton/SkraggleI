@@ -4,40 +4,56 @@ import EventPackageModal from 'components/molecules/EventsModals/EventPackageMod
 import ClonePackageModal from 'components/molecules/EventsModals/PackageModal/CloneModal/Modal';
 import DeletePackageModal from 'components/molecules/EventsModals/PackageModal/DeleteModal/Modal';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { clonePackage, delPackage, getAllPackages } from 'features/events/eventSlice';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { ActionWrapper, PackageWrapper } from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { ActionText, NameContainer, PackageWrapper } from './styles';
 
 const Paragraph = ({ row }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <h1 style={{ fontSize: '2.4rem', color: '#2e2e2e', fontWeight: '400' }}>{row.name}</h1>
+    <NameContainer>
+      <h1>{row.name}</h1>
 
-      <p
-        style={{
-          fontSize: '1.4rem',
-          color: '#585858',
-          fontWeight: '400'
-        }}>{`${row.participants} per package`}</p>
-    </div>
+      <p>{`${row.participants} per package`}</p>
+    </NameContainer>
   );
 };
 function Packages() {
+  const [getRowId, setGetRowId] = useState('');
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [openCloneModal, setOpenCloneModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const { allPackages } = useSelector((state) => state.events);
-  const onpenDelete = (e) => {
-    e.stopPropagation();
+
+  const openDelete = (id) => {
     setOpen(true);
+    setGetRowId(id);
   };
-
-  const openClone = (e) => {
-    e.stopPropagation();
+  const deletePackage = (id) => {
+    const body = {
+      packages: [id]
+    };
+    dispatch(delPackage(body)).then(() => {
+      setOpen(false);
+      dispatch(getAllPackages());
+    });
+  };
+  const cloneModal = (id) => {
     setOpenCloneModal(true);
+    setGetRowId(id);
   };
 
+  const createClonePackage = (id) => {
+    const body = {
+      packages: [id]
+    };
+    dispatch(clonePackage(body)).then(() => {
+      setOpenCloneModal(false);
+      dispatch(getAllPackages());
+    });
+  };
   const columns = [
     {
       name: 'NAME & DETAILS',
@@ -52,56 +68,37 @@ function Packages() {
     {
       name: 'PRICE',
       selector: (row) => row.price,
-      Width: '10.8rem'
+      width: '10.8rem'
     },
     {
       name: 'DIRECT COST',
       selector: (row) => row.direct_cost,
-      Width: '20rem'
+      width: '20rem'
     },
     {
       name: 'PACKAGES',
       selector: (row) => row.description,
-      Width: '10.8rem'
+      width: '15.8rem'
     },
     {
       name: 'PRIVATE',
       selector: (row) => row.private_package,
-      Width: '10.8rem'
+      width: '10.8rem'
     },
     {
-      name: '',
-      // selector: (row) => row.tags
-      cell: () => (
-        <ActionWrapper>
-          <p className="action">Edit</p>
-        </ActionWrapper>
-      ),
-      Width: '4rem'
+      cell: () => <ActionText>Edit</ActionText>,
+      width: '8rem'
     },
     {
-      name: '',
-      // selector: (row) => row.tags
-      cell: () => (
-        <ActionWrapper>
-          <p className="action" onClick={openClone}>
-            Clone
-          </p>
-        </ActionWrapper>
-      ),
-      Width: '4rem'
+      cell: (row) => <ActionText onClick={() => cloneModal(row.id)}>Clone</ActionText>,
+      width: '8rem'
     },
     {
-      name: '',
-      // selector: (row) => row.tags
-      cell: () => (
-        <ActionWrapper>
-          <p className="delete" onClick={onpenDelete}>
-            Delete
-          </p>
-        </ActionWrapper>
-      ),
-      Width: '4rem'
+      cell: (row) => (
+        <ActionText onClick={() => openDelete(row.id)} red>
+          Delete
+        </ActionText>
+      )
     }
   ];
 
@@ -116,8 +113,16 @@ function Packages() {
         title=" Create New"
         setOpen={setOpenDropdown}
       />
-      <ClonePackageModal isShown={openCloneModal} onClose={() => setOpenCloneModal(false)} />
-      <DeletePackageModal isShown={open} onClose={() => setOpen(false)} />
+      <ClonePackageModal
+        isShown={openCloneModal}
+        onClose={() => setOpenCloneModal(false)}
+        onClick={() => createClonePackage(getRowId)}
+      />
+      <DeletePackageModal
+        isShown={open}
+        onClose={() => setOpen(false)}
+        onClick={() => deletePackage(getRowId)}
+      />
       <Table
         className="package-table"
         columns={columns}

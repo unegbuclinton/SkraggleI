@@ -26,11 +26,25 @@ export const getPackages = async () => {
   }
 };
 
-export const deletePackages = async ({ id }) => {
+export const addClonePackages = async (body) => {
+  try {
+    const response = await request({
+      method: 'post',
+      url: '/package/clone',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deletePackages = async (body) => {
   try {
     const response = await request({
       method: 'delete',
-      url: `/package/${id}`
+      url: '/package',
+      data: body
     });
     return response;
   } catch (error) {

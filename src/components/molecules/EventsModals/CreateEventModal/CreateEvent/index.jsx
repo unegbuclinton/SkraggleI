@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { detailsValidationSchema } from 'validation/Schema';
 import AdminNotification from './AdminNotification';
 import CutOffDate from './CutOffDate';
@@ -82,6 +83,7 @@ function CreateEvent({ onClose }) {
       dispatch(createEvents(body)).then(() => {
         dispatch(getAllEvents());
         onClose();
+        toast.success('Event successfully created');
         navigate('/events');
       });
     }

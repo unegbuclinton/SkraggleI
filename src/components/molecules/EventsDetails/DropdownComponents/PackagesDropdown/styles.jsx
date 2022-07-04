@@ -25,6 +25,8 @@ export const DropDownWrapper = styled.form`
     border-radius: 0.5rem;
     border: 0.1rem solid ${COLORS['gray-500']};
     resize: none;
+    outline: none;
+    padding: 1.5rem;
   }
 
   .maplink-container {

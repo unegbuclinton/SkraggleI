@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
+  addCloneEvents,
   addEvents,
   deleteEvent,
   getEventById,
   getEvents,
   updateEventById
 } from 'api/events/events';
-import { addField, deleteField, getField, updateFieldById } from 'api/events/fields';
-import { addPackages, deletePackages, getPackages } from 'api/events/packages';
+import { addCloneField, addField, deleteField, getField, updateFieldById } from 'api/events/fields';
+import { addClonePackages, addPackages, deletePackages, getPackages } from 'api/events/packages';
 import {
   addPromoCode,
   deletePromoCode,
@@ -37,6 +38,10 @@ export const getEachPromoCode = createAsyncThunk('events/getEachPromoCode', getP
 export const updatePromoCode = createAsyncThunk('events/getEachPromoCode', updatePromoCodeById);
 export const createPackages = createAsyncThunk('events/createPackages,', addPackages);
 export const getAllPackages = createAsyncThunk('events/getAllPackages', getPackages);
+export const cloneEvent = createAsyncThunk('events/cloneEvent', addCloneEvents);
+export const clonePackage = createAsyncThunk('events/clonePackage', addClonePackages);
+
+export const cloneField = createAsyncThunk('events/cloneField', addCloneField);
 
 export const createField = createAsyncThunk('events/createField', addField);
 export const getAllFields = createAsyncThunk('events/getAllFields', getField);
@@ -58,6 +63,15 @@ export const eventSlice = createSlice({
       state.isLoading = false;
     },
     [createEvents.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [cloneEvent.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [cloneEvent.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [cloneEvent.rejected]: (state) => {
       state.isLoading = false;
     },
     [getAllEvents.pending]: (state) => {
@@ -89,7 +103,15 @@ export const eventSlice = createSlice({
     [getAllPromoCode.rejected]: (state) => {
       state.isLoading = false;
     },
-
+    [cloneField.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [cloneField.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [cloneField.rejected]: (state) => {
+      state.isLoading = false;
+    },
     [createPackages.pending]: (state) => {
       state.isLoading = true;
     },
@@ -115,6 +137,7 @@ export const eventSlice = createSlice({
     },
     [getEachPromoCode.fulfilled]: (state, action) => {
       state.isLoading = false;
+      console.log(action.payload);
       state.eachPromoCode = action.payload;
     },
     [getEachPromoCode.rejected]: (state) => {
@@ -195,6 +218,15 @@ export const eventSlice = createSlice({
 
     [logoutUser.fulfilled]: () => {
       return initialState;
+    },
+    [clonePackage.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [clonePackage.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
+    [clonePackage.rejected]: (state) => {
+      state.isLoading = false;
     }
   }
 });
