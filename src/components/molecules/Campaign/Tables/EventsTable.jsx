@@ -6,10 +6,12 @@ import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { ContainerBody, TableWrapper, Wrapper } from './styles';
 
 const EventsTable = () => {
   const { eventsData } = useSelector((state) => state.campaign);
+  const navigate = useNavigate();
   const columns = [
     {
       name: ' ',
@@ -49,7 +51,9 @@ const EventsTable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-
+  const onRowClicked = (row) => {
+    navigate('events-details', { state: row });
+  };
   return (
     <Wrapper>
       <CreateEventModal
@@ -72,7 +76,7 @@ const EventsTable = () => {
           <Table
             columns={columns}
             data={eventsData}
-            // onRowClicked={onRowClicked}
+            onRowClicked={onRowClicked}
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}

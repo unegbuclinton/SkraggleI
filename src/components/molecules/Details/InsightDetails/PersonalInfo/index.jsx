@@ -11,7 +11,15 @@ function PersonalInfo() {
     setShowModal(true);
   };
   const { eachContact } = useSelector((state) => state.contact);
-  const { first_name, last_name, primary_email, address, primary_phone, birth_date } = eachContact;
+  const {
+    first_name,
+    last_name,
+    primary_email,
+    address,
+    primary_phone,
+    birth_date,
+    preferred_name
+  } = eachContact;
   return (
     <PersonalInfoWrapper>
       <PersonalInfoHeading>
@@ -42,7 +50,7 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">PREFERRED NAME</h2>
-        <p className="title name">-</p>
+        <p className="title name">{preferred_name}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">GENDER</h2>

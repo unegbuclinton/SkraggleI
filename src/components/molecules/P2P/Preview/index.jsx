@@ -13,7 +13,9 @@ import {
   DPIconTwitter
 } from 'icons';
 import React, { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 import RecentDonation from '../Tables/RecentDonation';
+import TopParticipant from '../Tables/TopPartiicipant';
 import {
   ButtonCopy,
   CopyText,
@@ -24,6 +26,10 @@ import {
 } from './styles';
 
 function Preview() {
+  const { token } = useSelector((state) => state.auth);
+  const { eachP2p } = useSelector((state) => state.p2p);
+  const { campaign } = eachP2p;
+
   const tabs = [
     {
       title: 'Recent Donation',
@@ -31,7 +37,7 @@ function Preview() {
     },
     {
       title: 'Top Participants',
-      component: <RecentDonation />
+      component: <TopParticipant />
     }
   ];
 
@@ -69,6 +75,8 @@ function Preview() {
     e.target.focus();
     alert('Text Copied');
   }, []);
+  const userData = token?.profile;
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   return (
     <PreviewContainer>
@@ -79,10 +87,10 @@ function Preview() {
             <DPIconProfileImage />
             <div className="preview__profile-data">
               <div className="preview__profile">Supporter</div>
-              <div className="preview__profile-name">Partho Prothim</div>
+              <div className="preview__profile-name">{userName}</div>
             </div>
           </div>
-          <div className="preview__heading">BGA awesome campaign demo #1</div>
+          <div className="preview__heading">{campaign}</div>
 
           <ProgressBar value={195400} target={500000} />
           <div className="preview__bar-values">

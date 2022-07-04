@@ -21,7 +21,7 @@ function EditAmin({ onClose }) {
   const { eachContact } = useSelector((state) => state.contact);
   const { tagsData } = useSelector((state) => state.contact);
 
-  const { priority, tags, is_subscribed_to_mailblasts, note, solicitation, organization_id } =
+  const { priority, is_subscribed_to_mailblasts, note, solicitation, organization_id } =
     eachContact;
   const adminId = eachContact.id;
 
@@ -31,7 +31,7 @@ function EditAmin({ onClose }) {
       originId: organization_id || '',
       priority: priority || '',
       assignee: '',
-      tag: tags,
+      tag: '',
       note: note || '',
       solicitation: solicitation || '',
       emailSubscriptionStatus: is_subscribed_to_mailblasts
@@ -51,6 +51,7 @@ function EditAmin({ onClose }) {
     }
   });
   const tagOptions = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
+
   const adminOptions = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },

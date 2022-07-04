@@ -3,9 +3,13 @@ import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const FundraisingActivity = () => {
+  const { fundraisingActivity } = useSelector((state) => state.donation);
+
+  const { contacts, donations, revenue } = fundraisingActivity;
   const [openRange, setOpenRange] = useState(false);
   const toggleRange = () => setOpenRange((prev) => !prev);
   const [filterRange, setFilterRange] = useState({
@@ -28,16 +32,16 @@ const FundraisingActivity = () => {
       </FRAHeaderWrapper>
       <FRAContentWrapper>
         <div className="data-wrapper">
-          <h3>$25,000</h3>
+          <h3>${donations}</h3>
           <p>NEW DONATIONS</p>
         </div>
         <div className="data-wrapper">
-          <h3>$477</h3>
-          <p>NEW DONATIONS</p>
+          <h3>${revenue}</h3>
+          <p>NEW REVENUE</p>
         </div>
         <div className="data-wrapper">
-          <h3>14</h3>
-          <p>NEW DONATIONS</p>
+          <h3>{contacts}</h3>
+          <p>NEW CONTACTS</p>
         </div>
       </FRAContentWrapper>
     </FRAContainer>

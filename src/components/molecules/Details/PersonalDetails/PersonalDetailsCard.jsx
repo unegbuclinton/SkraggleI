@@ -1,25 +1,14 @@
-import apiInstance from 'apiInstance';
 import Button from 'components/atoms/Button/Button';
 import { DPIconsPen } from 'icons';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { nameAbbr } from 'utilities/helpers';
 import { CardWrapper, ContentsWrapper, Line } from './styles';
 
 function PersonalDetailsCard() {
-  const [userData, setUserData] = useState({});
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await apiInstance({
-        method: 'get',
-        url: '/admin'
-      });
-      const data = response?.data?.message;
-      setUserData(data);
-    };
+  const { token } = useSelector((state) => state.auth);
+  const userData = token?.profile;
 
-    getUser();
-  }, []);
   const { eachContact } = useSelector((state) => state.contact);
   const {
     first_name,
@@ -36,7 +25,7 @@ function PersonalDetailsCard() {
     unit
   } = eachContact;
   const fullName = `${first_name} ${last_name}`;
-  const tag = tags;
+  // const tag = tags;
   const userName = `${userData?.first_name}  ${userData?.last_name}`;
   return (
     <CardWrapper>
@@ -80,9 +69,9 @@ function PersonalDetailsCard() {
         <Line />
         <div className="tags">
           <h2 className="tags__heading">TAGS</h2>
-          {tag?.map((tag, idx) => (
+          {tags?.map(({ name }, idx) => (
             <Button key={idx} pill className="tags__btn">
-              {tag}
+              {name}
             </Button>
           ))}
         </div>

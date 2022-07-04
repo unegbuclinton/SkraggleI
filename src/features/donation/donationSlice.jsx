@@ -1,11 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { getActivities } from 'api/donation/fundraisingActivities';
+import { getDonationHistory, getRevenueHistory } from 'api/donation/fundraisingHistory';
+import { getRevenueGoal } from 'api/donation/goalMetrics';
 import { getKpiOptions } from 'api/donation/kpiList';
 import {
   createOneTimeTransaction,
+  deleteOneTimeTransaction,
   getAllOneTimeTransaction
 } from 'api/donation/OneTimeTransaction';
 import {
   createRecurringTransaction,
+  deleteRecurringTransaction,
   getAllRecurringTransaction
 } from 'api/donation/RecurringTransaction';
 import { allPledge, createPledge, deletePledge } from '../../api/donation/pledge';
@@ -15,13 +20,27 @@ const initialState = {
   pledgeData: [],
   oneTimeData: [],
   recurringData: [],
-  kpiData: []
+  kpiData: [],
+  fundraisingActivity: [],
+  revenueData: [],
+  donationHistory: [],
+  RevenueHistory: []
 };
-export const getPledge = createAsyncThunk('getPledge', allPledge);
-export const addPledge = createAsyncThunk('addPledge', createPledge);
-export const removePledge = createAsyncThunk('removePledge', deletePledge);
-export const kpiOptions = createAsyncThunk('kpiOptions', getKpiOptions);
+export const getPledge = createAsyncThunk('donation/getPledge', allPledge);
+export const addPledge = createAsyncThunk('donation/addPledge', createPledge);
+export const removePledge = createAsyncThunk('donation/removePledge', deletePledge);
+export const kpiOptions = createAsyncThunk('donation/kpiOptions', getKpiOptions);
+export const revenueGoal = createAsyncThunk('donation/revenueGoal', getRevenueGoal);
+export const fundActivities = createAsyncThunk('donation/fundActivities', getActivities);
 
+export const donationHistory = createAsyncThunk('donation/donationHistory', getDonationHistory);
+
+export const revenueHistory = createAsyncThunk('donation/RevenueHistory', getRevenueHistory);
+
+export const removeTransaction = createAsyncThunk(
+  'donation/removeTransaction',
+  deleteOneTimeTransaction
+);
 export const addOneTimeTransaction = createAsyncThunk(
   'addOneTimeTransaction',
   createOneTimeTransaction
@@ -40,6 +59,10 @@ export const addRecurringTransaction = createAsyncThunk(
 export const getRecurringTransaction = createAsyncThunk(
   'getRecurringTransaction',
   getAllRecurringTransaction
+);
+export const removeRecurring = createAsyncThunk(
+  'donation/removeRecurring',
+  deleteRecurringTransaction
 );
 export const donationSlice = createSlice({
   name: 'donation',
@@ -80,6 +103,9 @@ export const donationSlice = createSlice({
     [addOneTimeTransaction.rejected]: (state) => {
       state.isLoading = false;
     },
+    [removeTransaction.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
     [getOneTimeTransaction.pending]: (state) => {
       state.isLoading = true;
     },
@@ -100,6 +126,9 @@ export const donationSlice = createSlice({
     [addRecurringTransaction.rejected]: (state) => {
       state.isLoading = false;
     },
+    [removeRecurring.fulfilled]: (state) => {
+      state.isLoading = false;
+    },
     [getRecurringTransaction.pending]: (state) => {
       state.isLoading = true;
     },
@@ -110,7 +139,16 @@ export const donationSlice = createSlice({
     [getRecurringTransaction.rejected]: (state) => {
       state.isLoading = false;
     },
-
+    [fundActivities.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fundActivities.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.fundraisingActivity = action.payload;
+    },
+    [fundActivities.rejected]: (state) => {
+      state.isLoading = false;
+    },
     [kpiOptions.pending]: (state) => {
       state.isLoading = true;
     },
@@ -120,6 +158,30 @@ export const donationSlice = createSlice({
     },
     [kpiOptions.rejected]: (state) => {
       state.isLoading = false;
+    },
+    [revenueGoal.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [revenueGoal.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.revenueData = action.payload;
+    },
+    [revenueGoal.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [donationHistory.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [donationHistory.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.donationHistory = action.payload;
+    },
+    [revenueHistory.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [revenueHistory.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.RevenueHistory = action.payload;
     }
   }
 });

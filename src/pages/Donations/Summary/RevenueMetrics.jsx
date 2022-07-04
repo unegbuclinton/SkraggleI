@@ -5,9 +5,14 @@ import AreaChart from 'components/organisms/AreaChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { capitalizeFirstLowercaseRest, getDatesBetweenDates } from 'utilities/helpers';
 
 const RevenueMetrics = () => {
+  const { revenueData, RevenueHistory } = useSelector((state) => state.donation);
+
+  const revenue = revenueData?.revenue;
   const [openRange, setOpenRange] = useState(false);
   const toggleRange = () => setOpenRange((prev) => !prev);
   const [filterRange, setFilterRange] = useState({
@@ -15,23 +20,37 @@ const RevenueMetrics = () => {
     endDate: new Date(),
     label: 'Today'
   });
+
+  console.log(filterRange);
+  const startDate = new Date(' 06/29/2022');
+  const endDate = new Date('07/01/2022');
+
+  console.log(getDatesBetweenDates(startDate, endDate));
   const handleSetRange = (range) => setFilterRange(range);
+
+  const revenueRecord = Object.values(RevenueHistory);
 
   const series = [
     {
       name: 'Skraggle',
-      data: [300, 300, 117, 300, 293, 400, 179, 300, 117, 293, 400, 179],
+      data: revenueRecord,
       color: '#2FC18D'
     }
   ];
   return (
     <RevenueMetricsContainer>
       <RevenueGoalsWrapper>
+        filterRange
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
-          <GoalProgressTracker value={19540.23} target={93825} heading="Monthly Goal" />
-          <GoalProgressTracker value={38540.23} target={93825} heading="Quarterly Goal" />
-          <GoalProgressTracker value={29540.23} target={93825} heading="Yearly Goal" />
+          {revenue?.map(({ goal, type, raised }, idx) => (
+            <GoalProgressTracker
+              value={raised}
+              target={goal}
+              heading={`${capitalizeFirstLowercaseRest(type)} Goal`}
+              key={idx + 1}
+            />
+          ))}
         </RevenueGoalsContentWrapper>
       </RevenueGoalsWrapper>
 
@@ -45,24 +64,7 @@ const RevenueMetrics = () => {
             open={openRange}
           />
         </RevenueTrackerHeaderWrapper>
-        <AreaChart
-          series={series}
-          categories={[
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-          ]}
-          stroke={{ colors: ['#2FC18D'] }}
-        />
+        <AreaChart series={series} categories={[]} stroke={{ colors: ['#2FC18D'] }} />
       </RevenueTrackerWrapper>
     </RevenueMetricsContainer>
   );

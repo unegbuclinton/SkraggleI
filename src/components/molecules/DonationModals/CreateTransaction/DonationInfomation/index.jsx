@@ -93,8 +93,8 @@ function DonationInformation({ onCloseModal, IncrementTab, formik }) {
             onChange={(value) => formik.setFieldValue('paymentMethod', value.value)}
             onBlur={formik.handleBlur}
           />
-          {formik.values.paymentMethod === 'Cheque' && <ChequeInfo />}
-          {formik.values.paymentMethod === 'Online_Stripe' && <StripeInfo />}
+          {formik.values.paymentMethod === 'Cheque' && <ChequeInfo formik={formik} />}
+          {formik.values.paymentMethod === 'Online_Stripe' && <StripeInfo formik={formik} />}
         </TransactionLabel>
 
         <TransactionInput>
