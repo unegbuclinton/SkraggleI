@@ -10,6 +10,7 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import {
   cloneEvent,
   delEvent,
+  getAllArchivedEvents,
   getAllEvents,
   getAllFields,
   getAllPackages,
@@ -39,6 +40,7 @@ function ActiveInactive() {
     dispatch(getAllPackages());
     dispatch(getAllFields());
     dispatch(getAllPromoCode());
+    dispatch(getAllArchivedEvents());
   }, []);
 
   const onRowClicked = (row) => {

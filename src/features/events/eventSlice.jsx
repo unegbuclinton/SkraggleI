@@ -3,6 +3,7 @@ import {
   addCloneEvents,
   addEvents,
   deleteEvent,
+  getArchivedEvents,
   getEventById,
   getEvents,
   updateEventById
@@ -32,12 +33,17 @@ const initialState = {
   allPackages: [],
   eachPromoCode: [],
   eachEvent: [],
+  archivedEvents: [],
   allFields: [],
   packageInfoData: []
 };
 
 export const createEvents = createAsyncThunk('events/createEvents', addEvents);
 export const getAllEvents = createAsyncThunk('events/getAllEvents', getEvents);
+export const getAllArchivedEvents = createAsyncThunk(
+  'events/getAllArchivedEvents',
+  getArchivedEvents
+);
 export const getEachEvent = createAsyncThunk('events/getEachEvent', getEventById);
 export const updateEvent = createAsyncThunk('events/updateEvent', updateEventById);
 export const createPromoCode = createAsyncThunk('events/createPromoCode,', addPromoCode);
@@ -84,6 +90,17 @@ export const eventSlice = createSlice({
       state.isLoading = false;
     },
     [cloneEvent.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [getAllArchivedEvents.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getAllArchivedEvents.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.archivedEvents = action.payload;
+    },
+    [getAllArchivedEvents.rejected]: (state) => {
       state.isLoading = false;
     },
     [getAllEvents.pending]: (state) => {

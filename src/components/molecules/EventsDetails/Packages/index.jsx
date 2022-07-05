@@ -42,6 +42,7 @@ function Packages() {
       setOpen(false);
       dispatch(getAllPackages());
     });
+    setGetRowId('');
   };
 
   const cloneModal = (id) => {
@@ -59,7 +60,7 @@ function Packages() {
     });
   };
 
-  const EditPackage = (id) => {
+  const OpenEdit = (id) => {
     setGetRowId(id);
     setOpenEditPackageModal(true);
     dispatch(packageInfo(getRowId));
@@ -97,7 +98,7 @@ function Packages() {
       width: '10.8rem'
     },
     {
-      cell: (row) => <ActionText onClick={() => EditPackage(row.id)}>Edit</ActionText>,
+      cell: (row) => <ActionText onClick={() => OpenEdit(row.id)}>Edit</ActionText>,
       width: '8rem'
     },
     {

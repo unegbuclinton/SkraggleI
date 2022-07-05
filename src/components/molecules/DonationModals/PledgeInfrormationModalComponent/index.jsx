@@ -56,10 +56,9 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
   ];
 
   const paymentInterval = [
-    { value: 'Daily', label: 'Daily' },
-    { value: 'Weekly', label: 'Weekly' },
-    { value: 'Monthly', label: 'Monthly' },
-    { value: 'Yearly', label: 'Yearly' }
+    { value: 'Weekly', label: 'Week' },
+    { value: 'Monthly', label: 'Month' },
+    { value: 'Yearly', label: 'Year' }
   ];
 
   return (
@@ -238,9 +237,12 @@ const PledgeInfoModalComponent = ({ onClose, IncrementTab, formik }) => {
             onChange={(value) => formik.setFieldValue('interval', value.value)}
             onBlur={formik.handleBlur}
           />
-          <Button type="button" className="installment-btn__calculate">
-            Calculate Installment
-          </Button>
+
+          {formik.values.value_donation !== '' && (
+            <Button type="button" className="installment-btn__calculate">
+              Calculate Installment
+            </Button>
+          )}
         </div>
 
         <ButtonsContainer>
