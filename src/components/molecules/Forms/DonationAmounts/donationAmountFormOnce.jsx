@@ -8,7 +8,7 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function DonationAmountFormOnce() {
+function DonationAmountFormOnce({ handleChange1, handleChange2, handleChange3, handleChange4 }) {
   const designation = [
     { value: 'Yes', label: 'Yes' },
     { value: 'No', label: 'No' }
@@ -34,6 +34,7 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
+            onChange={(e) => handleChange1(e.target.value)}
           />
           <Input
             containerClass="input-container"
@@ -42,6 +43,7 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
+            onChange={(e) => handleChange2(e.target.value)}
           />
         </div>
         <div className="row">
@@ -52,6 +54,7 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
+            onChange={(e) => handleChange3(e.target.value)}
           />
           <Input
             containerClass="input-container"
@@ -60,6 +63,7 @@ function DonationAmountFormOnce() {
             id="pledge_name"
             name="pledge_name"
             placeholder="$ 60.00"
+            onChange={(e) => handleChange4(e.target.value)}
           />
         </div>
         <div className="button-wrapper">
@@ -115,7 +119,6 @@ export default DonationAmountFormOnce;
 export const DonationAmountFormWrapper = styled.form``;
 
 export const DonationAmountFormCard = styled(Card)`
-  /* padding: 4rem 4.4rem 2.4rem 4.4rem; */
   padding-top: 3.269rem;
 
   .transaction-header {

@@ -47,8 +47,8 @@ export const formsSlice = createSlice({
       state.isLoading = false;
     },
     [getSingleForm.fulfilled]: (state, action) => {
-      state.isLoading = false;
       state.formsByID = action.payload;
+      state.isLoading = false;
     },
     [getSingleForm.rejected]: (state) => {
       state.isLoading = false;

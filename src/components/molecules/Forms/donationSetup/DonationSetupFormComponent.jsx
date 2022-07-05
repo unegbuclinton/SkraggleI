@@ -34,6 +34,10 @@ function DonationSetupFormComponent() {
     setAmount(event.target.title);
   };
 
+  const handleChange = (value) => {
+    setAmount(value);
+  };
+
   return (
     <FormComponentContainer>
       <FormHeaderText>Select Donation Amount</FormHeaderText>
@@ -53,7 +57,13 @@ function DonationSetupFormComponent() {
       <div className="form-input__container">
         <span className="form-input__kit">$</span>
         <FormHeaderText>Enter Custom Amount</FormHeaderText>
-        <Input autoWidth className="form-input" placeholder="$2000" value={amount} />
+        <Input
+          autoWidth
+          className="form-input"
+          placeholder="$2000"
+          value={amount}
+          onChange={(e) => handleChange(e.target.value)}
+        />
       </div>
 
       <FormParagraph>
