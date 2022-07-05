@@ -37,7 +37,7 @@ function EventsDetails() {
   const name = useLocation()?.state?.name;
   return (
     <DashboardLayout pageLinks={<PageLinks pageLinkBefore="Events" to="/events" names={name} />}>
-      <Tabs tabs={links} />
+      <Tabs tabs={links} scroll />
     </DashboardLayout>
   );
 }
