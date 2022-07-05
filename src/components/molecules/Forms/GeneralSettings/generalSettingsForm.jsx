@@ -5,7 +5,8 @@ import Input from 'components/atoms/Input/Input';
 import Switch from 'components/atoms/Switch/Switch';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import { useFormik } from 'formik';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
@@ -19,32 +20,43 @@ function GeneralSettingsForm({ IncrementTab }) {
     label: current?.name
   }));
 
+  const formik = useFormik({
+    initialValues: {
+      formName: name,
+      campaign: ''
+    }
+  });
+
+  useEffect(() => {
+    formik.setFieldValue('formName', name);
+  }, [name]);
+
   return (
-    <GeneralSettingsFormWrapper>
+    <GeneralSettingsFormWrapper onSubmit={formik.handleSubmit}>
       <GeneralSettingsFormCard>
         <label>Form Name</label>
         <Input
           className="modal-input"
           type="text"
-          id="pledge_name"
-          name="pledge_name"
+          id="formName"
+          name="formName"
           placeholder="Lorem Ipsum"
-          defaultValue={`${name}`}
-          //   onChange={formik.handleChange}
-          //   onBlur={formik.handleBlur}
-          //   value={formik.values.pledge_name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.formName}
+          defaultValue={name}
         />
         <label>Campaign</label>
         <SelectDropDown
           className="campaign-dropdown"
           placeholder={'Select a Campaign'}
-          id="designation"
-          name="designation"
+          id="campaign"
+          name="campaign"
           type={'text'}
           options={campaignoptions}
-          //   value={formik.values.designation}
-          //   onChange={(value) => formik.setFieldValue('designation', value.value)}
-          //   onBlur={formik.handleBlur}
+          value={formik.values.campaign}
+          onChange={(value) => formik.setFieldValue('campaign', value.value)}
+          onBlur={formik.handleBlur}
         />
         <div className="underline"></div>
         <div className="designate-donation">

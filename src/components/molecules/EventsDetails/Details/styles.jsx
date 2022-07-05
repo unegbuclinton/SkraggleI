@@ -1,9 +1,11 @@
-import { COLORS } from 'constants/colors';
 import Card from 'components/atoms/Card';
+import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const DetailsWrapper = styled(Card)`
+  height: 100%;
+  overflow: auto;
   padding: 2.2rem 1.3rem 0 1.3rem;
   margin-top: 1.6rem;
 `;

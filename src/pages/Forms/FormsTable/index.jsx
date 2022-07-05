@@ -40,7 +40,6 @@ function FormsTable() {
   };
 
   const onRowClicked = ({ id }) => {
-    // dispatch(getAllCampaigns(id));
     dispatch(getSingleForm(id));
     let path = 'forms-details';
     navigate(path);
@@ -109,7 +108,6 @@ function FormsTable() {
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
           />
-          {/* {openModal && <CreateFormModal isShown={openModal} onClose={() => setOpenModal(false)} />} */}
         </TableWrapper>
       </ContainerBody>
     </div>

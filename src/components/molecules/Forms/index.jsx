@@ -8,7 +8,8 @@ import Url from 'pages/Forms/FormsSubTab/URL';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import DonationMain from './DonationAmounts/DonationMain';
+// import DonationAmountFormOnce from './DonationAmounts/donationAmountFormOnce';
+import DonationAmounts from './DonationAmounts/DonationMain';
 import DonationSetup from './donationSetup';
 import GeneralSettingsMain from './GeneralSettings/generalSettings';
 import ProcessingFee from './ProcessingFee/ProcessingFee';
@@ -18,13 +19,13 @@ function ProcessingFeeMain() {
   const components = [
     { title: 'General Settings', component: GeneralSettingsMain },
     { title: 'Donation Setup', component: DonationSetup },
-    { title: 'Donation Amounts', component: DonationMain },
+    { title: 'Donation Amounts', component: DonationAmounts },
     { title: 'Processing Fee', component: ProcessingFee },
     { title: 'Supporter', component: SupportTab },
     { title: 'Thank You Page', component: ThankYouComponent },
     { title: 'URL', component: Url }
   ];
-  const { formsByID } = useSelector((state) => state?.forms);
+  const { formsByID } = useSelector((state) => state.forms);
   const { name } = formsByID;
 
   return (

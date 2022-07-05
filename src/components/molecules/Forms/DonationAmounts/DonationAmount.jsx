@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
-import MultiformTabs from 'components/molecules/MultiformTabs';
+// import MultiformTabs from 'components/molecules/MultiformTabs';
+import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
@@ -8,24 +9,43 @@ import styled from 'styled-components';
 import DonationAmountFormMonthly from './donationAmountFormMonthly';
 import DonationAmountFormOnce from './donationAmountFormOnce';
 
-function DonationAmount({ onClose, DecrementTab, IncrementTab }) {
+function DonationAmount({
+  onClose,
+  DecrementTab,
+  IncrementTab,
+  handleChange1,
+  handleChange2,
+  handleChange3,
+  handleChange4
+}) {
   const tabs = [
     {
-      name: 'Give Once',
-      component: DonationAmountFormOnce
+      title: 'Give Once',
+      component: (
+        <DonationAmountFormOnce
+          handleChange1={handleChange1}
+          handleChange2={handleChange2}
+          handleChange3={handleChange3}
+          handleChange4={handleChange4}
+        />
+      )
     },
     {
-      name: 'Monthly ',
-      component: DonationAmountFormMonthly
+      title: 'Monthly ',
+      component: <DonationAmountFormMonthly />
     }
   ];
+
+  // console.log(handleChangeA);
+
+  // console.log(props);
   return (
     <DonationMainWrapper>
       <h1 className="transaction-header">Suggested Amounts</h1>
       <p className="transaction-text">
         Larger suggested amounts increase the amount each donor gives
       </p>
-      <MultiformTabs tabs={tabs} onClose={onClose} className="multiform" />
+      <Tabs tabs={tabs} onClose={onClose} className="multiform" />
       <ButtonsWrapper>
         <Button type="button" className="back-button" onClick={DecrementTab}>
           Back
@@ -44,7 +64,6 @@ export const DonationMainWrapper = styled(Card)`
   width: 100%;
   height: 100%;
   overflow: auto;
-  /* max-width: 53rem; */
   flex: 0.65;
   padding: 4rem 4.4rem 2.4rem 4.4rem;
 
@@ -61,6 +80,7 @@ export const DonationMainWrapper = styled(Card)`
   }
   .multiform {
     background-color: ${COLORS['pink-200']};
+    color: #1e003e;
   }
 `;
 
