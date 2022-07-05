@@ -56,7 +56,7 @@ function EditPackageModalComponent({ setDropdown, setOpenDropdown, dropdown, onC
 
       dispatch(packageUpdate({ body, id })).then(() => {
         dispatch(getAllPackages());
-        toast.success('Package created successfully');
+        toast.success('Package Edited successfully');
         onClose();
       });
     }
@@ -203,7 +203,7 @@ function EditPackageModalComponent({ setDropdown, setOpenDropdown, dropdown, onC
         </div>
       </InputWrapper>
       <SwitchWrapper className="multiple-package-wrapper">
-        <SwitchLabel>Adjust the per package price when punchasing multiple packages</SwitchLabel>
+        <SwitchLabel>Adjust the per package price when purchasing multiple packages</SwitchLabel>
         <Switch />
       </SwitchWrapper>
       <InputWrapper>

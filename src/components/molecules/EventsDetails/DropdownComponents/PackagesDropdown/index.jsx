@@ -204,7 +204,7 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
         </div>
       </InputWrapper>
       <SwitchWrapper className="multiple-package-wrapper">
-        <SwitchLabel>Adjust the per package price when punchasing multiple packages</SwitchLabel>
+        <SwitchLabel>Adjust the per package price when purchasing multiple packages</SwitchLabel>
         <Switch />
       </SwitchWrapper>
       <InputWrapper>
