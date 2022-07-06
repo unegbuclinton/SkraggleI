@@ -25,6 +25,7 @@ export const FormContainer = styled.form`
     background-color: ${COLORS.white};
     margin-bottom: 0;
   }
+
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

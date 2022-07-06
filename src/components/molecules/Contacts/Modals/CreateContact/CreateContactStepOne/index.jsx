@@ -1,6 +1,7 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
+import PhoneNumberInput from 'components/atoms/PhoneInput';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -110,14 +111,14 @@ function CreateContactStepOne({ onClose, formik }) {
             <ErrorMsg>{formik.errors.primary_email}</ErrorMsg>
           ) : null}
           <FormLabel>PHONE</FormLabel>
-          <Input
-            className="input-field"
+          <PhoneNumberInput
+            className="phone-input"
             id="primary_phone"
             onWheel={() => document.activeElement.blur()}
             name="primary_phone"
             type="number"
             placeholder="Phone"
-            onChange={formik.handleChange}
+            onChange={formik.setFieldValue}
             onBlur={formik.handleBlur}
             value={formik.values.primary_phone}
           />
@@ -206,9 +207,6 @@ function CreateContactStepOne({ onClose, formik }) {
             onChange={(value) => formik.setFieldValue('company', value.value)}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.company && formik.errors.company ? (
-            <ErrorMsg>{formik.errors.company}</ErrorMsg>
-          ) : null}
           <ButtonContainer>
             <Button className="cancel" type="button" onClick={onClose} auth invert>
               Cancel
