@@ -1,4 +1,5 @@
 import Card from 'components/atoms/Card';
+import CustomIframes from 'components/molecules/customIframe';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconClose } from 'icons';
@@ -16,21 +17,26 @@ const Modal = ({
   showClose,
   plain,
   contrast,
+  sideModal,
+  iframeChildren,
   ...rest
 }) => {
   const modal = (
-    <div>
-      <Backdrop onClick={hide} plain={plain} />
-      <Wrapper rounded {...rest}>
-        <Header rounded contrast={contrast}>
-          {showClose && <DPIconClose className="close-btn" onClick={hide} />}
-          {header}
-        </Header>
-        <Content className={className} rounded>
-          {modalContent ?? children}
-        </Content>
-      </Wrapper>
-    </div>
+    <ModalWrapper>
+      <div className="modal-container">
+        <Backdrop onClick={hide} plain={plain} />
+        <Wrapper sideModal={sideModal} rounded {...rest}>
+          <Header rounded contrast={contrast}>
+            {showClose && <DPIconClose className="close-btn" onClick={hide} />}
+            {header}
+          </Header>
+          <Content className={className} rounded>
+            {modalContent ?? children}
+          </Content>
+        </Wrapper>
+        {sideModal && <IframeWrapper>{iframeChildren}</IframeWrapper>}
+      </div>
+    </ModalWrapper>
   );
 
   return isShown ? createPortal(modal, document.body) : null;
@@ -38,12 +44,19 @@ const Modal = ({
 
 export default Modal;
 
-export const Wrapper = styled.div`
-  position: fixed;
-  left: 50%;
+const ModalWrapper = styled.div`
+  .modal-container {
+    display: flex;
+    gap: 1.6rem;
+  }
+`;
+const Wrapper = styled.div`
+  position: absolute;
+  left: ${({ sideModal }) => (sideModal ? '40%' : ' 50%')};
   top: 8rem;
   z-index: 70;
-  width: 65rem;
+  width: 100%;
+  max-width: 65rem;
   outline: 0;
   transform: translateX(-50%);
   max-height: calc(100vh - 14rem);
@@ -52,7 +65,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Backdrop = styled.div`
+const IframeWrapper = styled(CustomIframes)`
+  z-index: 70;
+  position: absolute;
+  top: 8rem;
+  left: 65%;
+  max-width: 35rem;
+`;
+const Backdrop = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -69,7 +89,7 @@ export const Backdrop = styled.div`
     `};
 `;
 
-export const Header = styled.div`
+const Header = styled.div`
   background-color: ${COLORS.deepPurple};
   min-height: 7.2rem;
   position: relative;
@@ -100,7 +120,7 @@ export const Header = styled.div`
   }
 `;
 
-export const Content = styled(Card)`
+const Content = styled(Card)`
   overflow-y: auto;
   max-height: max-content;
   ${({ rounded }) =>
