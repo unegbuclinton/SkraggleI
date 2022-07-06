@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { InputContainer, Range, SelectValue } from './styles';
-function Slider({ className, text, sliderText }) {
-  const [value, setValue] = useState(10);
+function Slider({ className, text, sliderText, onChange, value }) {
+  // const [value, setValue] = useState(10);
   const sortValue = value * 2.8;
   return (
     <InputContainer className={className}>
@@ -9,14 +9,7 @@ function Slider({ className, text, sliderText }) {
         {value}
         {text}
       </SelectValue>
-      <Range
-        type="range"
-        value={value}
-        min="1"
-        max="100"
-        step="1"
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <Range type="range" value={value} min="1" max="100" step="1" onChange={onChange} />
     </InputContainer>
   );
 }
