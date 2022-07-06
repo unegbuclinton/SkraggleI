@@ -7,7 +7,7 @@ function DonationButton({ label, color, background, padding, fontSize }) {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        background: '#ffff',
+        background: '#ffff  ',
         borderRadius: '1rem',
         alignItems: 'center',
         height: '86%',
@@ -22,12 +22,3 @@ function DonationButton({ label, color, background, padding, fontSize }) {
 }
 
 export default DonationButton;
-
-// const ButtonWrapper = styled.div`
-//   padding: 1.5rem 0.8rem;
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
