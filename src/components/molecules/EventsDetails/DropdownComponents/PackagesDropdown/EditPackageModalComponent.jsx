@@ -2,12 +2,11 @@ import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
 import RadioGroup from 'components/atoms/RadioGroup';
 import Switch from 'components/atoms/Switch/Switch';
-import { createPackages, getAllPackages } from 'features/events/eventSlice';
+import { getAllPackages, packageUpdate } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { packageValidatioSchema } from 'validation/Schema';
 import {
   ButtonContainer,
   DropDownWrapper,
@@ -20,13 +19,14 @@ import {
   SwitchWrapper
 } from './styles';
 
-function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
-  const { isLoading } = useSelector((state) => state.events);
+function EditPackageModalComponent({ setDropdown, setOpenDropdown, dropdown, onClose }) {
+  const { isLoading, packageInfoData } = useSelector((state) => state.events);
 
+  const id = packageInfoData?.id;
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      name: '',
+      name: packageInfoData?.name,
       price: '',
       description: '',
       directCost: '',
@@ -37,7 +37,6 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
       qty: '',
       packageQuantity: ''
     },
-    validationSchema: packageValidatioSchema,
     onSubmit: (values) => {
       const body = {
         name: values.name,
@@ -55,9 +54,9 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
         custom_event_field: ['samson@gmail.com']
       };
 
-      dispatch(createPackages(body)).then(() => {
+      dispatch(packageUpdate({ body, id })).then(() => {
         dispatch(getAllPackages());
-        toast.success('Package created successfully');
+        toast.success('Package Edited successfully');
         onClose();
       });
     }
@@ -305,4 +304,4 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
   );
 }
 
-export default PackageDropdown;
+export default EditPackageModalComponent;
