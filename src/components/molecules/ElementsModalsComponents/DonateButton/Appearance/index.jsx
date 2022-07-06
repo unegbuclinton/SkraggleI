@@ -8,24 +8,31 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function DonateAppearance() {
-  const [white, setWhite] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#477BE0');
+function DonateAppearance({
+  onChange,
+  labelValue,
+  labelNameChange,
+  buttonColorChange,
+  buttonColorValue,
+  buttonSizeChange,
+  buttonSizeValue
+}) {
+  // const [white, setWhite] = useState('#FFFFFF');
   const [whitez, setWhitez] = useState('#FFFFFF');
   const [black, setBlack] = useState('#000000');
 
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
-      <Input type="text" className="input-field" placeholder="Donate" />
+      <Input type="text" className="input-field" placeholder="Donate" onChange={labelNameChange} />
       <ColorsWrapper>
         <WrapperColor>
           <ColorLabel>Label color</ColorLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+          <ColorComponents type="color" value={labelValue} onChange={onChange} />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Button color</ColorLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents type="color" value={buttonColorValue} onChange={buttonColorChange} />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Icon color</ColorLabel>
@@ -43,7 +50,13 @@ function DonateAppearance() {
       <SliderContainer>
         <SliderLabel>Button Size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            onChange={buttonSizeChange}
+            value={buttonSizeValue}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer>
