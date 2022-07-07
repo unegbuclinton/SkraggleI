@@ -10,10 +10,31 @@ import DonateAppearance from './Appearance';
 import DonateButtonBehavior from './Behavior';
 import CustomField from './CustomFields';
 
-function DonateButton() {
+function DonateButton({
+  onChange,
+  labelValue,
+  labelNameChange,
+  buttonColorChange,
+  buttonColorValue,
+  buttonSizeChange,
+  buttonSizeValue
+}) {
   const tabs = [
     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
-    { title: 'APPEARANCE', component: <DonateAppearance /> },
+    {
+      title: 'APPEARANCE',
+      component: (
+        <DonateAppearance
+          onChange={onChange}
+          labelValue={labelValue}
+          labelNameChange={labelNameChange}
+          buttonColorChange={buttonColorChange}
+          buttonColorValue={buttonColorValue}
+          buttonSizeChange={buttonSizeChange}
+          buttonSizeValue={buttonSizeValue}
+        />
+      )
+    },
     { title: 'CUSTOM FIELDS', component: <CustomField /> }
   ];
   return (
