@@ -1,5 +1,6 @@
 import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
+import NameLogo from 'components/molecules/NameLogo';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconMessage } from 'icons';
@@ -9,14 +10,8 @@ import styled from 'styled-components';
 function AddedContact() {
   const columns = [
     {
-      name: '',
-      selector: (row) => row.contact,
-      cell: () => <input type="checkbox" />,
-      width: '3.069rem'
-    },
-    {
       name: 'FULL NAME',
-      selector: (row) => row.fullName
+      cell: (row) => <NameLogo dashboardLogo text={row.fullName} />
     },
     {
       name: 'PRIMARY EMAIL',
@@ -24,7 +19,12 @@ function AddedContact() {
     },
     {
       name: 'ASSIGNEE',
-      selector: (row) => row.assignee
+      selector: (row) => row.assignee,
+      when: (row) => row.assignee < 0,
+      style: (row) => ({
+        color: row.isSpecial ? '#1E003E' : '#1E003E'
+      })
+      // style: { color: 'yellow' }
     },
     {
       name: 'CREATED',
