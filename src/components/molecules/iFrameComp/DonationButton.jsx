@@ -1,5 +1,4 @@
 import React from 'react';
-// import styled from 'styled-components';
 
 function DonationButton({ label, color, background, padding, fontSize }) {
   return (
