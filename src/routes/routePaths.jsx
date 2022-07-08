@@ -20,6 +20,7 @@ import Elements from 'pages/Elements';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
+import LandingPage from 'pages/LandingPage';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
@@ -161,7 +162,7 @@ export const privateRoutes = [
 
   {
     path: '/landing-page',
-    element: <DashboardLayout>Landing Page yet to be added</DashboardLayout>
+    element: <LandingPage />
   },
   {
     path: '/reports',
