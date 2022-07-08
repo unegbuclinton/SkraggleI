@@ -3,7 +3,7 @@ import Card from 'components/atoms/Card';
 import BarChart from 'components/organisms/BarChart';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconMembership } from 'icons';
+import { DPIconTransaction } from 'icons';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -34,7 +34,7 @@ function DonorReadiness() {
           <Card>
             <p className="Donor-text">Donor</p>
             <DonorBody>
-              <DPIconMembership />
+              <DPIconTransaction />
               <p className="Donor-content">No Expiring Donors</p>
               <Button className="Donor-btn" action onClick={NavigateTo}>
                 Go to contact
@@ -153,7 +153,7 @@ const DonorBody = styled.div`
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS['header-grey']};
-    margin-bottom: 3rem;
+    margin: 2rem 0 3rem 0;
   }
   .Donor-btn {
     font-size: ${FONTSIZES.xsmall};
