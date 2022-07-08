@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
@@ -198,7 +199,7 @@ function ContactStepTwo({ onClose, formik }) {
             <Button className="cancel" type="button" proute onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue" loading={isLoading}>
+            <Button type="submit" className="continue">
               Save
             </Button>
           </ButtonContainer>

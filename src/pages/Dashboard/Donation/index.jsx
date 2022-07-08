@@ -32,6 +32,7 @@ function Donation() {
             )}
 
             <Button
+              className="set-goal-btn"
               action
               onClick={() => {
                 setOpen(true);
