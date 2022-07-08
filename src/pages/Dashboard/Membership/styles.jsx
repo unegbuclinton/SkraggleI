@@ -1,7 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
-import { FONTSIZES } from 'constants/font-spec';
-import { FONTWEIGHTS } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const MembershipWrapper = styled.div`
   height: 46.7rem;
@@ -28,10 +27,11 @@ export const MembershipBody = styled.div`
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS['header-grey']};
-    margin-bottom: 3rem;
+    margin: 1.6rem 0 3rem 0;
   }
   .membership-btn {
     font-size: ${FONTSIZES.xsmall};
     padding: 1.1rem 0;
+    background-color: ${COLORS.deepPurple};
   }
 `;

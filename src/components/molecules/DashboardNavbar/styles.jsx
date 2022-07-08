@@ -58,6 +58,11 @@ export const Header = styled.header`
       letter-spacing: 0em;
       color: rgba(154, 154, 169, 1);
     }
+    &__first-image {
+      position: relative;
+      left: 8rem;
+      bottom: 1rem;
+    }
   }
 `;
 
@@ -100,8 +105,8 @@ export const HeaderRightContent = styled.div`
     position: absolute;
     height: ${({ open }) => (open ? '26.5rem' : '0')};
     overflow: ${({ open }) => (open ? '' : 'hidden')};
-    right: 0;
-    top: 3rem;
+    left: 3rem;
+    top: 4.3rem;
     flex-direction: column;
     background: ${COLORS.white};
     justify-content: center;
