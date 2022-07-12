@@ -238,7 +238,7 @@ function NewElement({
                 </ElementWrapper>
               );
             })
-          : ElementContents.map((element, idx) => (
+          : ElementContents.slice(0, 1).map((element, idx) => (
               <ElementWrapper key={idx}>
                 <ElementButton onClick={element.click}>{element.name}</ElementButton>
                 <ElementText>{element.title}</ElementText>
