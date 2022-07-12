@@ -23,9 +23,7 @@ function DonateButton() {
   ];
 
   const htmlCode = useMemo(() => {
-    const htmlCode = new BasicElement(elementConfig).toString();
-    console.log('-->', htmlCode);
-    return htmlCode;
+    return new BasicElement(elementConfig).toString();
   }, [JSON.stringify(elementConfig)]);
 
   return (

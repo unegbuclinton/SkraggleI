@@ -4,7 +4,7 @@ import React from 'react';
 
 function DonationButton() {
   // vars
-  const { elementConfig, setElementConfig } = useElement();
+  const { elementConfig } = useElement();
 
   return (
     <div
