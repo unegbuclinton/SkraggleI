@@ -6,8 +6,7 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { useElement } from 'context';
 import { BasicElement } from 'lib';
-import React from 'react';
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import styled from 'styled-components';
 import DonateAppearance from './Appearance';
 import DonateButtonBehavior from './Behavior';
@@ -15,13 +14,20 @@ import CustomField from './CustomFields';
 
 function DonateButton() {
   // vars
-  const { elementConfig } = useElement();
+  const { elementConfig, setElementConfig } = useElement();
   const tabs = [
     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
     { title: 'APPEARANCE', component: <DonateAppearance /> },
     { title: 'CUSTOM FIELDS', component: <CustomField /> }
   ];
 
+  // hooks
+  useEffect(() => {
+    setElementConfig((draft) => {
+      draft.type = 'button';
+    });
+  }, []);
+  
   const htmlCode = useMemo(() => {
     return new BasicElement(elementConfig).toString();
   }, [JSON.stringify(elementConfig)]);

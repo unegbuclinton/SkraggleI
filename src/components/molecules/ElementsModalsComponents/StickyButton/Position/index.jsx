@@ -2,22 +2,49 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { useElement } from 'context';
 import React from 'react';
 import styled from 'styled-components';
 
 function Position() {
+  // vars
+  const {
+    elementConfig,
+    setElementConfig,
+    changeAlignment,
+    changePosition,
+    changeScrollOffset
+  } = useElement();
+
   return (
     <PositionWrapper>
       <InputWrapper>
         <StickyButtonLabel>Alignment</StickyButtonLabel>
         <Wrapper>
-          <SelectDropDown className="dropdown" placeholder="Left" />
+          <SelectDropDown
+            options={[
+              { label: 'Left', value: 'left' },
+              { label: 'Right', value: 'right' }
+            ]}
+            className="dropdown"
+            myValue="left"
+            onChange={e => changeAlignment(e.value)}
+          />
         </Wrapper>
       </InputWrapper>
       <InputWrapper>
         <StickyButtonLabel>Position</StickyButtonLabel>
         <Wrapper>
-          <SelectDropDown className="dropdown" placeholder="Top" />
+          <SelectDropDown
+            options={[
+              { label: 'Top', value: 'top' },
+              { label: 'Bottom', value: 'bottom' }
+            ]}
+            className="dropdown"
+            myValue="top"
+            onChange={e => changePosition(e.value)}
+            
+          />
         </Wrapper>
       </InputWrapper>
       <NumberInputWrapper>
@@ -27,7 +54,8 @@ function Position() {
             onWheel={() => document.activeElement.blur()}
             className="input"
             type="number"
-            placeholder="0"
+            value={parseFloat(elementConfig.scrollOffset.replace('px', ''))}
+            onChange={changeScrollOffset}
           />
         </Wrapper>
         <Pixel>px</Pixel>

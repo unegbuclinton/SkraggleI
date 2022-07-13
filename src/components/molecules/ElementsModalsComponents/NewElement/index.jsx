@@ -231,14 +231,15 @@ function NewElement({
         </HeaderWrapper>
         {searchInput.length > 0
           ? filteredResults.map((element, idx) => {
-              return (
-                <ElementWrapper key={idx}>
-                  <ElementButton onClick={element.click}>{element.name}</ElementButton>
-                  <ElementText>{element.title}</ElementText>
-                </ElementWrapper>
-              );
-            })
-          : ElementContents.slice(0, 1).map((element, idx) => (
+            return (
+              <ElementWrapper key={idx}>
+                <ElementButton onClick={element.click}>{element.name}</ElementButton>
+                <ElementText>{element.title}</ElementText>
+              </ElementWrapper>
+            );
+          })
+          : ElementContents
+            .map((element, idx) => (
               <ElementWrapper key={idx}>
                 <ElementButton onClick={element.click}>{element.name}</ElementButton>
                 <ElementText>{element.title}</ElementText>
