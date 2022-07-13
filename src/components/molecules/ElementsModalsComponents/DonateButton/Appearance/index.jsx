@@ -15,33 +15,64 @@ function DonateAppearance() {
 
   // hooks
   useEffect(() => {
-    setElementConfig(draft => { draft.type = 'button' });
+    setElementConfig((draft) => {
+      draft.type = 'button';
+    });
   }, []);
+
+  // utils
+  const changeStyleAttribute = (key, e, type = 'style') => {
+    setElementConfig((draft) => {
+      draft[type][key] = e.target.value;
+    });
+  };
+  const changeChildrenAttribute = (e) => {
+    setElementConfig((draft) => {
+      draft.children = e.target.value;
+    });
+  };
 
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
-      <Input type="text" className="input-field" placeholder="Donate" onChange={e => setElementConfig(draft => { draft.children = e.target.value })} />
+      <Input
+        type="text"
+        className="input-field"
+        placeholder="Donate"
+        onChange={changeChildrenAttribute}
+      />
       <ColorsWrapper>
         <WrapperColor>
           <ColorLabel>Label color</ColorLabel>
-          <ColorComponents type="color" value={elementConfig.style.color} onChange={e => setElementConfig(draft => { draft.style.color = e.target.value })} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.color}
+            onChange={(e) => changeStyleAttribute('color', e)}
+          />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Button color</ColorLabel>
-          <ColorComponents type="color" value={elementConfig.style.backgroundColor} onChange={e => setElementConfig(draft => { draft.style.backgroundColor = e.target.value })} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.backgroundColor}
+            onChange={(e) => changeStyleAttribute('backgroundColor', e)}
+          />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Icon color</ColorLabel>
           <ColorComponents
             type="color"
             value={elementConfig.icon.color}
-            onChange={e => setElementConfig(draft => { draft.icon.color = e.target.value })}
+            onChange={(e) => changeStyleAttribute('color', e, 'icon')}
           />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Border color</ColorLabel>
-          <ColorComponents type="color" value={elementConfig.style.borderColor} onChange={e => setElementConfig(draft => { draft.style.borderColor = e.target.value })} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.borderColor}
+            onChange={(e) => changeStyleAttribute('borderColor', e)}
+          />
         </WrapperColor>
       </ColorsWrapper>
       <SliderContainer>
@@ -51,7 +82,7 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={e => setElementConfig(draft => { draft.style.height = e.target.value })}
+            onChange={(e) => changeStyleAttribute('height', e)}
             value={parseFloat(elementConfig.style.height)}
           />
         </SliderWrapper>
@@ -63,7 +94,7 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={e => setElementConfig(draft => { draft.style.width = e.target.value })}
+            onChange={(e) => changeStyleAttribute('width', e)}
             value={parseFloat(elementConfig.style.width)}
           />
         </SliderWrapper>
@@ -75,7 +106,7 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={e => setElementConfig(draft => { draft.style.borderWidth = e.target.value })}
+            onChange={(e) => changeStyleAttribute('borderWidth', e)}
             value={parseFloat(elementConfig.style.borderWidth)}
           />
         </SliderWrapper>
@@ -87,7 +118,7 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={e => setElementConfig(draft => { draft.style.borderRadius = e.target.value })}
+            onChange={(e) => changeStyleAttribute('borderRadius', e)}
             value={parseFloat(elementConfig.style.borderRadius)}
           />
         </SliderWrapper>
