@@ -6,17 +6,13 @@ import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { useElement } from 'context';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 function DonateAppearance() {
   // vars
-  const {
-    elementConfig,
-    toggleElementBoxShadow,
-    changeStyleAttribute,
-    changeChildrenAttribute
-  } = useElement();
+  const { elementConfig, toggleElementBoxShadow, changeStyleAttribute, changeChildrenAttribute } =
+    useElement();
 
   return (
     <DonateAppearanceWrapper>

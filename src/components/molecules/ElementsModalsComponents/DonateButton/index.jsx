@@ -6,7 +6,7 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { useElement } from 'context';
 import { BasicElement } from 'lib';
-import { useMemo, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import DonateAppearance from './Appearance';
 import DonateButtonBehavior from './Behavior';
@@ -27,7 +27,7 @@ function DonateButton() {
       draft.type = 'button';
     });
   }, []);
-  
+
   const htmlCode = useMemo(() => {
     return new BasicElement(elementConfig).toString();
   }, [JSON.stringify(elementConfig)]);

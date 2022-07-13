@@ -10,19 +10,21 @@ import styled from 'styled-components';
 
 function Appearance() {
   // vars
-  const {
-    elementConfig,
-    toggleElementBoxShadow,
-    changeStyleAttribute,
-    changeChildrenAttribute
-  } = useElement();
+  const { elementConfig, toggleElementBoxShadow, changeStyleAttribute, changeChildrenAttribute } =
+    useElement();
 
   return (
     <AppearanceWrapper>
       <InputWrapper>
         <StickyButtonLabel>Label</StickyButtonLabel>
         <Wrapper>
-          <Input className="input-field" type="text" placeholder="Donate" value={elementConfig.children} onChange={changeChildrenAttribute} />
+          <Input
+            className="input-field"
+            type="text"
+            placeholder="Donate"
+            value={elementConfig.children}
+            onChange={changeChildrenAttribute}
+          />
         </Wrapper>
       </InputWrapper>
       <SliderContainer>

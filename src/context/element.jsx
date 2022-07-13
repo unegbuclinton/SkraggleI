@@ -19,7 +19,7 @@ export const defaultElementConfig = {
     jsx: null
   },
   name: '',
-  scrollOffset: '0px',
+  scrollOffset: '0px'
 };
 
 export const ElementContextProvider = ({ children }) => {
@@ -83,10 +83,15 @@ export const ElementContextProvider = ({ children }) => {
     setElementConfig((draft) => {
       draft.scrollOffset = value;
 
-      const position = draft.parentStyle.top !== undefined ? 'top' : draft.parentStyle.bottom !== undefined ? 'bottom' : undefined;
+      const position =
+        draft.parentStyle.top !== undefined
+          ? 'top'
+          : draft.parentStyle.bottom !== undefined
+          ? 'bottom'
+          : undefined;
       if (position !== undefined) draft.parentStyle[position] = value;
     });
-  }
+  };
 
   const memoisedContext = useMemo(
     () => ({
@@ -99,7 +104,16 @@ export const ElementContextProvider = ({ children }) => {
       changePosition,
       changeScrollOffset
     }),
-    [elementConfig, setElementConfig, toggleElementBoxShadow, changeChildrenAttribute, changeStyleAttribute, changeAlignment, changePosition, changeScrollOffset]
+    [
+      elementConfig,
+      setElementConfig,
+      toggleElementBoxShadow,
+      changeChildrenAttribute,
+      changeStyleAttribute,
+      changeAlignment,
+      changePosition,
+      changeScrollOffset
+    ]
   );
 
   return <ElementContext.Provider value={memoisedContext}>{children}</ElementContext.Provider>;

@@ -8,13 +8,7 @@ import styled from 'styled-components';
 
 function Position() {
   // vars
-  const {
-    elementConfig,
-    setElementConfig,
-    changeAlignment,
-    changePosition,
-    changeScrollOffset
-  } = useElement();
+  const { elementConfig, changeAlignment, changePosition, changeScrollOffset } = useElement();
 
   return (
     <PositionWrapper>
@@ -28,7 +22,7 @@ function Position() {
             ]}
             className="dropdown"
             myValue="left"
-            onChange={e => changeAlignment(e.value)}
+            onChange={(e) => changeAlignment(e.value)}
           />
         </Wrapper>
       </InputWrapper>
@@ -42,8 +36,7 @@ function Position() {
             ]}
             className="dropdown"
             myValue="top"
-            onChange={e => changePosition(e.value)}
-            
+            onChange={(e) => changePosition(e.value)}
           />
         </Wrapper>
       </InputWrapper>

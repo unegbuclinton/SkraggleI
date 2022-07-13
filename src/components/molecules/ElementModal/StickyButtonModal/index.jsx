@@ -10,8 +10,7 @@ function StickyButtonModal({ onClose, isShown }) {
       isShown={isShown}
       hide={onClose}
       sideModal
-      iframeChildren={<DraftStickyButton />}
-    >
+      iframeChildren={<DraftStickyButton />}>
       <StickyButton onclose={onClose} />
     </Modal>
   );
