@@ -5,76 +5,130 @@ import Slider from 'components/atoms/Slider';
 // import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { useElement } from 'context';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-function DonateAppearance({
-  onChange,
-  labelValue,
-  labelNameChange,
-  buttonColorChange,
-  buttonColorValue,
-  buttonSizeChange,
-  buttonSizeValue
-}) {
-  // const [white, setWhite] = useState('#FFFFFF');
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+function DonateAppearance() {
+  // vars
+  const { elementConfig, setElementConfig, toggleElementBoxShadow } = useElement();
+
+  // hooks
+  useEffect(() => {
+    setElementConfig((draft) => {
+      draft.type = 'button';
+    });
+  }, []);
+
+  // utils
+  const changeStyleAttribute = (key, e, type = 'style') => {
+    setElementConfig((draft) => {
+      draft[type][key] = e.target.value;
+    });
+  };
+  const changeChildrenAttribute = (e) => {
+    setElementConfig((draft) => {
+      draft.children = e.target.value;
+    });
+  };
 
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
-      <Input type="text" className="input-field" placeholder="Donate" onChange={labelNameChange} />
+      <Input
+        type="text"
+        className="input-field"
+        placeholder="Donate"
+        onChange={changeChildrenAttribute}
+      />
       <ColorsWrapper>
         <WrapperColor>
           <ColorLabel>Label color</ColorLabel>
-          <ColorComponents type="color" value={labelValue} onChange={onChange} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.color}
+            onChange={(e) => changeStyleAttribute('color', e)}
+          />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Button color</ColorLabel>
-          <ColorComponents type="color" value={buttonColorValue} onChange={buttonColorChange} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.backgroundColor}
+            onChange={(e) => changeStyleAttribute('backgroundColor', e)}
+          />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Icon color</ColorLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={elementConfig.icon.color}
+            onChange={(e) => changeStyleAttribute('color', e, 'icon')}
           />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Border color</ColorLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.borderColor}
+            onChange={(e) => changeStyleAttribute('borderColor', e)}
+          />
         </WrapperColor>
       </ColorsWrapper>
       <SliderContainer>
-        <SliderLabel>Button Size</SliderLabel>
+        <SliderLabel>Button Height</SliderLabel>
         <SliderWrapper>
           <Slider
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={buttonSizeChange}
-            value={buttonSizeValue}
+            onChange={(e) => changeStyleAttribute('height', e)}
+            value={parseFloat(elementConfig.style.height)}
+          />
+        </SliderWrapper>
+      </SliderContainer>
+      <SliderContainer>
+        <SliderLabel>Button Width</SliderLabel>
+        <SliderWrapper>
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            onChange={(e) => changeStyleAttribute('width', e)}
+            value={parseFloat(elementConfig.style.width)}
           />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            onChange={(e) => changeStyleAttribute('borderWidth', e)}
+            value={parseFloat(elementConfig.style.borderWidth)}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer>
         <SliderLabel>Button radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            onChange={(e) => changeStyleAttribute('borderRadius', e)}
+            value={parseFloat(elementConfig.style.borderRadius)}
+          />
         </SliderWrapper>
       </SliderContainer>
-      <CheckboxContainer>
-        <Checkbox />
-        <CheckboxLabel>Show shadow</CheckboxLabel>
-      </CheckboxContainer>
+      <span onClick={toggleElementBoxShadow}>
+        <CheckboxContainer>
+          <Checkbox checked={elementConfig.style.boxShadow !== undefined} />
+          <CheckboxLabel>Show shadow</CheckboxLabel>
+        </CheckboxContainer>
+      </span>
     </DonateAppearanceWrapper>
   );
 }
