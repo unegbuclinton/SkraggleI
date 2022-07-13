@@ -1,9 +1,9 @@
 import { renderToString } from 'react-dom/server';
 import { Button } from './Button';
+import { EmptyStickyButton } from './StickyButton';
 
 export class BasicElement {
-  constructor({ name, type, style = {}, children, href, icon = {} }) {
-    this.name = name;
+  constructor({ type, style = {}, children, href, icon = {} }) {
     this.type = type;
     this.style = style;
     this.href = href;
@@ -33,6 +33,8 @@ const getJSX = (type) => {
   switch (type) {
     case 'button':
       return Button;
+    case 'sticky-button':
+      return EmptyStickyButton;
     default:
       return null;
   }

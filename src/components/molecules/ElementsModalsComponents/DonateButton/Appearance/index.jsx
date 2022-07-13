@@ -6,31 +6,13 @@ import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { useElement } from 'context';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 function DonateAppearance() {
   // vars
-  const { elementConfig, setElementConfig, toggleElementBoxShadow } = useElement();
-
-  // hooks
-  useEffect(() => {
-    setElementConfig((draft) => {
-      draft.type = 'button';
-    });
-  }, []);
-
-  // utils
-  const changeStyleAttribute = (key, e, type = 'style') => {
-    setElementConfig((draft) => {
-      draft[type][key] = e.target.value;
-    });
-  };
-  const changeChildrenAttribute = (e) => {
-    setElementConfig((draft) => {
-      draft.children = e.target.value;
-    });
-  };
+  const { elementConfig, toggleElementBoxShadow, changeStyleAttribute, changeChildrenAttribute } =
+    useElement();
 
   return (
     <DonateAppearanceWrapper>
