@@ -11,9 +11,7 @@ function DonateModal({ onClose, isShown }) {
         hide={onClose}
         sideModal
         iframeChildren={<DonationButton />}>
-        <DonateButton
-          onclose={onClose}
-        />
+        <DonateButton onclose={onClose} />
       </Modal>
     </div>
   );

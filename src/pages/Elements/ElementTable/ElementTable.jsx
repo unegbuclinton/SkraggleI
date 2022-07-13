@@ -149,7 +149,10 @@ function ElementTable() {
         />
         <P2PButtonsModal isShown={openP2pButtons} onClose={() => setOpenP2pButtons(false)} />
         <P2PLinkModal isShown={openP2pLink} onClose={() => setOpenP2pLink(false)} />
-        <TopFundraiserModal isShown={openTopFundRaiser} onClose={() => setOpenTopFunRaiser(false)} />
+        <TopFundraiserModal
+          isShown={openTopFundRaiser}
+          onClose={() => setOpenTopFunRaiser(false)}
+        />
         <NewElementModal
           isShown={open}
           setOpenDonateButton={setOpenDonateButton}
