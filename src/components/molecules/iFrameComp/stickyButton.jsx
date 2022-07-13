@@ -15,44 +15,50 @@ function DraftStickyButton() {
         padding: '1rem .3rem',
         overflow: 'auto'
       }}>
-      <div style={{ color: 'green' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
-        exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
-        necessitatibus aliquam id dolor iure quis fuga.
-      </div>
+      <p style={{ color: 'green' }}>
+        A sticky button "sticks" to a point on your users screens (determined by the "scroll offset" value) after they scroll.
+      </p>
+      <p style={{ color: 'red' }}>
+        Set the "scroll offset" to "30px" and try scrolling here to see the magic.
+      </p>
 
       <EmptyStickyButton {...elementConfig} />
 
-      <div style={{ color: 'red' }}>
+      <p style={{ color: 'red' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
-      <div style={{ color: 'blue' }}>
+      </p>
+      <p style={{ color: 'blue' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
-      <div style={{ color: 'purple' }}>
+      </p>
+      <p style={{ color: 'purple' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
-      <div style={{ color: 'orange' }}>
+      </p>
+      <p style={{ color: 'orange' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
-      <div style={{ color: 'yellow' }}>
+      </p>
+      <p style={{ color: 'yellow' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
-      <div style={{ color: 'black' }}>
+      </p>
+      <p style={{ color: 'black' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
         exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
         necessitatibus aliquam id dolor iure quis fuga.
-      </div>
+      </p>
+      <p style={{ color: 'red' }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
+        exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
+        necessitatibus aliquam id dolor iure quis fuga.
+      </p>
     </div>
   );
 }
