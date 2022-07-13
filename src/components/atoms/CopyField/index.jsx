@@ -8,7 +8,8 @@ import styled, { css } from 'styled-components';
 
 function CopyField({ grey, value }) {
   const copyToClipboard = useCallback(() => {
-    navigator.clipboard.writeText(value)
+    navigator.clipboard
+      .writeText(value)
       .then(() => toast.info('Text copied!'))
       .catch(() => toast.error('Something went wrong'));
   }, [value]);
