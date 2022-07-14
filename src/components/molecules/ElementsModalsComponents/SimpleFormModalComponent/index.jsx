@@ -19,12 +19,75 @@ import {
   FormLabel
 } from './styles';
 
-function SimpleFormModalComponent() {
+function SimpleFormModalComponent({
+  formSize,
+  formSizeChange,
+  textColorChange,
+  textColor,
+  backgroundColorChange,
+  backgroundColor,
+  borderSize,
+  borderSizeChange,
+  borderRadius,
+  borderRadiusChange,
+  borderColorChange,
+  borderColor,
+  amountLabelChange,
+  showAmountShadowChange,
+  buttonLabelChange,
+  labelColorChange,
+  labelColor,
+  buttonColorChange,
+  buttonColor,
+  buttonBorder,
+  buttonBorderChange,
+  buttonRadius,
+  buttonRadiusChange,
+  buttonBorderColorChange,
+  buttonBorderColor,
+  showButtonShadowChange
+}) {
   const tabs = [
     { title: 'BEHAVIOUR', component: <Behavior /> },
-    { title: 'FORM', component: <Form /> },
-    { title: 'AMOUNT', component: <Amount /> },
-    { title: 'BUTTONS', component: <Buttons /> },
+    { title: 'FORM', component: <Form formSizeChange={formSizeChange} formSize={formSize} /> },
+    {
+      title: 'AMOUNT',
+      component: (
+        <Amount
+          textColorChange={textColorChange}
+          textColor={textColor}
+          backgroundColorChange={backgroundColorChange}
+          backgroundColor={backgroundColor}
+          borderSize={borderSize}
+          borderSizeChange={borderSizeChange}
+          borderRadius={borderRadius}
+          borderRadiusChange={borderRadiusChange}
+          borderColorChange={borderColorChange}
+          borderColor={borderColor}
+          amountLabelChange={amountLabelChange}
+          showAmountShadowChange={showAmountShadowChange}
+        />
+      )
+    },
+    {
+      title: 'BUTTONS',
+      component: (
+        <Buttons
+          buttonLabelChange={buttonLabelChange}
+          labelColorChange={labelColorChange}
+          labelColor={labelColor}
+          buttonColorChange={buttonColorChange}
+          buttonColor={buttonColor}
+          buttonBorder={buttonBorder}
+          buttonBorderChange={buttonBorderChange}
+          buttonRadius={buttonRadius}
+          buttonRadiusChange={buttonRadiusChange}
+          buttonBorderColorChange={buttonBorderColorChange}
+          buttonBorderColor={buttonBorderColor}
+          showButtonShadowChange={showButtonShadowChange}
+        />
+      )
+    },
     { title: 'CUSTOM FIELDS', component: <CustomFields /> }
   ];
   return (

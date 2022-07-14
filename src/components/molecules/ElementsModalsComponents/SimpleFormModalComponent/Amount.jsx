@@ -7,11 +7,20 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Amount() {
-  const [textColor, setTextColor] = useState('#477BE0');
+function Amount({
+  textColorChange,
+  textColor,
+  backgroundColorChange,
+  backgroundColor,
+  borderSize,
+  borderSizeChange,
+  borderRadius,
+  borderRadiusChange,
+  borderColorChange,
+  borderColor,
+  showAmountShadowChange
+}) {
   const [iconColor, setIconColor] = useState('#FFFFFF');
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#1E003E');
 
   return (
     <AmountWrapper>
@@ -19,11 +28,7 @@ function Amount() {
         <AmountLabel>Text color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={textColor}
-              onChange={(e) => setTextColor(e.target.value)}
-            />
+            <ColorComponents type="color" value={textColor} onChange={textColorChange} />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
@@ -35,7 +40,7 @@ function Amount() {
             <ColorComponents
               type="color"
               value={backgroundColor}
-              onChange={(e) => setBackgroundColor(e.target.value)}
+              onChange={backgroundColorChange}
             />
           </ColorContainer>
         </ColorContainerWrapper>
@@ -57,14 +62,26 @@ function Amount() {
       <AmountFieldWrapper>
         <AmountLabel>Border size</AmountLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            min={0}
+            max={6}
+            onChange={borderSizeChange}
+            value={borderSize}
+          />
         </SliderWrapper>
       </AmountFieldWrapper>
 
       <AmountFieldWrapper>
         <AmountLabel>Border radius</AmountLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            onChange={borderRadiusChange}
+            value={borderRadius}
+          />
         </SliderWrapper>
       </AmountFieldWrapper>
 
@@ -72,17 +89,13 @@ function Amount() {
         <AmountLabel>Border color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={borderColor}
-              onChange={(e) => setBorderColor(e.target.value)}
-            />
+            <ColorComponents type="color" value={borderColor} onChange={borderColorChange} />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
       <AmountFieldWrapper>
         <AmountLabel></AmountLabel>
-        <Checkbox pink className="amount-checkbox" />
+        <Checkbox pink className="amount-checkbox" onChange={showAmountShadowChange} />
         Show shadow
       </AmountFieldWrapper>
     </AmountWrapper>

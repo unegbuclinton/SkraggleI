@@ -4,29 +4,39 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-function Buttons() {
-  const [labelColor, setLabelColor] = useState('#477BE0');
-  const [buttonColor, setButtonColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#1E003E');
+function Buttons({
+  buttonLabelChange,
+  labelColorChange,
+  labelColor,
+  buttonColorChange,
+  buttonColor,
+  buttonBorder,
+  buttonBorderChange,
+  buttonRadius,
+  buttonRadiusChange,
+  buttonBorderColorChange,
+  buttonBorderColor,
+  showButtonShadowChange
+}) {
   return (
     <ButtonWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel>Label</ButtonLabel>
-        <Input className="button-input" placeholder="Doante and support" />
+        <Input
+          className="button-input"
+          placeholder="Doante and support"
+          onChange={buttonLabelChange}
+        />
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
         <ButtonLabel>Label color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={labelColor}
-              onChange={(e) => setLabelColor(e.target.value)}
-            />
+            <ColorComponents type="color" value={labelColor} onChange={labelColorChange} />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -35,11 +45,7 @@ function Buttons() {
         <ButtonLabel>Button color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents
-              type="color"
-              value={buttonColor}
-              onChange={(e) => setButtonColor(e.target.value)}
-            />
+            <ColorComponents type="color" value={buttonColor} onChange={buttonColorChange} />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -47,14 +53,26 @@ function Buttons() {
       <ButtonFieldWrapper>
         <ButtonLabel>Border size</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            min={0}
+            max={6}
+            onChange={buttonBorderChange}
+            value={buttonBorder}
+          />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
         <ButtonLabel>Border radius</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            onChange={buttonRadiusChange}
+            value={buttonRadius}
+          />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
@@ -64,15 +82,15 @@ function Buttons() {
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={borderColor}
-              onChange={(e) => setBorderColor(e.target.value)}
+              value={buttonBorderColor}
+              onChange={buttonBorderColorChange}
             />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel></ButtonLabel>
-        <Checkbox pink className="button-checkbox" />
+        <Checkbox pink className="button-checkbox" onChange={showButtonShadowChange} />
         Show Shadow
       </ButtonFieldWrapper>
     </ButtonWrapper>

@@ -4,13 +4,20 @@ import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
 
-function Form() {
+function Form({ formSizeChange, formSize }) {
   return (
     <FormWrapper>
       <FormFieldWrapper>
         <FormLabel>Form size</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            min={40}
+            max={150}
+            value={formSize}
+            onChange={formSizeChange}
+          />
         </SliderWrapper>
       </FormFieldWrapper>
     </FormWrapper>
