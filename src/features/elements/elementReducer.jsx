@@ -10,9 +10,27 @@ const initialState = {
     borderColor: '',
     buttonHeight: '',
     buttonWidth: 'fit-content',
-    shdaow: ''
+    boxShadow: ''
   },
-  stickyButton: {}
+  stickyButton: {},
+  reminder: {
+    boxShadow: '',
+    labelColor: '#000',
+    backgroundColor: '#fff',
+    borderSize: '',
+    buttonColor: '',
+    borderRadius: '',
+    borderColor: '',
+    iconColor: ''
+  },
+  goalMeter: {
+    animation: '',
+    labelColor: '#000',
+    backgroundColor: '#fff',
+    borderSize: '',
+    progressBarColor: '',
+    borderRadius: ''
+  }
 };
 export const elementIframesReducer = createSlice({
   name: 'elementModal',
@@ -20,9 +38,16 @@ export const elementIframesReducer = createSlice({
   reducers: {
     donationButtonAction: (state, action) => {
       state.donationButton = action.payload;
+    },
+    reminderAction: (state, action) => {
+      state.reminder = action.payload;
+    },
+    goalMeterAction: (state, action) => {
+      state.goalMeter = action.payload;
     }
   }
 });
 
-export const { donationButtonAction } = elementIframesReducer.actions;
+export const { donationButtonAction, reminderAction, goalMeterAction } =
+  elementIframesReducer.actions;
 export default elementIframesReducer.reducer;

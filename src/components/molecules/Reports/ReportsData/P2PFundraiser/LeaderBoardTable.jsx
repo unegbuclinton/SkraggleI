@@ -4,9 +4,12 @@ import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconChevronDown } from 'icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { formatDate } from 'utilities/helpers';
 
 function LeaderBoardTable() {
+  const { leaderBoard } = useSelector((state) => state.report);
   const columns = [
     {
       name: '',
@@ -24,7 +27,7 @@ function LeaderBoardTable() {
     },
     {
       name: 'CAMPAIGN NAME',
-      selector: (row) => row.name
+      selector: (row) => row?.campaign?.name
     },
     {
       name: 'STATUS',
@@ -36,70 +39,11 @@ function LeaderBoardTable() {
     },
     {
       name: 'DATE',
-      selector: (row) => row.date
+      selector: (row) => formatDate(row?.date_received)
     },
     {
       name: 'LOCATION',
-      selector: (row) => row.location
-    }
-  ];
-
-  const recurringData = [
-    {
-      rank: '1',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '2',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '3',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '4',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '5',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '6',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
-    },
-    {
-      rank: '7',
-      participants: 'John Doe',
-      name: 'BGA awesome campaign demo #1',
-      amount: '$5000.00',
-      date: 'Oct 10, 2021',
-      location: 'NY'
+      selector: (row) => row?.location
     }
   ];
 
@@ -109,7 +53,7 @@ function LeaderBoardTable() {
         <h1>Leaderboard</h1>
         <DPIconChevronDown />
       </TableHeader>
-      <Table columns={columns} data={recurringData} />
+      <Table columns={columns} data={leaderBoard} />
     </TableWrapper>
   );
 }

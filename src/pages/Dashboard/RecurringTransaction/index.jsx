@@ -1,5 +1,6 @@
 import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
+import NameLogo from 'components/molecules/NameLogo';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconMessage } from 'icons';
@@ -9,14 +10,8 @@ import styled from 'styled-components';
 function RecurringTransaction() {
   const columns = [
     {
-      name: '',
-      selector: (row) => row.contact,
-      cell: () => <input type="checkbox" />,
-      width: '3.069rem'
-    },
-    {
       name: 'CONTACT',
-      selector: (row) => row.contact
+      cell: (row) => <NameLogo dashboardLogo text={row.contact} />
     },
     {
       name: 'TOTAL AMOUNT',

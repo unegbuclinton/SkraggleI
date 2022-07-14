@@ -35,12 +35,17 @@ export const createContactStepOneValidationSchema = Yup.object({
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
-  primary_phone: Yup.string().required('Phone Number is required'),
+  primary_phone: Yup.string()
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      'Phone number is not valid'
+    )
+    .min(10, 'to short')
+    .required('Phone Number is required'),
   emailSubscription: Yup.string().required('Email Subscription is required'),
   date: Yup.string().required('Date is required'),
   month: Yup.string().required('Month is required'),
-  year: Yup.string().required('Year is required'),
-  company: Yup.string().required('Company is required')
+  year: Yup.string().required('Year is required')
 });
 
 export const createContactStepTwoValidationSchema = Yup.object({

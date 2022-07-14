@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 export const NewstellerWrapper = styled.div`
   margin-top: 1.6rem;
+  height: 100%;
+  overflow: auto;
 
   .overview-card {
     padding-bottom: 10rem;

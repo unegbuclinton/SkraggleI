@@ -30,7 +30,7 @@ export const DonationWrapper = styled.div`
   }
 
   .progress-tracker {
-    margin: 0rem 4.7rem 6rem 4.1rem;
+    margin: 0rem 4.7rem 0 4.1rem;
     padding-bottom: 5rem;
     padding-top: 5.3rem;
     border-top: 1px solid ${COLORS.torquoise};
@@ -65,6 +65,10 @@ export const RevenueWrapper = styled.div`
     gap: 2.4rem;
     padding: 3.7rem 0 5.593rem 0;
     margin: 0 5.6rem 0 4rem;
+
+    .set-goal-btn {
+      background-color: ${COLORS.deepPurple};
+    }
 
     &__text {
       font-size: ${FONTSIZES.lg};

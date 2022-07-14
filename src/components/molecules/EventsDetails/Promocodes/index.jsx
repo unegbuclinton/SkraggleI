@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from 'utilities/helpers';
 import PromoCodeModal from '../PromocodeModal';
 import EditPromoCodeModal from '../PromocodeModal/EditPromoCodeModal';
-// import PromoCodeDropdown from '../DropdownComponents/PromoCodeDropdown';
 import { ActionText, NameContainer, PromoCodeWrapper } from './styles';
 
 const Paragraph = ({ row }) => {
@@ -44,6 +43,12 @@ function PromoCodes() {
     });
   };
 
+  const OpenEdit = (id) => {
+    setGetRowId(id);
+    setEditModal(true);
+    dispatch(getEachPromoCode(getRowId));
+  };
+
   const columns = [
     {
       name: 'NAME',
@@ -71,8 +76,8 @@ function PromoCodes() {
       Width: '16.8rem'
     },
     {
-      name: '',
-      cell: () => <ActionText className="action">Edit</ActionText>
+      cell: (row) => <ActionText onClick={() => OpenEdit(row.id)}>Edit</ActionText>,
+      width: '8rem'
     },
     {
       name: '',
@@ -111,6 +116,7 @@ function PromoCodes() {
         setOpen={setCreatePromoCodeModal}
       />
       <Table columns={columns} data={allPromoCode} onRowClicked={onRowClick} />
+
       {createPromoCodeModal && (
         <PromoCodeModal
           onClose={() => {

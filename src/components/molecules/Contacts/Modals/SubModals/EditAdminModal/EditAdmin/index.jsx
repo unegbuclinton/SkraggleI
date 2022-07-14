@@ -31,17 +31,17 @@ function EditAmin({ onClose }) {
       originId: organization_id || '',
       priority: priority || '',
       assignee: '',
-      tag: '',
+      tags: [],
       note: note || '',
       solicitation: solicitation || '',
-      emailSubscriptionStatus: is_subscribed_to_mailblasts
+      is_subscribed_to_mailblasts: is_subscribed_to_mailblasts
     },
     // validationSchema: AdminEditValidationSchema,
     onSubmit: (values) => {
       const body = {
         organization_id: values.originId,
-        tags: values.tag,
-        is_subscribed_to_mailblasts: values.emailSubscriptionStatus,
+        tags: values.tags,
+        is_subscribed_to_mailblasts: values.is_subscribed_to_mailblasts,
         priority: values.priority,
         note: values.note
         // assignee: values.assignee
@@ -52,6 +52,7 @@ function EditAmin({ onClose }) {
   });
   const tagOptions = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
 
+  console.log(tagOptions);
   const adminOptions = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
@@ -123,8 +124,8 @@ function EditAmin({ onClose }) {
           <Label>Tag</Label>
           <SelectDropDown
             isMulti={true}
-            id="tag"
-            name="tag"
+            id="tags"
+            name="tags"
             type={'text'}
             options={tagOptions}
             onChange={(value) => {
@@ -135,8 +136,8 @@ function EditAmin({ onClose }) {
             }}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.tag && formik.errors.tag ? (
-            <ErrorMsg>{formik.errors.tag}</ErrorMsg>
+          {formik.touched.tags && formik.errors.tags ? (
+            <ErrorMsg>{formik.errors.tags}</ErrorMsg>
           ) : null}
         </SelectContainer>
         <SelectContainer>
