@@ -21,7 +21,7 @@ export const LandingPageToolBox = styled.div`
   height: 7.2rem;
   background-color: ${COLORS.deepPurple};
   padding: 1.2rem 1.6rem;
-  margin: 1.6rem 8rem 7.1rem 8rem;
+  margin: 1.6rem 0rem 4.1rem 0rem;
   overflow-x: auto;
 `;
 export const LandingPageContainer = styled.div`
