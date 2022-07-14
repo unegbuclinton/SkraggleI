@@ -6,6 +6,7 @@ import { getAllPromoCode, updatePromoCode } from 'features/events/eventSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { promoCodeValidationSchema } from 'validation/Schema';
 import {
   ButtonContainer,
@@ -18,7 +19,7 @@ import {
   SelectContainer
 } from './styles';
 
-function EditPromoCodeComponent({ onClose }) {
+function EditPromoCodeComponent({ onCloseModal }) {
   const { eachPromoCode, isLoading } = useSelector((state) => state.events);
 
   const { code, description, discount, max_user, start_date, end_date, id } = eachPromoCode;
@@ -46,7 +47,8 @@ function EditPromoCodeComponent({ onClose }) {
       };
       dispatch(updatePromoCode({ body, id })).then(() => {
         dispatch(getAllPromoCode());
-        onClose();
+        toast.success('Edit PromoCode Successfully');
+        onCloseModal();
       });
     }
   });
@@ -197,7 +199,7 @@ function EditPromoCodeComponent({ onClose }) {
         />
       </SelectContainer>
       <ButtonContainer>
-        <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
+        <Button type="button" onClick={onCloseModal} className="cancel-btn" auth invert>
           Cancel
         </Button>
 

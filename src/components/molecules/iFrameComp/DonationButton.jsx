@@ -1,6 +1,10 @@
+import { useElement } from 'context';
 import React from 'react';
 
-function DonationButton({ label, color, background, padding, fontSize }) {
+function DonationButton() {
+  // vars
+  const { elementConfig } = useElement();
+
   return (
     <div
       style={{
@@ -12,9 +16,13 @@ function DonationButton({ label, color, background, padding, fontSize }) {
         height: '86%',
         padding: '1rem .3rem'
       }}>
-      <button
-        style={{ color: color, background: background, padding: padding, fontSize: fontSize }}>
-        {label}
+      <button style={elementConfig.style ?? {}}>
+        {elementConfig.icon.jsx && (
+          <span style={{ color: elementConfig.icon.color, marginRight: 2 }}>
+            {elementConfig.icon.jsx}
+          </span>
+        )}
+        {elementConfig.children}
       </button>
     </div>
   );

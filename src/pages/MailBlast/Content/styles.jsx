@@ -1,8 +1,10 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const ContentWrapper = styled.div`
+  height: 100%;
+  overflow: auto;
   .content-card {
     padding-bottom: 10rem;
   }

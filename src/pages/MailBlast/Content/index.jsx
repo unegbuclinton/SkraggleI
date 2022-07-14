@@ -31,7 +31,7 @@ function MailContent() {
             </div>
             <div className="bottom">
               <p className="left">{name}</p>
-              <p className="right">{mailBlastData?.description}</p>
+              <p className="right">{mailBlastData?.name}</p>
             </div>
           </div>
           <div className="content-right">

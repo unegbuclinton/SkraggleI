@@ -16,6 +16,7 @@ export const COLORS = {
   'grey-400': '#585858',
   'grey-600': '#bebebe',
   deepBlue: '#1A32B0',
+  'shin-blue': '#35006F',
   'garage-mix-grey': '#E9ECEF',
   'snooze-grey': 'rgba(19, 41, 61, 0.6)',
   'shim-black': 'rgba(0, 0, 0, 0.79)',
