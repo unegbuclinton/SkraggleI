@@ -1,8 +1,10 @@
 import { COLORS } from 'constants/colors';
-import styled, { css } from 'styled-components';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const LandingPageWrapper = styled.div`
-  background: ${COLORS.torquoise};
+  position: relative;
+  /* background: ${COLORS.torquoise}; */
   height: 100%;
   padding-bottom: 4rem;
 `;
@@ -20,6 +22,7 @@ export const LandingPageToolBox = styled.div`
   background-color: ${COLORS.deepPurple};
   padding: 1.2rem 1.6rem;
   margin: 1.6rem 8rem 7.1rem 8rem;
+  overflow-x: auto;
 `;
 export const LandingPageContainer = styled.div`
   display: flex;
@@ -48,11 +51,9 @@ export const LandingPageContainer = styled.div`
     background-color: ${COLORS['shin-blue']};
   }
 
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: ${COLORS.pink};
-    `}
+  .active {
+    background-color: ${COLORS.pink};
+  }
 `;
 
 export const LandingPageBody = styled.div`
@@ -71,6 +72,12 @@ export const LandingPageSideTools = styled.div`
 `;
 4;
 export const LandingPageSideToolsHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${COLORS.white};
+  font-weight: ${FONTWEIGHTS.bold};
+  font-size: ${FONTSIZES.lg};
   width: 100%;
   height: 4.8rem;
   background: ${COLORS.deepPurple};
