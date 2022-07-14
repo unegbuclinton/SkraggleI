@@ -16,12 +16,15 @@ function DraftStickyButton() {
         overflow: 'auto'
       }}>
       <p style={{ color: 'green' }}>
-        A sticky button "sticks" to a point on your users screens (determined by the "scroll offset" value) after they scroll.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
+        exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
+        necessitatibus aliquam id dolor iure quis fuga.
       </p>
       <p style={{ color: 'red' }}>
-        Set the "scroll offset" to "30px" and try scrolling here to see the magic.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor ut earum repellat
+        exercitationem. Sunt omnis suscipit totam? Laborum modi tempora perspiciatis iusto
+        necessitatibus aliquam id dolor iure quis fuga.
       </p>
-
       <EmptyStickyButton {...elementConfig} />
 
       <p style={{ color: 'red' }}>

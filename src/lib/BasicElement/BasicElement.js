@@ -15,7 +15,11 @@ export class BasicElement {
     const JSX = getJSX(this.type);
     if (JSX === null) return <></>;
 
-    return <JSX type={this.type} {...this.props}>{this.children}</JSX>;
+    return (
+      <JSX type={this.type} {...this.props}>
+        {this.children}
+      </JSX>
+    );
   }
 
   toString() {

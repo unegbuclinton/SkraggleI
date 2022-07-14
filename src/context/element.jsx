@@ -87,8 +87,8 @@ export const ElementContextProvider = ({ children }) => {
         draft.parentStyle.top !== undefined
           ? 'top'
           : draft.parentStyle.bottom !== undefined
-            ? 'bottom'
-            : undefined;
+          ? 'bottom'
+          : undefined;
       if (position !== undefined) draft.parentStyle[position] = value;
     });
   };
