@@ -1,6 +1,6 @@
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconForm } from 'icons';
+import { DPIconDropDown, DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
@@ -31,6 +31,14 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                 active={activeTab === index}
                 onClick={() => setActiveTab(index)}>
                 {tab.title}
+                {tab.title === 'Archived' && <DPIconDropDown className="drop-down" />}
+                {tab.title === 'Archived' && (
+                  <div>
+                    {tab.children.map((child, idx) => (
+                      <p key={idx}>{child.name}</p>
+                    ))}
+                  </div>
+                )}
               </TabButton>
             ))}
           </div>
@@ -95,6 +103,10 @@ const TabButton = styled.button`
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
+  .drop-down {
+    fill: ${COLORS['grey-400']};
+    margin-left: 0.5rem;
+  }
 
   ${({ inline }) =>
     inline &&

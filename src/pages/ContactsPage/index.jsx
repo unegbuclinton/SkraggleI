@@ -28,6 +28,17 @@ const Contacts = () => {
     {
       title: 'segment',
       component: <SegmentsTable />
+    },
+    {
+      title: 'Archived',
+      children: [
+        {
+          name: 'Archived Contact'
+        },
+        {
+          name: 'Deleted Contact'
+        }
+      ]
     }
   ];
 

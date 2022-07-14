@@ -1,13 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import { DPIconAdd, DPIconDelete, DPIconDropDown } from 'icons';
+import { DPIconAdd, DPIconArchived, DPIconDelete, DPIconDropDown } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  ActionContainer,
   ActionContentWrapper,
   ActionWrapper,
   BtnContainer,
-  Delete,
+  Action,
   DropdownContainer,
   DropdownInfo,
   HeaderWrapper,
@@ -65,14 +66,22 @@ function TableHeader({
           {dropDown && (
             <ActionWrapper>
               <ActionContentWrapper onClick={handleDelete}>
-                <DPIconDelete className="delete-icon" />
-                <Delete>Delete</Delete>
+                <ActionContainer>
+                  <DPIconDelete className="delete-icon" />
+                  <Action>Delete</Action>
+                </ActionContainer>
+                <ActionContainer>
+                  <DPIconArchived className="achived-icon" />
+                  <Action>Archive</Action>
+                </ActionContainer>
               </ActionContentWrapper>
 
               {add && (
                 <ActionContentWrapper onClick={onClick}>
-                  <DPIconDelete className="delete-icon" />
-                  <Delete>Archive</Delete>
+                  <ActionContainer>
+                    <DPIconDelete className="delete-icon" />
+                    <Action>Archive</Action>
+                  </ActionContainer>
                 </ActionContentWrapper>
               )}
             </ActionWrapper>

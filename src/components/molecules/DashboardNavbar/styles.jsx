@@ -26,7 +26,7 @@ export const Header = styled.header`
   border-bottom: 1px solid ${COLORS['porcelain-white']};
   position: sticky;
   justify-content: center;
-
+  z-index: 1;
   .header {
     &__first-row {
       display: flex;

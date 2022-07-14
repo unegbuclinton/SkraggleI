@@ -31,14 +31,17 @@ import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { datas1 } from 'utilities/overviewData';
-import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
+import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper, WelcomeText } from './styles';
 
 function Overview() {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState('Filters');
   const [openWidget, setOpenWidget] = useState(false);
+  const { token } = useSelector((state) => state.auth);
+  const userData = token?.profile;
+  const userName = `${userData?.first_name}  ${userData?.last_name}`;
 
   const [filterRange, setFilterRange] = useState({
     startDate: new Date(),
@@ -80,7 +83,7 @@ function Overview() {
     <OverviewWrapper>
       <Card className="overview-card">
         <OverviewLeft>
-          <p className="overview-heder__text">Overview</p>
+          {/* <p className="overview-heder__text">Overview</p>
           <div className="overview-action__buttons">
             <div className="range-picker" onClick={toogleDateRange}>
               <DatePicker>
@@ -105,7 +108,8 @@ function Overview() {
                 setFilterRange(ranges);
               }}
             />
-          )}
+          )} */}
+          <WelcomeText>{`Welcome ${userName}`}</WelcomeText>
         </OverviewLeft>
         <OverviewRight>
           <Button
