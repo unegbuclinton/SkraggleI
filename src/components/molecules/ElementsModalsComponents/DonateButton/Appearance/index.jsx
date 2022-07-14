@@ -1,78 +1,136 @@
-import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 // import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { donationButtonAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function DonateAppearance({
-  onChange,
-  labelValue,
-  labelNameChange,
-  buttonColorChange,
-  buttonColorValue,
-  buttonSizeChange,
-  buttonSizeValue
-}) {
-  // const [white, setWhite] = useState('#FFFFFF');
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+function DonateAppearance() {
+  const { donationButton } = useSelector((state) => state.elementIframes);
+  const dispatch = useDispatch();
 
+  const [donationProperties, setDonationProperties] = useState(donationButton);
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = donationButton;
+
+  useEffect(() => {
+    dispatch(donationButtonAction(donationProperties));
+  }, [donationProperties]);
+
+  // useEffect(() => {
+  //   setDonationProperties(donationButton);
+  // });
+  const handleChange = (value, key) => {
+    setDonationProperties({ ...donationProperties, [key]: value });
+  };
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
-      <Input type="text" className="input-field" placeholder="Donate" onChange={labelNameChange} />
+      <Input
+        type="text"
+        className="input-field"
+        placeholder="Donate"
+        value={label}
+        onChange={(event) => handleChange(event.target.value, 'label')}
+      />
       <ColorsWrapper>
         <WrapperColor>
           <ColorLabel>Label color</ColorLabel>
-          <ColorComponents type="color" value={labelValue} onChange={onChange} />
-        </WrapperColor>
-        <WrapperColor>
-          <ColorLabel>Button color</ColorLabel>
-          <ColorComponents type="color" value={buttonColorValue} onChange={buttonColorChange} />
-        </WrapperColor>
-        <WrapperColor>
-          <ColorLabel>Icon color</ColorLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={labelColor}
+            onChange={(event) => handleChange(event.target.value, 'labelColor')}
           />
         </WrapperColor>
         <WrapperColor>
+          <ColorLabel>Button color</ColorLabel>
+          <ColorComponents
+            type="color"
+            value={buttonColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonColor')}
+          />
+        </WrapperColor>
+        <WrapperColor>
+          <ColorLabel>Icon color</ColorLabel>
+          <ColorComponents type="color" />
+        </WrapperColor>
+        <WrapperColor>
           <ColorLabel>Border color</ColorLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={borderColor}
+            onChange={(event) => handleChange(event.target.value, 'borderColor')}
+          />
         </WrapperColor>
       </ColorsWrapper>
       <SliderContainer>
-        <SliderLabel>Button Size</SliderLabel>
+        <SliderLabel>Button Height</SliderLabel>
         <SliderWrapper>
           <Slider
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={buttonSizeChange}
-            value={buttonSizeValue}
+            value={buttonHeight}
+            onChange={(event) => handleChange(event.target.value, 'buttonHeight')}
+          />
+        </SliderWrapper>
+      </SliderContainer>
+      <SliderContainer>
+        <SliderLabel>Button Width</SliderLabel>
+        <SliderWrapper>
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            // min={}
+            // max={}
+            text="px"
+            value={buttonWidth}
+            onChange={(event) => handleChange(event.target.value, 'buttonWidth')}
           />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            min={0}
+            max={6}
+            text="px"
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer>
         <SliderLabel>Button radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={24}
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
+
       <CheckboxContainer>
-        <Checkbox />
         <CheckboxLabel>Show shadow</CheckboxLabel>
       </CheckboxContainer>
     </DonateAppearanceWrapper>

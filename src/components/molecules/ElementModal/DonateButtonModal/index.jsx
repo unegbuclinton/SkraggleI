@@ -1,6 +1,5 @@
 import Modal from 'components/layouts/Modal';
-import DonationButton from 'components/molecules/iFrameComp/DonationButton';
-import React, { useState } from 'react';
+import DonationButton from 'components/molecules/iFrameComp';
 import DonateButton from '../../ElementsModalsComponents/DonateButton';
 
 function DonateModal({ onClose, isShown }) {
