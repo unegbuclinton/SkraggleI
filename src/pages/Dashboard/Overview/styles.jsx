@@ -1,5 +1,5 @@
 import { COLORS } from 'constants/colors';
-import { FONTWEIGHTS, FONTSIZES } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import styled from 'styled-components';
 
 export const OverviewWrapper = styled.div`
@@ -52,6 +52,7 @@ export const OverviewRight = styled.div`
   .overview-btn {
     height: 4.8rem;
     width: 15.5rem;
+    background-color: ${COLORS.deepPurple};
   }
 `;
 

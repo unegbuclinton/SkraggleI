@@ -1,7 +1,7 @@
 import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ArchivedWrapper = styled(Card)`
   padding: 3.2rem 2.4rem 2.4rem;
@@ -20,4 +20,22 @@ export const ArchivedContainer = styled.div`
     font-size: ${FONTSIZES.lg};
     color: ${COLORS['grey-500']};
   }
+`;
+
+export const ActionText = styled.p`
+  font-weight: ${FONTWEIGHTS.normal};
+  color: ${COLORS['grey-500']};
+  cursor: pointer;
+
+  .delete {
+    font-weight: ${FONTWEIGHTS.normal};
+    color: ${COLORS.pink};
+    cursor: pointer;
+  }
+
+  ${({ red }) =>
+    red &&
+    css`
+      color: ${COLORS.pink};
+    `};
 `;

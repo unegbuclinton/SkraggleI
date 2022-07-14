@@ -4,7 +4,7 @@ import EditPromoCodeComponent from '../PromocodeModalComponent/EditPromoCode/Edi
 
 function EditPromoCodeModal({ onCloseModal, isShown }) {
   return (
-    <Modal header="Promo Code" isShown={isShown} hide={onCloseModal} showClose={onCloseModal}>
+    <Modal header="Edit Promo Code" isShown={isShown} hide={onCloseModal} showClose={onCloseModal}>
       <EditPromoCodeComponent onCloseModal={onCloseModal} />
     </Modal>
   );

@@ -2,6 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import EditPersonalInfoModal from 'components/molecules/Contacts/Modals/SubModals';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { formatDate } from 'utilities/helpers';
 // import { formatDate } from 'utilities/helpers';
 import { PersonalInfoContainer, PersonalInfoHeading, PersonalInfoWrapper } from './styles';
 
@@ -58,7 +59,7 @@ function PersonalInfo() {
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">BIRTH DATE</h2>
-        <p className="title date">{birth_date}</p>
+        <p className="title date">{formatDate(birth_date)}</p>
       </PersonalInfoContainer>
       <PersonalInfoContainer>
         <h2 className="info">PRIMARY EMAIL</h2>

@@ -2,22 +2,22 @@ import Button from 'components/atoms/Button/Button';
 import { COLORS } from 'constants/colors';
 import { FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconCopyWhite } from 'icons';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
+import { toast } from 'react-toastify';
 import styled, { css } from 'styled-components';
 
-function CopyField({ grey }) {
-  const textArea = useState(null);
-
+function CopyField({ grey, value }) {
   const copyToClipboard = useCallback(() => {
-    const text = textArea.current.value;
-    navigator.clipboard.writeText(text);
-    alert('Text Copied');
-  }, []);
+    navigator.clipboard
+      .writeText(value)
+      .then(() => toast.info('Text copied!'))
+      .catch(() => toast.error('Something went wrong'));
+  }, [value]);
 
   return (
     <CopyFieldWrapper>
       <Wrapper grey={grey}>
-        <CopyText ref={textArea} value="Lorem ipsum dolor sit amet, consectetur adipisci..." />
+        <CopyText value={value} readOnly disabled />
         <ButtonCopy grey={grey} className="preview__copy-button" onClick={copyToClipboard}>
           <DPIconCopyWhite className="preview__icon-copy" />
           Copy
@@ -78,15 +78,16 @@ export const CopyFieldWrapper = styled.div`
 export const CopyText = styled.textarea`
   width: 100%;
   outline: none;
-  height: 4.6rem;
+  height: 4.7rem;
   resize: none;
   border-radius: 0.5rem;
   border: none;
   padding-left: 1.8rem;
   padding-top: 1.3rem;
-  padding-bottom: 1.3rem;
   font-size: 1.47038rem;
   color: ${COLORS['moore-grey']};
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ButtonCopy = styled(Button)`

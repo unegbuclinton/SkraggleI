@@ -10,7 +10,6 @@ import { formatDate } from 'utilities/helpers';
 
 function DonationByContacts() {
   const { contactDonation } = useSelector((state) => state.report);
-
   const columns = [
     {
       name: '',

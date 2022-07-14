@@ -1,7 +1,6 @@
 import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
-// import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { donationButtonAction } from 'features/elements/elementReducer';

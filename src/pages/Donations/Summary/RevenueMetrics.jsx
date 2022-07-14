@@ -40,7 +40,6 @@ const RevenueMetrics = () => {
   return (
     <RevenueMetricsContainer>
       <RevenueGoalsWrapper>
-        filterRange
         <RevenueGoalsHeader>Revenue Goals</RevenueGoalsHeader>
         <RevenueGoalsContentWrapper>
           {revenue?.map(({ goal, type, raised }, idx) => (

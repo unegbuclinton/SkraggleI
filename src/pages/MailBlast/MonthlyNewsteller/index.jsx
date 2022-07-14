@@ -29,7 +29,7 @@ function MonthlyNewsteller() {
   return (
     <DashboardLayout
       pageLinks={<PageLinks pageLinkBefore="Mail-Blast" to="/mail-blasts" names={name} />}>
-      <Tabs tabs={mail} />
+      <Tabs tabs={mail} scroll />
       {showModal && (
         <SendMailBlastModal isShown={setShowModal} onCloseModal={() => setShowModal(false)} />
       )}

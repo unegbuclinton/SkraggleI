@@ -26,6 +26,18 @@ export const getPackages = async () => {
   }
 };
 
+export const getPackageInfo = async (id) => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: `/package/info/${id}`
+    });
+    return response?.data?.message;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const addClonePackages = async (body) => {
   try {
     const response = await request({
@@ -44,6 +56,19 @@ export const deletePackages = async (body) => {
     const response = await request({
       method: 'delete',
       url: '/package',
+      data: body
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updatePackage = async ({ body, id }) => {
+  try {
+    const response = await request({
+      method: 'patch',
+      url: `/package/${id}`,
       data: body
     });
     return response;

@@ -68,8 +68,7 @@ function VolunteerTable() {
               <TableHeader
                 subMenuTableHeader
                 title="Add Volunteer"
-                header="7 Activity"
-                // header={`${todos.length} To-Do`}
+                header={`${eachVolunteerData?.length} Volunteer`}
                 setOpen={setOpen}
               />
               <Table columns={columns} data={eachVolunteerData} />

@@ -38,6 +38,19 @@ export const getEvents = async () => {
   }
 };
 
+export const getArchivedEvents = async () => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: '/event?cursor=-1&direction=after&limit=20&archived=true'
+    });
+
+    return response?.data?.message?.rows;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const getEventById = async (id) => {
   try {
     const response = await request({

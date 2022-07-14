@@ -52,13 +52,13 @@ const CampaignOverview = () => {
       value: (
         <IconWrapper>
           <DPIconGoodMark />
-          Edit Info
+          Edit Campaign
         </IconWrapper>
       ),
       label: (
         <IconWrapper className="good-mark" onClick={() => setOpen(true)}>
           <DPIconGoodMark />
-          Edit Info
+          Edit
         </IconWrapper>
       )
     },
@@ -80,7 +80,7 @@ const CampaignOverview = () => {
       value: (
         <IconWrapper>
           <DPIconDelete className="delete-icon" />
-          Delete
+          Delete Campaign
         </IconWrapper>
       ),
       label: (

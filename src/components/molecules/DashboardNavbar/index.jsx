@@ -2,7 +2,13 @@
 import apiInstance from 'apiInstance';
 import { logoutUser } from 'features/auth/authSlice';
 import { userInfo } from 'features/contact/contactSlice';
-import { DPIconLogout, DPIconMenuDrop, DPIconOrganisationIcon, DPIconProfile } from 'icons';
+import {
+  DPIconLogout,
+  DPIconMenuDrop,
+  DPIconOrganisationIcon,
+  DPIconProfile,
+  DPIconProfileImage
+} from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -75,6 +81,7 @@ function DashboardHeader({ pageLinks }) {
             </Link>
           </HeaderLinks>
         </HeaderLeftContent>
+        <DPIconProfileImage className="header__first-image" />
         <HeaderRightContent open={open} onClick={toggleMenu} ref={ref}>
           <div className="title">
             <div className="user-info">
@@ -89,7 +96,7 @@ function DashboardHeader({ pageLinks }) {
           </div>
           <div className="user-menu">
             <div className="img-profile__container">
-              {/* <DPIconAddam className="profile-icon" /> */}
+              <DPIconProfileImage className="profile-icon" />
             </div>
             <div className="organization-container">
               <h2 className="organisation-header">BIGGORILLA SANDBOL</h2>

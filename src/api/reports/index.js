@@ -4,10 +4,9 @@ export const p2pLeaderBoard = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/report/p2p-leaderboard/30'
+      url: '/report/p2p-leaderboard'
     });
-    console.log(response?.data?.message?.rows);
-    return response?.data?.message?.rows;
+    return response?.data?.message;
   } catch (error) {
     console.log(error);
   }
@@ -19,7 +18,7 @@ export const donationByContact = async () => {
       method: 'get',
       url: '/report/donations-by-contact'
     });
-    console.log(response?.data?.message?.rows);
+
     return response?.data?.message?.rows;
   } catch (error) {
     console.log(error);

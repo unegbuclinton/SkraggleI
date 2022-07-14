@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import styled from 'styled-components';
 
 function DonationButton() {
   const { donationButton } = useSelector((state) => state.elementIframes);
