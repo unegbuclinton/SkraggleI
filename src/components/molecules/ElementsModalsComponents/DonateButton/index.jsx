@@ -4,39 +4,34 @@ import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import { useElement } from 'context';
+import { BasicElement } from 'lib';
+import { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import DonateAppearance from './Appearance';
 import DonateButtonBehavior from './Behavior';
 import CustomField from './CustomFields';
 
-function DonateButton({
-  onChange,
-  labelValue,
-  labelNameChange,
-  buttonColorChange,
-  buttonColorValue,
-  buttonSizeChange,
-  buttonSizeValue
-}) {
+function DonateButton() {
+  // vars
+  const { elementConfig, setElementConfig } = useElement();
   const tabs = [
     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
-    {
-      title: 'APPEARANCE',
-      component: (
-        <DonateAppearance
-          onChange={onChange}
-          labelValue={labelValue}
-          labelNameChange={labelNameChange}
-          buttonColorChange={buttonColorChange}
-          buttonColorValue={buttonColorValue}
-          buttonSizeChange={buttonSizeChange}
-          buttonSizeValue={buttonSizeValue}
-        />
-      )
-    },
+    { title: 'APPEARANCE', component: <DonateAppearance /> },
     { title: 'CUSTOM FIELDS', component: <CustomField /> }
   ];
+
+  // hooks
+  useEffect(() => {
+    setElementConfig((draft) => {
+      draft.type = 'button';
+    });
+  }, []);
+
+  const htmlCode = useMemo(() => {
+    return new BasicElement(elementConfig).toString();
+  }, [JSON.stringify(elementConfig)]);
+
   return (
     <DonateButtonWrapper>
       <Heading>Display an animated donation button anywhere on your website.</Heading>
@@ -48,7 +43,7 @@ function DonateButton({
         <Tabs tabs={tabs} inline />
         <CopyContainer>
           <CopyLabel>HTML CODE</CopyLabel>
-          <CopyField grey />
+          <CopyField value={htmlCode} grey />
         </CopyContainer>
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
