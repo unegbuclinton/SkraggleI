@@ -1,10 +1,9 @@
 import { COLORS } from 'constants/colors';
-import { FONTWEIGHTS } from 'constants/font-spec';
-import { FONTSIZES } from 'constants/font-spec';
+import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-function NameLogo({ text }) {
+function NameLogo({ text, dashboardLogo }) {
   const getFirstLetter = (str) => {
     const firstLetter = str
       .split(' ')
@@ -15,7 +14,7 @@ function NameLogo({ text }) {
   };
 
   return (
-    <NameLogoWrapper>
+    <NameLogoWrapper dashboardLogo={dashboardLogo}>
       <div className="logo"> {getFirstLetter(text)}</div>
       <p className="logo-text"> {text}</p>
     </NameLogoWrapper>
@@ -40,6 +39,13 @@ const NameLogoWrapper = styled.text`
     color: ${COLORS['grey-500']};
     background-color: ${COLORS['orange-100']};
     border-radius: 50%;
+    ${({ dashboardLogo }) =>
+      dashboardLogo &&
+      css`
+     color: ${COLORS.white};
+    background-color: ${COLORS.deepPurple};
+      }
+    `};
   }
 
   .logo-text {

@@ -4,15 +4,20 @@ import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import Appearance from './Appearance';
 import Behavior from './Behavior';
 import CustomFields from './CustomFields';
 import Position from './Position';
 import VisibilityTab from './Visibility';
+import CopyField from 'components/atoms/CopyField';
+import { BasicElement } from 'lib';
+import { useElement } from 'context';
 
 function StickyButton() {
+  // vars
+  const { elementConfig, setElementConfig } = useElement();
   const tabs = [
     { title: 'BEHAVIOUR', component: <Behavior /> },
     { title: 'POSITION', component: <Position /> },
@@ -20,6 +25,19 @@ function StickyButton() {
     { title: 'VISIBILITY', component: <VisibilityTab /> },
     { title: 'CUSTOM FIELDS', component: <CustomFields /> }
   ];
+
+  // hooks
+  useEffect(() => {
+    setElementConfig((draft) => {
+      draft.type = 'sticky-button';
+      draft.parentStyle = { ...draft.parentStyle, top: 0, display: 'flex', position: 'sticky' };
+    });
+  }, []);
+
+  const htmlCode = useMemo(() => {
+    return new BasicElement(elementConfig).toString();
+  }, [JSON.stringify(elementConfig)]);
+
   return (
     <StickyButtonWrapper>
       <Heading>Display an animated donation button sticks to any side of your website.</Heading>
@@ -36,6 +54,10 @@ function StickyButton() {
         </Wrapper>
       </InputWrapper>
       <Tabs tabs={tabs} inline />
+      <CopyContainer>
+        <CopyLabel>HTML CODE</CopyLabel>
+        <CopyField value={htmlCode} grey />
+      </CopyContainer>
       <ButtonContainer>
         <Button type="button" className="cancel-btn" auth invert>
           Archive
@@ -116,4 +138,19 @@ const ButtonContainer = styled.div`
     font-weight: ${FONTWEIGHTS.xbold};
     font-size: ${FONTSIZES.small};
   }
+`;
+
+const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
 `;

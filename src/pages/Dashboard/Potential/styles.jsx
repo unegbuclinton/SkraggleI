@@ -36,6 +36,7 @@ export const CardLeft = styled.div`
   justify-content: center;
   gap: 3.2rem;
   align-items: center;
+  margin-right: 9.4rem;
   .card-text {
     &__one {
       font-size: 1.4rem;
@@ -44,14 +45,14 @@ export const CardLeft = styled.div`
     &__two {
       font-size: 1.2rem;
       color: ${COLORS['grey-200']};
-      word-break: break-word;
+      /* word-break: break-word; */
     }
   }
 `;
 
 export const CardRight = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: space-between; */
   gap: 11rem;
   align-items: center;
 
@@ -59,9 +60,10 @@ export const CardRight = styled.div`
     color: ${COLORS.pink};
     font-weight: ${FONTWEIGHTS.bold};
     font-size: ${FONTSIZES.small};
+    white-space: nowrap;
   }
   .thank__btn {
-    width: 12.4rem;
     font-size: ${FONTSIZES.xsmall};
+    background-color: ${COLORS.deepPurple};
   }
 `;

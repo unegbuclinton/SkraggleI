@@ -1,5 +1,6 @@
 import Card from 'components/atoms/Card';
 import Table from 'components/layouts/Table';
+import NameLogo from 'components/molecules/NameLogo';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
@@ -8,14 +9,8 @@ import styled from 'styled-components';
 function RecentTransaction() {
   const columns = [
     {
-      name: '',
-      selector: (row) => row.contact,
-      cell: () => <input type="checkbox" />,
-      width: '3.069rem'
-    },
-    {
       name: 'Contact',
-      selector: (row) => row.contact
+      cell: (row) => <NameLogo dashboardLogo text={row.contact} />
     },
     {
       name: 'Amount',

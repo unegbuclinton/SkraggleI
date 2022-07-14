@@ -4,69 +4,119 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { useElement } from 'context';
+import React from 'react';
 import styled from 'styled-components';
 
 function Appearance() {
-  const [white, setWhite] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#477BE0');
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+  // vars
+  const { elementConfig, toggleElementBoxShadow, changeStyleAttribute, changeChildrenAttribute } =
+    useElement();
 
   return (
     <AppearanceWrapper>
       <InputWrapper>
         <StickyButtonLabel>Label</StickyButtonLabel>
         <Wrapper>
-          <Input className="input-field" type="text" placeholder="Donate" />
+          <Input
+            className="input-field"
+            type="text"
+            placeholder="Donate"
+            value={elementConfig.children}
+            onChange={changeChildrenAttribute}
+          />
         </Wrapper>
       </InputWrapper>
       <SliderContainer>
-        <SliderLabel>Button size</SliderLabel>
+        <SliderLabel>Button Height</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            value={parseFloat(elementConfig.style.height)}
+            onChange={(e) => changeStyleAttribute('height', e)}
+          />
+        </SliderWrapper>
+      </SliderContainer>
+      <SliderContainer>
+        <SliderLabel>Button Width</SliderLabel>
+        <SliderWrapper>
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            value={parseFloat(elementConfig.style.width)}
+            onChange={(e) => changeStyleAttribute('width', e)}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Label color</StickyButtonLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.color}
+            onChange={(e) => changeStyleAttribute('color', e)}
+          />
         </ColorContainer>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Button color</StickyButtonLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.backgroundColor}
+            onChange={(e) => changeStyleAttribute('backgroundColor', e)}
+          />
         </ColorContainer>
       </ColorWrapper>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            value={parseFloat(elementConfig.style.borderWidth)}
+            onChange={(e) => changeStyleAttribute('borderWidth', e)}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            value={parseFloat(elementConfig.style.borderRadius)}
+            onChange={(e) => changeStyleAttribute('borderRadius', e)}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Border color</StickyButtonLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={elementConfig.style.borderColor}
+            onChange={(e) => changeStyleAttribute('borderColor', e)}
+          />
         </ColorContainer>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Icon color</StickyButtonLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={elementConfig.icon.color}
+            onChange={(e) => changeStyleAttribute('color', e, 'icon')}
           />
         </ColorContainer>
       </ColorWrapper>
-      <CheckBoxWrapper className="checkbox">
-        <Checkbox pink />
-        <CheckBoxLabel>Show shadow</CheckBoxLabel>
-      </CheckBoxWrapper>
+      <span onClick={toggleElementBoxShadow}>
+        <CheckBoxWrapper className="checkbox">
+          <Checkbox pink checked={elementConfig.style.boxShadow !== undefined} />
+          <CheckBoxLabel>Show shadow</CheckBoxLabel>
+        </CheckBoxWrapper>
+      </span>
     </AppearanceWrapper>
   );
 }
@@ -87,6 +137,9 @@ const AppearanceWrapper = styled.div`
   .border-label {
     width: 15rem;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 `;
 
 const InputWrapper = styled.div`
