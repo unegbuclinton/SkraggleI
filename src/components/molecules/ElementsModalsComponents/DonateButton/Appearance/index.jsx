@@ -1,19 +1,39 @@
-import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
-// import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { useElement } from 'context';
-import React from 'react';
+import { donationButtonAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function DonateAppearance() {
-  // vars
-  const { elementConfig, toggleElementBoxShadow, changeStyleAttribute, changeChildrenAttribute } =
-    useElement();
+  const { donationButton } = useSelector((state) => state.elementIframes);
+  const dispatch = useDispatch();
 
+  const [donationProperties, setDonationProperties] = useState(donationButton);
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = donationButton;
+
+  useEffect(() => {
+    dispatch(donationButtonAction(donationProperties));
+  }, [donationProperties]);
+
+  // useEffect(() => {
+  //   setDonationProperties(donationButton);
+  // });
+  const handleChange = (value, key) => {
+    setDonationProperties({ ...donationProperties, [key]: value });
+  };
   return (
     <DonateAppearanceWrapper>
       <DonateAppearanceLabel>Label</DonateAppearanceLabel>
@@ -21,39 +41,36 @@ function DonateAppearance() {
         type="text"
         className="input-field"
         placeholder="Donate"
-        onChange={changeChildrenAttribute}
+        value={label}
+        onChange={(event) => handleChange(event.target.value, 'label')}
       />
       <ColorsWrapper>
         <WrapperColor>
           <ColorLabel>Label color</ColorLabel>
           <ColorComponents
             type="color"
-            value={elementConfig.style.color}
-            onChange={(e) => changeStyleAttribute('color', e)}
+            value={labelColor}
+            onChange={(event) => handleChange(event.target.value, 'labelColor')}
           />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Button color</ColorLabel>
           <ColorComponents
             type="color"
-            value={elementConfig.style.backgroundColor}
-            onChange={(e) => changeStyleAttribute('backgroundColor', e)}
+            value={buttonColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonColor')}
           />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Icon color</ColorLabel>
-          <ColorComponents
-            type="color"
-            value={elementConfig.icon.color}
-            onChange={(e) => changeStyleAttribute('color', e, 'icon')}
-          />
+          <ColorComponents type="color" />
         </WrapperColor>
         <WrapperColor>
           <ColorLabel>Border color</ColorLabel>
           <ColorComponents
             type="color"
-            value={elementConfig.style.borderColor}
-            onChange={(e) => changeStyleAttribute('borderColor', e)}
+            value={borderColor}
+            onChange={(event) => handleChange(event.target.value, 'borderColor')}
           />
         </WrapperColor>
       </ColorsWrapper>
@@ -64,8 +81,8 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={(e) => changeStyleAttribute('height', e)}
-            value={parseFloat(elementConfig.style.height)}
+            value={buttonHeight}
+            onChange={(event) => handleChange(event.target.value, 'buttonHeight')}
           />
         </SliderWrapper>
       </SliderContainer>
@@ -75,9 +92,11 @@ function DonateAppearance() {
           <Slider
             className="slider-border"
             sliderText="slider-text"
+            // min={}
+            // max={}
             text="px"
-            onChange={(e) => changeStyleAttribute('width', e)}
-            value={parseFloat(elementConfig.style.width)}
+            value={buttonWidth}
+            onChange={(event) => handleChange(event.target.value, 'buttonWidth')}
           />
         </SliderWrapper>
       </SliderContainer>
@@ -87,9 +106,11 @@ function DonateAppearance() {
           <Slider
             className="slider-border"
             sliderText="slider-text"
+            min={0}
+            max={6}
             text="px"
-            onChange={(e) => changeStyleAttribute('borderWidth', e)}
-            value={parseFloat(elementConfig.style.borderWidth)}
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
           />
         </SliderWrapper>
       </SliderContainer>
@@ -100,17 +121,17 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
-            onChange={(e) => changeStyleAttribute('borderRadius', e)}
-            value={parseFloat(elementConfig.style.borderRadius)}
+            min={0}
+            max={24}
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
           />
         </SliderWrapper>
       </SliderContainer>
-      <span onClick={toggleElementBoxShadow}>
-        <CheckboxContainer>
-          <Checkbox checked={elementConfig.style.boxShadow !== undefined} />
-          <CheckboxLabel>Show shadow</CheckboxLabel>
-        </CheckboxContainer>
-      </span>
+
+      <CheckboxContainer>
+        <CheckboxLabel>Show shadow</CheckboxLabel>
+      </CheckboxContainer>
     </DonateAppearanceWrapper>
   );
 }

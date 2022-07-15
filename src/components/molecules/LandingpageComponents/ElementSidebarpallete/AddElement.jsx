@@ -87,7 +87,7 @@ function AddElement() {
   ];
   return (
     <AddElementWrapper>
-      <Input className="element-input" placeholder="Search elements" />
+      <Input className="element-input" placeholder="Search elements" autoWidth />
 
       <AddElementContainer>
         <div className="sub-head">
@@ -145,6 +145,7 @@ export default AddElement;
 
 const AddElementWrapper = styled.div`
   padding-left: 0.7rem;
+  padding-right: 1.1rem;
 
   .element-input {
     background-color: ${COLORS.white};
