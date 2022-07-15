@@ -3,12 +3,10 @@ import { Button } from './Button';
 import { EmptyStickyButton } from './StickyButton';
 
 export class BasicElement {
-  constructor({ type, style = {}, children, href, icon = {} }) {
+  constructor({ type, children, ...props }) {
     this.type = type;
-    this.style = style;
-    this.href = href;
-    this.icon = icon;
     this.children = children;
+    this.props = props;
   }
 
   render() {
@@ -17,11 +15,11 @@ export class BasicElement {
     const JSX = getJSX(this.type);
     if (JSX === null) return <></>;
 
-    const props = {
-      style: this.style,
-      href: this.href
-    };
-    return <JSX {...props}>{this.children}</JSX>;
+    return (
+      <JSX type={this.type} {...this.props}>
+        {this.children}
+      </JSX>
+    );
   }
 
   toString() {
