@@ -1,10 +1,13 @@
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { useElement } from 'context';
 import React from 'react';
 import styled from 'styled-components';
 
-function Form({ formSizeChange, formSize }) {
+function Form() {
+  const { elementConfig, changeStyleAttribute } = useElement();
+
   return (
     <FormWrapper>
       <FormFieldWrapper>
@@ -15,8 +18,10 @@ function Form({ formSizeChange, formSize }) {
             text="px"
             min={40}
             max={150}
-            value={formSize}
-            onChange={formSizeChange}
+            onChange={(e) => changeStyleAttribute('width', e)}
+            value={parseFloat(elementConfig.style.width)}
+            // value={formSize}
+            // onChange={formSizeChange}
           />
         </SliderWrapper>
       </FormFieldWrapper>
