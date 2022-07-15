@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconDropDown, DPIconForm } from 'icons';
@@ -6,6 +7,9 @@ import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
 const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [dropdown, setDropdown] = useState(false);
+  const [subTab, setSubTab] = useState();
+
   return (
     <TabWrapper scroll={scroll}>
       <TabContainer inline={inline} className={stickyTab ? 'sticky-header' : ''} {...rest}>
@@ -31,12 +35,19 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                 active={activeTab === index}
                 onClick={() => setActiveTab(index)}>
                 {tab.title}
-                {tab.title === 'Archived' && <DPIconDropDown className="drop-down" />}
-                {tab.title === 'Archived' && (
+                <span onClick={() => setDropdown(!dropdown)}>{tab.name}</span>
+                <span onClick={() => setDropdown(!dropdown)}>
+                  {tab.name && <DPIconDropDown className="drop-down" />}
+                </span>
+                {tab.name && (
                   <div>
-                    {tab.children.map((child, idx) => (
-                      <p key={idx}>{child.name}</p>
-                    ))}
+                    {dropdown && (
+                      <DropDownWrapper>
+                        {tab.children.map((child, index) => (
+                          <p key={index}>{child.childname}</p>
+                        ))}
+                      </DropDownWrapper>
+                    )}
                   </div>
                 )}
               </TabButton>
@@ -94,7 +105,7 @@ const TabButton = styled.button`
   width: 14.4rem;
   height: 100%;
   border: none;
-  position: relative;
+  /* position: relative; */
   display: inline-block;
   cursor: pointer;
   background: transparent;
@@ -191,6 +202,24 @@ const TabLinkWrapper = styled.div`
 const TabContent = styled.div`
   height: 90%;
   overflow: hidden;
+`;
+
+const DropDownWrapper = styled.div`
+  /* position: fixed;
+  background-color: ${COLORS.white};
+  z-index: 2;
+  width: 15rem;
+  display: block;
+  padding-bottom: 0.5rem;
+  .child-container {
+    p {
+      /* margin-bottom: 1rem; */
+      /* padding: 0.7rem;
+      &:hover {
+        background-color: ${COLORS['garage-mix-grey']};
+      }
+    } */
+  } */
 `;
 
 export default Tabs;
