@@ -1,11 +1,13 @@
-import DashboardHeader from 'components/molecules/DashboardNavbar';
-
+import DashboardLayout from 'components/layouts/DashboardLayout';
+import Profile from 'pages/OrganisationSettings/Profile';
+// import DashboardHeader from 'components/molecules/DashboardNavbar';
 import React from 'react';
 function Test() {
   return (
-    <>
-      <DashboardHeader />
-    </>
+    <DashboardLayout>
+      {/* <DashboardHeader /> */}
+      <Profile />
+    </DashboardLayout>
   );
 }
 
