@@ -4,14 +4,25 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { donationLevelAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function DonationBtn() {
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#2797FF');
-  const [blu, setBlu] = useState('#2797FF');
+  const { donationLevel } = useSelector((state) => state.elementIframes);
+  const { labelColor, buttonColor, buttonBorderSize, buttonBorderRadius, buttonBorderColor } =
+    donationLevel;
+  const dispatch = useDispatch();
 
+  const [donationLevelProperties, setDonationLevelProperties] = useState(donationLevel);
+
+  const handleChange = (value, key) => {
+    setDonationLevelProperties({ ...donationLevelProperties, [key]: value });
+  };
+  useEffect(() => {
+    dispatch(donationLevelAction(donationLevelProperties));
+  }, [donationLevelProperties]);
   return (
     <AppearanceWrapper>
       <InputWrapper className="title">
@@ -25,31 +36,55 @@ function DonationBtn() {
           <MessageLabel className="background-label">Label color</MessageLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={labelColor}
+            onChange={(event) => handleChange(event.target.value, 'labelColor')}
           />
         </ColorContainer>
         <ColorContainer>
           <MessageLabel className="color-label">Button color</MessageLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={buttonColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={4}
+            value={buttonBorderSize}
+            onChange={(event) => handleChange(event.target.value, 'buttonBorderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            min={0}
+            max={28}
+            text="px"
+            value={buttonBorderRadius}
+            onChange={(event) => handleChange(event.target.value, 'buttonBorderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
           <MessageLabel className="border-color">Border color</MessageLabel>
-          <ColorComponents type="color" value={blu} onChange={(e) => setBlu(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={buttonBorderColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonBorderColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <CheckBoxWrapper className="checkbox">

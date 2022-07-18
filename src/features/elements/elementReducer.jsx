@@ -30,6 +30,32 @@ const initialState = {
     borderSize: '',
     progressBarColor: '',
     borderRadius: ''
+  },
+  donationLevel: {
+    labelColor: '',
+    buttonColor: '',
+    backgroundColor: '',
+    textColor: '',
+    accentTextColor: '',
+    buttonBorderSize: '',
+    buttonBorderRadius: '',
+    buttonBorderColor: '',
+    panelBorderSize: '',
+    panelBorderRadius: '',
+    panelBorderColor: '',
+    buttonLabel: '',
+    accentLabel: '',
+    accentLevelLabel: '',
+    descriptionLabel: ''
+  },
+  topSupporters: {
+    label: '',
+    textColor: '',
+    accentColor: '',
+    backgroundColor: '',
+    borderColor: '',
+    borderSize: '',
+    borderRadius: ''
   }
 };
 export const elementIframesReducer = createSlice({
@@ -44,10 +70,21 @@ export const elementIframesReducer = createSlice({
     },
     goalMeterAction: (state, action) => {
       state.goalMeter = action.payload;
+    },
+    donationLevelAction: (state, action) => {
+      state.donationLevel = action.payload;
+    },
+    topSupportersAction: (state, action) => {
+      state.topSupporters = action.payload;
     }
   }
 });
 
-export const { donationButtonAction, reminderAction, goalMeterAction } =
-  elementIframesReducer.actions;
+export const {
+  donationButtonAction,
+  reminderAction,
+  goalMeterAction,
+  donationLevelAction,
+  topSupportersAction
+} = elementIframesReducer.actions;
 export default elementIframesReducer.reducer;
