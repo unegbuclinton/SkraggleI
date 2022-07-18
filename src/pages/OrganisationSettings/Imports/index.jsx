@@ -79,6 +79,7 @@ const ImportsWrapper = styled(Card)`
     position: relative;
     right: 2rem;
   }
+  margin-top: 1.6rem;
 `;
 
 const IconWrapper = styled.div`

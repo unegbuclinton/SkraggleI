@@ -116,6 +116,7 @@ const TeamMembersWrapper = styled(Card)`
     fill: #7c7c7c;
     width: 1.5rem;
   }
+  margin-top: 1.6rem;
 `;
 
 const Header = styled.div`

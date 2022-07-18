@@ -8,91 +8,98 @@ import styled from 'styled-components';
 
 function Integrations() {
   return (
-    <IntegrationWrapper>
-      <IntegrationHeading>Integrations</IntegrationHeading>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconMailChimp />
+    <Container>
+      <IntegrationWrapper>
+        <IntegrationHeading>Integrations</IntegrationHeading>
+        <IntegrationContainer>
+          <IntegrationContent>
+            <DPIconMailChimp />
+            <div>
+              <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
+              <IntegrationText>
+                Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              </IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">Connect</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Connect</Button>
-        </div>
-      </IntegrationContainer>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconMailChimp />
+        </IntegrationContainer>
+        <IntegrationContainer>
+          <IntegrationContent>
+            <DPIconMailChimp />
+            <div>
+              <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
+              <IntegrationText>
+                Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              </IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">Connect</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Connect</Button>
-        </div>
-      </IntegrationContainer>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconMailChimp />
+        </IntegrationContainer>
+        <IntegrationContainer>
+          <IntegrationContent>
+            <DPIconMailChimp />
+            <div>
+              <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
+              <IntegrationText>
+                Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              </IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">Connect</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Connect</Button>
-        </div>
-      </IntegrationContainer>
-      {/* <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconMailChimp />
+        </IntegrationContainer>
+        <IntegrationContainer>
+          <IntegrationContent>
+            <DPIconMailChimp />
+            <div>
+              <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
+              <IntegrationText>
+                Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              </IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">Connect</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Connect</Button>
-        </div>
-      </IntegrationContainer>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconMailChimp />
+        </IntegrationContainer>
+        <IntegrationContainer>
+          <IntegrationContent>
+            <DPIconMailChimp />
+            <div>
+              <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
+              <IntegrationText>
+                Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              </IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Mailchimp</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">Connect</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Connect</Button>
-        </div>
-      </IntegrationContainer> */}
-    </IntegrationWrapper>
+        </IntegrationContainer>
+      </IntegrationWrapper>
+    </Container>
   );
 }
 
 export default Integrations;
+
+const Container = styled.div`
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 4rem;
+  margin-top: 1.6rem;
+`;
 
 const IntegrationWrapper = styled(Card)`
   padding: 2.2rem 2.4rem 4rem 2.4rem;
   .mail-btn {
     padding: 1.6rem 4.5rem;
   }
-  height: 100%;
-  overflow-y: auto;
 `;
 
 const IntegrationHeading = styled.h2`

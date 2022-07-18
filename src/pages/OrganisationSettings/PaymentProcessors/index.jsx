@@ -65,6 +65,7 @@ const IntegrationWrapper = styled(Card)`
   }
   /* height: 100%;
   overflow-y: auto; */
+  margin-top: 1.6rem;
 `;
 
 const IntegrationHeading = styled.h2`

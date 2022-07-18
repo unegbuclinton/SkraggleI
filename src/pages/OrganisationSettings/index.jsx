@@ -1,0 +1,62 @@
+// import DashboardLayout from 'components/layouts/DashboardLayout';
+import Tabs from 'components/molecules/Tabs';
+import React from 'react';
+import Account from './Account';
+import CustomField from './CustomFields';
+import Imports from './Imports';
+import Integrations from './Integrations';
+import PaymentProcessor from './PaymentProcessors';
+import Premium from './Premium';
+import Profile from './Profile';
+import ReceiptAndEmails from './RecieptEmail';
+import RestoreContacts from './RestoreContacts';
+import TeamMembers from './Team';
+
+function OrganisationSettings() {
+  const links = [
+    {
+      title: 'Profile',
+      component: <Profile />
+    },
+    {
+      title: 'Team',
+      component: <TeamMembers />
+    },
+    {
+      title: 'Custom Fields',
+      component: <CustomField />
+    },
+    {
+      title: 'Receipts & Emails',
+      component: <ReceiptAndEmails />
+    },
+    {
+      title: 'Imports',
+      component: <Imports />
+    },
+    {
+      title: 'Integrations',
+      component: <Integrations />
+    },
+    {
+      title: 'Payment Processors',
+      component: <PaymentProcessor />
+    },
+    {
+      title: 'Account',
+      component: <Account />
+    },
+    {
+      title: 'Premium',
+      component: <Premium />
+    },
+    {
+      title: 'Restore Contacts',
+      component: <RestoreContacts />
+    }
+  ];
+
+  return <Tabs tabs={links} scroll />;
+}
+
+export default OrganisationSettings;

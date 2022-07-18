@@ -72,6 +72,7 @@ const CustomFieldWrapper = styled(Card)`
     fill: #7c7c7c;
     width: 1.5rem;
   }
+  margin-top: 1.6rem;
 `;
 const Heading = styled.h2`
   font-weight: ${FONTWEIGHTS.bold};

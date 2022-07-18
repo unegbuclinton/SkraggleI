@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import DashboardHeader from 'components/molecules/DashboardNavbar';
+import OrganisationSettings from 'pages/OrganisationSettings';
 import Account from 'pages/OrganisationSettings/Account';
 import CustomField from 'pages/OrganisationSettings/CustomFields';
 import Imports from 'pages/OrganisationSettings/Imports';
@@ -25,7 +26,8 @@ function Test() {
       {/* <PaymentProcessor /> */}
       {/* <Account /> */}
       {/* <Premium /> */}
-      <RestoreContacts />
+      {/* <RestoreContacts /> */}
+      <OrganisationSettings />
     </DashboardLayout>
   );
 }

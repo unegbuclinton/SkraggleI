@@ -112,6 +112,8 @@ const ReceiptAndEmailsWrapper = styled.div`
     font-size: ${FONTSIZES.xsmall};
     font-weight: ${FONTWEIGHTS.normal};
   }
+  margin-top: 1.6rem;
+  padding-bottom: 4rem;
 `;
 
 const PersonalInfoWrapper = styled(Card)`

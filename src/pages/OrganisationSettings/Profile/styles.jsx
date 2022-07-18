@@ -6,8 +6,11 @@ import styled from 'styled-components';
 export const ProfileWrapper = styled.div`
   display: flex;
   gap: 1.6rem;
+  width: 100%;
   overflow: hidden;
   height: 100%;
+  margin-top: 1.6rem;
+  padding-bottom: 4rem;
 `;
 
 export const CardWrapper = styled(Card)`
@@ -97,4 +100,5 @@ export const Line = styled.div`
 export const Container = styled.div`
   overflow: auto;
   height: 100%;
+  width: 100%;
 `;
