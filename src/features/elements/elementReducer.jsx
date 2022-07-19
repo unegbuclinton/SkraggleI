@@ -65,6 +65,19 @@ const initialState = {
     borderColor: '',
     borderSize: '',
     borderRadius: ''
+  },
+  messageBar: {
+    title: 'Make a difference today!',
+    content:
+      'Your contribution today can improve the lives of so many. Please join us in making a difference.',
+    textColor: '#772222',
+    label: 'Donate',
+    labelColor: '#FFFFFF',
+    buttonColor: '#2797FF',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FFFFFF',
+    borderSize: '4px',
+    borderRadius: '24px'
   }
 };
 export const elementIframesReducer = createSlice({
@@ -88,6 +101,9 @@ export const elementIframesReducer = createSlice({
     },
     recentDonationActions: (state, action) => {
       state.recentDonation = action.payload;
+    },
+    messageBarActions: (state, action) => {
+      state.messageBar = action.payload;
     }
   }
 });
@@ -98,6 +114,7 @@ export const {
   goalMeterAction,
   donationLevelAction,
   topSupportersAction,
-  recentDonationActions
+  recentDonationActions,
+  messageBarActions
 } = elementIframesReducer.actions;
 export default elementIframesReducer.reducer;

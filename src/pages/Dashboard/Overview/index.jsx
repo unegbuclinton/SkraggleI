@@ -6,6 +6,7 @@ import DropdownComponent from 'components/atoms/Dropdown';
 import Modal from 'components/layouts/Modal';
 import DateRange from 'components/molecules/DateRange';
 import DonationButton from 'components/molecules/iFrameComp/DonationButton';
+import DonationLevelDraft from 'components/molecules/iFrameComp/DonationLevel';
 import dayjs from 'dayjs';
 import { getAdminData } from 'features/auth/authSlice';
 import { getAllCampaigns } from 'features/campaign/campaignSlice';
@@ -34,8 +35,8 @@ import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
 import Test from 'pages/Test';
 import React, { useEffect, useState } from 'react';
-import { renderToString } from 'react-dom/server';
 import { useDispatch } from 'react-redux';
+import store from 'store';
 import { datas1 } from 'utilities/overviewData';
 import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 
@@ -79,9 +80,7 @@ function Overview() {
     dispatch(donationHistory());
     dispatch(revenueHistory());
   }, []);
-  const html = renderToString(<Test />);
 
-  console.log(html);
   return (
     <OverviewWrapper>
       <Card className="overview-card">
