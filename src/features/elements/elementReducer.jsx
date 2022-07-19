@@ -25,11 +25,11 @@ const initialState = {
   },
   goalMeter: {
     animation: '',
-    labelColor: '#000',
-    backgroundColor: '#fff',
-    borderSize: '',
-    progressBarColor: '',
-    borderRadius: ''
+    labelColor: '#212830',
+    backgroundColor: '#ffff',
+    borderSize: '2px',
+    progressBarColor: '#2797FF',
+    borderRadius: '4px'
   },
   donationLevel: {
     labelColor: '',
@@ -49,6 +49,15 @@ const initialState = {
     descriptionLabel: ''
   },
   topSupporters: {
+    label: '',
+    textColor: '',
+    accentColor: '#5C5C5C',
+    backgroundColor: '#000000',
+    borderColor: '#BEA2A2',
+    borderSize: '1px',
+    borderRadius: '10px'
+  },
+  recentDonation: {
     label: '',
     textColor: '',
     accentColor: '',
@@ -76,6 +85,9 @@ export const elementIframesReducer = createSlice({
     },
     topSupportersAction: (state, action) => {
       state.topSupporters = action.payload;
+    },
+    recentDonationActions: (state, action) => {
+      state.recentDonation = action.payload;
     }
   }
 });
@@ -85,6 +97,7 @@ export const {
   reminderAction,
   goalMeterAction,
   donationLevelAction,
-  topSupportersAction
+  topSupportersAction,
+  recentDonationActions
 } = elementIframesReducer.actions;
 export default elementIframesReducer.reducer;

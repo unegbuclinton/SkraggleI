@@ -36,7 +36,6 @@ function ReminderDraft() {
           alignItems: 'center',
           margin: '5px',
           border: `${borderSize}px solid ${borderColor}`,
-          //   background: 'red',
           borderRadius: `${borderRadius}px`
         }}>
         <div
