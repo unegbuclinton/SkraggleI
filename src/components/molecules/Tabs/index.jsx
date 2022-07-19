@@ -7,8 +7,8 @@ import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
 const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [dropdown, setDropdown] = useState(false);
-  const [subTab, setSubTab] = useState();
+  const [activeChild, setActiveChild] = useState(0);
+  const [show, setShow] = useState(false);
 
   return (
     <TabWrapper scroll={scroll}>
@@ -29,34 +29,52 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
         ) : (
           <div className="container">
             {tabs?.map((tab, index) => (
-              <TabButton
-                inline={inline}
-                key={index}
-                active={activeTab === index}
-                onClick={() => setActiveTab(index)}>
-                {tab.title}
-                <span onClick={() => setDropdown(!dropdown)}>{tab.name}</span>
-                <span onClick={() => setDropdown(!dropdown)}>
-                  {tab.name && <DPIconDropDown className="drop-down" />}
-                </span>
-                {tab.name && (
-                  <div>
-                    {dropdown && (
-                      <DropDownWrapper>
-                        {tab.children.map((child, index) => (
-                          <p key={index}>{child.childname}</p>
-                        ))}
-                      </DropDownWrapper>
-                    )}
-                  </div>
-                )}
-              </TabButton>
+              <div key={index} style={{ position: 'relative' }}>
+                <TabButton
+                  inline={inline}
+                  // key={index}
+                  active={activeTab === index}
+                  onClick={() => {
+                    setActiveTab(index);
+                    if (tab.children) {
+                      setShow((prev) => !prev);
+                    } else {
+                      setShow(false);
+                    }
+                  }}>
+                  {tab.children && activeChild
+                    ? tab?.children && tab?.children[activeChild]['title']
+                    : tab?.title}
+                </TabButton>
+                <div style={{ position: 'absolute' }}>
+                  {activeTab === index &&
+                    show &&
+                    tab?.children?.map((child, index) => {
+                      return (
+                        <TabButton
+                          onClick={() => {
+                            setActiveChild(index);
+                            setShow(false);
+                          }}
+                          key={index}>
+                          {child?.title}
+                        </TabButton>
+                      );
+                    })}
+                </div>
+              </div>
             ))}
           </div>
         )}
         {tabs[activeTab]?.actionComponent && <span>{tabs[activeTab]?.actionComponent}</span>}
       </TabContainer>
-      <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
+      <TabContent>
+        {tabs && tabs[activeTab]?.children
+          ? tabs[activeTab]?.children?.map((curr, index) =>
+              index === activeChild ? curr.component : null
+            )
+          : tabs[activeTab]?.component}
+      </TabContent>
     </TabWrapper>
   );
 };

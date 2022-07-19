@@ -1,7 +1,19 @@
 import React from 'react';
-// import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-function DonationButton({ label, color, background, padding, fontSize }) {
+function DonationButton() {
+  const { donationButton } = useSelector((state) => state.elementIframes);
+
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = donationButton;
   return (
     <div
       style={{
@@ -14,7 +26,14 @@ function DonationButton({ label, color, background, padding, fontSize }) {
         padding: '1rem .3rem'
       }}>
       <button
-        style={{ color: color, background: background, padding: padding, fontSize: fontSize }}>
+        style={{
+          width: buttonWidth,
+          color: labelColor,
+          height: buttonHeight,
+          background: buttonColor,
+          border: `${borderSize}px solid ${borderColor}`,
+          borderRadius: `${borderRadius}px`
+        }}>
         {label}
       </button>
     </div>

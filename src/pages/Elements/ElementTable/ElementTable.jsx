@@ -21,6 +21,7 @@ import StickyButtonModal from 'components/molecules/ElementModal/StickyButtonMod
 import TopFundraiserModal from 'components/molecules/ElementModal/TopFundraiserModal';
 import TopSupportersModal from 'components/molecules/ElementModal/TopSupporters';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
+import { ElementContextProvider } from 'context';
 import { DPIconDonationDash, DPIconDonationEye, DPIconDonationMore } from 'icons';
 import React, { useState } from 'react';
 import { ElementsWrapper } from './styles';
@@ -109,72 +110,77 @@ function ElementTable() {
     }
   ];
   return (
-    <ElementsWrapper>
-      <DonateModal isShown={openDonateButton} onClose={() => setOpenDonateButton(false)} />
-      <DonateLinkModal isShown={openDonateLink} onClose={() => setOpenDonateLink(false)} />
-      <StickyButtonModal isShown={openStckyButton} onClose={() => setOpenStickyButton(false)} />
-      <ReminderModal isShown={openReminderModal} onClose={() => setOpenReminderModal(false)} />
-      <SocialProofModal
-        isShown={openSocialProofModal}
-        onClose={() => setOpenSocialProofModal(false)}
-      />
-      <MessageBarModal
-        isShown={openMessageBarModal}
-        onClose={() => setOpenMessageBarModal(false)}
-      />
-      <QrCodeModal isShown={openQrCodeModal} onClose={() => setOpenQrCodeModal(false)} />
-      <DonationLevelModal
-        isShown={openDonationLevels}
-        onClose={() => setOpenDonationLevels(false)}
-      />
-      <ButtonGroupModal isShown={openButtonGroup} onClose={() => setOpenButtonGroup(false)} />
-      <DonationFormModal
-        isShown={openDonationFormModal}
-        onClose={() => setOpenDonationFormModal(false)}
-      />
-      <SimpleFormModal isShown={openSimpleForm} onClose={() => setOpenSimpleForm(false)} />
-      <ImageCardModal isShown={openImageCard} onClose={() => setOpenImageCard(false)} />
-      <GoalMeterModal isShown={openGoalMeter} onClose={() => setOpenGoalMeter(false)} />
-      <StartCounterModal isShown={openStartCounter} onClose={() => setOpenStartCounter(false)} />
-      <ImpactSliderModal isShown={openImpactSlider} onClose={() => setOpenImpactSlider(false)} />
-      <TopSupportersModal
-        isShown={openSupporterModal}
-        onClose={() => setOpenSupporterModal(false)}
-      />
-      <RecentDonationModal
-        isShown={openRecentDonation}
-        onClose={() => setOpenRecentDonation(false)}
-      />
-      <P2PButtonsModal isShown={openP2pButtons} onClose={() => setOpenP2pButtons(false)} />
-      <P2PLinkModal isShown={openP2pLink} onClose={() => setOpenP2pLink(false)} />
-      <TopFundraiserModal isShown={openTopFundRaiser} onClose={() => setOpenTopFunRaiser(false)} />
-      <NewElementModal
-        isShown={open}
-        setOpenDonateButton={setOpenDonateButton}
-        setOpenDonateLink={setOpenDonateLink}
-        setOpenStickyButton={setOpenStickyButton}
-        setOpenReminderModal={setOpenReminderModal}
-        setOpenSocialProofModal={setOpenSocialProofModal}
-        setOpenMessageBarModal={setOpenMessageBarModal}
-        setOpenQrCodeModal={setOpenQrCodeModal}
-        setOpenDonationLevels={setOpenDonationLevels}
-        setOpenButtonGroup={setOpenButtonGroup}
-        setOpenDonationFormModal={setOpenDonationFormModal}
-        setOpenSimpleForm={setOpenSimpleForm}
-        setOpenImageCard={setOpenImageCard}
-        setOpenGoalMeter={setOpenGoalMeter}
-        setOpenStartCounter={setOpenStartCounter}
-        setOpenImpactSlider={setOpenImpactSlider}
-        setOpenSupporterModal={setOpenSupporterModal}
-        setOpenRecentDonation={setOpenRecentDonation}
-        setOpenP2pButtons={setOpenP2pButtons}
-        setOpenP2pLink={setOpenP2pLink}
-        setOpenTopFunRaiser={setOpenTopFunRaiser}
-        onClose={() => setOpen(false)}
-      />
-      <TableHeader header="12 Elements" title="New element" setOpen={setOpen} />
-      <Table columns={columns} data={data} />
-    </ElementsWrapper>
+    <ElementContextProvider>
+      <ElementsWrapper>
+        <DonateModal isShown={openDonateButton} onClose={() => setOpenDonateButton(false)} />
+        <DonateLinkModal isShown={openDonateLink} onClose={() => setOpenDonateLink(false)} />
+        <StickyButtonModal isShown={openStckyButton} onClose={() => setOpenStickyButton(false)} />
+        <ReminderModal isShown={openReminderModal} onClose={() => setOpenReminderModal(false)} />
+        <SocialProofModal
+          isShown={openSocialProofModal}
+          onClose={() => setOpenSocialProofModal(false)}
+        />
+        <MessageBarModal
+          isShown={openMessageBarModal}
+          onClose={() => setOpenMessageBarModal(false)}
+        />
+        <QrCodeModal isShown={openQrCodeModal} onClose={() => setOpenQrCodeModal(false)} />
+        <DonationLevelModal
+          isShown={openDonationLevels}
+          onClose={() => setOpenDonationLevels(false)}
+        />
+        <ButtonGroupModal isShown={openButtonGroup} onClose={() => setOpenButtonGroup(false)} />
+        <DonationFormModal
+          isShown={openDonationFormModal}
+          onClose={() => setOpenDonationFormModal(false)}
+        />
+        <SimpleFormModal isShown={openSimpleForm} onClose={() => setOpenSimpleForm(false)} />
+        <ImageCardModal isShown={openImageCard} onClose={() => setOpenImageCard(false)} />
+        <GoalMeterModal isShown={openGoalMeter} onClose={() => setOpenGoalMeter(false)} />
+        <StartCounterModal isShown={openStartCounter} onClose={() => setOpenStartCounter(false)} />
+        <ImpactSliderModal isShown={openImpactSlider} onClose={() => setOpenImpactSlider(false)} />
+        <TopSupportersModal
+          isShown={openSupporterModal}
+          onClose={() => setOpenSupporterModal(false)}
+        />
+        <RecentDonationModal
+          isShown={openRecentDonation}
+          onClose={() => setOpenRecentDonation(false)}
+        />
+        <P2PButtonsModal isShown={openP2pButtons} onClose={() => setOpenP2pButtons(false)} />
+        <P2PLinkModal isShown={openP2pLink} onClose={() => setOpenP2pLink(false)} />
+        <TopFundraiserModal
+          isShown={openTopFundRaiser}
+          onClose={() => setOpenTopFunRaiser(false)}
+        />
+        <NewElementModal
+          isShown={open}
+          setOpenDonateButton={setOpenDonateButton}
+          setOpenDonateLink={setOpenDonateLink}
+          setOpenStickyButton={setOpenStickyButton}
+          setOpenReminderModal={setOpenReminderModal}
+          setOpenSocialProofModal={setOpenSocialProofModal}
+          setOpenMessageBarModal={setOpenMessageBarModal}
+          setOpenQrCodeModal={setOpenQrCodeModal}
+          setOpenDonationLevels={setOpenDonationLevels}
+          setOpenButtonGroup={setOpenButtonGroup}
+          setOpenDonationFormModal={setOpenDonationFormModal}
+          setOpenSimpleForm={setOpenSimpleForm}
+          setOpenImageCard={setOpenImageCard}
+          setOpenGoalMeter={setOpenGoalMeter}
+          setOpenStartCounter={setOpenStartCounter}
+          setOpenImpactSlider={setOpenImpactSlider}
+          setOpenSupporterModal={setOpenSupporterModal}
+          setOpenRecentDonation={setOpenRecentDonation}
+          setOpenP2pButtons={setOpenP2pButtons}
+          setOpenP2pLink={setOpenP2pLink}
+          setOpenTopFunRaiser={setOpenTopFunRaiser}
+          onClose={() => setOpen(false)}
+        />
+        <TableHeader header="12 Elements" title="New element" setOpen={setOpen} />
+        <Table columns={columns} data={data} />
+      </ElementsWrapper>
+    </ElementContextProvider>
   );
 }
 

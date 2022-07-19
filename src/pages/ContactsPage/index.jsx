@@ -26,6 +26,20 @@ const Contacts = () => {
       component: <TagsTable />
     },
     {
+      title: 'Archive',
+      // component: <SegmentsTable />
+      children: [
+        {
+          title: 'Archived',
+          component: <CompaniesTable />
+        },
+        {
+          title: 'Deleted Contacts',
+          component: <HouseHoldsTable />
+        }
+      ]
+    },
+    {
       title: 'segment',
       component: <SegmentsTable />
     },
