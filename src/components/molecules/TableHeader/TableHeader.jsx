@@ -27,7 +27,8 @@ function TableHeader({
   eventHeader,
   onClick,
   add,
-  attendeeButton
+  attendeeButton,
+  companyHeader
 }) {
   const [dropDown, setDropDown] = useState(false);
   const [attendeeDropdown, setAttendeeDropdown] = useState(false);
@@ -93,7 +94,7 @@ function TableHeader({
           ''
         ) : (
           <>
-            {!eventHeader ? (
+            {!eventHeader && !companyHeader ? (
               <SelectDropDown
                 className="select-dropdown"
                 classNamePrefix="react-select"

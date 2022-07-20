@@ -29,7 +29,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
         ) : (
           <div className="container">
             {tabs?.map((tab, index) => (
-              <div key={index} style={{ position: 'relative' }}>
+              <ButtonContainer key={index}>
                 <TabButton
                   inline={inline}
                   // key={index}
@@ -46,7 +46,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                     ? tab?.children && tab?.children[activeChild]['title']
                     : tab?.title}
                 </TabButton>
-                <div style={{ position: 'absolute' }}>
+                <DropDownWrapper>
                   {activeTab === index &&
                     show &&
                     tab?.children?.map((child, index) => {
@@ -61,8 +61,8 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                         </TabButton>
                       );
                     })}
-                </div>
-              </div>
+                </DropDownWrapper>
+              </ButtonContainer>
             ))}
           </div>
         )}
@@ -91,16 +91,23 @@ const TabWrapper = styled.div`
     .container {
       display: flex;
       flex-wrap: nowrap;
+      position: relative;
     }
   }
+`;
+
+const ButtonContainer = styled.div`
+  position: relative;
 `;
 
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
-  overflow-x: auto;
+  width: 100%;
+  /* overflow-x: auto; */
   .container {
     display: flex;
     flex-wrap: nowrap;
@@ -223,21 +230,9 @@ const TabContent = styled.div`
 `;
 
 const DropDownWrapper = styled.div`
-  /* position: fixed;
-  background-color: ${COLORS.white};
-  z-index: 2;
-  width: 15rem;
+  position: absolute;
+  background-color: red;
   display: block;
-  padding-bottom: 0.5rem;
-  .child-container {
-    p {
-      /* margin-bottom: 1rem; */
-      /* padding: 0.7rem;
-      &:hover {
-        background-color: ${COLORS['garage-mix-grey']};
-      }
-    } */
-  } */
 `;
 
 export default Tabs;
