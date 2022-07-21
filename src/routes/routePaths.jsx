@@ -3,6 +3,7 @@ import ConfirmForgotPassword from 'components/molecules/ConfirmForgotPassword';
 import EventsDetails from 'components/molecules/EventsDetails';
 import RegistrationPackage from 'components/molecules/EventsDetails/RegistrationPackage';
 import ProcessingFeeMain from 'components/molecules/Forms';
+import ImpactAreaSubtabs from 'components/molecules/ImpactArea/ImpactAreaSubtabs';
 import OTPConfirmation from 'components/molecules/OTPConfirmation';
 import OTPForgotPassword from 'components/molecules/OTPForgotPassword';
 import OTP from 'components/molecules/OTPScreen';
@@ -20,6 +21,7 @@ import Elements from 'pages/Elements';
 import Events from 'pages/Events';
 import ForgotPassword from 'pages/ForgotPassword';
 import Forms from 'pages/Forms';
+import ImpactArea from 'pages/ImpactArea';
 import LandingPage from 'pages/LandingPage';
 import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
@@ -99,6 +101,20 @@ export const privateRoutes = [
       {
         path: ':id',
         element: <CampaignDetails />
+      }
+    ]
+  },
+  {
+    path: 'impact-area/*',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/',
+        element: <ImpactArea />
+      },
+      {
+        path: ':id',
+        element: <ImpactAreaSubtabs />
       }
     ]
   },

@@ -23,7 +23,7 @@ function EmptyState({ className, svg, title, contactTitle, name, onClick }) {
 export default EmptyState;
 
 const EmptystateWrapper = styled(Card)`
-  height: 46.7rem;
+  min-height: 46.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
