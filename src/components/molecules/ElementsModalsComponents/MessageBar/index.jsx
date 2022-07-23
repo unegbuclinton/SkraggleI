@@ -1,11 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
+import MessageBarDraft from 'components/molecules/iFrameComp/MessageBar';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
+import { renderCompToString } from 'utilities/helpers';
 import Apperance from './Appearance';
 import Behavior from './Behavior';
 import MessageBarButton from './Button';
@@ -18,6 +20,8 @@ function MessageBar() {
     { title: 'BUTTON', component: <MessageBarButton /> },
     { title: 'VISIBILITY', component: <VisibilityTab /> }
   ];
+  const html = renderCompToString(<MessageBarDraft />);
+
   return (
     <DonateButtonWrapper>
       <Heading>
@@ -31,7 +35,7 @@ function MessageBar() {
         <Tabs tabs={tabs} inline />
         <CopyContainer>
           <CopyLabel>HTML CODE</CopyLabel>
-          <CopyField grey />
+          <CopyField grey value={html} />
         </CopyContainer>
         <ButtonContainer>
           <Button type="button" className="cancel-btn" auth invert>
