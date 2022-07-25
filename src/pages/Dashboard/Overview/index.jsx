@@ -3,7 +3,10 @@ import { getActivities } from 'api/donation/fundraisingActivities';
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import DropdownComponent from 'components/atoms/Dropdown';
+import Modal from 'components/layouts/Modal';
 import DateRange from 'components/molecules/DateRange';
+import DonationButton from 'components/molecules/iFrameComp/DonationButton';
+import DonationLevelDraft from 'components/molecules/iFrameComp/DonationLevel';
 import dayjs from 'dayjs';
 import { getAdminData } from 'features/auth/authSlice';
 import { getAllCampaigns } from 'features/campaign/campaignSlice';
@@ -30,8 +33,10 @@ import { allSubscriptionStatus, listAllMailBlast } from 'features/mailblast/mail
 import { viewP2P } from 'features/p2p/p2pSlice';
 import { DPIconDateArrow, DPIconRangeIcon } from 'icons';
 import WidgetModal from 'pages/Dashboard/modals/WidgetModal';
+import Test from 'pages/Test';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import store from 'store';
 import { datas1 } from 'utilities/overviewData';
 import { DatePicker, OverviewLeft, OverviewRight, OverviewWrapper } from './styles';
 

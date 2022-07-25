@@ -4,19 +4,21 @@ import SelectDropDown from 'components/atoms/GenericDropdown';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
+import { donationLevelAction } from 'features/elements/elementReducer';
 import { DPIconEllipse, DPIconPlusPink } from 'icons';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Behavior() {
   const [buttons, setButtons] = useState(['']);
   const [amount, setAmount] = useState('');
 
-  const handleChange = (e, index) => {
-    const list = [...buttons];
-    list[index] = e.target.value;
-    setButtons(list);
-  };
+  // const handleChange = (e, index) => {
+  //   const list = [...buttons];
+  //   list[index] = e.target.value;
+  //   setButtons(list);
+  // };
 
   // const handleRemove = (index) => {
   //   const list = [...buttons];
@@ -35,6 +37,19 @@ function Behavior() {
     ]);
     setAmount('');
   };
+  const { donationLevel } = useSelector((state) => state.elementIframes);
+  const { descriptionLabel, buttonLabel } = donationLevel;
+  const dispatch = useDispatch();
+
+  const [donationLevelProperties, setDonationLevelProperties] = useState(donationLevel);
+
+  const handleChangeState = (value, key) => {
+    setDonationLevelProperties({ ...donationLevelProperties, [key]: value });
+  };
+  useEffect(() => {
+    dispatch(donationLevelAction(donationLevelProperties));
+  }, [donationLevelProperties]);
+
   return (
     <BehaviorWrapper>
       <InputWrapper>
@@ -87,20 +102,32 @@ function Behavior() {
             <Container>
               <InputWrapper>
                 <StickyButtonLabel className="accent">Accent</StickyButtonLabel>
-                <Input className="accent-input" type="text" placeholder="Supporter" />
+                <Input
+                  className="accent-input"
+                  type="text"
+                  placeholder="Supporter"
+                  onChange={(event) => handleChangeState(event.target.value, 'accentLabel')}
+                />
                 <Input
                   className="digit"
                   type="number"
                   onWheel={() => document.activeElement.blur()}
                   id={name}
                   name={name}
-                  onChange={(e) => handleChange(e, index)}
+                  // value={accentLevelLabel}
+                  onChange={(event) => handleChangeState(event.target.value, 'accentLevelLabel')}
                   placeholder="$25"
                 />
               </InputWrapper>
               <InputWrapper>
                 <StickyButtonLabel className="button-label">Button Label</StickyButtonLabel>
-                <Input className="description-input" type="text" placeholder="Donate" />
+                <Input
+                  className="description-input"
+                  type="text"
+                  placeholder="Donate"
+                  value={buttonLabel}
+                  onChange={(event) => handleChangeState(event.target.value, 'buttonLabel')}
+                />
               </InputWrapper>
               <TextAreaWrapper>
                 <StickyButtonLabel className="textarea-label">Description</StickyButtonLabel>
@@ -108,6 +135,8 @@ function Behavior() {
                   className="description-input"
                   type="text"
                   placeholder="Make a difference today!"
+                  value={descriptionLabel}
+                  onChange={(event) => handleChangeState(event.target.value, 'descriptionLabel')}
                 />
               </TextAreaWrapper>
             </Container>
@@ -260,6 +289,8 @@ const Container = styled.div``;
 const TextArea = styled.textarea`
   width: 31.2rem;
   height: 10.2rem;
+  outline: none;
+  resize: none;
   background-color: ${COLORS.white};
   border: 0.1rem solid ${COLORS['gray-500']};
   margin-bottom: 1.8rem;

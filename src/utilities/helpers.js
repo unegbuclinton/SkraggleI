@@ -1,4 +1,7 @@
 import dayjs from 'dayjs';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import store from 'store';
 
 const today = new Date();
 /* eslint-disable no-bitwise */
@@ -53,4 +56,10 @@ export const getDatesBetweenDates = (startDate, endDate) => {
   }
   dates = [...dates, endDate];
   return dates;
+};
+
+export const renderCompToString = (comp) => {
+  const renderedComp = renderToString(<Provider store={store}>{comp}</Provider>);
+
+  return renderedComp;
 };
