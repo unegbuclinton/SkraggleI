@@ -1,36 +1,25 @@
 import Button from 'components/atoms/Button/Button';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
+import DonationButton from 'components/molecules/iFrameComp/DonationButton';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { useElement } from 'context';
-import { BasicElement } from 'lib';
-import { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
+import { renderCompToString } from 'utilities/helpers';
 import DonateAppearance from './Appearance';
 import DonateButtonBehavior from './Behavior';
 import CustomField from './CustomFields';
 
 function DonateButton() {
   // vars
-  const { elementConfig, setElementConfig } = useElement();
   const tabs = [
     { title: 'BEHAVIOUR', component: <DonateButtonBehavior /> },
     { title: 'APPEARANCE', component: <DonateAppearance /> },
     { title: 'CUSTOM FIELDS', component: <CustomField /> }
   ];
 
-  // hooks
-  useEffect(() => {
-    setElementConfig((draft) => {
-      draft.type = 'button';
-    });
-  }, []);
-
-  const htmlCode = useMemo(() => {
-    return new BasicElement(elementConfig).toString();
-  }, [JSON.stringify(elementConfig)]);
+  const htmlCode = renderCompToString(<DonationButton />);
 
   return (
     <DonateButtonWrapper>

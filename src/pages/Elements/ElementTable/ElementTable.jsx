@@ -92,7 +92,7 @@ function ElementTable() {
       last_seen: '-'
     },
     {
-      id: 'XZ4345RFDC',
+      id: 'XZ4345YXS',
       name: 'Elements',
 
       type: 'null',
@@ -101,7 +101,7 @@ function ElementTable() {
       last_seen: '-'
     },
     {
-      id: 'XZ4345RFDC',
+      id: 'XZ4345FTRE ',
       name: 'Elements',
       statistics: '0',
       type: 'null',

@@ -4,13 +4,31 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { donationLevelAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Title() {
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#2797FF');
-  const [grey, setGrey] = useState('#DEDFE3');
+  const { donationLevel } = useSelector((state) => state.elementIframes);
+  const {
+    backgroundColor,
+    textColor,
+    accentTextColor,
+    panelBorderSize,
+    panelBorderRadius,
+    panelBorderColor
+  } = donationLevel;
+  const dispatch = useDispatch();
+
+  const [donationLevelProperties, setDonationLevelProperties] = useState(donationLevel);
+
+  const handleChange = (value, key) => {
+    setDonationLevelProperties({ ...donationLevelProperties, [key]: value });
+  };
+  useEffect(() => {
+    dispatch(donationLevelAction(donationLevelProperties));
+  }, [donationLevelProperties]);
 
   return (
     <AppearanceWrapper>
@@ -25,41 +43,65 @@ function Title() {
           <MessageLabel className="background-label">Background color</MessageLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={backgroundColor}
+            onChange={(event) => handleChange(event.target.value, 'backgroundColor')}
           />
         </ColorContainer>
         <ColorContainer>
           <MessageLabel className="color-label">Text color</MessageLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={textColor}
+            onChange={(event) => handleChange(event.target.value, 'textColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <ColorWrapper>
         <ColorContainer>
-          <MessageLabel className="background-label">Account text color</MessageLabel>
+          <MessageLabel className="background-label">Accent text color</MessageLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={accentTextColor}
+            onChange={(event) => handleChange(event.target.value, 'accentTextColor')}
           />
         </ColorContainer>
       </ColorWrapper>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={4}
+            value={panelBorderSize}
+            onChange={(event) => handleChange(event.target.value, 'panelBorderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={20}
+            value={panelBorderRadius}
+            onChange={(event) => handleChange(event.target.value, 'panelBorderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
           <MessageLabel className="border-color">Border color</MessageLabel>
-          <ColorComponents type="color" value={grey} onChange={(e) => setGrey(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={panelBorderColor}
+            onChange={(event) => handleChange(event.target.value, 'panelBorderColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <CheckBoxWrapper className="checkbox">

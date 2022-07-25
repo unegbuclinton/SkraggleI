@@ -3,49 +3,99 @@ import ColorComponents from 'components/atoms/ColorComponent';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { reminderAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appearance() {
-  const [white, setWhite] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#477BE0');
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+  const { reminder } = useSelector((state) => state.elementIframes);
+
+  const [remindProperties, setRemindProperties] = useState(reminder);
+
+  useEffect(() => {
+    dispatch(reminderAction(remindProperties));
+  }, [remindProperties]);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (value, key) => {
+    setRemindProperties({ ...remindProperties, [key]: value });
+  };
+  const {
+    // boxShadow,
+    labelColor,
+    // backgroundColor,
+    borderSize,
+    buttonColor,
+    borderRadius,
+    borderColor,
+    iconColor
+  } = reminder;
+
   return (
     <AppearanceWrapper>
       <ColorWrapper>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Label color</StickyButtonLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={labelColor}
+            onChange={(event) => handleChange(event.target.value, 'labelColor')}
+          />
         </ColorContainer>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Button color</StickyButtonLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={buttonColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={6}
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={10}
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Border color</StickyButtonLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={borderColor}
+            onChange={(event) => handleChange(event.target.value, 'borderColor')}
+          />
         </ColorContainer>
         <ColorContainer>
           <StickyButtonLabel className="color-label">Icon color</StickyButtonLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={iconColor}
+            onChange={(event) => handleChange(event.target.value, 'iconColor')}
           />
         </ColorContainer>
       </ColorWrapper>
