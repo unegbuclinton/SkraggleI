@@ -2,8 +2,10 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
+import TopSupporterDraft from 'components/molecules/iFrameComp/TopSupporters';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
+import { renderCompToString } from 'utilities/helpers';
 import Appearance from './Appearance';
 import Behavior from './Behavior';
 import {
@@ -21,6 +23,7 @@ function TopSupportersModalComponent() {
     { title: 'BEHAVIOUR', component: <Behavior /> },
     { title: 'APPEARANCE', component: <Appearance /> }
   ];
+  const htmlCode = renderCompToString(<TopSupporterDraft />);
   return (
     <TopSupportersFormWrapper>
       <Card className="topsupporters-card">
@@ -36,7 +39,7 @@ function TopSupportersModalComponent() {
       <Card className="topsupporters-card__footer">
         <CopyWrapper>
           <FormLabel>HTML CODE</FormLabel>
-          <CopyField grey></CopyField>
+          <CopyField grey value={htmlCode}></CopyField>
         </CopyWrapper>
         <TopSupportersFooter>
           <Button className="archive-btn" invert auth>

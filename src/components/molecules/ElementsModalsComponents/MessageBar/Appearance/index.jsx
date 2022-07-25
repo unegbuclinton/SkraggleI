@@ -3,19 +3,38 @@ import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { messageBarActions } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appearance() {
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [black, setBlack] = useState('#000000');
+  const { messageBar } = useSelector((state) => state.elementIframes);
+  const { title, content, backgroundColor, textColor } = messageBar;
+  const dispatch = useDispatch();
+
+  const [messageBarProperties, setMessageBarProperties] = useState(messageBar);
+
+  const handleChange = (value, key) => {
+    setMessageBarProperties({ ...messageBarProperties, [key]: value });
+  };
+
+  useEffect(() => {
+    dispatch(messageBarActions(messageBarProperties));
+  }, [messageBarProperties]);
 
   return (
     <AppearanceWrapper>
       <InputWrapper className="title">
         <MessageLabel>Title</MessageLabel>
         <Wrapper>
-          <Input className="input-field" type="text" placeholder="Make a difference today!" />
+          <Input
+            className="input-field"
+            type="text"
+            placeholder="Make a difference today!"
+            value={title}
+            onChange={(event) => handleChange(event.target.value, 'title')}
+          />
         </Wrapper>
       </InputWrapper>
       <TextAreaWrapper>
@@ -28,20 +47,26 @@ function Appearance() {
             placeholder="Your contribution today can improve the lives
  of so many. Please join us in making
  a difference."
+            value={content}
+            onChange={(event) => handleChange(event.target.value, 'content')}
           />
         </Wrapper>
       </TextAreaWrapper>
       <ColorWrapper>
         <ColorContainer>
           <MessageLabel className="color-label">Text color</MessageLabel>
-          <ColorComponents type="color" value={black} onChange={(e) => setBlack(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={textColor}
+            onChange={(event) => handleChange(event.target.value, 'textColor')}
+          />
         </ColorContainer>
         <ColorContainer>
           <MessageLabel className="background-label">Background color</MessageLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={backgroundColor}
+            onChange={(event) => handleChange(event.target.value, 'backgroundColor')}
           />
         </ColorContainer>
       </ColorWrapper>
@@ -136,6 +161,7 @@ const CheckBoxLabel = styled.label`
 
 const TextArea = styled.textarea`
   width: 31.2rem;
+  outline: none;
   background-color: ${COLORS.white};
   border: 0.1rem solid ${COLORS['gray-500']};
   margin-bottom: 2.4rem;

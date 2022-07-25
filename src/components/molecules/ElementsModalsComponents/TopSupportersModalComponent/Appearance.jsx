@@ -4,20 +4,37 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { topSupportersAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appearance() {
-  const [textColor, setTextColor] = useState('#1E003E');
-  const [accentTextColor, setAccentTextColor] = useState('#477BE0');
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#DEDFE3');
+  const { topSupporters } = useSelector((state) => state.elementIframes);
+  const { label, textColor, accentColor, backgroundColor, borderRadius, borderSize, borderColor } =
+    topSupporters;
+  const [topSupporterProperties, setTopSupporterProperties] = useState(topSupporters);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (value, key) => {
+    setTopSupporterProperties({ ...topSupporterProperties, [key]: value });
+  };
+
+  useEffect(() => {
+    dispatch(topSupportersAction(topSupporterProperties));
+  }, [topSupporterProperties]);
 
   return (
     <AppearanceWrapper>
       <AppearanceFieldWrapper>
         <AppearanceLabel>Title</AppearanceLabel>
-        <Input className="appearance-input" placeholder="Top Fundraiser" />
+        <Input
+          className="appearance-input"
+          placeholder="Top Fundraiser"
+          value={label}
+          onChange={(event) => handleChange(event.target.value, 'label')}
+        />
       </AppearanceFieldWrapper>
 
       <ColorPickersWrapper>
@@ -28,7 +45,7 @@ function Appearance() {
               <ColorComponents
                 type="color"
                 value={textColor}
-                onChange={(e) => setTextColor(e.target.value)}
+                onChange={(event) => handleChange(event.target.value, 'textColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -40,8 +57,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={accentTextColor}
-                onChange={(e) => setAccentTextColor(e.target.value)}
+                value={accentColor}
+                onChange={(event) => handleChange(event.target.value, 'accentColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -54,7 +71,7 @@ function Appearance() {
               <ColorComponents
                 type="color"
                 value={backgroundColor}
-                onChange={(e) => setBackgroundColor(e.target.value)}
+                onChange={(event) => handleChange(event.target.value, 'backgroundColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -67,7 +84,7 @@ function Appearance() {
               <ColorComponents
                 type="color"
                 value={borderColor}
-                onChange={(e) => setBorderColor(e.target.value)}
+                onChange={(event) => handleChange(event.target.value, 'borderColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -78,7 +95,14 @@ function Appearance() {
         <SliderContainer>
           <AppearanceLabel>Border Size</AppearanceLabel>
           <SliderWrapper>
-            <Slider className="slider-border" text="px" />
+            <Slider
+              className="slider-border"
+              text="px"
+              min={0}
+              max={4}
+              value={borderSize}
+              onChange={(event) => handleChange(event.target.value, 'borderSize')}
+            />
           </SliderWrapper>
         </SliderContainer>
       </AppearanceFieldWrapper>
@@ -87,7 +111,14 @@ function Appearance() {
         <SliderContainer>
           <AppearanceLabel>Border Radius</AppearanceLabel>
           <SliderWrapper>
-            <Slider className="slider-border" text="px" />
+            <Slider
+              className="slider-border"
+              text="px"
+              min={0}
+              max={20}
+              value={borderRadius}
+              onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+            />
           </SliderWrapper>
         </SliderContainer>
       </AppearanceFieldWrapper>

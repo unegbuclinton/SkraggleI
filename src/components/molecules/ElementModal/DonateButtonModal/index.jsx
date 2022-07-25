@@ -1,5 +1,5 @@
 import Modal from 'components/layouts/Modal';
-import DonationButton from 'components/molecules/iFrameComp';
+import DonationButton from 'components/molecules/iFrameComp/DonationButton';
 import DonateButton from '../../ElementsModalsComponents/DonateButton';
 
 function DonateModal({ onClose, isShown }) {
