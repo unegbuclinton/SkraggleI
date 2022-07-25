@@ -16,7 +16,7 @@ function PaymentProcessor() {
           <div>
             <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
             <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              Keep your contact data updated by connecting your Paypal account to Skraggle
             </IntegrationText>
           </div>
         </IntegrationContent>
@@ -30,7 +30,7 @@ function PaymentProcessor() {
           <div>
             <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
             <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              Keep your contact data updated by connecting your Paypal account to Skraggle
             </IntegrationText>
           </div>
         </IntegrationContent>
@@ -44,7 +44,7 @@ function PaymentProcessor() {
           <div>
             <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
             <IntegrationText>
-              Keep your contact data updated by connecting your Mailchimp account to Skraggle
+              Keep your contact data updated by connecting your Paypal account to Skraggle
             </IntegrationText>
           </div>
         </IntegrationContent>

@@ -1,4 +1,4 @@
-// import DashboardLayout from 'components/layouts/DashboardLayout';
+import DashboardLayout from 'components/layouts/DashboardLayout';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
 import Account from './Account';
@@ -56,7 +56,11 @@ function OrganisationSettings() {
     }
   ];
 
-  return <Tabs tabs={links} scroll />;
+  return (
+    <DashboardLayout>
+      <Tabs tabs={links} scroll />
+    </DashboardLayout>
+  );
 }
 
 export default OrganisationSettings;
