@@ -1,3 +1,4 @@
+import Checkbox from 'components/atoms/CheckBox';
 import ColorComponents from 'components/atoms/ColorComponent';
 import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
@@ -81,6 +82,8 @@ function DonateAppearance() {
             className="slider-border"
             sliderText="slider-text"
             text="px"
+            min={30}
+            max={80}
             value={buttonHeight}
             onChange={(event) => handleChange(event.target.value, 'buttonHeight')}
           />
@@ -92,8 +95,8 @@ function DonateAppearance() {
           <Slider
             className="slider-border"
             sliderText="slider-text"
-            // min={}
-            // max={}
+            min={100}
+            max={180}
             text="px"
             value={buttonWidth}
             onChange={(event) => handleChange(event.target.value, 'buttonWidth')}
@@ -122,7 +125,7 @@ function DonateAppearance() {
             sliderText="slider-text"
             text="px"
             min={0}
-            max={24}
+            max={40}
             value={borderRadius}
             onChange={(event) => handleChange(event.target.value, 'borderRadius')}
           />
@@ -130,6 +133,7 @@ function DonateAppearance() {
       </SliderContainer>
 
       <CheckboxContainer>
+        <Checkbox checked={(event) => handleChange(event.target.value, 'boxShadow')} />
         <CheckboxLabel>Show shadow</CheckboxLabel>
       </CheckboxContainer>
     </DonateAppearanceWrapper>

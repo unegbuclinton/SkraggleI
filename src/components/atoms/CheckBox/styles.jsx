@@ -4,6 +4,7 @@ import { DPIconSkraggleCheck } from 'icons';
 import styled, { css } from 'styled-components';
 
 export const CheckboxContainer = styled.label`
+  position: relative;
   display: flex;
   align-items: center;
 

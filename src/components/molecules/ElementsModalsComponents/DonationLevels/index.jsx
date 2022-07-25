@@ -1,11 +1,13 @@
 import Button from 'components/atoms/Button/Button';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
+import DonationLevelDraft from 'components/molecules/iFrameComp/DonationLevel';
 import Tabs from 'components/molecules/Tabs';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
 import styled from 'styled-components';
+import { renderCompToString } from 'utilities/helpers';
 import Behavior from './Behavior';
 import DonationBtn from './Button';
 import Title from './Title';
@@ -16,6 +18,8 @@ function DonationLevels() {
     { title: 'TITLE', component: <Title /> },
     { title: 'BUTTONS', component: <DonationBtn /> }
   ];
+
+  const htmlCode = renderCompToString(<DonationLevelDraft />);
   return (
     <StickyButtonWrapper>
       <Heading>Display an animated donation button sticks to any side of your website.</Heading>
@@ -30,7 +34,7 @@ function DonationLevels() {
       <Tabs tabs={tabs} inline />
       <CopyContainer>
         <CopyLabel>HTML CODE</CopyLabel>
-        <CopyField grey />
+        <CopyField grey value={htmlCode} />
       </CopyContainer>
       <ButtonContainer>
         <Button type="button" className="cancel-btn" auth invert>

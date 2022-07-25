@@ -4,13 +4,26 @@ import ColorComponents from 'components/atoms/ColorComponent';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { goalMeterAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appeearance() {
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#2797FF');
-  const [blu, setBlu] = useState('#2797FF');
+  const { goalMeter } = useSelector((state) => state.elementIframes);
+  const { labelColor, backgroundColor, borderSize, progressBarColor, borderRadius } = goalMeter;
+  const dispatch = useDispatch();
+
+  const [goalMeterProperties, setGoalMeterProperties] = useState(goalMeter);
+
+  const handleChange = (value, key) => {
+    setGoalMeterProperties({ ...goalMeterProperties, [key]: value });
+  };
+
+  useEffect(() => {
+    dispatch(goalMeterAction(goalMeterProperties));
+  }, [goalMeterProperties]);
+
   return (
     <AppearanceWrapper>
       <AppearanceCheckbox>
@@ -20,14 +33,22 @@ function Appeearance() {
         <ColorWrapper>
           <ColorContainer>
             <MessageLabel className="label-color">Label color</MessageLabel>
-            <ColorComponents type="color" value={blu} onChange={(e) => setBlu(e.target.value)} />
+            <ColorComponents
+              type="color"
+              value={labelColor}
+              onChange={(event) => handleChange(event.target.value, 'labelColor')}
+            />
           </ColorContainer>
         </ColorWrapper>
 
         <ColorWrapper>
           <ColorContainer>
             <MessageLabel className="bar-color">Progress bar color</MessageLabel>
-            <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+            <ColorComponents
+              type="color"
+              value={progressBarColor}
+              onChange={(event) => handleChange(event.target.value, 'progressBarColor')}
+            />
           </ColorContainer>
         </ColorWrapper>
 
@@ -36,8 +57,8 @@ function Appeearance() {
             <MessageLabel className="bg-color">Background color</MessageLabel>
             <ColorComponents
               type="color"
-              value={whitez}
-              onChange={(e) => setWhitez(e.target.value)}
+              value={backgroundColor}
+              onChange={(event) => handleChange(event.target.value, 'backgroundColor')}
             />
           </ColorContainer>
         </ColorWrapper>
@@ -45,13 +66,29 @@ function Appeearance() {
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            min={0}
+            max={4}
+            text="px"
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            min={0}
+            max={10}
+            text="px"
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <AppearanceCheckbox>
