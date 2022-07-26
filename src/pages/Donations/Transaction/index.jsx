@@ -67,7 +67,7 @@ function Transaction() {
         warning="Warning: This will delete these transaction permanently from your Skraggle account. This
         action cannot be undone"
       />
-      <Card className="transaction-crard">
+      <Card className="transaction-card">
         <div className="transaction-header">
           <TableHeader
             selectRow={`${rowCount} Selected`}
