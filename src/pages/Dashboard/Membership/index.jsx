@@ -16,7 +16,7 @@ function Membership() {
         <MembershipBody>
           <DPIconEmtyState />
           <p className="membership-content">No Expiring Memberships</p>
-          <Button className="membership-btn" action onClick={NavigateTo}>
+          <Button className="membership-btn" action="true" onClick={NavigateTo}>
             Go to contact
           </Button>
         </MembershipBody>
