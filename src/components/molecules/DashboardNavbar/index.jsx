@@ -100,7 +100,7 @@ function DashboardHeader({ pageLinks }) {
             </div>
             <div className="organization-container">
               <h2 className="organisation-header">BIGGORILLA SANDBOL</h2>
-              <Link to="contact-profile" className="user-menu__links">
+              <Link to="/organisation-settings" className="user-menu__links">
                 <span>
                   <DPIconOrganisationIcon />
                 </span>
