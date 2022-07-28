@@ -5,7 +5,11 @@ import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal'
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { getOneTimeTransaction, removeTransaction } from 'features/donation/donationSlice';
+import {
+  fundActivities,
+  getOneTimeTransaction,
+  removeTransaction
+} from 'features/donation/donationSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -33,6 +37,7 @@ function Transaction() {
     };
     dispatch(removeTransaction(body)).then(() => {
       dispatch(getOneTimeTransaction());
+      dispatch(fundActivities());
       setGetId([]);
     });
   };
@@ -67,7 +72,7 @@ function Transaction() {
         warning="Warning: This will delete these transaction permanently from your Skraggle account. This
         action cannot be undone"
       />
-      <Card className="transaction-crard">
+      <Card className="transaction-card">
         <div className="transaction-header">
           <TableHeader
             selectRow={`${rowCount} Selected`}
