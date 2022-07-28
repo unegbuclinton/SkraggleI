@@ -96,9 +96,7 @@ const TabWrapper = styled.div`
   }
 `;
 
-const ButtonContainer = styled.div`
-  position: relative;
-`;
+const ButtonContainer = styled.div``;
 
 const TabContainer = styled(Card)`
   display: flex;
@@ -107,7 +105,7 @@ const TabContainer = styled(Card)`
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
   width: 100%;
-  /* overflow-x: auto; */
+  overflow-x: auto;
   .container {
     display: flex;
     flex-wrap: nowrap;
@@ -130,7 +128,7 @@ const TabButton = styled.button`
   width: 14.4rem;
   height: 100%;
   border: none;
-  /* position: relative; */
+  position: relative;
   display: inline-block;
   cursor: pointer;
   background: transparent;
@@ -231,8 +229,10 @@ const TabContent = styled.div`
 
 const DropDownWrapper = styled.div`
   position: absolute;
-  background-color: red;
-  display: block;
+  display: flex;
+  background: ${COLORS.white};
+  flex-direction: column;
+  box-shadow: -5px 5px 5px -3px rgb(0 0 0 / 20%);
 `;
 
 export default Tabs;
