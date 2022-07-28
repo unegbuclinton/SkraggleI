@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import Reminder from 'components/molecules/ElementsModalsComponents/Reminder';
-import ReminderIframe from 'components/molecules/iFrameComp/Reminder';
+import ReminderDraft from 'components/molecules/iFrameComp/Reminder';
 import React from 'react';
 
 function ReminderModal({ onClose, isShown }) {
@@ -10,7 +10,7 @@ function ReminderModal({ onClose, isShown }) {
       isShown={isShown}
       hide={onClose}
       sideModal
-      iframeChildren={<ReminderIframe />}>
+      iframeChildren={<ReminderDraft />}>
       <Reminder onclose={onClose} />
     </Modal>
   );

@@ -1,11 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconForm } from 'icons';
+import { DPIconDropDown, DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
 const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll, ...rest }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [activeChild, setActiveChild] = useState(0);
+  const [show, setShow] = useState(false);
+
   return (
     <TabWrapper scroll={scroll}>
       <TabContainer inline={inline} className={stickyTab ? 'sticky-header' : ''} {...rest}>
@@ -25,19 +29,52 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
         ) : (
           <div className="container">
             {tabs?.map((tab, index) => (
-              <TabButton
-                inline={inline}
-                key={index}
-                active={activeTab === index}
-                onClick={() => setActiveTab(index)}>
-                {tab.title}
-              </TabButton>
+              <ButtonContainer key={index}>
+                <TabButton
+                  inline={inline}
+                  // key={index}
+                  active={activeTab === index}
+                  onClick={() => {
+                    setActiveTab(index);
+                    if (tab.children) {
+                      setShow((prev) => !prev);
+                    } else {
+                      setShow(false);
+                    }
+                  }}>
+                  {tab.children && activeChild
+                    ? tab?.children && tab?.children[activeChild]['title']
+                    : tab?.title}
+                </TabButton>
+                <DropDownWrapper>
+                  {activeTab === index &&
+                    show &&
+                    tab?.children?.map((child, index) => {
+                      return (
+                        <TabButton
+                          onClick={() => {
+                            setActiveChild(index);
+                            setShow(false);
+                          }}
+                          key={index}>
+                          {child?.title}
+                        </TabButton>
+                      );
+                    })}
+                </DropDownWrapper>
+              </ButtonContainer>
             ))}
           </div>
         )}
         {tabs[activeTab]?.actionComponent && <span>{tabs[activeTab]?.actionComponent}</span>}
       </TabContainer>
-      <TabContent>{tabs && tabs[activeTab]?.component}</TabContent>
+      <TabContent>
+        {tabs && tabs[activeTab]?.children
+          ? tabs[activeTab]?.children?.map((curr, index) =>
+              index === activeChild ? curr.component : null
+            )
+          : tabs[activeTab]?.component}
+      </TabContent>
     </TabWrapper>
   );
 };
@@ -54,16 +91,23 @@ const TabWrapper = styled.div`
     .container {
       display: flex;
       flex-wrap: nowrap;
+      position: relative;
     }
   }
+`;
+
+const ButtonContainer = styled.div`
+  position: relative;
 `;
 
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
-  overflow-x: auto;
+  width: 100%;
+  /* overflow-x: auto; */
   .container {
     display: flex;
     flex-wrap: nowrap;
@@ -86,7 +130,7 @@ const TabButton = styled.button`
   width: 14.4rem;
   height: 100%;
   border: none;
-  position: relative;
+  /* position: relative; */
   display: inline-block;
   cursor: pointer;
   background: transparent;
@@ -95,6 +139,10 @@ const TabButton = styled.button`
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
+  .drop-down {
+    fill: ${COLORS['grey-400']};
+    margin-left: 0.5rem;
+  }
 
   ${({ inline }) =>
     inline &&
@@ -179,6 +227,12 @@ const TabLinkWrapper = styled.div`
 const TabContent = styled.div`
   height: 90%;
   overflow: hidden;
+`;
+
+const DropDownWrapper = styled.div`
+  position: absolute;
+  background-color: red;
+  display: block;
 `;
 
 export default Tabs;

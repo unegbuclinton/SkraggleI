@@ -1,9 +1,21 @@
-import { useElement } from 'context';
+// import { useElement } from 'context';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function DonationButton() {
-  // vars
-  const { elementConfig } = useElement();
+  const { donationButton } = useSelector((state) => state.elementIframes);
+
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius,
+    boxShadow
+  } = donationButton;
 
   return (
     <div
@@ -16,13 +28,17 @@ function DonationButton() {
         height: '86%',
         padding: '1rem .3rem'
       }}>
-      <button style={elementConfig.style ?? {}}>
-        {elementConfig.icon.jsx && (
-          <span style={{ color: elementConfig.icon.color, marginRight: 2 }}>
-            {elementConfig.icon.jsx}
-          </span>
-        )}
-        {elementConfig.children}
+      <button
+        style={{
+          width: buttonWidth,
+          color: labelColor,
+          height: buttonHeight,
+          background: buttonColor,
+          border: `${borderSize}px solid ${borderColor}`,
+          borderRadius: `${borderRadius}px`,
+          boxShadow: boxShadow
+        }}>
+        {label}
       </button>
     </div>
   );

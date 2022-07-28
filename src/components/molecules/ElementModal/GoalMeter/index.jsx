@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import GoalMeterModalComponent from 'components/molecules/ElementsModalsComponents/GoalMeterModalComponent';
-import GoalMeter from 'components/molecules/iFrameComp/GoalMeter';
+import GoalMeterDraft from 'components/molecules/iFrameComp/GoalMeter';
 import React from 'react';
 
 function GoalMeterModal({ isShown, onClose }) {
@@ -10,7 +10,7 @@ function GoalMeterModal({ isShown, onClose }) {
       isShown={isShown}
       hide={onClose}
       sideModal
-      iframeChildren={<GoalMeter />}>
+      iframeChildren={<GoalMeterDraft />}>
       <GoalMeterModalComponent />
     </Modal>
   );

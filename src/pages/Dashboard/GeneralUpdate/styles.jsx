@@ -1,11 +1,20 @@
-import styled from 'styled-components';
 import { COLORS } from 'constants/colors';
 import { FONTWEIGHTS } from 'constants/font-spec';
+import styled from 'styled-components';
 
 export const GeneralWrapper = styled.div`
   .general-card {
     padding-bottom: 7.527rem;
     margin-bottom: 1.6rem;
+  }
+  .general-update-dropdown {
+    width: 14.4rem;
+    position: relative;
+  }
+  .react-select__control {
+    height: 4.8rem;
+    border-radius: 0;
+    border: 1px solid ${COLORS['porcelain-white']};
   }
 `;
 

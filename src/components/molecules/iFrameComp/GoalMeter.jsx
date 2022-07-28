@@ -1,6 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function GoalMeter() {
+function GoalMeterDraft() {
+  const { goalMeter } = useSelector((state) => state.elementIframes);
+  const { labelColor, backgroundColor, borderSize, progressBarColor, borderRadius } = goalMeter;
+
   return (
     <div
       style={{
@@ -12,14 +16,16 @@ function GoalMeter() {
         height: '86%',
         padding: '0 20px'
       }}>
-      <p style={{ fontSize: '20px', marginBottom: '10px' }}>$5,000 of $10,000 goal</p>
+      <p style={{ fontSize: '20px', marginBottom: '10px', color: labelColor }}>
+        $5,000 of $10,000 goal
+      </p>
       <div
         style={{
           width: '100%',
           height: '20px',
-          background: '#fff',
-          borderRadius: '3px',
-          outline: '#1E003E solid 2px'
+          background: backgroundColor,
+          borderRadius: `${borderRadius}px`,
+          outline: `${progressBarColor} solid ${borderSize}px`
         }}>
         <div
           style={{
@@ -27,9 +33,9 @@ function GoalMeter() {
             justifyContent: 'center',
             width: '50%',
             color: '#fff',
-            background: '#1E003E',
+            background: progressBarColor,
             height: '100%',
-            borderRadius: '3px'
+            borderRadius: `${borderRadius}px`
           }}>
           50%
         </div>
@@ -38,4 +44,4 @@ function GoalMeter() {
   );
 }
 
-export default GoalMeter;
+export default GoalMeterDraft;

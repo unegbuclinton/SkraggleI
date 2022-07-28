@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputContainer, Range, SelectValue } from './styles';
-function Slider({ className, text, sliderText, onChange, value }) {
+function Slider({ className, text, sliderText, onChange, value, min, max }) {
   // const [value, setValue] = useState(10);
   const sortValue = value * 2.8;
   return (
@@ -9,7 +9,7 @@ function Slider({ className, text, sliderText, onChange, value }) {
         {value}
         {text}
       </SelectValue>
-      <Range type="range" value={value} min="1" max="100" step="1" onChange={onChange} />
+      <Range type="range" value={value} min={min} max={max} step="1" onChange={onChange} />
     </InputContainer>
   );
 }

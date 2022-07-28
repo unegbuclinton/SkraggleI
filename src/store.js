@@ -3,12 +3,15 @@ import authReducer from 'features/auth/authSlice';
 import campaignReducer from 'features/campaign/campaignSlice';
 import contactReducer from 'features/contact/contactSlice';
 import donationReducer from 'features/donation/donationSlice';
+import elementIframesReducer from 'features/elements/elementReducer';
 import elementReducer from 'features/elements/elementsSlice';
 import eventReducer from 'features/events/eventSlice';
 import formsReducer from 'features/forms/formsSlice';
 import mailblastReducer from 'features/mailblast/mailBlastSlice';
 import p2pReducer from 'features/p2p/p2pSlice';
+
 import reportReducer from 'features/report/reportSlice';
+
 import {
   FLUSH,
   PAUSE,
@@ -38,7 +41,8 @@ const rootReducer = combineReducers({
   events: eventReducer,
   mailBlast: mailblastReducer,
   element: elementReducer,
-  report: reportReducer
+  report: reportReducer,
+  elementIframes: elementIframesReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

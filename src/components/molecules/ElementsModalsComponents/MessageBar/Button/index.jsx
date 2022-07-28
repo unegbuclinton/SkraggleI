@@ -4,20 +4,38 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { messageBarActions } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function MessageBarButton() {
-  const [whitez, setWhitez] = useState('#FFFFFF');
-  const [blue, setBlue] = useState('#2797FF');
-  const [white, setWhite] = useState('#FFFFFF');
+  const { messageBar } = useSelector((state) => state.elementIframes);
+  const { label, borderColor, borderSize, borderRadius, buttonColor, labelColor } = messageBar;
+  const dispatch = useDispatch();
+
+  const [messageBarProperties, setMessageBarProperties] = useState(messageBar);
+
+  const handleChange = (value, key) => {
+    setMessageBarProperties({ ...messageBarProperties, [key]: value });
+  };
+
+  useEffect(() => {
+    dispatch(messageBarActions(messageBarProperties));
+  }, [messageBarProperties]);
 
   return (
     <AppearanceWrapper>
       <InputWrapper className="title">
         <MessageLabel>Label</MessageLabel>
         <Wrapper>
-          <Input className="input-field" type="text" placeholder="Make a difference today!" />
+          <Input
+            className="input-field"
+            type="text"
+            placeholder="Make a difference today!"
+            value={label}
+            onChange={(event) => handleChange(event.target.value, 'label')}
+          />
         </Wrapper>
       </InputWrapper>
       <ColorWrapper>
@@ -25,31 +43,55 @@ function MessageBarButton() {
           <MessageLabel className="background-label">Label color</MessageLabel>
           <ColorComponents
             type="color"
-            value={whitez}
-            onChange={(e) => setWhitez(e.target.value)}
+            value={labelColor}
+            onChange={(event) => handleChange(event.target.value, 'labelColor')}
           />
         </ColorContainer>
         <ColorContainer>
           <MessageLabel className="color-label">Button color</MessageLabel>
-          <ColorComponents type="color" value={blue} onChange={(e) => setBlue(e.target.value)} />
+          <ColorComponents
+            type="color"
+            value={buttonColor}
+            onChange={(event) => handleChange(event.target.value, 'buttonColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <SliderContainer>
         <SliderLabel>Border size</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={4}
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <SliderContainer className="border-radius">
         <SliderLabel className="border-label">Border radius</SliderLabel>
         <SliderWrapper>
-          <Slider className="slider-border" sliderText="slider-text" text="px" />
+          <Slider
+            className="slider-border"
+            sliderText="slider-text"
+            text="px"
+            min={0}
+            max={24}
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+          />
         </SliderWrapper>
       </SliderContainer>
       <ColorWrapper>
         <ColorContainer>
-          <MessageLabel className="background-label">Label color</MessageLabel>
-          <ColorComponents type="color" value={white} onChange={(e) => setWhite(e.target.value)} />
+          <MessageLabel className="background-label">Border color</MessageLabel>
+          <ColorComponents
+            type="color"
+            value={borderColor}
+            onChange={(event) => handleChange(event.target.value, 'borderColor')}
+          />
         </ColorContainer>
       </ColorWrapper>
       <CheckBoxWrapper className="checkbox">

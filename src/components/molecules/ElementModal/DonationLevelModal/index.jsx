@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import DonationLevels from 'components/molecules/ElementsModalsComponents/DonationLevels';
-import DonationLevelIframe from 'components/molecules/iFrameComp/DonationLevel';
+import DonationLevelDraft from 'components/molecules/iFrameComp/DonationLevel';
 import React from 'react';
 
 function DonationLevelModal({ isShown, onClose }) {
@@ -10,7 +10,7 @@ function DonationLevelModal({ isShown, onClose }) {
       isShown={isShown}
       hide={onClose}
       sideModal
-      iframeChildren={<DonationLevelIframe />}>
+      iframeChildren={<DonationLevelDraft />}>
       <DonationLevels />
     </Modal>
   );

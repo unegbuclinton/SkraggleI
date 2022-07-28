@@ -1,6 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function ReminderIframe() {
+function ReminderDraft() {
+  const { reminder } = useSelector((state) => state.elementIframes);
+
+  const {
+    // boxShadow,
+    labelColor,
+    // backgroundColor,
+    borderSize,
+    buttonColor,
+    borderRadius,
+    borderColor
+    // iconColor
+  } = reminder;
+
   return (
     <div
       style={{
@@ -21,8 +35,8 @@ function ReminderIframe() {
           display: 'flex',
           alignItems: 'center',
           margin: '5px',
-          borderRadius: '6px',
-          height: '98px'
+          border: `${borderSize}px solid ${borderColor}`,
+          borderRadius: `${borderRadius}px`
         }}>
         <div
           style={{
@@ -34,14 +48,31 @@ function ReminderIframe() {
             cursor: 'pointer',
             height: '100%'
           }}>
-          <p style={{ margin: '0', flex: '1' }}>Complete your $240 gift to make a difference</p>
+          <p style={{ margin: '0', flex: '1', color: labelColor }}>
+            Complete your $240 gift to make a difference
+          </p>
         </div>
         <div style={{ minWidth: '85px', cursor: 'pointer' }}>
-          <div role="button" style={{ padding: '10px', borderBottom: '1px solid rgba(0,0,0,.1)' }}>
+          <div
+            role="button"
+            style={{
+              padding: '10px',
+              borderBottom: '1px solid rgba(0,0,0,.1)',
+              color: labelColor,
+              background: buttonColor,
+              borderTopRightRadius: `${borderRadius}px`
+            }}>
             I’m ready
           </div>
 
-          <div role="button" style={{ padding: '10px' }}>
+          <div
+            role="button"
+            style={{
+              padding: '10px',
+              color: labelColor,
+              background: buttonColor,
+              borderBottomRightRadius: `${borderRadius}px`
+            }}>
             Not today
           </div>
         </div>
@@ -50,4 +81,4 @@ function ReminderIframe() {
   );
 }
 
-export default ReminderIframe;
+export default ReminderDraft;
