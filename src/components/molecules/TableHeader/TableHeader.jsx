@@ -1,13 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-import { DPIconAdd, DPIconDelete, DPIconDropDown } from 'icons';
+import { DPIconAdd, DPIconArchived, DPIconDelete, DPIconDropDown } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  ActionContainer,
   ActionContentWrapper,
   ActionWrapper,
   BtnContainer,
-  Delete,
+  Action,
   DropdownContainer,
   DropdownInfo,
   HeaderWrapper,
@@ -26,7 +27,9 @@ function TableHeader({
   eventHeader,
   onClick,
   add,
-  attendeeButton
+  attendeeButton,
+  companyHeader,
+  invert
 }) {
   const [dropDown, setDropDown] = useState(false);
   const [attendeeDropdown, setAttendeeDropdown] = useState(false);
@@ -65,14 +68,22 @@ function TableHeader({
           {dropDown && (
             <ActionWrapper>
               <ActionContentWrapper onClick={handleDelete}>
-                <DPIconDelete className="delete-icon" />
-                <Delete>Delete</Delete>
+                <ActionContainer>
+                  <DPIconDelete className="delete-icon" />
+                  <Action>Delete</Action>
+                </ActionContainer>
+                <ActionContainer>
+                  <DPIconArchived className="achived-icon" />
+                  <Action>Archive</Action>
+                </ActionContainer>
               </ActionContentWrapper>
 
               {add && (
                 <ActionContentWrapper onClick={onClick}>
-                  <DPIconDelete className="delete-icon" />
-                  <Delete>Archive</Delete>
+                  <ActionContainer>
+                    <DPIconDelete className="delete-icon" />
+                    <Action>Archive</Action>
+                  </ActionContainer>
                 </ActionContentWrapper>
               )}
             </ActionWrapper>
@@ -84,21 +95,21 @@ function TableHeader({
           ''
         ) : (
           <>
-            {!eventHeader ? (
+            {!eventHeader && !companyHeader ? (
               <SelectDropDown
                 className="select-dropdown"
                 classNamePrefix="react-select"
-                placeholder="Filter"
+                placeholder={!invert ? 'Filter' : 'Action'}
               />
             ) : (
               ''
             )}
-            <SearchBar onChange={onChange} />
+            {!invert && <SearchBar onChange={onChange} />}
           </>
         )}
         {!attendeeButton ? (
-          <Button className="header__header-btn" onClick={() => setOpen(true)}>
-            <DPIconAdd className="header__header-btn--icon" />
+          <Button invert={invert} className="header__header-btn" onClick={() => setOpen(true)}>
+            {!invert && <DPIconAdd className="header__header-btn--icon" />}
             {title}
           </Button>
         ) : (

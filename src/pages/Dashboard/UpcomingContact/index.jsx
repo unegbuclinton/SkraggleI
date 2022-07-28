@@ -36,7 +36,7 @@ function UpcomingContact() {
     },
     {
       id: 2,
-      contact: 'Mohammed Adam',
+      contact: 'John Doe',
       toDo: 'Details',
       dueDate: '24th Aug',
       status: 'Incomplete'
