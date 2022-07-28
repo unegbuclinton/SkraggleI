@@ -32,7 +32,6 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
               <ButtonContainer key={index}>
                 <TabButton
                   inline={inline}
-                  // key={index}
                   active={activeTab === index}
                   onClick={() => {
                     setActiveTab(index);
