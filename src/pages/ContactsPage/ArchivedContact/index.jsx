@@ -6,7 +6,7 @@ import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React from 'react';
 import styled from 'styled-components';
 
-function DeletedContacts() {
+function ArchivedContact() {
   const columns = [
     {
       name: '',
@@ -40,23 +40,18 @@ function DeletedContacts() {
       fullName: 'Mohammed Adam',
       primaryEmail: 'mohammed@gmail.com',
       primaryPhone: '+9994569220'
-    },
-    {
-      fullName: 'Mohammed Adam',
-      primaryEmail: 'mohammed@gmail.com',
-      primaryPhone: '+9994569220'
     }
   ];
 
   return (
     <DeletedContactWrapper>
-      <TableHeader header="2 Deleted Contact" disableFilterBtn />
+      <TableHeader header="1 Archived Contact" disableFilterBtn />
       <Table columns={columns} data={data} />
     </DeletedContactWrapper>
   );
 }
 
-export default DeletedContacts;
+export default ArchivedContact;
 
 const DeletedContactWrapper = styled(Card)`
   padding: 2.4rem;
