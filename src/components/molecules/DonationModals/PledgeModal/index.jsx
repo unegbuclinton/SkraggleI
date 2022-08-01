@@ -67,7 +67,7 @@ function PledgeModal({ onClose, isShown }) {
   ];
   return (
     <Modal header="Pledge" isShown={isShown} hide={onClose} showClose={onClose}>
-      <MultiformTabs tabs={tabs} onClose={onClose} />
+      <MultiformTabs tabs={tabs} onClose={onClose} disabled />
     </Modal>
   );
 }

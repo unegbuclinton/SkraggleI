@@ -113,7 +113,10 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" disabled={isLoading} className="continue">
+            <Button
+              type="submit"
+              disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}
+              className="continue">
               Save
             </Button>
           </ButtonContainer>

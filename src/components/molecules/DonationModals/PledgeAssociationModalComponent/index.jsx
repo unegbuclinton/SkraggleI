@@ -15,6 +15,8 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
     label: current?.name
   }));
 
+  const { isLoading } = useSelector((state) => state.donation);
+
   return (
     <ModalWrapper onSubmit={formik.handleSubmit}>
       <Card>
@@ -76,7 +78,11 @@ const PledgeAssociateModalComponent = ({ DecrementTab, formik }) => {
           <Button onClick={DecrementTab} className="back-btn" auth invert type="button">
             Back
           </Button>
-          <Button type="submit" className="save-btn" auth>
+          <Button
+            type="submit"
+            className="save-btn"
+            auth
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </ButtonsContainer>

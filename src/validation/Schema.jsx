@@ -35,30 +35,31 @@ export const createContactStepOneValidationSchema = Yup.object({
     .required('First name is required'),
   lastName: Yup.string().max(15, 'Must be 15 characters or less').required('Last name is required'),
   primary_email: Yup.string().email('invalid Mail').required('Email is required'),
-  primary_phone: Yup.string()
-    .matches(
-      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-      'Phone number is not valid'
-    )
-    .min(10, 'to short')
-    .required('Phone Number is required'),
-  emailSubscription: Yup.string().required('Email Subscription is required'),
-  date: Yup.string().required('Date is required'),
-  month: Yup.string().required('Month is required'),
-  year: Yup.string().required('Year is required')
+  // primary_phone: Yup.string()
+  //   .matches(
+  //     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+  //     'Phone number is not valid'
+  //   )
+  //   .min(10, 'to short')
+  //   .required('Phone Number is required'),
+  // emailSubscription: Yup.string().required('Email Subscription is required'),
+  // date: Yup.string().required('Date is required'),
+  // month: Yup.string().required('Month is required'),
+  // year: Yup.string().required('Year is required')
+  company: Yup.string().required('Company is required')
 });
 
 export const createContactStepTwoValidationSchema = Yup.object({
-  address: Yup.string().required('Address is required'),
-  unit: Yup.string().required('Unit is required'),
-  city: Yup.string().required('City is required'),
-  state: Yup.string().required('State is required'),
-  postalcode: Yup.string().required('postalcode is required'),
-  country: Yup.string().required('Country is required'),
-  household: Yup.string().required('Household is required'),
-  assignee: Yup.string().required('Assignee is required'),
-  priority: Yup.string().required('Priority is required'),
-  tags: Yup.array().required('Tags is required')
+  // address: Yup.string().required('Address is required'),
+  // unit: Yup.string().required('Unit is required'),
+  // city: Yup.string().required('City is required'),
+  // state: Yup.string().required('State is required'),
+  // postalcode: Yup.string().required('postalcode is required'),
+  // country: Yup.string().required('Country is required'),
+  household: Yup.string().required('Household is required')
+  // assignee: Yup.string().required('Assignee is required'),
+  // priority: Yup.string().required('Priority is required'),
+  // tags: Yup.array().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({

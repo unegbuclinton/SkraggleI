@@ -155,7 +155,10 @@ function FieldModalComponent({ onClose }) {
           <Button className="field-cancel__btn" auth invert onClick={onClose}>
             Cancel
           </Button>
-          <Button className="field-save__btn" auth disabled={isLoading}>
+          <Button
+            className="field-save__btn"
+            auth
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </FieldModalFooter>

@@ -195,18 +195,23 @@ function CreateContactStepOne({ onClose, formik }) {
             </div>
           </DateContainer>
           <FormLabel>COMPANY</FormLabel>
-          <SelectDropDown
-            className="date-dropdown"
-            placeholder={'Company'}
-            isSearchable={false}
-            id="company"
-            name="company"
-            type={'text'}
-            options={companyOption}
-            value={formik.values.company}
-            onChange={(value) => formik.setFieldValue('company', value.value)}
-            onBlur={formik.handleBlur}
-          />
+          <div>
+            <SelectDropDown
+              className="date-dropdown"
+              placeholder={'Company'}
+              isSearchable={false}
+              id="company"
+              name="company"
+              type={'text'}
+              options={companyOption}
+              value={formik.values.company}
+              onChange={(value) => formik.setFieldValue('company', value.value)}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.company && formik.errors.company ? (
+              <ErrorMsg>{formik.errors.company}</ErrorMsg>
+            ) : null}
+          </div>
           <ButtonContainer>
             <Button className="cancel" type="button" onClick={onClose} auth invert>
               Cancel
