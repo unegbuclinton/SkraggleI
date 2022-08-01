@@ -56,10 +56,10 @@ export const createContactStepTwoValidationSchema = Yup.object({
   // state: Yup.string().required('State is required'),
   // postalcode: Yup.string().required('postalcode is required'),
   // country: Yup.string().required('Country is required'),
-  household: Yup.string().required('Household is required')
+  // household: Yup.string().required('Household is required'),
   // assignee: Yup.string().required('Assignee is required'),
   // priority: Yup.string().required('Priority is required'),
-  // tags: Yup.array().required('Tags is required')
+  tags: Yup.array().required('Tags is required')
 });
 
 export const createCompanyValidatonSchema = Yup.object({
