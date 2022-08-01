@@ -1,10 +1,20 @@
-import { useElement } from 'context';
 import React from 'react';
+import { useSelector } from 'react-redux';
 // import styled from 'styled-components';
 
 function P2PButtonIframe() {
-  // vars
-  const { elementConfig } = useElement();
+  const { p2pButtons } = useSelector((state) => state.elementIframes);
+
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = p2pButtons;
 
   return (
     <div
@@ -17,13 +27,16 @@ function P2PButtonIframe() {
         height: '86%',
         padding: '1rem .3rem'
       }}>
-      <button style={elementConfig.style ?? {}}>
-        {elementConfig.icon.jsx && (
-          <span style={{ color: elementConfig.icon.color, marginRight: 2 }}>
-            {elementConfig.icon.jsx}
-          </span>
-        )}
-        {elementConfig.children}
+      <button
+        style={{
+          minWidth: buttonWidth,
+          color: labelColor,
+          minHeight: buttonHeight,
+          background: buttonColor,
+          border: `${borderSize}px solid ${borderColor}`,
+          borderRadius: `${borderRadius}px`
+        }}>
+        {label}
       </button>
     </div>
   );

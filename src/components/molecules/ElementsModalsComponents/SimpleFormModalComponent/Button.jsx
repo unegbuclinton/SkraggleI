@@ -4,23 +4,27 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import { simpleFormAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function Buttons({
-  buttonLabelChange,
-  labelColorChange,
-  labelColor,
-  buttonColorChange,
-  buttonColor,
-  buttonBorder,
-  buttonBorderChange,
-  buttonRadius,
-  buttonRadiusChange,
-  buttonBorderColorChange,
-  buttonBorderColor,
-  showButtonShadowChange
-}) {
+function Buttons() {
+  const { simpleForm } = useSelector((state) => state.elementIframes);
+
+  const { label, labelColor, buttonColor, borderSize, borderRadius, borderColor } = simpleForm;
+
+  const dispatch = useDispatch();
+
+  const [simpleFormProperties, setSimpleFormProperties] = useState(simpleForm);
+
+  useEffect(() => {
+    dispatch(simpleFormAction(simpleFormProperties));
+  }, [simpleFormProperties]);
+
+  const handleChange = (value, key) => {
+    setSimpleFormProperties({ ...simpleFormProperties, [key]: value });
+  };
   return (
     <ButtonWrapper>
       <ButtonFieldWrapper>
@@ -28,7 +32,8 @@ function Buttons({
         <Input
           className="button-input"
           placeholder="Doante and support"
-          onChange={buttonLabelChange}
+          value={label}
+          onChange={(event) => handleChange(event.target.value, 'label')}
         />
       </ButtonFieldWrapper>
 
@@ -36,7 +41,11 @@ function Buttons({
         <ButtonLabel>Label color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents type="color" value={labelColor} onChange={labelColorChange} />
+            <ColorComponents
+              type="color"
+              value={labelColor}
+              onChange={(event) => handleChange(event.target.value, 'labelColor')}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -45,7 +54,11 @@ function Buttons({
         <ButtonLabel>Button color</ButtonLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents type="color" value={buttonColor} onChange={buttonColorChange} />
+            <ColorComponents
+              type="color"
+              value={buttonColor}
+              onChange={(event) => handleChange(event.target.value, 'buttonColor')}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
@@ -58,8 +71,8 @@ function Buttons({
             text="px"
             min={0}
             max={6}
-            onChange={buttonBorderChange}
-            value={buttonBorder}
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
           />
         </SliderWrapper>
       </ButtonFieldWrapper>
@@ -70,8 +83,8 @@ function Buttons({
           <Slider
             className="slider-border"
             text="px"
-            onChange={buttonRadiusChange}
-            value={buttonRadius}
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
           />
         </SliderWrapper>
       </ButtonFieldWrapper>
@@ -82,15 +95,15 @@ function Buttons({
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={buttonBorderColor}
-              onChange={buttonBorderColorChange}
+              value={borderColor}
+              onChange={(event) => handleChange(event.target.value, 'borderColor')}
             />
           </ColorContainer>
         </ColorContainerWrapper>
       </ButtonFieldWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel></ButtonLabel>
-        <Checkbox pink className="button-checkbox" onChange={showButtonShadowChange} />
+        <Checkbox pink className="button-checkbox" />
         Show Shadow
       </ButtonFieldWrapper>
     </ButtonWrapper>

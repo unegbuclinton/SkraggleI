@@ -4,31 +4,41 @@ import Slider from 'components/atoms/Slider';
 // import Input from 'components/atoms/Input/Input';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { simpleFormAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-function Amount({
-  textColorChange,
-  textColor,
-  backgroundColorChange,
-  backgroundColor,
-  borderSize,
-  borderSizeChange,
-  borderRadius,
-  borderRadiusChange,
-  borderColorChange,
-  borderColor,
-  showAmountShadowChange
-}) {
-  const [iconColor, setIconColor] = useState('#FFFFFF');
+function Amount() {
+  const [iconColor, setIconColor] = useState('#000000');
 
+  const { simpleForm } = useSelector((state) => state.elementIframes);
+
+  const { textColor, buttonColorAmount, borderSizeAmount, borderRadiusAmount, borderColorAmount } =
+    simpleForm;
+
+  const dispatch = useDispatch();
+
+  const [simpleFormProperties, setSimpleFormProperties] = useState(simpleForm);
+
+  useEffect(() => {
+    dispatch(simpleFormAction(simpleFormProperties));
+  }, [simpleFormProperties]);
+
+  const handleChange = (value, key) => {
+    setSimpleFormProperties({ ...simpleFormProperties, [key]: value });
+  };
   return (
     <AmountWrapper>
       <AmountFieldWrapper>
         <AmountLabel>Text color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents type="color" value={textColor} onChange={textColorChange} />
+            <ColorComponents
+              type="color"
+              value={textColor}
+              onChange={(event) => handleChange(event.target.value, 'textColor')}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
@@ -39,8 +49,8 @@ function Amount({
           <ColorContainer>
             <ColorComponents
               type="color"
-              value={backgroundColor}
-              onChange={backgroundColorChange}
+              value={buttonColorAmount}
+              onChange={(event) => handleChange(event.target.value, 'buttonColorAmount')}
             />
           </ColorContainer>
         </ColorContainerWrapper>
@@ -67,8 +77,8 @@ function Amount({
             text="px"
             min={0}
             max={6}
-            onChange={borderSizeChange}
-            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSizeAmount')}
+            value={borderSizeAmount}
           />
         </SliderWrapper>
       </AmountFieldWrapper>
@@ -79,8 +89,8 @@ function Amount({
           <Slider
             className="slider-border"
             text="px"
-            onChange={borderRadiusChange}
-            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadiusAmount')}
+            value={borderRadiusAmount}
           />
         </SliderWrapper>
       </AmountFieldWrapper>
@@ -89,13 +99,17 @@ function Amount({
         <AmountLabel>Border color</AmountLabel>
         <ColorContainerWrapper>
           <ColorContainer>
-            <ColorComponents type="color" value={borderColor} onChange={borderColorChange} />
+            <ColorComponents
+              type="color"
+              value={borderColorAmount}
+              onChange={(event) => handleChange(event.target.value, 'borderColorAmount')}
+            />
           </ColorContainer>
         </ColorContainerWrapper>
       </AmountFieldWrapper>
       <AmountFieldWrapper>
         <AmountLabel></AmountLabel>
-        <Checkbox pink className="amount-checkbox" onChange={showAmountShadowChange} />
+        <Checkbox pink className="amount-checkbox" />
         Show shadow
       </AmountFieldWrapper>
     </AmountWrapper>
