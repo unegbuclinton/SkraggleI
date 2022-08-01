@@ -33,7 +33,7 @@ function Donation() {
 
             <Button
               className="set-goal-btn"
-              action
+              action="true"
               onClick={() => {
                 setOpen(true);
               }}>

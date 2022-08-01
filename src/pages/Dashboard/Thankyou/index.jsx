@@ -23,7 +23,7 @@ function ThankYou() {
             </div>
             <div className="card-right">
               <p className="contact">11 Contacts</p>
-              <Button action className="thank__btn">
+              <Button action="true" className="thank__btn">
                 Take Action
               </Button>
             </div>
@@ -41,7 +41,7 @@ function ThankYou() {
             </div>
             <div className="card-right">
               <p className="contact">11 Contacts</p>
-              <Button action className="thank__btn">
+              <Button action="true" className="thank__btn">
                 Take Action
               </Button>
             </div>
