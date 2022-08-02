@@ -3,7 +3,11 @@ import CompleteTransaction from 'components/molecules/DonationModals/CreateTrans
 import DonationAssociation from 'components/molecules/DonationModals/CreateTransaction/DonationAssociation';
 import DonationInformation from 'components/molecules/DonationModals/CreateTransaction/DonationInfomation';
 import MultiformTabs from 'components/molecules/MultiformTabs';
-import { addOneTimeTransaction, getOneTimeTransaction } from 'features/donation/donationSlice';
+import {
+  addOneTimeTransaction,
+  fundActivities,
+  getOneTimeTransaction
+} from 'features/donation/donationSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -43,6 +47,7 @@ function CreateTransactionModal({ onCloseModal }) {
       };
       dispatch(addOneTimeTransaction(body)).then(() => {
         dispatch(getOneTimeTransaction());
+        dispatch(fundActivities());
         toast('Transactuion Created Successfully');
         onCloseModal();
       });

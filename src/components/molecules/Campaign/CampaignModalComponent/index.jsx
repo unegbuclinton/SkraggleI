@@ -58,7 +58,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <Input
           className="campaign-modal"
           type="text"
-          placeholder="Lorem Ipsum"
+          placeholder="Campaign Name"
           id="name"
           name="name"
           onChange={formik.handleChange}
@@ -72,7 +72,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <h1>DESCRIPTION</h1>
         <ModalInputDescription
           type="text"
-          placeholder="Lorem Ipsum"
+          placeholder="Description"
           id="description"
           name="description"
           onChange={formik.handleChange}
@@ -85,7 +85,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <h1>CAMPAIGN FUNDRAISING GOALS</h1>
         <Input
           className="campaign-modal"
-          placeholder="Lorem Ipsum"
+          placeholder="$1000"
           onWheel={() => document.activeElement.blur()}
           id="goals"
           name="goals"
@@ -100,7 +100,7 @@ const CampaignModalComponent = ({ onClose }) => {
         <h1>FOLLOWERS</h1>
         <SelectDropDown
           className="dropdown-followers"
-          placeholder={'Lorem Ipsum'}
+          placeholder="Followers"
           isMulti="true"
           id="followers"
           name="followers"

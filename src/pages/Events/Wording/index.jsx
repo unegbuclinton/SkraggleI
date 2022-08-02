@@ -20,7 +20,6 @@ function Wording() {
     </MainWrapper>
   );
 }
-
 export default Wording;
 
 const MainWrapper = styled.div`
