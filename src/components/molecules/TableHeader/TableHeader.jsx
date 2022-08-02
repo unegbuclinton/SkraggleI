@@ -4,11 +4,11 @@ import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import { DPIconAdd, DPIconArchived, DPIconDelete, DPIconDropDown } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  Action,
   ActionContainer,
   ActionContentWrapper,
   ActionWrapper,
   BtnContainer,
-  Action,
   DropdownContainer,
   DropdownInfo,
   HeaderWrapper,
@@ -29,6 +29,7 @@ function TableHeader({
   add,
   attendeeButton,
   companyHeader,
+  disableFilterBtn,
   invert
 }) {
   const [dropDown, setDropDown] = useState(false);
@@ -95,7 +96,7 @@ function TableHeader({
           ''
         ) : (
           <>
-            {!eventHeader && !companyHeader ? (
+            {!eventHeader & !companyHeader & !disableFilterBtn ? (
               <SelectDropDown
                 className="select-dropdown"
                 classNamePrefix="react-select"
@@ -108,10 +109,14 @@ function TableHeader({
           </>
         )}
         {!attendeeButton ? (
-          <Button invert={invert} className="header__header-btn" onClick={() => setOpen(true)}>
-            {!invert && <DPIconAdd className="header__header-btn--icon" />}
-            {title}
-          </Button>
+          <>
+            {!disableFilterBtn && (
+              <Button invert={invert} className="header__header-btn" onClick={() => setOpen(true)}>
+                {!invert && <DPIconAdd className="header__header-btn--icon" />}
+                {title}
+              </Button>
+            )}
+          </>
         ) : (
           <DropdownContainer ref={ref}>
             <Button
