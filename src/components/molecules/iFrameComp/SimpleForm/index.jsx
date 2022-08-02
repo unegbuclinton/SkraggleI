@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function SimpleFormIframes({ showAmountShadow }) {
-  const { simpleForm } = useSelector((state) => state.elementIframes);
+  const { simpleForm } = useSelector((state) => state?.elementIframes);
 
   const {
     text,
