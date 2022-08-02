@@ -58,7 +58,10 @@ function CreateTags({ onClose }) {
             <Button className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" className="continue" disabled={!formik.dirty && isLoading}>
+            <Button
+              type="submit"
+              className="continue"
+              disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
               Continue
             </Button>
           </ButtonContainer>

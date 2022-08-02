@@ -74,9 +74,7 @@ function CreateCompany({ onClose }) {
             id="primaryPhone"
             name="primaryPhone"
             type="number"
-            onWheel={() => document.activeElement.blur()}
-            placeholder="Primary Phone"
-            onChange={formik.handleChange}
+            onChange={formik.setFieldValue}
             onBlur={formik.handleBlur}
             value={formik.values.primaryPhone}
           />
@@ -101,7 +99,10 @@ function CreateCompany({ onClose }) {
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel
             </Button>
-            <Button type="submit" disabled={isLoading} className="continue">
+            <Button
+              type="submit"
+              disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}
+              className="continue">
               Save
             </Button>
           </ButtonContainer>

@@ -86,6 +86,7 @@ function HouseHoldsTable() {
               header={`${houseHolds.length} Households`}
               selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
+              noFilter
               setOpenDeleteModal={setOpenDeleteModal}
               show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}

@@ -1,7 +1,6 @@
 import Checkbox from 'components/atoms/CheckBox';
 import Switch from 'components/atoms/Switch/Switch';
 import Table from 'components/layouts/Table';
-// import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import ArchiveModal from 'components/molecules/EventsModals/ArchiveModal/Modal';
 import CloneEventModal from 'components/molecules/EventsModals/CloneModal/Modal';
 import CreateEventModal from 'components/molecules/EventsModals/CreateEventModal/Modal';
@@ -15,7 +14,8 @@ import {
   getAllFields,
   getAllPackages,
   getAllPromoCode,
-  getEachEvent
+  getEachEvent,
+  updateEvent
 } from 'features/events/eventSlice';
 import { DPIconEventActive } from 'icons';
 import React, { useEffect, useState } from 'react';
@@ -61,6 +61,17 @@ function ActiveInactive() {
   const openArchive = (id) => {
     setOpenArchiveModal(true);
     setGetRowId(id);
+  };
+
+  const archiveEvent = (id) => {
+    const body = {
+      archived: true
+    };
+    dispatch(updateEvent({ id, body })).then(() => {
+      dispatch(getAllEvents());
+      dispatch(getAllArchivedEvents());
+      setOpenArchiveModal(false);
+    });
   };
 
   const deleteEvent = (id) => {
@@ -149,7 +160,11 @@ function ActiveInactive() {
           onClick={() => deleteEvent(getRowId)}
           onClose={() => setOpenDeleteModal(false)}
         />
-        <ArchiveModal isShown={openArchiveModal} onClose={() => setOpenArchiveModal(false)} />
+        <ArchiveModal
+          isShown={openArchiveModal}
+          onClose={() => setOpenArchiveModal(false)}
+          onClick={() => archiveEvent(getRowId)}
+        />
         <TableHeader
           header={`${allEvents.length} Events`}
           title="Create New"

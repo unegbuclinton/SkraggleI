@@ -14,7 +14,13 @@ function Attendees() {
         <RegistrationPackage setClick={setClick} />
       ) : (
         <>
-          <TableHeader header="Attendees" title="Actions" eventHeader attendeeButton />
+          <TableHeader
+            header="Attendees"
+            title="Actions"
+            eventHeader
+            buttonDropdown
+            attendeeDropdown
+          />
           <Table data={data} onRowClicked={() => setClick((prev) => !prev)} columns={columns} />
         </>
       )}

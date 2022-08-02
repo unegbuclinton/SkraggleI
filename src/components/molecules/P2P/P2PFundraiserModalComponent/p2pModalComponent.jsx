@@ -99,7 +99,7 @@ function P2PModalComponent({ onClose, isShown }) {
         <Card>
           <h1>CAMPAIGN</h1>
           <SelectDropDown
-            placeholder={'Lorem Ipsum'}
+            placeholder="Campaign Name"
             id="campaignName"
             name="campaignName"
             type={'text'}
@@ -114,7 +114,7 @@ function P2PModalComponent({ onClose, isShown }) {
 
           <h1>DESIGNATION</h1>
           <SelectDropDown
-            placeholder={'Lorem Ipsum'}
+            placeholder="Designation"
             id="designation"
             name="designation"
             type={'text'}
@@ -131,7 +131,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="text"
-            placeholder="Lorem Ipsum"
+            placeholder="Display Name"
             id="fundraiserName"
             name="fundraiserName"
             onChange={formik.handleChange}
@@ -146,7 +146,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="text"
-            placeholder="Lorem Ipsum"
+            placeholder="First Name"
             id="firstName"
             name="firstName"
             onChange={formik.handleChange}
@@ -161,7 +161,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="text"
-            placeholder="Lorem Ipsum"
+            placeholder="Last Name"
             id="lastName"
             name="lastName"
             onChange={formik.handleChange}
@@ -192,7 +192,7 @@ function P2PModalComponent({ onClose, isShown }) {
               className="modal-inputs__goals"
               containerClass="modal-inputs__container-input"
               type="number"
-              placeholder="Enter Amount"
+              placeholder="Enter Goal Amount"
               id="goalAmount"
               name="goalAmount"
               onChange={formik.handleChange}
@@ -223,7 +223,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="number"
-            placeholder="Enter Amount"
+            placeholder="Enter Offline Amount"
             id="offlineAmount"
             name="offlineAmount"
             onChange={formik.handleChange}
@@ -253,7 +253,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="date"
-            placeholder="Enter Amount"
+            placeholder="Enter Date"
             id="goalDate"
             name="goalDate"
             onChange={formik.handleChange}
@@ -303,7 +303,11 @@ function P2PModalComponent({ onClose, isShown }) {
             </FileUploadButton>
           </div>
           <ButtonsContainer>
-            <Button type="submit" className="save-btn" auth loading={isLoading}>
+            <Button
+              type="submit"
+              className="save-btn"
+              auth
+              disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
               Create P2P Fundraiser
             </Button>
             <Button onClick={onClose} className="cancel-btn" auth invert>

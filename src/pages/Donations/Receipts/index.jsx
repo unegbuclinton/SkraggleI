@@ -1,16 +1,14 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import Checkbox from 'components/atoms/CheckBox';
-import DropdownComponent from 'components/atoms/Dropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import { DPIconAssignee } from 'icons';
-import { React, useState } from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
 import { ReceiptsData } from 'utilities/donationData';
-import datas from 'utilities/filterData.json';
 
 function Receipts() {
   const columns = [
@@ -63,8 +61,6 @@ function Receipts() {
     status: adminData.status
   }));
 
-  const [selected, setSelected] = useState('Filters');
-
   return (
     <ContentWrapper>
       <ContainerBody>
@@ -75,12 +71,6 @@ function Receipts() {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-receipts"
-              />
               <SearchBar className="search-icon" />
             </div>
           </TableHeaderWrapper>

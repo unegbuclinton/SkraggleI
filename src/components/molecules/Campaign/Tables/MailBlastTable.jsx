@@ -5,13 +5,8 @@ import Table from 'components/layouts/Table';
 import Button from 'components/atoms/Button/Button';
 import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon, DPIconAssignee } from 'icons';
-
-import datas from 'utilities/filterData';
-
 import { mailBlastData } from 'utilities/campaigndata';
-
 import { TableWrapper, TableHeaderWrapper, ContainerBody, Assignee } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
 import Checkbox from 'components/atoms/CheckBox';
 
 const MailBlastTable = () => {
@@ -66,8 +61,6 @@ const MailBlastTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [selected, setSelected] = useState('Filters');
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate('/mail-blast');
@@ -83,12 +76,6 @@ const MailBlastTable = () => {
             </div>
 
             <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
               <SearchBar className="search-icon" />
               <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />

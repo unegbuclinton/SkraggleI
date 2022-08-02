@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
-import { editCampaign, getAllCampaigns, singleCampaign } from 'features/campaign/campaignSlice';
+import { editCampaign, getAllCampaigns } from 'features/campaign/campaignSlice';
 import { useFormik } from 'formik';
 import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
 import { DPIconTransaction } from 'icons/index';
@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
+// import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 import { campaignOverview } from 'validation/Schema';
 import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 import {
@@ -24,7 +24,7 @@ const CampaignOverview = () => {
   const [open, setOpen] = useState(false);
   const { campaignByID } = useSelector((state) => state.campaign);
   const dispatch = useDispatch();
-
+  let navigate = useNavigate();
   const { name, description, status, fundraising_goal, amount_raised, id } = campaignByID;
 
   const progressPercentage = Math.floor(amount_raised / fundraising_goal);
@@ -34,9 +34,9 @@ const CampaignOverview = () => {
       archived: true
     };
     dispatch(editCampaign({ body, id })).then(() => {
+      navigate('/campaign');
       toast.success('Campaign archived successfully');
       dispatch(getAllCampaigns());
-      dispatch(singleCampaign(id));
     });
   };
   const formik = useFormik({
@@ -92,7 +92,6 @@ const CampaignOverview = () => {
     }
   ];
 
-  let navigate = useNavigate();
   const HandleButtonClick = () => {
     navigate('/donations');
   };
@@ -129,7 +128,7 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{capitalizeFirstLowercaseRest(status)}</Button>
+          <Button className="campaign-name__button">{status}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
