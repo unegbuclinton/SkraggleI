@@ -35,9 +35,6 @@ function VolunteeringModalComponent() {
             name="contact_id"
             type={'text'}
             options={contactOptions}
-            //   value={formik.values.contact_id}
-            //   onChange={(value) => formik.setFieldValue('contact_id', value.value)}
-            //   onBlur={formik.handleBlur}
           />
         </VolunteeringFieldWrapper>
         <VolunteeringFieldWrapper>
@@ -53,9 +50,6 @@ function VolunteeringModalComponent() {
               id="eventStartDate"
               name="eventStartDate"
               type="date"
-              //   onChange={formik.handleChange}
-              //   onBlur={formik.handleBlur}
-              //   value={formik.values.eventStartDate}
             />
           </VolunteeringFieldWrapper>
           <VolunteeringFieldWrapper>
@@ -65,22 +59,11 @@ function VolunteeringModalComponent() {
               id="eventEndDate"
               name="eventEndDate"
               type="date"
-              //   onChange={formik.handleChange}
-              //   onBlur={formik.handleBlur}
-              //   value={formik.values.eventEndDate}
             />
           </VolunteeringFieldWrapper>
           <VolunteeringFieldWrapper>
             <VolunteeringLabel>Hours</VolunteeringLabel>
-            <Input
-              className="start-time-input"
-              id="startTime"
-              name="startTime"
-              type="time"
-              //   onChange={formik.handleChange}
-              //   onBlur={formik.handleBlur}
-              //   value={formik.values.startTime}
-            />
+            <Input className="start-time-input" id="startTime" name="startTime" type="time" />
           </VolunteeringFieldWrapper>
         </VolunteeringDateWraper>
 
@@ -98,9 +81,6 @@ function VolunteeringModalComponent() {
             name="impact_id"
             type={'text'}
             options={impactAreaOptions}
-            //   value={formik.values.contact_id}
-            //   onChange={(value) => formik.setFieldValue('contact_id', value.value)}
-            //   onBlur={formik.handleBlur}
           />
         </VolunteeringFieldWrapper>
 
@@ -112,9 +92,6 @@ function VolunteeringModalComponent() {
             name="campaignName"
             type={'text'}
             options={campaign}
-            // value={formik.values.campaignName}
-            // onChange={(value) => formik.setFieldValue('campaignName', value.value)}
-            // onBlur={formik.handleBlur}
           />
         </VolunteeringFieldWrapper>
 

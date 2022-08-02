@@ -129,7 +129,11 @@ function CreateMailBlast({ onCloseModal }) {
           <Button type="button" invert auth className="edit-cancel-btn" onClick={onCloseModal}>
             Cancel
           </Button>
-          <Button type="submit" auth disabled={isLoading} className="edit-save-btn">
+          <Button
+            type="submit"
+            auth
+            className="edit-save-btn"
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </div>

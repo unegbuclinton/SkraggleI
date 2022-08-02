@@ -24,7 +24,6 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  // const { campaignByID } = useSelector((state) => state.campaign);
 
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
@@ -110,7 +109,6 @@ const CampaignTable = () => {
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
-            // onChange={(e) => setInput(e.target.value)}
           />
           <Table
             columns={columns}

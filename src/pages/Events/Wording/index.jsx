@@ -6,6 +6,7 @@ import Description from './Description';
 import EventInformation from './EventInfomation';
 import PaymentInformation from './PaymentInformation';
 import ReceiptInformation from './ReceiptInformation';
+
 function Wording() {
   return (
     <MainWrapper>
@@ -20,9 +21,11 @@ function Wording() {
   );
 }
 export default Wording;
+
 const MainWrapper = styled.div`
   height: 100%;
 `;
+
 const WordingWrapper = styled(Card)`
   height: 100%;
   overflow: auto;

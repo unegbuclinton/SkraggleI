@@ -25,6 +25,7 @@ function EditAmin({ onClose }) {
     eachContact;
   const adminId = eachContact.id;
 
+  console.log(priority);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -94,6 +95,7 @@ function EditAmin({ onClose }) {
               id="priority"
               name="priority"
               type={'text'}
+              defaultValues={{ label: priority, value: priority }}
               options={priorityOptions}
               value={formik.values.priority}
               onChange={(value) => formik.setFieldValue('priority', value.value)}
