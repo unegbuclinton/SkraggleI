@@ -12,13 +12,14 @@ const Table = ({
   selectableRowsComponent,
   selectableRows,
   progressComponent,
-  progressPending
+  progressPending,
+  pointer
 }) => {
   const TableData = React.useMemo(() => data, [data]);
   const TableColumns = React.useMemo(() => columns, [columns]);
 
   return (
-    <TableWrapper className={className}>
+    <TableWrapper className={className} pointer={pointer}>
       <DataTable
         columns={TableColumns}
         data={TableData || []}
@@ -41,7 +42,7 @@ const TableWrapper = styled.div`
       height: 6.2rem;
       border: 0.0852273px solid ${COLORS['porcelain-white']};
       border-top: 0;
-      cursor: ${({ onRowClicked }) => (onRowClicked ? 'pointer' : 'auto')};
+      cursor: ${({ pointer }) => (pointer ? 'pointer' : 'auto')};
 
       :first-of-type {
         border-top: 0.0852273px solid ${COLORS['porcelain-white']};
