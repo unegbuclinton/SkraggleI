@@ -11,7 +11,8 @@ function SelectDropDown({
   width,
   isMulti,
   isSearchable,
-  torquoise
+  torquoise,
+  defaultValues
 }) {
   const defaultValue = (options, myValue) => {
     return options ? options.find((option) => option.value === myValue) : '';
@@ -39,6 +40,7 @@ function SelectDropDown({
         components={{ IndicatorSeparator: () => null }}
         placeholder={placeholder}
         styles={customStyles}
+        defaultValue={defaultValues}
       />
     </Container>
   );
