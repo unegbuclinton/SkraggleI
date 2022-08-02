@@ -114,10 +114,8 @@ function CreateContactStepOne({ onClose, formik }) {
           <PhoneNumberInput
             className="phone-input"
             id="primary_phone"
-            onWheel={() => document.activeElement.blur()}
             name="primary_phone"
             type="number"
-            placeholder="Phone"
             onChange={formik.setFieldValue}
             onBlur={formik.handleBlur}
             value={formik.values.primary_phone}

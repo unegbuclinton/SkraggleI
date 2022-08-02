@@ -105,6 +105,7 @@ const FormsTable = () => {
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
+            noFilter
             // onChange={(e) => setInput(e.target.value)}
           />
           <Table

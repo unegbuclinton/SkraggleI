@@ -118,6 +118,7 @@ function ContactsTable() {
               setOpenDeleteModal={setOpenDeleteModal}
               selectRow={`${rowCount} Selected`}
               show={!!getId.length}
+              filter="Tags"
               // onChange={(e) => setInput(e.target.value)}
             />
             <Table

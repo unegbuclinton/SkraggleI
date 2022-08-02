@@ -39,7 +39,12 @@ function Transaction() {
     <TransactionWrapper>
       <Card className="transaction-card">
         <div className="transaction-header">
-          <TableHeader className="table-header" title="Create New" setOpen={setShowModal} />
+          <TableHeader
+            className="table-header"
+            title="Create New"
+            setOpen={setShowModal}
+            noFilter
+          />
           {showModal && (
             <CreateTransactionModal
               onCloseModal={() => {

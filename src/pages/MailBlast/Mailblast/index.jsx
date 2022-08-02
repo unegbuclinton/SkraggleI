@@ -115,6 +115,7 @@ function Mail() {
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
             setOpen={setShow}
+            noFilter
           />
           {show && <CreateMailModal isShown={show} onCloseModal={() => setShow(false)} />}
         </div>

@@ -55,6 +55,7 @@ function TagsTable() {
               header={`${tagsData.length} Tags`}
               selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
+              noFilter
               setOpenDeleteModal={setOpenDeleteModal}
               show={!!getId.length}
             />

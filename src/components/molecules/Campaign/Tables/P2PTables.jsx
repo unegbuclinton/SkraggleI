@@ -74,7 +74,12 @@ const P2PTable = () => {
           }}
         />
         <TableWrapper>
-          <TableHeader setOpen={setOpen} title="Create P2P" header={`${p2p?.length} P2P`} />
+          <TableHeader
+            setOpen={setOpen}
+            title="Create P2P"
+            header={`${p2p?.length} P2P`}
+            noFilter
+          />
           <Table columns={columns} data={p2p} onRowClicked={onRowClicked} />
         </TableWrapper>
       </ContainerBody>

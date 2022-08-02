@@ -1,19 +1,13 @@
-import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import Button from 'components/atoms/Button/Button';
+import Checkbox from 'components/atoms/CheckBox';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import Button from 'components/atoms/Button/Button';
 import Pagination from 'components/molecules/Pagination';
 import { DPPlusIcon } from 'icons';
-
-import datas from 'utilities/filterData';
-
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { landingPagesData } from 'utilities/campaigndata';
-
-import { TableWrapper, TableHeaderWrapper, ContainerBody } from './styles';
-import DropdownComponent from 'components/atoms/Dropdown';
-import Checkbox from 'components/atoms/CheckBox';
+import { ContainerBody, TableHeaderWrapper, TableWrapper } from './styles';
 
 const LandingPagesTable = () => {
   const columns = [
@@ -85,8 +79,6 @@ const LandingPagesTable = () => {
 
   const currentList = tableData.slice(indexFirstList, indexLastList);
 
-  const [selected, setSelected] = useState('Filters');
-
   let navigate = useNavigate();
   const handleButtonClick = () => {
     navigate('/landing-page');
@@ -101,12 +93,6 @@ const LandingPagesTable = () => {
               <h1>88 Landing Pages</h1>
             </div>
             <div className="table-header__right">
-              <DropdownComponent
-                selected={selected}
-                setSelected={setSelected}
-                data={datas}
-                className="dropdown-campaign"
-              />
               <SearchBar className="search-icon" />
               <Button className="campaign-button" onClick={() => handleButtonClick()}>
                 <DPPlusIcon className="plus-icon" />

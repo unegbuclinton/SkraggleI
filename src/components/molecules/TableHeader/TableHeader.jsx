@@ -28,9 +28,10 @@ function TableHeader({
   onClick,
   add,
   attendeeButton,
-  companyHeader,
+  noFilter,
   disableFilterBtn,
-  invert
+  invert,
+  filter
 }) {
   const [dropDown, setDropDown] = useState(false);
   const [attendeeDropdown, setAttendeeDropdown] = useState(false);
@@ -96,11 +97,12 @@ function TableHeader({
           ''
         ) : (
           <>
-            {!eventHeader & !companyHeader & !disableFilterBtn ? (
+            {!eventHeader & !noFilter & !disableFilterBtn ? (
               <SelectDropDown
                 className="select-dropdown"
+                isSearchable={false}
                 classNamePrefix="react-select"
-                placeholder={!invert ? 'Filter' : 'Action'}
+                placeholder={!invert ? `${filter}` : 'Action'}
               />
             ) : (
               ''
