@@ -15,7 +15,7 @@ import styled from 'styled-components';
 function CreateFormComponent({ onClose }) {
   const { token } = useSelector((state) => state?.auth);
   const { contactData, companies } = useSelector((state) => state.contact);
-
+  const { isLoading } = useSelector((state) => state.forms);
   const { campaigns } = useSelector((state) => state?.campaign);
 
   const formTypeOptions = [
@@ -149,7 +149,11 @@ function CreateFormComponent({ onClose }) {
           <Button auth invert className="form-cancel__btn" onClick={onClose}>
             Cancel
           </Button>
-          <Button type="submit" auth className="form-save__btn">
+          <Button
+            type="submit"
+            auth
+            className="form-save__btn"
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </CreateFormFooter>

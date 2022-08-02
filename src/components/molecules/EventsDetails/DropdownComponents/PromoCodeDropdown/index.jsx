@@ -197,7 +197,9 @@ function PromoCodeDropdown({ onClose }) {
         <Button type="button" onClick={onClose} className="cancel-btn" auth invert>
           Cancel
         </Button>
-        <Button className="save-btn" disabled={isLoading}>
+        <Button
+          className="save-btn"
+          disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
           Save
         </Button>
       </ButtonContainer>

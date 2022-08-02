@@ -4,12 +4,34 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { useElement } from 'context';
-import React from 'react';
+import { p2pButtonAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appearance() {
-  const { elementConfig, changeStyleAttribute, changeChildrenAttribute } = useElement();
+  const { p2pButtons } = useSelector((state) => state.elementIframes);
+  const dispatch = useDispatch();
+
+  const [p2pButtonProperties, setP2PButtonProperties] = useState(p2pButtons);
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = p2pButtons;
+
+  useEffect(() => {
+    dispatch(p2pButtonAction(p2pButtonProperties));
+  }, [p2pButtonProperties]);
+
+  const handleChange = (value, key) => {
+    setP2PButtonProperties({ ...p2pButtonProperties, [key]: value });
+  };
 
   return (
     <AppearanceWrapper>
@@ -19,7 +41,8 @@ function Appearance() {
           type="text"
           className="appearance-input"
           placeholder="Recent Donations"
-          onChange={changeChildrenAttribute}
+          value={label}
+          onChange={(event) => handleChange(event.target.value, 'label')}
         />
       </AppearanceFieldWrapper>
 
@@ -31,8 +54,10 @@ function Appearance() {
               className="slider-border"
               sliderText="slider-text"
               text="px"
-              onChange={(e) => changeStyleAttribute('height', e)}
-              value={parseFloat(elementConfig.style.height)}
+              min={40}
+              max={100}
+              value={buttonHeight}
+              onChange={(event) => handleChange(event.target.value, 'buttonHeight')}
             />
           </SliderWrapper>
         </SliderContainer>
@@ -43,8 +68,10 @@ function Appearance() {
               className="slider-border"
               sliderText="slider-text"
               text="px"
-              onChange={(e) => changeStyleAttribute('width', e)}
-              value={parseFloat(elementConfig.style.width)}
+              min={120}
+              max={300}
+              value={buttonWidth}
+              onChange={(event) => handleChange(event.target.value, 'buttonWidth')}
             />
           </SliderWrapper>
         </SliderContainer>
@@ -57,8 +84,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={elementConfig.style.color}
-                onChange={(e) => changeStyleAttribute('color', e)}
+                value={labelColor}
+                onChange={(event) => handleChange(event.target.value, 'labelColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -70,8 +97,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={elementConfig.style.backgroundColor}
-                onChange={(e) => changeStyleAttribute('backgroundColor', e)}
+                value={buttonColor}
+                onChange={(event) => handleChange(event.target.value, 'buttonColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -83,8 +110,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={elementConfig.style.borderColor}
-                onChange={(e) => changeStyleAttribute('borderColor', e)}
+                value={borderColor}
+                onChange={(event) => handleChange(event.target.value, 'borderColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -100,8 +127,8 @@ function Appearance() {
               text="px"
               max={6}
               min={0}
-              onChange={(e) => changeStyleAttribute('borderWidth', e)}
-              value={parseFloat(elementConfig.style.borderWidth)}
+              value={borderSize}
+              onChange={(event) => handleChange(event.target.value, 'borderSize')}
             />
           </SliderWrapper>
         </SliderContainer>
@@ -116,8 +143,8 @@ function Appearance() {
               text="px"
               max={10}
               min={1}
-              onChange={(e) => changeStyleAttribute('borderRadius', e)}
-              value={parseFloat(elementConfig.style.borderRadius)}
+              value={borderRadius}
+              onChange={(event) => handleChange(event.target.value, 'borderRadius')}
             />
           </SliderWrapper>
         </SliderContainer>

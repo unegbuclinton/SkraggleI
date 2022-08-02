@@ -1,22 +1,26 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function SimpleFormIframe({
-  formsize,
-  textColor,
-  backgroundColor,
-  borderSize,
-  borderRadius,
-  borderColor,
-  amountLabel,
-  showAmountShadow,
-  buttonLabel,
-  labelColor,
-  buttonColor,
-  buttonBorder,
-  buttonRadius,
-  buttonBorderColor,
-  showButtonShadow
-}) {
+function SimpleFormIframes({ showAmountShadow }) {
+  const { simpleForm } = useSelector((state) => state.elementIframes);
+
+  const {
+    text,
+    formSize,
+    textColor,
+    buttonColorAmount,
+    borderSizeAmount,
+    borderRadiusAmount,
+    borderColorAmount,
+    label,
+    labelColor,
+    buttonColor,
+    borderSize,
+    borderRadius,
+    borderColor,
+    shdaow
+  } = simpleForm;
+
   return (
     <div
       style={{
@@ -25,7 +29,9 @@ function SimpleFormIframe({
         background: '#ffff  ',
         borderRadius: '1rem',
         alignItems: 'center',
-        height: '86%'
+        height: '86%',
+        width: '100%',
+        overflow: 'auto'
       }}>
       <form
         style={{
@@ -36,38 +42,38 @@ function SimpleFormIframe({
           padding: '6px',
           marginBottom: '0',
           minWidth: 'fit-content',
-          width: `${formsize}%`,
+          width: `${formSize}px`,
           gap: '0.8rem'
         }}>
         <button
           style={{
             color: textColor,
             aspectRatio: 1 / 0.5,
-            background: backgroundColor,
-            minWidth: `${formsize}%`,
-            width: `${formsize}%`,
-            borderRadius: `${borderRadius}px`,
-            border: `${borderSize}px solid ${borderColor}`,
+            background: buttonColorAmount,
+            minWidth: `${formSize}%`,
+            width: `${formSize}%`,
+            borderRadius: `${borderRadiusAmount}px`,
+            border: `${borderSizeAmount}px solid ${borderColorAmount}`,
             boxShadow: showAmountShadow
           }}>
-          {amountLabel}
+          {text}
         </button>
         <button
           style={{
-            width: `${formsize}%`,
+            width: `${formSize}%`,
             color: labelColor,
             aspectRatio: 1 / 0.5,
-            minWidth: `${formsize}%`,
+            minWidth: `${formSize}%`,
             background: buttonColor,
-            borderRadius: `${buttonRadius}px`,
-            border: `${buttonBorder}px solid ${buttonBorderColor}`,
-            boxShadow: showButtonShadow
+            borderRadius: `${borderRadius}px`,
+            border: `${borderSize}px solid ${borderColor}`,
+            boxShadow: shdaow
           }}>
-          {buttonLabel}
+          {label}
         </button>
       </form>
     </div>
   );
 }
 
-export default SimpleFormIframe;
+export default SimpleFormIframes;
