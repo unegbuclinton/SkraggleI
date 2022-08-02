@@ -94,7 +94,7 @@ export const ActionWrapper = styled.div`
   }
 `;
 
-export const Delete = styled.p`
+export const Action = styled.p`
   font-size: ${FONTSIZES.small};
   cursor: pointer;
 `;
@@ -106,15 +106,7 @@ export const HeadingAction = styled.div`
   align-items: center;
 `;
 
-export const ActionContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.7rem;
-  &:hover {
-    background-color: ${COLORS['garage-mix-grey']};
-  }
-`;
+export const ActionContentWrapper = styled.div``;
 
 export const DropdownContainer = styled.div`
   position: relative;
@@ -150,4 +142,18 @@ export const DropdownInfo = styled.p`
 export const BtnContainer = styled.div`
   display: flex;
   margin-top: 1rem;
+`;
+
+export const ActionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem;
+  &:hover {
+    background-color: ${COLORS['garage-mix-grey']};
+  }
+  .achived-icon {
+    width: 2rem;
+    height: 2.1rem;
+  }
 `;

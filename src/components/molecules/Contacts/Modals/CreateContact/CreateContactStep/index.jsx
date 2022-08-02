@@ -50,14 +50,14 @@ const MultiStepForm = ({ onClose }) => {
       }
     }
   });
-
+  const birth_date = `${formik.values.date}-${formik.values.month}-${formik.values.year}`;
   const body = {
     primary_phone: formik.values.primary_phone,
     primary_email: formik.values.primary_email,
     first_name: formik.values.firstName,
     last_name: formik.values.lastName,
     is_subscribed_to_mailblasts: formik.values.emailSubscription,
-    // birth_date: formik.values.date,
+    birth_date: birth_date,
     company: formik.values.company,
     tags: formik.values.tags,
     address: formik.values.address,
