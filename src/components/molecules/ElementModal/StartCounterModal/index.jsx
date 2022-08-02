@@ -4,7 +4,7 @@ import React from 'react';
 
 function StartCounterModal({ isShown, onClose }) {
   return (
-    <Modal header="Start Counter" isShown={isShown} hide={onClose}>
+    <Modal header="Start Counter" isShown={isShown} hide={onClose} sideModal>
       <StartCounterModalComponent />
     </Modal>
   );

@@ -33,7 +33,7 @@ function LeafLnc({ className }) {
         <div>
           <div className="fundraiser__id">ID</div>
           <div className="fundraiser__no">
-            <textarea className="fundraiser__textArea" value="NRTFSTPL" ref={textArea} />
+            <textarea className="fundraiser__textArea" value="NRTFSTPL" readOnly />
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard}>
               <DPIconCopy />
             </Button>
@@ -128,21 +128,21 @@ export const P2PFundraiserWrapper = styled(Card)`
       display: flex;
       flex-direction: column;
       width: 11.9rem;
-      border-right: 2px solid #9a9aa9;
+      border-right: 2px solid ${COLORS['porcelain-white']};
     }
     &__info-1 {
       display: flex;
       align-items: center;
       flex-direction: column;
       width: 20.5rem;
-      border-right: 2px solid #9a9aa9;
+      border-right: 2px solid ${COLORS['porcelain-white']};
     }
     &__info-2 {
       display: flex;
       align-items: center;
       flex-direction: column;
       width: 17.1rem;
-      border-right: 2px solid #9a9aa9;
+      border-right: 2px solid ${COLORS['porcelain-white']};
     }
     &__info-3 {
       display: flex;

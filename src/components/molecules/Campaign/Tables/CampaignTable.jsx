@@ -46,16 +46,15 @@ const CampaignTable = () => {
 
   const columns = [
     {
+      name: 'CAMPAIGN',
+      selector: (row) => row?.name
+    },
+    {
       name: 'CREATED',
       selector: (row) => {
         return dayjs(row?.created_on).format('DD MMM YYYY');
       },
       width: '20rem'
-    },
-
-    {
-      name: 'CAMPAIGN',
-      selector: (row) => row?.name
     },
     {
       name: 'STATUS',

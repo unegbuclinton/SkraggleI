@@ -52,7 +52,6 @@ function EditAmin({ onClose }) {
   });
   const tagOptions = tagsData.map((current) => ({ value: current?.id, label: current?.name }));
 
-  console.log(tagOptions);
   const adminOptions = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
