@@ -47,7 +47,7 @@ const P2PFundraise = ({ className }) => {
             <textarea
               className="fundraiser__textArea"
               value="https://Commodo et non turpis et viverra risus/"
-              ref={textArea}></textarea>
+              readOnly></textarea>
             <Button type="button" className="fundraiser__copy-button" onClick={copyToClipboard1}>
               <DPIconCopy />
             </Button>

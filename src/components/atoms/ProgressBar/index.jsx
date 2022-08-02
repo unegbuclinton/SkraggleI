@@ -20,7 +20,7 @@ const ProgressBarWrapper = styled.div`
     content: '';
     left: 0;
     top: 0;
-    width: ${({ range }) => range}%;
+    width: ${({ range }) => (range <= 100 ? range : 100)}%;
     height: 100%;
     background-color: ${COLORS.pink};
     border-radius: 2rem;

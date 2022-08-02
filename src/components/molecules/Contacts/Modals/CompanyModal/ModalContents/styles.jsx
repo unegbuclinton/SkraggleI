@@ -35,6 +35,9 @@ export const FormContainer = styled.form`
   input[type='number'] {
     -moz-appearance: textfield;
   }
+  .phone-input {
+    margin-bottom: 1.6rem;
+  }
 `;
 
 export const FormLabel = styled.label`

@@ -133,12 +133,12 @@ const CampaignOverview = () => {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
-          <h1 className="campaign-name__description">{fundraising_goal}</h1>
+          <h1 className="campaign-name__description">{fundraising_goal?.toLocaleString()}</h1>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Progress</p>
           <h1 className="campaign-name__description">
-            ${amount_raised}, {progressPercentage}%
+            ${amount_raised?.toLocaleString()}, {progressPercentage}%
           </h1>
         </CampaignNameWrapper>
       </LeftSection>
