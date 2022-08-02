@@ -27,6 +27,7 @@ import LogIn from 'pages/LogIn';
 import MailBlast from 'pages/MailBlast';
 import MonthlyNewsteller from 'pages/MailBlast/MonthlyNewsteller';
 import UnsubscribeWarning from 'pages/MailBlast/UnsubscribeWarning';
+import OrganisationSettings from 'pages/OrganisationSettings';
 import P2P from 'pages/P2P';
 import P2PDetails from 'pages/P2PDetails';
 import Reports from 'pages/Reports';
@@ -67,7 +68,10 @@ export const privateRoutes = [
       }
     ]
   },
-
+  {
+    path: '/organisation-settings',
+    element: <OrganisationSettings />
+  },
   {
     path: '/donations',
     element: <Donations />

@@ -23,7 +23,7 @@ function NameLogo({ text, dashboardLogo }) {
 
 export default NameLogo;
 
-const NameLogoWrapper = styled.text`
+const NameLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;

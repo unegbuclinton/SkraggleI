@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconForm } from 'icons';
+import { DPIconDropDown, DPIconForm } from 'icons';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Card from '../../atoms/Card';
@@ -28,10 +29,9 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
         ) : (
           <div className="container">
             {tabs?.map((tab, index) => (
-              <div key={index} style={{ position: 'relative' }}>
+              <ButtonContainer key={index}>
                 <TabButton
                   inline={inline}
-                  // key={index}
                   active={activeTab === index}
                   onClick={() => {
                     setActiveTab(index);
@@ -45,7 +45,7 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                     ? tab?.children && tab?.children[activeChild]['title']
                     : tab?.title}
                 </TabButton>
-                <div style={{ position: 'absolute' }}>
+                <DropDownWrapper>
                   {activeTab === index &&
                     show &&
                     tab?.children?.map((child, index) => {
@@ -60,8 +60,8 @@ const Tabs = ({ tabs, stickyTab, plainTab, title, heading, link, inline, scroll,
                         </TabButton>
                       );
                     })}
-                </div>
-              </div>
+                </DropDownWrapper>
+              </ButtonContainer>
             ))}
           </div>
         )}
@@ -90,15 +90,20 @@ const TabWrapper = styled.div`
     .container {
       display: flex;
       flex-wrap: nowrap;
+      position: relative;
     }
   }
 `;
 
+const ButtonContainer = styled.div``;
+
 const TabContainer = styled(Card)`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   padding: 3.204rem 2.5rem 1.6rem;
+  width: 100%;
   overflow-x: auto;
   .container {
     display: flex;
@@ -131,6 +136,10 @@ const TabButton = styled.button`
   font-weight: ${FONTWEIGHTS.medium};
   font-size: ${FONTSIZES.small};
   text-transform: capitalize;
+  .drop-down {
+    fill: ${COLORS['grey-400']};
+    margin-left: 0.5rem;
+  }
 
   ${({ inline }) =>
     inline &&
@@ -215,6 +224,14 @@ const TabLinkWrapper = styled.div`
 const TabContent = styled.div`
   height: 90%;
   overflow: hidden;
+`;
+
+const DropDownWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  background: ${COLORS.white};
+  flex-direction: column;
+  box-shadow: -5px 5px 5px -3px rgb(0 0 0 / 20%);
 `;
 
 export default Tabs;

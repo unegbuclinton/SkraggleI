@@ -24,6 +24,9 @@ export function generateUUID() {
 export function formatDate(date) {
   return dayjs(date).format('DD MMM YYYY');
 }
+export function formatDateToInt(date) {
+  return dayjs(date).format('YYYY-MM-DD');
+}
 
 export function formatNewDate(date) {
   return dayjs(date).format('yyyy-MM-dd');

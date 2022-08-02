@@ -12,11 +12,11 @@ export const OverviewWrapper = styled.div`
     flex-wrap: wrap;
     /* overflow-x: auto; */
   }
-  .overview-heder__text {
+  /* .overview-heder__text {
     font-size: ${FONTSIZES.lg};
     font-weight: ${FONTWEIGHTS.medium};
     color: ${COLORS['header-grey']};
-  }
+  } */
 `;
 
 export const OverviewLeft = styled.div`
@@ -59,4 +59,10 @@ export const OverviewRight = styled.div`
 export const DatePicker = styled.span`
   font-size: ${FONTSIZES.xsmall};
   color: ${COLORS['grey-100']};
+`;
+
+export const WelcomeText = styled.h2`
+  font-size: ${FONTSIZES.lg};
+  font-weight: ${FONTWEIGHTS.medium};
+  color: ${COLORS['header-grey']};
 `;

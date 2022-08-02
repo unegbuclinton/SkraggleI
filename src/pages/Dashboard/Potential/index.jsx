@@ -1,10 +1,8 @@
-import React from 'react';
-import { DPIconThankYou } from 'icons';
 import Button from 'components/atoms/Button/Button';
-import { PotentialBody, PotentialCard, PotentialWrapper } from './styles';
 import Card from 'components/atoms/Card';
-import { CardLeft } from './styles';
-import { CardRight } from './styles';
+import { DPIconThankYou } from 'icons';
+import React from 'react';
+import { CardLeft, CardRight, PotentialBody, PotentialCard, PotentialWrapper } from './styles';
 
 function PotentialDonor() {
   return (
@@ -26,7 +24,7 @@ function PotentialDonor() {
             </CardLeft>
             <CardRight>
               <p className="contact">11 Contacts</p>
-              <Button action className="thank__btn">
+              <Button action="true" className="thank__btn">
                 Take Action
               </Button>
             </CardRight>
@@ -44,7 +42,7 @@ function PotentialDonor() {
             </CardLeft>
             <CardRight>
               <p className="contact">11 Contacts</p>
-              <Button action className="thank__btn">
+              <Button action="true" className="thank__btn">
                 Take Action
               </Button>
             </CardRight>

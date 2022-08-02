@@ -63,7 +63,13 @@ export const createContactStepTwoValidationSchema = Yup.object({
 
 export const createCompanyValidatonSchema = Yup.object({
   companyName: Yup.string().required('Company name is required'),
-  primaryPhone: Yup.string().required('Primary phone is required'),
+  primaryPhone: Yup.string()
+    .matches(
+      /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+      'Phone number is not valid'
+    )
+    .min(10, 'to short')
+    .required('Phone Number is required'),
   email: Yup.string().required('Tag is required')
 });
 

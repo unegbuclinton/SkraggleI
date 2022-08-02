@@ -1,6 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Input from 'components/atoms/Input/Input';
-import Switch from 'components/atoms/Switch/Switch';
+import PhoneNumberInput from 'components/atoms/PhoneInput';
 import { createNewCompany, getAllCompanies } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
@@ -9,14 +9,11 @@ import { toast } from 'react-toastify';
 import { createCompanyValidatonSchema } from 'validation/Schema';
 import {
   ButtonContainer,
-  CheckBoxWrapper,
   ErrorMsg,
   FormContainer,
   FormLabel,
   ModalContainer,
-  ModalWrapper,
-  TagContainer,
-  TagWrapper
+  ModalWrapper
 } from './styles';
 
 function CreateCompany({ onClose }) {
@@ -72,8 +69,8 @@ function CreateCompany({ onClose }) {
             <ErrorMsg>{formik.errors.companyName}</ErrorMsg>
           ) : null}
           <FormLabel>PRIMARY PHONE</FormLabel>
-          <Input
-            className="input-field"
+          <PhoneNumberInput
+            className="phone-input"
             id="primaryPhone"
             name="primaryPhone"
             type="number"
@@ -86,7 +83,7 @@ function CreateCompany({ onClose }) {
           {formik.touched.primaryPhone && formik.errors.primaryPhone ? (
             <ErrorMsg>{formik.errors.primaryPhone}</ErrorMsg>
           ) : null}
-          <FormLabel>Email</FormLabel>
+          <FormLabel>EMAIL</FormLabel>
           <Input
             className="input-field"
             id="email"
@@ -100,15 +97,6 @@ function CreateCompany({ onClose }) {
           {formik.touched.email && formik.errors.email ? (
             <ErrorMsg>{formik.errors.email}</ErrorMsg>
           ) : null}
-          <TagContainer>
-            <TagWrapper>
-              <h2 className="title">Auto Tag</h2>
-              <p className="info">Auto Tag Contacts who fill this form</p>
-            </TagWrapper>
-            <CheckBoxWrapper>
-              <Switch />
-            </CheckBoxWrapper>
-          </TagContainer>
           <ButtonContainer>
             <Button type="button" className="cancel" onClick={onClose} auth invert>
               Cancel

@@ -1,17 +1,26 @@
+import Card from 'components/atoms/Card';
+import SelectDropDown from 'components/atoms/GenericDropdown';
 import React, { useState } from 'react';
 import { GeneralBody, GeneralHeader, GeneralWrapper } from './styles';
-import data from 'utilities/filterData.json';
-import Card from 'components/atoms/Card';
-import DropdownComponent from 'components/atoms/Dropdown';
 
 function GeneralUpdate() {
-  const [selected, setSelected] = useState('Filters');
+  const [days, setDays] = useState();
+  const daysOptions = [
+    { value: 'Last 90 Days', label: 'Last 90 Days' },
+    { value: 'Last 60 Days', label: 'Last 60 Days' },
+    { value: 'Last 30 Days', label: 'Last 30 Days' }
+  ];
   return (
     <GeneralWrapper>
       <Card className="general-card">
         <GeneralHeader>
           <p className="body-text">General Update</p>
-          <DropdownComponent selected={selected} setSelected={setSelected} data={data} />
+          <SelectDropDown
+            options={daysOptions}
+            onChange={(values) => setDays(values)}
+            value={days}
+            className="general-update-dropdown"
+          />
         </GeneralHeader>
         <GeneralBody>
           <div className="body--wrapper">
