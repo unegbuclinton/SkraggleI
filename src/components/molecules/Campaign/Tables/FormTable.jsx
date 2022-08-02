@@ -53,23 +53,19 @@ const FormsTable = () => {
     {
       name: 'FORM NAME',
       selector: (row) => row?.name
-      // width: '35rem'
     },
 
     {
       name: 'FORM TYPE',
       selector: (row) => row?.type
-      // width: '20rem'
     },
     {
       name: 'RAISED',
       selector: (row) => row?.amount_raised || 0
-      // width: '20rem'
     },
     {
       name: 'DONATIONS',
       selector: (row) => row?.donations
-      // width: '35rem'
     },
     {
       name: 'STATUS',

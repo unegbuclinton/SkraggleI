@@ -90,16 +90,6 @@ function Mail() {
       <DeleteModal
         isShown={openDeleteModal}
         handleDelete={handleDelete}
-        // const mail = mailData.map((data, index) => ({
-        //   key: index,
-        //   created: data.created,
-        //   campaign: data.campaign,
-        //   goals: data.goals,
-        //   status: data.status
-        // }));
-        // const indexLasttList = currentPage * itemsPerPage;
-        // const indexFirstList = indexLasttList - itemsPerPage;
-        // const currentList = 4;
         onClose={() => setOpenDeleteModal(false)}
         isLoading={isLoading}
         warning="Warning: This will delete these Mail blast permanently from your Skraggle account. This
@@ -126,15 +116,11 @@ function Mail() {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </div>
       </Card>
-      <Pagination
-        // currentList={currentList}
-        // data={mailData}
-        itemsPerPage={itemsPerPage}
-        // setCurrentPage={setCurrentPage}
-      />
+      <Pagination itemsPerPage={itemsPerPage} />
     </MailWrapper>
   );
 }

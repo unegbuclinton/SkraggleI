@@ -178,7 +178,7 @@ function ElementTable() {
           onClose={() => setOpen(false)}
         />
         <TableHeader header="12 Elements" title="New element" setOpen={setOpen} />
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={data} pointer />
       </ElementsWrapper>
     </ElementContextProvider>
   );

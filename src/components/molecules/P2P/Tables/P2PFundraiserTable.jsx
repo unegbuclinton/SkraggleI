@@ -34,22 +34,14 @@ function P2PTable() {
   };
 
   const columns = [
-    // {
-    //   name: ' ',
-    //   cell: () => <Checkbox />,
-    //   ignoreRowClick: false,
-    //   width: '5rem'
-    // },
     {
       name: 'CAMPAIGN',
       selector: (row) => row.name || row.campaign
-      // width: '20rem'
     },
 
     {
       name: 'FUNDRAISER',
       selector: (row) => row.fundraiser_display_name
-      // width: '20rem'
     },
     {
       name: 'GOAL',
@@ -64,17 +56,14 @@ function P2PTable() {
     {
       name: 'CREATED',
       selector: (row) => formatDate(row.created_at)
-      // width: '20rem'
     },
     {
       name: 'GOAL DATE',
       selector: (row) => formatDate(row.goal_date)
-      // width: '20rem'
     },
     {
       name: '1M STATISTICS -_-_',
       selector: (row) => row.sn
-      // width: '10rem'
     }
   ];
 
@@ -118,7 +107,6 @@ function P2PTable() {
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
             openDeleteModal={openDeleteModal}
-            // onChange={(e) => setInput(e.target.value)}
           />
 
           <Table
@@ -128,6 +116,7 @@ function P2PTable() {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </TableWrapper>
       </ContainerBody>

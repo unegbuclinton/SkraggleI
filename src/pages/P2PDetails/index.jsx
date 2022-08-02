@@ -18,7 +18,6 @@ const P2PDetails = () => {
     }
   ];
 
-  // const name = useLocation().state.campaign;
   const { eachP2p } = useSelector((state) => state?.p2p);
 
   const { fundraiser_display_name } = eachP2p;
