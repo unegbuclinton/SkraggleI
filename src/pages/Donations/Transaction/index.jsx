@@ -44,6 +44,7 @@ function Transaction() {
             title="Create New"
             setOpen={setShowModal}
             noFilter
+            buttonDropdown
           />
           {showModal && (
             <CreateTransactionModal

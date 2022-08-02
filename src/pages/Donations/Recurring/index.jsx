@@ -54,6 +54,7 @@ function DonationRecurring() {
             title="Create New"
             setOpen={setShowModal}
             noFilter
+            buttonDropdown
           />
           {showModal && (
             <RecurringModal
