@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
@@ -27,13 +28,15 @@ function TableHeader({
   eventHeader,
   onClick,
   add,
-  attendeeButton,
-  companyHeader,
+  buttonDropdown,
+  noFilter,
   disableFilterBtn,
-  invert
+  invert,
+  filter,
+  attendeeDropdown
 }) {
   const [dropDown, setDropDown] = useState(false);
-  const [attendeeDropdown, setAttendeeDropdown] = useState(false);
+  const [dropdownButton, setDropdownButton] = useState(false);
   const handleDelete = () => {
     setOpenDeleteModal(true);
     setDropDown(false);
@@ -45,8 +48,8 @@ function TableHeader({
       if (dropDown && ref.current && !ref.current.contains(e.target)) {
         setDropDown(false);
       }
-      if (attendeeDropdown && ref.current && !ref.current.contains(e.target)) {
-        setAttendeeDropdown(false);
+      if (dropdownButton && ref.current && !ref.current.contains(e.target)) {
+        setDropdownButton(false);
       }
     };
 
@@ -55,7 +58,7 @@ function TableHeader({
     return () => {
       document.body.removeEventListener('mousedown', checkIfClickedOutside);
     };
-  }, [dropDown, attendeeDropdown]);
+  }, [dropDown, dropdownButton]);
   return (
     <HeaderWrapper>
       <HeadingAction>
@@ -68,8 +71,8 @@ function TableHeader({
           )}
           {dropDown && (
             <ActionWrapper>
-              <ActionContentWrapper onClick={handleDelete}>
-                <ActionContainer>
+              <ActionContentWrapper>
+                <ActionContainer onClick={handleDelete}>
                   <DPIconDelete className="delete-icon" />
                   <Action>Delete</Action>
                 </ActionContainer>
@@ -96,11 +99,12 @@ function TableHeader({
           ''
         ) : (
           <>
-            {!eventHeader & !companyHeader & !disableFilterBtn ? (
+            {!eventHeader & !noFilter & !disableFilterBtn ? (
               <SelectDropDown
                 className="select-dropdown"
+                isSearchable={false}
                 classNamePrefix="react-select"
-                placeholder={!invert ? 'Filter' : 'Action'}
+                placeholder={!invert ? `${filter}` : 'Action'}
               />
             ) : (
               ''
@@ -108,7 +112,7 @@ function TableHeader({
             {!invert && <SearchBar onChange={onChange} />}
           </>
         )}
-        {!attendeeButton ? (
+        {!buttonDropdown ? (
           <>
             {!disableFilterBtn && (
               <Button invert={invert} className="header__header-btn" onClick={() => setOpen(true)}>
@@ -119,30 +123,43 @@ function TableHeader({
           </>
         ) : (
           <DropdownContainer ref={ref}>
-            <Button
-              className="header-button"
-              onClick={() => setAttendeeDropdown(!attendeeDropdown)}>
+            <Button className="header-button" onClick={() => setDropdownButton(!dropdownButton)}>
               {title}
               <DPIconDropDown className="dropdown-icon" />
             </Button>
-            {attendeeDropdown && (
-              <ActionWrapper className="content-container">
-                <Button className="drop-button" auth invert>
-                  Print Event Report
-                </Button>
-                <Button className="drop-button" auth invert>
-                  Send Email to Attendees
-                </Button>
-                <DropdownInfo>Download Ticket Holder List</DropdownInfo>
-                <BtnContainer>
-                  <Button className="drop-button" auth invert>
-                    CSV
-                  </Button>
-                  <Button className="drop-button" auth invert>
-                    Excel
-                  </Button>
-                </BtnContainer>
-              </ActionWrapper>
+            {dropdownButton && (
+              <div>
+                {!attendeeDropdown ? (
+                  <ActionWrapper className="donation-dropdown">
+                    <ActionContentWrapper>
+                      <ActionContainer onClick={() => setOpen(true)}>
+                        <Action>Donation</Action>
+                      </ActionContainer>
+                      <ActionContainer onClick={() => setOpen(true)}>
+                        <Action>Recurring</Action>
+                      </ActionContainer>
+                    </ActionContentWrapper>
+                  </ActionWrapper>
+                ) : (
+                  <ActionWrapper className="content-container">
+                    <Button className="drop-button" auth invert>
+                      Print Event Report
+                    </Button>
+                    <Button className="drop-button" auth invert>
+                      Send Email to Attendees
+                    </Button>
+                    <DropdownInfo>Download Ticket Holder List</DropdownInfo>
+                    <BtnContainer>
+                      <Button className="drop-button" auth invert>
+                        CSV
+                      </Button>
+                      <Button className="drop-button" auth invert>
+                        Excel
+                      </Button>
+                    </BtnContainer>
+                  </ActionWrapper>
+                )}
+              </div>
             )}
           </DropdownContainer>
         )}

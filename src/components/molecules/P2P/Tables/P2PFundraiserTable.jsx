@@ -107,6 +107,8 @@ function P2PTable() {
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
             openDeleteModal={openDeleteModal}
+            noFilter
+            // onChange={(e) => setInput(e.target.value)}
           />
 
           <Table

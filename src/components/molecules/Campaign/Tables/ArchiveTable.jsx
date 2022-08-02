@@ -99,6 +99,7 @@ const ArchiveTable = () => {
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
             // onChange={(e) => setInput(e.target.value)}
+            disableFilterBtn
           />
           <Table
             columns={columns}

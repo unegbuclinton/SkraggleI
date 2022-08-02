@@ -55,6 +55,7 @@ function SavedTemplate() {
             header="1 Custom Template"
             title="Create Template"
             setOpen={setShow}
+            noFilter
           />
           {show && <CreateTemplateModal isShown={show} onCloseModal={() => setShow(false)} />}
         </div>
