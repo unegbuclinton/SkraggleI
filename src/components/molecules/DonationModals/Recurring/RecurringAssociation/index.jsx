@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 function RecurringAssociation({ DecrementTab, formik }) {
   const { campaigns } = useSelector((state) => state.campaign);
+  const { isLoading } = useSelector((state) => state.donation);
 
   const campaignOptions = campaigns?.map((current) => ({
     value: current?.id,
@@ -80,7 +81,11 @@ function RecurringAssociation({ DecrementTab, formik }) {
             onClick={DecrementTab}>
             Back
           </Button>
-          <Button auth className="association-save-btn" type="submit">
+          <Button
+            auth
+            className="association-save-btn"
+            type="submit"
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </div>

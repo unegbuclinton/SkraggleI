@@ -297,7 +297,9 @@ function PackageDropdown({ setDropdown, setOpenDropdown, dropdown, onClose }) {
           invert>
           Cancel
         </Button>
-        <Button className="save-btn" disabled={isLoading}>
+        <Button
+          className="save-btn"
+          disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
           Save
         </Button>
       </ButtonContainer>

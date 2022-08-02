@@ -67,3 +67,18 @@ export const CopyWrapper = styled.div`
   align-items: center;
   margin-bottom: 3.1rem;
 `;
+
+export const CopyContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+`;
+
+export const CopyLabel = styled.label`
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  font-weight: ${FONTWEIGHTS.medium};
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-400']};
+`;

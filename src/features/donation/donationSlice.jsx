@@ -81,9 +81,11 @@ export const donationSlice = createSlice({
       state.isLoading = false;
       state.pledgeData = action.payload;
     },
-    [addPledge.rejected]: (state, action) => {
+    [addPledge.pending]: (state) => {
       state.isLoading = true;
-      state.pledgeData = action.payload;
+    },
+    [addPledge.rejected]: (state) => {
+      state.isLoading = false;
     },
     [removePledge.pending]: (state) => {
       state.isLoading = true;

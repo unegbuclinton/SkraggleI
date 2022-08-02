@@ -122,7 +122,11 @@ const CampaignModalComponent = ({ onClose }) => {
           <Button onClick={onClose} className="cancel-btn" auth invert>
             Cancel
           </Button>
-          <Button type="submit" className="save-btn" auth loading={isLoading}>
+          <Button
+            type="submit"
+            className="save-btn"
+            auth
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
             Save
           </Button>
         </ButtonsContainer>
