@@ -4,26 +4,75 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { p2pButtonAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Appearance() {
-  const [textColor, setTextColor] = useState('#1E003E');
-  const [accentTextColor, setAccentTextColor] = useState('#477BE0');
-  const [borderColor, setBorderColor] = useState('#FFFFFF');
+  const { p2pButtons } = useSelector((state) => state.elementIframes);
+  const dispatch = useDispatch();
+
+  const [p2pButtonProperties, setP2PButtonProperties] = useState(p2pButtons);
+  const {
+    label,
+    buttonWidth,
+    labelColor,
+    buttonColor,
+    borderColor,
+    buttonHeight,
+    borderSize,
+    borderRadius
+  } = p2pButtons;
+
+  useEffect(() => {
+    dispatch(p2pButtonAction(p2pButtonProperties));
+  }, [p2pButtonProperties]);
+
+  const handleChange = (value, key) => {
+    setP2PButtonProperties({ ...p2pButtonProperties, [key]: value });
+  };
 
   return (
     <AppearanceWrapper>
       <AppearanceFieldWrapper>
         <AppearanceLabel>Label</AppearanceLabel>
-        <Input className="appearance-input" placeholder="Recent Donations" />
+        <Input
+          type="text"
+          className="appearance-input"
+          placeholder="Recent Donations"
+          value={label}
+          onChange={(event) => handleChange(event.target.value, 'label')}
+        />
       </AppearanceFieldWrapper>
 
       <AppearanceFieldWrapper>
         <SliderContainer>
-          <AppearanceLabel>Button Size</AppearanceLabel>
+          <SliderLabel>Button Height</SliderLabel>
           <SliderWrapper>
-            <Slider className="slider-border" text="px" />
+            <Slider
+              className="slider-border"
+              sliderText="slider-text"
+              text="px"
+              min={40}
+              max={100}
+              value={buttonHeight}
+              onChange={(event) => handleChange(event.target.value, 'buttonHeight')}
+            />
+          </SliderWrapper>
+        </SliderContainer>
+        <SliderContainer>
+          <SliderLabel>Button Width</SliderLabel>
+          <SliderWrapper>
+            <Slider
+              className="slider-border"
+              sliderText="slider-text"
+              text="px"
+              min={120}
+              max={300}
+              value={buttonWidth}
+              onChange={(event) => handleChange(event.target.value, 'buttonWidth')}
+            />
           </SliderWrapper>
         </SliderContainer>
       </AppearanceFieldWrapper>
@@ -35,8 +84,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={textColor}
-                onChange={(e) => setTextColor(e.target.value)}
+                value={labelColor}
+                onChange={(event) => handleChange(event.target.value, 'labelColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -48,8 +97,8 @@ function Appearance() {
             <ColorContainer>
               <ColorComponents
                 type="color"
-                value={accentTextColor}
-                onChange={(e) => setAccentTextColor(e.target.value)}
+                value={buttonColor}
+                onChange={(event) => handleChange(event.target.value, 'buttonColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -62,7 +111,7 @@ function Appearance() {
               <ColorComponents
                 type="color"
                 value={borderColor}
-                onChange={(e) => setBorderColor(e.target.value)}
+                onChange={(event) => handleChange(event.target.value, 'borderColor')}
               />
             </ColorContainer>
           </ColorContainerWrapper>
@@ -73,7 +122,14 @@ function Appearance() {
         <SliderContainer>
           <AppearanceLabel>Border Size</AppearanceLabel>
           <SliderWrapper>
-            <Slider className="slider-border" text="px" />
+            <Slider
+              className="slider-border"
+              text="px"
+              max={6}
+              min={0}
+              value={borderSize}
+              onChange={(event) => handleChange(event.target.value, 'borderSize')}
+            />
           </SliderWrapper>
         </SliderContainer>
       </AppearanceFieldWrapper>
@@ -82,7 +138,14 @@ function Appearance() {
         <SliderContainer>
           <AppearanceLabel>Border Radius</AppearanceLabel>
           <SliderWrapper>
-            <Slider className="slider-border" text="px" />
+            <Slider
+              className="slider-border"
+              text="px"
+              max={10}
+              min={1}
+              value={borderRadius}
+              onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+            />
           </SliderWrapper>
         </SliderContainer>
       </AppearanceFieldWrapper>
@@ -155,4 +218,13 @@ export const SliderWrapper = styled.div`
 export const ColorPickersWrapper = styled.div`
   display: flex;
   gap: 2.4rem;
+`;
+
+export const SliderLabel = styled.label`
+  width: 11rem;
+  position: relative;
+  top: 0.5rem;
+  font-size: ${FONTSIZES.small};
+  color: ${COLORS['grey-500']};
+  font-weight: ${FONTWEIGHTS.normal};
 `;

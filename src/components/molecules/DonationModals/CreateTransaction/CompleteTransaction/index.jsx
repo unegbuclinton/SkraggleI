@@ -3,9 +3,12 @@ import Card from 'components/atoms/Card';
 import RadioGroup from 'components/atoms/RadioGroup';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function CompleteTransaction({ DecrementTab, formik }) {
+  const { isLoading } = useSelector((state) => state.donation);
+
   return (
     <CompleteWrapper onSubmit={formik.handleSubmit}>
       <Card className="payment-card">
@@ -26,7 +29,12 @@ function CompleteTransaction({ DecrementTab, formik }) {
           <Button invert auth className="payment-cancel-btn" onClick={DecrementTab} type="button">
             Back
           </Button>
-          <Button auth className="payment-save-btn" type="submit">
+          <Button
+            auth
+            className="payment-save-btn"
+            type="submit"
+            disabled={(!formik.dirty && !isLoading) || (formik.dirty && isLoading)}>
+            {' '}
             Save
           </Button>
         </div>

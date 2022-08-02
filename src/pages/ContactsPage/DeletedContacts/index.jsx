@@ -1,77 +1,64 @@
+import Card from 'components/atoms/Card';
+import Checkbox from 'components/atoms/CheckBox';
+import TableBtn from 'components/atoms/TableButton/TableBtn';
 import Table from 'components/layouts/Table';
+import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import React from 'react';
+import styled from 'styled-components';
 
 function DeletedContacts() {
   const columns = [
     {
-      name: 'ID',
-      selector: (row) => row.id,
-      width: '10rem'
-    },
-    {
-      name: 'DATE',
-      selector: (row) => row.date,
-      width: '10.7rem'
-    },
-
-    {
-      name: 'NAME',
-      selector: (row) => row.name,
-      width: '26.4rem'
-    },
-    {
-      name: 'PACKAGE',
-      selector: (row) => row.package,
-      width: '10.5rem'
-    },
-    {
-      name: 'AMOUNT',
-      selector: (row) => row.amount,
-      width: '10.5rem'
-    },
-
-    {
-      name: 'OPTED IN',
-      selector: (row) => row.optedIn,
-      width: '10.5rem'
-    },
-
-    {
-      name: 'ATTENDING',
-      selector: (row) => row.attending,
-      width: '10.5rem'
-    },
-
-    {
-      name: 'STATUS',
-      selector: (row) => row.status,
-      width: '10.5rem'
-    },
-    {
       name: '',
-      cell: () => <p>Edit</p>,
-      width: '8rem'
+      cell: () => <Checkbox />,
+      width: '3rem'
+    },
+    {
+      name: 'FULL NAME',
+      selector: (row) => row.fullName,
+      width: '16.8rem'
+    },
+    {
+      name: 'PRIMARY EMAIL',
+      selector: (row) => row.primaryEmail,
+      width: '30.8rem'
+    },
+    {
+      name: 'PRIMARY PHONE',
+      selector: (row) => row.primaryPhone,
+
+      Width: '27.173rem'
+    },
+    {
+      name: 'TAGS',
+      cell: () => <TableBtn />
     }
   ];
 
   const data = [
     {
-      id: 12345678,
-      date: '12 / 8 / 2021',
-      name: 'Mohammed Adam - Participant 1',
-      package: 'Bag pack',
-      amount: '$15.00',
-      optedIn: 'No',
-      attending: 'yes',
-      status: 'Checked in'
+      fullName: 'Mohammed Adam',
+      primaryEmail: 'mohammed@gmail.com',
+      primaryPhone: '+9994569220'
+    },
+    {
+      fullName: 'Mohammed Adam',
+      primaryEmail: 'mohammed@gmail.com',
+      primaryPhone: '+9994569220'
     }
   ];
 
   return (
-    <div>
+    <DeletedContactWrapper>
+      <TableHeader header="2 Deleted Contact" disableFilterBtn />
       <Table columns={columns} data={data} />
-    </div>
+    </DeletedContactWrapper>
   );
 }
 
 export default DeletedContacts;
+
+const DeletedContactWrapper = styled(Card)`
+  padding: 2.4rem;
+  margin-top: 1.6rem;
+`;

@@ -4,6 +4,7 @@ import CompaniesTable from 'pages/ContactsPage/Companies/CompaniesTable';
 import ContactsTable from 'pages/ContactsPage/Contacts/ContactsTable';
 import HouseHoldsTable from 'pages/ContactsPage/HouseHold/HouseHoldsTable';
 import TagsTable from 'pages/ContactsPage/Tags/TagsTable';
+import ArchivedContact from './ArchivedContact';
 import DeletedContacts from './DeletedContacts';
 
 const Contacts = () => {
@@ -29,17 +30,16 @@ const Contacts = () => {
       children: [
         {
           title: 'Archived',
-          component: <CompaniesTable />
+          component: <ArchivedContact />
         },
         {
           title: 'Deleted Contacts',
-          component: <HouseHoldsTable />
+          component: <DeletedContacts />
         }
       ]
     },
     {
       name: 'Archive',
-      // component: <SegmentsTable />,
       children: [
         {
           childname: 'Archived Contacts',

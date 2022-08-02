@@ -6,6 +6,7 @@ import {
   DPIconElements,
   DPIconEvents,
   DPIconForms,
+  DPIconImpactArea,
   DPIconLandingPage,
   DPIconMailBlasts,
   DPIconP2P,
@@ -32,6 +33,11 @@ export const SidebarContent = [
     route: '/donations',
     icon: <DPIconDonations />,
     text: 'Donations'
+  },
+  {
+    route: '/impact-area',
+    icon: <DPIconImpactArea />,
+    text: 'Impact Area'
   },
   {
     route: '/forms',

@@ -73,11 +73,13 @@ export const contactSlice = createSlice({
   extraReducers: {
     //CREATE CONTACT
     [createContact.fulfilled]: (state) => {
-      state.isLoading = true;
+      state.isLoading = false;
     },
-
     [createContact.rejected]: (state) => {
       state.isLoading = false;
+    },
+    [createContact.pending]: (state) => {
+      state.isLoading = true;
     },
     //VIEW CONTACTS
     [viewContact.fulfilled]: (state, action) => {
