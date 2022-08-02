@@ -77,7 +77,7 @@ function CreateTransactionModal({ onCloseModal }) {
       isShown
       hide={onCloseModal}
       showClose={onCloseModal}>
-      <MultiformTabs tabs={tabs} />
+      <MultiformTabs tabs={tabs} disabled />
     </Modal>
   );
 }

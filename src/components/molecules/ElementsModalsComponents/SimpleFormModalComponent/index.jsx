@@ -3,7 +3,9 @@ import Card from 'components/atoms/Card';
 import CopyField from 'components/atoms/CopyField';
 import Input from 'components/atoms/Input/Input';
 import Tabs from 'components/molecules/Tabs';
-import React from 'react';
+import { useElement } from 'context';
+import { BasicElement } from 'lib';
+import React, { useEffect, useMemo } from 'react';
 import Amount from './Amount';
 import Behavior from './Behavior';
 import Buttons from './Button';
@@ -23,10 +25,30 @@ function SimpleFormModalComponent() {
   const tabs = [
     { title: 'BEHAVIOUR', component: <Behavior /> },
     { title: 'FORM', component: <Form /> },
-    { title: 'AMOUNT', component: <Amount /> },
-    { title: 'BUTTONS', component: <Buttons /> },
+    {
+      title: 'AMOUNT',
+      component: <Amount />
+    },
+    {
+      title: 'BUTTONS',
+      component: <Buttons />
+    },
     { title: 'CUSTOM FIELDS', component: <CustomFields /> }
   ];
+
+  const { elementConfig, setElementConfig } = useElement();
+
+  useEffect(() => {
+    setElementConfig((draft) => {
+      draft.type = 'simple-form';
+      // draft.parentStyle = { ...draft.parentStyle };
+    });
+  }, []);
+
+  const htmlCode = useMemo(() => {
+    return new BasicElement(elementConfig).toString();
+  }, [JSON.stringify(elementConfig)]);
+
   return (
     <DonationFormWrapper>
       <Card className="goalmeter-card">
@@ -42,7 +64,7 @@ function SimpleFormModalComponent() {
       <Card className="goalmeter-card">
         <CopyWrapper>
           <FormLabel>HTML CODE</FormLabel>
-          <CopyField grey></CopyField>
+          <CopyField value={htmlCode} grey></CopyField>
         </CopyWrapper>
         <DonationFooter>
           <Button className="archive-btn" invert auth>

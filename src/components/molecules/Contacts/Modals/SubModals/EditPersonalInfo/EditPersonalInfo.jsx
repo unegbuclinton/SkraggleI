@@ -7,7 +7,7 @@ import { updateContact } from 'features/contact/contactSlice';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { formatDate } from 'utilities/helpers';
+import { formatDateToInt } from 'utilities/helpers';
 // import { editContactProfileSchema } from 'validation/Schema';
 import { EditPersonalInfoForm, EditPersonalInfoRow, EditPersonalLabel } from './styles';
 
@@ -48,7 +48,7 @@ function EditPersonalInfo({ onClose }) {
       preferredName: '',
       gender: gender,
       phone: primary_phone,
-      dob: formatDate(birth_date),
+      dob: formatDateToInt(birth_date),
       suffix: '',
       email: primary_email,
       street: address,

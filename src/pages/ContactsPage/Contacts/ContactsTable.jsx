@@ -93,7 +93,7 @@ function ContactsTable() {
     },
     {
       name: 'TAGS',
-      // selector: (row) => row.tags
+      selector: (row) => row.tags,
       cell: (row) => <TableBtn tags={row.tags} />
     }
   ];

@@ -2,7 +2,7 @@ import Button from 'components/atoms/Button/Button';
 import Checkbox from 'components/atoms/CheckBox';
 // import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import Table from 'components/layouts/Table';
-import P2PModalComponent from 'components/molecules/P2P/P2PFundraiserModalComponent';
+import P2PModalComponent from 'components/molecules/P2P/P2PFundraiserModalComponent/p2pModalComponent';
 import Pagination from 'components/molecules/Pagination';
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 // import { DPPlusIcon } from 'icons';

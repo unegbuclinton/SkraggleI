@@ -24,7 +24,6 @@ import { ContainerBody, TableWrapper } from './styles';
 
 const CampaignTable = () => {
   const { campaigns } = useSelector((state) => state.campaign);
-  // const { campaignByID } = useSelector((state) => state.campaign);
 
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
@@ -46,16 +45,15 @@ const CampaignTable = () => {
 
   const columns = [
     {
+      name: 'CAMPAIGN',
+      selector: (row) => row?.name
+    },
+    {
       name: 'CREATED',
       selector: (row) => {
         return dayjs(row?.created_on).format('DD MMM YYYY');
       },
       width: '20rem'
-    },
-
-    {
-      name: 'CAMPAIGN',
-      selector: (row) => row?.name
     },
     {
       name: 'STATUS',
