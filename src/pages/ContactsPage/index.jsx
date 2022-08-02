@@ -3,7 +3,6 @@ import Tabs from 'components/molecules/Tabs';
 import CompaniesTable from 'pages/ContactsPage/Companies/CompaniesTable';
 import ContactsTable from 'pages/ContactsPage/Contacts/ContactsTable';
 import HouseHoldsTable from 'pages/ContactsPage/HouseHold/HouseHoldsTable';
-import SegmentsTable from 'pages/ContactsPage/Segments/SegmentsTable';
 import TagsTable from 'pages/ContactsPage/Tags/TagsTable';
 import DeletedContacts from './DeletedContacts';
 
@@ -27,7 +26,6 @@ const Contacts = () => {
     },
     {
       title: 'Archive',
-      // component: <SegmentsTable />
       children: [
         {
           title: 'Archived',
@@ -38,10 +36,6 @@ const Contacts = () => {
           component: <HouseHoldsTable />
         }
       ]
-    },
-    {
-      title: 'segment',
-      component: <SegmentsTable />
     },
     {
       name: 'Archive',
