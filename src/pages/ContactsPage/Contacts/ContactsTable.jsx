@@ -93,7 +93,7 @@ function ContactsTable() {
     },
     {
       name: 'TAGS',
-      // selector: (row) => row.tags
+      selector: (row) => row.tags,
       cell: (row) => <TableBtn tags={row.tags} />
     }
   ];
@@ -118,6 +118,7 @@ function ContactsTable() {
               setOpenDeleteModal={setOpenDeleteModal}
               selectRow={`${rowCount} Selected`}
               show={!!getId.length}
+              filter="Tags"
               // onChange={(e) => setInput(e.target.value)}
             />
             <Table

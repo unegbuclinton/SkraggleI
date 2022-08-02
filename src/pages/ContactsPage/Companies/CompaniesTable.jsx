@@ -6,11 +6,8 @@ import CompanyModal from 'components/molecules/Contacts/Modals/CompanyModal/Main
 import DeleteModal from 'components/molecules/Contacts/Modals/DeleteModal/Modal';
 import CompaniesEmptyState from 'components/molecules/EmptyState/Contacts/Companies';
 import Pagination from 'components/molecules/Pagination';
-// import { useNavigate } from "react-router-dom";
 import TableHeader from 'components/molecules/TableHeader/TableHeader';
 import { getAllCompanies, removeCompany } from 'features/contact/contactSlice';
-// import { searchCompanies } from 'features/contact/contactSlice';
-// import debounce from 'lodash.debounce';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TableWrapper } from './styles';
@@ -21,7 +18,6 @@ function CompaniesTable() {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [getId, setGetId] = useState([]);
   const [rowCount, setRowCount] = useState(null);
-  // const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
   const { companies } = useSelector((state) => state.contact);
@@ -39,17 +35,7 @@ function CompaniesTable() {
       setGetId([]);
     });
   };
-  // const getSearchDebounce = useCallback(
-  //   debounce(() => {
-  //     dispatch(searchCompanies({ search: input, page: 0 }));
-  //   }, 500),
-  //   [input]
-  // );
-  // useEffect(() => {
-  //   getSearchDebounce();
 
-  //   return getSearchDebounce.cancel;
-  // }, [input]);
   const columns = [
     {
       name: 'COMPANY NAME',
@@ -95,7 +81,7 @@ function CompaniesTable() {
               header={`${companies.length} Companies`}
               selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
-              companyHeader
+              noFilter
               setOpenDeleteModal={setOpenDeleteModal}
               show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}

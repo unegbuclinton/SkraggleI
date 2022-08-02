@@ -57,6 +57,7 @@ function Subscription() {
           header={`${subscriptionStatus?.length} Subscription`}
           selectRow={`${rowCount} Selected`}
           show={!!getId.length}
+          noFilter
         />
 
         <Table
@@ -65,6 +66,7 @@ function Subscription() {
           selectableRows
           selectableRowsComponent={Checkbox}
           handleRowSelect={handleSelect}
+          className="subscription-table"
         />
       </Card>
     </MailWrapper>
@@ -75,8 +77,14 @@ export default Subscription;
 
 const MailWrapper = styled.div`
   margin-top: 1.6rem;
+  height: 100%;
 
   .mail-card {
     padding: 2.4rem;
+    height: 100%;
+  }
+  .subscription-table {
+    height: 90%;
+    overflow: auto;
   }
 `;

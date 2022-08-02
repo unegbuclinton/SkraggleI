@@ -58,6 +58,7 @@ const MailBlast = () => {
             header={`${mailBlast?.length} Mail Blasts`}
             title="New Mail Blasts"
             setOpen={setShow}
+            noFilter
           />
           <Table columns={columns} data={mailBlast} onRowClicked={onRowClicked} />
         </TableWrapper>

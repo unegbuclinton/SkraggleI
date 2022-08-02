@@ -4,18 +4,37 @@ import Input from 'components/atoms/Input/Input';
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React, { useState } from 'react';
+import { simpleFormAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Buttons() {
-  const [labelColor, setLabelColor] = useState('#477BE0');
-  const [buttonColor, setButtonColor] = useState('#FFFFFF');
-  const [borderColor, setBorderColor] = useState('#1E003E');
+  const { simpleForm } = useSelector((state) => state.elementIframes);
+
+  const { label, labelColor, buttonColor, borderSize, borderRadius, borderColor } = simpleForm;
+
+  const dispatch = useDispatch();
+
+  const [simpleFormProperties, setSimpleFormProperties] = useState(simpleForm);
+
+  useEffect(() => {
+    dispatch(simpleFormAction(simpleFormProperties));
+  }, [simpleFormProperties]);
+
+  const handleChange = (value, key) => {
+    setSimpleFormProperties({ ...simpleFormProperties, [key]: value });
+  };
   return (
     <ButtonWrapper>
       <ButtonFieldWrapper>
         <ButtonLabel>Label</ButtonLabel>
-        <Input className="button-input" placeholder="Doante and support" />
+        <Input
+          className="button-input"
+          placeholder="Doante and support"
+          value={label}
+          onChange={(event) => handleChange(event.target.value, 'label')}
+        />
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
@@ -25,7 +44,7 @@ function Buttons() {
             <ColorComponents
               type="color"
               value={labelColor}
-              onChange={(e) => setLabelColor(e.target.value)}
+              onChange={(event) => handleChange(event.target.value, 'labelColor')}
             />
           </ColorContainer>
         </ColorContainerWrapper>
@@ -38,7 +57,7 @@ function Buttons() {
             <ColorComponents
               type="color"
               value={buttonColor}
-              onChange={(e) => setButtonColor(e.target.value)}
+              onChange={(event) => handleChange(event.target.value, 'buttonColor')}
             />
           </ColorContainer>
         </ColorContainerWrapper>
@@ -47,14 +66,26 @@ function Buttons() {
       <ButtonFieldWrapper>
         <ButtonLabel>Border size</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            min={0}
+            max={6}
+            value={borderSize}
+            onChange={(event) => handleChange(event.target.value, 'borderSize')}
+          />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
       <ButtonFieldWrapper>
         <ButtonLabel>Border radius</ButtonLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            value={borderRadius}
+            onChange={(event) => handleChange(event.target.value, 'borderRadius')}
+          />
         </SliderWrapper>
       </ButtonFieldWrapper>
 
@@ -65,7 +96,7 @@ function Buttons() {
             <ColorComponents
               type="color"
               value={borderColor}
-              onChange={(e) => setBorderColor(e.target.value)}
+              onChange={(event) => handleChange(event.target.value, 'borderColor')}
             />
           </ColorContainer>
         </ColorContainerWrapper>

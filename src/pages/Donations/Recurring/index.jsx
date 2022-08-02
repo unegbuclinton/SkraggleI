@@ -49,7 +49,13 @@ function DonationRecurring() {
     <RecurringWrapper>
       <Card className="recurring-card">
         <div className="recurring-header">
-          <TableHeader className="table-header" title="Create New" setOpen={setShowModal} />
+          <TableHeader
+            className="table-header"
+            title="Create New"
+            setOpen={setShowModal}
+            noFilter
+            buttonDropdown
+          />
           {showModal && (
             <RecurringModal
               onCloseModal={() => {

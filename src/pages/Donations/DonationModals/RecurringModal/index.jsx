@@ -61,7 +61,7 @@ function RecurringModal({ onCloseModal }) {
 
   return (
     <Modal header="Recurring" isShown hide={onCloseModal} showClose={onCloseModal}>
-      <MultiformTabs tabs={tabs} />
+      <MultiformTabs tabs={tabs} disabled />
     </Modal>
   );
 }

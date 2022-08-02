@@ -99,6 +99,7 @@ function FormsTable() {
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
+            noFilter
           />
           <Table
             columns={columns}

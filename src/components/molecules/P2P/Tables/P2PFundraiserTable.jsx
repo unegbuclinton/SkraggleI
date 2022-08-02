@@ -8,7 +8,7 @@ import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { formatDate } from 'utilities/helpers';
-import P2PModalComponent from '../P2PFundraiserModalComponent';
+import P2PModalComponent from '../P2PFundraiserModalComponent/p2pModalComponent';
 import { ContainerBody, TableWrapper } from './styles';
 
 function P2PTable() {
@@ -107,6 +107,7 @@ function P2PTable() {
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
             openDeleteModal={openDeleteModal}
+            noFilter
           />
 
           <Table

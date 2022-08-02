@@ -1,16 +1,38 @@
 import Slider from 'components/atoms/Slider';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import React from 'react';
+import { simpleFormAction } from 'features/elements/elementReducer';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 function Form() {
+  const { simpleForm } = useSelector((state) => state.elementIframes);
+  const dispatch = useDispatch();
+
+  const [simpleFormProperties, setSimpleFormProperties] = useState(simpleForm);
+  const { formSize } = simpleForm;
+
+  useEffect(() => {
+    dispatch(simpleFormAction(simpleFormProperties));
+  }, [simpleFormProperties]);
+
+  const handleChange = (value, key) => {
+    setSimpleFormProperties({ ...simpleFormProperties, [key]: value });
+  };
   return (
     <FormWrapper>
       <FormFieldWrapper>
         <FormLabel>Form size</FormLabel>
         <SliderWrapper>
-          <Slider className="slider-border" text="px" />
+          <Slider
+            className="slider-border"
+            text="px"
+            min={45}
+            max={125}
+            onChange={(event) => handleChange(event.target.value, 'formSize')}
+            value={formSize}
+          />
         </SliderWrapper>
       </FormFieldWrapper>
     </FormWrapper>
