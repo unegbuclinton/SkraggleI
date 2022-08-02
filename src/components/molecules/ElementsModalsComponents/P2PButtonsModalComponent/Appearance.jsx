@@ -9,10 +9,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 function Appearance() {
-  // const [textColor, setTextColor] = useState('#1E003E');
-  // const [accentTextColor, setAccentTextColor] = useState('#477BE0');
-  // const [borderColor, setBorderColor] = useState('#FFFFFF');
-
   const { elementConfig, changeStyleAttribute, changeChildrenAttribute } = useElement();
 
   return (
@@ -52,12 +48,6 @@ function Appearance() {
             />
           </SliderWrapper>
         </SliderContainer>
-        {/* <SliderContainer>
-          <AppearanceLabel>Button Size</AppearanceLabel>
-          <SliderWrapper>
-            <Slider className="slider-border" text="px" />
-          </SliderWrapper>
-        </SliderContainer> */}
       </AppearanceFieldWrapper>
 
       <ColorPickersWrapper>
