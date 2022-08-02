@@ -261,15 +261,6 @@ function EditP2pModalComponent({ onClose, isShown }) {
           ) : null}
 
           <h1>Personal Message</h1>
-          {/* <TextArea
-            id="personalMessage"
-            name="personalMessage"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.personalMessage}
-            maxLength={120}
-          /> */}
           <textarea
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
