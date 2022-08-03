@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 
 export const ContainerBody = styled(Card)`
   padding: 2.4rem;
-  margin-top: 1.6rem;
 `;
 
 export const TableWrapper = styled.div`

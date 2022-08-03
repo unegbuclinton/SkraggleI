@@ -6,7 +6,18 @@ export const getCampaigns = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/campaigns'
+      url: '/campaigns?cursor=-1&direction=after&limit=20&archived=false'
+    });
+    return response?.data?.message?.rows;
+  } catch (error) {
+    return error;
+  }
+};
+export const getArchivedCampaigns = async () => {
+  try {
+    const response = await request({
+      method: 'get',
+      url: '/campaigns?cursor=-1&direction=after&limit=20&archived=true'
     });
     return response?.data?.message?.rows;
   } catch (error) {

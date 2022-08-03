@@ -21,7 +21,7 @@ import { TableContacts } from 'utilities/campaigndata';
 import { ContainerBody, TableWrapper } from './styles';
 
 const ArchiveTable = () => {
-  const { campaigns } = useSelector((state) => state.campaign);
+  const { archivedCampaign } = useSelector((state) => state.campaign);
 
   const [rowCount, setRowCount] = useState(null);
   const [getId, setGetId] = useState([]);
@@ -94,7 +94,7 @@ const ArchiveTable = () => {
       <ContainerBody>
         <TableWrapper>
           <TableHeader
-            header={`${campaigns?.length} Campaign`}
+            header={`${archivedCampaign?.length} Campaign`}
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
@@ -103,7 +103,7 @@ const ArchiveTable = () => {
           />
           <Table
             columns={columns}
-            data={campaigns}
+            data={archivedCampaign}
             onRowClicked={onRowClicked}
             selectableRows
             selectableRowsComponent={Checkbox}
