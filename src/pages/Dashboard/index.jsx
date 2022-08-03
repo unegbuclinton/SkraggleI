@@ -44,7 +44,7 @@ function Dashboard() {
     // dispatch(getAdminData());
   }, []);
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Dashboard">
       <DashboardWrapper>
         <Overview />
         <GeneralUpdate />

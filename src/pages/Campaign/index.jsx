@@ -25,7 +25,7 @@ const Campaign = () => {
   ];
 
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Campiagns">
       <Tabs tabs={tabs} />
     </DashboardLayout>
   );

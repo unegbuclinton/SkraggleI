@@ -4,7 +4,7 @@ import React from 'react';
 
 function LandingPage() {
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Landing Page">
       <LandingPageComponent />
     </DashboardLayout>
   );

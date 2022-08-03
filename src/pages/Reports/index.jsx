@@ -4,7 +4,7 @@ import React from 'react';
 
 function Reports() {
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Report">
       <ReportsMain></ReportsMain>
     </DashboardLayout>
   );

@@ -17,7 +17,7 @@ const Forms = () => {
   ];
 
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Forms">
       <Tabs tabs={links} />
     </DashboardLayout>
   );
