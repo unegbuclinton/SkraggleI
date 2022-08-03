@@ -57,6 +57,7 @@ function Subscription() {
           header={`${subscriptionStatus?.length} Subscription`}
           selectRow={`${rowCount} Selected`}
           show={!!getId.length}
+          noFilter
         />
 
         <Table

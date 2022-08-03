@@ -81,7 +81,7 @@ function CompaniesTable() {
               header={`${companies.length} Companies`}
               selectRow={`${rowCount} Selected`}
               setOpen={setOpen}
-              companyHeader
+              noFilter
               setOpenDeleteModal={setOpenDeleteModal}
               show={!!getId.length}
               // onChange={(e) => setInput(e.target.value)}

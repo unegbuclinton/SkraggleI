@@ -109,6 +109,8 @@ const CampaignTable = () => {
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
+            noFilter
+            // onChange={(e) => setInput(e.target.value)}
           />
           <Table
             columns={columns}
@@ -117,6 +119,7 @@ const CampaignTable = () => {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </TableWrapper>
       </ContainerBody>

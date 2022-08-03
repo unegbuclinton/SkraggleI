@@ -99,6 +99,7 @@ function FormsTable() {
             setOpenDeleteModal={setOpenDeleteModal}
             selectRow={`${rowCount} Selected`}
             show={!!getId.length}
+            noFilter
           />
           <Table
             columns={columns}
@@ -107,6 +108,7 @@ function FormsTable() {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </TableWrapper>
       </ContainerBody>

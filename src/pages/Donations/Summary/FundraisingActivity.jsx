@@ -32,11 +32,11 @@ const FundraisingActivity = () => {
       </FRAHeaderWrapper>
       <FRAContentWrapper>
         <div className="data-wrapper">
-          <h3>${donations}</h3>
+          <h3>${donations?.toLocaleString()}</h3>
           <p>NEW DONATIONS</p>
         </div>
         <div className="data-wrapper">
-          <h3>${revenue}</h3>
+          <h3>${revenue?.toLocaleString()}</h3>
           <p>NEW REVENUE</p>
         </div>
         <div className="data-wrapper">
