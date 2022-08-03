@@ -5,7 +5,12 @@ import ArchivedEmptyState from 'components/molecules/EmptyState/Events/Archived'
 import CloneEventModal from 'components/molecules/EventsModals/CloneModal/Modal';
 import DeleteEventModal from 'components/molecules/EventsModals/DeleteModal/Modal';
 import { TableHeader } from 'components/molecules/Reports/ReportsExportHistory';
-import { cloneEvent, delEvent, getAllEvents, getEachEvent } from 'features/events/eventSlice';
+import {
+  cloneEvent,
+  delEvent,
+  getAllArchivedEvents,
+  getEachEvent
+} from 'features/events/eventSlice';
 import { DPIconEventActive } from 'icons';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +26,6 @@ function Archived() {
 
   const { archivedEvents } = useSelector((state) => state.events);
 
-  console.log(archivedEvents);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -46,7 +50,7 @@ function Archived() {
     };
     dispatch(delEvent(body)).then(() => {
       setOpenDeleteModal(false);
-      dispatch(getAllEvents());
+      dispatch(getAllArchivedEvents());
     });
   };
 
@@ -56,7 +60,7 @@ function Archived() {
     };
     dispatch(cloneEvent(body)).then(() => {
       setCloneEventOpen(false);
-      dispatch(getAllEvents());
+      dispatch(getAllArchivedEvents());
     });
   };
   const columns = [
