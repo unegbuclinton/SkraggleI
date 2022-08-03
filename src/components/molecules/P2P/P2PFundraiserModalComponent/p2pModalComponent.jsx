@@ -192,6 +192,7 @@ function P2PModalComponent({ onClose, isShown }) {
               className="modal-inputs__goals"
               containerClass="modal-inputs__container-input"
               type="number"
+              onWheel={() => document.activeElement.blur()}
               placeholder="Enter Goal Amount"
               id="goalAmount"
               name="goalAmount"
@@ -223,6 +224,7 @@ function P2PModalComponent({ onClose, isShown }) {
           <Input
             className="modal-inputs"
             type="number"
+            onWheel={() => document.activeElement.blur()}
             placeholder="Enter Offline Amount"
             id="offlineAmount"
             name="offlineAmount"
@@ -239,6 +241,7 @@ function P2PModalComponent({ onClose, isShown }) {
             className="modal-inputs"
             type="number"
             placeholder="Enter Amount"
+            onWheel={() => document.activeElement.blur()}
             id="offlineDonation"
             name="offlineDonation"
             onChange={formik.handleChange}

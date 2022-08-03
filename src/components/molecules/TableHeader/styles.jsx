@@ -27,8 +27,7 @@ export const HeaderWrapper = styled.div`
       color: ${COLORS.white};
       .icon-dropdown {
         color: ${COLORS.white};
-        fill: ${COLORS.white} !important;
-        stroke: ${COLORS.white} !important;
+        fill: ${COLORS.white};
       }
     }
   }
@@ -110,26 +109,6 @@ export const ActionContentWrapper = styled.div``;
 
 export const DropdownContainer = styled.div`
   position: relative;
-  .content-container {
-    padding: 2.2rem 1.8rem;
-    text-align: left;
-    height: 26.3rem;
-    width: 31.1rem;
-    background-color: ${COLORS.white};
-    z-index: 1;
-    top: 5rem;
-    right: -1rem;
-    box-shadow: -0.5rem 0.5rem 0.5rem rgb(0 0 0 / 8%);
-    .drop-button {
-      border: 0.1rem solid ${COLORS['garage-mix-grey']};
-      margin-bottom: 0.8rem;
-      border-radius: 0;
-      font-weight: ${FONTWEIGHTS.medium};
-      font-size: ${FONTSIZES.small};
-      color: ${COLORS['grey-400']};
-      height: 5.6rem;
-    }
-  }
 `;
 
 export const DropdownInfo = styled.p`

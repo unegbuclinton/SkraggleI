@@ -2,6 +2,8 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import ActionDropdown from 'components/organisms/Action';
+import AttendeeAction from 'components/organisms/AttendeeAction';
 import { DPIconAdd, DPIconArchived, DPIconDelete, DPIconDropDown } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -129,36 +131,7 @@ function TableHeader({
             </Button>
             {dropdownButton && (
               <div>
-                {!attendeeDropdown ? (
-                  <ActionWrapper>
-                    <ActionContentWrapper>
-                      <ActionContainer onClick={() => setOpen(true)}>
-                        <Action>Donation</Action>
-                      </ActionContainer>
-                      <ActionContainer onClick={() => setOpen(true)}>
-                        <Action>Recurring</Action>
-                      </ActionContainer>
-                    </ActionContentWrapper>
-                  </ActionWrapper>
-                ) : (
-                  <ActionWrapper className="content-container">
-                    <Button className="drop-button" auth invert>
-                      Print Event Report
-                    </Button>
-                    <Button className="drop-button" auth invert>
-                      Send Email to Attendees
-                    </Button>
-                    <DropdownInfo>Download Ticket Holder List</DropdownInfo>
-                    <BtnContainer>
-                      <Button className="drop-button" auth invert>
-                        CSV
-                      </Button>
-                      <Button className="drop-button" auth invert>
-                        Excel
-                      </Button>
-                    </BtnContainer>
-                  </ActionWrapper>
-                )}
+                {!attendeeDropdown ? <ActionDropdown setOpen={setOpen} /> : <AttendeeAction />}
               </div>
             )}
           </DropdownContainer>
