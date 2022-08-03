@@ -130,7 +130,7 @@ function TableHeader({
             {dropdownButton && (
               <div>
                 {!attendeeDropdown ? (
-                  <ActionWrapper className="donation-dropdown">
+                  <ActionWrapper>
                     <ActionContentWrapper>
                       <ActionContainer onClick={() => setOpen(true)}>
                         <Action>Donation</Action>
