@@ -119,6 +119,7 @@ const CampaignTable = () => {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </TableWrapper>
       </ContainerBody>

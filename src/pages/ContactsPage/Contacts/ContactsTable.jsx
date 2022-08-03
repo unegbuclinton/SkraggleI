@@ -128,6 +128,7 @@ function ContactsTable() {
               selectableRows
               selectableRowsComponent={CheckBox}
               handleRowSelect={handleSelect}
+              pointer
             />
           </TableWrapper>
 

@@ -164,6 +164,7 @@ function ActiveInactive() {
           data={allEvents}
           selectableRows
           selectableRowsComponent={Checkbox}
+          pointer
         />
       </Container>
     </ActiveInactiveWrapper>

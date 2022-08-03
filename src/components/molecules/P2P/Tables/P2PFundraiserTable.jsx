@@ -108,7 +108,6 @@ function P2PTable() {
             show={!!getId.length}
             openDeleteModal={openDeleteModal}
             noFilter
-            // onChange={(e) => setInput(e.target.value)}
           />
 
           <Table
@@ -118,6 +117,7 @@ function P2PTable() {
             selectableRows
             selectableRowsComponent={Checkbox}
             handleRowSelect={handleSelect}
+            pointer
           />
         </TableWrapper>
       </ContainerBody>
