@@ -130,9 +130,6 @@ export const DropdownContainer = styled.div`
       height: 5.6rem;
     }
   }
-  /* .donation-dropdown {
-    left: 1rem;
-  } */
 `;
 
 export const DropdownInfo = styled.p`
