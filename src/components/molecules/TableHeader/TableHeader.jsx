@@ -2,6 +2,7 @@
 import Button from 'components/atoms/Button/Button';
 import SelectDropDown from 'components/atoms/GenericDropdown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
+import ActionDropdown from 'components/organisms/Action';
 import { DPIconAdd, DPIconArchived, DPIconDelete, DPIconDropDown } from 'icons';
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -130,16 +131,7 @@ function TableHeader({
             {dropdownButton && (
               <div>
                 {!attendeeDropdown ? (
-                  <ActionWrapper>
-                    <ActionContentWrapper>
-                      <ActionContainer onClick={() => setOpen(true)}>
-                        <Action>Donation</Action>
-                      </ActionContainer>
-                      <ActionContainer onClick={() => setOpen(true)}>
-                        <Action>Recurring</Action>
-                      </ActionContainer>
-                    </ActionContentWrapper>
-                  </ActionWrapper>
+                  <ActionDropdown setOpen={setOpen} />
                 ) : (
                   <ActionWrapper className="content-container">
                     <Button className="drop-button" auth invert>
