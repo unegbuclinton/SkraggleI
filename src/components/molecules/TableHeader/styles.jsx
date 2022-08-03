@@ -27,8 +27,7 @@ export const HeaderWrapper = styled.div`
       color: ${COLORS.white};
       .icon-dropdown {
         color: ${COLORS.white};
-        fill: ${COLORS.white} !important;
-        stroke: ${COLORS.white} !important;
+        fill: ${COLORS.white};
       }
     }
   }
