@@ -29,7 +29,7 @@ export const getEvents = async () => {
   try {
     const response = await request({
       method: 'get',
-      url: '/event'
+      url: '/event?cursor=-1&direction=after&limit=20&archived=false'
     });
 
     return response?.data?.message?.rows;

@@ -37,19 +37,6 @@ const Contacts = () => {
           component: <DeletedContacts />
         }
       ]
-    },
-    {
-      name: 'Archive',
-      children: [
-        {
-          childname: 'Archived Contacts',
-          component: <DeletedContacts />
-        },
-        {
-          childname: 'Deleted Contacts',
-          component: <DeletedContacts />
-        }
-      ]
     }
   ];
 

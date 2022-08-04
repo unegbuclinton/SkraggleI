@@ -92,6 +92,7 @@ function ImpactAreaTable() {
             selectableRows
             selectableRowsComponent={CheckBox}
             handleRowSelect={handleSelect}
+            pointer
           />
           <Pagination
             currentPage={currentPage}

@@ -7,6 +7,7 @@ import { allMailBlasts } from 'api/campaign/campaign-subtabs/mailBlast';
 import {
   addCampaign,
   deleteCampaign,
+  getArchivedCampaigns,
   getCampaigns,
   individualCampaign,
   updateCampaign
@@ -15,6 +16,7 @@ import { logoutUser } from 'features/auth/authSlice';
 
 const initialState = {
   campaigns: [],
+  archivedCampaign: [],
   campaignByID: [],
   p2p: [],
   eventsData: [],
@@ -26,6 +28,10 @@ const initialState = {
 
 export const createNewCampaign = createAsyncThunk('campaign/createCampaign', addCampaign);
 export const getAllCampaigns = createAsyncThunk('campaign/getAllCampains', getCampaigns);
+export const archivedCampaigns = createAsyncThunk(
+  'campaign/getArchivedCampaigns',
+  getArchivedCampaigns
+);
 export const singleCampaign = createAsyncThunk('campaign/singleCampaign', individualCampaign);
 export const getPeerToPeer = createAsyncThunk('campaign/getPeerToPeer', allPeerToPeer);
 export const getFormsByID = createAsyncThunk('campaign/getFormsByID', allForms);
@@ -59,6 +65,16 @@ export const campaignSlice = createSlice({
     },
     [getAllCampaigns.pending]: (state) => {
       state.isLoading = true;
+    },
+    [archivedCampaigns.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.archivedCampaign = action.payload;
+    },
+    [archivedCampaigns.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [archivedCampaigns.pending]: (state) => {
+      state.isLoading = false;
     },
     [singleCampaign.fulfilled]: (state, action) => {
       state.campaignByID = action.payload;
