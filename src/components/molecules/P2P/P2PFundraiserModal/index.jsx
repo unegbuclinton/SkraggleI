@@ -1,6 +1,6 @@
 import Modal from 'components/layouts/Modal';
 import React from 'react';
-import P2PFundraiserModalComponent from '../P2PFundraiserModalComponent';
+import P2PFundraiserModalComponent from '../P2PFundraiserModalComponent/P2PModalComponent';
 
 function P2PFundraiserModal({ onClose, isShown }) {
   return (
