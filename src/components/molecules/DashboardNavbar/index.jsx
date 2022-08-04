@@ -22,7 +22,7 @@ import {
   UserMenuLinkText
 } from './styles';
 
-function DashboardHeader({ pageLinks }) {
+function DashboardHeader({ pageLinks, section }) {
   const { token } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -71,7 +71,7 @@ function DashboardHeader({ pageLinks }) {
     <Header>
       <div className="header__first-row">
         <HeaderLeftContent>
-          <h2 className="header__company-name">Company Name</h2>
+          <h2 className="header__company-name">{section}</h2>
           <HeaderLinks>
             <Link className="header__links" to="/contacts">
               Contact Us

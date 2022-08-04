@@ -41,7 +41,7 @@ const Contacts = () => {
   ];
 
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Contacts">
       <Tabs tabs={links} />
     </DashboardLayout>
   );

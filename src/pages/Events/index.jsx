@@ -26,7 +26,7 @@ function Events() {
     }
   ];
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Events">
       <Tabs tabs={links} scroll />
     </DashboardLayout>
   );

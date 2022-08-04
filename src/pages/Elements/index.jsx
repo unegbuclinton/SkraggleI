@@ -4,7 +4,7 @@ import ElementTable from './ElementTable/ElementTable';
 
 function Elements() {
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Elements">
       <ElementTable />
     </DashboardLayout>
   );

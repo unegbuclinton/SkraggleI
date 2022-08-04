@@ -4,12 +4,12 @@ import { COLORS } from 'constants/colors';
 import React from 'react';
 import styled from 'styled-components';
 
-function DashboardLayout({ children, pageLinks }) {
+function DashboardLayout({ children, pageLinks, section }) {
   return (
     <DashboardContainer>
       <Sidebar />
       <DashboardContentWrapper>
-        <DashboardHeader pageLinks={pageLinks} />
+        <DashboardHeader pageLinks={pageLinks} section={section} />
         <DashboardContent>{children}</DashboardContent>
       </DashboardContentWrapper>
     </DashboardContainer>

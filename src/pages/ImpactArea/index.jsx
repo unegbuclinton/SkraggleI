@@ -12,7 +12,7 @@ const ImpactArea = () => {
   ];
 
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Impact Area">
       <Tabs tabs={links} scroll />
     </DashboardLayout>
   );

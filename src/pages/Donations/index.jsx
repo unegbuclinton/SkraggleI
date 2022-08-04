@@ -18,7 +18,7 @@ const Donations = () => {
     { title: 'Receipts', component: <Receipts /> }
   ];
   return (
-    <DashboardLayout>
+    <DashboardLayout section="Donations">
       <DonationsContainer>
         <Tabs tabs={tabs} scroll />
       </DonationsContainer>
