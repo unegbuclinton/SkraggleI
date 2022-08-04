@@ -9,6 +9,17 @@ export const ModalWrapper = styled.form`
   padding-top: 0.8rem;
   padding-bottom: 2.92rem;
 
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
   h1 {
     margin-top: 2.4rem;
     margin-bottom: 0.8rem;
