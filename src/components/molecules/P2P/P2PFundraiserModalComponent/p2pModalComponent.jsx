@@ -181,6 +181,7 @@ function P2PFundraiserModalComponent({ onClose }) {
               className="modal-inputs__goals"
               containerClass="modal-inputs__container-input"
               type="number"
+              onWheel={() => document.activeElement.blur()}
               placeholder="Enter Goal Amount"
               id="goalAmount"
               name="goalAmount"
@@ -222,6 +223,21 @@ function P2PFundraiserModalComponent({ onClose }) {
         />
         {formik.touched.offlineAmount && formik.errors.offlineAmount ? (
           <ErrorMessage>{formik.errors.offlineAmount}</ErrorMessage>
+        ) : null}
+        <h1>Offline Donation</h1>
+        <Input
+          className="modal-inputs"
+          type="number"
+          placeholder="Enter Amount"
+          onWheel={() => document.activeElement.blur()}
+          id="offlineDonation"
+          name="offlineDonation"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.offlineDonation}
+        />
+        {formik.touched.offlineDonation && formik.errors.offlineDonation ? (
+          <ErrorMessage>{formik.errors.offlineDonation}</ErrorMessage>
         ) : null}
 
         <h1>Offline Donation</h1>
