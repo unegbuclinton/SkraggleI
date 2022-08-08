@@ -1,22 +1,21 @@
 import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card/index';
-import SelectDropDown from 'components/atoms/GenericDropdown';
+import { COLORS } from 'constants/colors';
 import { FONTSIZES } from 'constants/font-spec';
 import { editCampaign, getAllCampaigns, singleCampaign } from 'features/campaign/campaignSlice';
-import { useFormik } from 'formik';
-import { DPIconBin, DPIconDelete, DPIconGoodMark } from 'icons';
-import React, { useState } from 'react';
+import { DPIconBin, DPIconDelete, DPIconDonationMore, DPIconGoodMark } from 'icons';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
-import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
-import { campaignOverview } from 'validation/Schema';
+
 import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 
 function OverviewDetails() {
   const [open, setOpen] = useState(false);
   const { campaignByID } = useSelector((state) => state.campaign);
   const dispatch = useDispatch();
+  const [openMenu, setOpenMenu] = useState(false);
 
   const { name, description, status, fundraising_goal, amount_raised, id } = campaignByID;
 
@@ -32,58 +31,21 @@ function OverviewDetails() {
       dispatch(singleCampaign(id));
     });
   };
-  const formik = useFormik({
-    initialValues: {
-      task: ''
-    },
-    validationSchema: campaignOverview,
-    onSubmit: () => {}
-  });
+  const ref = useRef();
 
-  const data = [
-    {
-      value: (
-        <IconWrapper>
-          <DPIconGoodMark />
-          Edit Campaign
-        </IconWrapper>
-      ),
-      label: (
-        <IconWrapper className="good-mark" onClick={() => setOpen(true)}>
-          <DPIconGoodMark />
-          Edit
-        </IconWrapper>
-      )
-    },
-    {
-      value: (
-        <IconWrapper>
-          <DPIconBin />
-          Archive
-        </IconWrapper>
-      ),
-      label: (
-        <IconWrapper className="good-mark" onClick={ArchiveCampaign}>
-          <DPIconBin />
-          Archive
-        </IconWrapper>
-      )
-    },
-    {
-      value: (
-        <IconWrapper>
-          <DPIconDelete className="delete-icon" />
-          Delete Campaign
-        </IconWrapper>
-      ),
-      label: (
-        <IconWrapper className="good-mark">
-          <DPIconDelete className="delete-icon" />
-          Delete
-        </IconWrapper>
-      )
-    }
-  ];
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (openMenu && ref.current && !ref.current.contains(e.target)) {
+        setOpenMenu(false);
+      }
+    };
+
+    document.body.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.body.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [openMenu]);
 
   return (
     <>
@@ -94,18 +56,28 @@ function OverviewDetails() {
         }}
       />
       <LeftSection>
-        <ContainerDropdwon>
-          <SelectDropDown
-            className="action-dropdown__container"
-            placeholder={'Action'}
-            id="emailSubscription"
-            name="emailSubscription"
-            type={'text'}
-            options={data}
-            value={formik.values.emailSubscription}
-            onChange={(value) => formik.setFieldValue('emailSubscription', value.value)}
-            onBlur={formik.handleBlur}
-          />
+        <ContainerDropdwon openMenu={openMenu} ref={ref}>
+          <p>Campaign Details </p>
+          <div className="dropdown-icon" onClick={() => setOpenMenu((prev) => !prev)}>
+            <DPIconDonationMore />
+          </div>
+
+          <div className="section-dropdown">
+            <IconWrapper className="good-mark" onClick={() => ArchiveCampaign}>
+              <DPIconBin />
+              Archive
+            </IconWrapper>
+
+            <IconWrapper className="good-mark">
+              <DPIconGoodMark />
+              Edit
+            </IconWrapper>
+
+            <IconWrapper>
+              <DPIconDelete className="delete-icon" />
+              Delete
+            </IconWrapper>
+          </div>
         </ContainerDropdwon>
 
         <CampaignNameWrapper className="campaign-name">
@@ -118,7 +90,7 @@ function OverviewDetails() {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{capitalizeFirstLowercaseRest(status)}</Button>
+          <Button className="campaign-name__button">{status}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
@@ -156,16 +128,42 @@ export const LeftSection = styled(Card)`
 `;
 
 export const ContainerDropdwon = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: right;
-  padding-right: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1.8rem;
   padding-top: 1.6rem;
-  margin-bottom: 1.1rem;
+  padding-left: 1.7rem;
+  margin-bottom: 1.8rem;
+  font-size: ${FONTSIZES.base};
   .dropdown-icon {
-    width: 0.8rem;
-    height: 1.4rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: ${COLORS['gray-500']};
+    }
+  }
+
+  .section-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: ${({ openMenu }) => (openMenu ? '' : '0')};
+    overflow: ${({ openMenu }) => (openMenu ? '' : 'hidden')};
+    background-color: ${COLORS.white};
+    padding: 1.5rem 1.5rem 0rem 1.5rem;
+    box-shadow: ${({ openMenu }) => (openMenu ? '-5px 5px 5px -3px rgb(0 0 0 / 20%)' : '')};
   }
 `;
 export const CampaignNameWrapper = styled.div`
@@ -178,7 +176,7 @@ export const CampaignNameWrapper = styled.div`
       font-size: 12px;
       line-height: 152.69%;
       color: #626262;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1rem;
     }
 
     &__description {
@@ -204,9 +202,11 @@ export const CampaignNameWrapper = styled.div`
 export const IconWrapper = styled.div`
   display: flex;
   gap: 1.2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
   .delete-icon {
     fill: rgba(0, 0, 0, 0.73);
-    width: 1.1rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `;

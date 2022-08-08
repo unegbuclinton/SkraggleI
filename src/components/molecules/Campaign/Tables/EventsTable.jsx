@@ -14,26 +14,17 @@ const EventsTable = () => {
   const navigate = useNavigate();
   const columns = [
     {
-      name: ' ',
-      cell: () => <Checkbox />,
-      ignoreRowClick: false,
-      width: '5rem'
-    },
-    {
       name: 'ID',
       selector: (row) => row.campaign_id
-      // width: '20rem'
     },
 
     {
       name: 'NAME',
       selector: (row) => row.name
-      // width: '45rem'
     },
     {
       name: 'CAMPAIGN',
       selector: (row) => row.campaign_id
-      // width: '30rem'
     },
     {
       name: 'STATUS',

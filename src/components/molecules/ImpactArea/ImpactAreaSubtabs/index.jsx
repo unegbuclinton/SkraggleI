@@ -1,3 +1,4 @@
+import PageLinks from 'components/atoms/PageLinks/index.jsx';
 import DashboardLayout from 'components/layouts/DashboardLayout';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
@@ -26,7 +27,9 @@ function ImpactAreaSubtabs() {
     }
   ];
   return (
-    <DashboardLayout>
+    <DashboardLayout
+      section="Impact Area"
+      pageLinks={<PageLinks pageLinkBefore="Impact Area" to="/impact-area" names="Hello" />}>
       <Tabs tabs={tabs} scroll />
     </DashboardLayout>
   );
