@@ -2,8 +2,6 @@ import DashboardLayout from 'components/layouts/DashboardLayout';
 import Tabs from 'components/molecules/Tabs';
 import React from 'react';
 import Account from './Account';
-import CustomField from './CustomFields';
-import Imports from './Imports';
 import Integrations from './Integrations';
 import PaymentProcessor from './PaymentProcessors';
 import Premium from './Premium';
@@ -23,17 +21,10 @@ function OrganisationSettings() {
       component: <TeamMembers />
     },
     {
-      title: 'Custom Fields',
-      component: <CustomField />
-    },
-    {
       title: 'Receipts & Emails',
       component: <ReceiptAndEmails />
     },
-    {
-      title: 'Imports',
-      component: <Imports />
-    },
+
     {
       title: 'Integrations',
       component: <Integrations />

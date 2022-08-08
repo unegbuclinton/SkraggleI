@@ -2,56 +2,49 @@ import Button from 'components/atoms/Button/Button';
 import Card from 'components/atoms/Card';
 import { COLORS } from 'constants/colors';
 import { FONTSIZES, FONTWEIGHTS } from 'constants/font-spec';
-import { DPIconPaypal } from 'icons';
+import { DPIconCryptoPay, DPIconPaypal, DPIconStripe } from 'icons';
 import React from 'react';
 import styled from 'styled-components';
 
 function PaymentProcessor() {
+  const data = [
+    {
+      header: 'CryptoPay',
+      text: ' Keep your contact data updated by connecting your Paypal account to Skraggle',
+      btnText: 'Manage',
+      icon: <DPIconCryptoPay />
+    },
+    {
+      header: 'Paypal',
+      text: ' Keep your contact data updated by connecting your Paypal account to Skraggle',
+      btnText: 'Manage',
+      icon: <DPIconPaypal />
+    },
+    {
+      header: 'Stripe',
+      text: ' Keep your contact data updated by connecting your Paypal account to Skraggle',
+      btnText: 'Manage',
+      icon: <DPIconStripe />
+    }
+  ];
   return (
     <IntegrationWrapper>
       <IntegrationHeading>Payment Processors</IntegrationHeading>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconPaypal />
+
+      {data.map(({ header, text, btnText, icon }, idx) => (
+        <IntegrationContainer key={idx}>
+          <IntegrationContent>
+            {icon}
+            <div>
+              <IntegrationHeading className="mail-text">{header}</IntegrationHeading>
+              <IntegrationText>{text}</IntegrationText>
+            </div>
+          </IntegrationContent>
           <div>
-            <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Paypal account to Skraggle
-            </IntegrationText>
+            <Button className="mail-btn">{btnText}</Button>
           </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Manage</Button>
-        </div>
-      </IntegrationContainer>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconPaypal />
-          <div>
-            <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Paypal account to Skraggle
-            </IntegrationText>
-          </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Manage</Button>
-        </div>
-      </IntegrationContainer>
-      <IntegrationContainer>
-        <IntegrationContent>
-          <DPIconPaypal />
-          <div>
-            <IntegrationHeading className="mail-text">Paypal</IntegrationHeading>
-            <IntegrationText>
-              Keep your contact data updated by connecting your Paypal account to Skraggle
-            </IntegrationText>
-          </div>
-        </IntegrationContent>
-        <div>
-          <Button className="mail-btn">Manage</Button>
-        </div>
-      </IntegrationContainer>
+        </IntegrationContainer>
+      ))}
     </IntegrationWrapper>
   );
 }
