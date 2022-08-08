@@ -16,7 +16,7 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { P2PValidationSchema } from 'validation/Schema';
 
-function P2PFundraiserModalComponent({ onClose }) {
+function P2PFundraiserModalComponent({ onClose, showLive }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { campaigns } = useSelector((state) => state.campaign);
@@ -32,10 +32,10 @@ function P2PFundraiserModalComponent({ onClose }) {
       firstName: '',
       lastName: '',
       email: '',
-      goalAmount: '',
+      goalAmount: 100,
       goalCurrency: '',
-      offlineAmount: '',
-      offlineDonation: '',
+      offlineAmount: 100,
+      offlineDonation: 50,
       goalDate: '',
       personalMessage: ''
     },
@@ -58,8 +58,9 @@ function P2PFundraiserModalComponent({ onClose }) {
 
       dispatch(createP2P(body)).then(() => {
         toast.success('P2P Created Successfully');
-        onClose();
         dispatch(viewP2P());
+        // onClose();
+        showLive();
       });
       navigate('/peer-to-peer');
     }
@@ -75,8 +76,6 @@ function P2PFundraiserModalComponent({ onClose }) {
     { value: 'PKR', label: 'PKR' },
     { value: 'CYN', label: 'CYN' }
   ];
-
-  // const [showFirstModal, setShowFirstModal] = useState(true);
 
   return (
     <ModalWrapper

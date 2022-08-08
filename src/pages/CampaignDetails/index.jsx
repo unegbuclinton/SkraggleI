@@ -48,6 +48,7 @@ const CampaignDetails = () => {
 
   return (
     <DashboardLayout
+      section="Campaign"
       pageLinks={<PageLinks pageLinkBefore="Campaign" to="/campaign" names={name} />}>
       <Tabs tabs={links} scroll />
     </DashboardLayout>
