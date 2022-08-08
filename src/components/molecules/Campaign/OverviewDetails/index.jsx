@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
-import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
+// import { capitalizeFirstLowercaseRest } from 'utilities/helpers';
 import { campaignOverview } from 'validation/Schema';
 import EditCampaignModal from '../CreateCampaignModal/EditCampaignModal';
 
@@ -118,7 +118,7 @@ function OverviewDetails() {
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Status</p>
-          <Button className="campaign-name__button">{capitalizeFirstLowercaseRest(status)}</Button>
+          <Button className="campaign-name__button">{status}</Button>
         </CampaignNameWrapper>
         <CampaignNameWrapper className="campaign-name">
           <p className="campaign-name__title">Fundraising Goals</p>
