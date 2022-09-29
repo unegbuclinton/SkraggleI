@@ -8,9 +8,12 @@
 
 - [Status](status)
 
+- [Launch](launch)
+
 ## General Info
 
-Skraggle is a fintech web application foor funds donation and camapign creation. This appliction is used to make donation request and integrated with stripe and crypto pay.
+Skraggle is a fintech web application foor funds donation and camapign creation.
+This appliction is used to make donation request and integrated with stripe and crypto pay.
 
 ### Technologies
 
@@ -24,7 +27,13 @@ Frontend technologies used in building this project include:
 - Axios
 - Axios Interceptor
 
-### Status
+## Status
 
 Version 1.
 This application is open for more updates.
+
+## Launch
+
+You can start the application with npm package
+
+npm start or yarn start
